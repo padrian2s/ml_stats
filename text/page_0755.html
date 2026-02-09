@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul Hugin: fluxuri si calibrarea junction tree-ului</h2>
+  <p>Aceasta pagina detaliaza mecanismul de "trecere a fluxului" (passing a flow) in algoritmul Hugin si introduce exemplul JTA aplicat la un HMM.</p>
+  <div class="definition-box"><strong>Trecerea fluxului (passing a flow):</strong> In faza de colectare, nodul i calculeaza potentialul de separator ψ*_{ij}(S_{ij}) = Σ_{C_i\S_{ij}} ψ_i(C_i), apoi actualizeaza nodul j: ψ*_j(C_j) ∝ ψ_j(C_j) × ψ*_{ij}/ψ_{ij}. Procesul se repeta in faza de distribuire cu potentialele actualizate.</div>
+  <div class="definition-box"><strong>Calibrare:</strong> Dupa trecerea completa a fluxurilor in ambele directii, junction tree-ul este calibrat: fiecare clica contine marginala exacta, iar separatorii contin marginalele pe variabilele partajate.</div>
+  <div class="highlight-box"><strong>JTA pe lant (HMM):</strong> Aplicat la un HMM cu T=4, clicile sunt (X_1,X_2), (X_2,X_3), (X_3,X_4), separatorii sunt X_2, X_3, iar clicile de observatie sunt (X_t, Y_t). Mesajele forward sunt exact α_t, iar mesajele backward sunt rapoartele γ_t/α_t.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul Hugin procedeaza prin trecerea de fluxuri: fiecare flux actualizeaza potentialul de separator si al clicii destinatie. Impartirea la potentialul de separator vechi (initial 1) evita dubla contorizare. Aplicat la un HMM, JTA reproduce exact algoritmul forward-backward: mesajele forward sunt filtrarile α_t, iar mesajele backward sunt rapoartele de actualizare γ_t/α_t.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Echivalenta JTA-HMM: clicile sunt perechile consecutive de stari, separatorii sunt starile individuale, iar mesajele sunt exact α si β din algoritmul forward-backward. Aceasta arata ca forward-backward este un caz special de JTA.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Echivalenta JTA-forward/backward justifica utilizarea JTA ca framework unificat pentru inferenta in orice model grafic, inclusiv HMM-uri, filtre Kalman si retele Bayesiene arbitrare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea vorbirii cu un HMM de T=1000 de cadre, JTA (echivalent cu forward-backward) calculeaza eficient toate cele 1000 de probabilitati de stare posterioare p(x_t|y_{1:T}) intr-o singura trecere sus-jos.</p></div>
+  </div>
+</div>

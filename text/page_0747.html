@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Eliminarea variabilelor: demonstratie completa si calculul conditionalelor</h2>
+  <p>Aceasta pagina prezinta demonstratia completa a eliminarii variabilelor pe modelul student si arata cum se calculeaza distributii conditionate si probabilitatea evidentei.</p>
+  <div class="definition-box"><strong>Tabelul 20.1:</strong> Demonstrarea completa a eliminarii variabilelor in ordinea C, D, I, H, G, S, L pentru calculul p(J). La fiecare pas, un factor intermediar τ_i este creat prin inmultirea potentialelor relevante si marginalizarea variabilei eliminate.</div>
+  <div class="definition-box"><strong>Probabilitatea evidentei:</strong> Constanta de normalizare p(x_v) din numitorul distributiei conditionate p(x_q|x_v) = p(x_q, x_v) / p(x_v). Se calculeaza prin marginalizarea lui x_q din p(x_q, x_v).</div>
+  <div class="highlight-box"><strong>Calculul conditionalelor:</strong> p(J=j|I=1, H=0) = p(J=j, I=1, H=0) / Σ_{j'} p(J=j', I=1, H=0). Variabilele vizibile sunt fixate (clamped) la valorile lor si nu sunt sumate. Se pot calcula orice marginale de interes prin VE.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Tabelul 20.1 ofera o demonstratie completa: pornind de la 8 factori originali si eliminand C, D, I, H, G, S, L succesiv, se obtin 7 factori intermediari, ultimul fiind τ_7(J), care da p(J). Distributii conditionate se calculeaza fixand variabilele vizibile si normalizand rezultatul. Probabilitatea evidentei p(x_v) apare natural ca constanta de normalizare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>VE poate calcula orice marginala sau conditionala prin alegerea corespunzatoare a variabilelor de eliminat si a celor fixate. Factorul intermediar maxim in aceasta ordine are 3 variabile (τ_5(J,L,S)), ceea ce inseamna cost O(K^3) per pas.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>VE este implementat in sisteme de inferenta probabilistica precum HUGIN, GeNIe si pgmpy. Este algoritmul de baza pentru interogari singulare in retele Bayesiene de dimensiuni moderate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un consilier de cariera doreste sa calculeze p(Job=1|Intelligence=high, Happy=no) pentru un student. VE fixeaza I=1 si H=0, elimina celelalte variabile si calculeaza probabilitatea obtinerii unui job in aceste conditii.</p></div>
+  </div>
+</div>

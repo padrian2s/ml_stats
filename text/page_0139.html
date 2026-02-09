@@ -1,0 +1,22 @@
+<div class="page-content">
+  <h2>RDA in Spatiul Redus si LDA Diagonala</h2>
+  <p>Pagina 108 continua derivarea RDA folosind SVD in spatiul de dimensiune redusa si introduce modelul LDA diagonala.</p>
+
+  <div class="highlight-box"><strong>Covarianta MLE prin SVD (Ecuatiile 4.55-4.59):</strong> Σ̂_mle = (1/N) XᵀX - μμᵀ = VΣ̂_zVᵀ, unde Σ̂_z este covarianta empirica a datelor transformate Z = UD.</div>
+
+  <div class="highlight-box"><strong>Estimarea MAP prin SVD (Ecuatiile 4.60-4.61):</strong> Σ̂_map = VΣ̃_zVᵀ, unde Σ̃_z = λ diag(Σ̂_z) + (1 - λ) Σ̂_z. Nu este necesar sa calculam matricea D x D completa.</div>
+
+  <div class="highlight-box"><strong>Termenul β_c pentru RDA (Ecuatia 4.63):</strong> β_c = Σ̂_map⁻¹ μ_c = VΣ̃_z⁻¹ Vᵀ μ_c = VΣ̃_z⁻¹ μ_z,c, evitand inversarea matricei D x D.</div>
+
+  <div class="definition-box"><strong>LDA Diagonala (Ecuatia 4.64):</strong> δ_c(x) = log p(x, y=c|θ) = -Σⱼ (xⱼ - μ_cⱼ)² / (2σⱼ²) + log π_c. Echivalenta cu RDA cand λ = 1. Se foloseste varianta empirica combinata (pooled).</div>
+
+  <div class="highlight-box"><strong>Varianta empirica combinata (Ecuatia 4.65):</strong> sⱼ² = [Σ_c Σᵢ:yᵢ=c (xᵢⱼ - x̄_cⱼ)²] / (N - C), estimatorul nebiased al variantei pentru trasatura j.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua contributii tehnice importante: (1) cum sa implementezi RDA eficient folosind SVD, lucrand in spatiul de dimensiune N in loc de D, si (2) modelul LDA diagonala care presupune trasaturi independente dar cu varianta partajata intre clase. LDA diagonala poate performa surprinzator de bine in dimensiuni mari.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trucul SVD transforma o problema D-dimensionala intr-una N-dimensionala, ceea ce este crucial cand D >> N. LDA diagonala este un compromis interesant: mai flexibila decat Naive Bayes (varianta partajata intre clase) dar mai simpla decat LDA completa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LDA diagonala cu varianta combinata este populara in text mining si clasificarea documentelor, unde numarul de cuvinte (trasaturi) depaseste cu mult numarul de documente de antrenare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea documentelor cu vocabular de 50000 de cuvinte si doar 500 de documente de antrenare, LDA diagonala estimeaza doar 50000 de parametri de varianta (in loc de 1.25 miliarde pentru covarianta completa), facand clasificarea fezabila si adesea mai precisa.</p></div>
+  </div>
+</div>

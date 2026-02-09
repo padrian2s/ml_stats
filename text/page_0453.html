@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Selectia Bayesiana de Variabile</h2>
+  <p>Pagina introduce selectia Bayesiana de variabile: calculul posteriorului peste modele p(gamma|D), enumerarea completa pentru cazul D mic, si exemple numerice cu D=10.</p>
+  <div class="definition-box"><strong>Selectia Bayesiana de variabile (Eq. 13.1-13.2):</strong> gamma_j in {0,1} indica daca variabila j este inclusa. Posteriorul p(gamma|D) = exp(-f(gamma)) / suma exp(-f(gamma')), unde f(gamma) = -log p(D|gamma) - log p(gamma). Necesita enumerarea a 2^D modele.</div>
+  <div class="highlight-box"><strong>Exemplu cu D=10 (Figura 13.1):</strong> N=20 observatii, w real cu 5 componente non-zero. Se enumereaza toate 2^10 = 1024 modele. Modelul MAP (model 4, variabilele {2}) are probabilitate 0.447 - incertitudine considerabila in selectie.</div>
+  <div class="highlight-box"><strong>Top 8 modele:</strong> Modelul adevarat {2,3,6,8,9} nu apare in top - coeficientii variabilelor 3 si 8 sunt prea mici relativ la sigma^2 pentru a fi detectati cu N=20 observatii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 13.2 prezinta abordarea Bayesiana "gold standard" pentru selectia de variabile: calculul posteriorului complet peste toate modelele posibile. Exemplul cu D=10 arata ca chiar si cu enumerare completa, incertitudinea in selectia modelului este considerabila - modelul MAP nu contine toate variabilele relevante.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Enumerarea exhaustiva (2^D modele) este fezabila doar pentru D mic. Pentru D mare, sunt necesare aproximari. Posteriorul peste modele este adesea "bumpy" - costul f(gamma) variaza dramatic intre modele similare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Abordarea Bayesiana ofera nu doar cel mai bun model, ci si incertitudinea in selectia modelului. Probabilitatile de incluziune marginale p(gamma_j = 1|D) sunt mai informative decat un singur model selectat.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile de asociere genetica (GWAS), selectia Bayesiana de variabile identifica nu doar cele mai probabile variante genetice, ci si incertitudinea in identificare - critica pentru prioritizarea experimentelor de validare.</p></div>
+  </div>
+</div>

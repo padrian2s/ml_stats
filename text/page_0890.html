@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exemplu de propagare a afinitatii si clustering spectral</h2>
+  <p>Pagina prezinta un exemplu vizual al propagarii afinitatii si introduce clusteringul spectral bazat pe taieturi de graf.</p>
+  <div class="figure-box"><strong>Figura 25.10:</strong> Exemplu de propagare a afinitatii. Fiecare punct este colorat dupa cat de mult doreste sa fie exemplar (rosu = maxim, verde = minim). Intensitatea sagetii i → k reflecta cat de mult doreste punctul i sa apartina exemplarului k. Se prezinta initializarea si iteratiile 1-6 pana la convergenta.</div>
+  <div class="definition-box"><strong>Clustering spectral:</strong> O viziune alternativa a clusteringului in termeni de taieturi de graf. Se creeaza un graf ponderat nedirectat W din matricea de similaritate S, folosind vecinii cei mai apropiati pentru a asigura raritatea grafului.</div>
+  <div class="highlight-box"><strong>Criteriul de taiere:</strong> cut(A_1,...,A_K) = (1/2) Σ_{k=1}^{K} W(A_k, A̅_k) (Ecuatia 25.41)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Propagarea afinitatii cu amortizare este foarte fiabila in practica. Complexitatea este O(N²) pentru grafuri dense si O(E) pentru matrici de similaritate rare. Numarul de clustere poate fi controlat prin scalarea termenilor diagonali S(i,i). Clusteringul spectral ofera o alternativa bazata pe teoria grafurilor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Propagarea afinitatii depaseste semnificativ K-medoizii. Clusteringul spectral reformuleaza problema ca minimizarea unei taieturi de graf, ceea ce permite utilizarea tehnicilor de algebra liniara (vectori proprii) pentru gasirea solutiei.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clusteringul spectral exceleaza la date cu forme neconvexe (spirale, cercuri) unde K-means esueaza. Este utilizat in segmentarea imaginilor, analiza retelelor sociale si bioinformatica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea imaginilor satelitare, clusteringul spectral poate identifica regiuni geografice (paduri, ape, zone urbane) cu forme complexe pe care K-means nu le poate captura corect din cauza presupunerii de clustere sferice.</p></div>
+  </div>
+</div>

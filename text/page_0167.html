@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Posteriorul NI&chi;&sup2; pentru date scalare si deviatia standard a esantionului</h2>
+  <p>Aceasta pagina detaliaza posteriorul NI&chi;&sup2; pentru cazul scalar, derivand formula pentru deviatia standard a esantionului si legatura cu testul t.</p>
+  <div class="definition-box"><strong>Deviatia standard a esantionului:</strong> s&sup2; = (1/(N-1)) &Sigma;(x_i - x_bar)&sup2; = (N/(N-1)) &sigma;&sup2;_mle. Aceasta este estimatorul nedeplasat al variantei, folosit pe scara larga in statistica clasica.</div>
+  <div class="definition-box"><strong>Posteriorul pentru date scalare cu prior neinformativ:</strong> p(&mu;, &sigma;&sup2; | D) = NI&chi;&sup2;(&mu;, &sigma;&sup2; | m_N = x_bar, &kappa;_N = N, &nu;_N = N-1, &sigma;_N&sup2; = s&sup2;), unde s&sup2; este varianta esantionului.</div>
+  <div class="highlight-box"><strong>Marginala posterioara pentru &mu;:</strong> p(&mu; | D) = T(&mu; | x_bar, s&sup2;/N, N-1). Aceasta este exact distributia care sta la baza testului t clasic, demonstrand legatura profunda intre inferenta Bayesiana si cea frequentista.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina arata ca, folosind un prior neinformativ pentru modelul Gaussian scalar, posteriorul Bayesian conduce la aceleasi rezultate ca statistica frequentista clasica. Posteriorul pentru &sigma;&sup2; este &chi;^(-2) cu parametrii actualizati, iar marginala pentru &mu; este o distributie Student cu N-1 grade de libertate. Formula s&sup2; = N/(N-1) &sigma;&sup2;_mle explica de ce estimatorul nedeplasat imparte la N-1, nu la N.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Corectia Bessel (N-1 in loc de N) apare natural din cadrul Bayesian cu prior neinformativ. 2) Marginala posterioara pentru &mu; nu depinde de &sigma;&sup2;, desi acesta este necunoscut - a fost integrat. 3) Distributia Student cu N-1 grade de libertate este mai lata decat Gaussiana, reflectand incertitudinea asupra variantei.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste rezultate fundamenteaza testele t utilizate in stiinte experimentale, medicina (studii clinice), psihologie, si inginerie. Intelegerea originii Bayesiene a testului t ofera o interpretare mai naturala: probabilitatea ca parametrul sa fie intr-un interval, nu probabilitatea de a observa date extreme sub ipoteza nula.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile clinice farmaceutice, testul t este folosit pentru a compara eficacitatea unui medicament fata de placebo. Interpretarea Bayesiana spune direct: „Exista o probabilitate de 95% ca diferenta medie intre medicament si placebo sa fie in intervalul [a, b]", ceea ce este mult mai intuitiv decat interpretarea frequentista a intervalelor de incredere.</p></div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Clasificare GP multi-clasa - Verosimilitate marginala si regresie Poisson GP</h2>
+  <p>Aceasta pagina acopera verosimilitatea marginala pentru clasificare multi-clasa, aspecte computationale, si introducerea regresiei Poisson GP pentru cartografierea spatiala a bolilor.</p>
+  <div class="definition-box"><strong>Regresie Poisson GP:</strong> y_i ~ Poi(e_i * r_i), unde e_i este numarul asteptat de decese si r_i este riscul relativ de inferat. Se presupune f = log(r) ~ GP(0, kappa) cu kernel Matern (nu=3/2).</div>
+  <div class="highlight-box"><strong>Cartografierea spatiala a bolilor:</strong> GP-ul Poisson regularizeaza estimarea riscului relativ impartasind informatii intre celule spatiale vecine, producand harti de risc si varianta posterioara.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Verosimilitatea marginala multi-clasa are aceeasi structura ca in cazul binar dar cu dimensiuni mai mari. Complexitatea este O(TCN^3) pentru potrivire si O(CN^3 + CN^2 N_*) pentru predictie. Regresia Poisson GP este o aplicatie eleganta a GP-GLM pentru date de tip numarare spatiala, folosind un kernel Matern pe coordonate geografice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>In cartografierea bolilor, GP-ul impune continuitate spatiala - zonele vecine au riscuri similare. Varianta posterioara este mai mare in zonele cu populatie mica (nord), reflectand incertitudinea mai mare. Figura 15.8 arata harta riscului relativ de atac cardiac in Finlanda.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia Poisson GP este folosita in epidemiologie spatiala, ecologie (modelarea distributiei speciilor), si criminalistica (cartografierea delicventei). Kernelul Matern este preferat kernelului SE deoarece produce functii mai realiste (mai putin netede).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In epidemiologia COVID-19, GP Poisson a fost folosit pentru a crea harti de risc la nivel regional, identificand focare locale chiar si cu date limitate, prin impartasirea informatiei intre regiuni vecine.</p></div>
+  </div>
+</div>

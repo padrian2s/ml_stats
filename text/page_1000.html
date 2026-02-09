@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Extensii LDA: Efecte Aleatoare, DMR-LDA si PCA Categoric Discriminativ (Capitolul 27.4.4.3)</h2>
+  <p>Pagina continua discutia despre variantele discriminative ale LDA, incluzand mixture of experts cu efecte aleatoare, campuri aleatoare conditionale de topicuri, DMR-LDA, LDA etichetat si PCA categoric discriminativ.</p>
+  <div class="definition-box"><strong>DMR-LDA (Dirichlet Multinomial Regression LDA):</strong> Varianta in care parametrul α devine functie de intrare: α_i = exp(W·x_i) (27.71), deci π_i ~ Dir(exp(W·x_i)) (27.72). Permite fluxul de informatie intre etichete prin priorul latent π_i.</div>
+  <div class="definition-box"><strong>LDA Etichetat (Labeled LDA):</strong> Varianta in care x_i corespunde unui set de etichete discrete si π_i ~ Dir(α ⊙ x_i), cu etichetele in corespondenta 1:1 cu topicurile latente, producand topicuri mult mai interpretabile.</div>
+  <div class="highlight-box"><strong>PCA Categoric Discriminativ:</strong> p(z_i|x_i, V) = N(V·x_i, Σ) (27.73), p(y_i|z_i, W) = ∏_l Cat(y_il|S(W·z_i)) (27.74). Esential o retea neurala probabilistica cu un strat ascuns si iesire interschimbabila, permitand numar variabil de etichete.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta o gama larga de extensii ale LDA pentru incorporarea informatiilor laterale. DMR-LDA face priorul Dirichlet dependent de intrare, LDA etichetat stabileste o corespondenta directa intre etichete si topicuri, iar PCA categoric discriminativ ofera o abordare alternativa bazata pe spatiu latent continuu cu regresie liniara pentru maparea intrare-ascuns.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exista o tensiune fundamentala intre flexibilitate si interpretabilitate: modelele cu efecte aleatoare (W variabil) introduc corelatii intre iesiri dar sunt mai complexe, in timp ce modelele cu W deterministic sunt mai simple dar produc iesiri independente. PCA categoric discriminativ este echivalent cu o retea neurala cu un strat ascuns.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clasificarea multi-eticheta cu etichete corelate, etichetarea automata a documentelor cu vocabular controlat, analiza automata a codurilor ICD in dosare medicale si clasificarea ierarhica a produselor in e-commerce.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de clasificare a articolelor stiintifice poate folosi LDA etichetat pentru a asocia fiecare articol cu subdomenii predefinite (ex: "machine learning", "computer vision", "NLP"), unde fiecare eticheta corespunde direct unui topic latent, facand rezultatele usor interpretabile.</p></div>
+  </div>
+</div>

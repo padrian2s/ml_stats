@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Capitolul 1: Descoperirea Structurii de Graf</h2>
+  <p>Invatarea modelelor grafice din date, descoperind dependente directe intre variabile.</p>
+  <div class="definition-box"><strong>Structura de Graf:</strong> Un graf G in care nodurile reprezinta variabile si muchiile reprezinta dependente directe intre variabile. Se poate invata din date: G_hat = argmax_G p(G|D).</div>
+  <div class="definition-box"><strong>Modele Grafice (Graphical Models):</strong> Modele probabilistice care utilizeaza structura de graf pentru a reprezenta dependentele intre variabile. Detaliate in Capitolul 10.</div>
+  <div class="definition-box"><strong>Graphical Lasso:</strong> Metoda pentru invatarea modelelor grafice Gaussiene nedirectionate rare (Sectiunea 26.7.2).</div>
+  <div class="figure-box"><strong>Figura 1.11:</strong> Un model grafic Gaussian nedirectionat rar, invatat prin graphical lasso din date de citometrie in flux, care masoara starea de fosforilare a 11 proteine. Muchiile arata dependente directe intre proteine.</div>
+  <div class="highlight-box"><strong>Doua Scopuri ale Invatarii Grafurilor:</strong> (1) Descoperirea de cunostinte noi (de exemplu, retele de semnalizare celulara), si (2) obtinerea de estimatori mai buni ai densitatii de probabilitate conjuncta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 1.3.3 introduce invatarea structurii de graf din date. Un graf captureaza care variabile sunt direct dependente una de cealalta. Aplicatiile includ descoperirea retelelor de semnalizare in biologia sistemelor (de exemplu, statusul de fosforilare al proteinelor) si recuperarea diagramelor de conectivitate neuronala din date EEG.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Invatarea structurii de graf combina descoperirea de cunostinte cu modelarea statistica. Grafurile rare (sparse) sunt preferate deoarece sunt mai usor de interpretat si de estimat. Modelele grafice sunt utilizate atat pentru intelegere stiintifica (structura retelei) cat si pentru predictie (estimarea densitatii).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In biologia sistemelor, grafurile invatate releva retele de semnalizare celulara. In finante, grafurile de covarianta ajuta la managementul portofoliului. Sistemul JamBayes foloseste un model grafic invatat din date pentru a prezice aglomerarile de trafic in zona Seattle.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Sistemul JamBayes, dezvoltat de Microsoft Research, foloseste un model grafic Bayesian invatat din date de trafic pentru a prezice aglomerarile pe autostrazi in zona Seattle. Structura grafului, invatata automat, capteaza dependentele intre conditiile de trafic in diferite locatii.</p></div>
+  </div>
+</div>

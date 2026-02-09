@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>ADF pentru Regresia Logistica si Sisteme Hibride Discret/Continue</h2>
+  <p>Pagina completeaza derivarea actualizarii posteriorului in regresia logistica dinamica si introduce modelele spatiului starilor hibride cu variabile atat discrete cat si continue.</p>
+  <div class="highlight-box"><strong>Actualizarea posteriorului factorizat:</strong> q(θ_{t,j}) = N(θ_{t,j}|μ_{t,j}, τ_{t,j}), cu μ_{t,j} = μ_{t|t-1,j} + a_j δ_m (ec. 18.128), τ_{t,j} = τ_{t|t-1,j} + a_j² δ_v (ec. 18.129), unde a_j = x_{t,j} τ_{t|t-1,j} / Σ_{j'} x_{t,j'}² τ_{t|t-1,j'} (ec. 18.130). Parametrii cu intrari mari |x_{t,j}| sau incertitudine mare τ_{t|t-1,j} sunt actualizati cel mai mult.</div>
+  <div class="definition-box"><strong>Sisteme hibride discret/continue (Hybrid SSMs):</strong> Sisteme care contin atat variabile ascunse discrete cat si continue. Variabilele discrete pot indica daca un senzor este defect sau in ce regim se afla sistemul.</div>
+  <div class="definition-box"><strong>Sistem liniar dinamic cu comutare (SLDS):</strong> Caz special de sistem hibrid care combina un HMM cu un LG-SSM: p(q_t = k|q_{t-1} = j, θ) = A_{ij}, p(z_t|z_{t-1}, q_t = k, u_t, θ) = N(z_t|A_k z_{t-1} + B_k u_t, Q_k), p(y_t|z_t, q_t = k, u_t, θ) = N(y_t|C_k z_t + D_k u_t, R_k) (ec. 18.131-18.133).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina finalizeaza algoritmul ADF pentru regresia logistica si face tranzitia catre modelele spatiului starilor hibride. SLDS combina flexibilitatea HMM-urilor cu puterea de modelare continua a LG-SSM-urilor, permitand modelarea sistemelor care trec prin regimuri diferite.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Regula de actualizare a_j arata ca parametrii sunt actualizati proportional cu relevanta lor (marimea intrarii) si incertitudinea lor curenta. Complexitatea algoritmului este O(D) per pas, facandu-l scalabil. SLDS generalizeaza atat HMM-urile cat si LG-SSM-urile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SLDS se utilizeaza in recunoasterea activitatilor umane (mers, alergare, saritura), modelarea regimurilor economice (recesiune/expansiune), diagnosticarea defectiunilor in sisteme industriale si analiza miscarii in viziunea computerizata.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza pietelor financiare, un SLDS poate modela tranzitiile intre regimuri de volatilitate scazuta si ridicata. Variabila discreta indica regimul curent, iar dinamica continua descrie evolutia preturilor, cu matrice de tranzitie diferite pentru fiecare regim.</p></div>
+  </div>
+</div>

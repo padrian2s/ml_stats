@@ -1,0 +1,24 @@
+<div class="page-content">
+  <h2>Posteriorul Wishart Invers, Estimarea MAP si Shrinkage al Covariantei</h2>
+  <p>Pagina 129 prezinta derivarea completa a posteriorului IW, estimarea MAP a covariantei si demonstreaza efectul de shrinkage (contractie) al valorilor proprii.</p>
+
+  <div class="figure-box"><strong>Figura 4.17:</strong> Estimarea unei matrice de covarianta D = 50 cu N ∈ {100, 50, 25} esantioane. Se compara valorile proprii ale covariantei reale (negru), MLE (albastru punctat) si MAP (rosu intrerupt). MLE supraestimeaza valorile proprii mari si subestimeaza pe cele mici. MAP (cu λ = 0.9) corecteaza aceasta deviere prin shrinkage.</div>
+
+  <div class="highlight-box"><strong>Posteriorul IW (Ecuatiile 4.177-4.181):</strong>
+    p(Σ|D, μ) = IW(Σ|S_N, ν_N), unde:
+    ν_N = ν₀ + N
+    S_N⁻¹ = S₀ + S_μ
+    Interpretare: puterea posterioara = puterea priorului + N, matricea scatter posterioara = matricea scatter a priori + matricea scatter a datelor.</div>
+
+  <div class="highlight-box"><strong>Estimarea MAP (Ecuatia 4.182):</strong> Σ̂_map = S_N / (ν_N + D + 1) = (S₀ + S_μ) / (N₀ + N). Cu prior uniform (N₀ = 0, S₀ = 0), se recupereaza MLE.</div>
+
+  <div class="definition-box"><strong>Shrinkage-ul valorilor proprii:</strong> MLE-ul covariantei sufera de "eigenvalue spreading": valorile proprii mari sunt supraestimate, cele mici subestimate. Numarul de conditie k = λ_max/λ_min al MLE poate fi enorm. MAP cu shrinkage corecteaza acest efect, imbunatatind conditionarea numerica.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 4.17 demonstreaza dramatic problema MLE pentru covarianfa: cand N ≈ D sau N < D, valorile proprii estimate sunt foarte distorsionate. MAP-ul cu shrinkage "trage" valorile proprii spre centru, imbunatatind semnificativ estimarea. Aceasta este versiunea matriceala a shrinkage-ului Bayesian pentru scalari.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Eigenvalue spreading este un fenomen sistematic al MLE: valorile proprii mari sunt intotdeauna supraestimate, iar cele mici subestimate. Cu cat raportul D/N este mai mare, cu atat distorsiunea este mai severa. Shrinkage-ul spre o matrice diagonala (sau identitate) corecteaza aceasta distorsiune.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Estimarea regularizata a covariantei (Ledoit-Wolf, Oracle Approximating Shrinkage) este standard in finante (optimizarea portofoliului), genomica (analiza expresiei genice) si procesarea semnalelor (estimarea spectrala).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In optimizarea portofoliului Markowitz, matricea de covarianta a 500 de actiuni din S&P 500 estimata prin MLE din 250 de zile de tranzactionare (N < D) produce portofolii instabile cu ponderi extreme. Shrinkage-ul Ledoit-Wolf rezolva aceasta problema, producand portofolii stabile si performante.</p></div>
+  </div>
+</div>

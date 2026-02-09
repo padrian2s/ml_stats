@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Propagarea afinitatii - grafuri factor si transmiterea mesajelor</h2>
+  <p>Pagina descrie reprezentarea propagarii afinitatii ca graf factor si mecanismul de transmitere a mesajelor (responsabilitate si disponibilitate).</p>
+  <div class="figure-box"><strong>Figura 25.8:</strong> Comparatie intre esantioanele Gibbs colaps pentru un amestec DP (albastru inchis) si un amestec finit (rosu deschis) cu K=4, aplicate pe N=300 puncte de date. (a) Log-probabilitate vs. iteratie pentru 20 de puncte de start diferite. (b) Mediana si cuantilele pentru 100 de puncte de start diferite.</div>
+  <div class="figure-box"><strong>Figura 25.9:</strong> Grafuri factor pentru propagarea afinitatii. Cercurile sunt variabile (c_i cu N stari posibile), patratele sunt factori (δ_k si s(i,·)). Mesajele de responsabilitate circula de la c_i la δ_k, iar mesajele de disponibilitate de la δ_k la c_i.</div>
+  <div class="definition-box"><strong>Responsabilitate (r_{i→k}):</strong> Un mesaj scalar care masoara cat de mult crede punctul i ca k ar fi un bun exemplar, in comparatie cu toti ceilalti exemplari pe care i i-a evaluat.</div>
+  <div class="definition-box"><strong>Disponibilitate (a_{i←k}):</strong> Un mesaj scalar care masoara cat de puternic crede k ca ar trebui sa fie exemplar pentru i, bazat pe toate celelalte puncte de date pe care k le-a evaluat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Propagarea afinitatii foloseste propagarea credintelor max-product pe un graf factor. Doua tipuri de mesaje circula: responsabilitatile (de la variabile la factori) si disponibilitatile (de la factori la variabile). DPMM converge mai rapid decat amestecurile finite, asa cum demonstreaza Figura 25.8.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Reducerea mesajelor vectoriale la scalari (responsabilitate si disponibilitate) face algoritmul eficient computational. Metoda poate oscila si convergenta nu este garantata, similar cu alte scheme de propagare a credintelor pe grafuri cu bucle.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Propagarea afinitatii este utilizata in selectia de gene marker in genomica, in rezumarea automata a colectiilor de imagini si in detectia de anomalii in retele de calculatoare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O companie de social media poate folosi propagarea afinitatii pe matricea de similaritate a utilizatorilor (bazata pe interactiuni) pentru a identifica utilizatori "exemplar" care reprezinta cel mai bine diferitele comunitati din retea.</p></div>
+  </div>
+</div>

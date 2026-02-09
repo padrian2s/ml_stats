@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Aproximarea Cheeseman-Stutz si EM variational bayesian</h2>
+  <p>Aceasta pagina prezinta doua metode superioare BIC pentru aproximarea verosimilitatii marginale cu variabile latente: aproximarea Cheeseman-Stutz si EM variational bayesian.</p>
+  <div class="definition-box"><strong>Aproximarea Cheeseman-Stutz (CS):</strong> Se completeaza datele cu valorile asteptate ale variabilelor ascunse (D_bar = D(theta_hat)), apoi se aplica verosimilitatea marginala exacta pe datele completate, cu o corectie pentru diferenta intre datele reale si cele completate.</div>
+  <div class="definition-box"><strong>EM variational bayesian (VBEM):</strong> Aproximeaza posteriorul p(theta, z_{1:N}|D) cu q(theta)produs q(z_i). Pasul E actualizeaza q(z_i), pasul M actualizeaza q(theta). Energia libera variationala ofera o limita inferioara pe log verosimilitatea marginala.</div>
+  <div class="highlight-box"><strong>Ierarhia de precizie:</strong> BIC < CS < VBEM in termeni de precizia aproximarii verosimilitatii marginale. VBEM este dovedit a fi intotdeauna mai precis decat CS, care la randul sau este mai precis decat BIC.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua alternative mai bune la BIC. CS (Cheeseman si Stutz 1996) foloseste un truc inteligent: completeaza datele cu valorile asteptate ale variabilelor ascunse, apoi corecteaza. VBEM (din Sectiunea 21.6) ofera o limita inferioara mai stransa pe log verosimilitatea marginala si este demonstrat a fi superior atat lui BIC cat si lui CS.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ierarhia BIC < CS < VBEM reflecta un compromis intre simplitate si precizie. BIC este cel mai simplu dar cel mai imprecis. VBEM este cel mai precis dar necesita mai multa computatie. CS ofera un compromis bun pentru practica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>VBEM este implementat in multe biblioteci (bnlearn, pgmpy) si este metoda preferata pentru invatarea structurii cu variabile latente in aplicatii de dimensiune medie. Pentru probleme mari, CS poate fi preferat din motive de viteza.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul medical asistat de calculator, VBEM permite invatarea structurii retelei bayesiene cu boli latente (neobservate) din date clinice incomplete, selectand automat complexitatea modelului optima.</p></div>
+  </div>
+</div>

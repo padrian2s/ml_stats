@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmi pentru Regularizarea l1: Coordinate Descent</h2>
+  <p>Pagina deschide Sectiunea 13.4 despre algoritmi pentru rezolvarea problemelor cu regularizare l1 si detaliaza metoda coordinate descent (algoritmul de "shooting").</p>
+  <div class="definition-box"><strong>Coordinate descent (Eq. 13.65):</strong> Optimizeaza cate o coordonata la un moment dat: w_j* = argmin_z f(w + z*e_j) - f(w). Ciclarea prin toate coordonatele (sau selectia aleatoare/greedy) converge la solutia optima pentru probleme convexe.</div>
+  <div class="highlight-box"><strong>Algoritmul 13.1 (Shooting, Coordinate Descent pentru LASSO):</strong> Initializeaza w = Ridge. Repeta: pentru j=1,...,D: calculeaza a_j = 2*suma x_ij^2, c_j = 2*suma x_ij(y_i - w^T x_i + w_j x_ij), w_j = soft(c_j/a_j; lambda/a_j). Pana la convergenta.</div>
+  <div class="highlight-box"><strong>Eficienta coordinate descent:</strong> Fiecare actualizare costa O(N) si aplica formula de soft thresholding. Foarte eficient pentru date sparse (bag-of-words) si a fost cel mai rapid algoritm in comparatii experimentale pentru clasificarea de documente.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Coordinate descent este algoritmul de baza pentru LASSO, implementat in pachetul glmnet (Friedman et al. 2010). Simplitatea sa - la fiecare pas, se optimizeaza un singur coeficient prin soft thresholding - il face extrem de eficient, in special pentru date sparse. Initializarea cu Ridge asigura un punct de start bun.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Coordinate descent exploateaza separabilitatea penalizarii l1: ||w||_1 = suma |w_j| se descompune pe coordonate. Aceasta proprietate nu exista pentru l2 (||w||_2^2 se descompune), dar l2 nu produce sparsitate. Combinatia RSS (convexa, smooth) + l1 (convexa, separabila) face coordinate descent ideal.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>glmnet (R/Python) foloseste coordinate descent cu warm starting pe calea de regularizare: solutia la lambda_k este initializarea pentru lambda_{k+1}. Aceasta strategie face calculul intregii cai extrem de rapid.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea de spam email cu sute de mii de features text, coordinate descent pe LASSO logistic produce un clasificator sparse in cateva secunde, selectand automat cuvintele cele mai discriminative.</p></div>
+  </div>
+</div>

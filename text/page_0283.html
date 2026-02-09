@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Regularizarea ℓ₂ și Regresia Logistică Multinomială</h2>
+  <p>Pagina discută regularizarea ℓ₂ pentru regresia logistică (pentru a preveni supraajustarea când datele sunt liniar separabile) și introduce regresia logistică multinomială pentru clasificare cu mai mult de două clase.</p>
+  <div class="definition-box"><strong>Regularizarea ℓ₂ pentru regresia logistică:</strong> Obiectivul regularizat: f'(w) = NLL(w) + λw&#7488;w. Gradientul devine g'(w) = g(w) + λw, iar Hessianul devine H'(w) = H(w) + λI.</div>
+  <div class="definition-box"><strong>Unitate de prag liniar (Linear Threshold Unit):</strong> Când datele sunt liniar separabile, MLE tinde la ||w|| → ∞, producând o funcție sigmoidă infinit de abruptă. Aceasta maximizează verosimilitatea pe antrenament dar nu generalizează bine.</div>
+  <div class="highlight-box"><strong>Regresia logistică multinomială (Ecuația 8.33):</strong> p(y = c|x, W) = exp(w_c&#7488;x) / Σ_{c'=1}^C exp(w_{c'}&#7488;x) - funcția softmax aplicată scorurilor liniare pentru fiecare clasă.</div>
+  <div class="definition-box"><strong>Clasificatorul de entropie maximă (Maximum Entropy):</strong> Alt nume pentru regresia logistică multinomială, subliniind faptul că modelul maximizează entropia distribuției condiționate sub constrângerile datelor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Regularizarea ℓ₂ este esențială pentru regresia logistică, mai ales când datele sunt liniar separabile. Fără regularizare, ponderile cresc la infinit, producând un clasificator fragil. Regresia logistică multinomială extinde modelul binar la C clase folosind funcția softmax, cu w_C = 0 pentru identificabilitate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Separabilitatea liniară, care ar părea un avantaj, devine de fapt o problemă pentru MLE deoarece soluția nu este unică (orice scalare a w produce aceeași frontieră de decizie). Regularizarea rezolvă această ambiguitate. Funcția softmax este o generalizare naturală a funcției sigmoidale la mai multe clase.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia logistică multinomială este folosită extensiv în clasificarea textelor (categorii de știri, analiza sentimentelor), recunoașterea cifrelor scrise de mână (MNIST), și ca strat final în rețelele neurale profunde pentru clasificare multi-clasă.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de clasificare automată a e-mailurilor în categorii (personal, muncă, promoții, spam) folosește regresia logistică multinomială. Softmax-ul produce probabilități pentru fiecare categorie care se sumează la 1, permițând clasificarea și estimarea incertitudinii.</p></div>
+  </div>
+</div>

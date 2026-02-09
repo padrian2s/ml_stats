@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii Capitolul 21 (final) - KL divergenta, mean field si VB pentru modele cu factor</h2>
+  <p>Aceasta pagina contine ultimele exercitii ale capitolului 21, incluzand exercitii despre KL divergenta forward vs reverse, actualizari mean field structurate si EM variational pentru analiza factoriala binara.</p>
+  <div class="definition-box"><strong>Exercitiul 21.7 - KL forward vs reverse:</strong> Se demonstreaza ca pentru a minimiza KL(p||q) forward cu aproximare factorizata q(x,y)=q(x)q(y), solutia optima este q(x)=p(x) si q(y)=p(y) (marginalele). Se analizeaza apoi minimele KL reverse pe un exemplu concret.</div>
+  <div class="definition-box"><strong>Exercitiul 21.9 - EM variational pentru FA binara cu sigmoid:</strong> Se considera un model de analiza factoriala binara p(x_i|z_i,theta) = prod Ber(x_ij|sigm(w_j^T z_i + beta_j)) si se cere derivarea unui algoritm EM folosind marginea Jaakkola-Jordan.</div>
+  <div class="highlight-box"><strong>Exercitiul 21.10 - VB pentru FA binara cu probit:</strong> Se arata cum se poate folosi inferenta variationala Bayes pentru a potrivi un model probit binar, unde posterioarul q(x,z,W) se factorizeaza, iar q(z_i) va fi o Gaussiana univariata truncata.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile finale ale capitolului 21 acopera teme avansate: diferentele dintre KL forward si reverse (esentiale pentru intelegerea diferitelor metode de inferenta), actualizari mean field structurate pentru FHMM si aplicarea VB la modele cu date binare folosind legaturi sigmoid si probit.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>KL forward produce aproximari care acopera toata masa probabilistica (mode-covering), in timp ce KL reverse produce aproximari concentrate pe un singur mod (mode-seeking). Aceasta distinctie fundamentala influenteaza alegerea metodei de inferenta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Analiza factoriala binara cu legaturi sigmoid este folosita in modelarea datelor binare de inalta dimensionalitate, cum ar fi analiza cosurilor de cumparaturi sau modelarea raspunsurilor la chestionare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recomandare, unde datele sunt binare (like/dislike), analiza factoriala binara cu inferenta variationala poate descoperi factori latenti care explica preferintele utilizatorilor, cu estimari de incertitudine.</p></div>
+  </div>
+</div>

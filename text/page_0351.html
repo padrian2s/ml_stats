@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>10.3-10.4 Inferenta si Invatarea in Modele Grafice</h2>
+  <p>Pagina discuta complexitatea inferentei in modele grafice, introduce distinctia intre inferenta si invatare, si prezinta estimarea MAP a parametrilor.</p>
+  <div class="definition-box"><strong>Variabile de interogare (x_q):</strong> Subsetul de variabile ascunse ale caror valori dorim sa le cunoastem.</div>
+  <div class="definition-box"><strong>Variabile de nuisanta (x_n):</strong> Variabile ascunse care nu sunt de interes direct, dar trebuie marginalizate pentru a obtine distributia variabilelor de interogare.</div>
+  <div class="highlight-box"><strong>Marginalizarea variabilelor de nuisanta (10.24):</strong> p(x_q|x_v, θ) = Σ_{x_n} p(x_q, x_n|x_v, θ).</div>
+  <div class="highlight-box"><strong>Complexitatea inferentei:</strong> Pentru grafuri generale, inferenta exacta necesita O(K^V) timp. Exploatand structura grafului, se reduce la O(VK^{w+1}), unde w este treewidth-ul grafului. Pentru arbori si lanturi, w = 1, deci inferenta este liniara in numarul de noduri.</div>
+  <div class="definition-box"><strong>Invatarea:</strong> Calculul parametrilor modelului din date. Estimarea MAP: θ = argmax_θ Σ_{i=1}^{N} log p(x_{i,v}|θ) + log p(θ). Cu prior uniform, se reduce la MLE.</div>
+  <div class="highlight-box"><strong>Estimarea MAP (10.25):</strong> θ = argmax_θ Σ_{i=1}^{N} log p(x_{i,v}|θ) + log p(θ).</div>
+  <div class="definition-box"><strong>Perspectiva bayesiana:</strong> Din punct de vedere bayesian, parametrii sunt si ei variabile aleatoare, deci nu exista distinctie fundamentala intre inferenta si invatare - ambele sunt forme de inferenta posterioara.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Inferenta exacta in modele grafice generale este NP-hard, dar structura grafului o poate face tractabila (treewidth mic). Invatarea parametrilor se face prin maximizarea verosimilantei (MLE) sau a posterioarei (MAP). Din perspectiva bayesiana, parametrii sunt variabile aleatoare ca oricare altele, eliminand distinctia conceptuala intre inferenta si invatare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta practica intre variabilele ascunse si parametri: variabilele ascunse cresc in numar cu datele (una per observatie), pe cand parametrii sunt de obicei in numar fix. Aceasta face ca integrarea variabilelor ascunse sa fie esentiala (pentru evitarea supraajustarii), dar estimarea punctuala a parametrilor sa fie adesea acceptabila.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Treewidth-ul este crucial in practica: modelele cu treewidth mic (arbori, lanturi, HMM-uri) permit inferenta exacta eficienta, pe cand modelele cu treewidth mare necesita aproximari (inferenta variationala, MCMC).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un HMM pentru recunoasterea vorbirii are treewidth 1 (este un lant), deci inferenta este liniara in lungimea secventei - aceasta permite recunoasterea in timp real. Un model grafic general pentru o imagine 2D poate avea treewidth proportional cu latimea imaginii, necesitand aproximari.</p></div>
+  </div>
+</div>

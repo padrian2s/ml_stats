@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>TrueSkill - Pasul 6, exemplu practic si alte aplicatii EP</h2>
+  <p>Aceasta pagina completeaza algoritmul TrueSkill cu pasul 6 (mesaje ascendente), prezinta un exemplu cu 6 jucatori si discuta alte aplicatii ale EP.</p>
+  <div class="definition-box"><strong>Pasul 6 - Mesaje de la factori de joc la abilitati:</strong> m_{h_g->s_{i_g}}(s_{i_g}) = N(s_{i_g}|mu_{h_g->s_{i_g}}, v_{h_g->s_{i_g}}), cu v = 1 + v_{d_g->h_g} + v_{s_{j_g}->h_g} si mu = mu_{d_g->h_g} + mu_{s_{j_g}->h_g}. Castigatorul primeste o crestere de medie, perdantul o scadere.</div>
+  <div class="definition-box"><strong>Exemplu cu 6 jucatori:</strong> 6 jucatori cu o ordine partiala (DAG), 26 de jocuri simulate. Dupa 5 iteratii EP, ordinea corecta a jucatorilor este recuperata. Barele de eroare reflecta incertitudinea in estimarea abilitatilor.</div>
+  <div class="highlight-box"><strong>Alte aplicatii EP:</strong> Microsoft a extins TrueSkill la recomandari personalizate de reclame (Stern et al. 2009), predicerea click-through rate (Graepel et al. 2010) si a dezvoltat Infer.NET - un toolkit general de inferenta Bayesiana bazat pe EP.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina incheie prezentarea TrueSkill cu pasul final al algoritmului si un exemplu concret care demonstreaza eficacitatea: din doar 26 de jocuri, EP recupereaza corect ierarhia a 6 jucatori. Se mentioneaza si alte aplicatii industriale ale EP la Microsoft.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Combinarea EP cu ADF (assumed density filtering) permite inferenta online: abilitatile se actualizeaza dupa fiecare joc fara a reproses toate jocurile anterioare. Aceasta face sistemul scalabil la milioane de jucatori.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Infer.NET (Microsoft Research) este un toolkit open-source care implementeaza EP si permite definirea de modele probabilistice complexe cu inferenta automata. Este folosit in productie la Microsoft.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Pe langa jocuri, TrueSkill a fost adaptat pentru clasamentul cautarilor web: fiecare "joc" este o comparatie implicita intre doua rezultate de cautare, iar "abilitatea" corespunde relevantei unui document pentru un query.</p></div>
+  </div>
+</div>

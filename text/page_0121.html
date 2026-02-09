@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exerciții Finale - Capitolul 3: Densități Condiționate de Clasă pentru Date Binare (Continuare)</h2>
+  <p>Pagina continuă exercițiul despre densitățile condiționate de clasă pentru caracteristici binare, explorând reducerea numărului de parametri și conexiunea cu clasificatoarele liniare.</p>
+  <div class="highlight-box"><strong>Reducerea parametrilor:</strong> Prin legarea parametrilor (θ_{jc} = θ_j pentru unele caracteristici), se poate reduce numărul de parametri de la DC la D+C, presupunând că unele caracteristici au aceeași distribuție indiferent de clasă.</div>
+  <div class="highlight-box"><strong>Conexiunea cu clasificatorul liniar:</strong> log p(y=c|x) = log p(y=c) + Σ_j x_j·log(θ_{jc}/(1−θ_{jc})) + Σ_j log(1−θ_{jc}), care este o funcție liniară de x - deci NBC produce frontiere de decizie liniare.</div>
+  <div class="definition-box"><strong>Modelul generativ vs discriminativ:</strong> NBC estimează p(x|y) și apoi aplică Bayes, pe când un clasificator discriminativ (ex: regresie logistică) estimează direct p(y|x). Ambele produc frontiere liniare dar cu estimări diferite ale parametrilor.</div>
+  <div class="highlight-box"><strong>Avantajul modelelor generative:</strong> Pot genera date noi, gestionează date lipsă natural, și pot fi antrenate cu date neetichetate (semi-supervizat). Dezavantajul: asumpțiile distribționale pot fi greșite.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Conexiunea între NBC și clasificatoarele liniare este fundamentală: arată că un model generativ simplu produce aceleași forme funcționale ca un clasificator discriminativ, dar cu estimări diferite ale parametrilor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Modelele generative și discriminative converg asimptotic la aceleași predicții, dar diferă cu date finite. Generativ este mai bun cu date puține, discriminativ cu date multe (Ng & Jordan, 2002).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Înțelegerea dualității generativ-discriminativ ghidează alegerea modelului: NBC pentru date puține sau date lipsă, regresie logistică pentru date mari și complete.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În diagnosticul medical cu puțini pacienți, un model generativ (NBC) poate fi mai fiabil decât unul discriminativ. Cu mii de cazuri clinice, regresia logistică devine superioară.</p></div>
+  </div>
+</div>

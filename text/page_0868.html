@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 24: Inferenta Markov Chain Monte Carlo (MCMC) - Introducere</h2>
+  <p>Aceasta pagina deschide Capitolul 24 despre MCMC, prezentand motivatia, istoricul si comparatia cu inferenta variationala.</p>
+  <div class="definition-box"><strong>MCMC (Markov Chain Monte Carlo):</strong> O metoda de esantionare care construieste un lant Markov pe spatiul de stari X a carui distributie stationara este densitatea tinta p*(x) (posterioarul). Prin parcurgerea aleatoare a spatiului, fractiunea de timp petrecuta in fiecare stare este proportionala cu p*(x).</div>
+  <div class="definition-box"><strong>Istoric:</strong> Descoperit de fizicieni la Los Alamos in timpul celui de-al Doilea Razboi Mondial, publicat de Metropolis et al. (1953). Extins de Hastings (1970). Esantionarea Gibbs (Geman si Geman 1984) a fost dezvoltata independent. A devenit popular in statistica Bayesiana dupa Gelfand si Smith (1990).</div>
+  <div class="highlight-box"><strong>MCMC vs inferenta variationala:</strong> Avantajele VI: (1) mai rapida pentru probleme mici-medii, (2) deterministica, (3) usor de determinat convergenta, (4) margine inferioara pe log-verosimilitate. Avantajele MCMC: (1) mai usor de implementat, (2) aplicabila la modele mai complexe, (3) poate fi mai rapida pe modele foarte mari.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 24 introduce MCMC ca alternativa la inferenta variationala pentru esantionarea din distributii de dimensiune inalta. Ideea fundamentala este construirea unui lant Markov a carui distributie de echilibru este exact posterioarul dorit.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>MCMC produce esantioane corelate (nu independente), ceea ce necesita precautii speciale: burn-in (eliminarea esantioanelor initiale), thinning (subsampling pentru reducerea corelatiei), si diagnostice de convergenta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MCMC este implementat in software-uri populare: Stan, JAGS, PyMC, Turing.jl. Este standard in statistica Bayesiana si invatarea automata probabilistica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In epidemiologie, MCMC este folosit pentru a estima parametrii modelelor de transmisie a bolilor (de ex. rata de reproducere R0 a COVID-19), oferind distributii posterioare complete, nu doar estimari punctuale.</p></div>
+  </div>
+</div>

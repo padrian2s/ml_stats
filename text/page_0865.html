@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>RBPF - Vizualizare rezultate si aplicatia FastSLAM</h2>
+  <p>Aceasta pagina prezinta vizualizarea comparativa PF vs RBPF pe problema urmariri tintelor cu manevre si introduce aplicatia FastSLAM.</p>
+  <div class="definition-box"><strong>FastSLAM:</strong> RBPF aplicat la SLAM (Simultaneous Localization and Mapping). Conditionat de traiectoria robotului q_{1:t}, pozitiile celor L puncte de referinta z sunt independente. Se esantioneaza traiectoria si se ruleaza L filtre Kalman 2D independente - cost O(L) per particula.</div>
+  <div class="highlight-box"><strong>Avantajul FastSLAM:</strong> Reduce complexitatea de la O(L^3) (EKF-SLAM) la O(L*S), unde S este numarul de particule (de obicei mic). Permite si reprezentari alternative ale hartii (de ex. grile de ocupare) si gestioneaza natural ambiguitatea in asocierea datelor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina vizualizeaza rezultatele comparative si introduce FastSLAM ca aplicatie de referinta a RBPF. Ideea cheie este ca independenta conditionata a landmark-urilor (conditionat de traiectoria robotului) permite factorizarea problemei intr-un set de filtre Kalman independente.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exploatarea structurii conditionale de independenta (din graful DGM) pentru a reduce complexitatea este un tipar fundamental in RBPF. Cu cat mai multa structura poate fi exploatata analitic, cu atat filtrul cu particule este mai eficient.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>FastSLAM este implementat in ROS si folosit in roboti comerciali. Variante: FastSLAM 2.0 (propunere imbunatatita), GMapping (varianta populara cu grile de ocupare).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Robotii de livrare autonomi in depozite Amazon folosesc variante de FastSLAM pentru a naviga in medii dinamice, construind si actualizand simultan harta depozitului pe masura ce se deplaseaza.</p></div>
+  </div>
+</div>

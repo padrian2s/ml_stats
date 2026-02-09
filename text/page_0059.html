@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>Capitolul 2: Variabile Aleatoare Discrete si Reguli Fundamentale</h2>
+  <p>Variabile aleatoare discrete, functia de masa de probabilitate, reuniunea evenimentelor, probabilitati conjuncte si regula lantului.</p>
+  <div class="definition-box"><strong>Variabila Aleatoare Discreta:</strong> O variabila X care poate lua valori dintr-un set finit sau numarabil infinit X. Probabilitatea p(X = x) satisface 0 ≤ p(x) ≤ 1 si Σ_{x∈X} p(x) = 1.</div>
+  <div class="definition-box"><strong>Functia de Masa de Probabilitate (PMF):</strong> Functia p() care asociaza fiecarei valori posibile x probabilitatea p(X = x). Notata prescurtat p(x).</div>
+  <div class="definition-box"><strong>Probabilitatea Reuniunii:</strong> p(A ∨ B) = p(A) + p(B) - p(A ∧ B), sau p(A) + p(B) daca A si B sunt mutual exclusive (ecuatiile 2.1-2.2).</div>
+  <div class="definition-box"><strong>Regula Produsului:</strong> p(A, B) = p(A ∧ B) = p(A|B)p(B) (ecuatia 2.3).</div>
+  <div class="definition-box"><strong>Distributia Marginala:</strong> p(A) = Σ_b p(A, B = b) = Σ_b p(A|B = b)p(B = b) (ecuatia 2.4). Se mai numeste regula sumei sau regula probabilitatii totale.</div>
+  <div name="definition-box"><strong>Regula Lantului:</strong> p(X₁:D) = p(X₁)p(X₂|X₁)p(X₃|X₂,X₁)...p(X_D|X₁:D₋₁) (ecuatia 2.5).</div>
+  <div class="definition-box"><strong>Probabilitatea Conditionata:</strong> p(A|B) = p(A, B)/p(B), daca p(B) > 0 (ecuatia 2.6).</div>
+  <div class="figure-box"><strong>Figura 2.1:</strong> (a) Distributie uniforma pe {1,2,3,4} cu p(x=k) = 1/4. (b) Distributie degenerata cu p(x=1) = 1 si p(x) = 0 pentru x ≠ 1.</div>
+  <div class="highlight-box"><strong>Reguli Fundamentale:</strong> Regula produsului, regula sumei si regula lantului sunt cele trei reguli de baza din care se pot deriva toate celelalte rezultate din teoria probabilitatilor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunile 2.2-2.2.2 introduc fundamentele teoriei probabilitatilor: variabile aleatoare discrete, PMF, probabilitatea reuniunii, regula produsului, distributia marginala si regula lantului. Acestea sunt instrumentele matematice de baza necesare pentru intreaga carte.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Regulile fundamentale sunt surprinzator de putine si simple, dar din ele se pot deriva rezultate extrem de puternice. Regula lantului este baza modelelor autoregresive moderne (de exemplu, GPT). Marginalizarea este esentiala in inferenta Bayesiana, permitand eliminarea variabilelor neobservate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regula produsului este folosita in modelele generative (calculul probabilitatii conjuncte). Marginalizarea este folosita pentru a face predictii integrand peste parametrii incertii. Regula lantului sta la baza modelelor de limbaj (probabilitatea unei secvente de cuvinte).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de limbaj precum GPT foloseste regula lantului: probabilitatea propozitiei "Pisica sta pe covor" este p("Pisica") x p("sta"|"Pisica") x p("pe"|"Pisica sta") x p("covor"|"Pisica sta pe"). Fiecare factor conditionat este estimat de reteaua neuronala.</p></div>
+  </div>
+</div>

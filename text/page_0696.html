@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Parametrizarea MRF-urilor si teorema Hammersley-Clifford</h2>
+  <p>Aceasta pagina introduce parametrizarea modelelor grafice nedirectionate (MRF-uri) prin functii potential si enunta teorema Hammersley-Clifford.</p>
+  <div class="definition-box"><strong>Functii potential (factori):</strong> Functii non-negative ψ_c(y_c|θ_c) asociate fiecarei clici maximale din graf. Nu sunt probabilitati, ci masoara "compatibilitatea" dintre valorile variabilelor din clica.</div>
+  <div class="definition-box"><strong>Grafuri decomposabile (cordale):</strong> Grafuri in care, daca colapsam variabilele din fiecare clica maximala intr-o "mega-variabila", graful rezultat este un arbore. Aceste grafuri pot fi reprezentate perfect atat de DGM-uri cat si de UGM-uri.</div>
+  <div class="highlight-box"><strong>Teorema Hammersley-Clifford:</strong> Orice distributie pozitiva p(y) > 0 care satisface proprietatile CI ale unui graf nedirectionat G poate fi reprezentata ca un produs de factori, cate unul pentru fiecare clica maximala: p(y|θ) = (1/Z(θ)) ∏_c ψ_c(y_c|θ_c).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Spre deosebire de DGM-uri unde se folosesc probabilitati conditionate (CPD-uri), UGM-urile folosesc functii potential asociate clicilor maximale. Teorema Hammersley-Clifford garanteaza ca orice distributie pozitiva cu proprietatile CI ale grafului poate fi factorizata in acest mod. Se introduce si conceptul de MRF pe perechi, unde parametrizarea se face pe muchii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta fundamentala fata de DGM-uri: functiile potential nu sunt probabilitati si necesita o constanta de normalizare Z(θ). Grafurile cordale sunt la intersectia DGM-urilor si UGM-urilor. MRF-urile pe perechi simplifica modelul dar sunt mai putin generale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Reprezentarea prin grafuri cordale este baza algoritmilor de inferenta exacta. In procesarea limbajului natural si viziunea computationala, alegerea intre DGM si UGM afecteaza complexitatea inferentei si expresivitatea modelului.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea imaginilor, fiecare pixel este un nod si clicile sunt formate din pixeli vecini. Functia potential masoara cat de "compatibile" sunt etichetele pixelilor vecini - de exemplu, pixelii adiacenti tind sa aiba aceeasi eticheta.</p></div>
+  </div>
+</div>

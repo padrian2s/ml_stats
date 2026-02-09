@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Minimizarea Riscului Empiric si Probleme Computationale</h2>
+  <p>Pagina discuta legatura SSVM cu minimizarea riscului empiric regularizat si abordeaza problemele computationale ale formularii cu programe patratice (QP).</p>
+  <div class="definition-box"><strong>Variabila slack optima:</strong> ξᵢ*(w) = max{0, max_y(L(yᵢ,y) - wᵀδᵢ)} = max_y(L(yᵢ,y) - wᵀδᵢ) (Ecuatia 19.101) - solutia explicita pentru termenii slack.</div>
+  <div class="definition-box"><strong>Riscul empiric regularizat:</strong> R(w) + (C/N) Σᵢ L(yᵢ, f(xᵢ,w)) (Ecuatia 19.103) - obiectivul frecventist clasic, unde f(xᵢ,w) = argmax_y wᵀφ(xᵢ,y).</div>
+  <div class="highlight-box"><strong>Margine superioara convexa:</strong> R(w) + (C/N) Σᵢ max_y(L(yᵢ,y) - wᵀδᵢ)) (Ecuatia 19.104) - o margine superioara convexa pe riscul empiric, deoarece pierderea nu este diferentiabila.</div>
+  <div class="highlight-box"><strong>Complexitatea constrangerilor:</strong> Formularea QP are O(N|Y|) constrangeri, ceea ce este intratabil deoarece |Y| este de obicei exponential de mare. Metoda margin rescaling permite reducerea la un numar polinomial de constrangeri.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se demonstreaza ca obiectivul SSVM este o margine superioara convexa pe riscul empiric regularizat. Aceasta legatura justifica utilizarea SSVM-urilor din perspectiva frecventista. Problema majora este ca formularea ca program patratic (QP) are un numar exponential de constrangeri. Se propun doua solutii: metoda planurilor de taiere (cutting planes) si metode de subgradient stocastic.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Constructia marginii superioare convexe foloseste faptul ca maximul unei sume este mai mare decat suma maximilor. Acest truc standard in optimizare convexa transforma o problema nedifferentiabila intr-una tractabila. Reducerea numarului de constrangeri la polinom depinde de descompunerea functiei de pierdere si a vectorului de trasaturi conform modelului grafic.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, alegerea intre cutting planes si subgradient stocastic depinde de dimensiunea problemei. Pentru probleme mici-medii, cutting planes sunt preferabile datorita convergentei precise. Pentru seturi de date mari, metodele de subgradient stocastic sunt mai scalabile.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In etichetarea partilor de vorbire (POS tagging) pentru un corpus de milioane de propozitii, numarul de secvente posibile de etichete creste exponential cu lungimea propozitiei. Fara reducerea constrangerilor, antrenarea ar fi imposibila chiar si pe hardware modern.</p></div>
+  </div>
+</div>

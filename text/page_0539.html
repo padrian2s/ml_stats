@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>De la KDE la KNN și Regresia Kernel</h2>
+  <p>Pagina face legătura între estimarea densității kernel și clasificatorul celor mai apropiați vecini (KNN), apoi introduce regresia kernel (Nadaraya-Watson).</p>
+  <div class="definition-box"><strong>De la KDE la KNN:</strong> În loc să fixăm banda h și să numărăm punctele, putem fixa numărul K de vecini și să creștem volumul V(x) până includem K puncte. Posterioritatea clasei devine p(y = c|x, D) = N_c(x) / K, echivalentă cu clasificatorul KNN.</div>
+  <div class="definition-box"><strong>Regresia kernel (Nadaraya-Watson):</strong> f(x) = Σᵢ wᵢ(x)yᵢ, unde ponderile wᵢ(x) = κ_h(x − xᵢ) / Σᵢ' κ_h(x − xᵢ') depind de similitudinea x cu punctele de antrenament. Este o medie ponderată a ieșirilor.</div>
+  <div class="highlight-box"><strong>Banda optimală (1D, date Gaussiene):</strong> h = (4/(3N))^(1/5) · σ̂, unde σ̂ poate fi estimat robust prin MAD: σ̂ = 1.4826 · MAD = MAD / 0.6745.</div>
+  <div class="figure-box"><strong>Figura 14.18:</strong> Exemplu de regresie kernel în 1D folosind kernel Gaussian. Curba estimată (roșie) urmărește tendința datelor (puncte negre), producând o funcție netedă continuă.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>KDE și KNN sunt două perspective ale aceluiași principiu: estimarea densității locale. KDE fixează volumul, KNN fixează numărul de vecini. Regresia kernel extinde KDE la predicție, producând o medie ponderată a ieșirilor, unde ponderile scad cu distanța de la punctul de interes.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Regresia kernel are un singur hiperparametru (h), este neparametrică și consistentă. Formula benzii optime h ∝ N^(−1/5) arată că banda scade lent cu N. Estimarea robustă a σ prin MAD protejează împotriva outlierilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia kernel este folosită în econometrie pentru estimarea curbelor Engel, în epidemiologie pentru netezirea ratelor de incidență și în inginerie pentru aproximarea funcțiilor de răspuns.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În meteorologie, regresia kernel poate estima temperatura medie în funcție de localizarea geografică, folosind un kernel Gaussian pe coordonatele stațiilor meteo existente, fără a presupune o formă funcțională specifică.</p></div>
+  </div>
+</div>

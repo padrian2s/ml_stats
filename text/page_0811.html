@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LBP ca problema variationala - Aproximarea exterioara si pseudo-marginale</h2>
+  <p>Aceasta pagina prezinta LBP ca problema de optimizare variationala, introducand aproximarea exterioara L(G) a politopului marginal si conceptul de pseudo-marginale.</p>
+  <div class="definition-box"><strong>Aproximarea exterioara L(G):</strong> Multimea tuturor vectorilor tau >= 0 care satisfac constrangerile de normalizare (sum tau_s(x_s) = 1) si marginalizare (sum_{x_t} tau_st(x_s,x_t) = tau_s(x_s)). Are doar O(|V|+|E|) constrangeri, spre deosebire de M(G) care are exponential de multe.</div>
+  <div class="definition-box"><strong>Pseudo-marginale:</strong> Elementele tau_s, tau_st din L(G) sunt numite pseudo-marginale deoarece satisfac consistenta locala dar pot sa nu corespunda niciunei distributii comune valide.</div>
+  <div class="highlight-box"><strong>M(G) = L(G) daca si numai daca G este un arbore:</strong> Pentru arbori, consistenta locala implica consistenta globala. Pentru grafuri cu cicluri, L(G) contine puncte care nu sunt in M(G), deci pseudo-marginalele pot fi inconsistente global.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina defineste formal relaxarea exterioara L(G) a politopului marginal si arata ca pseudo-marginalele pot fi inconsistente global pe grafuri cu cicluri. Exemplul de pe Figura 22.8 ilustreaza aceasta: tau_12 implica p(X1=X2)=0.8, tau_23 implica p(X2=X3)=0.8, dar tau_13 implica p(X1=X3)=0.2, ceea ce este imposibil.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tranzitia de la consistenta globala (M(G), exponential de costisitoare) la consistenta locala (L(G), polinomiala) este esenta relaxarii care face LBP tractabil. Pretul platit este posibilitatea de pseudo-marginale inconsistente.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, inconsistenta pseudo-marginalelor se manifesta ca probabilitati joint estimate care nu sunt compatibile intre ele. Aceasta poate fi detectata si corectata post-hoc prin proiectie pe politopul marginal.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul medical cu modele grafice, pseudo-marginalele inconsistente ar putea sugera ca un pacient are simultan doua boli corelate cu probabilitati individuale mari, dar probabilitatea comuna este subestimata - o situatie periculoasa clinic.</p></div>
+  </div>
+</div>

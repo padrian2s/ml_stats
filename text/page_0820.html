@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Optimizarea obiectivului EP prin potrivirea momentelor</h2>
+  <p>Aceasta pagina detaliaza cum se optimizeaza obiectivul EP folosind multiplicatori Lagrange si potrivirea momentelor (moment matching), derivand algoritmul EP concret.</p>
+  <div class="definition-box"><strong>Potrivirea momentelor in EP:</strong> Conditia de optimalitate cere ca int q(x|theta,lambda)*phi(x)dx = int q_i(x|theta,theta_i,lambda)*phi(x)dx, adica momentele distributiei aproximative q trebuie sa coincida cu momentele fiecarei distributii augmentate q_i.</div>
+  <div class="definition-box"><strong>Algoritmul EP iterativ:</strong> (1) Alege termenul i de rafinat; (2) Elimina f_tilde_i din q: q_{-i} = q/f_tilde_i; (3) Calculeaza noul posterior q^new minimizand KL(f_i*q_{-i} || q^new); (4) Actualizeaza factorul aproximativ f_tilde_i = Z_i * q^new / q_{-i}.</div>
+  <div class="highlight-box"><strong>Constanta de normalizare Z_i:</strong> Z_i = int q_{-i}(x)*f_i(x)dx este calculata la fiecare pas si serveste ca aproximare a verosimilitatii marginale locale. Produsul tuturor Z_i-urilor aproximeaza verosimilitatea marginala globala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina transforma formularea variationala abstracta a EP in algoritmul concret de potrivire a momentelor. Cheia este ca fiecare factor intractabil f_i este aproximat de un factor tractabil f_tilde_i, actualizat iterativ pentru a mentine consistenta momentelor intre distributia globala q si distributiile locale q_i.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Schema "elimina-incorporeaza-actualizeaza" este fundamentala: (1) elimina aproximarea curenta, (2) incorporeaza factorul exact, (3) proiecteaza inapoi in familia exponentiala. Aceasta strategie apare in multe variante ale EP.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, EP este implementat prin actualizari ale parametrilor naturali (media ponderata si precizia) ale distributiei Gaussiene aproximative, ceea ce este numeric stabil si eficient.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recomandare bazate pe factorizare matriceala Bayesiana (ex. Netflix, TrueSkill de la Microsoft), EP aproximeaza posterioarul peste factorii latenti, oferind predictii cu incertitudine calibrata.</p></div>
+  </div>
+</div>

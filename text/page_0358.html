@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>10.5.2-10.5.3 Proprietati Markov ale DGM-urilor si Markov Blanket</h2>
+  <p>Pagina prezinta cele trei proprietati Markov echivalente ale DGM-urilor (globala, locala, ordonata), echivalenta lor, si introduce conceptul de Markov blanket cu conditionalele complete.</p>
+  <div class="figure-box"><strong>Figura 10.11:</strong> Un DGM cu 7 noduri: arce 1→2, 1→3, 2→4, 2→5, 3→5, 3→6, 4→7, 5→7, 5→6. Folosit pentru exemplificarea d-separarii si a Markov blanket.</div>
+  <div class="definition-box"><strong>Proprietatea Markov locala directionata (10.42):</strong> t ⊥ nd(t) \ pa(t) | pa(t), unde nd(t) sunt non-descendentii lui t. Un nod este independent de toti non-descendentii sai dat fiind parintii.</div>
+  <div class="definition-box"><strong>Proprietatea Markov ordonata (10.43):</strong> t ⊥ pred(t) \ pa(t) | pa(t), unde pred(t) sunt predecesorii in ordonarea topologica. Caz special al proprietatii locale.</div>
+  <div class="highlight-box"><strong>Echivalenta proprietatilor Markov:</strong> G (globala/d-separare) ⟹ L (locala) ⟹ O (ordonata) ⟹ G. Toate trei sunt echivalente si echivalente cu proprietatea de factorizare F.</div>
+  <div class="definition-box"><strong>Markov blanket (10.44):</strong> mb(t) = ch(t) ∪ pa(t) ∪ copa(t), unde copa(t) sunt co-parintii (noduri care au un copil comun cu t). Markov blanket-ul face t independent de restul grafului.</div>
+  <div class="highlight-box"><strong>Exemplu Markov blanket (10.45):</strong> mb(5) = {6, 7} ∪ {2, 3} ∪ {4} = {2, 3, 4, 6, 7}, unde 4 este co-parinte al lui 5 prin copilul comun 7.</div>
+  <div class="definition-box"><strong>Conditionala completa (full conditional):</strong> p(x_t|x_{-t}), distributia unui nod dat restul, depinde doar de Markov blanket: p(x_t|x_{-t}) ∝ p(x_t|x_{pa(t)}) ∏_{s∈ch(t)} p(x_s|x_{pa(s)}).</div>
+  <div class="highlight-box"><strong>Conditionala completa (10.46):</strong> p(x_t|x_{-t}) ∝ p(x_t|x_{pa(t)}) ∏_{s∈ch(t)} p(x_s|x_{pa(s)}).</div>
+  <div class="highlight-box"><strong>Exemplu (10.47):</strong> p(x_5|x_{-5}) ∝ p(x_5|x_2, x_3) p(x_6|x_3, x_5) p(x_7|x_4, x_5, x_6).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cele trei proprietati Markov (globala, locala, ordonata) sunt echivalente si echivalente cu factorizarea distributiei comune. Markov blanket-ul unui nod include parintii, copiii si co-parintii - acesta este setul minimal de noduri care "izoleaza" nodul de restul grafului. Conditionala completa, care depinde doar de Markov blanket, este esentiala pentru esantionarea Gibbs.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Co-parintii apar in Markov blanket deoarece conditionala completa include CPD-urile copiilor, care depind si de ceilalti parinti. Aceasta face Markov blanket-ul mai mare decat simpla reuniune parinti + copii. Scopul (scope) unui CPD este setul de variabile care apar in el.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Markov blanket-ul este crucial pentru esantionarea Gibbs (MCMC): la fiecare pas, se actualizeaza un nod conditionat pe Markov blanket-ul sau. Conditionala completa ofera formula exacta pentru distributia de esantionare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-o retea sociala modelata ca DGM, Markov blanket-ul unui utilizator include prietenii directi (parinti si copii) si prietenii prietenilor care au legatura prin acelasi grup (co-parinti). Comportamentul utilizatorului este complet determinat de aceste persoane, independent de restul retelei.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Recuperarea Semnalelor Sparse si Compressed Sensing</h2>
+  <p>Pagina prezinta Figura 13.9 (recuperarea unui semnal sparse cu LASSO) si discuta proprietatea caii de regularizare: limitarea la cel mult N variabile si necesitatea elastic net.</p>
+  <div class="highlight-box"><strong>Figura 13.9 - Compressed Sensing:</strong> Semnal original (D=4096, 160 non-zero). Reconstructia l1 (K=1024 masuratori): MSE=0.0027, recuperare buna. Dupa debiasing: MSE=3.26e-5, recuperare aproape perfecta. Solutia de norma minima (fara sparsitate): MSE=0.029, foarte proasta.</div>
+  <div class="definition-box"><strong>Debiasing:</strong> Dupa ce LASSO identifica setul activ (variabilele non-zero), se recalculeaza OLS doar pe aceste variabile, eliminand bias-ul de shrinkage. Produce estimari mult mai precise cand setul activ este corect identificat.</div>
+  <div class="highlight-box"><strong>Limitarea LASSO:</strong> Daca D > N, LASSO poate selecta cel mult N variabile. Elastic net (l1 + l2 regularization) depaseste aceasta limitare si permite selectarea de grupuri de variabile corelate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 13.9 demonstreaza puterea compressed sensing: un semnal cu 4096 dimensiuni si 160 componente non-zero poate fi recuperat din doar 1024 masuratori liniare aleatoare, folosind regularizarea l1. Debiasing-ul dupa selectie imbunatateste dramatic precizia. Solutia de norma minima (fara sparsitate) esueaza complet.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compressed sensing se bazeaza pe doua ingrediente: (1) semnalul este sparse intr-o anumita baza, (2) masuratorile sunt "incoerente" cu baza de sparsitate. Sub aceste conditii, l1 recupereaza semnalul exact din masuratori substochastice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Compressed sensing a revolutionat imagistica medicala (MRI rapid), astronomia (reconstructia de imagini din masuratori limitate) si procesarea de semnal (achizitie sub-Nyquist).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>MRI-ul rapid bazat pe compressed sensing permite scanari de 2-4x mai rapide: se achizitioneaza mai putine masuratori k-space si se reconstruieste imaginea prin regularizare l1 in domeniul wavelet, reducand timpii de asteptare ai pacientilor.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>BP Gaussiana: calculul mesajelor si BP non-parametrica</h2>
+  <p>Aceasta pagina deriveaza formulele complete pentru mesajele in BP Gaussiana si introduce BP non-parametrica.</p>
+  <div class="definition-box"><strong>Mesajul Gaussian:</strong> Mesajul m_{s→t}(x_t) este o Gaussiana N(μ_st, λ_st^{-1}) cu precizia λ_st = A_st^2 / λ_{s\t} si media μ_st = A_st μ_{s\t} / λ_st, unde λ_{s\t} si μ_{s\t} sunt precizia si media locale ale nodului s excluzand mesajul de la t.</div>
+  <div class="definition-box"><strong>BP non-parametrica:</strong> Pentru modele cu potentiale non-Gaussiene, mesajele nu au o forma analitica. Se pot folosi metode de esantionare (particule) pentru a aproxima mesajele, rezultand in belief propagation non-parametrica.</div>
+  <div class="highlight-box"><strong>Generalizarea la vectori:</strong> Ecuatiile BP Gaussiene se generalizeaza de la scalari la vectori (unde fiecare nod este un vector multivariat). Aplicat la un sistem dinamic liniar, se obtine algoritmul de netezire Kalman (Kalman smoothing).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Derivarea mesajelor BP Gaussiene implica inmultirea potentialului de muchie cu credinta locala (excluzand mesajul destinatarului), urmata de marginalizarea variabilei sursa. Rezultatul este o Gaussiana cu precizie si medie calculabile in forma inchisa. Generalizarea la vectori recupereaza algoritmul de netezire Kalman, stabilind o conexiune importanta intre BP pe arbori si inferenta in sisteme dinamice liniare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Precizia mesajului λ_st = A_st^2 / λ_{s\t} depinde de cuplajul A_st si de precizia locala a sursei. Mesajul "impinge" informatia de la sursa la destinatie prin potentialul de muchie. Excluderea mesajului destinatarului previne dubla contorizare a informatiei.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>BP non-parametrica este folosita in urmarirea obiectelor in video (particle filters pe grafuri), estimarea pozei umane si SLAM. Kalman smoothing-ul (cazul vectorial al BP Gaussiene) este standard in navigatie, control si economie.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In urmarirea unui vehicul autonom, filtrul Kalman (un caz special de BP Gaussiana vectoriala) combina masuratorile GPS, accelerometrului si giroscopului pentru a estima pozitia si viteza in timp real, cu precizie superioara oricarui senzor individual.</p></div>
+  </div>
+</div>

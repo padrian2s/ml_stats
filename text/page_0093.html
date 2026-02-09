@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exerciții - Capitolul 2 (Partea 4)</h2>
+  <p>Pagina prezintă ultimele exerciții ale capitolului 2, acoperind corelația normalizată, MLE și divergența KL, media și varianța distribuției beta, și valoarea așteptată a minimului.</p>
+  <div class="highlight-box"><strong>Exercițiul 2.14 - Corelația normalizată:</strong> r = 1 − H(Y|X)/H(X) = I(X,Y)/H(X). Se demonstrează 0 ≤ r ≤ 1, r=0 când X,Y independente, r=1 când Y determinat de X.</div>
+  <div class="highlight-box"><strong>Exercițiul 2.15 - MLE minimizează KL:</strong> argmin_q KL(p_emp||q) = argmin_θ q(x;θ̂), adică MLE minimizează divergența KL față de distribuția empirică.</div>
+  <div class="highlight-box"><strong>Exercițiul 2.16 - Media, modul, varianța Beta:</strong> Pentru θ ~ Beta(a,b), se derivă momentele distribuției beta.</div>
+  <div class="highlight-box"><strong>Exercițiul 2.17 - Valoarea așteptată a minimului:</strong> Pentru X,Y ~ Unif(0,1) independente, se calculează E[min(X,Y)].</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercițiile finalizează capitolul conectând concepte aparent diferite: MLE este echivalentă cu minimizarea KL față de datele observate, iar corelația normalizată leagă MI de corelație.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Echivalența MLE-KL este profundă: arată că estimarea prin verosimilitate maximă este optim informațional. Aceasta justifică utilizarea MLE ca procedură standard de estimare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Înțelegerea că MLE minimizează KL ajută la interpretarea funcțiilor de pierdere în rețelele neurale: cross-entropy loss este exact KL(p_date||p_model) plus o constantă.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Antrenarea unui model de limbaj (GPT) prin minimizarea cross-entropy este echivalentă cu minimizarea KL între distribuția reală a limbii și distribuția modelului.</p></div>
+  </div>
+</div>

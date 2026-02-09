@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exerciții Finale - Capitolul 3: Compararea Modelelor și Selecția Bayesiană</h2>
+  <p>Pagina prezintă exerciții despre compararea modelelor Bayesiene, verosimilitatea marginală, și criterii de selecție a modelelor.</p>
+  <div class="highlight-box"><strong>Verosimilitatea marginală:</strong> p(D|M) = ∫p(D|θ,M)p(θ|M)dθ, obținută prin integrarea parametrilor. Numită și evidența modelului (model evidence).</div>
+  <div class="highlight-box"><strong>Factorul Bayes:</strong> BF₁₂ = p(D|M₁)/p(D|M₂). BF > 100: evidență decisivă. 10 < BF < 100: puternică. 3 < BF < 10: substanțială. 1 < BF < 3: echivocă (scala lui Jeffreys).</div>
+  <div class="definition-box"><strong>Briciul lui Occam Bayesian:</strong> Modele mai complexe pot ajusta mai bine datele (verosimilitate mai mare), dar au verosimilitate marginală mai mică deoarece „distribuie" probabilitatea prioară pe mai mulți parametri.</div>
+  <div class="highlight-box"><strong>Compararea multinomial vs DCM:</strong> Se poate utiliza factorul Bayes pentru a determina dacă modelul DCM (care captează burstiness) este preferat modelului multinomial simplu pentru un corpus dat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Selecția Bayesiană a modelelor utilizează verosimilitatea marginală ca criteriu automat de complexitate. Modelele mai simple sunt preferate dacă nu există evidență suficientă pentru modele complexe.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Verosimilitatea marginală penalizează automat complexitatea prin marginalizare. Nu necesită un set de validare separat, spre deosebire de validarea încrucișată.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Selecția Bayesiană de modele este utilizată în determinarea numărului de clustere, selectarea ordinii unui model autoregresiv, și compararea familiilor de modele generative.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Determinarea numărului optim de topici în LDA (Latent Dirichlet Allocation) pentru un corpus de documente: verosimilitatea marginală indică dacă 10, 50 sau 100 de topici sunt cele mai potrivite.</p></div>
+  </div>
+</div>

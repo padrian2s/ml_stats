@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Descompunerea Duala - Ideea de Baza (Sectiunea 22.6.5.1)</h2>
+  <p>Aceasta pagina detaliaza mecanismul descompunerii duale, incluzand duplicarea variabilelor, reformularea Lagrangiana si derivarea limitei superioare.</p>
+  <div class="figure-box"><strong>Figura 22.18:</strong> (a) Un MRF pe perechi cu 4 factori de muchie diferiti. (b) Se creeaza 4 variabile separate, plus o copie a fiecarei variabile pentru fiecare factor la care participa. Sursa: Figurile 1.2-1.3 din Sontag et al. 2011.</div>
+  <div class="highlight-box"><strong>Reformularea cu copii:</strong> p* = max_{x,x^f} SUMA_{i in V} theta_i(x_i) + SUMA_{f in F} theta_f(x^f) sub constrangerea x_i^f = x_i pentru tot f, i in f (Ec. 22.164)</div>
+  <div class="highlight-box"><strong>Lagrangianul:</strong> L(delta, x, x^f) = SUMA_{i in V} theta_i(x_i) + SUMA_{f in F} theta_f(x^f) + SUMA_{f in F} SUMA_{i in f} SUMA_{x_hat_i} delta_fi(x_hat_i)(I(x_i = x_hat_i) - I(x_i^f = x_hat_i)) (Ec. 22.165-22.166)</div>
+  <div class="highlight-box"><strong>Limita superioara:</strong> L(delta) = max_{x,x^f} L(delta, x, x^f) = SUMA_i max_{x_i}(theta_i(x_i) + SUMA_{f:i in f} delta_fi(x_i)) + SUMA_f max_{x_f}(theta_f(x_f) - SUMA_{i in f} delta_fi(x_i)) (Ec. 22.168-22.169)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Ideea centrala este duplicarea variabilelor - fiecare variabila primeste o copie separata pentru fiecare factor la care participa. Constrangerile de egalitate intre copii sunt relaxate prin multiplicatori Lagrange, ceea ce decupleaza problema in sub-probleme independente. Orice valoare a multiplicatorilor produce o limita superioara a optimului real.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Prin relaxarea constrangerilor de consistenta, obtinem o limita superioara L(delta) >= p*. Obiectivul devine tractabil deoarece fiecare termen x_f este decuplat. Minimizarea limitei superioare peste delta ne duce cat mai aproape de optimul real p*.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta tehnica este fundamentala in optimizarea combinatorica: planificarea productiei, rutarea vehiculelor, alocarea resurselor. Limita superioara este utila pentru evaluarea calitatii solutiilor aproximative.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In planificarea orarelor universitare, fiecare constrangere (sala, profesor, grupa) poate fi tratata ca un factor separat. Descompunerea duala permite optimizarea fiecarui factor independent, apoi coordonarea solutiilor prin actualizarea multiplicatorilor Lagrange.</p></div>
+  </div>
+</div>

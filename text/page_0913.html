@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Procesul Dirichlet - Definitie formala</h2>
+  <p>Aceasta pagina defineste formal procesul Dirichlet (DP), prin analogie cu procesul gaussian, si prezinta proprietatile sale fundamentale.</p>
+  <div class="definition-box"><strong>Procesul Dirichlet:</strong> O distributie peste masuri de probabilitate G: Theta -> R+, definita implicit prin cerinta ca (G(T_1),...,G(T_K)) ~ Dir(alpha*H(T_1),...,alpha*H(T_K)) pentru orice partitie finita (T_1,...,T_K) a lui Theta. Notatie: G ~ DP(alpha, H).</div>
+  <div class="definition-box"><strong>Parametrul de concentrare (alpha):</strong> Controleaza cat de concentrata este distributia in jurul masurii de baza H. Alpha mai mare inseamna distributii mai apropiate de H.</div>
+  <div class="definition-box"><strong>Masura de baza (H):</strong> Media procesului Dirichlet; E[G(T_i)] = H(T_i) pentru orice partitie.</div>
+  <div class="highlight-box"><strong>Proprietatea de consistenta:</strong> Daca T_1 si T_2 formeaza o partitie a lui T_1_tilda, atunci G(T_1) + G(T_2) si G(T_1_tilda) urmeaza aceeasi distributie, asigurand o definitie coerenta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina defineste formal procesul Dirichlet prin analogie cu procesul gaussian: asa cum GP-ul defineste distributii pe functii prin cerinta ca orice evaluare finita sa fie gaussian multivariata, DP-ul defineste distributii pe masuri de probabilitate prin cerinta ca orice partitie finita sa urmeze distributia Dirichlet. Figura 25.4 ilustreaza masura de baza H si doua partitii ale spatiului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>DP-ul este un "proces neutru": cunoasterea lui G(T_k) nu spune nimic despre G(T_k') dincolo de constrangerea sumei la 1. Marginala fiecarei celule este Beta. Distributia predictiva a modelului Dirichlet-multinomial (ecuatia 25.19) apare ca caz special.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Definirea riguroasa a DP-ului este importanta pentru garantarea proprietatilor teoretice ale modelelor non-parametrice bayesiene utilizate in practica, inclusiv consistenta posterioara si ratele de convergenta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea distributiei veniturilor intr-o populatie, DP-ul permite specificarea unei masuri de baza (de exemplu, log-normala) care reprezinta credinta a priori, iar alpha controleaza cat de mult se permite datelor sa devieze de la aceasta credinta.</p></div>
+  </div>
+</div>

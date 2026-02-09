@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Kernelul Matern (continuare), Procesul Ornstein-Uhlenbeck si String Kernels</h2>
+  <p>Pagina continua discutia despre kernelul Matern (cazuri speciale) si introduce Sectiunea 14.2.6 despre string kernels pentru compararea secventelor de lungime variabila.</p>
+  <div class="highlight-box"><strong>Cazuri speciale Matern (Eq. 14.21):</strong> Cu nu = 1/2: kappa(r) = exp(-r/l) (proces Ornstein-Uhlenbeck). Cu D = 1, aceasta defineste un GP cu traiectorii continue dar nediferentiabile ("jagged"). Pe masura ce nu -> infinit, kernelul Matern converge la SE/RBF kernel (infinit neted).</div>
+  <div class="definition-box"><strong>String kernel (Sectiunea 14.2.6, Eq. 14.22):</strong> kappa(x, x') = suma_{s in A*} w_s phi_s(x) phi_s(x'), unde phi_s(x) numara aparitiile substringului s in x, A* este multimea tuturor stringurilor. Este Mercer, calculabil in O(|x| + |x'|) cu suffix trees. Variante: bag-of-characters (w_s = 0 pt |s| > 1), bag-of-words, k-spectrum kernel.</div>
+  <div class="highlight-box"><strong>Exemplu secvente proteice:</strong> Doua secvente de aminoacizi de lungimi 110 si 153, definite pe alfabetul de 20 litere. Substringul comun "LQE" apare in ambele. k-spectrum kernel (k=3) numara substrings de lungime k comune, folosit pentru clasificarea proteinelor in superfamilii SCOP.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>String kernels demonstreaza puterea kernelurilor pentru date structurate: permit compararea secventelor de lungimi diferite fara aliniere, folosind numarul de substrings comune ca masura de similaritate. Aceasta abordare este fundamentala in bioinformatica (secvente de proteine/ADN) si NLP (clasificarea textului).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ierarhia string kernels: bag-of-characters (cel mai simplu, pierde ordinea) -> bag-of-words (pastreaza cuvinte) -> k-spectrum (substrings de lungime k) -> mismatch kernel (permite erori). Fiecare nivel adauga complexitate si putere expresiva, dar si cost computational.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>String kernels cu SVM au fost state-of-the-art in clasificarea proteinelor (remote homology detection) inainte de deep learning. Raman relevante cand datele sunt limitate. Implementari: shogun library, scikit-learn (cu kernel personalizat).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In securitatea cibernetica, string kernels sunt folosite pentru detectia de malware prin compararea secventelor de apeluri de sistem (system calls), identificand programe malitioase pe baza similaritatii comportamentale fara decompilare.</p></div>
+  </div>
+</div>

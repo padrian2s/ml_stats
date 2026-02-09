@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Clustering aglomerativ - Algoritm si tipuri de legatura</h2>
+  <p>Aceasta pagina prezinta pseudo-codul clustering-ului aglomerativ (Algoritmul 25.2), dendrograma rezultanta si cele trei tipuri principale de legatura (linkage).</p>
+  <div class="definition-box"><strong>Algoritmul aglomerativ:</strong> Initializeaza fiecare obiect ca un cluster singleton, apoi repeta: gaseste cele doua clustere cele mai similare, le imbina, si actualizeaza matricea de disimilaritate, pana ramane un singur cluster.</div>
+  <div class="definition-box"><strong>Single linkage (legatura simpla):</strong> Distanta intre doua grupuri este distanta minima intre orice pereche de puncte, cate un punct din fiecare grup. Tinde sa produca clustere lungi si subtiri ("efect de lant").</div>
+  <div class="definition-box"><strong>Complete linkage (legatura completa):</strong> Distanta intre grupuri este distanta maxima intre orice pereche. Produce clustere compacte dar poate fi prea conservatoare.</div>
+  <div class="definition-box"><strong>Average linkage (legatura medie):</strong> Media distantelor intre toate perechile de puncte. Compromis intre single si complete linkage.</div>
+  <div class="highlight-box"><strong>Complexitate:</strong> O(N^3) naiv, reducibil la O(N^2 log N) cu coada de prioritate. Pentru N mare, se poate rula mai intai K-means si apoi clustering ierarhic pe centrele clusterelor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta algoritmul complet si ilustreaza cele trei variante de legatura (Figura 25.14). Single linkage conecteaza cele mai apropiate puncte si poate produce "lanturi"; complete linkage foloseste cele mai indepartate puncte, producand clustere compacte; average linkage este un compromis. Alegerea legaturii afecteaza dramatic rezultatul.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tipul de legatura incorporeaza implicit o presupunere despre forma clusterelor: single linkage permite forme arbitrare dar este sensibila la zgomot, complete linkage presupune clustere sferice, average linkage ofera un echilibru. Nu exista o alegere universal optima.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, average linkage si Ward's method (care minimizeaza varianta intra-cluster) sunt cele mai folosite. Single linkage este utila pentru detectarea formelor non-convexe, dar sensibilitatea la zgomot o face mai putin practica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In taxonomia biologica, alegerea legaturii afecteaza arborele filogenetic rezultat: single linkage poate grupa incorect specii indepartate prin intermediari, in timp ce complete linkage poate separa specii inrudite dar morfologic diverse.</p></div>
+  </div>
+</div>

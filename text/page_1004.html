@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Modelul Stochastic de Blocuri cu Apartenenta Mixta (MMSB) (Capitolul 27.5.2)</h2>
+  <p>Pagina prezinta modelul MMSB care permite nodurilor sa apartina mai multor blocuri simultan, si analiza retelei sociale a calugarilor lui Sampson.</p>
+  <div class="definition-box"><strong>MMSB (Mixed Membership Stochastic Block Model):</strong> Extensie care inlocuieste apartanenta discreta q_i cu un vector de probabilitati π_i ∈ S_K. Procesul generativ: π_i ~ Dir(α), η_{a,b} ~ β(α, β), q_{i→j} ~ Cat(π_i), q_{i←j} ~ Cat(π_j), p(R_ij=1|q_{i→j}=a, q_{i←j}=b, η) = η_{a,b} (27.77-27.78).</div>
+  <div class="definition-box"><strong>Incertitudine ontologica vs. epistemologica:</strong> π_ik reprezinta incertitudinea ontologica (in ce masura un obiect apartine unui cluster), spre deosebire de p(z_i=k|D) care reprezinta incertitudinea epistemologica (caruia cluster ii apartine obiectul). MMSB permite combinarea ambelor tipuri.</div>
+  <div class="figure-box"><strong>Figura 27.22:</strong> (a) Graful "cine pe cine apreciaza" pentru calugarii lui Sampson. (b) Apartenenta mixta a fiecarui calugar la 3 grupuri (K=3): "tinerii turci", "proscrisii" si "opozitia loiala". Calugarul 15 apartine la doua clustere, fiind clasificat de Sampson ca "indecis".</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MMSB generalizeaza modelul stochastic de blocuri permitand apartenenta fuzzy la clustere, similar cu clusteringul soft. Distinctia intre incertitudinea ontologica si cea epistemologica este profunda: un nod poate apartine simultan mai multor comunitati (ontologic), nu doar sa fie incert in privinta comunitatii sale (epistemologic). Analiza retelei lui Sampson demonstreaza ca modelul recupereaza automat aceleasi insight-uri obtinute manual.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>In MMSB, fiecare muchie presupune esantionarea separata a rolurilor celor doua noduri, permitand unui nod sa joace roluri diferite in relatii diferite. Modelarea datelor lipsa este cruciala: absenta evidentei nu este evidenta a absentei - un R_ij=0 poate insemna lipsa interactiunii sau lipsa oportunitatii de interactiune.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Analiza retelelor sociale cu apartenente multiple (persoane care fac parte din mai multe comunitati), modelarea interactiunilor organizationale, analiza retelelor de co-autorat in academia si detectarea comunitatilor overlapping in retele complexe.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un cercetator poate apartine simultan comunitatii de "machine learning" (70%), "neurostiinta computationala" (20%) si "statistica" (10%), reflectand interesele sale de cercetare multiple, nu incertitudinea asupra unui singur domeniu.</p></div>
+  </div>
+</div>

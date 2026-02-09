@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii: eliminarea variabilelor si propagarea mesajelor</h2>
+  <p>Aceasta pagina contine exercitii practice despre eliminarea variabilelor, demonstrarea produsului de Gaussiene si propagarea mesajelor pe arbori.</p>
+  <div class="definition-box"><strong>Exercitiul 20.1 - Eliminarea variabilelor:</strong> Se cere aplicarea VE pe un MRF cu 6 noduri in diferite ordini de eliminare (1,2,3,4,5,6 si 4,1,2,3,5,6), comparand dimensiunea factorilor intermediari si clicile maximale ale grafului indus.</div>
+  <div class="definition-box"><strong>Exercitiul 20.3 - Propagarea mesajelor pe arbori:</strong> Un model biologic cu genotipuri G_i (sanatoase sau bolnave) si tensiuni arteriale X_i continue. CPD-urile specifice probabilitatile de mostenire si distributiile de observatie Gaussiene.</div>
+  <div class="highlight-box"><strong>Impactul ordinii de eliminare:</strong> Exercitiul demonstreaza ca ordinea de eliminare afecteaza dramatic dimensiunea factorilor: ordinea 1,2,3,4,5,6 produce un factor maxim de dimensiune 3, in timp ce o ordine gresita poate produce factori de dimensiune 5 sau mai mare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile din acest capitol acopera concepte fundamentale: impactul ordinii de eliminare asupra complexitatii (Exercitiul 20.1), demonstratia formala ca produsul de Gaussiene este Gaussiana (Exercitiul 20.2), si aplicarea BP la un model genetic simplu (Exercitiul 20.3). Modelul genetic demonstreaza cum inferenta Bayesiana combina informatia genetica cu observatiile medicale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exercitiile subliniaza ca ordinea de eliminare determina treewidth-ul efectiv si complexitatea. Modelul genetic combina variabile discrete (genotip) si continue (tensiune) intr-un model mixt, necesitand tehnici speciale de inferenta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelul genetic din Exercitiul 20.3 este un exemplu simplificat de analiza pedigree-ului, folosita in genetica medicala pentru estimarea riscului de boli ereditare pe baza istoricului familial si a testelor medicale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un medic observa tensiunile arteriale ale membrilor unei familii (X_2=50 normal, X_3=60 ridicat). Folosind modelul genetic si BP, poate calcula probabilitatea ca parintele sa aiba gena bolnavă, p(G_1=2|X_2=50, X_3=60).</p></div>
+  </div>
+</div>

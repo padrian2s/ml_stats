@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>TrueSkill - Potrivirea momentelor si functiile Psi si Lambda</h2>
+  <p>Aceasta pagina detaliaza pasii 4-5 ai algoritmului TrueSkill EP, introducand functiile Psi si Lambda pentru potrivirea momentelor cu Gaussiana truncata.</p>
+  <div class="definition-box"><strong>Functia Psi:</strong> Psi(x) = N(x|0,1)/Phi(x), raportul dintre densitatea Gaussiana standard si functia de repartitie. Controleaza actualizarea mediei: mu_g^t = y_g*mu_{h_g->d_g}^t + sigma_{h_g->d_g}^t * Psi(y_g*mu/sigma).</div>
+  <div class="definition-box"><strong>Functia Lambda:</strong> Lambda(x) = Psi(x)*(Psi(x)+x), controleaza actualizarea variantei: v_g^t = v_{h_g->d_g}^t * [1 - Lambda(y_g*mu/sigma)]. Lambda este intotdeauna pozitiva, deci varianta scade dupa incorporarea observatiei.</div>
+  <div class="highlight-box"><strong>Interpretare intuitiva:</strong> Cand mu_{h_g->d_g} este mare si pozitiv, ne asteptam ca i_g sa castige. Daca observam y_g=+1 (castig confirmat), Psi si Lambda sunt mici, deci actualizarile sunt mici (nu suntem surprinsi). Daca observam y_g=-1 (surpriza!), actualizarile sunt mari.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza pasii algoritmului TrueSkill cu formulele de potrivire a momentelor (pasul 4) si mesajul ascendent de la diferenta la factorul de joc (pasul 5). Functiile Psi si Lambda sunt specifice Gaussienei truncate si au interpretari intuitive legate de surpriza rezultatului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Surpriza (masura in care rezultatul contrazice asteptarea) determina magnitudinea actualizarii. Rezultate asteptate produc actualizari mici, rezultate surprinzatoare produc actualizari mari - un principiu fundamental in inferenta Bayesiana.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Functiile Psi si Lambda apar si in regresia probit Bayesiana si in alte modele cu Gaussiene truncate. Implementarea lor numerica stabila este importanta pentru evitarea problemelor cu valori extreme.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Cand un jucator de rang scazut bate un campion pe Xbox Live, rezultatul este foarte surprinzator, deci Psi este mare si actualizarile de rating sunt semnificative: invinsul urca mult, iar campionul coboara mult.</p></div>
+  </div>
+</div>

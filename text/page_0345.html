@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>10.2.3 Reteaua Alarm si Reteaua QMR - Figuri</h2>
+  <p>Pagina contine Figura 10.5 cu vizualizarile retelei Alarm si retelei QMR pentru diagnosticul medical.</p>
+  <div class="figure-box"><strong>Figura 10.5(a):</strong> Reteaua Alarm - o retea bayesiana complexa cu 37 de noduri reprezentand variabile medicale din terapie intensiva. Include noduri pentru: MinVolSet, Disconnect, VentMach, VentTube, KinkedTube, Press, VentLung, Intubation, PulmEmbolus, Shunt, FIO2, MinVol, VentAlv, PVSAT, Artco2, SAO2, Catechol, ExpCo2, AnaphyLaxis, TPR, HR, ErrCauter, HypoVolemia, StrokeVolume, LvFailure, CO, ErrLowOutput, HRBP, HrEKG, HRSAT, History, LvedVolume, CVP, PCWP, BP. Arcele directionate codifica relatiile cauzale intre variabilele medicale.</div>
+  <div class="figure-box"><strong>Figura 10.5(b):</strong> Reteaua QMR - o retea bayesiana bipartita cu doua straturi: stratul superior cu 570 de boli (gripa, boala de inima, botulism etc.) si stratul inferior cu 4075 de simptome (sex=F, numar WBC, durere abdominala etc.). Arcele merg de la boli la simptome, indicand relatia cauzala: bolile cauzeaza simptomele.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cele doua retele bayesiene ilustreaza extremele designului: reteaua Alarm are o structura complexa cu legaturi non-triviale intre variabile (create de experti), in timp ce reteaua QMR are o structura simpla bipartita dar la scara mare. Ambele demonstreaza cum DGM-urile pot codifica cunostintele medicale intr-o forma computationala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Reteaua Alarm arata ca relatiile medicale sunt adesea nelineare si multi-nivel (de exemplu, un embolism pulmonar afecteaza shunt-ul, care afecteaza saturatia de oxigen). Reteaua QMR arata puterea structurii bipartite: cu doar doua straturi si modelul noisy-OR, se pot codifica mii de relatii boala-simptom cu un numar rezonabil de parametri.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Sistemele moderne de suport decizional clinic se bazeaza pe principii similare, desi folosesc tehnici mai avansate. Structura bipartita a QMR a inspirat modele generative precum masinile Boltzmann restrictionate (RBM) si autoencoderele variationala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un medic din terapie intensiva poate folosi un sistem bazat pe reteaua Alarm pentru a primi alerte automatizate: daca tensiunea arteriala scade si debitul cardiac scade, sistemul calculeaza probabilitatea de hipovolemie sau insuficienta ventriculara stanga si alerteaza medicul cu diagnosticul cel mai probabil.</p></div>
+  </div>
+</div>

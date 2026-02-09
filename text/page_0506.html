@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii Capitolul 13: Verosimilitate Marginala, Elastic Net, Shrinkage si Spike-and-Slab</h2>
+  <p>Pagina prezinta exercitiile 13.4-13.7 care acopera verosimilitatea marginala cu g-prior, reducerea elastic net la LASSO, shrinkage in regresie liniara si priorul pe rata Bernoulli in spike-and-slab.</p>
+  <div class="highlight-box"><strong>Exercitiul 13.4 - Verosimilitate marginala cu g-prior (Eq. 13.190-13.191):</strong> Cu Sigma_gamma = g(X_gamma^T X_gamma)^{-1}, p(D|gamma) proportional cu (1+g)^{-D_gamma/2} (2b_sigma + S(gamma))^{-(2a_sigma + N - 1)/2}, unde S(gamma) = y^T y - g/(1+g) y^T X_gamma (X_gamma^T X_gamma)^{-1} X_gamma^T y.</div>
+  <div class="highlight-box"><strong>Exercitiul 13.5 - Reducerea elastic net la LASSO (Eq. 13.192-13.196):</strong> J_1(w) = |y - Xw|^2 + lambda_2|w|^2 + lambda_1|w|_1 se poate rescrie ca J_2(w) = |y_tilde - X_tilde w|^2 + c lambda_1 |w|_1, cu X_tilde = c(X; sqrt(lambda_2) I), y_tilde = (y; 0). Deci elastic net se rezolva cu un solver LASSO pe date augmentate.</div>
+  <div class="highlight-box"><strong>Exercitiul 13.6 - Shrinkage (Figura 13.24):</strong> In design ortogonal, cele 3 metode produc: (1) OLS: w_hat = c_k (linia dreapta), (2) Ridge: w_hat = c_k/(1+lambda_2) (linie cu panta < 1), (3) LASSO: w_hat = soft(c_k, lambda_1) (soft thresholding). Exercitiul cere identificarea metodelor din grafic si determinarea valorilor lambda.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile 13.4-13.7 acopera aspecte teoretice si practice importante. Exercitiul 13.4 deriveaza verosimilitatea marginala cu g-prior (utila pentru BMA). Exercitiul 13.5 arata ca elastic net este echivalent cu LASSO pe date augmentate, simplificand implementarea. Exercitiul 13.6 vizualizeaza diferentele dintre OLS, ridge si LASSO in cazul ortogonal.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Reducerea elastic net la LASSO (Ex. 13.5) este un truc elegant: se adauga lambda_2 I la X si zerouri la y, transformand penalizarea l2 in RSS pe date augmentate. Aceasta permite reutilizarea directa a solverilor LASSO (glmnet) pentru elastic net, fara cod suplimentar.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Trucul de augmentare din Ex. 13.5 este folosit in practica in glmnet (R) si scikit-learn. G-prior-ul din Ex. 13.4 este popular in selectia Bayesiana de variabile deoarece are un singur hiperparametru (g) si forma analitica a verosimilitudinii marginale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile GWAS (genome-wide association), g-prior-ul cu BMA permite calculul probabilitatilor de includere a fiecarui SNP, oferind o masura naturala a importantei genetice care integreaza incertitudinea modelului.</p></div>
+  </div>
+</div>

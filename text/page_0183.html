@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Dependenta MAP de Parametrizare si Intervale Credibile</h2>
+  <p>Pagina demonstreaza prin exemplul distributiei Bernoulli ca MAP depinde de parametrizare si introduce conceptul de interval credibil bayesian.</p>
+  <div class="definition-box"><strong>Interval credibil (Credible interval):</strong> Un interval C = (l, u) care contine 100(1-α)% din masa probabilitatii posterioare: C_α(D) = (l, u) : P(l ≤ θ ≤ u|D) = 1 - α (Ecuatia 5.8).</div>
+  <div class="definition-box"><strong>Interval central:</strong> Un interval credibil ales astfel incat exista (1-α)/2 masa probabilitatii in fiecare coada a distributiei.</div>
+  <div class="highlight-box"><strong>Exemplu Bernoulli:</strong> Cu μ ~ Uniform(0,1), reparametrizand θ = √μ obtinem p_θ(θ) = 2θ cu θ_MAP = 1, iar cu φ = 1-√(1-μ) obtinem p_φ(φ) = 2(1-φ) cu φ_MAP = 0. MAP-ul depinde complet de parametrizare!</div>
+  <div class="highlight-box"><strong>Estimare independenta de parametrizare:</strong> θ_hat = argmax_θ p(D|θ)p(θ)|I(θ)|^(-1/2) (Ecuatia 5.7), unde I(θ) este matricea de informatie Fisher.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exemplul lui Michael Jordan demonstreaza dramatic dependenta MAP de parametrizare: pentru aceeasi distributie Bernoulli, trei parametrizari diferite dau trei MAP-uri diferite (mode de la 0 la 1). Solutia propusa (Ecuatia 5.7) foloseste matricea de informatie Fisher pentru independenta de parametrizare, dar este dificil de optimizat. Sectiunea 5.2.2 introduce intervalele credibile ca alternativa la estimarile punctuale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Intervalul central se calculeaza folosind l = F⁻¹(α/2) si u = F⁻¹(1-α/2), unde F este CDF-ul posterioarei. Pentru o posterioara gaussiana N(0,1) cu α=0.05, obtinem intervalul (-1.96, 1.96), justificand conventia μ ± 2σ.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intervalele credibile bayesiene sunt mult mai intuitive decat intervalele de incredere frecventiste: un interval credibil de 95% inseamna ca exista o probabilitate de 95% ca parametrul sa fie in acel interval, conditionat de datele observate. Aceasta interpretare directa le face foarte utile in comunicarea rezultatelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Daca observam 47 de capete din 100 de aruncari de moneda, posterioara este Beta(48,54), iar intervalul credibil de 95% este aproximativ (0.3749, 0.5673). Aceasta ne spune direct ca suntem 95% siguri ca probabilitatea de cap este in acest interval.</p></div>
+  </div>
+</div>

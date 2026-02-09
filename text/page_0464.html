@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LASSO: Soft Thresholding si Conditii de Optimalitate</h2>
+  <p>Pagina deriveaza conditiile de optimalitate pentru LASSO prin subgradient, introduce operatorul de soft thresholding si il compara cu hard thresholding.</p>
+  <div class="highlight-box"><strong>Figura 13.5:</strong> (a) Soft thresholding: w_hat vs c_j. Coeficientii cu |c_j| < lambda sunt pusi la zero, restul sunt "micsortati" cu lambda. (b) Hard thresholding: coeficientii cu |c_j| < lambda sunt pusi la zero, restul raman neschimbati.</div>
+  <div class="highlight-box"><strong>Subgradientul LASSO (Eq. 13.51-13.53):</strong> partial_{w_j} f(w) = (a_j w_j - c_j) + lambda * partial|w_j|. Conditia 0 in partial f: cand |c_j| <= lambda, w_j = 0 este optim (feature slab corelat cu reziduul).</div>
+  <div class="definition-box"><strong>Soft thresholding (Eq. 13.54-13.56):</strong> w_hat_j = soft(c_j/a_j; lambda/a_j) = sign(c_j/a_j)(|c_j/a_j| - lambda/a_j)_+. Pastreaza semnul, scade magnitudinea cu lambda/a_j si pune la zero daca rezultatul este negativ.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Conditiile de optimalitate LASSO se reduc la operatorul de soft thresholding: fiecare coeficient w_j este determinat de corelatia c_j a feature-ului j cu reziduul. Daca |c_j| <= lambda, feature-ul este "prea slab" si w_j = 0. Daca |c_j| > lambda, w_j este "micsorat" spre zero cu lambda - de aici numele "shrinkage".</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Comparatia soft vs hard thresholding: soft thresholding (LASSO) micsoreaza si coeficientii mari, introducand bias. Hard thresholding (selectie subset) pastreaza coeficientii mari intacti dar nu este convex. Aceasta diferenta motiveaza metode precum SCAD si MCP care combina avantajele ambelor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Soft thresholding este operatorul proximal al normei l1, folosit in algoritmii ISTA/FISTA. Este extrem de eficient: O(D) per iteratie, cu convergenta liniara. Coordinate descent aplica soft thresholding pe fiecare coordonata secvential.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In denoising-ul de imagini wavelet, soft thresholding al coeficientilor wavelet este metoda clasica (VisuShrink): coeficientii mici (zgomot) sunt eliminati, cei mari (semnal) sunt pastrati dar micsortati.</p></div>
+  </div>
+</div>

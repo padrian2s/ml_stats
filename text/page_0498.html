@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmi ARD: Actualizari EM, Punct Fix si Reweighted l1</h2>
+  <p>Pagina continua cu actualizarile EM pentru alpha si beta, introduce algoritmul cu punct fix (mai rapid) si algoritmul iterativ reweighted l1 pentru ARD.</p>
+  <div class="highlight-box"><strong>Actualizari EM simplificate (Eq. 13.167-13.168):</strong> Cand alpha_j = alpha (partajat) si a=b=0: alpha = D / (mu^T mu + tr(Sigma)). Actualizare beta: beta_new^{-1} = (||y - X mu||^2 + beta^{-1} suma (1 - alpha_j Sigma_jj) + 2d) / (N + 2c).</div>
+  <div class="definition-box"><strong>Algoritmul cu punct fix (Sectiunea 13.7.4.2, Eq. 13.169-13.171):</strong> Optimizarea directa a obiectivului (Eq. 13.155): alpha_j <- (gamma_j + 2a) / (m_j^2 + 2b), beta^{-1} <- (||y - X mu||^2 + 2d) / (N - suma gamma_j + 2c), unde gamma_j = 1 - alpha_j Sigma_jj masoara cat de bine este determinat w_j de date.</div>
+  <div class="highlight-box"><strong>Algoritmul iterativ reweighted l1 (Sectiunea 13.7.4.3, Eq. 13.172):</strong> ARD reformulat ca problema MAP: w^{t+1} = argmin NLL(w) + suma lambda_j^{(t)} |w_j|. La fiecare iteratie, penalitatile lambda_j sunt actualizate in functie de ponderile curente, producand regularizare adaptiva.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta trei algoritmi pentru ARD cu compromisuri diferite: EM (simplu, convergenta lenta), punct fix (mai rapid, echivalent la convergenta), si reweighted l1 (reformulare ca secventa de probleme LASSO). Cantitatea gamma_j (grade efective de libertate) este centrala: masoara influenta datelor vs. priorului pentru fiecare pondere.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Gradele efective de libertate gamma = suma gamma_j sunt analogul Bayesian al numarului de parametri. Cand alpha_j -> infinit, gamma_j -> 0 (parametru eliminat). Cand alpha_j -> 0, gamma_j -> 1 (parametru complet determinat de date). Aceasta masura apare si in teoria informatiei (complexitate stochastic).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul cu punct fix converge mai rapid decat EM si este recomandat in practica. Algoritmul reweighted l1 permite reutilizarea solverilor LASSO existenti (glmnet, FISTA) ca sub-rutine, facilitand implementarea ARD in framework-uri existente.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In compressed sensing pentru imagistica medicala (MRI accelerat), algoritmul reweighted l1 imbunatateste reconstructia imaginilor fata de LASSO standard, deoarece reduce bias-ul pe coeficientii mari (semnalul real) prin penalitati adaptive.</p></div>
+  </div>
+</div>

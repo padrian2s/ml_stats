@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 21. Inferenta Variationala - VBEM GMM: Pasul M si Limita Inferioara (p.753)</h2>
+  <p>Aceasta pagina prezinta Figura 21.7 (limita inferioara vs iteratii), formulele complete pentru pasul M variational al termenilor μₖ si Λₖ, si limita inferioara pe verosimilitatea marginala.</p>
+  <div class="figure-box"><strong>Figura 21.7:</strong> Limita inferioara vs iteratii pentru algoritmul VB aplicat la GMM pe datele Old Faithful. Partile abrupte corespund „eliminarii" componentelor de mixtura inutile. Platouriie corespund ajustarii lente a clusterelor.</div>
+  <div class="highlight-box"><strong>Actualizarile pasului M (μₖ, Λₖ):</strong> q(μₖ, Λₖ) = N(μₖ|mₖ, (βₖΛₖ)⁻¹)Wi(Λₖ|Lₖ, νₖ), cu βₖ = β₀ + Nₖ, mₖ = (β₀m₀ + Nₖx̄ₖ)/βₖ, νₖ = ν₀ + Nₖ + 1.</div>
+  <div class="highlight-box"><strong>Matricea de scala:</strong> Lₖ⁻¹ = L₀⁻¹ + NₖSₖ + β₀Nₖ/(β₀+Nₖ)(x̄ₖ-m₀)(x̄ₖ-m₀)ᵀ, unde Sₖ = 1/Nₖ Σᵢ rᵢₖ(xᵢ-x̄ₖ)(xᵢ-x̄ₖ)ᵀ.</div>
+  <div class="highlight-box"><strong>Limita inferioara:</strong> L = Σ_z ∫ q(z,θ) log[p(x,z,θ)/q(z,θ)]dθ ≤ log p(D), care creste monoton la fiecare iteratie.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza derivarea VBEM pentru GMM cu formulele explicite pentru actualizarea parametrilor Normal-Wishart si limita inferioara pe verosimilitatea marginala. Figura 21.7 demonstreaza comportamentul de „eliminare" automata a componentelor inutile.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Formulele sunt foarte similare cu estimarea MAP (Sectiunea 11.4.2.8), dar calculeaza parametrii posteriorului, nu estimari punctuale. Salturile in limita inferioara indica momentele in care algoritmul „elimina" componente de mixtura inutile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Monitorizarea limitei inferioare permite detectarea convergentei si a momentelor de restructurare a modelului. Acest mecanism este util in sisteme de productie care trebuie sa se adapteze automat la schimbari in structura datelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Datele Old Faithful (eruptii geyser) demonstreaza perfect cum VBEM identifica automat doua moduri de eruptie (scurte si lungi) dintr-un model initial cu mai multe componente.</p></div>
+  </div>
+</div>

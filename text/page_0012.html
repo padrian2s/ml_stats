@@ -1,0 +1,38 @@
+<div class="page-content">
+  <h2>Cuprins (Partea 5)</h2>
+
+  <p>Continuarea cuprinsului cu Capitolele 7 si 8.</p>
+
+  <div class="definition-box"><strong>Capitolul 7 - Regresia Liniara (p. 217):</strong>
+    7.1 Introducere; 7.2 Specificarea modelului;
+    7.3 Estimarea prin maximum likelihood (metoda celor mai mici patrate) - derivarea MLE (p. 219), interpretare geometrica (p. 220), convexitate (p. 221);
+    7.4 Regresia liniara robusta (p. 223);
+    7.5 Regresia Ridge (p. 225) - ideea de baza, calcul numeric stabil, conexiunea cu PCA, efectele regularizarii pe date mari;
+    7.6 Regresia liniara bayesiana (p. 231) - calculul posteriorului, distributia predictiva posterioara, inferenta bayesiana cand σ² este necunoscut, Bayes empiric pentru regresie liniara.</div>
+
+  <div class="definition-box"><strong>Capitolul 8 - Regresia Logistica (p. 245):</strong>
+    8.1 Introducere; 8.2 Specificarea modelului; 8.3 Antrenarea modelului - MLE, gradient descent, metoda Newton, IRLS, metode quasi-Newton, regularizare ℓ₂, regresie logistica multi-clasa;
+    8.4 Regresia logistica bayesiana - aproximarea Laplace, derivarea BIC, aproximarea Gaussiana;
+    8.5 Invatare online si optimizare stocastica - minimizarea regretului, SGD, algoritmul LMS, perceptronul;
+    8.6 Clasificatori generativi vs. discriminativi (p. 267) - avantaje si dezavantaje, date lipsa, analiza discriminanta liniara a lui Fisher.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section">
+      <h4>Rezumat</h4>
+      <p>Capitolele 7 si 8 acopera cele doua modele liniare fundamentale: regresia liniara (pentru probleme de regresie) si regresia logistica (pentru probleme de clasificare). Ambele sunt prezentate atat din perspectiva frequentista (MLE) cat si din cea bayesiana.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Tipare Cheie</h4>
+      <p>Se observa un tipar consistent: fiecare model este prezentat prin specificare → antrenare (MLE) → regularizare → versiunea bayesiana. Aceasta structura se repeta in multe capitole ale cartii.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Aplicatii Practice</h4>
+      <p>Regresia logistica (cap. 8) este unul dintre cele mai utilizate modele in industrie, de la scoring-ul de credit bancar la clasificarea imaginilor medicale. SGD (8.5) este algoritmul de baza pentru antrenarea retelelor neuronale moderne.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Exemplu din Lumea Reala</h4>
+      <p>O banca foloseste regresia logistica regularizata (8.3.6) pentru a prezice probabilitatea de neplata a unui credit. Regularizarea previne supraajustarea pe datele istorice, iar interpretabilitatea modelului este importanta pentru conformitatea cu reglementarile.</p>
+    </div>
+  </div>
+</div>

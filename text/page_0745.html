@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul de eliminare a variabilelor</h2>
+  <p>Aceasta pagina introduce algoritmul de eliminare a variabilelor (VE) pentru calculul marginalelor exacte in orice graf, folosind exemplul DGM-ului "student".</p>
+  <div class="definition-box"><strong>Algoritmul de eliminare a variabilelor (VE):</strong> Un algoritm general de inferenta exacta care calculeaza marginalele prin eliminarea succesiva a variabilelor, "impingand sumele in interiorul produselor" pentru a evita enumerarea tuturor configuratiilor posibile.</div>
+  <div class="definition-box"><strong>Moralizare pentru VE:</strong> Inainte de a aplica VE, DGM-ul este convertit in UGM prin moralizare (adaugarea de muchii intre parintii "necastoriti" si eliminarea orientarii arcelor). Potentialele UGM-ului sunt pur si simplu CPD-urile DGM-ului: ψ_C(C) = P(C), ψ_D(D,C) = P(D|C), etc.</div>
+  <div class="highlight-box"><strong>Eficienta VE:</strong> In loc de O(2^7) operatii (enumerarea tuturor configuratiilor a 7 variabile binare complementare), VE reduce complexitatea prin factorizare si eliminare secventiala, creand factori intermediari de dimensiune redusa.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>VE generalizeaza BP la grafuri arbitrare. Ideea cheie este "pushing sums inside products" (impingerea sumelor in interiorul produselor): in loc de a suma peste toate configuratiile, se factorizeaza expresia si se elimina variabilele una cate una, creand factori intermediari. Exemplul "student" cu 8 variabile binare demonstreaza cum conversia DGM -> UGM prin moralizare permite aplicarea VE.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>VE este echivalent cu BP pe arbori, dar se generalizeaza la grafuri cu cicluri. Ordinea de eliminare a variabilelor afecteaza complexitatea (dimensiunea factorilor intermediari). Moralizarea este necesara doar pentru unificarea tratamentului DGM/UGM; complexitatea inferentei este esential aceeasi.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>VE este baza algoritmilor de inferenta in sisteme de diagnostic (HUGIN), retele Bayesiene si modelarea riscului. Este folosit cand BP pe arbori nu este direct aplicabil din cauza ciclurilor in graf.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelul "student" (note, dificultate, inteligenta, SAT, recomandare, job, fericire), VE poate calcula probabilitatea ca studentul sa obtina un job, p(J=1), eliminand pe rand celelalte variabile, in loc de a enumera toate cele 128 de configuratii posibile.</p></div>
+  </div>
+</div>

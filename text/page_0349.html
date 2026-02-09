@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>10.2.5 Modele Grafice Gaussiene Directionate (continuare) si 10.3 Inferenta</h2>
+  <p>Pagina deriva matricea de covarianta Σ din ponderile de regresie ale retelei Bayes gaussiene si introduce problema inferentei probabilistice in modelele grafice.</p>
+  <div class="highlight-box"><strong>Vectorul de erori (10.17):</strong> e = Sz, unde S = diag(σ) si z ~ N(0, I).</div>
+  <div class="highlight-box"><strong>Eroarea reformulata (10.18):</strong> e = (I - W)(x - μ), unde W este matricea de ponderi de regresie (inferior triunghiulara).</div>
+  <div class="highlight-box"><strong>Structura inferior triunghiulara (10.19):</strong> Matricea I - W are 1 pe diagonala si -w_{ts} sub diagonala, reflectand ordonarea topologica a DAG-ului.</div>
+  <div class="highlight-box"><strong>Inversarea (10.20):</strong> x - μ = (I - W)^{-1} e = USz, unde U = (I - W)^{-1}.</div>
+  <div class="highlight-box"><strong>Matricea de covarianta (10.21-10.22):</strong> Σ = cov[x] = US cov[z] SU^T = US²U^T, care este descompunerea Cholesky a lui Σ.</div>
+  <div class="definition-box"><strong>Inferenta probabilistica:</strong> Estimarea variabilelor necunoscute din cele cunoscute. Daca x_v sunt variabilele vizibile (observate) si x_h sunt variabilele ascunse, inferenta calculeaza p(x_h|x_v, θ).</div>
+  <div class="highlight-box"><strong>Formula de inferenta (10.23):</strong> p(x_h|x_v, θ) = p(x_h, x_v|θ) / p(x_v|θ) = p(x_h, x_v|θ) / Σ_{x'_h} p(x'_h, x_v|θ), unde p(x_v|θ) este probabilitatea evidentei.</div>
+  <div class="definition-box"><strong>Conditionare (clamping):</strong> Fixarea variabilelor vizibile la valorile lor observate si normalizarea distributiei rezultante.</div>
+  <div name="definition-box"><strong>Probabilitatea evidentei:</strong> Constanta de normalizare p(x_v|θ), numita si verosimilitatea datelor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Derivarea arata ca ponderile de regresie din CPD-urile gaussiene liniare sunt exact factorii din descompunerea Cholesky a matricei de covarianta inverse. Aceasta face legatura profunda intre modelele grafice si algebra liniara. Sectiunea 10.3 introduce inferenta probabilistica - problema centrala a modelelor grafice: calculul distributiei posterioare a variabilelor ascunse date observatiile.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>I - W este inferior triunghiulara si inversabila, deci U = (I - W)^{-1} exista intotdeauna. Σ = US²U^T este o descompunere Cholesky modificata. Inferenta se reduce la conditionare si normalizare, dar calculul sumei din numitor poate fi computational intractabil pentru modele mari.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Inferenta in modele grafice este esentiala in toate aplicatiile: diagnosticare medicala (care este boala?), recunoasterea vorbirii (ce a spus vorbitorul?), viziune computerizata (ce obiecte sunt in imagine?). Eficienta inferentei depinde de structura grafului.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un sistem de diagnosticare, observam simptomele (x_v = febra, tuse) si dorim sa inferem bolile ascunse (x_h = gripa, pneumonie). Inferenta calculeaza p(gripa|febra, tuse) prin conditionare pe simptomele observate si normalizare prin probabilitatea evidentei.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Functii Kernel: RBF Kernel si Kerneluri pentru Compararea Documentelor</h2>
+  <p>Pagina prezinta Sectiunile 14.2.1-14.2.2 despre kernelul RBF (squared exponential/Gaussian), kernelul ARD si kerneluri pentru compararea documentelor (cosine similarity, TF-IDF).</p>
+  <div class="definition-box"><strong>Kernelul RBF/Gaussian (Sectiunea 14.2.1, Eq. 14.1-14.3):</strong> kappa(x, x') = exp(-(1/2)(x-x')^T Sigma^{-1}(x-x')). Cu Sigma diagonal: kappa = exp(-1/2 suma (x_j - x'_j)^2 / sigma_j^2). sigma_j defineste lungimea caracteristica (characteristic length scale). Daca sigma_j = infinit, dimensiunea j este ignorata (kernel ARD). Cu Sigma = sigma^2 I: kappa = exp(-||x-x'||^2 / (2 sigma^2)), kernel izotrop (bandwidth sigma^2).</div>
+  <div class="highlight-box"><strong>Cosine similarity (Eq. 14.4):</strong> kappa(x_i, x_{i'}) = x_i^T x_{i'} / (||x_i||_2 ||x_{i'}||_2). Masoara cosinusul unghiului intre vectorii de cuvinte. Probleme: cuvinte comune (stop words) si burstiness (folosire repetata a aceluiasi cuvant).</div>
+  <div class="definition-box"><strong>TF-IDF (Eq. 14.5-14.7):</strong> Term frequency: tf(x_ij) = log(1 + x_ij). Inverse document frequency: idf(j) = log(N / (1 + suma I(x_ij > 0))). TF-IDF: tf-idf(x_i) = [tf(x_ij) * idf(j)]_{j=1}^V. Kernelul TF-IDF (Eq. 14.8): kappa = phi(x_i)^T phi(x_{i'}) / (||phi(x_i)||_2 ||phi(x_{i'})||_2) cu phi(x) = tf-idf(x).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua familii importante de kerneluri: RBF (pentru date numerice continue) si TF-IDF cosine (pentru documente text). RBF cu bandwidth diferite pe dimensiuni (ARD kernel) permite selectia automata a feature-urilor relevante. TF-IDF rezolva problemele cosine similarity prin reponderea termenilor dupa informativity si frecventa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conexiunea ARD kernel - ARD regression: sigma_j = infinit elimina dimensiunea j, similar cu alpha_j -> infinit in ARD regression. Ambele mecanisme implementeaza automatic relevance determination, dar in contexte diferite (kernel vs. regresie).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>RBF kernel este cel mai popular kernel pentru date numerice (default in scikit-learn SVM). TF-IDF este standard in information retrieval (motoare de cautare, sisteme de recomandare de articole). Alegerea bandwidth-ului sigma este critica: prea mic -> overfitting, prea mare -> underfitting.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In motoarele de cautare (Google, Bing), TF-IDF kernel este folosit ca componenta de baza pentru ranking-ul documentelor, identificand documente relevante prin ponderea termenilor de cautare dupa raritatea lor in corpus.</p></div>
+  </div>
+</div>

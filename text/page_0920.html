@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Propagarea afinitatii - Grafuri de factori si mesaje</h2>
+  <p>Aceasta pagina prezinta comparatia DPMM vs. amestec finit (Figura 25.8), graful de factori pentru propagarea afinitatii (Figura 25.9) si definitia mesajelor de responsabilitate si disponibilitate.</p>
+  <div class="definition-box"><strong>Responsabilitate (r_{i->k}):</strong> Mesajul de la variabila c_i la factorul delta_k, masoara cat de mult punctul i considera ca k ar fi un bun exemplar, comparativ cu celelalte optiuni.</div>
+  <div class="definition-box"><strong>Disponibilitate (a_{i<-k}):</strong> Mesajul de la factorul delta_k la variabila c_i, masoara cat de puternic k crede ca ar trebui sa fie exemplar pentru i, bazat pe toate celelalte puncte.</div>
+  <div class="highlight-box"><strong>Convergenta DPMM vs. amestec finit (Figura 25.8):</strong> DPMM converge mai rapid si mai consistent decat amestecul finit cu K=4 pe aceleasi date. Mediana si cuantilele log-probabilitatii arata ca DPMM evita optima locale mai eficient.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina compara riguros DPMM cu amestecul finit, aratand avantajele practice ale abordarii non-parametrice. Apoi detaliaza propagarea afinitatii ca inferenta max-product pe un graf de factori. Fiecare punct c_i are N stari posibile. Mesajele sunt reduse la doi scalari: responsabilitate (cat de bun este un exemplar candidat) si disponibilitate (cat de dispus este exemplarul sa serveasca).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Propagarea afinitatii conecteaza clustering-ul cu inferenta in modele grafice, aducand instrumentele puternice ale propagarii credintelor in contextul clustering-ului. Reducerea la mesaje scalare face algoritmul eficient: O(N^2) per iteratie in loc de O(N^3).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Propagarea afinitatii este implementata in scikit-learn si este populara pentru probleme de dimensiune medie (sute pana la mii de puncte) unde se doreste selectia automata a numarului de clustere si identificarea exemplarelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza retelelor de telecomunicatii, propagarea afinitatii poate identifica nodurile exemplar (hub-uri) care sunt cele mai reprezentative pentru grupuri de utilizatori cu tipare de apel similare, optimizand plasarea infrastructurii.</p></div>
+  </div>
+</div>

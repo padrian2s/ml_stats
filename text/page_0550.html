@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Efectul parametrilor kernelului asupra GP</h2>
+  <p>Aceasta pagina ilustreaza cum diferiti hiperparametri ai kernelului SE afecteaza forma functiei GP prezise, cu exemple 1D si formula kernelului cu zgomot.</p>
+  <div class="definition-box"><strong>Kernelul SE (Squared Exponential) cu zgomot:</strong> kappa_y(x_p, x_q) = sigma_f^2 * exp(-(1/(2*ell^2)) * (x_p - x_q)^2) + sigma_y^2 * delta_pq, unde ell este scala de lungime, sigma_f controleaza scala verticala, iar sigma_y este varianta zgomotului.</div>
+  <div class="highlight-box"><strong>Influenta hiperparametrilor:</strong> O scala de lungime mica (ell = 0.3) produce functii 'wiggly' cu incertitudine care creste rapid, in timp ce o scala de lungime mare (ell = 3) produce functii netede dar potentional sub-potrivite.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 15.3 demonstreaza vizual trei configuratii ale hiperparametrilor (ell, sigma_f, sigma_y): (1,1,0.1) produce o potrivire buna, (0.3, 0.1.08, 0.00005) produce o functie oscilatorie, si (3.0, 1.16, 0.89) produce o functie foarte neteda. Performanta predictiva depinde critic de alegerea kernelului si a parametrilor sai.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exista un compromis fundamental intre flexibilitate (scala de lungime mica) si regularitate (scala de lungime mare). Scala de lungime mica permite captarea detaliilor fine dar cu risc de suprapotrivire, in timp ce scala mare produce modele simple dar poate pierde structura reala din date.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea efectului hiperparametrilor este esentiala pentru aplicarea corecta a GP in practica. In optimizarea Bayesiana, alegerea scalei de lungime determina cat de local sau global este comportamentul functiei de achizitie.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In geostatistica (kriging), scala de lungime determina raza de influenta a masuratorilor. O scala de lungime prea mica ar produce harti de interpolare prea detaliate, in timp ce una prea mare ar pierde variatiile locale importante ale concentratiilor de poluanti.</p></div>
+  </div>
+</div>

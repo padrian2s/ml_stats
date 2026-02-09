@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Exerciții - Gradientul și Hessianul Regresiei Logistice</h2>
+  <p>Pagina conține exerciții teoretice fundamentale despre derivarea gradientului și Hessianului funcției de log-verosimilitate pentru regresia logistică binară și multinomială.</p>
+  <div class="highlight-box"><strong>Exercițiul 8.3 - Derivata funcției sigmoidale (Ecuația 8.124):</strong> dσ(a)/da = σ(a)(1 - σ(a)). Proprietate fundamentală: derivata sigmoidalei se exprimă elegant în funcție de ea însăși.</div>
+  <div class="highlight-box"><strong>Exercițiul 8.4 - Jacobianul softmax (Ecuația 8.125):</strong> ∂μ_{ik}/∂η_{ij} = μ_{ik}(δ_{kj} - μ_{ij}), unde μ_{ik} = S(η_i)_k. Generalizare a derivatei sigmoidalei la cazul multi-clasă.</div>
+  <div class="highlight-box"><strong>Exercițiul 8.4b - Gradientul multinomial (Ecuația 8.126):</strong> ∇_{w_c} ℓ = Σᵢ (y_{ic} - μ_{ic})xᵢ - utilizând regula lanțului și faptul că Σ_c y_{ic} = 1.</div>
+  <div class="highlight-box"><strong>Exercițiul 8.4c - Hessianul multinomial (Ecuația 8.127):</strong> H_{c,c'} = -Σᵢ μ_{ic}(δ_{c,c'} - μ_{i,c'})xᵢxᵢ&#7488; - submatricea bloc (c,c') a Hessianului.</div>
+  <div class="highlight-box"><strong>Exercițiul 8.5 - Regresie logistică multinomială simetrică (Ecuația 8.128-8.130):</strong> Cu regularizare ℓ₂ simetrică, la optimul Σ_{c=1}^C ŵ_{cj} = 0 pentru j=1:D - ponderile se centrează automat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercițiile 8.3-8.5 sunt fundamentale pentru înțelegerea profundă a regresiei logistice. Proprietatea dσ/da = σ(1-σ) este piatra de temelie a backpropagation-ului. Jacobianul softmax generalizează aceasta la cazul multi-clasă. Exercițiul 8.5 arată că regularizarea ℓ₂ simetrică (fără a fixa w_C = 0) produce automat centrarea ponderilor, oferind o alternativă elegantă la constrângerea de identificabilitate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Forma dσ/da = σ(1-σ) apare în ecuația logistică din biologie (creșterea populației), teoria informației (entropia binară), și rețelele neurale (backpropagation). Universalitatea acestei formule reflectă prevalența distribuției logistice în modelarea fenomenelor cu saturare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Implementarea corectă a gradientului și Hessianului este esențială pentru optimizarea eficientă. Multe bug-uri în codul ML provin din derivate calculate greșit. Verificarea cu diferențe finite (gradient checking) este o practică standard de depanare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un inginer ML implementează regresia logistică multinomială de la zero. Testează gradientul comparând cu diferențe finite: ||g_analitic - g_numeric|| / ||g_analitic|| < 10⁻⁷ confirmă corectitudinea. Această verificare a prevenit un bug subtil de indexare care ar fi produs convergență lentă.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Propagarea credintelor pe arbori: varianta paralela si BP Gaussiana</h2>
+  <p>Aceasta pagina descrie varianta paralela (systolic array) a algoritmului de propagare a credintelor pe arbori si introduce BP Gaussiana.</p>
+  <div class="definition-box"><strong>Sistolic array (retea sistolica):</strong> Arhitectura de calcul paralel in care toate nodurile primesc mesaje simultan, isi actualizeaza credintele si trimit mesaje noi, repetand pana la convergenta. Dupa D(G) pasi (diametrul grafului), algoritmul converge la marginalele exacte pe arbori.</div>
+  <div class="definition-box"><strong>BP Gaussiana:</strong> Versiunea belief propagation pentru MRF-uri Gaussiene pe perechi: ψ_t(x_t) = exp(-1/2 A_tt x_t^2 + b_t x_t) si ψ_st(x_s, x_t) = exp(-1/2 x_s A_st x_t). Distributia comuna este p(x|v) ∝ exp(-1/2 x^T A x + b^T x).</div>
+  <div class="highlight-box"><strong>Convergenta pe arbori:</strong> Pe grafuri arbore, BP converge dupa |V|-1 pasi (in varianta sus-jos) sau dupa D(G) pasi (in varianta paralela). Pe grafuri cu cicluri, mediile pot fi corecte dar variantele sunt de obicei subestimate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Varianta paralela a BP trateaza fiecare nod identic: primeste mesaje, actualizeaza credinta, trimite mesaje. Este echivalenta cu varianta secventiala sus-jos pe arbori, dar mai naturala pentru implementare paralela. BP Gaussiana opereaza cu mesaje Gaussiene (medie si precizie), exploatand faptul ca produsul si marginalizarea Gaussienelor sunt operatii in forma inchisa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Mesajele in BP Gaussiana sunt parametrizate prin medie si precizie. Credinta fiecarui nod combina evidenta locala cu mesajele primite prin insumarea preciziilor si media ponderata. Analogia cu algoritmi din algebra liniara: Gauss-Seidel (BP secvential) si Jacobi (BP paralel).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>BP Gaussiana este baza algoritmilor de netezire Kalman, filtrarii in retele de senzori si inferentei in modele spatiale Gaussiene. Implementarea paralela este eficienta pe GPU-uri si hardware dedicat.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-o retea de senzori de temperatura intr-o cladire, fiecare senzor (nod) comunica doar cu vecinii sai. BP paralela permite fiecarui senzor sa estimeze temperatura reala combinand masuratorile proprii cu informatiile primite de la vecini, convergand rapid pe topologii arborescente.</p></div>
+  </div>
+</div>

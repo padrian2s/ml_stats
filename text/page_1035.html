@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Invatarea trasaturilor de imagine cu DBN-uri convolutionale 2D si discutie</h2>
+  <p>Aceasta pagina descrie extensia DBN-urilor convolutionale la imagini 2D, cu rezultate pe Caltech 101, si deschide sectiunea de discutie despre scalabilitatea invatarii profunde.</p>
+  <div class="definition-box"><strong>RBM convolutionale 2D:</strong> Extensia la 2D a RBM-urilor convolutionale, unde inputul este o stiva de imagini 2D (de ex. planuri de culoare), fiecare trecuta prin filtre 2D diferite, cu max pooling pe ferestre locale.</div>
+  <div class="highlight-box"><strong>Filtre ierarhice invatate:</strong> Stratul 1 invata filtre similare cu Gabor (detectori de muchii), stratul 2 invata parti vizuale generice partajate intre clase, iar stratul 3 invata filtre specifice claselor de obiecte (celule "bunici").</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>DBN-urile convolutionale 2D demonstreaza ierarhia de trasaturi invatata: muchii -> parti -> obiecte, similara cu procesarea din cortexul vizual. Sectiunea 28.5 pune problema scalarii la probleme mai complexe decat clasificarea cifrelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>DBN-ul pentru MNIST are ~1.6M parametri, ceea ce este mult comparativ cu modelele clasice dar minuscul fata de creierul uman. Filtrele de la niveluri diferite captureaza abstractizari la niveluri diferite, de la trasaturi de nivel jos (muchii) la concepte de nivel inalt (obiecte).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Recunoasterea obiectelor in imagini, clasificarea scenelor, detectia fetelor, si analiza automata a imaginilor medicale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Sistemele moderne de conducere autonoma folosesc retele convolutionale profunde cu zeci de straturi pentru a detecta pietoni, vehicule si semne de circulatie in timp real.</p></div>
+  </div>
+</div>

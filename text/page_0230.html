@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Paradoxul lui Stein și Admisibilitatea nu este Suficientă</h2>
+  <p>Pagina prezintă paradoxul lui Stein - unul dintre cele mai surprinzătoare rezultate din statistică - și discută limitele conceptului de admisibilitate.</p>
+  <div class="definition-box"><strong>Estimatorul James-Stein:</strong> θ̂ᵢ = B̂x̄ + (1 - B̂)xᵢ = x̄ + (1 - B̂)(xᵢ - x̄), unde x̄ = (1/N)Σxᵢ și 0 < B < 1 este o constantă de ajustare. Acest estimator „contrage" θᵢ către media globală.</div>
+  <div class="definition-box"><strong>Paradoxul lui Stein:</strong> Pentru N ≥ 4 variabile aleatoare independente Xᵢ ~ N(θᵢ, 1), MLE-ul (θ̂ᵢ = xᵢ) este un estimator inadmisibil sub pierdere pătratică. Estimatorul James-Stein are MSE mai mic.</div>
+  <div class="highlight-box"><strong>Explicația Paradoxului:</strong> E[||x||²₂] = Σ(1 + θᵢ²) = N + ||θ||²₂. Deci ||x||²₂ supraestimează ||θ||²₂ cu N. Contragerea către medie reduce acest efect de supraestimare, chiar și când dimensiunile sunt complet nerelaționate.</div>
+  <div class="highlight-box"><strong>Admisibilitatea nu este suficientă:</strong> Este ușor să construim estimatori admisibili care sunt totuși neraționali, deci admisibilitatea singură nu este un criteriu suficient pentru alegerea unui estimator bun.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Paradoxul lui Stein demonstrează că estimarea simultană a mai multor parametri beneficiază de pooling-ul informației, chiar dacă parametrii sunt nerelați. Estimatorul James-Stein domină MLE-ul pentru N ≥ 4, ceea ce arată că MLE-ul nu este întotdeauna cel mai bun estimator. Secțiunea se încheie cu observația că admisibilitatea, deși necesară, nu este suficientă.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Shrinkage-ul (contracția) funcționează deoarece reduce varianța mai mult decât crește biasul. Acest principiu este fundamental în învățarea automată modernă, unde regularizarea (L1, L2, dropout) sunt toate forme de shrinkage.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Paradoxul lui Stein justifică tehnicile de regularizare din ML: ridge regression, LASSO, și chiar batch normalization pot fi văzute ca forme de shrinkage. Transfer learning-ul este o extensie a acestei idei.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un spital care estimează rata de complicații pentru 10 tipuri diferite de operații, estimarea James-Stein (contragerea fiecărei rate către media globală) produce estimări mai precise decât calcularea separată a fiecărei rate, chiar dacă tipurile de operații sunt foarte diferite.</p></div>
+  </div>
+</div>

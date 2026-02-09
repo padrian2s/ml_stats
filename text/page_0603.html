@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Identificabilitate si regularizare in retele neurale</h2>
+  <p>Aceasta pagina discuta problema neidentificabilitatii parametrilor retelelor neurale, minimele locale ale NLL, si metode de regularizare (early stopping, weight decay).</p>
+  <div class="definition-box"><strong>Neidentificabilitate:</strong> Parametrii unei retele neurale nu sunt unic determinati de date. Exista H! permutari ale unitatilor ascunse si 2^H simetrii de semn (tanh(-a) = -tanh(a)), rezultand H! * 2^H configuratii echivalente cu aceeasi verosimilitate.</div>
+  <div class="highlight-box"><strong>Weight decay (regularizare L2):</strong> J(theta) = -sum log p(y_n|x_n, theta) + alpha/2 * (sum v_ij^2 + sum w_jk^2). Incurajeaza ponderi mici, producand modele mai simple. Bias-urile NU se penalizeaza.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Parametrii NN nu sunt identificabili datorita simetriilor de permutare si de semn. Totusi, minimele locale 'superficiale' sunt in general suficient de bune, si metode stochastice le evita. Early stopping functioneaza deoarece: ponderi initiale mici -> model aproape liniar -> antrenare mareste ponderile -> model non-liniar -> eventual suprapotrivire. Regularizarea L2 (weight decay) este echivalenta cu prior Gaussian pe ponderi si produce gradient aditional alpha*v si alpha*w.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cu regularizare suficient de puternica, numarul de unitati ascunse H conteaza mai putin - se poate seta H mare si lasa regularizarea sa controleze complexitatea. Aceasta este analoga cu utilizarea unui kernel non-degenerat in GP. Alpha se selecteaza prin validare incrucisata sau empirical Bayes.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica moderna, se folosesc: dropout (Srivastava 2014), batch normalization (Ioffe 2015), weight decay decuplat (AdamW), si augmentarea datelor. Early stopping ramane o tehnica simpla si eficienta, implementata in toate framework-urile.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelele de limbaj mari, weight decay este esential pentru a preveni suprapotrivirea pe corpusuri uriase de text. AdamW (Adam cu weight decay decuplat) este optimizatorul standard pentru antrenarea GPT si modele similare.</p></div>
+  </div>
+</div>

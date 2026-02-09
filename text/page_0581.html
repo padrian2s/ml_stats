@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Avantaje si Dezavantaje ale Arborilor CART. Paduri Aleatoare</h2>
+  <p>Pagina prezinta arborele retezat pentru datele Iris, avantajele si dezavantajele modelelor CART, si introduce conceptul de paduri aleatoare (random forests).</p>
+  <div class="definition-box"><strong>Instabilitatea arborilor:</strong> Arborii sunt estimatori cu varianta mare - modificari mici ale datelor de intrare pot avea efecte mari asupra structurii arborelui din cauza naturii ierarhice a procesului de crestere.</div>
+  <div class="definition-box"><strong>Paduri aleatoare (Random Forests):</strong> Tehnica de a antrena M arbori diferiti pe subseturi aleatoare ale datelor si de a media predictiile: f(x) = (1/M) Σ_{m=1}^{M} f_m(x) (Ec. 16.15).</div>
+  <div class="highlight-box"><strong>Bagging (bootstrap aggregating):</strong> Tehnica de a antrena modele pe esantioane bootstrap (cu inlocuire) si de a media rezultatele (Breiman 1996).</div>
+  <div name="figure-box"><strong>Figura 16.6:</strong> Arborele de decizie retezat pentru datele Iris. (a) Structura arborelui cu teste pe SL (lungime sepal) si SW (latime sepal). (b) Granitele de decizie rezultate, mai simple decat arborele neretezat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Arborii CART au multe avantaje: interpretabilitate, gestionarea datelor mixte, robustete la outlieri, scalabilitate. Dar sunt instabili si au acuratete predictiva mai scazuta. Padurile aleatoare rezolva problema variantei mari prin medierea mai multor arbori antrenati pe subseturi diferite ale datelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Padurile aleatoare decoreleaza arborii de baza prin selectarea aleatoare a subseturilor de variabile si date. Acest lucru reduce varianta mai eficient decat simpla bagging. Metoda este considerata unul dintre cele mai bune clasificatoare disponibile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Padurile aleatoare sunt utilizate pe scara larga in recunoasterea pozei corpului (senzorul Kinect de la Microsoft), diagnosticul medical, detectia fraudelor si bioinformatica, datorita preciziei ridicate si capacitatii de a gestiona mii de variabile.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Senzorul Microsoft Kinect foloseste paduri aleatoare pentru a estima pozitia partilor corpului uman din imagini de adancime in timp real, demonstrand puterea acestei metode in aplicatii de viziune computerizata.</p></div>
+  </div>
+</div>

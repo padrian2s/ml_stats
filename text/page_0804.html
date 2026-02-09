@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Amortizarea mesajelor, algoritmi double-loop si planificarea mesajelor</h2>
+  <p>Aceasta pagina prezinta tehnici practice pentru a face LBP sa convearga si sa convearga mai rapid: amortizarea (damping), algoritmii double-loop si planificarea mesajelor.</p>
+  <div class="definition-box"><strong>Amortizarea (Damping):</strong> In loc de a trimite mesajul M_{ts}^k calculat, se trimite un mesaj amestecat: M_tilde = lambda * M_{ts}^k + (1-lambda) * M_tilde^{k-1}, cu lambda ~ 0.5. Aceasta reduce oscilatiile si imbunatateste convergenta semnificativ.</div>
+  <div class="definition-box"><strong>Algoritmi double-loop:</strong> Metode care garanteaza convergenta la un minim local al aceleiasi obiective pe care LBP o minimizeaza. Din pacate, sunt lente, complexe si nu imbunatatesc semnificativ acuratetea fata de LBP standard.</div>
+  <div class="highlight-box"><strong>Planificarea mesajelor:</strong> Actualizarile sincrone (Jacobi) trimit toate mesajele in paralel. Actualizarile asincrone (Gauss-Seidel) actualizeaza cate un mesaj pe rand, convergand mai rapid. Tree reparameterization (TRP) selecteaza arbori de acoperire si face sweep-uri pe ei.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina acopera trei strategii practice pentru LBP: amortizarea (simpla si eficienta), algoritmii double-loop (garantii teoretice dar costisitori) si planificarea mesajelor (actualizari asincrone si TRP). Arborele de calcul este ilustrat cu un exemplu concret.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Analogia cu metodele iterative din algebra liniara este iluminanta: sincron = Jacobi, asincron = Gauss-Seidel. In general, Gauss-Seidel converge mai rapid, la fel si actualizarile asincrone in LBP.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In implementari industriale de LBP, amortizarea cu lambda=0.5 si actualizarea asincrona sunt optiuni standard. Residual BP prioritizeaza mesajele cu cea mai mare schimbare, oferind convergenta si mai rapida.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In decodificarea LDPC in timp real (e.g., in dispozitive 5G), planificarea eficienta a mesajelor BP este critica: fiecare milisecunda conteaza, iar actualizarile asincrone cu prioritizare pot reduce latenta decodificarii.</p></div>
+  </div>
+</div>

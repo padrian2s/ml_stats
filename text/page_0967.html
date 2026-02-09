@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Invatarea din date observationale si interventionale</h2>
+  <p>Aceasta pagina discuta invatarea DAG-urilor cauzale din date observationale (metoda greedy equivalence search, IDA) si din date interventionale.</p>
+  <div class="definition-box"><strong>Greedy equivalence search:</strong> Metoda de cautare care identifica clasa de echivalenta Markov a structurii DAG din date observationale, oferind o limita inferioara pe magnitudinea efectelor cauzale.</div>
+  <div class="definition-box"><strong>IDA (Intervention-calculus when DAG is Absent):</strong> Metoda (Maathuis et al. 2009) care: (1) invata clasa de echivalenta din date, (2) aplica do-calculus pentru a estima magnitudinea efectului cauzal, (3) ia minimul peste toate DAG-urile din clasa de echivalenta.</div>
+  <div class="highlight-box"><strong>Aplicatie pe date genomice:</strong> IDA a fost aplicat pe date de expresie genica cu 5361 gene, cu "adevar de referinta" din 234 experimente single-gene deletion. Cu recall de 10%, algoritmul a avut precizie de 60%, substantial mai bun decat selectia aleatoare, dar si decat metode mai simple.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua abordari complementare. Din date observationale, IDA estimeaza efecte cauzale chiar fara a identifica unic DAG-ul, folosind clasa de echivalenta. Din date interventionale, se pot distinge DAG-uri din aceeasi clasa de echivalenta, dar interventiile trebuie planificate strategic (active learning) pentru a reduce incertitudinea cat mai rapid.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>IDA demonstreaza ca informatie cauzala utila poate fi extrasa chiar din date observationale, fara experimente. Limita inferioara pe efectul cauzal este conservatoare dar practica. Date interventionale adauga informatie dar sunt costisitoare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>IDA este folosit in genomica functionala pentru a prioritiza tintele experimentale: din mii de gene candidate, IDA poate identifica cele cu cel mai mare efect cauzal potential, reducand numarul de experimente costisitoare necesare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In descoperirea de medicamente, IDA poate identifica genele cu cel mai mare efect cauzal asupra unei boli din date de expresie genica observationale, ghidand selectia tintelor pentru studii experimentale ulterioare.</p></div>
+  </div>
+</div>

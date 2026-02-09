@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Compromisul Bias-Varianță</h2>
+  <p>Pagina derivă descompunerea fundamentală bias-varianță a MSE și demonstrează că utilizarea unui estimator biased poate fi avantajoasă dacă reduce varianța suficient.</p>
+  <div class="highlight-box"><strong>Descompunerea MSE:</strong> E[(θ̂ - θ*)²] = E[(θ̂ - θ̄)²] + (θ̄ - θ*)² = var[θ̂] + bias²(θ̂), unde θ̄ = E[θ̂] este valoarea așteptată a estimatorului.</div>
+  <div class="highlight-box"><strong>Formula cheie:</strong> MSE = varianță + bias², aceasta este descompunerea fundamentală care explică de ce regularizarea funcționează.</div>
+  <div class="definition-box"><strong>Compromisul Bias-Varianță:</strong> Poate fi înțelept să utilizăm un estimator biased dacă reducerea varianței compensează creșterea biasului pătrat, minimizând astfel eroarea pătratică medie totală.</div>
+  <div class="highlight-box"><strong>Exemplu - Media Gaussiană cu MAP:</strong> Estimatul MAP sub prior Gaussian N(θ₀, σ²/κ₀) este x̃ = (N/(N+κ₀))x̄ + (κ₀/(N+κ₀))θ₀ = wx̄ + (1-w)θ₀. Biasul este (1-w)(θ₀ - θ*) iar varianța este w²σ²/N.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Descompunerea MSE = varianță + bias² este unul dintre cele mai importante rezultate din statistică, oferind baza teoretică pentru regularizare. Estimatul MAP introduce un bias controlat prin priorul Bayesian, dar reduce varianța, rezultând adesea într-un MSE total mai mic decât cel al MLE-ului nebiased.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Parametrul w = N/(N+κ₀) controlează compromisul: w = 1 (κ₀ = 0) corespunde MLE-ului (bias zero, varianță maximă), w = 0 (κ₀ = ∞) corespunde valorii fixe θ₀ (bias maxim, varianță zero). Valori intermediare optimizează MSE-ul total.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Compromisul bias-varianță este principiul central al regularizării în ML: ridge regression, LASSO, dropout, early stopping - toate introduc bias pentru a reduce varianța și a îmbunătăți generalizarea.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un model de predicție a prețurilor imobiliare, un model complex (multe feature-uri) poate avea bias mic dar varianță mare, producând predicții instabile. Adăugarea regularizării L2 introduce un bias mic dar reduce semnificativ varianța, rezultând în predicții mai fiabile pentru clienții băncii.</p></div>
+  </div>
+</div>

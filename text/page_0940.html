@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Sectiunea 26.7.2 - Graphical Lasso (Glasso)</h2>
+  <p>Pagina introduce metoda graphical lasso pentru invatarea structurii GGM-urilor rare, bazata pe penalizarea L1 a matricei de precizie, cu aplicare pe date de citometrie de flux.</p>
+  <div class="definition-box"><strong>Graphical Lasso (Glasso):</strong> Metoda de invatare a structurii grafului prin minimizarea NLL penalizate cu norma L1: J(Ω) = −log det Ω + tr(SΩ) + λ||Ω||₁, unde ||Ω||₁ = Σ_{j,k} |ω_{jk}| (Ecuatia 26.70).</div>
+  <div class="figure-box"><strong>Figura 26.18:</strong> GGM-uri rare invatate prin graphical lasso aplicate pe datele de citometrie de flux. (a) λ = 36, 8 muchii. (b) λ = 27, 11 muchii. (c) λ = 7, 18 muchii. (d) λ = 0, 55 muchii (graf complet). Se observa cum scaderea parametrului de penalizare creste densitatea grafului.</div>
+  <div class="highlight-box"><strong>Optimizare:</strong> Obiectivul este convex dar non-neted (datorita penalizarii L1) si constrans (Ω trebuie pozitiv definita). Algoritmul de descindere coordonata al lui Friedman et al. (2008) este cel mai simplu si eficient.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Graphical lasso exploateaza corespondenta intre zerouri in matricea de precizie si absenta muchiilor in graf. Prin adaugarea unei penalizari L1 la NLL, se obtin estimari rare ale matricei de precizie, ceea ce induce un graf rar. Parametrul λ controleaza nivelul de raritate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Analogia cu lasso-ul standard (Sectiunea 13.3) este esentiala: in loc de selectia variabilelor prin penalizarea coeficientilor de regresie, aici se selecteaza muchii prin penalizarea elementelor matricei de precizie. Cu cat λ este mai mare, cu atat graful este mai rar.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Glasso este extrem de popular in bioinformatica (retele de interactiune proteina-proteina), neuroștiinte (conectivitate functionala cerebrala) si finante (modele de dependenta intre active). Datele de citometrie de flux sunt un exemplu clasic in biologia celulara.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Aplicand Glasso pe datele de citometrie de flux cu 11 proteine, se obtin structuri de graf diferite in functie de λ. Cu λ = 36, se identifica doar cele mai puternice 8 conexiuni, in timp ce λ = 0 produce un graf complet cu 55 muchii. Comparatia cu DAG-ul din Figura 26.17(b) arata ca UGM-urile pot modela bucle de feedback pe care DAG-urile nu le pot captura.</p></div>
+  </div>
+</div>

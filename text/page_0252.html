@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Interpretarea Geometrică a Least Squares și Proiecția Ortogonală</h2>
+  <p>Pagina oferă interpretarea geometrică completă a OLS ca proiecție ortogonală și introduce conceptul de convexitate.</p>
+  <div class="figure-box"><strong>Figura 7.3:</strong> Interpretarea grafică a least squares pentru N = 3 exemple și D = 2 features. Vectorii x̃₁ și x̃₂ (coloanele lui X) sunt vectori în R³ care definesc un plan 2D. y este un vector în R³ care nu se află în acest plan. Proiecția ortogonală ŷ este cel mai apropiat punct din plan, iar linia roșie (reziduul y - ŷ) este perpendiculară pe plan.</div>
+  <div class="highlight-box"><strong>Condiția de ortogonalitate:</strong> x̃ⱼ^T(y - ŷ) = 0 pentru j = 1:D, adică reziduul trebuie să fie ortogonal pe fiecare coloană a lui X. Aceasta conduce la X^T(y - Xw) = 0, echivalent cu ecuația normală.</div>
+  <div class="highlight-box"><strong>Valoarea ajustată:</strong> ŷ = Xŵ = X(X^T X)⁻¹ X^T y = Py, unde P = X(X^T X)⁻¹ X^T este matricea de proiecție (hat matrix), deoarece „pune pălăria pe y".</div>
+  <div class="definition-box"><strong>Mulțime Convexă:</strong> O mulțime S este convexă dacă pentru orice θ, θ' ∈ S și orice λ ∈ [0,1], λθ + (1-λ)θ' ∈ S. Geometric, segmentul de dreaptă între orice două puncte din S rămâne în S.</div>
+  <div class="definition-box"><strong>Funcție Convexă:</strong> f este convexă dacă f(λθ + (1-λ)θ') ≤ λf(θ) + (1-λ)f(θ'), adică funcția se află sub orice coardă. O funcție strict convexă are un unic minim global.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Interpretarea geometrică a OLS ca proiecție ortogonală este una dintre cele mai elegante conexiuni între algebră liniară și statistică. Matricea hat P proiectează orice vector pe spațiul coloanelor lui X. Secțiunea despre convexitate pregătește fundamentul pentru optimizarea din capitolele următoare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Matricea hat P este idempotentă (P² = P) și simetrică, proprietăți esențiale ale oricărei proiecții ortogonale. Diagonalele matricei hat (hᵢᵢ) măsoară „leverage-ul" fiecărei observații - câtă influență are punctul i asupra fitului.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Leverage-ul (dat de diagonala matricei hat) este crucial în diagnostica regresiei: puncte cu leverage mare pot influența disproporționat modelul. Aceasta este baza detectării punctelor influente (Cook's distance).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un model de predicție a prețurilor caselor, un punct cu leverage mare ar fi o casă cu caracteristici extreme (suprafață foarte mare într-un cartier ieftin). Identificarea acestor puncte prin matricea hat ajută la evaluarea robustetei modelului.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>VB pentru Gaussiana univariata: ecuatiile de actualizare</h2>
+  <p>Aceasta pagina deriveaza ecuatiile de actualizare VB pentru media μ si precizia λ ale unei Gaussiane univariate cu prior conjugat.</p>
+  <div class="definition-box"><strong>Actualizarea q_μ(μ):</strong> log q_μ(μ) = E_{q_λ}[log p̃(μ, λ)] + const, rezultand q_μ(μ) = N(μ|μ_N, κ_N^{-1}), unde μ_N = (κ_0 μ_0 + Nx̄)/(κ_0 + N) si κ_N = (κ_0 + N) E_{q_λ}[λ].</div>
+  <div class="definition-box"><strong>Actualizarea q_λ(λ):</strong> log q_λ(λ) = E_{q_μ}[log p̃(μ, λ)] + const, rezultand q_λ(λ) = Ga(λ|a_N, b_N), unde a_N = a_0 + (N+1)/2 si b_N = b_0 + 1/2 E_{q_μ}[κ_0(μ - μ_0)^2 + Σ(x_i - μ)^2].</div>
+  <div class="highlight-box"><strong>Dependenta circulara:</strong> q_μ depinde de E_{q_λ}[λ] = a_N/b_N, iar q_λ depinde de E_{q_μ}[μ] si E_{q_μ}[μ^2]. Aceasta dependenta circulara necesita iterare: se actualizeaza alternativ q_μ si q_λ pana la convergenta (CAVI - Coordinate Ascent VI).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Actualizarile VB pentru Gaussiana univariata sunt similare cu posterioara exacta Gaussiana-Gamma, dar cu o diferenta cheie: in loc de λ fix, se foloseste E[λ] = a_N/b_N, si in loc de μ fix, se foloseste E[μ] si E[μ^2]. Aceasta "smears out" incertitudinea dintr-un parametru in actualizarea celuilalt. Convergenta este rapida (de obicei 5-10 iteratii).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Media VB μ_N este identica cu media exacta a posterioarei. Precizia VB κ_N difera: include E[λ] in loc de un λ fix, captureaza incertitudinea din λ. Parametrul b_N include E_{q_μ}[(μ-μ_0)^2] = 1/κ_N + (μ_N - μ_0)^2, integrarea incertitudinii din μ.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste ecuatii sunt baza VB in modele mai complexe: amestecuri de Gaussiene (unde μ si λ sunt per-componenta), regresie Bayesiana (unde w si λ sunt parametrii) si modele ierarhice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In controlul calitatii in fabricatie, N=20 masuratori ale dimensiunii unei piese permit VB sa estimeze atat media (dimensiunea nominala) cat si varianta (precizia fabricatiei), cu incertitudini complete pe ambii parametri.</p></div>
+  </div>
+</div>

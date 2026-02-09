@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Antrenarea greedy strat cu strat a DBN-urilor</h2>
+  <p>Aceasta pagina descrie strategia de antrenare greedy strat cu strat pentru DBN-uri si procedura de ajustare fina (backfitting/up-down).</p>
+  <div class="definition-box"><strong>Antrenare greedy strat cu strat:</strong> Procedura de antrenare care: (1) antreneaza un RBM pe date, (2) foloseste activarile ascunse ca input pentru un al doilea RBM, (3) continua adaugarea straturilor pana la un criteriu de oprire.</div>
+  <div class="definition-box"><strong>Backfitting (procedura up-down):</strong> Ajustarea fina a ponderilor dupa pre-antrenarea greedy, prin alternarea intre o trecere ascendenta, un pas CD in RBM-ul de varf, o trecere descendenta, si actualizarea parametrilor CPD logistice.</div>
+  <div class="highlight-box"><strong>Garantie teoretica:</strong> Procedura greedy strat cu strat creste intotdeauna o limita inferioara a verosimilitii datelor observate, desi poate rezulta in supraajustare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Antrenarea greedy este justificata teoretic prin cresterea limitei inferioare a verosimilitii. In practica, ponderile la diferite nivele pot fi "dezlegate" dupa initializare, si sistemul poate fi ajustat fin cu backpropagation. Procedura up-down combina antrenarea generativa cu cea discriminativa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Pre-antrenarea nesupervizata urmata de ajustare fina supervizata este paradigma centrala a invatarii profunde din acea era. Fiecare strat invata o reprezentare din ce in ce mai abstracta a datelor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Pre-antrenarea greedy a fost esentiala inainte de descoperirea tehnicilor moderne de initializare (Xavier, He) si a normalizarii batch. A permis antrenarea primelor retele neuronale cu mai mult de 2 straturi ascunse.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Lucrarea seminala a lui Hinton din 2006 a demonstrat ca pre-antrenarea greedy cu RBM-uri permite antrenarea retelelor profunde care anterior esueaza din cauza problemei gradientului disparut.</p></div>
+  </div>
+</div>

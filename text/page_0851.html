@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Esantionarea prin importanta (Importance Sampling)</h2>
+  <p>Aceasta pagina introduce esantionarea prin importanta, o metoda Monte Carlo pentru aproximarea integralelor E[f] = integral f(x)*p(x)dx folosind esantioane dintr-o distributie propunere q(x).</p>
+  <div class="definition-box"><strong>Esantionarea prin importanta:</strong> E[f] = integral f(x)*(p(x)/q(x))*q(x)dx aproximat de (1/S)*sum w_s*f(x^s), unde w_s = p(x^s)/q(x^s) sunt ponderile de importanta si x^s ~ q(x).</div>
+  <div class="definition-box"><strong>Propunerea optima:</strong> q*(x) = |f(x)|*p(x) / integral |f(x')|*p(x')dx', care minimizeaza varianta estimatorului. In practica, aceasta nu poate fi calculata (necesita integrala pe care vrem sa o estimam), dar ofera ghidare pentru alegerea propunerii.</div>
+  <div class="highlight-box"><strong>Avantaj fata de esantionarea prin respingere:</strong> Toate esantioanele sunt folosite (ponderate), nu doar cele acceptate. Aceasta face metoda mai eficienta, dar ponderile pot avea varianta mare in dimensiuni inalte.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Esantionarea prin importanta repondereaza esantioanele din q pentru a aproxima asteptarile sub p. Spre deosebire de esantionarea prin respingere, nu se irosesc esantioane, dar ponderile pot fi foarte neuniforme, reducand eficienta efectiva.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ideea cheie este reparametrizarea: E_p[f] = E_q[f*w], unde w=p/q. Calitatea estimarii depinde de cat de bine q acopera regiunile unde f*p este mare. Propunerea optima concentreaza esantioanele exact acolo unde sunt necesare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Esantionarea prin importanta este fundamentala in filtrarea particulelor (particle filters), estimarea verosimilitatii marginale si in antrenarea modelelor de limbaj (off-policy learning).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In estimarea riscului de catastrofe naturale (evenimente rare), esantionarea directa din p ar genera rar catastrofe. Esantionarea prin importanta cu q concentrat pe scenarii extreme produce estimari mult mai precise ale riscului.</p></div>
+  </div>
+</div>

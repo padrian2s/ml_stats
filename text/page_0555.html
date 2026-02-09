@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Aspecte computationale si GP semi-parametrice</h2>
+  <p>Aceasta pagina acopera probleme computationale ale regresiei GP, algoritmul de regresie GP bazat pe descompunerea Cholesky, si modelele GP semi-parametrice.</p>
+  <div class="definition-box"><strong>GP semi-parametric:</strong> f(x) = beta^T phi(x) + r(x), unde prima componenta este un model liniar parametric iar r(x) ~ GP(0, kappa(x,x')) modeleaza reziduurile. Combina flexibilitatea non-parametrica cu structura parametrica.</div>
+  <div class="highlight-box"><strong>Algoritmul de regresie GP:</strong> Se bazeaza pe descompunerea Cholesky K_y = LL^T cu complexitate O(N^3), urmata de rezolvarea sistemului liniar pentru alpha si calculul mediei si variantei predictive in O(N) si O(N^2) per punct de test.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul 15.1 prezinta pasi concreti pentru regresia GP: (1) descompunerea Cholesky a K_y, (2) rezolvarea pentru alpha, (3) calculul mediei si variantei predictive. O alternativa la Cholesky este gradienti conjugati (CG), cu complexitate O(kN^2) dupa k iteratii. Modelul semi-parametric combina un trend liniar cu un GP pentru reziduuri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Complexitatea O(N^3) a descompunerii Cholesky este bottleneck-ul principal al GP, limitand aplicabilitatea la ~10.000 puncte de date. CG poate fi mai rapid dar nu scaleaza bine in dimensiuni mari. Modelul semi-parametric permite incorporarea cunostintelor prealabile despre structura datelor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Invatarea multipla a kernelurilor (multiple kernel learning) permite combinarea kernelurilor diferite cu ponderi optimizate, utila cand se fuzioneaza date de tipuri diferite. Descompunerea Cholesky este preferata fata de inversarea directa pentru stabilitate numerica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea preturilor imobiliare, un GP semi-parametric poate folosi un model liniar pentru trasaturi cunoscute (suprafata, numar camere) si un GP pentru a capta efecte spatiale non-liniare reziduale.</p></div>
+  </div>
+</div>

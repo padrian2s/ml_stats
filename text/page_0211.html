@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Compromisul Fals Pozitiv vs Fals Negativ</h2>
+  <p>Pagina analizeaza compromisul fundamental intre falsuri pozitive si falsuri negative in problemele de decizie binara, introducand matricea de pierdere asimetrica si pragul de decizie.</p>
+  <div class="definition-box"><strong>Fals pozitiv (False positive / Alarma falsa):</strong> Estimam y_hat=1 cand adevarul este y=0. Cost: L_FP.</div>
+  <div class="definition-box"><strong>Fals negativ (False negative / Detectie ratata):</strong> Estimam y_hat=0 cand adevarul este y=1. Cost: L_FN.</div>
+  <div class="definition-box"><strong>Eroarea de generalizare:</strong> L(θ, δ) = E_{(x,y)~p(x,y|θ)} [l(y, δ(x))] = ΣΣ L(y, δ(x))p(x,y|θ) (Ecuatia 5.109)</div>
+  <div class="highlight-box"><strong>Pierderea asteptata posterioara:</strong> ρ(y_hat=0|x) = L_FN · p(y=1|x) (Ecuatia 5.111), ρ(y_hat=1|x) = L_FP · p(y=0|x) (Ecuatia 5.112)</div>
+  <div class="highlight-box"><strong>Regula de decizie:</strong> Alegem y_hat=1 daca p(y=1|x)/p(y=0|x) > L_FP/L_FN (Ecuatia 5.114). Pragul τ = c/(1+c) unde c = L_FN/L_FP.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pierderea 0-1 trateaza erorile simetric, dar in practica costurile sunt adesea asimetrice. Cu matricea de pierdere generala, regula de decizie devine: alegem clasa 1 daca raportul posterior depaseste raportul costurilor L_FP/L_FN. Daca falsul negativ costa de doua ori mai mult (c=2), pragul devine τ = 2/3, facand clasificatorul mai "agresiv" in detectia pozitivilor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Pierderea asteptata posterioara ρ(δ|D) = ∫ p(θ|D)L(θ,δ)dθ (Ecuatia 5.110) integreaza incertitudinea parametrilor in decizie. Aceasta difera de riscul frecventist (Ecuatia 6.47), care integreaza peste distributia de esantionare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In medicina: detectarea cancerului are L_FN >> L_FP (o detectie ratata este mult mai grava decat o alarma falsa), deci pragul τ trebuie scazut. In filtrarea spam-ului: L_FP > L_FN (un email important marcat ca spam este mai grav decat spam-ul nedetectat).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un sistem de detectie a fraudei cu carduri: daca L_FN = 1000 EUR (frauda nedetectata) si L_FP = 5 EUR (inconvenient pentru client), atunci c = 200 si τ = 200/201 ≈ 0.995. Tranzactia este blocata doar daca probabilitatea de frauda depaseste 0.5%, ceea ce pare intuitiv.</p></div>
+  </div>
+</div>

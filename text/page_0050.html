@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>Capitolul 1: Modele Parametrice si Regresia Liniara</h2>
+  <p>Introducerea modelelor parametrice ca solutie la blestemul dimensionalitatii si formularea regresiei liniare.</p>
+  <div class="definition-box"><strong>Bias Inductiv (Inductive Bias):</strong> Presupunerile facute despre natura distributiei datelor, incorporate in modelul parametric. Necesare pentru a combate blestemul dimensionalitatii.</div>
+  <div class="definition-box"><strong>Model Parametric:</strong> Model statistic cu un numar fix de parametri, care codifica presupuneri despre structura datelor.</div>
+  <div class="definition-box"><strong>Regresie Liniara:</strong> Model care presupune ca raspunsul este o functie liniara a intrarilor: y(x) = w^T x + ε = Σ(j=1..D) w_j x_j + ε (ecuatia 1.4).</div>
+  <div class="definition-box"><strong>Vectorul de Ponderi (Weight Vector):</strong> w^T - vectorul de parametri ai modelului liniar, care definesc contributia fiecarei caracteristici la predictie.</div>
+  <div class="definition-box"><strong>Eroarea Reziduala:</strong> ε - diferenta intre predictia liniara si raspunsul real, captand zgomotul si neliniaritatea nemodelata.</div>
+  <div class="figure-box"><strong>Figura 1.17:</strong> (a) Densitatea de probabilitate Gaussiana cu medie 0 si varianta 1. (b) Vizualizarea modelului de densitate conditionata p(y|x, θ) = N(y|w₀ + w₁x, σ²) - densitatea scade exponential pe masura ce ne indepartam de linia de regresie.</div>
+  <div class="highlight-box"><strong>Formula Regresiei Liniare:</strong> y(x) = w^T x + ε = Σ(j=1..D) w_j x_j + ε, unde w^T x este produsul scalar intre vectorul de intrare si vectorul de ponderi.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunile 1.4.4 si 1.4.5 introduc modelele parametrice ca raspuns la blestemul dimensionalitatii. In loc sa ne bazam pe vecinii apropiati (care nu exista in spatii de inalta dimensionalitate), facem presupuneri explicite despre forma distributiei datelor. Regresia liniara este cel mai simplu model parametric, presupunand o relatie liniara intre intrari si iesire.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Modelele parametrice ofera un compromis intre flexibilitate si eficienta. Regresia liniara are doar D+1 parametri (D ponderi + un termen liber), indiferent de numarul de date. Distributia Gaussiana (Figura 1.17a) este fundamentala: eroarea reziduala ε este adesea modelata ca Gaussiana, ducand la un model de densitate conditionata p(y|x,θ) = N(y|w₀+w₁x, σ²).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia liniara este folosita omniprezent: in economie (modele econometrice), finante (CAPM), epidemiologie (factori de risc), inginerie (calibrare de senzori) si stiinta datelor (baseline pentru orice problema de predictie).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de evaluare imobiliara poate folosi regresie liniara: pretul casei (y) este prezis ca o combinatie liniara a caracteristicilor (suprafata, numar de camere, distanta pana la centru, etc.), cu ponderi invatate din vanzarile anterioare. Eroarea reziduala capteaza factori nemodelati precum calitatea finisajelor.</p></div>
+  </div>
+</div>

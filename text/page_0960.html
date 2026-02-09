@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Rephil - Inferenta si modele cu ecuatii structurale (SEM)</h2>
+  <p>Aceasta pagina continua descrierea inferentei in Rephil si introduce modelele cu ecuatii structurale (Structural Equation Models).</p>
+  <div class="definition-box"><strong>Modelul cu ecuatii structurale (SEM):</strong> Un graf mixt dirijat (posibil ciclic) unde toate CPD-urile sunt gaussiene liniare si muchiile bi-directionate reprezinta zgomot gaussian corelat. Cunoscut si sub numele de "diagrama de cai" (path diagram).</div>
+  <div class="definition-box"><strong>Forma SEM:</strong> x_i = mu_i + suma w_{ij}*x_j + epsilon_i, unde epsilon ~ N(0, Psi). In forma matriciala: x = Wx + mu + epsilon, deci x = (I-W)^{-1}(epsilon + mu).</div>
+  <div class="definition-box"><strong>SEM recursiv:</strong> Daca W este triunghiulara inferioara si Psi este diagonala, SEM-ul este echivalent cu un DGM gaussian aciclic. Daca Psi nu este diagonala, muchiile bi-directionate indica cauze comune ascunse.</div>
+  <div class="highlight-box"><strong>Distributia comuna:</strong> p(x) = N(mu, Sigma) unde Sigma = (I-W)^{-1} Psi (I-W)^{-T}. Se traseaza un arc X_i <-> X_j pentru fiecare element nenul off-diagonal din Psi.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la Rephil la SEM-uri, modele larg folosite in stiintele sociale si economie. SEM-urile permit cicluri (interpretate ca bucle de feedback), ceea ce le distinge de DGM-urile standard. Forma matriciala x = (I-W)^{-1}(epsilon+mu) arata ca modelul specifica o distributie gaussiana comuna, chiar daca relatiile individuale par "cauzale".</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>SEM-urile nu sunt inerent "cauzale" desi sunt adesea interpretate astfel. Ele sunt pur si simplu o parametrizare a unei distributii gaussiene comune. Distinctia intre SEM-uri recursive (aciclice) si non-recursive (ciclice) este importanta: cele recursive sunt echivalente cu DGM-uri gaussiene.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SEM-urile sunt standardul in psihologie, sociologie, marketing si economie pentru modelarea relatiilor intre variabile latente si observate. Software-ul LISREL, Mplus si lavaan sunt larg folosite in aceste domenii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In psihologia organizationala, SEM-urile modeleaza relatiile intre satisfactia la locul de munca (latenta), performanta (observabila prin evaluari), si intentia de plecare (masurabil prin sondaje), permitand testarea teoriilor cauzale complexe.</p></div>
+  </div>
+</div>

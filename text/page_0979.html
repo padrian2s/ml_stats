@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LDA si PCA multinomial (mPCA)</h2>
+  <p>Aceasta pagina introduce LDA (Latent Dirichlet Allocation) si mPCA, prezentand modelele grafice (Figura 27.1) si relatia cu simplexul probabilistic.</p>
+  <div class="definition-box"><strong>PCA multinomial (mPCA):</strong> z_i este constrans sa traiasca in simplexul S_K (probabilitati non-negative care sumeaza la 1), notat pi_i ~ Dir(alpha). Verosimilitatea: p(n_i|L_i, pi_i) = Mu(n_i|L_i, B*pi_i), unde B este matricea de topicuri.</div>
+  <div class="definition-box"><strong>PLSI (Probabilistic Latent Semantic Indexing):</strong> Hofmann (1999), predecesorul LDA. Foloseste estimari punctuale ale pi_i (fara prior), similar cu ePCA degenerat, si este predispus la overfitting.</div>
+  <div class="highlight-box"><strong>Diferenta cheie LDA vs. PLSI:</strong> LDA adauga un prior Dirichlet pe pi_i, ceea ce: (1) previne overfitting-ul, (2) permite predictie pe documente noi, si (3) incurajeaza raritate in reprezentarea topicurilor daca alpha << 1.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina introduce mPCA si arata ca LDA este un caz special. Constrangerea pi_i sa fie in simplex (non-negativ, suma 1) face ca variabilele latente sa fie interpretabile ca proportii de topicuri. Figura 27.1 compara vizual PCA categoric (a) si mPCA/LDA (b). PLSI este predecesor dar fara prior, deci predispus la overfitting. LDA rezolva aceasta problema cu prior Dirichlet.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Constrangerea de simplex face variabilele latente interpretabile (proportii de topicuri), spre deosebire de PCA unde z_i poate fi negativ si greu de interpretat. Priorul Dirichlet cu alpha mic incurajeaza documente dominate de putine topicuri (raritate).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LDA este probabil cel mai influent model de topic modeling, implementat in Gensim, scikit-learn, Mallet, si Stanford TMT. Este folosit in mii de aplicatii de analiza de text.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza automata a recenziilor de produse, LDA poate descoperi topicuri latente (calitate, pret, design, livrare) si determina proportia fiecarui topic in fiecare recenzie, oferind o analiza multidimensionala automata a feedback-ului clientilor.</p></div>
+  </div>
+</div>

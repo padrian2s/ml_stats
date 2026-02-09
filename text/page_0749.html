@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Ordinea de eliminare si complexitatea computationala</h2>
+  <p>Aceasta pagina demonstreaza impactul ordinii de eliminare asupra complexitatii si introduce conceptele de graf indus si latime indusa.</p>
+  <div class="definition-box"><strong>Ordinea de eliminare:</strong> Secventa in care variabilele sunt eliminate in VE. O ordine proasta poate crea factori intermediari enorm de mari, crescand complexitatea exponential. Exemplul arata ca ordinea G,I,S,L,H,C,D creeaza factori de pana la 5 variabile, fata de 3 in ordinea optima.</div>
+  <div class="definition-box"><strong>Muchii de umplere (fill-in edges):</strong> Cand se elimina o variabila, se conecteaza toti vecinii sai ramasi intre ei. Aceste noi muchii (fill-in edges) cresc densitatea grafului si pot mari factorii intermediari.</div>
+  <div class="highlight-box"><strong>Tabelul 20.2 - Semi-inele comutative:</strong> Sum-product: ([0,∞), +, ×) pentru marginale. Max-product: ([0,∞), max, ×) pentru MAP. Min-sum: ((-∞,∞], min, +) pentru drumuri minime. Boolean: ({T,F}, ∨, ∧) pentru satisfiabilitate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Ordinea de eliminare are un impact dramatic asupra complexitatii VE. Tabelul 20.3 demonstreaza ca ordinea G,I,S,L,H,C,D creeaza factori intermediari de pana la 5 variabile (τ_1 are 4, τ_2 are 5), in contrast cu ordinea C,D,I,H,G,S,L care produce factori de cel mult 3 variabile. Muchiile de umplere apar cand eliminarea unei variabile forteaza conectarea vecinilor sai.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Clicile maximale din graful indus G(≺) corespund factorilor intermediari din VE. Dimensiunea celei mai mari clici minus 1 este latimea indusa. Minimizarea latimii induse (treewidth) peste toate ordinile posibile da latimea arborelui, care determina complexitatea minima a inferentei exacte.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Euristici de ordonare (min-degree, min-fill) sunt folosite in practica pentru a gasi ordini bune de eliminare. Sisteme precum HUGIN si SamIam implementeaza aceste euristici automat. Pentru grafuri cu treewidth mic (arbori, lanturi), inferenta exacta este polinomiala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-o retea Bayesiana de diagnostic cu 100 de noduri, o ordine buna de eliminare poate reduce calculul de la zile la secunde. Euristica min-fill adauga la fiecare pas cel mai putine muchii de umplere, mentinand factorii mici.</p></div>
+  </div>
+</div>

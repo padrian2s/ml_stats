@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>GP-LVM - Comparatie cu kPCA si optimizare</h2>
+  <p>Aceasta pagina compara vizual GP-LVM cu kernel PCA, prezinta gradientul pentru optimizare si discuta avantajele modelelor generative probabilistice.</p>
+  <div class="definition-box"><strong>Gradientul GP-LVM:</strong> d(ell)/d(Z_ij) = d(ell)/d(K_z) * d(K_z)/d(Z_ij), unde d(ell)/d(K_z) = K_z^{-1} Y Y^T K_z^{-1} - D K_z^{-1}. Forma d(K_z)/d(Z_ij) depinde de kernelul ales.</div>
+  <div class="highlight-box"><strong>Superioritatea GP-LVM:</strong> Pe datele de flux de petrol 12D, GP-LVM face 4 erori de clasificare nearest-neighbor in spatiul latent, comparativ cu 13 erori pentru kPCA si 20 pentru PCA regulat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 15.10 arata dramatic diferenta: kPCA produce o proiectie 2D unde clasele se suprapun, in timp ce GP-LVM produce clustere bine separate. GP-LVM optimizeaza Z prin gradient conjugat, iar forma gradientului permite utilizarea oricarui kernel. Avantajele modelului generativ: tratarea datelor lipsa, tipuri mixte de date, optimizare prin gradient, informatii prior, reducere spectrala a dimensionalitatii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta cheie: kPCA gaseste eigenvectorii matricei Gram K fixe, in timp ce GP-LVM optimizeaza simultan K si Z. Aceasta optimizare comuna permite GP-LVM sa gaseasca reprezentari latente mult mai informative. Umbra din graficul GP-LVM indica precizia posterioara.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GP-LVM este implementat in GPy (Python) si a fost extins la modele dinamice (GP-LVM dinamic) si variatioanale (Bayesian GP-LVM). Este folosit in robotica pentru invatarea reprezentarilor de stare din date senzoriale brute.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In vizualizarea datelor genomice, GP-LVM poate proiecta profilurile de expresie genica ale celulelor individuale intr-un spatiu 2D, revelind tipuri celulare si traiectorii de diferentiere celulara invizibile in PCA standard.</p></div>
+  </div>
+</div>

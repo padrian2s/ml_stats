@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 15: Procese Gaussiene - Introducere</h2>
+  <p>Pagina deschide Capitolul 15 despre procese Gaussiene (GP), prezentând conceptul de distribuție a posteriori peste funcții și motivația pentru inferența Bayesiană neparametrică.</p>
+  <div class="definition-box"><strong>Proces Gaussian (GP):</strong> Un prior peste funcții care definește o distribuție de probabilitate pe spațiul funcțiilor. Un GP presupune că p(f(x₁), ..., f(x_N)) este distribuită Gaussian multivariat, cu medie μ(x) și covarianță Σᵢⱼ = κ(xᵢ, xⱼ), unde κ este un kernel pozitiv definit.</div>
+  <div class="highlight-box"><strong>Distribuția predictivă:</strong> p(y*|x*, X, y) = ∫ p(y*|f, x*) p(f|X, y) df. Aceasta integrează peste toate funcțiile posibile, ponderate de posteriorul lor dat datele observate.</div>
+  <div class="highlight-box"><strong>Avantajul GP:</strong> Oferă ieșiri probabilistice bine calibrate, esențiale pentru învățare activă, robotică, optimizare globală și design experimental.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Procesele Gaussiene reprezintă o abordare Bayesiană neparametrică a învățării supervizate. În loc să inferăm parametrii θ ai unui model, inferăm direct distribuția peste funcții f. GP-urile definesc un prior peste funcții prin specificarea funcției de medie și a funcției kernel de covarianță.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>GP-urile sunt alternativa Bayesiană la metodele kernel discriminative (SVM, RVM, L1VM). Calculele exacte sunt posibile în O(N³) pentru regresie. Kernelul κ codifică presupunerile noastre despre netezimea și structura funcției necunoscute.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GP-urile sunt fundamentale în optimizarea Bayesiană (tuning hiperparametri), geostatistică (kriging), robotică (învățarea modelelor dinamice) și design experimental.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În optimizarea hiperparametrilor rețelelor neuronale, un GP modelează funcția de performanță (acuratețe vs. learning rate, regularizare, etc.) și ghidează explorarea eficientă a spațiului hiperparametrilor.</p></div>
+  </div>
+</div>

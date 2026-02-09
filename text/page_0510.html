@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 14: Kerneluri - Introducere</h2>
+  <p>Pagina deschide Capitolul 14 despre kerneluri (Sectiunile 14.1-14.2), introducand motivatia pentru functii kernel si definitia formala.</p>
+  <div class="definition-box"><strong>Motivatia kernelurilor (Sectiunea 14.1):</strong> Nu toate obiectele pot fi reprezentate natural ca vectori de dimensiune fixa (documente text, secvente proteice, structuri moleculare, arbori evolutivi). Kernelurile permit masurarea similaritatii intre obiecte fara a le converti in vectori, folosind kappa(x, x') >= 0.</div>
+  <div class="definition-box"><strong>Functia kernel (Sectiunea 14.2):</strong> kappa(x, x') in R este o functie cu valori reale de doua argumente, x, x' in X. De obicei simetrica: kappa(x, x') = kappa(x', x) si non-negativa. Poate fi interpretata ca masura de similaritate, dar nu este obligatoriu.</div>
+  <div class="highlight-box"><strong>Doua abordari:</strong> (1) Model generativ: se defineste un model latent, se folosesc feature-urile inferente sau parametrii modelului. (2) Kernel: se defineste direct o masura de similaritate kappa(x, x'), fara preprocesare in vectori. Algoritmi kernel-based: pot fi scrisi exclusiv in termenii kappa, fara acces la interiorul obiectelor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 14 introduce kernelurile ca solutie eleganta pentru problema reprezentarii: in loc de a defini explicit feature-uri, se defineste o functie de similaritate intre obiecte. Aceasta permite aplicarea de algoritme de invatare (SVM, GP, PCA) pe date structurate (siruri, grafuri, arbori) fara a le transforma in vectori de dimensiune fixa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cuvantul kernel are mai multe sensuri in ML: aici inseamna functie de similaritate. In Capitolul 14.7.1, kernel apare cu alt inteles (kernel density estimation). Distinctia este importanta: kernel function (acest capitol) vs. kernel trick (Sectiunea 14.3) vs. kernel density (Capitolul 14.7).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Kernelurile sunt fundamentale in SVM, procesele Gaussiene (GP) si kernel PCA. Popularitatea lor a scazut partial odata cu aparitia deep learning (care invata automat reprezentari), dar raman relevante pentru date structurate si probleme cu putine date de antrenare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In bioinformatica, string kernels compara secvente de proteine de lungimi diferite, permitand clasificarea functiei proteinelor fara aliniere explicita, ceea ce ar fi imposibil cu feature vectori de dimensiune fixa.</p></div>
+  </div>
+</div>

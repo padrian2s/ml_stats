@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Taietura normalizata si Laplacianul grafului</h2>
+  <p>Pagina introduce taietura normalizata (normalized cut) ca imbunatatire a criteriului de taiere simplu si defineste Laplacianul grafului.</p>
+  <div class="highlight-box"><strong>Taietura normalizata:</strong> Ncut(A_1,...,A_K) = (1/2) Σ_{k=1}^{K} cut(A_k, A̅_k) / vol(A_k) (Ecuatia 25.42)</div>
+  <div class="definition-box"><strong>Laplacianul grafului:</strong> L = D - W, unde D = diag(d_i) este matricea diagonala a gradelor ponderate si W este matricea de ponderi a grafului (Ecuatia 25.43).</div>
+  <div class="highlight-box"><strong>Proprietate semi-definit pozitiva:</strong> f^T L f = (1/2) Σ_{i,j} w_{ij}(f_i - f_j)² ≥ 0 pentru toti f ∈ ℝ^N (Ecuatia 25.45)</div>
+  <div class="definition-box"><strong>Teorema 25.4.1:</strong> Multimea vectorilor proprii ai lui L cu valoarea proprie 0 este generata de vectorii indicator 1_{A_1},...,1_{A_K}, unde A_k sunt cele K componente conexe ale grafului.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Taietura simpla tinde sa partitioneze noduri izolate. Taietura normalizata corecteaza aceasta problema prin impartirea la volumul fiecarui cluster. Problema Ncut este NP-hard, dar relaxarea continua (vectori c_i reali in loc de binari) transforma problema intr-una de vectori proprii, conducand la clusteringul spectral.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Laplacianul L este simetric si semi-definit pozitiv cu valori proprii 0 ≤ λ_1 ≤ λ_2 ≤ ... ≤ λ_N. Vectorul propriu corespunzator lui λ_1 = 0 este vectorul constant 1. Numarul de valori proprii egale cu 0 indica numarul de componente conexe ale grafului.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clusteringul spectral este legat de kernel PCA (Sectiunea 14.4.4). In practica, se calculeaza primii K vectori proprii ai lui L, se formeaza matricea U si se aplica K-means pe randurile lui U pentru a recupera partitionarea.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza retelelor de proteine, Laplacianul grafului de interactiuni proteina-proteina poate fi folosit pentru a identifica module functionale - grupuri de proteine care interactioneaza frecvent intre ele dar rar cu restul retelei.</p></div>
+  </div>
+</div>

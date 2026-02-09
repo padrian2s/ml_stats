@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Definitia familiei exponentiale si exemplul Bernoulli</h2>
+  <p>Aceasta pagina defineste formal familia exponentiala si demonstreaza cum distributia Bernoulli se exprima in aceasta forma.</p>
+  <div class="definition-box"><strong>Forma familiei exponentiale:</strong> p(x|&theta;) = h(x) exp[&theta;^T &phi;(x) - A(&theta;)], unde &theta; sunt parametrii naturali (canonici), &phi;(x) sunt statisticile suficiente, A(&theta;) = log Z(&theta;) este functia log-partitie (functia cumulantelor), si h(x) este constanta de scalare.</div>
+  <div class="definition-box"><strong>Familia exponentiala curbata:</strong> Daca dim(&theta;) < dim(&eta;(&theta;)), unde &eta; este functia care mapeaza parametrii la parametrii canonici, familia este „curbata" si are mai multe statistici suficiente decat parametri.</div>
+  <div class="highlight-box"><strong>Bernoulli in forma exponentiala:</strong> Ber(x|&mu;) = (1-&mu;) exp[x log(&mu;/(1-&mu;))], unde &theta; = log(&mu;/(1-&mu;)) este log-odds ratio, &phi;(x) = x, si Z = 1/(1-&mu;). Parametrul natural &theta; este legat de media &mu; prin functia sigmoida: &mu; = sigm(&theta;) = 1/(1+e^(-&theta;)).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabileste cadrul matematic al familiei exponentiale. Definitia formala identifica patru componente: parametrii naturali &theta;, statisticile suficiente &phi;(x), functia log-partitie A(&theta;), si masura de baza h(x). Exemplul Bernoulli ilustreaza cum o distributie familiara se rescrie in aceasta forma, revelland ca log-odds ratio este parametrul natural si ca functia sigmoida face legatura cu probabilitatea.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Reprezentarea minimala vs. supra-completa: encodarea one-hot a Bernoulli este supra-completa (doua statistici pentru un parametru). 2) Parametrii naturali &theta; traiesc intr-un spatiu nerestrictional (toata axa reala), spre deosebire de &mu; care trebuie sa fie in [0,1]. 3) Functia log-partitie A(&theta;) joaca un rol central - din derivatele sale se obtin media si varianta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Log-odds ratio este fundamental in regresia logistica (coeficientii sunt interpretati ca log-odds), in meta-analiza (combinarea studiilor), si in epidemiologie (odds ratio ca masura a efectului). Forma exponentiala permite implementarea unificata a algoritmilor de estimare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Cand un medic spune ca „riscul de boala este de 3 ori mai mare pentru fumatori", aceasta este un odds ratio. In cadrul familiei exponentiale, acest factor 3 se traduce direct in parametrul natural &theta;: log(3) = 1.1 este diferenta in log-odds intre fumatori si nefumatori. Regresia logistica estimeaza exact acesti parametri naturali.</p></div>
+  </div>
+</div>

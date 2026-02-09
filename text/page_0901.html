@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Rezultate experimentale BHC si clusteringul datelor si trasaturilor</h2>
+  <p>Pagina prezinta rezultatele experimentale ale BHC comparativ cu metodele traditionale de clustering ierarhic si introduce sectiunea despre clusteringul simultan al datelor si trasaturilor.</p>
+  <div class="highlight-box"><strong>Tabelul 25.1 - Scoruri de puritate:</strong> BHC obtine scoruri semnificativ mai bune decat single linkage, complete linkage si average linkage pe 4 din 5 seturi de date (Synthetic: 0.828, Newsgroups: 0.465, Spambase: 0.728, Digits: 0.393).</div>
+  <div class="definition-box"><strong>Invatarea hiper-parametrilor:</strong> BHC are doi hiper-parametri liberi: α (concentrarea) si λ (parametrii priorului). Gradientii ∂p(D_k|T_k)/∂λ pot fi retropropagati prin arbore pentru estimarea empirica Bayes.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Rezultatele experimentale demonstreaza superioritatea BHC pe diverse seturi de date. Singura exceptie este setul de date "forensic glass" unde average linkage este usor mai bun. BHC a fost aplicat cu succes si pe date de expresie genica. Hiper-parametrii pot fi invatati automat prin retropropagare de gradienți.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>BHC depaseste consistent metodele traditionale, demonstrand valoarea abordarii probabilistice. Imbunatatirile sunt mai pronuntate pe seturile de date mai mari si mai complexe (Newsgroups, Spambase).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Posibilitatea de a invata hiper-parametrii automat face BHC practic pentru aplicatii reale, eliminand necesitatea ajustarii manuale. Metoda este aplicabila atat pe date continue cat si pe date binare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectarea spam-ului (setul Spambase), BHC obtine un scor de puritate de 0.728 comparativ cu 0.699 pentru complete linkage, sugerand ca abordarea Bayesiana capteaza mai bine structura ierarhica a emailurilor spam vs. legitime.</p></div>
+  </div>
+</div>

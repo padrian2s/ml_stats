@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>EP pentru problema clutter - Detalii de implementare</h2>
+  <p>Aceasta pagina prezinta implementarea detaliata a EP pentru problema clutter a lui Minka, cu formule concrete pentru factorii aproximativi Gaussieni.</p>
+  <div class="definition-box"><strong>Factorii aproximativi Gaussieni:</strong> f_tilde_i(x) = s_i * N(x|m_i, v_i*I), unde s_i este un scalar, m_i este media si v_i varianta. Variantele pot fi negative, indicand ca f_tilde_i nu este o distributie de probabilitate ci un termen corectiv.</div>
+  <div class="definition-box"><strong>Distributia cavitate:</strong> q_{-i}(x) = N(x|m_{-i}, v_{-i}*I), cu v_{-i}^{-1} = v^{-1} - v_i^{-1} si m_{-i} = m + v_{-i}*v_i^{-1}*(m - m_i). Se obtine prin eliminarea factorului curent din q.</div>
+  <div class="highlight-box"><strong>Probabilitatea de responsabilitate:</strong> rho_i = 1 - (w/Z_i)*N(y_i|0, a*I) este probabilitatea ca observatia y_i sa nu fie clutter. Z_i = (1-w)*N(y_i|m_{-i}, (v_{-i}+1)*I) + w*N(y_i|0, a*I) este constanta de normalizare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta toate formulele necesare pentru implementarea EP pe problema clutter: calculul distributiei cavitate, constanta de normalizare, actualizarea mediei si variantei, si calculul noilor factori aproximativi. Fiecare pas are o interpretare intuitiva clara.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Parametrul rho_i (responsabilitate) seamana cu responsabilitatile din EM pentru amestecuri Gaussiene, dar aici se calculeaza in contextul Bayesian complet al EP. Variantele negative ale factorilor sunt un fenomen caracteristic EP.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Implementarea EP necesita verificari numerice: variantele pot deveni negative sau infinite, necesitand mecanisme de protectie (damping, clamping). Referinta la "crib sheet"-ul lui Minka este utila pentru practicieni.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia fraudelor bancare, observatiile sunt fie tranzactii legitime (semnal) fie anomalii aleatoare (clutter). EP estimeaza parametrii distributiei tranzactiilor normale, ignorand automat anomaliile.</p></div>
+  </div>
+</div>

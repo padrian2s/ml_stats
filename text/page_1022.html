@@ -1,0 +1,12 @@
+<div class="page-content">
+  <h2>Comparatie RBM vs LDA si curbe precizie-recall</h2>
+  <p>Aceasta pagina compara modelul softmax replicat (RBM) cu LDA pe trei corpusuri de text, prezentand perplexitatea si curbele precizie-recall.</p>
+  <div class="highlight-box"><strong>RBM superior LDA:</strong> Pe toate cele trei corpusuri (NIPS, 20-news, Reuters), RBM-ul softmax replicat obtine o perplexitate semnificativ mai mica decat LDA, indicand o modelare mai buna a datelor. De asemenea, inferenta este mai rapida si mai exacta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Comparatia experimentala demonstreaza ca RBM-urile sunt superioare LDA atat in termeni de perplexitate (calitatea modelarii) cat si in precizie-recall (calitatea recuperarii documentelor). Avantajul RBM provine din inferenta rapida si exacta: un singur produs matrice-vector urmat de sigmoid.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Perplexitatea se masoara prin esantionare de importanta cu temperare (annealing importance sampling). RBM-ul este semnificativ mai bun decat modelul unigram dar si decat LDA. Curbele precizie-recall confirma superioritatea pe doua corpusuri diferite.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Recuperarea documentelor in motoare de cautare enterprise, clasificarea automata a documentelor, si gruparea semantica a articolelor de stiri.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de cautare intern al unei organizatii poate folosi RBM-uri pentru a gasi documente relevante mai precis decat cu LDA, datorita reprezentarii distribuite mai bogate.</p></div>
+  </div>
+</div>

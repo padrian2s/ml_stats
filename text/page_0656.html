@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>HHMM ca model grafic si HMM input-output</h2>
+  <p>Aceasta pagina prezinta HHMM ca model grafic dirigit cu variabile de terminare F_t^l si introduce HMM-urile input-output.</p>
+  <div class="definition-box"><strong>HHMM ca DGM:</strong> Figura 17.17 arata graful cu Q_t^l (starea la nivel l, timp t) si F_t^l (indicator de terminare). Tranzitia la nivel l este permisa doar cand lantul de nivel l-1 a terminat (F_t^{l-1}=1). Nivelurile superioare evolueaza mai lent decat cele inferioare.</div>
+  <div class="highlight-box"><strong>HMM input-output:</strong> p(y_{1:T}, z_{1:T}|u_{1:T}, theta), unde u_t este un semnal de control (intrare). Tranzitia: p(z_t|x_t, z_{t-1}=i) = Cat(z_t|S(W_i u_t)). Observatia: p(y_t|x_t, z_t=j) = N(y_t|V_j u_t, Sigma_j).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>HHMM-ul ca DGM (Figura 17.17) are structura: Q_t^1 -> Q_t^2 -> ... -> Q_t^L -> y_t, cu variabile F_t^l care controleaza cand nivelul l isi termina sub-modelul si permite tranzitie la nivel l. Constrangerea F_T^1=1 asigura ca toate modelele se termina. HMM input-output (Figura 17.18a) extinde HMM cu intrari u_t: matricea de tranzitie devine un model logistic conditionat de u_t, iar observatia un model liniar conditionat de u_t si z_t.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>HHMM generalizeaza HSMM: un HSMM cu durata variabila este un HHMM cu 2 niveluri unde nivelul superior este un contor deterministic. HMM input-output este un model de entropie maxima ascuns, conditionand tranzitiile si emisiile pe intrari externe.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>HMM input-output este folosit in: controlul robotic (u_t = comanda, z_t = regim de miscare, y_t = observatie senzoriala), econometrie (u_t = indicatori macroeconomici, z_t = regim economic) si dialog management.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In navigatia robotica, un HMM input-output modeleaza cum comenzile de miscare (u_t) si regimul de teren (z_t: asfalt, nisip, iarba) influenteaza pozitia observata (y_t), permitand adaptarea controlerului la diferite tipuri de teren.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>10.4.2-10.4.3 Invatarea din Date Complete (continuare) si Date cu Variabile Lipsa</h2>
+  <p>Pagina prezinta MLE-ul pentru CPT-uri tabulare, exemplu numeric detaliat si introduce problematica invatarii cu date lipsa sau variabile latente.</p>
+  <div class="highlight-box"><strong>MLE pentru CPT (10.33):</strong> θ̂_tck = N_tck / Σ_{k'} N_tck', estimatorul de maxima verosimilitate fara netezire (frecventa relativa).</div>
+  <div class="definition-box"><strong>Problema frecventei zero:</strong> Cand N_tck = 0, MLE-ul da θ̂_tck = 0, ceea ce poate fi problematic. Solutia: priori Dirichlet (netezire add-α).</div>
+  <div class="definition-box"><strong>Invatarea cu date lipsa:</strong> Cand exista variabile ascunse sau date lipsa, verosimilitatea nu se mai factorizeaza conform structurii grafului, iar functia de log-verosimilitate nu mai este convexa. Se pot calcula doar optimi locale (ML sau MAP).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza exemplul numeric de invatare din date complete, aratand cum se calculeaza statisticile suficiente si mediile posterioare pentru fiecare nod si fiecare caz de conditionare. MLE-ul este pur si simplu frecventa relativa, dar sufera de problema frecventei zero. Invatarea cu date lipsa sau variabile latente este semnificativ mai dificila: verosimilitatea devine non-convexa si necesita algoritmi iterativi precum EM.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tranzitia de la date complete la date incomplete schimba fundamental natura problemei de optimizare: de la o solutie in forma inchisa (numarare) la o problema de optimizare non-convexa cu optimi locale multiple. Aceasta motiveaza algoritmul EM (Expectation-Maximization) discutat ulterior.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, datele lipsa sunt extrem de comune: chestionare partial completate, senzori defecti, variabile care nu pot fi masurate direct. Algoritmul EM este instrumentul standard pentru aceste situatii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un chestionar medical, un pacient poate sa nu raspunda la toate intrebarile (date lipsa), iar unele variabile nu pot fi masurate direct (variabile latente, de exemplu stadiul bolii). Invatarea parametrilor modelului in aceste conditii necesita algoritmi iterativi care alterneza intre estimarea variabilelor lipsa si actualizarea parametrilor.</p></div>
+  </div>
+</div>

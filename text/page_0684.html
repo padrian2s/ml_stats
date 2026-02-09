@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>ADF: Algoritmul Boyen-Koller si Inferenta Online in GLM-uri</h2>
+  <p>Pagina prezinta algoritmul Boyen-Koller pentru inferenta online in retele Bayesiene dinamice si filtrarea cu densitate presupusa Gaussiana pentru modele liniare generalizate (GLM).</p>
+  <div class="figure-box"><strong>Figura 18.11:</strong> (a) Ilustrarea ciclului predictie-actualizare-proiectie al filtrarii cu densitate presupusa. (b) Model de regresie logistica dinamica cu variabile ascunse θ_{t-1}, θ_t, variabile de stare s_{t-1}, s_t si observatii y_{t-1}, y_t.</div>
+  <div class="definition-box"><strong>Algoritmul Boyen-Koller:</strong> Metoda de inferenta aproximativa in retele Bayesiene dinamice cu stari discrete, care utilizeaza o aproximare complet factorizata q(θ_t) = Π_j Cat(θ_{t,j}|π_{t,j}). Eroarea introdusa de aproximarile repetate ramane limitata sub anumite conditii de stocasticitate.</div>
+  <div class="highlight-box"><strong>Potrivirea momentelor:</strong> Parametrii optimi ai aproximarii tractabile sunt: μ_{t,j} = E_p̂[θ_{t,j}], τ_{t,j} = var_p̂[θ_{t,j}] (ec. 18.116). Proiectia pe familia tractabila se face prin minimizarea divergentei KL, echivalenta cu potrivirea momentelor pentru familii exponentiale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul Boyen-Koller rezolva problema intraactabilitatii in retele Bayesiene dinamice prin aproximare factorizata. Metoda ADF cu aproximare Gaussiana poate fi aplicata la GLM-uri, inclusiv regresia logistica dinamica, oferind o alternativa la filtrele de particule.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Paradigma predict-update-project apare ca un tipar recurent in inferenta aproximativa. Aproximarea factorizata a lui Boyen-Koller sacrifica corelatiile dintre variabile pentru tractabilitate. Eroarea ramane limitata datorita proprietatilor de mixing ale lanturilor Markov.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul Boyen-Koller este utilizat in sisteme de monitorizare a retelelor de senzori, diagnosticare medicala in timp real si modele de trafic. ADF Gaussiana pentru GLM-uri se aplica in regresia logistica online si clasificarea adaptiva.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Sistemul TrueSkill al Microsoft foloseste ADF (propagarea expectatiei) pentru a clasifica jucatorii Xbox in timp real, actualizand estimarile de abilitate dupa fiecare meci printr-un model Bayesian dinamic cu aproximare Gaussiana.</p></div>
+  </div>
+</div>

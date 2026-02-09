@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Gaussiana Multivariată 2D - Tipuri de Covarianță și Distribuția Dirichlet</h2>
+  <p>Pagina prezintă vizualizări ale diferitelor tipuri de matrice de covarianță pentru Gaussiane 2D și introduce distribuția Dirichlet ca generalizare multivariată a distribuției beta.</p>
+  <div class="figure-box"><strong>Figura 2.13:</strong> Seturi de nivel pentru Gaussiane 2D: (a) covarianță completă - contururi eliptice, (b) covarianță diagonală - elipsă aliniată cu axele, (c) covarianță sferică - formă circulară, (d) suprafața 3D pentru Gaussiana sferică.</div>
+  <div class="definition-box"><strong>Distribuția Dirichlet:</strong> O generalizare multivariată a distribuției beta, cu suport pe simplexul de probabilitate S_K = {x : 0 ≤ x_k ≤ 1, Σx_k = 1}. Densitatea: Dir(x|α) ≜ (1/B(α)) ∏ x_k^(α_k−1).</div>
+  <div class="highlight-box"><strong>Proprietățile distribuției Student t:</strong> media = μ, modul = μ, Cov = ν/(ν−2) · Σ, indicând că varianța este mai mare decât cea a unei Gaussiane cu aceeași matrice Σ.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Vizualizarea tipurilor de covarianță arată cum forma distribuției se schimbă dramatic în funcție de structura matricei. Distribuția Dirichlet generalizează distribuția beta pentru vectori de probabilitate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Alegerea tipului de covarianță implică un compromis între expresivitate și numărul de parametri: completă (D(D+1)/2), diagonală (D), sferică (1). Simplexul Dirichlet generalizează probabilitățile pentru K categorii.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Distribuția Dirichlet este esențială în modelarea topicilor (LDA), în inferența Bayesiană pentru modele categoriale, și în procesarea limbajului natural pentru distribuții peste vocabular.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În modelarea topicilor pentru documente text, fiecare document este reprezentat ca o distribuție Dirichlet peste topici, iar fiecare topic ca o distribuție Dirichlet peste cuvinte.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Automatic Relevance Determination (ARD) / Sparse Bayesian Learning (SBL)</h2>
+  <p>Pagina introduce Sectiunea 13.7 despre ARD/SBL, o abordare Bayesiana empirica pentru sparsitate care estimeaza variantele individuale ale ponderilor prin maximizarea verosimilitudinii marginale (Type II ML).</p>
+  <div class="definition-box"><strong>ARD/SBL:</strong> w_j ~ N(0, alpha_j^{-1}), unde preciziile alpha_j sunt estimate din date prin maximizarea verosimilitudinii marginale p(y|X, alpha, beta). Ponderile cu alpha_j -> infinit sunt "eliminate" (w_j -> 0), producand sparsitate.</div>
+  <div class="highlight-box"><strong>Modelul ARD (Eq. 13.147-13.148):</strong> p(y|x, w, beta) = N(y|w^T x, 1/beta), p(w) = N(w|0, A^{-1}), unde A = diag(alpha). Verosimilitatea marginala p(y|X, alpha, beta) se obtine integrend peste w.</div>
+  <div class="highlight-box"><strong>Conexiunea cu spike-and-slab:</strong> ARD inlocuieste indicatorii binari gamma_j in {0,1} cu precizii continue alpha_j in R+. Cand alpha_j -> infinit, variabila j este efectiv eliminata (echivalent cu gamma_j = 0).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>ARD/SBL este o abordare eleganta de Bayes empiric (Type II ML) pentru sparsitate: in loc de a pune un prior fix sparse pe w, se estimeaza hiperparametrii alpha_j care controleaza varianta fiecarei ponderi. Maximizarea verosimilitudinii marginale peste alpha produce automat sparsitate, deoarece unele alpha_j diverg la infinit.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>ARD face "selectie soft" prin controlul variantei: variabile cu alpha_j mare au distributie posterioara concentrata in jurul lui zero. Spre deosebire de LASSO (selectie hard la zero), ARD produce sparsitate mai graduala si mai nuantata.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>ARD cu baze RBF produce Relevance Vector Machine (RVM), o alternativa sparse la SVM. ARD este folosit extensiv in reteaua neuronala Bayesiana pentru pruning automat al conexiunilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In imagistica cerebrala (fMRI), ARD pe voxeli identifica automat regiunile cerebrale active (cu alpha_j mic, deci w_j non-zero) si le separa de zgomotul de fond (alpha_j mare), oferind harti de activare sparse.</p></div>
+  </div>
+</div>

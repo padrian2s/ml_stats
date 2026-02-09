@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Interpretarea modelelor black-box - Grafice de dependenta partiala</h2>
+  <p>Aceasta pagina introduce tehnici de interpretare a modelelor black-box, incluzand graficele de dependenta partiala si functia sintetica Friedman.</p>
+  <div class="definition-box"><strong>Grafic de dependenta partiala (PDP):</strong> f(x_s) = 1/N sum_i f(x_s, x_{i,-s}), unde se mediaza predictia modelului peste valorile celorlalte variabile din setul de antrenament. Arata efectul marginal al variabilei x_s asupra predictiei.</div>
+  <div class="highlight-box"><strong>Functia sintetica Friedman:</strong> f(x) = 10*sin(pi*x_1*x_2) + 20*(x_3-0.5)^2 + 10*x_4 + 5*x_5 + epsilon, cu 5 variabile irelevante aditionale. Graficele PDP ale BART identifica corect efectul fiecarei variabile: x_1-x_5 active, x_6-x_10 plate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 16.8 abordeaza provocarea interpretarii modelelor complexe. Modelele liniare sunt usor de interpretat dar predictiv slabe; modelele black-box sunt predictive dar greu de interpretat. PDP ofera un compromis: vizualizeaza efectul marginal al fiecarei variabile. Figura 16.20 arata PDP-urile pentru cele 10 variabile: x_1-x_5 au efecte non-liniare vizibile, x_6-x_10 sunt plate (irelevante).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>PDP captureaza efectul mediu al unei variabile, ignorand interactiunile. Pentru interactiuni, se pot folosi PDP 2D sau grafice ICE (Individual Conditional Expectation). Breiman a subliniat ca importanta variabilelor trebuie evaluata doar din modele cu acuratete predictiva buna.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>PDP este implementat in scikit-learn (partial_dependence), SHAP si biblioteci de interpretabilitate. Alternative moderne includ: SHAP values, LIME, Accumulated Local Effects (ALE), si Counterfactual explanations.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In conformitate cu reglementarile GDPR si AI Act (UE), modelele de scoring credit trebuie sa ofere explicatii. PDP arata cum venitul, varsta sau istoricul creditului influenteaza scorul, satisfacand cerinta de transparenta.</p></div>
+  </div>
+</div>

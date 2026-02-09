@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>CRF-uri pe lant, MEMM-uri si problema label bias</h2>
+  <p>Aceasta pagina compara HMM-urile, MEMM-urile si CRF-urile pe lant, evidentiind problema label bias care afecteaza MEMM-urile.</p>
+  <div class="definition-box"><strong>MEMM (Maximum Entropy Markov Model):</strong> Un model discriminativ directionat unde probabilitatile de tranzitie sunt conditionate pe trasaturile de intrare: p(y|x,w) = ∏_t p(y_t|y_{t-1}, x, w). Sufera de problema label bias.</div>
+  <div class="definition-box"><strong>Problema label bias:</strong> In MEMM-uri, trasaturile locale la momentul t nu influenteaza starile anterioare momentului t (din cauza d-separarii prin v-structura la y_t). Aceasta inseamna ca informatia din observatii nu se poate propaga inapoi in timp, ducand la decizii locale suboptime.</div>
+  <div class="highlight-box"><strong>CRF pe lant vs MEMM:</strong> CRF-ul pe lant (Figura 19.14c) rezolva problema label bias prin folosirea de muchii nedirectionate intre etichete, permitand propagarea informatiei in ambele directii. Este modelul standard pentru etichetarea secventelor in NLP.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Trei modele pentru date secventiale sunt comparate: HMM (generativ), MEMM (discriminativ directionat) si CRF pe lant (discriminativ nedirectionat). MEMM-ul pare o generalizare naturala a regresiei logistice la secvente, dar sufera de label bias: observatia unui cuvant ambiguu (de exemplu, "banks") nu poate influenta etichetele anterioare. CRF-ul rezolva aceasta problema prin normalizare globala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Label bias apare din normalizarea locala (per-nod) a MEMM-ului, care forteaza probabilitatile de tranzitie sa insumeze la 1 la fiecare nod. CRF-ul foloseste normalizare globala (o singura Z pentru intreaga secventa), permitand informatiei sa circule liber. Trade-off: normalizarea globala face antrenarea mai costisitoare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>CRF-urile pe lant sunt standarde in POS tagging, NER, segmentarea secventelor biologice (gene finding) si recunoasterea scrisului de mana. Au inlocuit in mare parte HMM-urile si MEMM-urile in aceste domenii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In POS tagging, cuvantul "banks" poate fi verb sau substantiv. MEMM-ul decide eticheta bazandu-se doar pe starea anterioara si observatia curenta, fara a "vedea" contextul viitor. CRF-ul pe lant considera intreaga secventa simultan, permitand o decizie mai informata.</p></div>
+  </div>
+</div>

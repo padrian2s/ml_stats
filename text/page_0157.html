@@ -1,0 +1,22 @@
+<div class="page-content">
+  <h2>Distributia Wishart - Proprietati si Distributia Wishart Inversa</h2>
+  <p>Pagina 126 detaliaza proprietatile distributiei Wishart, introduce functia Gamma multivariata, conexiunea cu distributia Gamma si distributia Wishart inversa.</p>
+
+  <div class="highlight-box"><strong>Constanta de normalizare Wishart (Ecuatia 4.160):</strong> Z_Wi = 2^(νD/2) Γ_D(ν/2) |S|^(ν/2), unde Γ_D este functia Gamma multivariata.</div>
+
+  <div class="definition-box"><strong>Functia Gamma multivariata (Ecuatia 4.161):</strong> Γ_D(x) = π^(D(D-1)/4) ∏ᵢ₌₁ᴰ Γ(x + (1-i)/2). Pentru D = 1, Γ₁(a) = Γ(a).</div>
+
+  <div class="highlight-box"><strong>Legatura cu Gaussiana (Ecuatia 4.163):</strong> Daca xᵢ ~ N(0, Σ), atunci S = Σᵢ xᵢxᵢᵀ ~ Wi(Σ, 1). Media Wi(S, ν) = νS, modul = (ν - D - 1)S (exista doar daca ν > D + 1).</div>
+
+  <div class="definition-box"><strong>Distributia Wishart Inversa (Ecuatia 4.165):</strong> Daca Σ⁻¹ ~ Wi(S, ν), atunci Σ ~ IW(S⁻¹, ν + D + 1). Definita ca: IW(Σ|S, ν) ∝ |Σ|^(-(ν+D+1)/2) exp(-1/2 tr(S⁻¹Σ⁻¹)). Media = S⁻¹/(ν - D - 1), modul = S⁻¹/(ν + D + 1).</div>
+
+  <div class="highlight-box"><strong>Legatura cu distributii univariate:</strong> Wi(λ|s⁻¹, ν) = Ga(λ|ν/2, s/2) si IW(σ²|S⁻¹, ν) = IG(σ²|ν/2, S/2) cand D = 1.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Distributia Wishart si inversa ei sunt esentiale in statistica Bayesiana multivariata. Wishart este priorul conjugat pentru matricea de precizie Λ, iar Wishart inversa este priorul conjugat pentru matricea de covarianta Σ. Constanta de normalizare implica functia Gamma multivariata, care generalizeaza functia Gamma la dimensiuni D > 1.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Paralelismul intre cazul univariat (Gamma/IG) si multivariat (Wishart/IW) este complet: Gamma → Wishart, IG → IW, varianta → matrice de covarianta, precizie → matrice de precizie. Gradele de libertate ν joaca rolul parametrului de forma al distributiei Gamma.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>IW este folosita ca prior in modelele de amestec Gaussiene (GMM) Bayesiene, in modelele ierarhice multivariate si in inferenta pentru retele Bayesiene Gaussiene. Alegerea lui ν si S controleaza informatia a priori despre structura covariantei.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza longitudinala a datelor clinice (masuratori repetate pe pacienti), matricea de covarianta a masuratorilor intra-pacient este modelata cu un prior Wishart invers. Gradul de libertate ν codifica cat de siguri suntem despre structura corelatiilor temporale intre vizitele pacientului.</p></div>
+  </div>
+</div>

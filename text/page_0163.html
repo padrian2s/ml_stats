@@ -1,0 +1,22 @@
+<div class="page-content">
+  <h2>Distributia Posterioara Comuna pentru μ si Σ</h2>
+  <p>Pagina 132 abordeaza problema inferentei simultane a mediei μ si covariantei Σ, prezentand verosimilitatea factorizata si introducand priorul conjugat comun.</p>
+
+  <div class="highlight-box"><strong>Verosimilitatea comuna (Ecuatia 4.194):</strong> p(D|μ, Σ) = (2π)^(-ND/2) |Σ|^(-N/2) exp(-1/2 Σᵢ (xᵢ - μ)ᵀ Σ⁻¹ (xᵢ - μ))</div>
+
+  <div class="highlight-box"><strong>Verosimilitatea factorizata (Ecuatiile 4.195-4.197):</strong>
+    Σᵢ (xᵢ - μ)ᵀ Σ⁻¹ (xᵢ - μ) = tr(Σ⁻¹ S_x̄) + N(μ - x̄)ᵀ Σ⁻¹ (μ - x̄).
+    Aceasta separare este cheia: primul termen depinde doar de Σ, al doilea cupleaza μ si Σ.</div>
+
+  <div class="definition-box"><strong>Prior semi-conjugat (Ecuatia 4.198):</strong> p(μ, Σ) = N(μ|m₀, V₀) IW(Σ|S₀, ν₀). Priorul se factorizeaza, dar verosimilitatea nu - deci nu este conjugat complet. Se numeste semi-conjugat sau conditionat conjugat.</div>
+
+  <div class="definition-box"><strong>Prior conjugat comun (Ecuatia 4.199):</strong> p(μ, Σ) = p(Σ) p(μ|Σ). Priorul pentru μ depinde de Σ, ceea ce permite conjugarea completa. Aceasta conduce la distributia Normal-Wishart Inversa (NIW).</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Inferenta comuna a lui μ si Σ este mai complicata deoarece cei doi parametri sunt cuplati in verosimilitate (termenul N(μ - x̄)ᵀ Σ⁻¹ (μ - x̄) depinde de ambii). Pentru a obtine un posterior in forma inchisa, este necesara utilizarea unui prior in care μ depinde de Σ, conducand la distributia NIW.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cuplarea intre μ si Σ in verosimilitate reflecta un fapt intuitiv: incertitudinea despre medie depinde de varianta (daca varianta este mare, media este mai greu de estimat). Priorul NIW captureaza exact aceasta dependenta: p(μ|Σ) = N(μ|m₀, Σ/κ₀).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Priorul NIW este standard in modelele de amestec Gaussiene Bayesiene (Bayesian GMM), clusteringul cu procese Dirichlet, si in orice model ierarhic care necesita inferenta comuna asupra mediei si covariantei.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea automata a clientilor (clustering), fiecare segment este modelat ca o Gaussiana cu parametri necunoscuti (μ, Σ). Priorul NIW permite inferenta comuna: daca un segment are varianta mare (clienti diversi), incertitudinea despre media segmentului este proportional mai mare.</p></div>
+  </div>
+</div>

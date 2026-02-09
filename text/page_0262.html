@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Curbe de Învățare pentru Modele Polinomiale și Regresia Liniară Bayesiană</h2>
+  <p>Pagina ilustrează curbele de învățare pentru modele de diferite complexități și introduce regresia liniară Bayesiană completă.</p>
+  <div class="figure-box"><strong>Figura 7.10:</strong> MSE pe seturile de antrenament și test vs. dimensiunea setului de antrenament, pentru date generate de un polinom de grad 2 cu σ² = 4. (a) Model de grad 1: eroare structurală mare, platou ridicat. (b) Model de grad 2: captează adevărul, convergență rapidă. (c) Model de grad 10: overfitting pentru N mic, convergență lentă. (d) Model de grad 25: overfitting sever pentru N mic, dar convergează eventual la noise floor.</div>
+  <div class="highlight-box"><strong>Observație esențială:</strong> Pentru seturi de antrenament mici, modelul de grad 25 are eroare de test mult mai mare decât modelul de grad 2, din cauza overfitting-ului. Dar pe măsură ce N crește, diferența dispare. Modelul de grad 1 nu convergează niciodată la noise floor din cauza erorii structurale.</div>
+  <div class="definition-box"><strong>Multi-task Learning:</strong> Când datele per-task sunt limitate, se pot învăța mai multe task-uri simultan, „împrumutând putere statistică" între ele. Aceasta este relevantă pentru personalizare în motoarele de căutare.</div>
+  <div class="highlight-box"><strong>Regresia Liniară Bayesiană:</strong> În loc de o estimare punctuală (ridge), se calculează posteriorul complet p(w|D, σ²). Se presupune σ² cunoscut inițial, apoi se generalizează.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Curbele de învățare din Figura 7.10 oferă o demonstrație vizuală convingătoare a compromisului complexitate-date. Secțiunea 7.6 introduce regresia Bayesiană completă, care oferă nu doar o estimare punctuală (ca ridge) ci o distribuție completă peste parametri, permițând cuantificarea incertitudinii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Eroarea de antrenament crește cu N (mai greu de fita mai multe puncte), eroarea de test scade cu N (mai multă informație). Ele converg la noise floor pentru modele suficient de expresive. Multi-task learning este echivalentul modelelor ierarhice Bayesiene din capitolul 5.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Curbele de învățare sunt disponibile în scikit-learn (learning_curve()) și sunt un instrument standard de diagnostic. Ele ajută la decizia: „trebuie mai multe date?" sau „trebuie un model mai bun?".</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un serviciu de streaming care personalizează recomandări are puține date per utilizator (N mic per task). Multi-task learning permite utilizarea datelor agregate ale tuturor utilizatorilor pentru a îmbunătăți recomandările individuale, echivalent cu un prior Bayesian ierarhic.</p></div>
+  </div>
+</div>

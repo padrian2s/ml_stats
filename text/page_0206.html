@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Aplicatie Baseball: Transformare Stabilizatoare de Varianta si Estimarea Hiperparametrilor</h2>
+  <p>Pagina prezinta aplicarea contractiei bayesiene la mediile de bataie din baseball, folosind o transformare stabilizatoare de varianta si estimarea hiperparametrilor EB.</p>
+  <div class="definition-box"><strong>Transformare stabilizatoare de varianta:</strong> yⱼ = f(xⱼ) = √T · arcsin(2xⱼ - 1) (Ecuatia 5.88) - transforma datele binomiale astfel incat varianta sa fie aproximativ constanta (σ² ≈ 1), independenta de θⱼ.</div>
+  <div class="highlight-box"><strong>Estimator de contractie pentru baseball:</strong> θ_hat_j = 0.5(sin(μ_hat_j/√T) + 1) (Ecuatia 5.89) - inversarea transformarii dupa aplicarea contractiei gaussiene.</div>
+  <div class="highlight-box"><strong>Rezultat:</strong> MSE pentru MLE = 0.0540, MSE pentru contractie = 0.0013 - contractia reduce eroarea de peste 3 ori!</div>
+  <div class="figure-box"><strong>Figura 5.12:</strong> (a) MLE-uri (sus) si estimari contractate (jos) - contractia "trage" toate estimarile catre media globala de 0.265. (b) Comparatie detaliata: parametrii adevarati (albastru), media posterioara (verde) si MLE (rosu) - contractia este mai aproape de adevar.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exemplul baseball (Efron si Morris, 1975) este o demonstratie clasica a contractiei bayesiene. Cu D=18 jucatori si T=45 meciuri, MLE-urile (mediile de bataie) sunt zgomotoase. Transformarea arcsin stabilizeaza varianta, permitand aplicarea modelului Gaussiana-Gaussiana. Rezultatul: estimarile contractate au MSE de 3 ori mai mic decat MLE-urile.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Transformarea stabilizatoare de varianta este necesara deoarece varianta binomiala var[xⱼ] = θⱼ(1-θⱼ)/T depinde de θⱼ, violand presupunerea modelului Gaussiana-Gaussiana ca σ² este constant. Dupa transformare, varianta devine aproximativ 1.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Contractia este acum standard in sport analytics: mediile de bataie din primele meciuri ale sezonului sunt contractate catre media generala pentru a prezice mai bine performanta pe tot sezonul. Aceeasi idee se aplica la ratele de succes ale jucatorilor de fotbal, baschet etc.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un jucator cu media de bataie 0.400 dupa 45 de meciuri (remarcabil de mare) este probabil o fluctuatie statistica. Contractia il aduce mai aproape de 0.265 (media generala). De fapt, media sa la sfarsitul sezonului a fost mai aproape de estimarea contractata decat de MLE.</p></div>
+  </div>
+</div>

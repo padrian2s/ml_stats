@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>SVM-uri Structurale - Margini Superioare Convexe (continuare)</h2>
+  <p>Pagina continua discutia despre SVM-urile structurale, prezentand cum obiectivul SSVM poate fi vazut ca optimizarea unei margini superioare pe obiectivul Bayesian. Se introduce perspectiva non-probabilistica a SSVM-urilor.</p>
+  <div class="definition-box"><strong>Functia log-sum-exp:</strong> f(y') ≤ log Σ_y exp[f(y)] - o margine inferioara mai slaba care permite construirea unei margini superioare convexe pe obiectivul care altfel nu este convex in w.</div>
+  <div class="definition-box"><strong>Obiectivul SSVM standard:</strong> R_SSVM(w) = (1/2)||w||² + C Σᵢ [max_y {L̃(yᵢ,y) + wᵀφ(xᵢ,y)} - wᵀφ(xᵢ,yᵢ)] - obiectivul folosit in abordarea SSVM.</div>
+  <div class="highlight-box"><strong>Reducerea la SVM binar:</strong> In cazul special Y = {-1,+1}, criteriul se reduce la R_SVM(w) = (1/2)||w||² + C Σᵢ [max{0, 1 - yᵢwᵀxᵢ}] (Ecuatia 19.91), obiectivul standard SVM binar.</div>
+  <div class="highlight-box"><strong>Predictorul SSVM:</strong> f(x;w) = argmax_{y∈Y} wᵀφ(x,y) - functia de predictie. Se poate obtine pierdere zero daca ∀i. max_{y∈Y\yᵢ} wᵀφ(xᵢ,y) ≤ wᵀφ(xᵢ,yᵢ) (Ecuatia 19.92).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Aceasta pagina face tranzitia de la perspectiva probabilistica la cea non-probabilistica a SVM-urilor structurale. Se demonstreaza ca criteriul SSVM poate fi interpretat ca o margine superioara convexa a obiectivului Bayesian, folosind inegalitatea log-sum-exp. In cazul binar, formula se reduce la obiectivul SVM clasic. Se introduce apoi formularea non-probabilistica care va sta la baza algoritmilor de antrenare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conexiunea intre abordarea probabilistica si cea non-probabilistica este fundamentala: ambele conduc la aceeasi functie obiectiv. Aproximarea devine mai buna cand ||w|| este mare, dar un ||w|| mare implica supraajustare. Criteriul SVM se concentreaza pe parametrii care afecteaza frontiera de decizie, nu pe distributia completa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SVM-urile structurale sunt utilizate in procesarea limbajului natural (etichetare secventiala), viziune computationala (segmentare de imagini) si bioinformatica (prezicerea structurii proteinelor), unde iesirile au structura complexa.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea entitatilor numite (NER), un SSVM poate fi antrenat sa eticheteze fiecare cuvant dintr-o propozitie ca persoana, locatie, organizatie sau altceva. Functia φ(x,y) capteaza trasaturile relevante ale perechilor intrare-iesire, iar predictia se face prin maximizarea scorului peste toate secventele posibile de etichete.</p></div>
+  </div>
+</div>

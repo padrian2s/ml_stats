@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Graphcuts pentru MRF-uri Binare cu Potentiale Submodulare (Sectiunea 22.6.3.2)</h2>
+  <p>Aceasta pagina prezinta ilustrarea graphcuts aplicata unui MRF cu 4 noduri si extinderea metodei la MRF-uri binare cu potentiale submodulare.</p>
+  <div class="figure-box"><strong>Figura 22.14:</strong> Ilustrarea graphcuts aplicata unui MRF cu 4 noduri. Liniile intrerupte sunt cele care contribuie la costul taieturii (pentru muchii bidirectionate, se numara doar unul din costuri). Taietura minima are costul 6. Sursa: Figura 13.5 din Koller si Friedman 2009.</div>
+  <div class="highlight-box"><strong>Costul taieturii:</strong> cost(X_s, X_t) = SUMA_{x_u in X_s, x_v in X_t} cost(x_u, s_v) (Ec. 22.154)</div>
+  <div class="definition-box"><strong>Energii Submodulare:</strong> Conditia E_uv(1,1) + E_uv(0,0) <= E_uv(1,0) + E_uv(0,1) (Ec. 22.155) - suma energiilor diagonale este mai mica decat suma energiilor off-diagonale.</div>
+  <div class="definition-box"><strong>MRF Atractiv / Asociativ:</strong> Un model Ising cu lambda_uv > 0, unde modelul "doreste" ca starile vecine sa fie identice. Aceasta este un exemplu de energie submodulara.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza cum functioneaza graphcuts pe un exemplu concret cu 4 noduri, apoi generalizeaza metoda la MRF-uri binare cu potentiale submodulare. Submodularitatea este analogul discret al conveximii si garanteaza ca taietura minima corespunde configuratiei de energie minima.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Minimizarea costului in graful construit este echivalenta cu minimizarea energiei in MRF. Nodurile asignate sursei s au starea optima 0, iar cele asignate destinatiei t au starea optima 1. Conditia de submodularitate asigura ca ponderile muchiilor sunt non-negative.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MRF-urile asociative/atractive sunt fundamentale in procesarea imaginilor: netezirea imaginilor, inlaturarea zgomotului si segmentarea foreground/background. Submodularitatea apare natural in probleme de selectie a subseturilor si optimizare combinatorica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea interactiva a imaginilor (de exemplu, algoritmul GrabCut), utilizatorul marcheaza cateva pixeli ca "obiect" si "fond". Graphcuts cu potentiale submodulare propaga aceste etichete catre toti pixelii, gasind taietura optima care separa obiectul de fundal.</p></div>
+  </div>
+</div>

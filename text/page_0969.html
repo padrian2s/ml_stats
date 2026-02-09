@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Invatarea modelelor grafice gaussiene nedirijate (GGM)</h2>
+  <p>Aceasta pagina introduce invatarea structurii modelelor grafice gaussiene nedirijate (Gaussian Graphical Models / Gaussian Random Fields) si estimarea MLE.</p>
+  <div class="definition-box"><strong>Model grafic gaussian nedirijat (GGM):</strong> Un UGM unde p(x) = N(mu, Sigma), iar structura grafului este determinata de zerouri in matricea de precizie Omega = Sigma^{-1}. Omega_{st} = 0 implica lipsa muchiei intre s si t.</div>
+  <div class="definition-box"><strong>Selectia covariantei (covariance selection):</strong> Termenul lui Dempster (1972) pentru estimarea MLE a unui GGM cu structura data (zerouri impuse in Omega).</div>
+  <div class="highlight-box"><strong>Log-verosimilitatea:</strong> l(Omega) = log det Omega - tr(S*Omega), unde S este matricea de covarianta empirica. Gradientul este nabla l = Omega^{-1} - S, dar optimizarea este complicata de constrangerile de zerouri structurale si de pozitivitate definita.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia la modelele grafice nedirijate, mai usor de invatat decat DAG-urile (nu exista problema ciclurilor), dar mai greu din alt motiv: verosimilitatea nu se descompune pe familii. GGM-urile sunt caracterizate de matricea de precizie, unde zerourile corespund direct cu muchiile absente in graf. Estimarea MLE necesita tehnici speciale pentru a impune zerouri structurale si pozitivitate definita simultan.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Corespondenta 1:1 intre zerouri in Omega si muchii absente face GGM-urile ideale pentru invatarea structurii: problema de selectie a structurii devine problema de identificare a zerourilor in Omega.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GGM-urile sunt standard in finante (retele de dependenta intre active), neuroimagistica (conectivitate functionala intre regiuni cerebrale), si genomica (retele de co-expresie genica).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In finante, GGM-ul invatat din randamentele zilnice ale actiunilor identifica relatiile de dependenta conditionala intre companii, utile pentru managementul riscului si constructia portofoliilor diversificate.</p></div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Interpolare stearsa Bayesiana si empirical Bayes pentru n-grame</h2>
+  <p>Aceasta pagina prezinta interpolarea stearsa (deleted interpolation) si versiunea sa Bayesiana cu priori Dirichlet ierarhice pentru netezirea modelelor n-gram.</p>
+  <div class="definition-box"><strong>Interpolare stearsa:</strong> A_jk = (1-lambda) * f_jk + lambda * f_k, combinatie convexa intre frecventa bigram f_jk = N_jk/N_j si frecventa unigram f_k = N_k/N. Lambda se seteaza prin CV. Backoff smoothing e similar: daca f_jk e prea mic, se 'revine' la f_k.</div>
+  <div class="highlight-box"><strong>Versiunea Bayesiana:</strong> A_j ~ Dir(alpha_0 m), unde m este media prior si alpha_0 este taria priorului. Posteriorul predictiv: A_bar_jk = (1-lambda_j)*f_jk + lambda_j*m_k, cu lambda_j = alpha/(N_j + alpha_0) adaptiv per context. m_k proportional cu |{j: N_jk > 0}| - numarul de contexte in care cuvantul k apare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Interpolarea stearsa combina estimari de diferite ordine (bigram cu unigram) pentru a trata conturile zero. Versiunea Bayesiana (MacKay si Peto 1995) foloseste un prior Dirichlet ierarhic cu doi hiperparametri: alpha_0 (taria priorului) si m (media prior). Diferenta fata de interpolarea clasica: (1) lambda_j depinde de context (adaptiv), (2) m_k reflecta diversitatea contextelor, nu frecventa absoluta. Se foloseste empirical Bayes pentru a seta alpha_0 si m.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ideea lui MacKay-Peto: probabilitatea prior a unui cuvant ar trebui sa fie proportionala cu numarul de contexte diferite in care apare, nu cu frecventa sa totala. Aceasta evita supraestimarea cuvintelor care apar frecvent in putine contexte. Lambda_j adaptiv creste pentru contexte rare (N_j mic) si scade pentru contexte frecvente.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Kneser-Ney smoothing (bazat pe aceleasi principii) este metoda standard pentru netezirea n-gramelor in practica. Este implementat in SRILM, KenLM si alte toolkit-uri de modele de limbaj. A fost inlocuit treptat de modele neurale de limbaj.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recunoastere a vorbirii, modelul de limbaj n-gram cu Kneser-Ney smoothing este folosit pentru a evalua probabilitatea secventelor de cuvinte candidate, ajutand la selectarea transcrierii corecte din mai multe posibilitati acustice.</p></div>
+  </div>
+</div>

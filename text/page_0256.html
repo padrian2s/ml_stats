@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Ridge Regression - Ideea de Bază și Regularizarea ℓ₂</h2>
+  <p>Pagina introduce ridge regression ca soluție la overfitting-ul MLE, folosind estimarea MAP cu prior Gaussian pentru a penaliza coeficienți mari.</p>
+  <div class="figure-box"><strong>Figura 7.7:</strong> Fitare polinomială de grad 14 pe N = 21 puncte de date cu regularizare ℓ₂ crescătoare. (a) ln(λ) = -20.135: fitare „wiggly", aproape interpolează datele. (b) ln(λ) = -8.571: fitare mai netedă. Barele de eroare cresc pe măsură ce fitarea devine mai netedă, deoarece mai multă variație din date este atribuită zgomotului.</div>
+  <div class="highlight-box"><strong>Problema Overfitting-ului:</strong> MLE-ul pentru un polinom de grad 14 cu N = 21 produce coeficienți foarte mari (pozitivi și negativi) care se anulează reciproc pentru a interpola datele. Aceasta este instabilă: schimbări mici în date produc schimbări mari în coeficienți.</div>
+  <div class="definition-box"><strong>Prior Gaussian pentru Ponderile:</strong> p(w) = ∏ⱼ N(wⱼ|0, τ²), un prior care favorizează ponderi mici. 1/τ² controlează puterea priorului.</div>
+  <div class="highlight-box"><strong>Funcția obiectiv MAP:</strong> J(w) = (1/N)Σ(yᵢ - (w₀ + w^T xᵢ))² + λ||w||²₂, unde λ = σ²/τ². Primul termen este MSE (fidelitate față de date), al doilea este penalizarea de complexitate (regularizare).</div>
+  <div class="highlight-box"><strong>Soluția Ridge:</strong> ŵ_ridge = (λI_D + X^T X)⁻¹ X^T y, o modificare simplă a soluției OLS prin adăugarea lui λI la matricea X^T X.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Ridge regression previne overfitting-ul prin adăugarea unui termen de penalizare ℓ₂ la funcția obiectiv, echivalent cu estimarea MAP sub un prior Gaussian. Termenul λI „regularizează" matricea X^T X, făcând-o mai bine condiționată și producând coeficienți mai mici și mai stabili.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Coeficienții MLE pentru polinomul de grad 14 sunt enormi (ordinul miilor), reflectând instabilitatea. Ridge regression reduce dramatic aceste valori. Termenul de offset w₀ nu este regularizat deoarece afectează doar înălțimea funcției, nu complexitatea ei.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Ridge regression este una dintre cele mai utilizate tehnici de regularizare, implementată eficient în scikit-learn (Ridge), PyTorch (weight_decay în optimizator) și R (glmnet). Weight decay în rețelele neurale este exact regularizarea ℓ₂.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La predicția cererii de energie electrică cu sute de variabile meteorologice corelate, OLS produce coeficienți instabili. Ridge regression stabilizează modelul, producând predicții mai fiabile pentru planificarea producției de energie.</p></div>
+  </div>
+</div>

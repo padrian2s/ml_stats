@@ -1,0 +1,22 @@
+<div class="page-content">
+  <h2>10.1.4 Terminologie de Grafuri</h2>
+  <p>Pagina prezinta terminologia fundamentala a grafurilor si introduce Figura 10.1 cu exemple de grafuri directionate si nedirectionate.</p>
+  <div class="figure-box"><strong>Figura 10.1(a):</strong> Un DAG (graf aciclic directionat) simplu cu 5 noduri, numerotate in ordine topologica. Nodul 1 este radacina, iar nodurile 4 si 5 sunt frunze. Arcele indica directia dependentei.</div>
+  <div class="figure-box"><strong>Figura 10.1(b):</strong> Un graf nedirectionat simplu cu 5 noduri si urmatoarele clici maximale: {1,2,3}, {2,3,4}, {3,5}.</div>
+  <div class="definition-box"><strong>Graf G = (V, E):</strong> O multime de noduri (varfuri) V = {1, ..., V} si o multime de muchii E = {(s,t) : s,t ∈ V}. Matricea de adiacenta G(s,t) = 1 daca (s,t) ∈ E.</div>
+  <div class="definition-box"><strong>Parinti (parents):</strong> Pentru un graf directionat, parintii unui nod s sunt toate nodurile care au arce spre s: pa(s) = {t : G(t,s) = 1}.</div>
+  <div class="definition-box"><strong>Copii (children):</strong> Copiii unui nod s sunt toate nodurile spre care s are arce: ch(s) = {t : G(s,t) = 1}.</div>
+  <div class="definition-box"><strong>Familie (family):</strong> Nodul s impreuna cu parintii sai: fam(s) = {s} ∪ pa(s).</div>
+  <div class="definition-box"><strong>Radacina (root):</strong> Un nod fara parinti intr-un graf directionat.</div>
+  <div class="definition-box"><strong>Frunza (leaf):</strong> Un nod fara copii intr-un graf directionat.</div>
+  <div class="definition-box"><strong>Stramosi (ancestors):</strong> Toate nodurile care se conecteaza la t printr-un drum directionat: anc(t) = {s : s ↝ t}.</div>
+  <div class="definition-box"><strong>Descendenti (descendants):</strong> Toate nodurile care pot fi atinse din s printr-un drum directionat: desc(s) = {t : s ↝ t}.</div>
+  <div class="definition-box"><strong>Vecini (neighbors):</strong> Toate nodurile conectate direct la s: nbr(s) = {t : G(s,t) = 1 ∨ G(t,s) = 1}.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabileste vocabularul esential pentru lucrul cu modele grafice. Distinctia intre grafuri directionate si nedirectionate este fundamentala: grafurile directionate codifica relatii cauzale sau generative, in timp ce grafurile nedirectionate codifica corelatii simetrice. Terminologia (parinti, copii, stramosi, descendenti) este esentiala pentru intelegerea proprietatilor de independenta conditionata.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Un graf directionat fara cicluri (DAG) permite ordonarea topologica a nodurilor. Matricea de adiacenta este o reprezentare computationala convenabila. Conceptele de parinti si copii definesc directia fluxului de informatie in modelul grafic.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Terminologia grafurilor este fundamentala in implementarea algoritmilor de inferenta (propagarea credintelor, esantionarea Gibbs) si invatare de structura. Bibliotecile software pentru modele grafice (pgmpy, BayesNet) folosesc acesti termeni extensiv.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-o retea bayesiana pentru diagnosticare medicala, nodul "Gripa" este parintele nodurilor "Febra" si "Tuse" (copii). Nodul "Expunere la virus" este stramosul tuturor, iar "Febra" si "Tuse" sunt descendentii lui "Expunere la virus". Aceasta structura de parinti-copii codifica directia cauzalitatii.</p></div>
+  </div>
+</div>

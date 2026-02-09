@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Antrenarea CRF-urilor</h2>
+  <p>Aceasta pagina prezinta algoritmul de antrenare a CRF-urilor bazat pe gradient, diferentele fata de antrenarea MRF-urilor si ilustreaza belief propagation pentru viziunea stereo.</p>
+  <div class="definition-box"><strong>Antrenarea CRF-urilor:</strong> Log-verosimilitatea conditionata scalata este ℓ(w) = (1/N) Σ_i [Σ_c w_c^T φ_c(y_i, x_i) - log Z(w, x_i)], iar gradientul este ∂ℓ/∂w_c = (1/N) Σ_i [φ_c(y_i, x_i) - E[φ_c(y, x_i)]]. Diferenta fata de MRF: trebuie sa facem inferenta pentru fiecare exemplu de antrenare, deoarece Z depinde de x_i.</div>
+  <div class="definition-box"><strong>Partajarea parametrilor (parameter tying):</strong> In CRF-uri, structura grafului poate varia intre exemple (dimensiuni diferite). Partajarea parametrilor intre potentialele de nod si de muchie asigura generalizarea la dimensiuni noi.</div>
+  <div class="highlight-box"><strong>Cost de antrenare:</strong> Antrenarea CRF-urilor este O(N) ori mai lenta decat antrenarea MRF-urilor, deoarece functia de partitie Z(w, x_i) depinde de intrarea x_i si trebuie calculata separat pentru fiecare exemplu din setul de antrenare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Antrenarea CRF-urilor urmeaza aceeasi logica ca a MRF-urilor (gradient = trasaturi observate - trasaturi asteptate), dar cu complicatia suplimentara ca Z depinde de fiecare intrare x_i. Aceasta inseamna O(N) pasi de inferenta per iteratie de gradient, fata de un singur pas pentru MRF-uri. Ilustratia cu viziunea stereo arata belief propagation convergand de la o estimare initiala la disparitati precise.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trasaturile sunt descompuse in trasaturi de nod φ_t(y_t, x) si trasaturi de muchie φ_st(y_s, y_t, x), fiecare cu ponderi separate. Partajarea parametrilor este esentiala cand grafurile au dimensiuni variabile. Inferenta per exemplu face antrenarea CRF-urilor semnificativ mai costisitoare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, antrenarea CRF-urilor pe lant foloseste algoritmul forward-backward eficient. Pentru grafuri mai complexe (retele 2D), se recurge la inferenta aproximativa (loopy BP), ceea ce introduce si o aproximare in gradient.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In antrenarea unui CRF pentru NER pe un corpus de 10000 de propozitii, fiecare iteratie de gradient necesita 10000 de apeluri de forward-backward, cate unul per propozitie. Descinderea stocastica pe gradient (SGD) reduce costul per iteratie prin procesarea unui minibatch la fiecare pas.</p></div>
+  </div>
+</div>

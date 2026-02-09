@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii: K-means Manual, Functia de Cost si Familia Exponentiala</h2>
+  <p>Pagina contine exercitiile 11.9-11.11: clustering K-means manual pe date 2D, derivarea functiei de cost K-means si demonstrarea ca amestecurile vizibile de Gaussiene apartin familiei exponentiale.</p>
+  <div class="highlight-box"><strong>Exercitiul 11.9 - K-means manual (Figura 11.24):</strong> Date pe o grila 2D cu K=2 si centroizi initiali dati. Se cere aplicarea manuala a algoritmului K-means: asignarea punctelor la cel mai apropiat centroid, recalcularea centroizilor, repetare.</div>
+  <div class="highlight-box"><strong>Exercitiul 11.10 - Functia de cost K-means (Eq. 11.131-11.135):</strong> J_W(z) = (1/2) suma_k suma_{i:z_i=k} suma_{i':z_i'=k} (x_i - x_i')^2 = suma_k n_k suma_{i:z_i=k} (x_i - x_bar_k)^2. Demonstratia foloseste descompunerea variantei intra-cluster.</div>
+  <div class="definition-box"><strong>Exercitiul 11.11 - GMM vizibil in familia exponentiala:</strong> Se cere demonstrarea ca distributia comuna p(x, z|theta) a unui GMM 1D poate fi scrisa in forma familiei exponentiale, cu statistici suficiente care includ indicatorul de cluster si momentele conditionare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile consolideaza intelegerea K-means si a relatiei sale cu GMM. Derivarea functiei de cost (Exercitiul 11.10) arata ca K-means minimizeaza varianta totala intra-cluster. Exercitiul 11.11 leaga GMM de teoria familiei exponentiale, oferind o perspectiva unificata.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Functia de cost K-means este echivalenta cu minimizarea sumei distantelor patrate intra-cluster si cu maximizarea distantelor inter-cluster. Descompunerea variantei (intra + inter = total) este fundamentala in ANOVA si clustering.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea functiei de cost K-means permite compararea obiectiva a diferitelor solutii de clustering si motivarea variantelor precum K-medoids (care inlocuieste distanta euclidiana cu alte metrici).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In compresia de imagini prin cuantizare vectoriala, K-means minimizeaza exact eroarea patratica de reconstructie, functia de cost derivata in acest exercitiu, producand o paleta optima de culori.</p></div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Convexitatea Funcțiilor și Rolul în Optimizare</h2>
+  <p>Pagina definește formal convexitatea mulțimilor și funcțiilor, cu ilustrații, și explică importanța convexității pentru optimizare în ML.</p>
+  <div class="figure-box"><strong>Figura 7.4:</strong> (a) Ilustrarea unei mulțimi convexe (hexagon). (b) Ilustrarea unei mulțimi non-convexe (formă neregulată cu concavități) unde segmentul între două puncte iese din mulțime.</div>
+  <div class="figure-box"><strong>Figura 7.5:</strong> (a) Funcție convexă: coarda care unește (x, f(x)) și (y, f(y)) se află deasupra funcției. (b) Funcție care nu este nici convexă nici concavă: A este minim local, B este minim global.</div>
+  <div class="definition-box"><strong>Funcție Strict Convexă:</strong> f este strict convexă dacă inegalitatea f(λθ + (1-λ)θ') < λf(θ) + (1-λ)f(θ') este strictă. Aceasta garantează un unic minim global.</div>
+  <div class="definition-box"><strong>Funcție Concavă:</strong> f(θ) este concavă dacă -f(θ) este convexă. Exemple: log(θ), √θ. Exemple de funcții convexe: θ², e^θ, θ log θ.</div>
+  <div class="highlight-box"><strong>Condiția derivatei a doua:</strong> O funcție de două ori diferențiabilă este convexă dacă și numai dacă derivata a doua (d²f/dθ²) > 0 peste tot. Pentru funcții multivariabile, Hessianul H (matricea derivatelor parțiale de ordinul doi) trebuie să fie pozitiv definit: v^T Hv > 0 pentru orice v ≠ 0.</div>
+  <div class="highlight-box"><strong>Importanța pentru ML:</strong> Dacă NLL este convexă, putem găsi întotdeauna MLE-ul optim global. Multe modele de interes au NLL non-convexă, necesitând metode pentru a trata minimele locale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Convexitatea este proprietatea matematică centrală care face optimizarea tractabilă. Funcțiile convexe au un unic minim global, eliminând problema minimelor locale. NLL a regresiei liniare este convexă, dar multe modele importante (rețele neurale, GMM-uri) au funcții obiectiv non-convexe.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Verificarea convexității prin Hessianul pozitiv definit este un instrument standard. Multe funcții de pierdere comune sunt convexe (pătratică, log-loss, hinge), dar combinarea cu modele neliniare (rețele neurale) produce funcții obiectiv non-convexe în general.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Optimizarea convexă are garanții puternice de convergență: orice minim local este global, iar algoritmii de gradient convergează la soluția optimă. Aceasta explică de ce modelele convexe (regresia liniară, SVM, regresia logistică) sunt preferate când sunt suficient de expresive.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La antrenarea unui model de scoring al creditului cu regresie logistică (NLL convexă), putem fi siguri că algoritmul de optimizare va găsi modelul optim global. Cu o rețea neurală (NLL non-convexă), rezultatul depinde de inițializare și poate fi doar un optim local.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>MLE pentru familia exponentiala si teorema Pitman-Koopman-Darmois</h2>
+  <p>Aceasta pagina deriveaza MLE-ul pentru familia exponentiala si introduce teorema fundamentala despre statisticile suficiente.</p>
+  <div class="definition-box"><strong>Teorema Pitman-Koopman-Darmois:</strong> Sub conditii de regularitate, familia exponentiala este singura familie de distributii cu statistici suficiente de dimensiune finita (independente de marimea esantionului N).</div>
+  <div class="definition-box"><strong>MLE pentru familia exponentiala (moment matching):</strong> La MLE, media empirica a statisticilor suficiente trebuie sa egaleze media teoretica: E[&phi;(X)] = (1/N) &Sigma; &phi;(x_i). Aceasta conditie se numeste potrivirea momentelor (moment matching).</div>
+  <div class="highlight-box"><strong>Concavitatea log-verosimilitatii:</strong> log p(D|&theta;) = &theta;^T &phi;(D) - NA(&theta;). Deoarece -A(&theta;) este concava si &theta;^T &phi;(D) este liniara, log-verosimilitatea este concava in &theta;, garantand un unic maxim global.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabileste doua rezultate majore. Primul: MLE pentru familia exponentiala se reduce la potrivirea momentelor - media teoretica a statisticilor suficiente trebuie sa egaleze media empirica. Al doilea: teorema Pitman-Koopman-Darmois arata ca familia exponentiala este unica in a permite compresia datelor in statistici de dimensiune finita. Exemplul distributiei uniforme arata de ce aceasta nu e in familia exponentiala: suportul depinde de parametri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) MLE = moment matching: o conditie simpla si intuitiva. 2) Statisticile suficiente &phi;(D) = &Sigma; &phi;(x_i) cresc liniar cu N, dar dimensiunea lor este fixa. 3) Concavitatea garanteaza unicitatea MLE si convergenta algoritmilor de optimizare. 4) Distributia uniforma are statistica suficienta max(x_i), dar aceasta depinde de parametru prin suportul distributiei.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Moment matching este folosit pe scara larga in estimarea parametrilor: Gaussiana (media si varianta), Poisson (media), Gamma (media si media logaritmului). In procesarea de limbaj natural, moment matching apare in estimarea modelelor MaxEnt (entropie maxima), unde constrangerile sunt date de statisticile empirice ale trasaturilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea duratei apelurilor intr-un call center (distributie Gamma), MLE se obtine prin egalizarea mediei si variantei teoretice cu cele empirice. Cu N = 10.000 de apeluri, intreaga informatie este capturata de doar 3 numere: N, &Sigma; x_i si &Sigma; log(x_i). Aceasta permite analiza rapida chiar si pe seturi de date masive.</p></div>
+  </div>
+</div>

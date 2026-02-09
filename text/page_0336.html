@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>9.7 Exercitii - Sfarsitul Capitolului 9</h2>
+  <p>Pagina incheie sectiunea despre invatarea rangurilor (WARP loss) si prezinta exercitiile de la sfarsitul Capitolului 9 privind modelele liniare generalizate si familia exponentiala.</p>
+  <div class="definition-box"><strong>WARP loss (continuare):</strong> Vectorul f(x,:) = [f(x,1), ..., f(x,|y|)] contine scorurile pentru fiecare eticheta posibila. Functia L transforma rangul intreg intr-o penalitate reala. Cu α_1 = 1 si α_{j>1} = 0, se optimizeaza proportia de etichete corecte clasate pe primul loc. Cu α_{1:k} nenule, se optimizeaza top-k.</div>
+  <div class="highlight-box"><strong>Exercitiul 9.1:</strong> Derivarea priorului conjugat pentru o gaussiana univariata cu μ si λ = 1/σ² folosind familia exponentiala. Se arata ca p(μ, λ) = N(μ|γ, λ(2α-1)) Ga(λ|α, β), avand doar 3 parametri liberi.</div>
+  <div class="highlight-box"><strong>Exercitiul 9.2:</strong> Demonstrarea ca distributia normala multivariata (MVN) apartine familiei exponentiale, folosind forma informationala din Sectiunea 4.3.3.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina finalizeaza discutia despre WARP loss, explicand cum alegerea coeficientilor α controleaza ce metric de ranking este optimizat. Exercitiile propuse consolideaza cunostintele despre familia exponentiala si priorurile conjugate, cerandu-le studentilor sa demonstreze proprietati fundamentale ale distributiilor gaussiene in cadrul familiei exponentiale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>WARP loss este flexibil: prin ajustarea coeficientilor α, se poate trece de la optimizarea acuratetii top-1 la optimizarea precision@k. Optimizarea WARP se face prin esantionare Monte Carlo si gradient descent. Exercitiile leaga conceptele din capitolele anterioare (priori conjugate, familia exponentiala) de aplicatiile din GLM-uri.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea priorurilor conjugate pentru gaussiene este esentiala in modelarea bayesiana practica, deoarece permite actualizari analitice ale posterioarei fara a recurge la metode numerice costisitoare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un inginer care construieste un sistem de recomandare poate alege intre optimizarea WARP cu α_1=1 (daca conteaza doar primul rezultat recomandat) sau cu α_{1:5} nenuli (daca se doreste un top-5 de calitate pe pagina principala a aplicatiei).</p></div>
+  </div>
+</div>

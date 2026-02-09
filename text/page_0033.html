@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Capitolul 1: Tipuri de Invatare Automata</h2>
+  <p>Prezentarea principalelor tipuri de invatare automata: supervizata, nesupervizata si prin recompensa.</p>
+  <div class="definition-box"><strong>Invatare Supervizata (Supervised Learning):</strong> Scopul este de a invata o mapare de la intrari x la iesiri y, folosind un set de antrenament de perechi etichetate D = {(x_i, y_i)}ᴺᵢ₌₁.</div>
+  <div class="definition-box"><strong>Clasificare (Classification):</strong> Problema in care variabila de iesire y_i este categorica, apartinand unui set finit y_i ∈ {1, ..., C}. Se mai numeste si recunoastere de tipare (pattern recognition).</div>
+  <div class="definition-box"><strong>Regresie (Regression):</strong> Problema in care variabila de iesire y_i este un scalar cu valori reale (de exemplu, nivelul venitului).</div>
+  <div class="definition-box"><strong>Invatare Nesupervizata (Unsupervised Learning):</strong> Scopul este de a gasi "tipare interesante" in date, avand doar intrari D = {x_i}ᴺᵢ₌₁, fara etichete. Se mai numeste si descoperire de cunostinte (knowledge discovery).</div>
+  <div class="definition-box"><strong>Invatare prin Recompensa (Reinforcement Learning):</strong> Invatarea modului de a actiona pe baza semnalelor ocazionale de recompensa sau pedeapsa.</div>
+  <div class="highlight-box"><strong>Caracteristici (Features):</strong> Fiecare intrare x_i este un vector D-dimensional de numere, reprezentand atribute precum inaltimea si greutatea. Se mai numesc atribute sau covariate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 1.1.1 imparte invatarea automata in trei categorii principale. Invatarea supervizata invata din exemple etichetate si include clasificarea (iesiri categorice) si regresia (iesiri continue). Invatarea nesupervizata cauta tipare fara etichete. Invatarea prin recompensa invata prin interactiune cu mediul. Cartea se concentreaza pe primele doua tipuri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia intre clasificare si regresie este fundamentala si determina alegerea modelului si a metricii de evaluare. Regresia ordinala (de exemplu, note A-F) este un caz intermediar interesant. Clasificarea multi-eticheta difera de clasificarea multi-clasa: in prima, un obiect poate avea mai multe etichete simultan.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clasificarea: detectarea spam-ului, diagnosticul medical, recunoasterea obiectelor in imagini. Regresia: prezicerea preturilor, estimarea temperaturii. Invatare nesupervizata: segmentarea clientilor, detectarea anomaliilor. Invatare prin recompensa: roboti care invata sa mearga, jocuri video.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un filtru de spam pentru email este un clasificator binar (C = 2): primeste ca intrare caracteristici ale email-ului (cuvinte, expeditor, formatare) si produce ca iesire o eticheta y ∈ {0, 1} indicand daca mesajul este spam sau nu.</p></div>
+  </div>
+</div>

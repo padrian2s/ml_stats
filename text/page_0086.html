@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Teoria Informației - Entropia și Divergența KL</h2>
+  <p>Pagina introduce conceptele fundamentale ale teoriei informației: entropia ca măsură a incertitudinii și divergența Kullback-Leibler ca măsură a disimilarității între două distribuții.</p>
+  <div class="definition-box"><strong>Entropia:</strong> H(X) ≜ −Σ p(X=k)·log₂ p(X=k), măsoară incertitudinea variabilei aleatoare X. Unitățile sunt biți (log baza 2) sau nați (log baza e).</div>
+  <div class="highlight-box"><strong>Entropia maximă:</strong> Distribuția discretă cu entropie maximă este distribuția uniformă. Pentru o variabilă K-ară: H(X) = log₂ K când p(x=k) = 1/K.</div>
+  <div class="definition-box"><strong>Funcția entropiei binare:</strong> H(θ) = −[θ·log₂θ + (1−θ)·log₂(1−θ)], cu maximum la θ = 0.5 unde H = 1 bit.</div>
+  <div class="figure-box"><strong>Figura 2.21:</strong> Entropia unei variabile Bernoulli în funcție de θ. Maximul de 1 bit se atinge la θ = 0.5 (incertitudine maximă).</div>
+  <div class="definition-box"><strong>Divergența KL:</strong> KL(p||q) ≜ Σ p_k·log(p_k/q_k) = −H(p) + H(p,q), unde H(p,q) = −Σ p_k·log(q_k) este entropia încrucișată.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Entropia cuantifică informația medie necesară pentru a descrie o variabilă aleatoare. Divergența KL măsoară „costul suplimentar" al utilizării distribuției q în loc de distribuția adevărată p pentru codificare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>KL(p||q) ≥ 0 cu egalitate doar când p = q. KL nu este simetrică: KL(p||q) ≠ KL(q||p). Entropia încrucișată este funcția de pierdere standard în clasificare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Entropia încrucișată este funcția de pierdere utilizată în antrenarea rețelelor neurale pentru clasificare. Divergența KL este utilizată în VAE (Variational Autoencoders) și în inferența variațională.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În compresia datelor (ZIP, GZIP), entropia determină limita teoretică a ratei de compresie. Un fișier text în limba română (cu mai puține caractere distincte) se comprimă mai bine decât unul în chineză.</p></div>
+  </div>
+</div>

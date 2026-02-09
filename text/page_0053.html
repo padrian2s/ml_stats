@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Capitolul 1: Regresia Logistica (continuare) si Overfitting</h2>
+  <p>Regula de decizie in regresia logistica, frontiere de decizie neliniare si problema overfitting-ului.</p>
+  <div class="definition-box"><strong>Regula de Decizie:</strong> y_hat(x) = 1 daca si numai daca p(y = 1|x) > 0.5 (ecuatia 1.13). Pragul de probabilitate 0.5 separa cele doua clase.</div>
+  <div class="definition-box"><strong>Frontiera de Decizie (Decision Boundary):</strong> Linia (sau suprafata) unde sigm(w₀ + w₁x) = 0.5, adica w₀ + w₁x = 0. In exemplul SAT, x* ≈ 545.</div>
+  <div class="definition-box"><strong>Separabilitate Liniara:</strong> Date care pot fi separate perfect de o dreapta (sau hiperplan). Datele SAT nu sunt liniar separabile, deoarece doi studenti cu scorul 525 au rezultate diferite.</div>
+  <div class="definition-box"><strong>Overfitting (Supraajustare):</strong> Cand un model prea complex ajusteaza zgomotul din date in loc de semnalul real. Modelul memorizeaza datele de antrenament dar nu generalizeaza la date noi.</div>
+  <div class="highlight-box"><strong>Efectul Complexitatii:</strong> In KNN, K mic (model complex) duce la overfitting, iar K mare (model simplu) duce la underfitting. In regresia polinomiala, grad inalt duce la oscilatii extreme (Figura 1.18b).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza discutia despre regresia logistica cu regula de decizie si frontierele de decizie. Apoi introduce overfitting-ul: modelele prea complexe (polinoame de grad inalt, KNN cu K=1) ajusteaza zgomotul si nu generalizeaza. Expansiunea in functii de baza permite frontiere de decizie neliniare, dar creste riscul de overfitting.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Overfitting-ul este una dintre problemele centrale ale ML. Exista o tensiune fundamentala intre complexitatea modelului (capacitatea de a ajusta datele) si capacitatea de generalizare (performanta pe date noi). Aceasta tensiune este formalizata prin compromisul bias-varianta, discutat in detaliu mai tarziu in carte.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Detectarea overfitting-ului este critica in orice aplicatie de ML. In diagnosticul medical, un model supraajustat ar putea parea foarte precis pe datele istorice dar ar esua la pacienti noi. In finante, un model supraajustat ar prezice perfect preturile trecute dar ar pierde bani pe piata reala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un fond de investitii care construieste un model de tranzactionare bazat pe date istorice risca overfitting: modelul poate gasi tipare false in datele istorice (de exemplu, o corelatie intamplatoare intre fazele lunii si preturile actiunilor) care nu se vor repeta in viitor.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Clasificatorul Naive Bayes</h2>
+  <p>Pagina introduce clasificatorul Naive Bayes (NBC), un model generativ simplu dar eficient care presupune independența condiționată a caracteristicilor date fiind clasa.</p>
+  <div class="definition-box"><strong>Clasificatorul Naive Bayes:</strong> p(x|y=c,θ) = ∏_{j=1}^D p(x_j|y=c,θ_{jc}), unde caracteristicile sunt presupuse independent condiționate de etichetă. Are doar O(CD) parametri.</div>
+  <div class="highlight-box"><strong>Tipuri de densități condiționate de clasă:</strong> Caracteristici reale: Gaussiană ∏N(x_j|μ_{jc},σ²_{jc}). Caracteristici binare: Bernoulli ∏Ber(x_j|μ_{jc}) (Bernoulli naive Bayes). Caracteristici categoriale: Multinomială ∏Cat(x_j|μ_{jc}).</div>
+  <div class="highlight-box"><strong>De ce funcționează NBC:</strong> Chiar dacă asumpția de independență este rareori adevărată, NBC funcționează bine în practică deoarece: (1) are puțini parametri, evitând supraajustarea, (2) erorile de estimare pot fi mai mici chiar dacă biasul modelului este mai mare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>NBC este un clasificator generativ care factorizează distribuția condiționată de clasă într-un produs de distribuții unidimensionale. Simplitatea sa (O(CD) parametri) compensează asumpția de independență, adesea nerealistă.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul bias-varianță explică succesul NBC: un model mai simplu (mai biased) poate performa mai bine decât unul complex (mai variabil) când datele sunt limitate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>NBC este utilizat în clasificarea textelor, filtrarea spam-ului, diagnosticul medical, și analiza sentimentelor. Este unul dintre cele mai rapide și mai simple clasificatoare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Clasificarea emailurilor ca spam/non-spam: fiecare cuvânt este o caracteristică binară (prezent/absent), iar NBC calculează probabilitatea posterioară a fiecărei clase dată fiind prezența/absența cuvintelor.</p></div>
+  </div>
+</div>

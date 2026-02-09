@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>9.7.1-9.7.2 Abordari Pointwise si Pairwise pentru Ranking</h2>
+  <p>Pagina prezinta doua abordari fundamentale pentru problema LETOR: abordarea pointwise si abordarea pairwise, inclusiv modelul RankNet.</p>
+  <div class="definition-box"><strong>Abordarea pointwise:</strong> Fiecare pereche interogare-document primeste un vector de trasaturi x(q, d) si o eticheta de relevanta y_j. Se rezolva o problema de clasificare binara p(y=1|x(q,d)) sau de regresie ordinala p(y=r|x(q,d)), apoi documentele se sorteaza dupa scor.</div>
+  <div class="definition-box"><strong>Abordarea pairwise:</strong> Se compara perechi de documente: daca d_j este mai relevant decat d_k pentru interogarea q, atunci y_jk = 1. Se antreneaza un clasificator binar p(y_jk|x(q,d_j), x(q,d_k)).</div>
+  <div class="definition-box"><strong>RankNet:</strong> Retea neurala speciala pentru ranking, unde f(x) = w^T x este o functie de scor, iar p(y_jk = 1|x_j, x_k) = sigm(f(x_j) - f(x_k)). O varianta este folosita de motorul de cautare Bing.</div>
+  <div class="highlight-box"><strong>Formula RankNet (9.118):</strong> p(y_jk = 1|x_j, x_k) = sigm(f(x_j) - f(x_k)), unde f este o functie de scor liniara sau o retea neurala.</div>
+  <div class="highlight-box"><strong>Functia de pierdere cross-entropy (9.119-9.120):</strong> L = Σ_i Σ_j Σ_{k>j} L_ijk, unde -L_ijk = I(y_ijk=1) log p(y_ijk=1|x_ij, x_ik, w) + I(y_ijk=0) log p(y_ijk=0|x_ij, x_ik, w).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Abordarea pointwise trateaza ranking-ul ca o problema de clasificare/regresie independenta pentru fiecare document, fiind simpla dar limitata (nu tine cont de pozitia in lista). Abordarea pairwise compara perechi de documente, capturand mai bine relatia de ordine relativa. RankNet este un model pairwise popular care foloseste functia sigmoid pe diferenta de scoruri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Abordarea pointwise penalizeaza la fel erorile din varful si din capatul listei, ceea ce nu este ideal. Abordarea pairwise rezolva partial aceasta problema comparand perechi, dar tot nu considera contextul complet al listei. RankNet se optimizeaza prin gradient descent pe pierderea cross-entropy.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>RankNet si variantele sale sunt folosite in motoarele de cautare comerciale (Bing). Abordarea pairwise este utila si in sisteme de recomandare si in evaluarea comparativa a produselor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un site de comert electronic poate folosi abordarea pairwise pentru a invata ca, pentru cautarea "telefon mobil", un iPhone 15 este mai relevant decat o husa de telefon, bazandu-se pe istoricul click-urilor utilizatorilor pe perechi de produse.</p></div>
+  </div>
+</div>

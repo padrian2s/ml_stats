@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Capitolul 2: Distributia Poisson si Distributia Empirica</h2>
+  <p>Distributia Poisson pentru numararea evenimentelor rare si distributia empirica bazata pe date observate.</p>
+  <div class="definition-box"><strong>Distributia Poisson:</strong> Poi(x|λ) = e^(-λ) λ^x / x! (ecuatia 2.39), unde X ∈ {0, 1, 2, ...} si λ > 0 este parametrul de rata. Modeleaza numarul de evenimente rare intr-un interval de timp sau spatiu.</div>
+  <div class="definition-box"><strong>Distributia Empirica:</strong> p_emp(A) = (1/N) Σᴺᵢ₌₁ δ_{x_i}(A) (ecuatia 2.40), unde δ_{x_i}(A) este masura Dirac care plaseaza toata masa de probabilitate in punctul x_i.</div>
+  <div class="definition-box"><strong>Masura Dirac:</strong> δ_x(A) = 1 daca x ∈ A, 0 daca x ∉ A (ecuatia 2.41). Concentreaza toata probabilitatea intr-un singur punct.</div>
+  <div class="figure-box"><strong>Figura 2.6:</strong> Ilustrarea distributiei Poisson pentru λ ∈ {1, 10}. Cu λ = 1, distributia este concentrata la valori mici. Cu λ = 10, distributia seamana cu o Gaussiana (datorita teoremei limitei centrale).</div>
+  <div class="highlight-box"><strong>Distributie Empirica Ponderata:</strong> p(x) = Σᴺᵢ₌₁ wᵢ δ_{x_i}(x) (ecuatia 2.42), unde 0 ≤ wᵢ ≤ 1 si Σwᵢ = 1. O histograma cu "tepuse" la punctele de date.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunile 2.3.3-2.3.4 prezinta distributia Poisson si distributia empirica. Poisson este utilizata pentru a modela numarul de evenimente rare (dezintegrare radioactiva, accidente de trafic). Distributia empirica este o aproximare non-parametrica a distributiei reale, bazata pe datele observate, plasand masa egala la fiecare punct de date.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distributia Poisson devine din ce in ce mai simetrica si mai asemanatoare cu o Gaussiana pe masura ce λ creste (datorita teoremei limitei centrale). Distributia empirica este fundamentala in statistica non-parametrica si sta la baza bootstrap-ului. Masura Dirac face legatura intre distributiile discrete si continue.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Poisson: modelarea numarului de email-uri primite pe ora, numarul de accidente pe o autostrada, numarul de mutatii genetice pe o regiune a genomului. Distributia empirica: bootstrap pentru estimarea intervalelor de incredere, teste de permutare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un centru de apeluri modeleaza numarul de apeluri primite pe ora ca o variabila Poisson cu λ = 15. Aceasta permite planificarea personalului: probabilitatea de a primi mai mult de 25 de apeluri intr-o ora poate fi calculata direct din distributia Poisson, ajutand la dimensionarea echipei.</p></div>
+  </div>
+</div>

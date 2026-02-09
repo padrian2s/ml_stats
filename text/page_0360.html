@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Diagrame de influenta: problema prospectorului de petrol</h2>
+  <p>Aceasta pagina prezinta diagrame de influenta (diagrame de decizie) aplicate la problema clasica a prospectorului de petrol, ilustrand cum se modeleaza deciziile sub incertitudine.</p>
+  <div class="definition-box"><strong>Diagrama de influenta:</strong> Un graf aciclic directionat care combina noduri de sansa (cercuri - variabile aleatoare), noduri de decizie (patrate - actiuni), noduri de utilitate (romburi - recompense), si arce de informatie (sageti punctate - ce se cunoaste cand se ia decizia).</div>
+  <div class="definition-box"><strong>Problema prospectorului de petrol:</strong> Starea O (petrol: 0=fara, 1=putin, 2=mult) este necunoscuta. Decizia D (0=nu fora, 1=foreaza). Utilitatea U(o,d) depinde de ambele. Extensie: un test seismic S poate fi efectuat inainte de decizia de a fora.</div>
+  <div class="highlight-box"><strong>Utilitatea maxima asteptata (MEU):</strong> MEU = max{EU(d=0), EU(d=1)} = max{0, 20} = 20. Fara informatii suplimentare, decizia optima este sa forezi, cu utilitatea asteptata de $20.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina introduce diagramele de influenta ca extensie a retelelor Bayesiene pentru luarea deciziilor. Problema prospectorului de petrol este exemplul clasic din teoria deciziei: trebuie decis daca sa investim intr-un foraj costisitor pe baza informatiei incomplete despre prezenta petrolului. Trei variante ale problemei sunt prezentate: fara test, cu test seismic, si cu decizia daca sa faci testul.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Diagramele de influenta combina modelarea incertitudinii (retele Bayesiene) cu teoria deciziei. 2) Arcurile de informatie specifica ce se cunoaste in momentul deciziei - ordoneaza temporal actiunile. 3) MEU se calculeaza prin maximizarea utilitatii asteptate peste toate actiunile posibile. 4) Extensia cu testul seismic adauga un arc informational de la S la D.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Diagramele de influenta sunt folosite in explorarea petroliera (exact acest exemplu), in planificarea medicala (testare diagnostica inainte de tratament), in managementul proiectelor (decizia de a investi in studii de fezabilitate), si in strategia de afaceri (lansarea de produse noi).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O companie petroliera trebuie sa decida daca sa investeasca $100 milioane intr-un foraj offshore. Poate mai intai sa efectueze un studiu seismic de $5 milioane care ofera informatii imperfecte despre prezenta petrolului. Diagrama de influenta formalizeaza aceasta decizie secventiala si permite calculul daca studiul seismic „merita" investitia - exact problema modelata in aceasta pagina.</p></div>
+  </div>
+</div>

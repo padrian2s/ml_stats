@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exercitii - Capitolul 19 (Modele Grafice Nedirectionate)</h2>
+  <p>Pagina prezinta exercitiile de la sfarsitul Capitolului 19, incluzand probleme despre functia de partitie, proprietati de independenta conditionata in modele grafice Gaussiene si relatia dintre matrice de covarianta si grafuri.</p>
+  <div class="definition-box"><strong>Exercitiul 19.1:</strong> Derivarea functiei log de partitie - demonstrarea Ecuatiei 19.40.</div>
+  <div class="definition-box"><strong>Exercitiul 19.2:</strong> Proprietati de independenta conditionata (CI) in modele grafice Gaussiene. Se considera o distributie Gaussiana multivariata N(x|μ,Σ) in 3 dimensiuni cu μ = (0,0,0)ᵀ. Se exploreaza relatia intre matrice rare si grafuri rare.</div>
+  <div class="highlight-box"><strong>Regula cheie:</strong> Pentru variabile Gaussiene, Xᵢ si Xⱼ sunt independente daca si numai daca Σᵢⱼ = 0. Xᵢ este conditional independent de Xⱼ dat fiind celelalte variabile daca si numai daca Σ⁻¹ᵢⱼ = 0 (matricea de precizie).</div>
+  <div class="highlight-box"><strong>Exercitiul 19.2 - Exemplu:</strong> Σ = [[0.75, 0.5, 0.25], [0.5, 1.0, 0.5], [0.25, 0.5, 0.75]]. Se cere identificarea independentelor marginale si conditionale si desenarea unui graf nedirectionat corespunzator.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile Capitolului 19 acopera concepte fundamentale: derivarea functiei de partitie, legatura intre structura matricei de covarianta/precizie si structura grafului, si proprietatile de independenta in modele Gaussiene. Exercitiul 19.2 ilustreaza concret cum zerourile din Σ implica independenta marginala, iar zerourile din Σ⁻¹ implica independenta conditionata.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Dualitatea intre matricea de covarianta si matricea de precizie este fundamentala: prima codifica independente marginale, a doua codifica independente conditionale. Aceasta dualitate este baza inferentei in modele Gaussiene grafice si a algoritmilor de invatare a structurii.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea structurii de independenta in modele Gaussiene este esentiala in genomica (retele de expresie genica), finante (retele de dependenta intre active) si neurostiinta (conectivitatea functionala a creierului).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza retelelor de expresie genica, daca Σ⁻¹ᵢⱼ = 0, genele i si j nu interactioneaza direct (desi pot fi corelate prin alte gene intermediare). Aceasta permite identificarea interactiunilor directe gene-gene din date de expresie.</p></div>
+  </div>
+</div>

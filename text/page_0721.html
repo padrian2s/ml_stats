@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Predictia lanturilor laterale ale proteinelor si viziunea stereo</h2>
+  <p>Aceasta pagina prezinta doua aplicatii avansate ale CRF-urilor: predictia structurii lanturilor laterale ale proteinelor si reconstructia de adancime din imagini stereo.</p>
+  <div class="definition-box"><strong>Predictia lanturilor laterale ale proteinelor:</strong> Fiecare reziduu dintr-o proteina are 4 unghiuri diedrale discretizate in 3 valori (rotameri). Scopul este de a prezice secventa de unghiuri y din secventa de aminoacizi x. Energia modelului include termeni de interactiune pe perechi (sarcini electrostatice, legaturi de hidrogen, potentiale van der Waals).</div>
+  <div class="definition-box"><strong>Reconstructia stereo densa:</strong> Estimarea adancimii fiecarui pixel din doua imagini luate din unghiuri usor diferite. Problema este formulata ca un CRF pe retea 2D, cu un termen de observatie local si un termen de netezire spatiala.</div>
+  <div class="highlight-box"><strong>Clasificare ierarhica cu CRF:</strong> Taxonomia de etichete este codificata ca vector binar Λ(y), iar scorul pentru clasa y este w^T Ψ(x,y) = <w_y, x> + <w_parent(y), x> + ..., partajand informatie intre clase inrudite in ierarhie.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Doua aplicatii demonstreaza versatilitatea CRF-urilor in domenii diverse. In bioinformatica, predicerea structurii proteinelor este formulata ca minimizarea energiei unui CRF cu conexiuni la distanta (interactiuni intre reziduuri indepartate in secventa dar apropiate spatial). In viziunea computationala, reconstructia stereo foloseste un CRF pe retea 2D cu potentiale derivate din corespondenta intre imagini.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ambele probleme au grafuri cu conexiuni la distanta, facand inferenta exacta intractabila. Se recurge la metode aproximative (Sectiunea 22.6). Energia modelului de proteine combina mai multi termeni fizici (electrostatic, van der Waals, legaturi de hidrogen), fiecare cu ponderea sa invatata din date.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Predictia structurii proteinelor este fundamentala in descoperirea de medicamente. Viziunea stereo este folosita in vehicule autonome, robotica si realitate augmentata pentru estimarea distantelor 3D.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un robot autonom foloseste doua camere (viziune stereo) pentru a estima distanta la obiecte. CRF-ul pe retea 2D combina corespondenta locala intre imagini cu priorul de netezire (obiecte au suprafete continue), producand o harta de adancime coerenta.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Estimarea Starii MAP - TRBP Secvential si Graphcuts (Sectiunea 22.6)</h2>
+  <p>Aceasta pagina continua discutia despre estimarea starii MAP, introducand algoritmul TRBP secvential si metoda graphcuts pentru gasirea configuratiilor de energie minima.</p>
+  <div class="definition-box"><strong>TRBP Secvential (Sequential TRBP / TRBP-S / TRW-S):</strong> O planificare a algoritmului de propagare a credintelor pe arbori reponderati care converge intotdeauna si de obicei mai rapid decat actualizarile paralele standard. Se alege o ordine arbitrara a nodurilor X_1, ..., X_N si se efectueaza BP max-produs inainte si inapoi pe arbori.</div>
+  <div class="definition-box"><strong>Graphcuts:</strong> O clasa de metode bazate pe algoritmul de flux maxim/taietura minima (max flow/min cut) pentru gasirea estimarilor MAP in MRF-uri, folosita pe scara larga in aplicatii de viziune computationala.</div>
+  <div class="highlight-box"><strong>Modelul Ising Generalizat - Energii pe muchii:</strong> E_uv(x_u, x_v) = 0 daca x_u = x_v, lambda_st daca x_u != x_v, unde lambda_st >= 0 este costul muchiei. (Ec. 22.151)</div>
+  <div class="highlight-box"><strong>Valori energetice:</strong> E_1(0) = 7, E_2(1) = 2, E_3(1) = 1, E_4(1) = 6; lambda_1,2 = 6, lambda_2,3 = 6, lambda_3,4 = 2, lambda_1,4 = 1 (Ec. 22.152-22.153)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua abordari importante pentru estimarea MAP: TRBP secvential, care ofera convergenta garantata catre optimul global al relaxarii LP, si graphcuts, care transforma problema de inferenta intr-o problema de flux maxim/taietura minima pe grafuri. Graphcuts sunt prezentate initial pentru MRF-uri binare cu modelul Ising generalizat.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Constructia grafului pentru graphcuts implica adaugarea a doua noduri speciale: sursa s si destinatia t. Muchiile sunt adaugate cu costuri derivate din energiile locale si de perechi. Taietura minima s-t corespunde partitionarii optime a variabilelor in doua stari. Complexitatea este O(EV log V) sau O(V^3).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Graphcuts sunt extrem de populare in viziunea computationala, in special pentru segmentarea imaginilor, reconstructia 3D si estimarea adancimii stereo. TRBP secvential este utilizat cand se doreste convergenta garantata in modele grafice complexe.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea medicala a imaginilor, fiecare pixel trebuie clasificat ca "tesut" sau "fond". Graphcuts modeleaza aceasta problema ca un MRF binar unde energiile locale reflecta intensitatea pixelilor, iar energiile de perechi incurajeaza pixelii vecini sa aiba aceeasi eticheta, producand segmentari netede si precise.</p></div>
+  </div>
+</div>

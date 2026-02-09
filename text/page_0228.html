@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Estimatori Admisibili și Compararea Funcțiilor de Risc</h2>
+  <p>Pagina introduce conceptul de estimatori admisibili și prezintă un exemplu detaliat de comparare a mai multor estimatori pentru media unei distribuții Gaussiene.</p>
+  <div class="definition-box"><strong>Dominanță:</strong> Dacă R(θ, δ₁) ≤ R(θ, δ₂) pentru toți θ ∈ Θ, atunci δ₁ domină δ₂. Dominanța este strictă dacă inegalitatea este strictă pentru cel puțin un θ.</div>
+  <div class="definition-box"><strong>Estimator Admisibil:</strong> Un estimator care nu este strict dominat de niciun alt estimator. Nu există un estimator uniform mai bun.</div>
+  <div class="highlight-box"><strong>Exemplu - Estimarea Mediei Gaussiene:</strong> Se compară patru estimatori pentru media unei distribuții N(θ*, σ² = 1): δ₁(x) = x̄ (media eșantionului), δ₂(x) = x̃ (mediana), δ₃(x) = θ₀ (valoare fixă), δ_κ(x) = (N/(N+κ))x̄ + (κ/(N+κ))θ₀ (media posterioară).</div>
+  <div class="highlight-box"><strong>Descompunerea MSE:</strong> MSE(θ̂(·)|θ*) = var[θ̂] + bias²(θ̂), eroarea pătratică medie se descompune în varianță plus biastul la pătrat.</div>
+  <div class="highlight-box"><strong>MSE pentru media eșantionului:</strong> MSE(δ₁|θ*) = σ²/N - estimator nebiased cu varianță σ²/N.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabilește cadrul formal pentru compararea estimatorilor prin conceptele de dominanță și admisibilitate. Exemplul concret de estimare a mediei Gaussiene ilustrează cum diferite reguli de decizie au funcții de risc diferite, și cum descompunerea MSE în varianță și bias oferă intuiție despre performanța fiecărui estimator.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul bias-varianță este central: media eșantionului este nebiased dar are varianță mare; valoarea fixă are varianță zero dar bias potențial mare; media posterioară oferă un compromis, reducând varianța prin introducerea unui bias controlat.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>În învățarea automată, alegerea între modele simple (bias mare, varianță mică) și modele complexe (bias mic, varianță mare) este exact această problemă. Regularizarea corespunde utilizării mediei posterioare în loc de MLE.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La estimarea ratei de conversie a unui site web cu puține date, media eșantionului poate fi foarte instabilă. Utilizarea unei medii posterioare (cu o distribuție a priori informativă bazată pe date istorice) oferă estimări mai stabile și mai utile pentru luarea deciziilor de marketing.</p></div>
+  </div>
+</div>

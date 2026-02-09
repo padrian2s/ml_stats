@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Distributia Laplace si distributia Gamma</h2>
+  <p>Aceasta pagina introduce distributia Laplace (exponentiala dubla) si distributia Gamma, doua distributii continue fundamentale in statistica si invatarea automata.</p>
+  <div class="definition-box"><strong>Distributia Laplace:</strong> Lap(x|&mu;, b) = (1/2b) exp(-|x - &mu;|/b), unde &mu; este parametrul de locatie si b > 0 este parametrul de scala. Proprietati: media = &mu;, modul = &mu;, varianta = 2b&sup2;.</div>
+  <div class="definition-box"><strong>Distributia Gamma:</strong> Ga(T|shape=a, rate=b) = (b^a / &Gamma;(a)) T^(a-1) e^(-Tb), definita pentru valori reale pozitive x > 0, cu doi parametri: forma a > 0 si rata b > 0.</div>
+  <div class="highlight-box"><strong>Proprietatea de sparsitate a distributiei Laplace:</strong> Distributia Laplace pune mai multa masa de probabilitate la 0 decat Gaussiana, ceea ce o face utila pentru incurajarea sparsitatii in modele (regularizarea L1/LASSO, discutata in Sectiunea 13.3).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua distributii importante. Distributia Laplace este robusta la outlieri si incurajeaza sparsitatea, fiind fundamentul regularizarii L1. Distributia Gamma este flexibila pentru modelarea variabilelor pozitive si sta la baza multor alte distributii (exponentiala, Erlang, chi-patrat). Figura 2.9 ilustreaza diferite forme ale distributiei Gamma si aplicarea ei la date de precipitatii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Laplace = exponentiala dubla, simetrica in jurul mediei. 2) Gamma este definita doar pe valorile pozitive, ceea ce o face ideala pentru modelarea timpilor de asteptare, variabilitati, sau altor cantitati strict pozitive. 3) Parametrizarea Gamma poate folosi rata (b) sau scala (1/b), atentie la conventii diferite in software.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Distributia Laplace este fundamentala in compresia de semnale si imagini (coeficientii wavelet urmeaza adesea distributii Laplace). Distributia Gamma modeleaza timpii de asteptare in sisteme de cozi, durata de viata a componentelor in fiabilitate, si cantitatea de precipitatii in meteorologie.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In meteorologie, cantitatea zilnica de precipitatii (cand ploua) este adesea modelata cu o distributie Gamma. Figura 2.9(b) din carte arata exact acest lucru: o distributie Gamma se potriveste bine pe datele empirice de precipitatii, captand asimetria pozitiva tipica (multe zile cu putina ploaie, putine zile cu ploaie abundenta).</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Margini variationale locale - Margini patratice pe functia sigmoid (continuare)</h2>
+  <p>Aceasta pagina continua discutia despre marginile variationale locale, prezentand margini patratice inferioare pe functia sigmoid (logistica), inclusiv marginea Bohning si marginea JJ (Jaakkola-Jordan).</p>
+  <div class="definition-box"><strong>Marginea Bohning:</strong> O margine patratica inferioara pe log(1+e^eta) cu curbura constanta a=1/4, care este stransa intr-un singur punct. Este mai simpla dar mai putin precisa decat marginea JJ.</div>
+  <div class="definition-box"><strong>Marginea JJ (Jaakkola-Jordan):</strong> O margine patratica alternativa cu curbura adaptiva unde a depinde de parametrul variational xi. Este stransa in doua puncte si ofera o aproximare mai buna decat marginea Bohning.</div>
+  <div class="highlight-box"><strong>Comparatie JJ vs Bohning:</strong> Marginea JJ are curbura adaptiva (a depinde de xi) si este stransa in doua puncte, in timp ce marginea Bohning are curbura constanta si este stransa intr-un singur punct. Aceasta face marginea JJ mai precisa dar mai complexa computational.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua margini patratice inferioare fundamentale pentru functia sigmoid: marginea Bohning (simpla, cu curbura constanta) si marginea JJ (mai precisa, cu curbura adaptiva). Ambele sunt esentiale pentru inferenta variationala in modele de regresie logistica, permitand aproximari tractabile ale posterioarelor intractabile.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tiparul central este compromisul intre precizie si complexitate computationala. Marginea Bohning este mai simpla dar mai larga, in timp ce marginea JJ ofera o aproximare mai stransa dar necesita actualizari suplimentare ale parametrului variational xi. Formularea ca margini patratice permite actualizari analitice in stilul Gaussian.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste margini sunt utilizate direct in regresia logistica Bayesiana, clasificare cu procese Gaussiene si modele grafice cu factori logistici. Alegerea intre Bohning si JJ depinde de cerinta de precizie vs viteza.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un sistem de diagnostic medical care foloseste regresie logistica Bayesiana pentru clasificare binara (bolnav/sanatos), marginea JJ ar oferi estimari mai precise ale incertitudinii, importante pentru decizii clinice corecte.</p></div>
+  </div>
+</div>

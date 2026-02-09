@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul Junction Tree: exemplu detaliat si propagarea mesajelor</h2>
+  <p>Aceasta pagina ilustreaza constructia si propagarea mesajelor pe junction tree-ul modelului "student", cu fazele de colectare si distribuire.</p>
+  <div class="definition-box"><strong>Faza de colectare (collect-to-root):</strong> Frunzele trimit mesaje catre radacina. Nodul i trimite mesajul m_{i→j}(S_{ij}) = Σ_{C_i\S_{ij}} ψ_i(C_i), marginalizand variabilele pe care parintele j nu le "cunoaste". La radacina, ψ_r(C_r) = p(x_{C_r}|v).</div>
+  <div class="definition-box"><strong>Faza de distribuire (distribute-from-root):</strong> Radacina trimite mesaje catre frunze. Mesajul contine informatia de sus impartita la mesajul primit anterior: m_{i→j} = Σ_{C_i\S_{ij}} ψ_i(C_i) / m_{j→i}(S_{ij}), evitand dubla contorizare.</div>
+  <div class="highlight-box"><strong>Calibrarea junction tree-ului:</strong> Dupa ambele faze, fiecare clica contine marginala exacta a variabilelor sale: ψ_i(C_i) = p(x_{C_i}|v). Aceasta permite extragerea marginalelor pentru orice variabila individuala prin marginalizare locala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figurile 20.7(a-c) arata constructia junction tree-ului: pornind de la DGM-ul student, se adauga muchii de umplere, se extrag clicile maximale ({C,D}, {G,I,D}, {G,S,I}, {G,J,S,L}, {H,G,J}) si se construieste arborele cu separatori la intersectii. Propagarea mesajelor are doua faze simetrice care calibreaza toate potentialele la marginalele exacte.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Algoritmul Hugin stocheaza mesajele in potentialele de separator, evitand stocarea explicita a mesajelor. Impartirea la mesajul vechi previne dubla contorizare. Complexitatea este O(|C|K^{w+1}), dominata de cea mai mare clica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>JTA calibrat permite raspunsuri instantanee la interogari ulterioare (fara recalculare). In sisteme de suport decizional, aceasta permite interactiune in timp real: medicul introduce un simptom nou si toate probabilitatile se actualizeaza instant.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelul student, dupa calibrare, clica {G,J,S,L} contine p(Grade, Job, SAT, Letter|evidenta). Probabilitatea ca studentul sa obtina un job, p(Job|evidenta), se obtine prin simpla marginalizare din aceasta clica.</p></div>
+  </div>
+</div>

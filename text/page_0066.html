@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Capitolul 2: Distributiile Multinomiala si Multinoulli</h2>
+  <p>Generalizarea distributiei binomiale la mai mult de doua rezultate: distributia multinomiala si varianta sa categorica.</p>
+  <div class="definition-box"><strong>Distributia Multinomiala:</strong> Mu(x|n, θ) = C(n; x₁...x_K) ∏ⱼ₌₁ᴷ θⱼ^xⱼ (ecuatia 2.33), unde x = (x₁,...,x_K) este vectorul de contorizari, θⱼ este probabilitatea fetei j si Σxⱼ = n.</div>
+  <div class="definition-box"><strong>Coeficientul Multinomial:</strong> C(n; x₁...x_K) = n! / (x₁!x₂!...x_K!) (ecuatia 2.34) - numarul de moduri de a imparti n elemente in K subseturi.</div>
+  <div class="definition-box"><strong>Distributia Multinoulli (Categorica):</strong> Cat(x|θ) = Mu(x|1, θ) (ecuatia 2.36) - cazul special cu n = 1, echivalent cu aruncarea unui zar cu K fete o singura data. Daca x ~ Cat(θ), atunci p(x = j|θ) = θⱼ.</div>
+  <div class="definition-box"><strong>Codificare One-Hot:</strong> Reprezentarea unei variabile categorice cu K stari ca un vector binar x ∈ {0,1}^K cu Σx_k = 1. Doar un singur element este 1 ("hot"), restul sunt 0.</div>
+  <div class="figure-box"><strong>Figura 2.4:</strong> Ilustrarea distributiei binomiale cu n = 10 pentru θ ∈ {0.25, 0.9}. Cu θ = 0.25, distributia este asimetrica la stanga; cu θ = 0.9, este asimetrica la dreapta.</div>
+  <div class="highlight-box"><strong>Tabelul 2.1:</strong> Rezumatul relatiilor: Multinomiala (n variabil, K variabil), Multinoulli (n=1, K variabil, codificare 1-of-K), Binomiala (K=2, n variabil), Bernoulli (K=2, n=1).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 2.3.2 introduce distributia multinomiala, generalizarea distributiei binomiale la K > 2 rezultate posibile. Distributia multinoulli (categorica) este cazul special cu n = 1, modeland o singura observatie categorica. Codificarea one-hot transforma variabile categorice in vectori binari, facilitand calculele.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ierarhia Bernoulli → Binomiala → Multinoulli → Multinomiala formeaza o familie coerenta de distributii. Codificarea one-hot este omniprezenta in ML modern: retele neuronale, word embeddings si clasificarea multi-clasa o folosesc extensiv. Distributia categorica este baza clasificarii multi-clasa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Distributia multinomiala modeleaza frecventele cuvintelor in documente (bag-of-words), distributia nucleotidelor in secvente ADN, si distributia categoriilor de produse in cosuri de cumparaturi. Codificarea one-hot este standard in preprocesarea datelor categorice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de limbaj simplu care estimeaza probabilitatea fiecarui cuvant intr-un vocabular de 50.000 de cuvinte foloseste distributia categorica: p(cuvant = j|context) = θⱼ. Fiecare cuvant generat este o singura extragere dintr-o distributie multinoulli cu 50.000 de categorii.</p></div>
+  </div>
+</div>

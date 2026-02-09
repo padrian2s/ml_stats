@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Extensii ale LDA - Modelul de Topicuri Corelate (Capitolul 27.4)</h2>
+  <p>Pagina introduce extensiile modelului LDA, in special modelul de topicuri corelate (CTM), care permite captarea corelatiilor intre topicuri prin inlocuirea priorului Dirichlet cu distributia normala logistica.</p>
+  <div class="definition-box"><strong>Modelul de Topicuri Corelate (CTM):</strong> Extensie a LDA care inlocuieste priorul Dirichlet pentru π_i cu o distributie normala logistica, permitand modelarea corelatiilor intre topicuri. In LDA standard, covarianta este fixata (Σ_ij = -α_i·α_j), pe cand in CTM, Σ este un parametru liber.</div>
+  <div class="highlight-box"><strong>Modelul CTM:</strong> b_k|γ ~ Dir(γ·1_V), z_i ~ N(μ, Σ), π_i|z_i = S(z_i), q_il|π_i ~ Cat(π_i), y_il|q_il=k,B ~ Cat(b_k). Diferenta fata de PCA categoric: in CTM y_il ~ Cat(B·S(z_i)), iar in catPCA y_il ~ Cat(S(W·z_i)).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 27.4 introduce extensiile LDA. Modelul de topicuri corelate (CTM) rezolva o limitare importanta a LDA: incapacitatea de a modela corelatii intre topicuri. De exemplu, daca un document trateaza topicul "afaceri", este rezonabil sa ne asteptam ca si topicul "finante" sa apara. CTM realizeaza acest lucru folosind o distributie normala in spatiul latent in locul distributiei Dirichlet.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la Dirichlet la distributia normala logistica permite modelarea corelatiilor arbitrare intre topicuri. Matricea de precizie Σ̂⁻¹ poate fi interpretata ca un model grafic gaussian rar, vizualizand relatiile intre topicuri. Fitarea modelului necesita aproximare de camp mediu suplimentara deoarece priorul nu mai este conjugat cu verosimilitatea multinomiala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>CTM este util in analiza colectiilor de articole stiintifice unde topicurile sunt natural corelate (ex: "genetica" si "biologia moleculara"), in analiza stirilor unde evenimentele economice si politice sunt interconectate, si in sisteme de recomandare unde interesele utilizatorilor sunt corelate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Aplicarea CTM pe articole din revista Science (16.351 documente, 5.7M cuvinte) produce un graf de topicuri unde nodurile reprezinta topicuri cu cele mai probabile 5 cuvinte, iar marimea reflecta prevalenta. Muchiile semnificative din matricea de precizie arata corelatiile intre domenii stiintifice.</p></div>
+  </div>
+</div>

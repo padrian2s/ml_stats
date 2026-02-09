@@ -1,0 +1,12 @@
+<div class="page-content">
+  <h2>Comparatia vizuala BHC vs. clustering aglomerativ pe date newsgroups</h2>
+  <p>Pagina prezinta o comparatie vizuala a structurilor arborescente produse de clusteringul ierarhic Bayesian si cel aglomerativ standard (average linkage) pe 800 de documente din 4 grupuri de stiri.</p>
+  <div class="figure-box"><strong>Figura 25.16:</strong> Clustering ierarhic aplicat pe 800 de documente din 4 newsgroup-uri (rosu = rec.autos, albastru = rec.sport.baseball, verde = rec.sport.hockey, magenta = sci.space). Sus: average linkage - produce un arbore dezechilibrat. Jos: BHC - produce un arbore cu clustere mai consistente cu etichetele reale ale documentelor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Comparatia vizuala demonstreaza dramatic diferenta intre cele doua abordari. BHC produce un arbore unde culorile (clasele) sunt mult mai bine grupate, in timp ce average linkage amesteca frecvent documentele din clase diferite. Metoda Bayesiana produce un clustering mai consistent cu etichetele reale, desi acestea nu au fost folosite in procesul de ajustare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Arborele BHC are o structura mai echilibrata si mai informativa. Separarea clara a culorilor la frunze indica o clusterizare de calitate superioara. Average linkage tinde sa creeze un arbore lung si subtire (efect de inlantuire).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta comparatie este relevanta pentru organizarea automata a colectiilor de documente, categorisirea stirilor si construirea de taxonomii de continut.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un motor de cautare ar putea folosi BHC pentru a organiza rezultatele cautarii intr-o ierarhie tematica. De exemplu, o cautare pentru "masini" ar produce sub-clustere pentru recenzii auto, sport auto si spatiu (NASA), reflectand mai bine structura reala a documentelor.</p></div>
+  </div>
+</div>

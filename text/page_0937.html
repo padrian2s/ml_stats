@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Crosscat vs. modele de amestec infinite - Discutie</h2>
+  <p>Aceasta pagina continua discutia despre crosscat, comparandu-l cu modelele de amestec standard si explicand avantajul gestionarii trasaturilor irelevante.</p>
+  <div class="definition-box"><strong>Limitarea modelelor de amestec standard:</strong> Modelul de amestec infinit standard poate reprezenta orice densitate pe vectori de dimensiune fixa cand N->infinit, dar nu poate gestiona D->infinit cu trasaturi irelevante, zgomotoase sau redundante.</div>
+  <div class="highlight-box"><strong>Avantajul crosscat:</strong> Crosscat partitioneaza trasaturile irelevante intr-un view separat, clusterand randurile doar pe baza trasaturilor relevante. Nu necesita un model de "fundal" separat - totul este tratat uniform. Acest lucru explica de ce multi-clust depaseste abordarea cu amestec rar (sparse mixture) in experimente.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina conchide discutia despre crosscat, subliniind avantajul principal: robustetea la trasaturi irelevante. Modelele de amestec standard trateaza toate trasaturile egal si pot fi "confuzate" de zgomot. Crosscat rezolva aceasta problema elegant prin partitionarea trasaturilor, astfel incat zgomotul nu afecteaza clustering-ul pe trasaturile informative. Aceasta simetrie (zgomotul unuia este semnalul altuia) face modelul mai robust si mai flexibil.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Comparatia cu modelele de amestec sparse (Law et al. 2004) evidentiaza ca abordarea prin view-uri este mai naturala si mai eficienta decat selectia explicita a trasaturilor. Crosscat trateaza selectia trasaturilor si clustering-ul ca o problema unificata.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta robustete face crosscat ideal pentru analiza exploratorie de date tabulare in domenii unde numarul si relevanta trasaturilor nu sunt cunoscute a priori, cum ar fi analiza datelor de sondaje, date epidemiologice si date industriale de calitate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In controlul calitatii in manufacturing, crosscat poate analiza zeci de masuratori de proces (temperatura, presiune, viteza, etc.) si identifica automat care subseturi de masuratori sunt relevante pentru diferite tipuri de defecte, separand trasaturile informative de cele zgomotoase.</p></div>
+  </div>
+</div>

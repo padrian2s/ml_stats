@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 25: Clustering - Introducere</h2>
+  <p>Aceasta pagina introduce capitolul despre clustering, definind conceptele fundamentale si tipurile de clustering: bazat pe similaritate vs. bazat pe trasaturi, plat vs. ierarhic.</p>
+  <div class="definition-box"><strong>Clustering:</strong> Procesul de grupare a obiectelor similare impreuna. Doua tipuri de intrare: matrice de disimilaritate N x N (clustering bazat pe similaritate) sau matrice de trasaturi N x D (clustering bazat pe trasaturi).</div>
+  <div class="definition-box"><strong>Clustering plat (partitional):</strong> Imparte obiectele in multimi disjuncte. Complexitate O(ND) pentru flat vs. O(N^2 log N) pentru ierarhic.</div>
+  <div class="definition-box"><strong>Clustering ierarhic:</strong> Creeaza un arbore imbricat de partitii, nu necesita specificarea numarului K de clustere si este de obicei determinist.</div>
+  <div class="highlight-box"><strong>Masurarea (di)similaritatii:</strong> O matrice de disimilaritate D are d_{i,i} = 0 si d_{i,j} >= 0. Inegalitatea triunghiulara d_{i,j} <= d_{i,k} + d_{j,k} nu este intotdeauna satisfacuta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 25 introduce clustering-ul ca problema fundamentala de invatare nesupervizata. Se disting doua axe de clasificare: tipul de intrare (similaritate vs. trasaturi) si tipul de iesire (plat vs. ierarhic). Metodele probabilistice si non-probabilistice sunt ambele relevante, cele din urma oferind adesea idei utile pentru accelerarea inferentei in modele probabilistice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Clustering-ul este o problema fundamentala dar ambigua - nu exista o definitie unica a "clusterului corect". Alegerea intre metode depinde de natura datelor (matrice de distanta vs. trasaturi) si de structura dorita (plata vs. ierarhica). Complexitatea computationala difera semnificativ intre abordari.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clustering-ul este omniprezent: segmentarea clientilor in marketing, gruparea documentelor in recuperarea informatiei, segmentarea imaginilor in viziunea computationala, si identificarea tipurilor de celule in genomica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In e-commerce, clustering-ul clientilor dupa comportamentul de cumparare permite personalizarea recomandarilor, optimizarea campaniilor de marketing si identificarea segmentelor de piata profitabile.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Calculul termenilor ELBO si introducerea VB pentru regresie liniara</h2>
+  <p>Aceasta pagina completeaza calculul explicit al tuturor termenilor ELBO pentru modelul Gaussian univariat si introduce VB pentru regresie liniara.</p>
+  <div class="definition-box"><strong>Asteptari necesare pentru ELBO:</strong> E[log x | x ~ Ga(a,b)] = ψ(a) - log(b), E[x | x ~ Ga(a,b)] = a/b, E[x | x ~ N(μ,σ^2)] = μ, E[x^2 | x ~ N(μ,σ^2)] = μ^2 + σ^2. Aceste momente sunt suficiente pentru calculul tuturor termenilor din ELBO.</div>
+  <div class="definition-box"><strong>Log-likelihood asteptata:</strong> E[log p(D|μ,λ)] = -N/2 log(2π) + N/2(ψ(a_N) - log b_N) - Na_N/(2b_N)(σ̂^2 + x̄^2 - 2μ_N x̄ + μ_N^2 + 1/κ_N). Combina functia digamma si momentele de ordin 1 si 2 ale lui q_μ si q_λ.</div>
+  <div class="definition-box"><strong>ELBO in forma inchisa:</strong> L(q) = 1/2 log(1/κ_N) + log Γ(a_N) - a_N log b_N + const. Aceasta cantitate creste monoton la fiecare actualizare VB si serveste ca diagnostic de convergenta.</div>
+  <div class="highlight-box"><strong>VB pentru regresie liniara (Sectiunea 21.5.2):</strong> Se porneste de la likelihood p(y|X,θ) = N(Xw, λ^{-1}) si prior p(w) = N(0, α^{-1}I). Estimarea de tip II a lui α si λ este procedura de evidenta (evidence procedure). VB ofera o alternativa complet Bayesiana, inferand distributii complete peste w, λ si α.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Calculul ELBO necesita patru tipuri de asteptari standard (momente de ordin 1 si 2 ale Gaussianei si log-momente ale distributiei Gamma). Log-likelihood-ul asteptat integreaza incertitudinea din ambii parametri prin termeni precum E[μ^2] = μ_N^2 + 1/κ_N. Formula finala L(q) este surprinzator de simpla, depinzand doar de κ_N, a_N, b_N. Sectiunea 21.5.2 trece la VB pentru regresie liniara, extinzand abordarea evidence procedure la o inferenta complet Bayesiana.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la estimarea punctuala (evidence procedure cu α* si λ*) la VB (distributii q(α), q(λ)) urmeaza acelasi tipar: se inlocuiesc parametrii fixi cu asteptarile lor sub distributia variationala. Formula ELBO in forma inchisa permite compararea eficienta intre modele fara a necesita metode de esantionare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>VB pentru regresie liniara este relevant in machine learning aplicat: ofera barele de eroare pe predictii (nu doar predictia punctuala), permite selectia automata a complexitatii modelului prin ELBO si este mai robust decat estimarea de tip II la date putine.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In predictia preturilor imobiliare cu multe feature-uri (locatie, suprafata, numar camere, etc.), VB pentru regresie liniara ofera nu doar o predictie a pretului ci si un interval de incredere, esential pentru deciziile de investitie unde riscul trebuie cuantificat.</p></div>
+  </div>
+</div>

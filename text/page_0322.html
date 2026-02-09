@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exemple de GLM-uri: regresia liniara, binomiala si Poisson</h2>
+  <p>Aceasta pagina prezinta trei exemple concrete de GLM-uri: regresia liniara (Gaussiana), regresia binomiala (logistica) si regresia Poisson.</p>
+  <div class="definition-box"><strong>Regresia liniara ca GLM:</strong> y_i ~ N(&mu;_i, &sigma;&sup2;), &theta;_i = &mu;_i = w^T x_i (legatura identitate), A(&theta;) = &theta;&sup2;/2, deci E[y_i] = &mu;_i si var[y_i] = &sigma;&sup2;.</div>
+  <div class="definition-box"><strong>Regresia binomiala ca GLM:</strong> y_i ~ Bin(N_i, &pi;_i), &theta;_i = log(&pi;_i/(1-&pi;_i)) = w^T x_i (legatura logit), A(&theta;) = N_i log(1+e^&theta;), E[y_i] = N_i &pi;_i, var[y_i] = N_i &pi;_i(1-&pi;_i).</div>
+  <div class="definition-box"><strong>Regresia Poisson ca GLM:</strong> y_i ~ Poi(&mu;_i), &theta;_i = log(&mu;_i) = w^T x_i (legatura log), A(&theta;) = e^&theta;, E[y_i] = &mu;_i = e^(w^T x_i), var[y_i] = &mu;_i. Folosita in bio-statistica, epidemiologie si genomica.</div>
+  <div class="highlight-box"><strong>Proprietatea egalitatii medie-varianta in Poisson:</strong> E[y_i] = var[y_i] = &mu;_i. Aceasta presupunere este adesea violata in practica (supra-dispersie), necesitand modele mai flexibile (negative binomiala, quasi-Poisson).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza concret cum trei modele de regresie familiare sunt cazuri speciale ale cadrului GLM. Regresia liniara foloseste legatura identitate, logistica foloseste legatura logit, iar Poisson foloseste legatura logaritmica. Toate au aceeasi structura generala si pot fi estimate cu acelasi algoritm (IRLS), doar cu functii de legatura diferite.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Regresia liniara este singurul GLM cu varianta constanta (homoscedasticitate). 2) In regresia logistica, varianta depinde de media (&pi;(1-&pi;)), deci este heteroscedastica. 3) In Poisson, varianta = media, o restrictie puternica care trebuie verificata. 4) Legatura log in Poisson asigura ca &mu;_i > 0 (numarul asteptat de evenimente este pozitiv).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia Poisson este folosita in epidemiologie (incidenta bolilor), in transporturi (numarul de accidente pe un segment de drum), in genomica (numarul de citiri per gen), si in economie (numarul de brevete per firma). Regresia binomiala modeleaza proportii: rata de mortalitate, rata de defecte, rata de conversie.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In genomica, secventierea ARN produce numere de citiri per gen care urmeaza aproximativ o distributie Poisson. Regresia Poisson (sau negativa binomiala pentru supra-dispersie) cu predictori (grup experimental, batch) este metoda standard pentru identificarea genelor diferential exprimate intre conditii (pachetul DESeq2 in R).</p></div>
+  </div>
+</div>

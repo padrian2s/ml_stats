@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Kernel Trick: Figura 14.4, Clasificarea NN Kernelizata si K-Medoids</h2>
+  <p>Pagina prezinta Figura 14.4 (comparatia clasificatorilor kernel-based), Sectiunea 14.4.1 (clasificarea nearest neighbor kernelizata) si Sectiunea 14.4.2 (K-medoids clustering kernelizat).</p>
+  <div class="highlight-box"><strong>Figura 14.4 - Comparatia clasificatorilor:</strong> Clasificare binara non-liniara cu RBF kernel (sigma=0.3): (a) L2VM (lambda=5, nerr=174), (b) L1VM (lambda=1, nerr=169), (c) RVM (nerr=173), (d) SVM (C=1/lambda, nerr=173). Toate produc frontiere similare. Cercurile negre: vectori de suport/centroizi selectati. RVM este cel mai sparse.</div>
+  <div class="definition-box"><strong>Clasificare NN kernelizata (Sectiunea 14.4.1, Eq. 14.30):</strong> ||x_i - x_{i'}||_2^2 = &lt;x_i, x_i&gt; + &lt;x_{i'}, x_{i'}&gt; - 2&lt;x_i, x_{i'}&gt;. Inlocuind produsele scalare cu kappa(x, x'), se poate aplica NN pe obiecte structurate (stringuri, grafuri).</div>
+  <div class="definition-box"><strong>K-medoids kernelizat (Sectiunea 14.4.2):</strong> Inlocuire K-means: centroizii sunt date reale (medoizi), nu medii. m_k = argmin_{i:z_i=k} suma_{i':z_{i'}=k} d(i, i'). Lucreaza cu distante, nu cu vectori, deci poate fi kernelizat prin Eq. 14.30. Nearest medoid classification: clasificare pe baza medoidului cel mai apropiat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Kernel trick-ul transforma algoritmi bazati pe distante (NN, K-medoids) in algoritmi care functioneaza pe obiecte structurate, prin inlocuirea produselor scalare cu evaluari de kernel. K-medoids este preferabil K-means in spatiu kernel deoarece nu necesita calculul mediilor (imposibil in spatii implicite), ci doar distante intre perechi de puncte.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta fundamentala: K-means necesita medii (w = 1/n suma x_i), deci necesita acces la reprezentarea explicita. K-medoids necesita doar distante intre perechi, deci poate fi kernelizat direct. Costul: O(n_k^2) per cluster in loc de O(n_k D).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>K-medoids kernelizat (PAM - Partitioning Around Medoids) este implementat in R (cluster::pam) si Python (sklearn-extra KMedoids). Este preferabil K-means cand datele au outlieri (medoizii sunt mai robusti decat mediile) sau cand doar distantele sunt disponibile.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza de retele sociale, K-medoids cu kernel pe grafuri grupeaza utilizatorii in comunitati bazat pe similaritatea structurala a conexiunilor, fara a necesita embedding-ul explicit al grafului in spatiu vectorial.</p></div>
+  </div>
+</div>

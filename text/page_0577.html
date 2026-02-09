@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Cresterea unui Arbore - Algoritmul Recursiv</h2>
+  <p>Pagina prezinta Algoritmul 16.1 pentru construirea recursiva a unui arbore de clasificare/regresie, precum si criteriile de oprire si fragmentarea datelor.</p>
+  <div class="definition-box"><strong>Algoritmul fitTree:</strong> O procedura recursiva care: (1) calculeaza predictia nodului, (2) gaseste cea mai buna impartire, (3) verifica daca impartirea merita, (4) construieste recursiv sub-arborii stang si drept.</div>
+  <div class="definition-box"><strong>Fragmentarea datelor (data fragmentation):</strong> Fenomenul in care impartirile multi-directionale produc sub-arbori cu prea putine date, ducand la supraajustare.</div>
+  <div class="highlight-box"><strong>Masura de reducere a costului:</strong> Δ ≜ cost(D) - (|D_L|/|D| · cost(D_L) + |D_R|/|D| · cost(D_R)) (Ec. 16.6)</div>
+  <div class="highlight-box"><strong>Costul de regresie:</strong> cost(D) = Σ_{i∈D} (y_i - ȳ)² (Ec. 16.7)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul de crestere a arborelui functioneaza recursiv: la fiecare nod, se alege cea mai buna caracteristica si cel mai bun prag, apoi se construiesc sub-arborii. Euristicile de oprire includ: reducerea prea mica a costului, adancime maxima depasita, distributie pura in nod, sau prea putine exemple.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Setul de praguri posibile T_j se obtine prin sortarea valorilor unice ale caracteristicii j. Pentru intrari categorice, se compara x_ij = c_k vs x_ij ≠ c_k. Impartirile multi-directionale sunt evitate pentru a preveni fragmentarea datelor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In procesarea datelor financiare, costul de regresie (suma patratelor erorilor) permite arborilor sa aproximeze functii continue, utile pentru prezicerea preturilor actiunilor sau a ratelor de schimb valutar.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de evaluare a riscului de credit poate folosi acest algoritm: la fiecare nod se testeaza venitul, varsta, istoricul de credit, iar criteriul de oprire previne crearea unor grupuri prea mici de clienti.</p></div>
+  </div>
+</div>

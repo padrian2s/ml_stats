@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii: inferenta in modele genetice si retele 2D</h2>
+  <p>Aceasta pagina continua exercitiile despre propagarea mesajelor in modelul genetic si introduce exercitiul despre inferenta in MRF-uri pe retele 2D.</p>
+  <div class="definition-box"><strong>Exercitiul 20.3 (continuare):</strong> Se cere calculul posterioarei p(G_1|X_2=50), p(G_1|X_2=50, X_3=50), p(G_1|X_2=60, X_3=60) si p(G_1|X_1=50, X_2=60), cu explicatii intuitive ale rezultatelor.</div>
+  <div class="definition-box"><strong>Exercitiul 20.4 - Inferenta in retele 2D:</strong> Un MRF pe o retea m×n cu K > 2 stari. Clicile maximale dupa triangulare au dimensiune O(max{m,n}). Se cere descrierea unei metode de inferenta exacta eficienta cand m << n (reteaua este "scurta si grasa").</div>
+  <div class="highlight-box"><strong>Inferenta in retele scurte si grase:</strong> Cand m << n, se poate elimina variabilele coloana cu coloana, rezultand in factori de dimensiune O(K^m). Daca m este mic, aceasta este fezabila. Pentru retele patrate m=n binare, estimarea MAP poate fi calculata eficient folosind graph cuts.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiul genetic demonstreaza rationamentul intuitiv in retele Bayesiene: observarea tensiunii normale la un copil creste probabilitatea ca parintele sa fie sanatos; observarea la doi copii creste si mai mult; observarea unei tensiuni ridicate la parinte poate modifica concluzia chiar daca copiii sunt sanatosi. Exercitiul cu reteaua 2D evidentiaza ca treewidth-ul depinde de dimensiunea mai mica (m), nu de numarul total de noduri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Inferenta exacta in retele 2D cu m << n este O(n K^{m+1}), exponentiala doar in dimensiunea mai mica. Pentru m=n, treewidth-ul este O(n), facand inferenta intractabila. MAP binar pe retele 2D asociative poate fi rezolvat eficient prin graph cuts (min-cut/max-flow).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Reteaua "scurta si grasa" apare in modele de serii temporale multivariate cu m variabile si n pasi temporali. Inferenta exacta este fezabila daca numarul de variabile per pas de timp este mic (de exemplu, m < 20 pentru variabile binare).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de segmentare a unei imagini 4×1000 (o banda orizontala) are treewidth 4, permitand inferenta exacta in O(1000 × 2^5) = O(32000) operatii. Aceeasi imagine patrata 1000×1000 ar necesita O(2^1000) - complet intractabil.</p></div>
+  </div>
+</div>

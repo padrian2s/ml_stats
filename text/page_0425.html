@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Aproximarea Low-Rank a Imaginilor si Spectrul Valorilor Singulare</h2>
+  <p>Pagina prezinta Figura 12.9 (aproximari de rang scazut ale unei imagini) si Figura 12.10 (spectrul valorilor singulare pentru imagini reale vs date aleatoare).</p>
+  <div class="highlight-box"><strong>Figura 12.9:</strong> Aproximari low-rank ale imaginii unui clovn (200 x 320). Rang 200 (original), rang 2 (foarte blur), rang 5 (forme de baza vizibile), rang 20 (buna calitate). Demonstreaza compresia prin SVD trunchiata.</div>
+  <div class="highlight-box"><strong>Figura 12.10:</strong> Primele 50 de log-valori singulare: imaginea reala (rosu) scade rapid, indicand structura low-rank. Datele randomizate (verde, pixeli amestecati) scad mult mai lent - nu exista structura de exploatat.</div>
+  <div class="definition-box"><strong>Spectrul valorilor singulare:</strong> Rata de scadere a valorilor singulare indica cat de compresibila este matricea. Scadere rapida = structura low-rank puternica = PCA/SVD eficace. Scadere lenta = date aproape de rang complet.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exemplele vizuale demonstreaza eficacitatea SVD trunchiata: o imagine de 200x320=64000 pixeli poate fi aproximata bine cu doar rang 20 (20*(200+320+1)=10420 parametri, compresie ~6x). Spectrul valorilor singulare este un instrument de diagnostic: scaderea rapida confirma ca datele au structura low-rank exploatabila.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Comparatia imagine reala vs date randomizate este revelatoare: imaginile naturale au structura spatiala (corelatii intre pixeli vecini) care se manifesta ca rang scazut eficient. Datele fara structura nu beneficiaza de compresie low-rank.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Spectrul valorilor singulare este folosit pentru: (1) diagnosticarea utilitatii PCA, (2) alegerea numarului de componente, (3) detectarea structurii ascunse in date, (4) evaluarea complexitatii efective a datelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In comunicatii MIMO, matricea canalului are structura low-rank datorita mediului de propagare. SVD a matricii de canal permite optimizarea comunicatiei prin concentrarea energiei pe modurile dominante (water-filling).</p></div>
+  </div>
+</div>

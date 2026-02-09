@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>Clasificatoare Naive Bayes - Exercitii (continuare)</h2>
+  <p>Pagina 95 continua cu exercitii pentru clasificatoarele Naive Bayes, inclusiv comparatii intre modelul complet si modelul Naive Bayes, precum si un exercitiu practic de filtrare spam.</p>
+
+  <div class="definition-box"><strong>Modelul complet ("full model"):</strong> Un model in care toate trasaturile sunt complet dependente, fara presupuneri de factorizare. Reprezentam p(x|y=c) folosind toate corelatiile intre trasaturi.</div>
+
+  <div class="highlight-box"><strong>Complexitate computationala:</strong> Ajustarea modelului complet necesita O(N * 2^D) vs. O(N * D) pentru Naive Bayes, unde N = numarul de exemple si D = numarul de trasaturi.</div>
+
+  <div class="definition-box"><strong>Exercitiul 3.22 - Filtru spam Naive Bayes:</strong> Se construieste un clasificator Naive Bayes (Bernoulli multivariat) pentru clasificare spam cu vocabular V = {"secret", "offer", "low", "price", "valued", "customer", "today", "dollar", "million", "sports", "is", "for", "play", "healthy", "pizza"}.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Aceasta pagina prezinta exercitii avansate care compara clasificatorul Naive Bayes cu modelul complet (fara presupuneri de independenta). Se analizeaza numarul de parametri, complexitatea computationala, comportamentul cu date lipsa si performanta la diferite dimensiuni ale setului de antrenare. Exercitiul 3.22 ilustreaza constructia practica a unui filtru spam.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul bias-varianta este central: modelul Naive Bayes are bias mai mare dar varianta mai mica, fiind preferat cand N este mic. Modelul complet este superior cand N este mare. Complexitatea la test cu date lipsa este O(2^h) pentru modelul complet vs. O(D) pentru Naive Bayes, unde h este numarul de trasaturi lipsa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Filtrarea spam este una dintre cele mai de succes aplicatii ale clasificatorului Naive Bayes. Exercitiul 3.22 demonstreaza cum se calculeaza estimarile MLE pentru parametrii modelului folosind mesaje spam si non-spam reale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In filtrarea spam, mesajele precum "million dollar offer" si "secret offer today" sunt clasificate ca spam, in timp ce "low price for valued customer" si "sports is healthy" sunt mesaje normale. Se calculeaza θ_spam, θ_secret|spam, θ_secret|non-spam, θ_sports|non-spam si θ_dollar|spam pentru clasificarea automata.</p></div>
+  </div>
+</div>

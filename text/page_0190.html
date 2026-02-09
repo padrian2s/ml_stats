@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Calculul Verosimilitatii Marginale prin Constante de Normalizare</h2>
+  <p>Pagina continua cu derivarea formulei verosimilitatii marginale si prezinta un exemplu concret cu N=30 puncte, demonstrand selectia corecta a modelului.</p>
+  <div class="highlight-box"><strong>Relatia fundamentala:</strong> p(θ|D) = p(D|θ)p(θ)/p(D), de unde q(θ|D)/Z_N = q(D|θ)q(θ)/(Z_l · Z₀ · p(D)) (Ecuatiile 5.16-5.17)</div>
+  <div class="highlight-box"><strong>Verosimilitatea marginala:</strong> p(D) = Z_N / (Z₀ · Z_l) (Ecuatia 5.18) - formula eleganta bazata pe raportul constantelor de normalizare.</div>
+  <div class="figure-box"><strong>Figura 5.8:</strong> Cu N=30 puncte, posterioara p(M|D) favorizeaza puternic modelul parabolic (d=2), care este modelul adevarat. Polinomul de grad 1 subajusteaza, iar cel de grad 3 supraajusteaza.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Formula p(D) = Z_N/(Z₀·Z_l) este eleganta si practica: necesita doar calculul constantelor de normalizare ale prior-ului, verosimilitatii si posterioarei. Pentru modelele cu prior conjugat, aceste constante sunt disponibile in forma inchisa, facand calculul verosimilitatii marginale trivial.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compararea Figurii 5.7 (N=5) cu Figura 5.8 (N=30) ilustreaza principiul ca mai multe date permit discriminarea mai fina intre modele. Cu N=5, incertitudinea este prea mare pentru a justifica modele complexe. Cu N=30, diferentele devin clare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta formula se aplica direct in modelele conjugate: pentru Beta-Binomial, Z₀ = B(α,β), Z_N = B(α+N₁, β+N₀), iar Z_l = 1/C(N,N₁). Aceasta da imediat verosimilitatea marginala fara integrare numerica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In procesarea limbajului natural, selectia modelului bayesian ajuta la alegerea ordinii modelului n-gram: un model bigram poate fi suficient pentru texte scurte, dar un model trigram devine necesar pentru texte mai lungi unde contextul conteaza mai mult.</p></div>
+  </div>
+</div>

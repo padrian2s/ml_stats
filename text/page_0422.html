@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>PCA: Solutia prin Vectori Proprii si Extensia la L Componente</h2>
+  <p>Pagina completeaza demonstratia PCA: solutia w_1 este vectorul propriu al Sigma_hat corespunzand celei mai mari valori proprii, si extensia prin inductie la L componente.</p>
+  <div class="highlight-box"><strong>Solutia prin multiplicatori Lagrange (Eq. 12.38-12.41):</strong> Maximizand J_hat(w_1) = w_1^T Sigma_hat w_1 + lambda_1(w_1^T w_1 - 1), obtinem Sigma_hat w_1 = lambda_1 w_1. Varianta proiectata = lambda_1 (valoarea proprie).</div>
+  <div class="highlight-box"><strong>Extensia la L componente (Eq. 12.42-12.45):</strong> A doua componenta w_2 maximizeaza varianta reziduala sub constrangerile w_2^T w_2 = 1 si w_2^T w_1 = 0. Solutia: Sigma_hat w_2 = lambda_2 w_2 (al doilea vector propriu). Prin inductie, w_j este al j-lea vector propriu.</div>
+  <div class="definition-box"><strong>Varianta totala explicata:</strong> Proportia de varianta explicata de primele L componente este suma_{j=1}^L lambda_j / suma_{j=1}^D lambda_j. Valorile proprii ordonate descrescator dau cantitatea de informatie captata de fiecare componenta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Demonstratia PCA se completeaza prin inductie: fiecare componenta principala este vectorul propriu al matricii de covarianta corespunzand celei mai mari valori proprii ramase, sub constrangerea de ortogonalitate cu componentele precedente. Varianta proiectata pe fiecare componenta este exact valoarea proprie corespunzatoare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura greedy a PCA: componentele sunt gasite secvential, fiecare maximizand varianta reziduala. Aceasta structura greedy produce solutia globala optima datorita ortogonalitatii constrangerilor - un rezultat remarcabil.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Proportia de varianta explicata este criteriul standard pentru alegerea numarului de componente L. Regula comuna: se aleg suficiente componente pentru a explica 90-95% din varianta totala, sau se cauta un "cot" in graficul scree.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza genetica a populatiilor (GWAS), primele 2-3 componente PCA captureaza structura de ascendenta a populatiei si sunt folosite ca covariate pentru a corecta stratificarea populatiei in studiile de asociere.</p></div>
+  </div>
+</div>

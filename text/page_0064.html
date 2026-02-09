@@ -1,0 +1,19 @@
+<div class="page-content">
+  <h2>Capitolul 2: Cuantile, Medie si Varianta</h2>
+  <p>Cuantilele distributiilor, intervalele de incredere, media, varianta si deviatia standard.</p>
+  <div class="definition-box"><strong>Cuantila:</strong> Daca F este CDF-ul lui X, atunci F⁻¹(α) = x_α este valoarea astfel incat P(X ≤ x_α) = α. Se numeste cuantila α a distributiei.</div>
+  <div class="definition-box"><strong>Mediana:</strong> Cuantila F⁻¹(0.5), valoarea care imparte distributia in doua jumatati egale.</div>
+  <div class="definition-box"><strong>Cuartile:</strong> F⁻¹(0.25) si F⁻¹(0.75) sunt cuartilele inferioara si superioara.</div>
+  <div class="definition-box"><strong>Media (Valoarea Asteptata):</strong> E[X] = Σ_{x∈X} x p(x) (discret) sau E[X] = ∫_X x p(x)dx (continuu). Notata μ.</div>
+  <div class="definition-box"><strong>Varianta:</strong> var[X] = E[(X - μ)²] = ∫(x - μ)²p(x)dx = E[X²] - μ² (ecuatiile 2.24-2.25). Notata σ². Masoara "raspandirea" distributiei.</div>
+  <div class="definition-box"><strong>Deviatia Standard:</strong> std[X] = √(var[X]) (ecuatia 2.27). Are aceleasi unitati ca X, facand-o mai usor de interpretat decat varianta.</div>
+  <div class="figure-box"><strong>Figura 2.3:</strong> (a) CDF-ul distributiei normale standard N(0,1). (b) PDF-ul corespunzator cu regiunile de coada (fiecare cu aria α/2). Intervalul central de 95% este (-1.96, 1.96).</div>
+  <div class="highlight-box"><strong>Intervalul Central de 95%:</strong> Pentru N(0,1), intervalul (Φ⁻¹(0.025), Φ⁻¹(0.975)) = (-1.96, 1.96). Pentru N(μ, σ²), intervalul este aproximativ μ ± 2σ (ecuatia 2.23).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunile 2.2.6-2.2.7 introduc statisticile sumarizatoare ale distributiilor. Cuantilele descriu pozitia in distributie, media masoara locatia centrala, iar varianta masoara raspandirea. Relatia E[X²] = μ² + σ² este foarte utila. Intervalul central de 95% (μ ± 1.96σ) este fundamental in statistica.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Media si varianta sunt momente ale distributiei. Pentru distributia Gaussiana, ele specifica complet distributia. Regula "μ ± 2σ" este o aproximare utila: ~95% din masa de probabilitate se afla in acest interval. Cuantilele sunt mai robuste la valori extreme decat media.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intervalele de incredere bazate pe cuantile sunt folosite in raportarea rezultatelor experimentale, intervalele de predictie in regresie, si testele de normalitate. Deviatia standard este metrica standard de risc in finante (volatilitate).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un raport meteorologic care spune "temperatura medie de 20°C cu deviatie standard de 3°C" ne spune ca in ~95% din cazuri temperatura va fi intre 14°C si 26°C. Aceasta cuantificare a incertitudinii ajuta la planificarea activitatilor in aer liber.</p></div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Selectia Modelului pentru PCA - Eroare de Reconstructie si Graficul Scree</h2>
+  <p>Pagina discuta selectia numarului de componente in PCA clasic (non-probabilistic) prin eroarea de reconstructie, graficul scree si fractia de varianta explicata.</p>
+  <div class="definition-box"><strong>Eroare de reconstructie:</strong> E(D, L) = 1/|D| Σᵢ ||xᵢ - x̂ᵢ||², unde x̂ᵢ = Wzᵢ + μ este reconstructia, masoara calitatea aproximarii de rang L.</div>
+  <div class="definition-box"><strong>Graficul Scree (Scree Plot):</strong> Reprezentarea grafica a valorilor proprii retinute in ordine descrescatoare, asemanatoare cu debris-ul de la baza unui munte.</div>
+  <div class="highlight-box"><strong>Eroarea reziduala:</strong> E(D_train, L) = Σⱼ₌L₊₁ᴰ λⱼ, suma valorilor proprii eliminate.</div>
+  <div class="highlight-box"><strong>Fractia de varianta explicata:</strong> F(D_train, L) = Σⱼ₌₁ᴸ λⱼ / Σⱼ'₌₁ᴸmax λⱼ', proportia variantei captate de primele L componente.</div>
+  <div class="figure-box"><strong>Figura 12.14:</strong> Eroarea de reconstructie pe MNIST vs numarul de dimensiuni latente. (a) Set de antrenament - eroarea scade rapid. (b) Set de test - eroarea continua sa scada, fara forma de U tipica.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>PCA clasic nu este un model probabilistic, deci nu putem folosi verosimilitatea marginala. In schimb, se utilizeaza eroarea de reconstructie. Graficul scree si fractia de varianta explicata ofera vizualizari intuitive ale compromisului intre complexitate si acuratete. Interesant, pe setul de test eroarea nu creste (nu exista supraajustare tipica), deoarece PCA este doar o tehnica de compresie, nu un model generativ propriu-zis.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Absenta formei de U pe setul de test reveleaza o diferenta fundamentala intre PCA si modelele generative: PCA nu poate supraajusta in sensul clasic, deoarece nu modeleaza distributia datelor. In contrast, PPCA (model probabilistic) prezinta forma de U tipica, beneficiind de principiul lui Occam bayesian.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Graficul scree este folosit frecvent in practica pentru a alege numarul de componente principale: se cauta „cotul" unde curba se aplatizeaza. Fractia de varianta explicata ofera un criteriu mai cantitativ (de exemplu, retinerea a 95% din varianta).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza datelor de sondaj cu sute de intrebari, un cercetator in stiinte sociale poate folosi graficul scree pentru a determina cate constructe psihologice latente (de exemplu, extraversie, agreabilitate) sunt captate de raspunsuri, retinand componentele de deasupra „cotului".</p></div>
+  </div>
+</div>

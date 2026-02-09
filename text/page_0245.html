@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Dependența p-value de Regula de Oprire și Principiul Verosimilității</h2>
+  <p>Pagina demonstrează cum p-value-urile depind de intenția experimentatorului și introduce principiul verosimilității ca alternativă fundamentală.</p>
+  <div class="highlight-box"><strong>Dependența de Regula de Oprire:</strong> Aceleași date (9 succese din 12 aruncări) produc p-value-uri diferite în funcție de modelul de eșantionare: p₁ = 0.073 (n fix, model binomial), p₃ = 0.033 (f fix, model binomial negativ). Concluziile diferă radical deși datele sunt identice!</div>
+  <div class="definition-box"><strong>Distribuția Binomială Negativă:</strong> NegBinom(s|f, θ) = C(s+f-1, f-1) · θˢ · (1-θ)^f, modelul de probabilitate când numărul de eșecuri f este fix și numărul de succese s este variabila aleatoare.</div>
+  <div class="highlight-box"><strong>Absurditatea:</strong> Experimentatorul ar fi putut alege protocolul experimental la întâmplare - datele sunt identice, deci inferențele despre monedă ar trebui să fie identice. Totuși, p-value-urile diferă semnificativ (0.073 vs 0.033).</div>
+  <div class="definition-box"><strong>Principiul Verosimilității:</strong> Inferența ar trebui să se bazeze pe verosimilitatea datelor observate, nu pe date viitoare ipotetice neobservate. Abordarea Bayesiană satisface automat acest principiu; abordarea frecventistă nu.</div>
+  <div class="highlight-box"><strong>Implicație Practică:</strong> Regula de oprire afectează p-value-urile, ceea ce înseamnă că frecventiștii nu pot opri experimentele devreme chiar dacă rezultatele sunt evidente, deoarece aceasta ar invalida analiza statistică. FDA a început să adopte metode Bayesiene din acest motiv.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Dependența p-value-urilor de regula de oprire este una dintre cele mai grave patologii ale statisticii frecventiste. Aceleași date duc la concluzii diferite în funcție de intenția experimentatorului, ceea ce violează principiul verosimilității. Metodele Bayesiene sunt imune la această problemă deoarece posteriorul depinde doar de datele observate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Principiul verosimilității și principiul suficienței combinate implică principiul verosimilității (Birnbaum, 1962): toată informația relevantă este conținută în funcția de verosimilitate. P-value-urile violează acest principiu deoarece depind de spațiul eșantional, nu doar de datele observate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Testarea adaptivă (oprirea devreme) este esențială în studiile clinice unde continuarea unui experiment ineficient sau periculos este neetică. Metodele Bayesiene permit aceasta natural, fără a invalida analiza statistică.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un studiu clinic pentru un medicament anti-cancer arată rezultate clare după jumătatea numărului planificat de pacienți. Cu metode frecventiste, oprirea devreme invalidează p-value-ul. Cu metode Bayesiene, posteriorul este valid indiferent de când se oprește studiul, permițând pacienților să beneficieze mai devreme de tratament.</p></div>
+  </div>
+</div>

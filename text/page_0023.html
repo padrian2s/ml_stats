@@ -1,0 +1,42 @@
+<div class="page-content">
+  <h2>Cuprins (Partea 16)</h2>
+
+  <p>Continuarea cuprinsului cu Capitolele 25 si 26.</p>
+
+  <div class="definition-box"><strong>Capitolul 25 - Clustering (p. 875):</strong>
+    25.1 Introducere - masurarea (di)similaritatii, evaluarea rezultatelor;
+    25.2 Modele de mixturi cu procese Dirichlet - de la modele finite la infinite, procesul Dirichlet, aplicarea proceselor Dirichlet la modelare cu mixturi, antrenarea modelelor DP;
+    25.3 Affinity propagation (p. 887);
+    25.4 Clustering spectral - Laplaceanul grafului, Laplaceanul normalizat, exemplu;
+    25.5 Clustering ierarhic - aglomerativ, diviziv, alegerea numarului de clustere, clustering ierarhic bayesian;
+    25.6 Clustering de puncte de date si caracteristici - biclustering, clustering multi-view.</div>
+
+  <div class="definition-box"><strong>Capitolul 26 - Invatarea Structurii Modelelor Grafice (p. 907):</strong>
+    26.1 Introducere; 26.2 Invatarea structurii pentru descoperirea cunostintelor - retele de relevanta, retele de dependenta;
+    26.3 Invatarea structurilor arborescente - arbori directionati vs. nedirectionati, algoritmul Chow-Liu, padurea MAP, mixturi de arbori;
+    26.4 Invatarea structurilor DAG - echivalenta Markov, inferenta structurala exacta, scalare la grafuri mari;
+    26.5 Invatarea structurii DAG cu variabile latente - aproximarea likelihood-ului marginal, EM structural, descoperirea variabilelor ascunse, studiu de caz Google Rephil, modele de ecuatii structurale;
+    26.6 Invatarea DAG-urilor cauzale - interpretare cauzala, paradoxul Simpson, invatarea structurilor cauzale;
+    26.7 Invatarea modelelor grafice Gaussiene nedirectionate - MLE pentru GGM, graphical lasso, inferenta bayesiana, date non-Gaussiene si copule;
+    26.8 Invatarea modelelor grafice discrete nedirectionate - graphical lasso pentru MRF/CRF, thin junction trees.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section">
+      <h4>Rezumat</h4>
+      <p>Capitolul 25 prezinta diverse metode de clustering, de la modele parametrice (mixturi cu procese Dirichlet) la metode non-parametrice (spectral, ierarhic). Capitolul 26 trateaza problema invatarii automate a structurii modelelor grafice din date, inclusiv descoperirea relatiilor cauzale.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Tipare Cheie</h4>
+      <p>Procesul Dirichlet (25.2) rezolva elegant problema alegerii numarului de clustere, permitand modelului sa determine automat complexitatea. Invatarea structurii (cap. 26) completeaza cercul: nu doar parametrii, ci si structura modelului poate fi invatata din date.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Aplicatii Practice</h4>
+      <p>Clustering spectral (25.4) este folosit in segmentarea imaginilor si analiza retelelor sociale. Graphical lasso (26.7.2) este utilizat in genomica pentru a descoperi retele de interactiuni genice.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Exemplu din Lumea Reala</h4>
+      <p>O retea sociala precum Facebook foloseste clustering spectral (25.4) pentru a descoperi comunitati de utilizatori. Paradoxul Simpson (26.6.2) apare in studii medicale cand un tratament pare benefic per total dar daunator in fiecare subgrup - DAG-urile cauzale ajuta la rezolvarea acestei contradictii.</p>
+    </div>
+  </div>
+</div>

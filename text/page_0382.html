@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>EM pentru GMM - Functia Auxiliara, Pasul E si Pasul M</h2>
+  <p>Pagina prezinta derivarea detaliata a algoritmului EM pentru modelele de amestec Gaussiene, incluzand functia auxiliara, responsabilitatile, si formulele de actualizare pentru parametri.</p>
+  <div class="definition-box"><strong>Responsabilitate (responsibility):</strong> rᵢₖ = p(zᵢ = k|xᵢ, θ⁽ᵗ⁻¹⁾) - probabilitatea posterioara ca clusterul k sa fie responsabil pentru punctul de date i.</div>
+  <div class="highlight-box"><strong>Pasul E:</strong> rᵢₖ = πₖ p(xᵢ|θₖ⁽ᵗ⁻¹⁾) / Σₖ' πₖ' p(xᵢ|θₖ'⁽ᵗ⁻¹⁾) - forma simpla a pasului E, identica pentru orice model de amestec.</div>
+  <div class="highlight-box"><strong>Pasul M - Ponderi de amestec:</strong> πₖ = rₖ/N, unde rₖ = Σᵢ rᵢₖ este numarul ponderat de puncte atribuite clusterului k.</div>
+  <div class="highlight-box"><strong>Pasul M - Media:</strong> μₖ = Σᵢ rᵢₖ xᵢ / rₖ</div>
+  <div class="highlight-box"><strong>Pasul M - Covarianta:</strong> Σₖ = Σᵢ rᵢₖ(xᵢ - μₖ)(xᵢ - μₖ)ᵀ / rₖ = Σᵢ rᵢₖ xᵢ xᵢᵀ / rₖ - μₖ μₖᵀ</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Functia auxiliara Q se descompune in doua parti: una dependenta de πₖ si alta dependenta de θₖ. Pasul M pentru πₖ este proportia ponderata de puncte atribuite fiecarui cluster. Estimarile pentru μₖ si Σₖ sunt versiuni ponderate ale estimatorilor standard pentru MVN, unde ponderile sunt responsabilitatile rᵢₖ. Aceasta este o versiune ponderata a problemei standard de estimare MLE pentru distributia normala multivariata.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Derivarea Q arata tranzitia de la valoarea asteptata a indicatorilor I(zᵢ = k) la responsabilitati rᵢₖ - aceasta este esenta pasului E. Formulele de actualizare din pasul M sunt elegante si intuitive: media ponderata si covarianta ponderata.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste formule sunt implementate direct in biblioteci precum scikit-learn (GaussianMixture), oferind estimare eficienta a parametrilor GMM. Responsabilitatile rᵢₖ pot fi folosite si pentru clusterizare soft, unde fiecare punct apartine partial mai multor clustere.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea clientilor unui magazin online, responsabilitatile rᵢₖ indica procentul in care fiecare client apartine fiecarui segment (de exemplu, 70% segment premium, 30% segment economic), permitand strategii de marketing personalizate.</p></div>
+  </div>
+</div>

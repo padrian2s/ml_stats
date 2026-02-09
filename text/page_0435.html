@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>PCA pentru Date Pereche si Multi-Vedere - Introducere Detaliata</h2>
+  <p>Pagina continua introducerea in modelele pentru date pereche, discutand generalizarea la seturi multiple de date si extensii la date discrete si de numarare.</p>
+  <div class="definition-box"><strong>Date multi-vedere:</strong> Generalizarea datelor pereche la M seturi de date, xᵢₘ pentru m = 1:M, unde fiecare xᵢₘ ∈ ℝ^Dₘ, toate legate de variabile latente comune.</div>
+  <div class="highlight-box"><strong>Extensii la date non-gaussiene:</strong> Modelele pot fi generalizate la date discrete si de numarare folosind familia exponentiala ca distributie de raspuns, necesitand inferenta aproximativa in pasul E.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 12.5 stabileste cadrul general pentru fuziunea datelor prin modele gaussiene latente. Modelele se generalizeaza natural de la perechi la seturi multiple de date. Distributia comuna este gaussiana multivariata, permitand ajustarea eficienta prin EM sau esantionare Gibbs. Pentru date non-gaussiene (discrete, de numarare), se poate folosi familia exponentiala ca verosimilitate, dar aceasta necesita inferenta aproximativa (variationala sau MCMC modificat) in pasul E.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cadrul unificator al modelelor gaussiene latente liniare permite tratarea unei game largi de probleme de fuziune a datelor sub un singur formalism matematic. Distinctia cheie intre modele este structura variabilelor latente: partajate vs private, si numarul lor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Fuziunea datelor multi-vedere este critica in robotica (integrarea senzorilor vizuali, tactili si proprioceptivi), in medicina de precizie (integrarea datelor clinice, genomice si imagistice), si in analiza retelelor sociale (combinarea grafurilor de prietenie cu continutul textual).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In vehiculele autonome, datele de la camere video, LIDAR si radar trebuie integrate intr-o reprezentare coerenta a mediului. Modelele gaussiene latente multi-vedere pot invata o reprezentare spatiala comuna din aceste surse multiple, chiar daca fiecare senzor are caracteristici diferite.</p></div>
+  </div>
+</div>

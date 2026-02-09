@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Complexitate și Algoritmul Viterbi (p. 612)</h2>
+  <p>Pagina analizează complexitatea temporală și spațială a algoritmului forwards-backwards și introduce algoritmul Viterbi pentru decodificarea MAP.</p>
+  <div class="definition-box"><strong>Algoritmul Viterbi:</strong> Algoritm pentru calculul celei mai probabile secvențe de stări z* = arg max_{z₁:T} p(z₁:T|x₁:T), echivalent cu găsirea celei mai scurte căi într-o diagramă trellis (Ec. 17.68).</div>
+  <div class="definition-box"><strong>Diagrama trellis:</strong> O structură de graf în care nodurile sunt stările posibile la fiecare pas temporal, iar arcele au ponderi date de probabilitățile de tranziție și emisie.</div>
+  <div class="highlight-box"><strong>Complexitate FB:</strong> Timp: O(K²T) pentru matrici de tranziție dense, O(TK) pentru matrici rare. Spațiu: O(KT) pentru stocarea mesajelor αₜ necesare în pasul backward.</div>
+  <div class="highlight-box"><strong>MAP vs MPM:</strong> Secvența MAP (z*) cea mai probabilă nu este neapărat aceeași cu secvența de marginale MPM cele mai probabile: ẑ = (arg max_{z₁} p(z₁|x₁:T), ..., arg max_{z_T} p(z_T|x₁:T)) (Ec. 17.70).</div>
+  <div class="figure-box"><strong>Figura 17.12:</strong> Diagrama trellis a stărilor versus timp pentru un lanț Markov, cu N stări și T observații, ilustrând structura pe care operează algoritmul Viterbi.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se discută optimizările posibile ale FB (matrice rare, discretizare) și se face tranziția la algoritmul Viterbi. Distincția MAP vs MPM este subtilă dar importantă: MAP dă o secvență global consistentă, MPM dă estimări marginale mai robuste.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferența fundamentală: MPM mediază peste variabilele vecine (sumă), Viterbi maximizează peste ele (max). Medierea produce estimări mai robuste, maximizarea produce secvențe mai consistente.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>În recunoașterea vorbirii, Viterbi produce interpretări lingvistic consistente („recognize speech" vs „wreck a nice beach"), în timp ce MPM ar putea produce combinații inconsistente.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Exemplul „recognize speech" vs „wreck a nice beach": local, „beach" poate fi cea mai probabilă interpretare a unui segment acustic, dar global secvența „recognize speech" este mai plauzibilă.</p></div>
+  </div>
+</div>

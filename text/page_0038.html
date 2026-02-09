@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Capitolul 1: Clasificarea Imaginilor si Recunoasterea Scrisului de Mana</h2>
+  <p>Clasificarea imaginilor, recunoasterea scrisului de mana (MNIST) si problema structurii spatiale in caracteristici.</p>
+  <div class="definition-box"><strong>Clasificarea Imaginilor:</strong> Clasificarea unei imagini intregi (interior/exterior, orizontala/verticala, contine un caine sau nu).</div>
+  <div class="definition-box"><strong>Recunoasterea Scrisului de Mana (Handwriting Recognition):</strong> Clasificarea imaginilor de litere si cifre izolate scrise de mana, de exemplu pe plicuri postale sau coduri ZIP.</div>
+  <div class="definition-box"><strong>MNIST:</strong> Set de date standard ("Modified National Institute of Standards") cu 60.000 imagini de antrenament si 10.000 imagini de test, de dimensiune 28 x 28 pixeli, cu valori in tonuri de gri 0-255, reprezentand cifrele 0-9.</div>
+  <div class="figure-box"><strong>Figura 1.5:</strong> (a) Primele 9 imagini de test MNIST in tonuri de gri. (b) Aceleasi imagini cu caracteristicile permutate aleatoriu. Performanta clasificarii este identica pe ambele versiuni (presupunand ca datele de antrenament sunt permutate identic).</div>
+  <div class="highlight-box"><strong>Invarianta la Permutare:</strong> Multe metode generice de clasificare ignora structura spatiala a caracteristicilor, functionand identic pe imagini originale si permutate. Aceasta flexibilitate este atat un avantaj (generalitate) cat si un dezavantaj (se ignora informatii utile).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea discuta clasificarea imaginilor ca o problema mai dificila decat clasificarea cu caracteristici pre-extrase. MNIST este prezentat ca un benchmark standard. O observatie importanta este ca multe metode de clasificare sunt invariante la permutarea caracteristicilor - trateaza pixelii independent de pozitia lor spatiala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia intre metode care exploateaza structura spatiala (retele convolutionale) si cele care nu o fac (clasificatoare generice) este fundamentala. MNIST a devenit un benchmark de referinta in ML, desi astazi este considerat prea simplu pentru metodele moderne. Invarianta la permutare evidentiaza compromisul generalitate vs. specificitate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Recunoasterea scrisului de mana este utilizata in sortarea automata a corespondentei postale, digitalizarea documentelor istorice, recunoasterea semnaturii si procesarea cecurilor bancare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Serviciul postal din SUA foloseste sisteme de recunoastere a cifrelor scrise de mana pentru a citi automat codurile ZIP de pe plicuri. Sistemul proceseaza milioane de plicuri zilnic, cu o rata de eroare suficient de mica incat doar cazurile ambigue sunt trimise unui operator uman.</p></div>
+  </div>
+</div>

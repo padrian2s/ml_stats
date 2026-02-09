@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Optimizarea Stochastică, SGD și Alegerea Ratei de Învățare</h2>
+  <p>Pagina introduce optimizarea stochastică formală, coborârea stochastică pe gradient (SGD), condițiile Robbins-Monro pentru convergență, și programarea ratei de învățare.</p>
+  <div class="highlight-box"><strong>Obiectivul stochastic (Ecuația 8.79):</strong> f(θ) = E[f(θ, z)] - minimizarea pierderii așteptate pe date viitoare, unde așteptarea este luată peste distribuția datelor.</div>
+  <div class="highlight-box"><strong>Media Polyak-Ruppert (Ecuația 8.80-8.81):</strong> θ̄_k = 1/k Σ_{t=1}^k θ_t = θ̄_{k-1} - 1/k(θ̄_{k-1} - θ_k) - media rulantă a parametrilor, care oferă convergență mai stabilă decât ultimul iterant.</div>
+  <div class="definition-box"><strong>Condițiile Robbins-Monro (Ecuația 8.82):</strong> Σ_{k=1}^∞ η_k = ∞ și Σ_{k=1}^∞ η_k² < ∞ - condiții suficiente pentru convergența SGD. Exemple: η_k = 1/k sau η_k = (τ₀ + k)^{-κ}.</div>
+  <div class="definition-box"><strong>Programul ratei de învățare (Learning Rate Schedule):</strong> Funcția η_k care determină rata de învățare la fiecare pas. τ₀ ≥ 0 încetinește iterațiile inițiale, κ ∈ (0.5, 1] controlează rata de uitare.</div>
+  <div class="definition-box"><strong>Oprirea timpurie (Early Stopping):</strong> Terminarea optimizării când performanța pe un set de validare nu se mai îmbunătățește, evitând supraajustarea chiar și fără convergența completă.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>SGD minimizează pierderea așteptată prin actualizări bazate pe gradienți evaluați pe observații individuale (sau mini-batch-uri). Condițiile Robbins-Monro garantează convergența: prima condiție (Ση_k = ∞) asigură că algoritmul poate ajunge oriunde, iar a doua (Ση_k² < ∞) asigură că zgomotul se diminuează. Media Polyak-Ruppert oferă stabilitate suplimentară prin medierea iteranților.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tensiunea fundamentală în SGD este între explorare (rate mari de învățare) și exploatare (rate mici pentru convergență fină). Programul ratei de învățare gestionează această tensiune prin reducerea treptată a ratei. Alegerea hiperparametrilor (τ₀, κ) necesită experiment, ceea ce este un dezavantaj practic important al SGD.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SGD cu programare a ratei de învățare este standard în antrenarea rețelelor neurale. Strategii populare includ: reducerea cu factor fix la fiecare N epoci, cosine annealing, warmup liniar urmat de decay. Oprirea timpurie servește ca o formă implicită de regularizare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Antrenarea unui model de traducere automată cu miliarde de cuvinte folosește SGD cu warmup (rata crește liniar primele 4000 de pași) și apoi decay invers proporțional cu √k. Oprirea timpurie pe un set de validare previne supraajustarea, chiar dacă modelul ar putea continua să reducă pierderea pe antrenament.</p></div>
+  </div>
+</div>

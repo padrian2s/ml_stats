@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Banditi Contextuali si Teoria Utilitatii</h2>
+  <p>Pagina continua cu banditi contextuali si introduce pe scurt teoria utilitatii ca fundament al teoriei deciziei bayesiene.</p>
+  <div class="definition-box"><strong>Bandit contextual:</strong> Extensie a banditului multi-brat unde fiecare "brat" (actiune) are un vector de caracteristici x asociat. Exemplu: reclamele online, unde x descrie proprietatile reclamei si ale utilizatorului.</div>
+  <div class="definition-box"><strong>Compromisul explorare-exploatare (Exploration-exploitation tradeoff):</strong> Balansarea intre exploatarea actiunii cunoscute ca buna si explorarea actiunilor noi care ar putea fi mai bune. Indicii Gittins ofera solutia optima.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Banditi contextuali extind cadrul decizional la situatii secventiale cu informatie laterala. Prin mentinerea unei stari de credinta p(r₁:K|D), se poate construi o politica optima care balanceaza explorarea (incercarea de actiuni noi) cu exploatarea (repetarea actiunilor cunoscute ca bune). Indicii Gittins compileaza aceasta politica intr-o forma eficienta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Banditi contextuali combina teoria deciziei bayesiene cu invatarea online: la fiecare pas se observa contextul x, se alege actiunea a, se observa recompensa r si se actualizeaza posterioara. Aceasta este o forma de invatare prin intarire (reinforcement learning) simplificata.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Banditi contextuali sunt folositi masiv in industrie: sisteme de recomandare (Netflix, Spotify), publicitate online (Google Ads), personalizarea continutului (stiri, feed-uri sociale) si optimizarea experimentelor clinice (dozare adaptiva).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un site de comert electronic vrea sa afiseze cel mai bun produs pe pagina principala. Cu banditi contextuali: contextul x include profilul utilizatorului si ora zilei, actiunea a este produsul afisat, iar recompensa r este daca utilizatorul a dat click. Sistemul invata rapid care produse functioneaza pentru care utilizatori.</p></div>
+  </div>
+</div>

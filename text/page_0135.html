@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>Analiza Discriminanta Liniara (LDA) - Continuare si LDA cu Doua Clase</h2>
+  <p>Pagina 104 continua prezentarea LDA, aratand ca frontierele de decizie sunt liniare, introduce regresia logistica multi-clasa si detaliaza cazul cu doua clase.</p>
+
+  <div class="highlight-box"><strong>Posteriorul LDA (Ecuatia 4.38):</strong> p(y=c|x, θ) = e^(β_cᵀx + γ_c) / Σ_c' e^(β_c'ᵀx + γ_c') = S(η)_c, unde η = [β₁ᵀx + γ₁, ..., β_Cᵀx + γ_C]</div>
+
+  <div class="definition-box"><strong>Frontiera de decizie liniara (Ecuatia 4.43):</strong> Frontiera intre clasele c si c' este definita de xᵀ(β_c' - β) = γ_c' - γ_c, care este un hiperplan (linie dreapta in 2D).</div>
+
+  <div class="highlight-box"><strong>LDA cu doua clase (Ecuatia 4.45):</strong> p(y=1|x, θ) = 1/(1 + e^((β₀-β₁)ᵀx + (γ₀-γ₁))) = sigm((β₁ - β₀)ᵀx + (γ₁ - γ₀))</div>
+
+  <div class="definition-box"><strong>Regresia logistica multi-clasa:</strong> O alternativa discriminativa la LDA: p(y|x, W) = Cat(y|Wx), unde W este o matrice C x D de ponderi. Numita si regresie logistica multinomiala sau model de entropie maxima.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>LDA produce frontiere de decizie liniare deoarece termenul patratic xᵀΣ⁻¹x se anuleaza in raportul de probabilitati (fiind independent de clasa). In cazul binar, LDA se reduce la regresia logistica cu parametri derivati din μ₀, μ₁ si Σ. Regresia logistica multi-clasa este alternativa discriminativa care estimeaza direct frontierele de decizie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Relatia intre LDA (generativ) si regresia logistica (discriminativ) este fundamentala. LDA modeleaza p(x|y) si aplica Bayes, in timp ce regresia logistica modeleaza direct p(y|x). Ambele produc frontiere liniare, dar cu compromisuri diferite in ceea ce priveste eficienta datelor si robustetea la incalcarea presupunerilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LDA este utilizata in analiza fata (Eigenfaces), clasificarea documentelor, genomica (clasificarea subtipurilor de cancer pe baza expresiei genice) si analiza sentimentului. Regresia logistica multi-clasa este standardul in retelele neuronale profunde.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea faciala, LDA (Fisherfaces) proiecteaza imaginile pe un spatiu de dimensiune redusa care maximizeaza separarea intre persoane. Frontiera liniara de decizie este suficienta deoarece variabilitatea intra-clasa (iluminare, expresie) este similara pentru toate persoanele.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Algoritmul ISTA si Metoda Nesterov - FISTA (p.446)</h2>
+  <p>Aceasta pagina prezinta Algoritmul 13.2 (ISTA - Iterative Shrinkage-Thresholding Algorithm), modelul grafic pentru lasso ca mixtura Gaussiana de scara, si algoritmul FISTA.</p>
+  <div class="definition-box"><strong>ISTA (Algoritmul 13.2):</strong> Algoritmul iterativ de micsorare-pragare care combina gradientul, soft thresholding si pasul BB. Input: X, y, parametri lambda >= 0, M >= 1, 0 < s < 1. Se repeta pana cand lambda_t = lambda.</div>
+  <div class="definition-box"><strong>FISTA:</strong> Algoritmul rapid de micsorare-pragare iterativa (Fast Iterative Shrinkage Thresholding Algorithm), care combina metoda lui Nesterov cu soft thresholding iterativ pentru convergenta accelerata.</div>
+  <div class="figure-box"><strong>Figura 13.12:</strong> Reprezentarea modelului lasso ca prior de tip mixtura Gaussiana de scara. Modelul grafic arata relatiile dintre gamma, tau_j, w_j (D variabile), sigma^2, y_i si x_i (N observatii).</div>
+  <div class="highlight-box"><strong>Convergenta:</strong> Algoritmul ISTA adapteaza regularizatorul la fiecare iteratie si verifica daca obiectivul nu a crescut prea mult in ultimele M iteratii, asigurand convergenta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta implementarea practica a algoritmului ISTA cu pseudocod detaliat, precum si legatura dintre lasso si modelele grafice probabilistice prin reprezentarea ca mixtura Gaussiana de scara. FISTA ofera o imbunatatire semnificativa a vitezei.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Legatura intre optimizarea convexa (ISTA/FISTA) si modelarea probabilistica (mixtura Gaussiana de scara) ilustreaza dualitatea fundamentala dintre metodele de penalizare si metodele Bayesiene in invatarea automata.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>FISTA este unul dintre cei mai populari algoritmi pentru probleme de reconstructie a semnalelor in imagistica medicala (RMN comprimat), unde viteza de convergenta este critica pentru aplicatii in timp real.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In reconstructia imaginilor RMN, FISTA poate reduce timpul de scanare cu 70% prin exploatarea raritatii semnalului in baza wavelet, permitand examinari mai rapide si mai confortabile pentru pacienti.</p></div>
+  </div>
+</div>

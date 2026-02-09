@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Principiul Marginii Mari și Geometria Frontierei de Decizie</h2>
+  <p>Pagina prezintă principiul marginii mari al SVM-urilor, geometria frontierei de decizie liniare și formularea clasificatorului cu marjă moale (soft margin).</p>
+  <div class="definition-box"><strong>Funcția discriminantă:</strong> f(x) este funcția care determină apartenența la o clasă. Un punct x este clasificat în regiunea R₁ dacă f(x) > 0, altfel în R₂. Frontiera de decizie este mulțimea punctelor unde f(x) = 0.</div>
+  <div class="definition-box"><strong>Clasificator cu marjă mare (large margin classifier):</strong> Un SVM care maximizează distanța perpendiculară de la frontiera de decizie la cel mai apropiat punct de antrenament. Marginea este dată de r = f(x)/||w||.</div>
+  <div class="highlight-box"><strong>Obiectivul marginii mari:</strong> min_(w,w₀) ½||w||² cu constrângerile yᵢ(wᵀxᵢ + w₀) ≥ 1, i = 1:N. Pentru date neseparabile liniar, se introduce marginea moale: yᵢfᵢ ≥ 1 − ξᵢ.</div>
+  <div class="figure-box"><strong>Figura 14.11:</strong> Ilustrarea principiului marginii mari. Stânga: hiperplan de separare cu marjă mare. Dreapta: hiperplan de separare cu marjă mică. Hiperplanul cu marjă maximă generalizează mai bine.</div>
+  <div class="figure-box"><strong>Figura 14.12:</strong> (a) Geometria frontierei de decizie liniare în 2D, cu vectorul w perpendicular pe frontieră și distanța semnată r = f(x)/||w||. (b) Ilustrarea principiului marginii moale cu variabilele de relaxare ξ.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Principiul marginii mari justifică geometric alegerea hiperplanului de separare optim. Distanța de la un punct x la frontieră este r = f(x)/||w||, iar maximizarea marginii este echivalentă cu minimizarea ||w||². Pentru date neseparabile, variabilele de relaxare ξᵢ permit punctelor să încalce marginea, controlate de parametrul C.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Rescalarea w → kw nu schimbă frontiera de decizie, permițând normalizarea constrângerilor la yᵢfᵢ = 1 pentru punctul cel mai apropiat. Variabilele de relaxare codifică trei situații: ξᵢ = 0 (clasificat corect în afara marginii), 0 < ξᵢ < 1 (în interiorul marginii dar corect), ξᵢ > 1 (clasificat greșit).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Principiul marginii mari oferă garanții teoretice de generalizare prin teoria VC. Este fundamental pentru înțelegerea de ce SVM-urile funcționează bine chiar și în spații de dimensiune înaltă.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În clasificarea imaginilor medicale (tumori benigne vs. maligne), un SVM cu marjă mare găsește frontiera de decizie care maximizează separarea între cele două clase, reducând riscul de diagnosticare greșită la cazuri noi.</p></div>
+  </div>
+</div>

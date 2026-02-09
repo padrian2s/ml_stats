@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>RBM-uri Gaussiene si unitati ascunse Gaussiene</h2>
+  <p>Aceasta pagina prezinta conditionalele complete pentru RBM Gaussian si discuta varianta cu unitati ascunse Gaussiene, urmate de introducerea in invatarea RBM-urilor.</p>
+  <div class="definition-box"><strong>Unitati ascunse Gaussiene:</strong> Daca atat variabilele latente cat si cele observate sunt Gaussiene, se obtine o versiune nedirectionata a analizei factoriale, identica cu versiunea directionata standard.</div>
+  <div class="definition-box"><strong>Weight decay (decaderea ponderilor):</strong> Regularizare L2 aplicata ponderilor RBM, standard in antrenarea acestor modele datorita numarului mare de parametri.</div>
+  <div class="highlight-box"><strong>Gradientul RBM:</strong> Gradientul log-verosimilarii are forma: dL/dw_rk = (1/N) sum_i E[v_r h_k | v_i, theta] - E[v_r h_k | theta], diferenta intre faza "prindere" (clamped) si faza "eliberare" (unclamped).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza discutia despre tipurile de RBM si introduce problema centrala a invatarii parametrilor. Gradientul are doi termeni: sperantele conditionate pe date (usor de calculat datorita factorizarii posteriorului) si sperantele sub distributia modelului (dificil de calculat).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Faza "clamped" fixeaza v la datele observate si este usor de calculat. Faza "unclamped" necesita esantionare din distributia comuna p(v,h|theta), care este costisitoare. Aceasta asimetrie motiveaza tehnicile de aproximare discutate in continuare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea gradientului RBM este esentiala pentru implementarea corecta a algoritmilor de antrenare. Coborarea de gradient stocastic cu regularizare L2 este abordarea standard in practica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Antrenarea RBM-urilor necesita seturi mari de date si multe iteratii. In practica, se folosesc mini-batch-uri de 10-100 exemple pentru actualizari mai stabile ale gradientului.</p></div>
+  </div>
+</div>

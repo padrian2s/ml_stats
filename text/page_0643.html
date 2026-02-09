@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Algoritmul Viterbi - Detalii (p. 613-614)</h2>
+  <p>Pagina prezintă diferența dintre MAP și MPM cu un exemplu numeric, apoi detaliază implementarea algoritmului Viterbi cu procedura de traceback.</p>
+  <div class="definition-box"><strong>Sum-product vs Max-product:</strong> Sum-product calculează marginalele posterioare, max-product găsește secvența MAP. Viterbi nu este simpla înlocuire a sumei cu max - necesită și procedura de traceback.</div>
+  <div class="definition-box"><strong>Traceback:</strong> Procedura de recuperare a secvenței optime de stări prin urmărirea înapoi a indicatorilor aₜ(j) = arg maxᵢ δₜ₋₁(i)ψ(i,j)φₜ(j) (Ec. 17.75).</div>
+  <div class="highlight-box"><strong>Recurența Viterbi:</strong> δₜ(j) = maxᵢ δₜ₋₁(i)ψ(i,j)φₜ(j) (Ec. 17.74), cu inițializarea δ₁(j) = πⱼφ₁(j) și terminarea z*_T = arg maxᵢ δ_T(i) (Ec. 17.76-17.77).</div>
+  <div class="highlight-box"><strong>Traceback:</strong> z*ₜ = a_{t+1}(z*_{t+1}) pentru t = T-1, ..., 1 (Ec. 17.78).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul Viterbi funcționează în două faze: forward (calculul scorurilor δₜ și indicatorilor aₜ) și backward (traceback pentru recuperarea secvenței optime). Lucrarea în domeniul logaritmic oferă avantaje numerice semnificative.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Viterbi este un exemplu clasic de programare dinamică: problema globală se descompune în sub-probleme locale prin principiul optimalității (cea mai bună cale la starea j trece prin cea mai bună cale la o stare i anterioară).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Viterbi este utilizat extensiv în recunoașterea vorbirii, decodificarea codurilor convoluționale în telecomunicații și alinierea secvențelor biologice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Exemplul numeric cu distribuția comună: MAP produce (0,1) dar MPM produce (1,1). Aceasta arată că estimarea marginală nu garantează consistență globală - în aplicații unde consistența contează, Viterbi este preferat.</p></div>
+  </div>
+</div>

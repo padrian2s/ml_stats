@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Limite Superioare ale Riscului prin Teoria Statistică a Învățării</h2>
+  <p>Pagina introduce teoria statistică a învățării (SLT) și demonstrează cum se pot obține limite superioare pe diferența dintre riscul empiric și riscul adevărat.</p>
+  <div class="definition-box"><strong>Teoria Statistică a Învățării (SLT):</strong> Domeniu care studiază limitele teoretice pe capacitatea de generalizare a algoritmilor de învățare, legând riscul empiric de riscul adevărat prin dimensiunea eșantionului și complexitatea spațiului de ipoteze.</div>
+  <div class="highlight-box"><strong>Teorema 6.5.1:</strong> Pentru orice distribuție p*, orice set de date D de dimensiune N, și orice spațiu de ipoteze H finit: P(max_{h∈H} |R_emp(D,h) - R(p*,h)| > ε) ≤ 2·dim(H)·e^{-2Nε²}.</div>
+  <div class="definition-box"><strong>Inegalitatea lui Hoeffding:</strong> P(|x̄ - θ| > ε) ≤ 2e^{-2Nε²}, pentru Xᵢ ~ Ber(θ). Oferă o limită pe probabilitatea ca media eșantionului să devieze de la medie.</div>
+  <div class="definition-box"><strong>Limita Uniunii (Union Bound):</strong> P(∪ᵢAᵢ) ≤ Σᵢ P(Aᵢ), permite legarea evenimentelor individuale de evenimentul maxim peste toate ipotezele.</div>
+  <div class="highlight-box"><strong>Demonstrație:</strong> Se combină inegalitatea Hoeffding (aplicată fiecărei ipoteze individual) cu limita uniunii (peste toate ipotezele din H) pentru a obține limita uniformă pe eroarea de generalizare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>SLT oferă garanții teoretice pe calitatea generalizării: cu probabilitate mare, riscul empiric este aproape de riscul adevărat, cu eroarea controlată de dimensiunea eșantionului N și complexitatea spațiului de ipoteze dim(H). Demonstrația elegantă combină două instrumente fundamentale: inegalitatea Hoeffding și limita uniunii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Eroarea de generalizare scade exponențial cu N dar crește logaritmic cu dim(H). Aceasta formalizează intuiția că mai multe date și modele mai simple conduc la generalizare mai bună. Limita este uniformă peste toate ipotezele, nu doar pentru cea aleasă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Deși limitele SLT sunt de obicei prea slabe pentru utilizare practică directă, ele oferă intuiție valoroasă despre factorii care influențează generalizarea și justifică principiile de regularizare și selecție a modelelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La certificarea unui sistem de conducere autonomă, limitele SLT pot fi folosite pentru a calcula câte scenarii de test sunt necesare pentru a garanta, cu o anumită probabilitate, că rata de eroare a sistemului nu depășește un prag acceptabil.</p></div>
+  </div>
+</div>

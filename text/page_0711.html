@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul SML si inductia de trasaturi</h2>
+  <p>Aceasta pagina prezinta algoritmul de verosimilitate maxima stocastica (SML) si introduce inductia de trasaturi pentru modele de entropie maxima.</p>
+  <div class="definition-box"><strong>Algoritmul SML (Stochastic Maximum Likelihood):</strong> Un algoritm care aproximeaza gradientul MLE prin esantionare MCMC. La fiecare pas, se genereaza S esantioane din model, se estimeaza asteptarea trasaturilor si se actualizeaza parametrii prin gradient descendent stocastic.</div>
+  <div class="definition-box"><strong>Inductia de trasaturi (feature induction):</strong> O metoda nesupervizata de a invata trasaturile unui MRF: se porneste cu un set de baza si se adauga greedy noi trasaturi (combinatii ale celor existente) care imbunatatesc cel mai mult log-verosimilitatea.</div>
+  <div class="highlight-box"><strong>Eficienta SML:</strong> In loc sa ruleze MCMC pana la convergenta la fiecare pas, SML initializeaza lantul de la esantioanele anterioare y^{s,k-1} si ruleaza doar cateva iteratii, bazandu-se pe faptul ca parametrii se schimba putin intre pasii de gradient.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul SML combina esantionarea MCMC cu descinderea stocastica pe gradient pentru a antrena MRF-uri. Trucul cheie este reutilizarea esantioanelor de la pasul anterior, evitand rularea MCMC de la zero. Inductia de trasaturi automatizeaza selectia trasaturilor, pornind de la un model simplu si adaugand trasaturi relevante iterativ.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>SML este legat de divergenta contrastiva persistenta (PCD). Inductia de trasaturi este o forma de invatare a structurii grafului la nivel de trasaturi. Pornind de la trasaturi simple (litere minuscule) si adaugand combinatii (perechi de litere adiacente), modelul capteaza regularitati din ce in ce mai complexe.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SML este folosit in antrenarea modelelor generative bazate pe energie, precum RBM-uri si modele Boltzmann. Inductia de trasaturi este utila in NLP, unde numarul potential de trasaturi este enorm si selectia manuala nu este fezabila.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In construirea unui model probabilistic de ortografie engleza, inductia de trasaturi descoperit automat regularitati precum: literele tind sa fie minuscule (trasatura 1), literele adiacente tind sa fie ambele minuscule (trasatura 2), aparitia combinatiilor "ing", "qu-", etc.</p></div>
+  </div>
+</div>

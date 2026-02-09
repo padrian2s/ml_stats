@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Proprietăți Dezirabile ale Estimatorilor - Consistență și Nebiasare</h2>
+  <p>Pagina introduce proprietățile dezirabile ale estimatorilor: consistența, nebiasarea, și discută limitele fiecăreia.</p>
+  <div class="definition-box"><strong>Estimator Consistent:</strong> Un estimator care recuperează în final parametrii adevărați pe măsură ce dimensiunea eșantionului crește la infinit: θ̂(D) → θ* când |D| → ∞ (convergență în probabilitate).</div>
+  <div class="definition-box"><strong>Biasul unui Estimator:</strong> bias(θ̂(·)) = E[θ̂(D) - θ*], diferența dintre valoarea așteptată a estimatorului și valoarea adevărată a parametrului.</div>
+  <div class="definition-box"><strong>Estimator Nebiased (Unbiased):</strong> Un estimator al cărui bias este zero, adică distribuția de eșantionare este centrată pe valoarea adevărată a parametrului.</div>
+  <div class="highlight-box"><strong>Consistența MLE:</strong> MLE este un estimator consistent deoarece maximizarea verosimilității este echivalentă cu minimizarea KL(p(·|θ*)||p(·|θ̂)), care atinge zero dacă și numai dacă θ̂ = θ*.</div>
+  <div class="highlight-box"><strong>Exemplu - Media Gaussiană:</strong> bias(μ̂) = E[x̄] - μ = (Nμ/N) - μ = 0, deci MLE-ul pentru media Gaussiană este nebiased.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Secțiunea 6.4 introduce proprietățile pe care le-am dori de la un estimator: consistența (convergență la infinit) și nebiasarea (centrarea pe valoarea adevărată). Se arată că MLE-ul este consistent și asymptotic nebiased, dar nu întotdeauna nebiased pentru eșantioane finite.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Consistența necesită ca modelul să fie corect specificat - datele trebuie să provină din distribuția parametrizată de θ*. Nebiasarea este o proprietate a distribuției de eșantionare, nu a unui singur eșantion. Un estimator nebiased nu este neapărat cel mai bun estimator.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Consistența este importantă deoarece garantează că, cu suficiente date, algoritmul va converge la răspunsul corect. Aceasta este o proprietate minimă necesară pentru orice algoritm de ML utilizat în producție.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un algoritm de recomandare antrenat pe date din ce în ce mai multe ar trebui să facă recomandări din ce în ce mai bune. Dacă algoritmul este consistent, performanța sa va converge la optimul posibil pe măsură ce acumulează mai multe date despre preferințele utilizatorilor.</p></div>
+  </div>
+</div>

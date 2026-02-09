@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Evaluarea clustering-ului: Puritate si indexul Rand</h2>
+  <p>Aceasta pagina prezinta metrici pentru evaluarea calitatii clustering-ului: puritatea si indexul Rand, cu exemple concrete bazate pe Figura 25.1.</p>
+  <div class="definition-box"><strong>Puritatea:</strong> purity = suma(N_i/N * max_j p_{ij}), unde p_{ij} = N_{ij}/N_i este distributia empirica a etichetelor de clasa in clusterul i. Variaza intre 0 (rau) si 1 (bun), dar poate fi maximizata trivial punand fiecare obiect in propriul cluster.</div>
+  <div class="definition-box"><strong>Indexul Rand:</strong> R = (TP + TN)/(TP + FP + FN + TN), unde TP/TN/FP/FN sunt definite pe perechi de puncte - daca sunt in acelasi/diferit cluster in ambele partitii sau doar in una.</div>
+  <div class="highlight-box"><strong>Indexul Rand ajustat:</strong> AR = (index - index asteptat)/(index maxim - index asteptat), corecteaza pentru sansa folosind distributia hipergeometrica generalizata, oferind o evaluare mai corecta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina introduce doua metrici fundamentale de evaluare: puritatea (simpla dar cu defecte - favorizeaza fragmentarea) si indexul Rand (mai robust, bazat pe perechi). Exemplul concret cu 3 clustere arata cum se calculeaza: puritate = 0.71, Rand index = 0.68. Indexul Rand ajustat corecteaza pentru clustering aleator.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Nicio metrica singulara nu captureaza perfect calitatea clustering-ului. Puritatea favorizeaza multe clustere mici, iar indexul Rand poate fi influentat de numarul mare de perechi negative adevarate. Ajustarea pentru sansa este esentiala pentru comparatii corecte.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste metrici sunt folosite pentru compararea algoritmilor de clustering pe seturi de date cu etichete cunoscute (benchmark), pentru validarea segmentarii in procesarea limbajului natural, si in evaluarea algoritmilor de detectie a comunitatilor in retele sociale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In evaluarea unui sistem de clustering al documentelor de stiri, indexul Rand ajustat permite compararea obiectiva a diferitelor algoritme (K-means, DBSCAN, clustering spectral) pe un corpus de stiri etichetate manual pe categorii.</p></div>
+  </div>
+</div>

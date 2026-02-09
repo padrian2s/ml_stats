@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 21. Inferenta Variationala - VBEM GMM: Pasii E si M Variationali (p.752)</h2>
+  <p>Aceasta pagina continua derivarea VBEM pentru GMM, prezentand formulele complete pentru responsabilitati, derivarea pasului M variational si actualizarea parametrilor Dirichlet.</p>
+  <div class="highlight-box"><strong>Asteptarea log |Λₖ|:</strong> log Λ̃ₖ = E[log|Λₖ|] = Σⱼ₌₁ᴰ ψ((νₖ+1-j)/2) + D log 2 + log|Λₖ|, unde ψ este functia digamma si D este dimensionalitatea.</div>
+  <div class="highlight-box"><strong>Responsabilitati variationala:</strong> rᵢₖ ∝ π̃ₖΛ̃ₖ^(1/2) exp(-D/(2βₖ) - νₖ/2(xᵢ-mₖ)ᵀΛₖ(xᵢ-mₖ)), comparabil cu rᵢₖᴱᴹ ∝ π̂ₖ|Λ̂ₖ|^(1/2) exp(-1/2(xᵢ-μ̂ₖ)ᵀΛ̂ₖ(xᵢ-μ̂ₖ)).</div>
+  <div class="definition-box"><strong>Pasul M variational (π):</strong> q(π) = Dir(π|α) cu αₖ = α₀ + Nₖ, unde Nₖ = Σᵢ rᵢₖ este numarul efectiv de puncte atribuite clusterului k.</div>
+  <div class="highlight-box"><strong>Diferenta cheie fata de EM:</strong> In VBEM, responsabilitatile includ termenul -D/(2βₖ) care penalizeaza clusterele cu putine date (incertitudine mare in medie), termen absent in EM standard.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina deriveaza formulele complete pentru pasii E si M variationali in GMM. Diferenta cructiala fata de EM clasic este termenul suplimentar de penalizare -D/(2βₖ) in responsabilitati, care reflecta incertitudinea in estimarea mediei clusterului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Pasul M variational actualizeaza parametrii distributiei Dirichlet (nu estimari punctuale ale ponderilor). Termenul de penalizare este proportional cu dimensionalitatea D si invers proportional cu βₖ, descurajand clusterele cu putine date in spatii de dimensiune mare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Penalizarea automata a clusterelor mici previne supraajustarea, fiind deosebit de utila in aplicatii cu date de dimensiune mare si numar necunoscut de clustere, cum ar fi segmentarea imaginilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea clientilor unei companii de e-commerce, VBEM va penaliza automat clusterele cu prea putini clienti, favorizand o segmentare mai robusta si interpretabila.</p></div>
+  </div>
+</div>

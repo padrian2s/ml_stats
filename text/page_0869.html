@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Esantionarea Gibbs - Idee de baza si conditionale complete</h2>
+  <p>Aceasta pagina prezinta esantionarea Gibbs, unul dintre cele mai populare algoritmi MCMC, si introduce conceptul de conditionala completa (full conditional).</p>
+  <div class="definition-box"><strong>Esantionarea Gibbs:</strong> Se esantioneaza fiecare variabila pe rand din conditionala sa completa, tinand celelalte variabile fixe: x_1^{s+1} ~ p(x_1|x_2^s, x_3^s), x_2^{s+1} ~ p(x_2|x_1^{s+1}, x_3^s), x_3^{s+1} ~ p(x_3|x_1^{s+1}, x_2^{s+1}). Este analogul MCMC al ascensiunii coordonate.</div>
+  <div class="definition-box"><strong>Conditionala completa (full conditional):</strong> p(x_i|x_{-i}) - distributia variabilei x_i conditionata de toate celelalte. In modele grafice, depinde doar de vecinii din Markov blanket: p(x_i|x_{-i}) = p(x_i|x_{MB(i)}).</div>
+  <div class="highlight-box"><strong>Burn-in:</strong> Primele esantioane din lant nu provin din distributia stationara si trebuie aruncate. Detectarea sfarsitului burn-in-ului este o problema practica importanta, discutata in Sectiunea 24.4.1.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Esantionarea Gibbs reduce problema esantionarii din distributii multivariate la esantionarea repetata din conditionale univariate. Este simpla, nu necesita parametri de tuning si converge garantat sub conditii slabe (ireductibilitate si aperiodicitate).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Gibbs sampling exploateaza structura locala a modelului grafic: fiecare conditionala depinde doar de Markov blanket, nu de toate variabilele. Cu cat Markov blanket-ul este mai mic, cu atat conditionala este mai simpla si mai rapida de esantionat.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Gibbs sampling este implementat automat in BUGS, JAGS si Stan (varianta HMC). Utilizatorul specifica doar modelul, iar software-ul identifica si esantioneaza din conditionalele complete.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza datelor din sondaje electorale cu modele ierarhice multinivel, JAGS foloseste Gibbs sampling pentru a estima preferintele electorale la nivel national, regional si local simultan.</p></div>
+  </div>
+</div>

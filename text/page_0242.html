@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Funcții de Pierdere Surogat și Patologii ale Statisticii Frecventiste</h2>
+  <p>Pagina ilustrează grafic funcțiile de pierdere surogat pentru clasificare binară și introduce secțiunea despre patologiile statisticii frecventiste.</p>
+  <div class="figure-box"><strong>Figura 6.7:</strong> Ilustrarea diverselor funcții de pierdere pentru clasificarea binară. Axa orizontală este marginea yη, axa verticală este pierderea. Pierderea 0-1 (linie neagră solidă) este un trepat la 0. Pierderea hinge (linie albastră punctată) și log-loss-ul (linie roșie întreruptă, în baza log 2) sunt ambele upper bounds convexe ale pierderii 0-1.</div>
+  <div class="definition-box"><strong>Pierderea Hinge:</strong> L_hinge(y, η) = max(0, 1 - yη), funcția de pierdere utilizată de SVM-uri. Arată ca o balama de ușă, de unde numele. Este o funcție convexă care penalizează clasificările greșite și pe cele corecte dar cu marjă insuficientă.</div>
+  <div class="definition-box"><strong>Pierderea 0-1:</strong> L_01(y, η) = I(y ≠ ŷ) = I(yη < 0), pierderea ideală dar non-convexă și discontinuă, imposibil de optimizat direct cu metode de gradient.</div>
+  <div class="highlight-box"><strong>Principiul Surogat:</strong> Funcția surogat trebuie să fie un upper bound convex al pierderii originale, deoarece funcțiile convexe sunt ușor de optimizat. Minimizarea surogatului conduce la minimizarea aproximativă a pierderii originale.</div>
+  <div class="highlight-box"><strong>Citatul lui George Box (1962):</strong> „Ar fi foarte dificil să convingi o persoană inteligentă că practica statistică frecventistă actuală este sensibilă, dar ar fi mult mai puțin dificil cu o abordare prin verosimilitate și teorema lui Bayes."</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 6.7 oferă o comparație vizuală excelentă a celor trei funcții de pierdere principale. Secțiunea 6.6 introduce patologiile statisticii frecventiste, cu un citat provocator al lui George Box care sugerează superioritatea abordării Bayesiene.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Pierderea hinge penalizează liniar clasificările cu marjă negativă și nu penalizează deloc cele cu marjă > 1 (sparsity în vectorii suport). Log-loss-ul penalizează toate clasificările, inclusiv cele corecte, dar cu penalizare descrescătoare exponențial. Această diferență determină proprietăți diferite ale modelelor rezultate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea funcției de pierdere surogat influențează direct comportamentul modelului: hinge loss produce SVM-uri sparse, log-loss produce probabilități calibrate (regresie logistică). În practică, log-loss-ul este mai popular datorită interpretării probabilistice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de detectare a e-mailurilor spam poate folosi log-loss pentru a obține probabilități calibrate (util pentru filtrarea cu praguri variabile) sau hinge loss pentru un clasificator SVM mai eficient computațional cu suport vectori puțini.</p></div>
+  </div>
+</div>

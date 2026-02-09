@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul EP - Formulare prin factori aproximativi</h2>
+  <p>Aceasta pagina prezinta formularea alternativa a EP prin factori aproximativi f_tilde_i, detaliind pasii algoritmului si legatura cu potrivirea momentelor prin minimizarea KL.</p>
+  <div class="definition-box"><strong>Factori aproximativi:</strong> Se aproximeaza fiecare factor f_i(x) al distributiei adevarate p(x|D) = (1/Z)*prod f_i(x) prin factori tractabili f_tilde_i(x), astfel incat q(x) = (1/Z)*prod f_tilde_i(x) este o aproximare tractabila.</div>
+  <div class="definition-box"><strong>Distributia cavitate q_{-i}:</strong> q_{-i}(x) = q(x)/f_tilde_i(x), obtinuta prin eliminarea factorului aproximativ curent din q. In spatiul parametrilor naturali, aceasta corespunde scaderii parametrilor lui f_tilde_i.</div>
+  <div class="highlight-box"><strong>Pasul de proiectie EP:</strong> min_{q^new} KL((1/Z_i)*f_i(x)*q_{-i}(x) || q^new(x)). Se minimizeaza KL forward (nu reverse!), ceea ce se reduce la potrivirea momentelor: media si covarianta lui q^new trebuie sa coincida cu cele ale lui f_i*q_{-i}.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta perspectiva "factori aproximativi" a EP, care este echivalenta cu formularea variationala dar mai intuitiva algoritmic. Fiecare iteratie rafineste un factor: elimina aproximarea veche, incorporeaza factorul exact, proiecteaza inapoi prin potrivirea momentelor, si actualizeaza aproximarea.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Utilizarea KL forward (nu reverse) in pasul de proiectie este cruciala: KL(p||q) produce aproximari care acopera suportul lui p (mode-covering), evitand colapsul pe un singur mod care ar aparea cu KL reverse.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Implementarea EP necesita atentie la stabilitate numerica: parametrii naturali pot deveni negativi (distributie improprie), ceea ce necesita mecanisme de protectie precum amortizarea actualizarilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Sistemul TrueSkill de la Microsoft (folosit in Xbox Live pentru evaluarea abilitatilor jucatorilor) este o aplicatie celebra a EP, unde fiecare meci este un factor, iar abilitatile jucatorilor sunt variabile latente cu posterioare Gaussiene aproximate prin EP.</p></div>
+  </div>
+</div>

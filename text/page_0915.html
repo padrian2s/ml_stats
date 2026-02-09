@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Procesul restaurantului chinezesc (CRP)</h2>
+  <p>Aceasta pagina prezinta distributia GEM, proprietatea de discretizare a DP si procesul restaurantului chinezesc (Chinese Restaurant Process) ca metoda constructiva de esantionare.</p>
+  <div class="definition-box"><strong>Discretizarea DP:</strong> Esantioanele din DP sunt discrete cu probabilitate 1, ceea ce inseamna ca valorile se repeta - aceasta proprietate fundamenteaza utilizarea DP pentru clustering.</div>
+  <div class="definition-box"><strong>Schema urnei Polya / Blackwell-MacQueen:</strong> Distributia predictiva a urmatoarei observatii: p(theta_{N+1}|theta_{1:N}) = 1/(alpha+N) * (alpha*H(theta) + suma(N_k * delta_{theta_k})), un amestec intre prior si observatiile anterioare.</div>
+  <div class="definition-box"><strong>Procesul restaurantului chinezesc (CRP):</strong> Analogia: mesele = clustere, clientii = observatii. Un client nou se aseaza la o masa existenta cu probabilitate proportionala cu N_k (numarul de clienti deja acolo), sau la o masa noua cu probabilitate alpha/(alpha+N).</div>
+  <div class="highlight-box"><strong>Distributia predictiva:</strong> p(z_{N+1}=k|z_{1:N}) = N_{k,-i}/(alpha+N-1) pentru cluster existent, alpha/(alpha+N-1) pentru cluster nou.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la constructia stick-breaking la o perspectiva complementara: procesul restaurantului chinezesc. Discretizarea esantioanelor DP este cheia clustering-ului: valorile repetate definesc natural clusterele. CRP ofera o regula simpla si intuitiva pentru asignarea secventiala a punctelor la clustere, fara a necesita specificarea explicita a ponderilor infinite.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>CRP exemplifica fenomenul "rich get richer" (cei bogati devin mai bogati): clusterele mari au probabilitate mai mare sa atraga noi membri. Numarul asteptat de clustere creste ca alpha*log(N), oferind o crestere lenta dar nelimitata a complexitatii modelului.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>CRP este folosit ca baza pentru algoritmi de esantionare Gibbs in modele DPM, deoarece ofera probabilitati conditionale simple si calculabile. Este fundamental in modelarea topicilor, segmentarea vorbirii si analiza retelelor sociale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza retelelor sociale, CRP modeleaza modul in care utilizatorii se alatura comunitatilor: comunitatile mari atrag mai multi membri noi (similar cu cum mesele populare din restaurant atrag mai multi clienti), explicand formarea clusterelor de dimensiuni inegale observate in practica.</p></div>
+  </div>
+</div>

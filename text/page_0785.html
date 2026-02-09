@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 21. Inferenta Variationala - Distributia Predictiva, Selectia Modelului si Sparsitatea VBEM (p.754)</h2>
+  <p>Aceasta pagina acopera distributia predictiva posterioara, selectia modelului folosind VBEM, si efectele de inductie a sparsitatii ale VBEM.</p>
+  <div class="highlight-box"><strong>Distributia predictiva posterioara:</strong> p(x|D) ≈ Σₖ (αₖ/Σₖ'αₖ') T(x|mₖ, Mₖ, νₖ+1-D), o suma ponderata de distributii Student, unde Mₖ = (νₖ+1-D)βₖ/(1+βₖ) Lₖ.</div>
+  <div class="definition-box"><strong>Selectia modelului VBEM:</strong> Se selecteaza K prin maximizarea limitei inferioare variationala: p(K|D) = exp(L(K)) / Σₖ' exp(L(K')), cu corectia log p(D|K) ≈ L(K) + log(K!) pentru identifiabilitate.</div>
+  <div class="definition-box"><strong>Sparsitatea automata VBEM:</strong> In VBEM, ponderile de mixtura efective sunt π̃ₖ = exp[Ψ(αₖ)] / exp[Ψ(Σₖ'αₖ')]. Daca αₖ = 0, efectul este o penalizare ca si cum am scadea 0.5, ceea ce ucide clusterele mici (taxa regresiva).</div>
+  <div class="highlight-box"><strong>Fenomenul „bogatul devine mai bogat":</strong> Clusterele cu putine membri pierd si mai multi membri la iteratiile urmatoare, iar clusterele populare atrag si mai multi membri, ducand la eliminarea automata a componentelor inutile.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta trei rezultate importante ale VBEM: distributia predictiva (de tip Student), selectia automata a lui K prin limita inferioara variationala, si mecanismul de inductie a sparsitatii care elimina automat componentele de mixtura inutile.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Corectia log(K!) compenseaza lipsa de identifiabilitate (K! permutari ale etichetelor). Fenomenul „bogatul devine mai bogat" este analog cu procesele Dirichlet, un concept reiterat in Capitolul 25. Priorul Dirichlet cu α₀ mic induce sparsitate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Selectia automata a numarului de clustere este cruciala in aplicatii unde K nu este cunoscut a priori: segmentarea pietelor, clasificarea documentelor, analiza imaginilor medicale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza genomica, VBEM poate determina automat numarul de subtipuri moleculare ale unui cancer, fara a necesita specificarea a priori a numarului de subtipuri.</p></div>
+  </div>
+</div>

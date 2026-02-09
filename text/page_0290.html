@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Aproximarea Probit - Continuare și Proprietăți</h2>
+  <p>Pagina continuă derivarea aproximării probit, discutând proprietatea de „moderare" a predicțiilor bayesiene și relația cu principiul marginii maxime bayesiene.</p>
+  <div class="highlight-box"><strong>Proprietatea de moderare:</strong> Medierea bayesiană peste incertitudinea parametrilor produce predicții mai moderate (mai aproape de 0.5) decât predicțiile MAP/MLE punctuale, reflectând incertitudinea epistemică în parametri.</div>
+  <div class="definition-box"><strong>Principiul marginii maxime bayesian:</strong> Frontiera medie de decizie a posteriorului predictiv tinde să fie aproximativ echidistantă de cele două clase, similar cu principiul marginii maxime din SVM, dar derivat din principii probabilistice.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Aproximarea probit oferă o formulă închisă pentru distribuția predictivă posterioară, evitând simularea Monte Carlo. Predicțiile rezultate sunt „moderate" - mai puțin extreme decât predicțiile punctuale, reflectând incertitudinea în parametri. Frontiera de decizie bayesiană are o analogie naturală cu marginea maximă din SVM, dar apare din principii probabilistice mai degrabă decât din optimizarea directă a marginii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Moderarea predicțiilor este o consecință directă a medierii: funcția sigm este concavă/convexă, deci media lui sigm(w&#7488;x) peste w este mai aproape de 0.5 decât sigm(E[w]&#7488;x), conform inegalității lui Jensen. Aceasta este o proprietate fundamentală a predicțiilor bayesiene.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Predicțiile moderate sunt importante în calibrarea probabilistică: un model medical care prezice „90% șanse de cancer" trebuie să fie corect în 90% din cazuri. Modelele bayesiene tind să fie mai bine calibrate decât cele punct, reducând supraîncrederea în predicții.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de scoring creditelor care folosește predicții bayesiene va raporta „70% probabilitate de rambursare" în loc de „95%", fiind mai precaut. Această moderare reflectă incertitudinea în model și este valoroasă pentru managementul riscului bancar.</p></div>
+  </div>
+</div>

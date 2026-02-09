@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Rezolvarea paradoxului Simpson si invatarea structurilor DAG cauzale</h2>
+  <p>Aceasta pagina completeaza demonstratia matematica a rezolvarii paradoxului lui Simpson si prezinta doua modele cauzale alternative (Figura 26.16) si consecintele lor diferite.</p>
+  <div class="definition-box"><strong>DAG cauzal cu confunder (Figura 26.16a):</strong> F (gen) -> C si F -> E. Trebuie ajustat pe F. Concluzia: p(E|do(C)) < p(E|do(not C)), medicamentul dauneaza.</div>
+  <div class="definition-box"><strong>DAG cauzal cu mediator (Figura 26.16b):</strong> C -> F (tensiune) si F -> E. Nu trebuie ajustat pe F (blocheaza calea cauzala). Efectul poate fi pozitiv.</div>
+  <div class="highlight-box"><strong>Concluzie fundamentala:</strong> Presupuneri cauzale diferite duc la concluzii diferite, chiar cu aceleasi date. Aceasta ridica intrebarea: putem invata structura cauzala din date?</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Demonstratia formala arata ca daca modelul 26.16(a) este corect, p(E|do(C)) < p(E|do(not C)) (medicamentul dauneaza), deoarece fiecare termen in suma este mai mic. Dar daca modelul 26.16(b) este corect, concluzia se poate inversa. Aceasta motiveaza sectiunea urmatoare: invatarea structurilor DAG cauzale din date.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Paradoxul lui Simpson demonstreaza ca statistica descriptiva (chiar conditionata) nu este suficienta pentru inferenta cauzala. Este nevoie de un model cauzal explicit, iar alegerea modelului afecteaza direct deciziile practice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta lectie este critica in politica de sanatate publica: de exemplu, relatia intre un factor de risc si o boala poate parea diferita la nivel de populatie fata de nivel de subgrup, iar doar rationamentul cauzal poate ghida interventia corecta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza efectului exercitiului fizic asupra bolilor de inima, varsta este un confunder (afecteaza atat exercitiul cat si boala). Fara ajustare cauzala, putem concluziona gresit ca exercitiul este ineficient daca persoanele active sunt mai in varsta in esantion.</p></div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>Clasificatorul cu Centroizi Contractati (Nearest Shrunken Centroids)</h2>
+  <p>Pagina 109 introduce clasificatorul cu centroizi contractati, o metoda care selecteaza automat trasaturile relevante prin regularizare cu sparsitate, aplicata pe date de expresie genica.</p>
+
+  <div class="figure-box"><strong>Figura 4.7:</strong> Eroarea vs. cantitatea de contractie (shrinkage) pentru clasificatorul cu centroizi contractati aplicat pe datele SRBCT de expresie genica. Numarul de gene selectate scade de la 2308 la 0 pe masura ce λ creste. Eroarea pe test ramane zero pentru un interval larg de λ.</div>
+
+  <div class="definition-box"><strong>Clasificatorul cu centroizi contractati (Nearest Shrunken Centroids):</strong> Se realizeaza estimarea MAP pentru LDA diagonala cu un prior Laplace (promotor de sparsitate). Media specifica clasei se descompune: μ_cⱼ = mⱼ + Δ_cⱼ, unde mⱼ este media globala si Δ_cⱼ este abaterea specifica clasei.</div>
+
+  <div class="highlight-box"><strong>Selectia automata a trasaturilor (Ecuatia 4.66):</strong> μ_cⱼ = mⱼ + Δ_cⱼ. Daca Δ_cⱼ = 0 pentru toate clasele c, trasatura j este independenta de clasa si este eliminata automat din clasificare.</div>
+
+  <div class="highlight-box"><strong>Rezultate pe date genomice:</strong> Pe setul SRBCT (2308 gene, 4 clase, 63 antrenare, 20 test): LDA diagonala produce 5 erori, iar centroizi contractati produce 0 erori folosind doar 39 din 2308 gene. Pe setul cu 14 tipuri de cancer (16603 gene): 17 erori pe test cu doar 6520 gene selectate.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Clasificatorul cu centroizi contractati combina puterea LDA cu regularizarea prin sparsitate. Prin impunerea unui prior Laplace pe abaterile de la medie Δ_cⱼ, trasaturile neinformative sunt eliminate automat (Δ_cⱼ → 0), rezultand un model mai simplu, mai interpretabil si adesea mai precis.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Regularizarea prin sparsitate (prior Laplace/L1) produce selectie automata de trasaturi, spre deosebire de regularizarea L2 care doar micsoreaza coeficientii fara sa-i elimine. Curba eroare vs. shrinkage in Figura 4.7 arata o "platforma" de performanta optima, indicand robustetea la alegerea lui λ.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta metoda este standard in genomica si proteominca pentru identificarea biomarkerilor - genele selectate (Δ_cⱼ ≠ 0) sunt candidati pentru biomarkeri de diagnostic. Este implementata in pachetul R "pamr".</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul cancerului pediatric (SRBCT - Small Round Blue Cell Tumors), clasificatorul cu centroizi contractati identifica 39 de gene din 2308 care sunt suficiente pentru a distinge perfect cele 4 subtipuri de tumori. Aceste gene devin tinte pentru investigatii biologice ulterioare si potentiale teste de diagnostic.</p></div>
+  </div>
+</div>

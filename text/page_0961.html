@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>SEM non-recursive si variabile manifeste</h2>
+  <p>Aceasta pagina prezinta SEM-urile non-recursive (ciclice) cu un exemplu (Figura 26.13), partitionarea in variabile latente si manifeste, si practica standard cu LISREL.</p>
+  <div class="definition-box"><strong>SEM non-recursiv:</strong> Cand W nu este triunghiulara inferioara, graful poate contine cicluri directionate, interpretate ca bucle de feedback. Exemplu: Z_1 -> Z_2 -> Z_3 -> Z_1.</div>
+  <div class="definition-box"><strong>Variabile manifeste vs. latente:</strong> In SEM, variabilele sunt partitionate in variabile latente Z_t si variabile observate (manifeste) Y_t. Fiecare variabila latenta are de obicei mai multe indicatori observabili.</div>
+  <div class="definition-box"><strong>Identificabilitate:</strong> Pentru a asigura identificabilitatea, se seteaza media variabilelor latente la 0 si ponderile de regresie Z_t -> Y_t la 1, definind scala fiecarei variabile latente.</div>
+  <div class="highlight-box"><strong>Exemplu (Figura 26.13):</strong> Un SEM cu 3 variabile latente (Z_1, Z_2, Z_3) intr-o bucla de feedback si 3 variabile manifeste (Y_1, Y_2, Y_3). Confundarea intre Y_1 si Y_2 este evidenta in elementele off-diagonale ale lui Psi.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina detaliaza SEM-urile non-recursive cu bucle de feedback si introduce conventiile standard. Partitionarea in variabile latente si manifeste este o componenta cheie: variabilele latente reprezinta constructe teoretice (inteligenta, satisfactie), iar variabilele manifeste sunt indicatorii lor observabili (scoruri la teste, raspunsuri la sondaje). Identificabilitatea necesita constrangeri pe scale si medii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Buclele de feedback in SEM-uri pot capta procese dinamice (de exemplu, stresul cauzeaza insomnie care cauzeaza mai mult stres). Identificabilitatea este o problema critica: fara constrangeri suficiente, parametrii nu pot fi estimati unic din date.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LISREL si Mplus sunt pachetele software dominante pentru SEM. In practica, se specifica structura (ce legaturi exista), se estimeaza parametrii prin maximum likelihood sau Bayes, si se evalueaza potrivirea modelului cu datele.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In economie, SEM-urile cu bucle de feedback modeleaza relatia bidirectionala intre inflatie si somaj (curba Phillips): inflatia mare reduce somajul pe termen scurt, dar somajul scazut creste presiunile inflationiste, creand o bucla.</p></div>
+  </div>
+</div>

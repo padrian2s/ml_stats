@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Estimatori Bayes: Pierderea 0-1 si Optiunea de Respingere</h2>
+  <p>Pagina prezinta estimatorii Bayes pentru pierderea 0-1 (clasificare) si introduce optiunea de respingere pentru cazurile ambigue.</p>
+  <div class="definition-box"><strong>Pierderea asteptata posterioara:</strong> ρ(a|x) = E_{p(y|x)}[L(y,a)] = Σ_y L(y,a)p(y|x) (Ecuatia 5.98) - pierderea medie a actiunii a, ponderate de probabilitatile posterioare.</div>
+  <div class="definition-box"><strong>Estimatorul Bayes (Regula de decizie Bayes):</strong> δ(x) = argmin_{a∈A} ρ(a|x) (Ecuatia 5.99) - actiunea care minimizeaza pierderea asteptata posterioara.</div>
+  <div class="definition-box"><strong>Pierderea 0-1:</strong> L(y,a) = I(y ≠ a) (Ecuatia 5.100) - pierdere de 0 pentru clasificare corecta, 1 pentru clasificare gresita. Estimatorul Bayes optimal este modul posterior (MAP).</div>
+  <div class="definition-box"><strong>Optiunea de respingere (Reject option):</strong> Refuzul de a clasifica exemplele ambigue. Pierderea: λ_r pentru respingere, λ_s pentru substitutie (eroare). Respingem daca max p(y|x) < 1 - λ_r/λ_s (Ecuatia 5.103).</div>
+  <div class="highlight-box"><strong>Pierderea asteptata posterioara pentru 0-1:</strong> ρ(a|x) = p(a ≠ y|x) = 1 - p(y|x) (Ecuatia 5.101), deci y* = argmax_y p(y|x) (Ecuatia 5.102).</div>
+  <div class="figure-box"><strong>Figura 5.13:</strong> Regiunea de respingere: in zona unde ambele posterioare de clasa sunt sub prag, clasificatorul refuza sa decida, preferand sa trimita cazul la un expert uman.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pentru pierderea 0-1 (clasificare), estimatorul Bayes este simplu modul posterior: alegem clasa cu cea mai mare probabilitate posterioara. Optiunea de respingere adauga flexibilitate: cand nicio clasa nu are probabilitate suficient de mare, refuzam clasificarea. Pragul de respingere depinde de raportul costurilor λ_r/λ_s.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Optiunea de respingere este cruciala in domenii cu risc avers: daca costul unei erori (λ_s) este mult mai mare decat costul respingerii (λ_r), pragul de respingere este scazut si multe exemple sunt trimise la expert. Aceasta reflecta principiul "mai bine nu stiu decat gresesc".</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In diagnosticul medical automatizat, optiunea de respingere este esentiala: un sistem AI care nu este sigur daca o imagine radiologica arata cancer trebuie sa o trimita unui medic specialist in loc sa dea un diagnostic potential gresit.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea optica a caracterelor (OCR), daca sistemul nu poate distinge intre "0" si "O" cu suficienta incredere, optiunea de respingere permite marcarea caracterului pentru revizuire manuala, reducand rata de eroare a sistemului automat.</p></div>
+  </div>
+</div>

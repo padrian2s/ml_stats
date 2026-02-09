@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Trucul Log-Sum-Exp și Selecția Caracteristicilor prin Informație Mutuală</h2>
+  <p>Pagina prezintă trucul log-sum-exp pentru stabilitate numerică în clasificatoarele generative și introduce selecția de caracteristici prin informație mutuală.</p>
+  <div class="definition-box"><strong>Trucul log-sum-exp:</strong> log(Σ_c e^{b_c}) = log[(Σ_c e^{b_c−B})·e^B] = log(Σ_c e^{b_c−B}) + B, unde B = max_c b_c. Previne depășirea numerică (underflow) când se calculează probabilități posterioare.</div>
+  <div class="highlight-box"><strong>Problema underflow-ului:</strong> p(x|y=c) este adesea un număr extrem de mic (ex: e^{-120}). Calculul naiv al regulii Bayes eșuează numeric. Soluția: se lucrează în spațiul logaritmic.</div>
+  <div class="definition-box"><strong>Selecția de caracteristici:</strong> Evaluarea relevanței fiecărei caracteristici X_j prin informația mutuală cu eticheta Y: I(X_j,Y) = Σ_{x_j,y} p(x_j,y)·log[p(x_j,y)/(p(x_j)p(y))].</div>
+  <div class="highlight-box"><strong>MI pentru caracteristici binare:</strong> I_j = Σ_c [θ_{jc}·π_c·log(θ_{jc}/θ_j) + (1−θ_{jc})·π_c·log((1−θ_{jc})/(1−θ_j))], calculabilă ca produs secundar al antrenării NBC.</div>
+  <div class="figure-box"><strong>Algoritmul 3.2:</strong> Pseudocod pentru predicția cu NBC: se calculează log-probabilitățile, se aplică log-sum-exp, și se clasifică prin argmax.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Trucul log-sum-exp este o tehnică numerică esențială pentru clasificatoarele generative. Selecția de caracteristici prin MI permite reducerea dimensionalității, îmbunătățind atât precizia cât și viteza.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Stabilitatea numerică este o preocupare practică majoră în ML. Log-sum-exp apare în softmax, funcțiile de pierdere, și oriunde se normalizează probabilități în spațiul logaritmic.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Log-sum-exp este implementat ca funcție standard în toate bibliotecile numerice (NumPy, PyTorch, TensorFlow). Selecția MI este rapidă și eficientă pentru filtrarea inițială a caracteristicilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un clasificator de documente cu vocabular de 100.000 cuvinte, selecția MI poate identifica cele mai discriminative 1.000 de cuvinte, accelerând clasificarea de 100x fără pierdere semnificativă de precizie.</p></div>
+  </div>
+</div>

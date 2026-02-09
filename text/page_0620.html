@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Capitolul 17: Modele Markov si modele Markov ascunse - Introducere</h2>
+  <p>Aceasta pagina deschide capitolul 17, introducand modelele probabilistice pentru secvente de observatii, lanturile Markov si matricea de tranzitie.</p>
+  <div class="definition-box"><strong>Lant Markov:</strong> p(X_{1:T}) = p(X_1) prod_{t=2}^T p(X_t|X_{t-1}), unde starea curenta X_t depinde doar de starea anterioara X_{t-1}. Daca probabilitatile de tranzitie nu depind de timp, lantul este omogen/stationar.</div>
+  <div class="highlight-box"><strong>Matricea de tranzitie:</strong> A_{ij} = p(X_t = j|X_{t-1} = i) este probabilitatea de a trece din starea i in starea j. Fiecare rand sumeaza la 1 (matrice stohastica). Tranzitia in n pasi: A(n) = A^n.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 17 trateaza modele pentru secvente: lanturi Markov si modele Markov ascunse (HMM). Proprietatea Markov presupune ca starea curenta captureaza toata informatia relevanta despre trecut. Pentru variabile discrete X_t in {1,...,K}, tranzitiile sunt descrise de matricea A de dimensiune K x K. Lantul este echivalent cu un automat stochastic, vizualizat prin diagrama de tranzitie de stare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Proprietatea Markov permite modelarea secventelor arbitrar de lungi cu un numar fix de parametri (K^2 pentru A plus K pentru distributia initiala). Ecuatiile Chapman-Kolmogorov A(m+n) = A(m)A(n) permit calculul tranzitiilor multi-pas prin ridicarea la putere a matricei.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Lanturile Markov sunt folosite in: PageRank (Google), modele de limbaj n-gram, simulari MCMC, modele de cozi (teoria cozilor), si procese stochastice in finante.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Algoritmul PageRank modeleaza navigarea web ca un lant Markov: fiecare pagina web este o stare, iar link-urile sunt tranzitii. Distributia stationara indica importanta fiecarei pagini.</p></div>
+  </div>
+</div>

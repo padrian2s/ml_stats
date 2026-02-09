@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>Clasificatorul cu Centroizi si Analiza Discriminanta Patratica (QDA)</h2>
+  <p>Pagina 102 prezinta clasificarea prin distanta Mahalanobis (clasificatorul cu centroizi), exemplul inaltime-greutate si introduce analiza discriminanta patratica (QDA).</p>
+
+  <div class="figure-box"><strong>Figura 4.2:</strong> (a) Date inaltime/greutate pentru barbati si femei. (b) Doua Gaussiene 2D ajustate pe fiecare clasa, cu elipse care contin 95% din masa de probabilitate. Trasaturile sunt corelate (persoanele inalte tind sa cantareasca mai mult).</div>
+
+  <div class="highlight-box"><strong>Regula de decizie (Ecuatia 4.31):</strong> ŷ(x) = argmax_c [log p(y=c|π) + log p(x|θ_c)], combinand probabilitatea a priori cu verosimilitatea clasei.</div>
+
+  <div class="definition-box"><strong>Clasificatorul cu centroizi:</strong> Cand calculam p(x) sub fiecare densitate conditionata pe clasa, masuram distanta Mahalanobis de la x la centrul fiecarei clase μ_c: ŷ(x) = argmin_c (x - μ_c)ᵀ Σ_c⁻¹ (x - μ_c).</div>
+
+  <div class="definition-box"><strong>Analiza Discriminanta Patratica (QDA):</strong> Posteriorul pe clasa p(y=c|x, θ) rezulta intr-o functie patratica de x, deoarece fiecare clasa are propria matrice de covarianta Σ_c. Frontierele de decizie sunt curbe (conice).</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>QDA generalizeaza clasificarea Gaussiana permitand fiecarei clase sa aiba propria matrice de covarianta. Frontierele de decizie devin curbe patratice (parabole, hiperbole, elipse) in loc de linii drepte. Exemplul inaltime-greutate ilustreaza cum corelatia intre trasaturi este capturata de matricea de covarianta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la clasificare liniara la patratica se datoreaza faptului ca fiecare clasa are propria Σ_c. Daca toate clasele ar imparti aceeasi Σ, termenii patratici s-ar anula, rezultand frontiere liniare (LDA). QDA are mai multi parametri de estimat, deci necesita mai multe date.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>QDA este utilizata in recunoasterea formelor, clasificarea imaginilor medicale (tumori benigne vs. maligne cu trasaturi de textura) si in orice situatie unde distributiile claselor au forme diferite.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia fraudelor bancare, tranzactiile legitime si cele frauduloase pot avea distributii cu forme foarte diferite. QDA permite modelarea separata a covariantei fiecarei clase, capturand faptul ca tranzactiile frauduloase tind sa aiba tipare de variabilitate diferite fata de cele normale.</p></div>
+  </div>
+</div>

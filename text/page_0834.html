@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Graphcuts pentru MRF-uri Metrice Non-Binare (Sectiunea 22.6.3.3)</h2>
+  <p>Aceasta pagina prezinta constructia ponderilor muchiilor pentru MRF-uri binare submodulare si extinderea graphcuts la MRF-uri cu stari multiple folosind expansiunea alfa.</p>
+  <div class="highlight-box"><strong>Ponderi muchii submodulare:</strong> E'_u,v(0,1) = E_u,v(1,0) + E_u,v(0,1) - E_u,v(0,0) - E_u,v(1,1) (Ec. 22.156)</div>
+  <div class="highlight-box"><strong>Actualizari energetice:</strong> E'_u(1) = E'_u(1) + (E_u,v(1,0) - E_u,v(0,0)) si E'_v(1) = E'_v(1) + (E_u,v(1,1) - E_u,v(1,0)) (Ec. 22.157-22.158)</div>
+  <div class="definition-box"><strong>MRF Metric:</strong> Un MRF in care energiile de perechi formeaza o metrica. Se poate defini E(x_s, x_t) = min(delta, |x_s - x_t|) sau semi-metrica E(x_s, x_t) = min(delta, (x_s - x_t)^2) pentru o constanta delta > 0.</div>
+  <div class="definition-box"><strong>Expansiunea Alfa (Alpha Expansion):</strong> O versiune a graphcuts care la fiecare pas selecteaza o eticheta alfa si rezolva o sub-problema binara: fiecare variabila poate ramane in starea curenta sau sa devina starea alfa. (Ec. 22.159-22.160)</div>
+  <div class="highlight-box"><strong>Conditia de submodularitate pentru expansiune:</strong> E_u,v(x_u, x_v) + E_u,v(alfa, alfa) <= E_u,v(x_u, alfa) + E_u,v(alfa, x_v) (Ec. 22.161) - satisfacuta de orice functie de distanta datorita inegalitatii triunghiului.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina arata cum se construiesc ponderile muchiilor pentru graphcuts in cazul submodular si introduce expansiunea alfa pentru MRF-uri cu stari multiple. Expansiunea alfa transforma problema multi-eticheta intr-o serie de sub-probleme binare, fiecare rezolvabila exact prin graphcuts.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tranzitia de la MRF-uri binare la cele cu stari multiple necesita o descompunere iterativa. Expansiunea alfa este aplicabila oricarui MRF metric datorita inegalitatii triunghiului. Termenul delta previne supra-netezirea prin limitarea penalizarii pentru diferente mari.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MRF-urile metrice sunt esentiale in estimarea adancimii stereo, segmentarea semantica si reconstrucerea scenelor 3D. Expansiunea alfa este unul dintre cele mai utilizate algoritmi in viziunea computationala datorita eficientei si calitatii solutiilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In estimarea adancimii stereo, fiecare pixel primeste o eticheta de disparitate (de exemplu, 0-255 nivele). Expansiunea alfa itereaza prin fiecare nivel de disparitate, permitand pixelilor sa-si schimbe eticheta la nivelul curent daca aceasta reduce energia globala, producand harti de adancime netede si precise.</p></div>
+  </div>
+</div>

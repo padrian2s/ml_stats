@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Selectia Bayesiana a Modelului si Lama lui Occam Bayesiana</h2>
+  <p>Pagina introduce conceptul de selectie bayesiana a modelului si explica mecanismul lamei lui Occam bayesiene prin principiul conservarii masei de probabilitate.</p>
+  <div class="definition-box"><strong>Selectia bayesiana a modelului (Bayesian model selection):</strong> Alegerea modelului care maximizeaza posterioara peste modele: m_hat = argmax p(m|D), echivalenta cu maximizarea verosimilitatii marginale p(D|m) cand prior-ul este uniform.</div>
+  <div class="definition-box"><strong>Lama lui Occam bayesiana (Bayesian Occam's razor):</strong> Principiul conform caruia integrarea peste parametri (in loc de maximizare) protejeaza automat impotriva supraajustarii - modele mai complexe nu au neaparat verosimilitate marginala mai mare.</div>
+  <div class="highlight-box"><strong>Verosimilitatea marginala ca regula de lant:</strong> p(D) = p(y₁)p(y₂|y₁)p(y₃|y₁:₂)...p(y_N|y₁:N₋₁) (Ecuatia 5.14) - similara cu validarea incrucisata leave-one-out.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Lama lui Occam bayesiana functioneaza deoarece probabilitatile trebuie sa se insumeze la 1: Σ_D' p(D'|m) = 1. Modelele complexe, care pot prezice multe seturi de date diferite, isi distribuie masa de probabilitate subtire, obtinand probabilitate mai mica pentru orice set de date specific. Modelele simple atribuie probabilitate mare unui numar mic de seturi de date.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Verosimilitatea marginala poate fi descompusa ca produs de predictii secventiale (Ecuatia 5.14). Daca un model este prea complex, va supraajusta primele exemple si va prezice prost restul. Aceasta decompozizie este similara cu validarea incrucisata leave-one-out, oferind o justificare intuitiva.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, selectia bayesiana a modelului elimina necesitatea validarii incrucisate costisitoare computational. Acest lucru este deosebit de valoros cand antrenarea modelului este scumpa (modele de limbaj mari, retele neurale profunde).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Considerati alegerea gradului unui polinom pentru regresie: un polinom de grad 10 poate ajusta perfect 11 puncte dar va prezice prost date noi. Lama lui Occam bayesiana penalizeaza automat aceasta complexitate excesiva fara a necesita un set de validare separat.</p></div>
+  </div>
+</div>

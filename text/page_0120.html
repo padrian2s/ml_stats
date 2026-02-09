@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exerciții - Capitolul 3 (Partea 6): Caracteristici Irelevante în Naive Bayes și Densități Condiționate de Clasă</h2>
+  <p>Pagina prezintă exerciții despre tratarea caracteristicilor irelevante în clasificatorul Naive Bayes și proprietățile densităților condiționate de clasă pentru date binare.</p>
+  <div class="highlight-box"><strong>Exercițiul 3.19 - Caracteristici irelevante:</strong> Log-verosimilitatea: log p(xᵢ|c,θ) = Σ_w x_{iw}·log(θ_{cw}/(1−θ_{cw})) + Σ_w log(1−θ_{cw}) = ϕ(xᵢ)ᵀβ_c, un clasificator liniar.</div>
+  <div class="highlight-box"><strong>Log-posterior odds ratio:</strong> log₂[p(c=1|xᵢ)/p(c=2|xᵢ)] = ϕ(xᵢ)ᵀ(β₁−β₂), funcție de diferența vectorilor de ponderi.</div>
+  <div class="highlight-box"><strong>Condiția de irelevare:</strong> Cuvântul w nu afectează clasificarea dacă θ_{1,w} = θ_{2,w}, adică log(θ_{1,w}/(1−θ_{1,w})) = log(θ_{2,w}/(1−θ_{2,w})). Cu dezechilibru de clase (n₁ ≠ n₂), θ̂_{cw} variază chiar și pentru cuvinte omniprezente.</div>
+  <div class="highlight-box"><strong>Exercițiul 3.20 - Densități condiționate binare:</strong> p(x|y=c) = ∏_j Ber(x_j|θ_{jc}), necesitând DC parametri. Este un clasificator liniar în spațiul caracteristicilor extinse ϕ(x).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>NBC Bernoulli este de fapt un clasificator liniar în spațiul log-odds. Caracteristicile care apar cu aceeași frecvență în ambele clase ar trebui ignorate, dar dezechilibrul de clase poate preveni acest lucru.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conexiunea NBC-clasificator liniar este fundamentală: arată că modelele generative simple produc suprafețe de decizie liniare. Aceasta conectează NBC cu regresia logistică.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Înțelegerea NBC ca clasificator liniar permite: (1) interpretarea ponderilor, (2) compararea cu regresia logistică, (3) implementarea eficientă prin produse scalare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un filtru de spam, cuvântul „the" apare în aproape toate emailurile, indiferent de clasă. Cu clase echilibrate, θ_{spam,the} ≈ θ_{ham,the} și este ignorat automat. Cu dezechilibru, poate produce biasuri false.</p></div>
+  </div>
+</div>

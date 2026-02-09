@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Structuri de Graf Generate de Modelul de Blocuri si Versiuni Discriminative (Capitolul 27.5)</h2>
+  <p>Pagina prezinta exemple de structuri de graf generate de modelul stochastic de blocuri si introduce versiunea discriminativa care incorporeaza caracteristici ale nodurilor.</p>
+  <div class="figure-box"><strong>Figura 27.20:</strong> Exemple de grafuri generate cu modelul stochastic de blocuri cu diferite tipare de conectivitate intre blocuri: un inel, o ierarhie de dominanta, o structura cauza comuna si o structura efect comun. Fiecare tip produce o matrice de adiacenta sortata cu un tipar distinct.</div>
+  <div class="figure-box"><strong>Figura 27.21:</strong> (a) Modelul stochastic de blocuri ca graf orientat aciclic (DGM). (b) Modelul stochastic de blocuri cu apartenenta mixta (MMSB).</div>
+  <div class="highlight-box"><strong>Versiune discriminativa:</strong> Daca avem caracteristici asociate nodurilor, putem defini: p(R_ij=r|q_i=a, q_j=b, x_i, x_j, θ) = Ber(r|w_{a,b}^T·f(x_i, x_j)) (27.76), unde f(x_i, x_j) poate fi concatenare, [x_i, x_j], sau produs element-cu-element x_i ⊗ x_j.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelul stochastic de blocuri este remarcabil de flexibil, putand genera diverse tipuri de structuri de retea observate in practica. Versiunea discriminativa incorporeaza caracteristicile nodurilor in probabilitatea conexiunii, functionand ca o extensie relationala a modelului mixture of experts supervizat. Numarul de blocuri K poate fi lasat nemargint folosind procese Dirichlet.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diversitatea structurilor de graf (ierarhii, inele, structuri cauza-efect) poate fi captata de un singur cadru probabilistic prin variatia matricei de conectivitate η. Modelul relational infinit (IRM) extinde acest cadru prin procese Dirichlet, eliminand necesitatea specificarii a priori a numarului de blocuri.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Analiza retelelor sociale cu structuri ierarhice (stratificarea sociala), modelarea retelelor de comunicatie cu tipare hub-and-spoke, detectarea structurilor organizationale si analiza retelelor biologice cu module functionale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O retea sociala online poate avea structura de dominanta ierarhica (influenceri -> urmaritori), structura de clici (grupuri de prieteni) si structura de hub (pagini populare). Modelul stochastic de blocuri poate identifica simultan toate aceste tipare.</p></div>
+  </div>
+</div>

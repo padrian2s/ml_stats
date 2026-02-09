@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exercitii Capitolul 19 (continuare) - Independente in Modele Gaussiene si Modelul Ising</h2>
+  <p>Pagina continua exercitiile Capitolului 19, cu probleme despre independente in DAG-uri Gaussiene, costul antrenarii MRF-urilor si CRF-urilor, si conditionalele complete in modelul Ising.</p>
+  <div class="definition-box"><strong>Exercitiul 19.3:</strong> Independente in modele grafice Gaussiene. Se considera DAG-uri X1 ← X2 → X3 si X1 → X2 ← X3 cu CPD-uri liniar-Gaussiene. Se cere identificarea matricelor de covarianta si de precizie posibile din mai multe optiuni.</div>
+  <div class="highlight-box"><strong>Exercitiul 19.3e:</strong> Pentru Σ_{(1:3)} = [[1, 0.5, 0], [0.5, 1, 0.5], [0, 0.5, 1]] si Ω_{(1:3)} = [[1.5, -1, 0.5], [-1, 2, -1], [0.5, -1, 1.5]], se verifica proprietati ale sub-matricelor Σ_{(1:2)} si Ω_{(1:2)}.</div>
+  <div class="definition-box"><strong>Exercitiul 19.4:</strong> Costul antrenarii MRF-urilor si CRF-urilor. Pentru un model log-liniar cu k trasaturi, N instante, cost c per marginala si r iteratii, se cere complexitatea in notatia big-O.</div>
+  <div class="definition-box"><strong>Exercitiul 19.5 - Modelul Ising:</strong> p(x₁,...,xₙ|θ) = (1/Z(θ)) ∏_{&lt;ij&gt;} exp(Jᵢⱼxᵢxⱼ) ∏ᵢ exp(hᵢxᵢ) (Ecuatia 19.125), unde Jᵢⱼ este forta de cuplare pe muchia i-j, hᵢ este evidenta locala, si θ = (J,h).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile acopera trei teme importante: (1) relatia intre structura DAG si matricele de covarianta/precizie in modele Gaussiene, (2) complexitatea computationala a antrenarii modelelor grafice nedirectionate, si (3) modelul Ising fundamental din fizica statistica. Exercitiul 19.3 testeaza intelegerea profunda a modului in care structura grafului determina tiparele de zerouri in matrice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta de complexitate intre antrenarea MRF si CRF este semnificativa: MRF necesita calculul marginalitatilor peste toate exemplele, in timp ce CRF necesita si marginalizare conditionata. Modelul Ising, desi simplu, captureaza fenomene complexe precum tranzitiile de faza.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelul Ising este utilizat in procesarea imaginilor (debruiere), fizica materialelor (magnetism), si retele sociale (modelarea opiniilor). Intelegerea costului antrenarii ghideaza alegerea algoritmilor pentru probleme la scara larga.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In debruierea imaginilor cu modelul Ising, fiecare pixel este un nod cu starea xᵢ ∈ {-1,+1}, Jᵢⱼ > 0 incurajeaza pixelii vecini sa aiba aceeasi valoare (netezire), iar hᵢ incorporeaza observatia bruita. Conditionalele complete permit esantionarea Gibbs eficienta pentru inferenta.</p></div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Valorile p Considerate Dăunătoare</h2>
+  <p>Pagina prezintă o critică detaliată a valorilor p, demonstrând problemele lor fundamentale și diferențele față de probabilitățile posterioare Bayesiene.</p>
+  <div class="definition-box"><strong>Valoarea p:</strong> pvalue(D) = P(f(D̂) ≥ f(D)|D̂ ~ H₀), probabilitatea de a observa o statistică de test la fel de extremă sau mai extremă decât cea observată, presupunând că ipoteza nulă H₀ este adevărată.</div>
+  <div class="definition-box"><strong>Testarea Semnificației Ipotezei Nule (NHST):</strong> Se respinge H₀ dacă p-value < α (de obicei α = 0.05). Se spune că diferența este „semnificativă statistic" la nivelul α.</div>
+  <div class="highlight-box"><strong>Problema 1 - Supraevaluarea Dovezilor:</strong> Chiar dacă p-value = 0.05, probabilitatea posterioară p(H₀|D) este cel puțin 30% (Sellke et al., 2001). Frecventiștii pretind dovezi „semnificative" când probabilitatea ca H₀ să fie adevărată este încă substanțială.</div>
+  <div class="highlight-box"><strong>Problema 2 - p-value-urile nu pot dovedi H₀:</strong> Deoarece metoda se preocupă doar de respingerea H₀, nu poate niciodată aduna dovezi în favoarea H₀, indiferent de dimensiunea eșantionului. P-value-urile sunt „trigger happy".</div>
+  <div class="highlight-box"><strong>Exemplul monedei:</strong> Aruncăm o monedă de 12 ori, obținem 9 succese. p₁ = P(S ≥ 9|H₀) = Σ_{s=9}^{12} Bin(s|12, 0.5) = 0.073. P-value-ul bilateral este p₂ = 0.146. Nu respingem H₀ la nivel α = 0.05.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Valorile p au probleme fundamentale: supraestimează dovezile contra H₀, nu pot dovedi H₀, și sunt frecvent interpretate greșit. Probabilitatea posterioară Bayesiană p(H₀|D) este ceea ce cercetătorii vor de fapt să știe, dar p-value-ul nu oferă aceasta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Confuzia între P(D|H₀) și P(H₀|D) este la baza multor erori de interpretare. P-value-ul calculează primul, dar cercetătorii îl interpretează ca pe al doilea. Această eroare a fost numită „eroarea transpoziției condiționalului".</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Criza reproducibilității din știință este parțial atribuită utilizării excesive și greșite a p-value-urilor. Unele jurnale medicale au interzis p-value-urile, iar FDA a adoptat tot mai mult metode Bayesiene.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un studiu clinic care testează un nou medicament raportează p = 0.04 și declară rezultatul „semnificativ". Dar probabilitatea posterioară că medicamentul nu funcționează poate fi 30% sau mai mare, ceea ce schimbă complet decizia clinică.</p></div>
+  </div>
+</div>

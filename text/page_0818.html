@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>TRW-BP (continuare) si Expectation Propagation (EP)</h2>
+  <p>Aceasta pagina continua cu detalii despre TRW-BP (ecuatiile de mesaje, convergenta) si introduce Expectation Propagation (EP).</p>
+  <div class="definition-box"><strong>Ecuatiile de mesaj TRW-BP:</strong> M_ts(x_s) proportional cu sum_{x_t} exp((1/rho_st)*theta_st(x_s,x_t) + theta_t(x_t)) * prod_{v} [M_vt(x_t)]^{rho_vt} / [M_st(x_t)]^{1-rho_ts}. Cand rho_st=1, se reduce la LBP standard.</div>
+  <div class="definition-box"><strong>Expectation Propagation (EP):</strong> O forma de propagare a increderii in care mesajele sunt aproximate. EP generalizeaza filtrarea cu densitate asumata (ADF) prin parcurgeri multiple peste date, corectand dependenta de ordinea datelor.</div>
+  <div class="highlight-box"><strong>Margine superioara TRW-BP pe log Z:</strong> log Z_hat(theta) = tau^T*theta + sum rho_st*H_st(tau_st) + sum c_s*H_s(tau_s) <= log Z(theta), unde c_s = 1 - sum_t rho_st. Aceasta margine superioara este utila pentru invatarea parametrilor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza discutia TRW-BP cu ecuatiile de mesaje concrete si proprietatea de margine superioara, apoi face tranzitia catre EP. EP este prezentat ca o alternativa importanta care lucreaza in spatiul continuu si permite aproximari cu forme parametrice flexibile (de ex. Gaussiene).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>TRW-BP si EP reprezinta doua directii diferite de imbunatatire a LBP: TRW-BP prin convexificare, EP prin generalizarea la distributii continue si forme parametrice. Ambele au garantii teoretice mai bune decat LBP standard.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>EP este deosebit de popular in inferenta cu procese Gaussiene, unde posterioarul este aproximat iterativ cu o Gaussiana prin potrivirea momentelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea email-urilor ca spam/non-spam folosind procese Gaussiene (GPclassification), EP este algoritmul standard de inferenta, oferind predictii bine calibrate cu incertitudine.</p></div>
+  </div>
+</div>

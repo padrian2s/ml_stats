@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Amestecuri de Gaussiene: proprietati, amestec de Bernoulli si clustering</h2>
+  <p>Aceasta pagina prezinta amestecul de Bernoulli (multinomiale) pentru date binare, demonstreaza ca amestecurile pot capta corelatii, si introduce utilizarea modelelor de amestec pentru clustering.</p>
+  <div class="definition-box"><strong>Amestec de Bernoulli:</strong> p(x_i | z_i = k) = &prod;_{j=1}^D Ber(x_{ij} | &mu;_{jk}), un produs de Bernoulli independente per cluster. Desi componentele sunt factorizate, distributia de amestec poate capta corelatii intre variabile.</div>
+  <div class="definition-box"><strong>Responsabilitati (soft clustering):</strong> r_{ik} = p(z_i = k | x_i, &theta;) = p(z_i=k|&theta;) p(x_i|z_i=k, &theta;) / &Sigma;_{k'} p(z_i=k'|&theta;) p(x_i|z_i=k', &theta;). Probabilitatea posterioara ca observatia i sa apartina clusterului k.</div>
+  <div class="highlight-box"><strong>Soft vs. hard clustering:</strong> Soft clustering: fiecare punct are probabilitati de apartinenta la fiecare cluster (r_{ik}). Hard clustering: z_i* = argmax_k r_{ik}, fiecare punct este atribuit unui singur cluster. Soft clustering este mai informativ dar hard clustering este mai usor de interpretat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina arata ca amestecurile pot modela corelatii complexe chiar daca componentele individuale presupun independenta: cov[x] = &Sigma;_k &pi;_k[&Sigma;_k + &mu;_k &mu;_k^T] - E[x]E[x]^T. Amestecul de Bernoulli este util pentru date binare (documente, imagini binarizate). Clusteringul cu modele de amestec se reduce la calculul responsabilitatilor posterioare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Independenta intra-cluster + amestec = corelatie inter-cluster. 2) Soft clustering este identic cu clasificarea generativa (aceeasi formula Bayes). 3) Diferenta: in clasificare stim y_i (supervizat), in clustering nu stim z_i (nesupervizat). 4) Problema label switching: clusterele pot fi renumite arbitrar fara a afecta modelul.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Amestecul de Bernoulli este folosit in modelarea textului (documente ca vectori binari bag-of-words), in genomica (haplotipuri), si in segmentarea de imagini binarizate. Soft clustering este preferat in marketingul personalizat (un client poate apartine partial mai multor segmente).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea de clienti pentru o banca, un client poate fi 60% „tanar profesionist" si 40% „investitor conservator" (soft clustering). Aceasta informatie este mai utila pentru personalizarea ofertelor decat o atribuire dura la un singur segment, deoarece permite recomandari nuantate care reflecta multiplele aspecte ale profilului clientului.</p></div>
+  </div>
+</div>

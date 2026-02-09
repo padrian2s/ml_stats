@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Coborarea Subgradientului Stocastic si SSVM-uri Latente</h2>
+  <p>Pagina prezinta algoritmul Pegasos pentru coborarea subgradientului stocastic aplicat SSVM-urilor si introduce SVM-urile structurale latente cu variabile ascunse.</p>
+  <div class="definition-box"><strong>Pegasos:</strong> "Primal Estimated sub-GrAdient SOlver for SVM" - un algoritm de coborare stocastic a subgradientului, proiectat initial pentru SVM-uri binare dar extensibil la SSVM-uri.</div>
+  <div class="definition-box"><strong>Functia obiectiv Pegasos:</strong> f(w) = Σᵢ max_{ŷᵢ} [L(yᵢ,ŷᵢ) + wᵀφ(xᵢ,ŷᵢ)] - wᵀφ(xᵢ,yᵢ) + λ||w||² (Ecuatia 19.112).</div>
+  <div class="highlight-box"><strong>Actualizarea subgradientului:</strong> w_{k+1} = w_k - η_k[φ(xᵢ,ŷᵢ) - φ(xᵢ,yᵢ) + (2/N)λw] (Ecuatia 19.114), unde η_k satisface conditiile Robbins-Monro. Perceptronul este cazul special cu λ = 0, η_k = 1.</div>
+  <div class="definition-box"><strong>CRF latent:</strong> p(y,h|x,w) = exp(wᵀφ(x,y,h)) / Z(x,w) (Ecuatia 19.115), unde h sunt variabile latente/ascunse, iar Z(x,w) = Σ_{y,h} exp(wᵀφ(x,y,h)) (Ecuatia 19.116).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pegasos ofera o alternativa eficienta la cutting plane pentru seturi de date mari, aproximand gradientul cu un singur termen la fiecare iteratie. Se face legatura cu perceptronul structurat ca caz special. Apoi se introduce modelul SSVM latent, care extinde CRF-urile cu variabile ascunse h. Aceasta permite modelarea situatiilor unde doar o parte din iesire este observata.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Convergenta subgradientului stocastic necesita conditii pe rata de invatare (Robbins-Monro): Σ η_k = ∞ si Σ η_k² < ∞. Proiectia pe sfera unitara ℓ₂ asigura ca w ramane normalizat. Variabilele latente adauga expresivitate dar complica optimizarea, deoarece obiectivul nu mai este convex.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Pegasos este utilizat pe scara larga in industrie pentru antrenarea SVM-urilor pe seturi de date cu milioane de exemple. SSVM-urile latente sunt folosite in detectia obiectelor (unde pozitia exacta este latenta) si in traducerea automata (unde alinierea cuvintelor este latenta).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia obiectelor cu modelul DPM (Deformable Parts Model), y = 1 indica prezenta obiectului, iar h codifica pozitia si configuratia partilor componente. Modelul invata simultan sa clasifice si sa localizeze, chiar daca localizarea partilor nu este observata in antrenare.</p></div>
+  </div>
+</div>

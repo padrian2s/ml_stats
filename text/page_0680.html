@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>EKF: Transformarea Neliniara si Ecuatiile Filtrului</h2>
+  <p>Pagina prezinta Figura 18.9 ilustrand transformarea neliniara a variabilelor aleatoare Gaussiene si ecuatiile complete ale filtrului Kalman extins.</p>
+  <div class="figure-box"><strong>Figura 18.9:</strong> Transformarea neliniara a unei variabile aleatoare Gaussiene. Priorul p(x) este afisat in dreapta-jos, functia y = g(x) in dreapta-sus, iar distributia transformata p(y) in stanga-sus. O functie liniara induce o distributie Gaussiana, dar o functie neliniara produce o distributie complexa. Linia continua reprezinta cea mai buna aproximare Gaussiana, iar linia punctata este aproximarea EKF.</div>
+  <div class="highlight-box"><strong>Ecuatiile EKF complete:</strong> Modelul de sistem: p(z_t|z_{t-1}, u_t) ≈ N(z_t|g(u_t, μ_{t-1}) + G_t(z_{t-1} − μ_{t-1}), Q_t) (ec. 18.85), unde G_t este Jacobianul lui g evaluat la moda a priori. Ecuatiile de actualizare: μ_{t|t-1} = g(u_t, μ_{t-1}), V_{t|t-1} = G_t V_{t-1} G_t^T + Q_t, K_t = V_{t|t-1} H_t^T (H_t V_{t|t-1} H_t^T + R_t)^{-1}, μ_t = μ_{t|t-1} + K_t(y_t − h(μ_{t|t-1})), V_t = (I − K_t H_t)V_{t|t-1}.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza prezentarea EKF cu ecuatiile de actualizare si o ilustratie intuitiva. Figura 18.9 demonstreaza vizual de ce aproximarea Gaussiana este necesara si cum EKF o realizeaza prin liniarizare. Ecuatiile sunt identice cu cele ale filtrului Kalman, dar cu matricele Jacobiene G_t si H_t in locul matricelor constante A si C.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura EKF pastreaza aceleasi cinci ecuatii ca filtrul Kalman clasic: predictia mediei, predictia covariantei, castigul Kalman, actualizarea mediei si actualizarea covariantei. Diferenta consta in inlocuirea matricelor liniare cu Jacobieni evaluati local.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>EKF este utilizat extensiv in fuziunea senzorilor pentru vehicule autonome, urmarirea satelitilor, sistemele de navigatie aeronautica si localizarea in spatii interioare. Simplitatea implementarii il face preferabil in multe aplicatii industriale in timp real.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In urmarirea radar a aeronavelor, modelul de miscare include virajele care sunt neliniare. EKF liniarizeaza ecuatiile de miscare la fiecare pas de timp, permitand urmarirea precisa a tintelor chiar si in manevre complexe, cu un cost computational moderat.</p></div>
+  </div>
+</div>

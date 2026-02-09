@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Group Lasso: Detalii si Interpretare GSM (p.450)</h2>
+  <p>Aceasta pagina continua discutia despre Group Lasso, prezentand proprietatile normei l2 pe grupuri, comparatia cu norma l-infinit, si interpretarea ca mixtura Gaussiana de scara.</p>
+  <div class="highlight-box"><strong>Norma l2 pe Grup:</strong> ||w_g||_2 = sqrt(suma_{j in g} w_j^2). Radacina patrata penalizeaza raza bilei ce contine vectorul de ponderi al grupului: raza este mica doar daca toate elementele sunt mici.</div>
+  <div class="highlight-box"><strong>Varianta l-infinit:</strong> ||w_g||_inf = max_{j in g} |w_j|. Aceasta norma produce de asemenea raritate la nivel de grup, dar tinde sa egalizeze magnitudinile in cadrul unui bloc.</div>
+  <div class="highlight-box"><strong>Interpretarea GSM:</strong> p(w|gamma, sigma^2) proportional cu exp(-gamma/sigma * suma_{g=1}^{G} ||w_g||_2). Priorul poate fi scris ca GSM cu: w_g|sigma^2, tau_g^2 ~ N(0, sigma^2 * tau_g^2 * I_{d_g}) si tau_g^2|gamma ~ Ga((d_g+1)/2, gamma/2).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina aprofundeaza Group Lasso, demonstrand ca penalizarea cu norma l2 pe grupuri forteaza raritatea la nivel de grup (toate elementele devin zero simultan). Interpretarea GSM permite utilizarea algoritmului EM si ofera o perspectiva probabilistica completa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Alegerea normei intra-grup (l2 vs l-infinit) are consecinte practice importante: l2 permite variatii libere in cadrul grupului, in timp ce l-infinit forteaza coeficientii sa aiba magnitudini similare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In clasificarea textelor multilingve, fiecare limba poate fi un grup de trasaturi. Group Lasso selecteaza limbile relevante complet, nu trasaturi individuale din limbi diferite, producand modele mai interpretabile.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un studiu cu semnal de 4096 dimensiuni impartit in 64 de grupuri, Group Lasso (MSE = 0.000351) depaseste dramatic lasso standard (MSE = 0.06929) cand structura de bloc este prezenta in date.</p></div>
+  </div>
+</div>

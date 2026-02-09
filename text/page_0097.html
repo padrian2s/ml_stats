@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Posteriorul Bayesian și Estimarea MAP/MLE</h2>
+  <p>Pagina prezintă cum posteriorul se concentrează pe ipoteza corectă pe măsură ce crește cantitatea de date, și introduce estimarea MAP și MLE.</p>
+  <div class="figure-box"><strong>Figura 3.3:</strong> Prior, verosimilitate și posterior pentru D = {16,8,2,64}. Verosimilitatea este puternic concentrată pe „puteri ale lui 2", dominând posteriorul. Ipotezele nenaturale au posterior neglijabil.</div>
+  <div class="definition-box"><strong>Estimarea MAP:</strong> ĥ^MAP = argmax_h p(D|h)·p(h) = argmax_h [log p(D|h) + log p(h)]. Selectează ipoteza cu cel mai mare posterior.</div>
+  <div class="definition-box"><strong>Estimarea MLE:</strong> ĥ^MLE ≜ argmax_h p(D|h) = argmax_h log p(D|h). Cu date suficiente, MAP converge către MLE deoarece verosimilitatea crește exponențial cu N.</div>
+  <div class="highlight-box"><strong>Consistența:</strong> Dacă ipoteza adevărată este în spațiul H, estimatorii Bayesieni (MAP/MLE) sunt consistenți - converg la adevăr pe măsură ce N → ∞. Spațiul ipotezelor este identificabil la limită.</div>
+  <div class="highlight-box"><strong>Datele depășesc priorul:</strong> Termenul de verosimilitate depinde exponențial de N, în timp ce priorul rămâne constant. Astfel, cu date suficiente, datele „copleșesc" priorul.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cu mai multe date, posteriorul se concentrează pe ipoteza corectă. MAP și MLE sunt estimări punct care selectează cea mai probabilă ipoteză, dar pierd informația despre incertitudine.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Dependența exponențială a verosimilității de N explică de ce Bayesianismul și frecventismul converg cu date mari: priorul devine irelevant asimptotic.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MLE este cea mai utilizată metodă de estimare în practică datorită simplității. MAP adaugă regularizare și este echivalentă cu regularizarea L2 (ridge) pentru priori Gaussiene.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Antrenarea unui model de clasificare a spam-ului cu Naive Bayes: cu puține emailuri, priorul (frecvența generală a spam-ului) contează mult; cu milioane de emailuri, doar datele determină modelul.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Comparatie collapsed vs standard Gibbs si Gibbs pentru GLM-uri ierarhice</h2>
+  <p>Aceasta pagina compara performanta collapsed Gibbs cu Gibbs standard pe GMM si introduce esantionarea Gibbs pentru modele liniare generalizate ierarhice.</p>
+  <div class="definition-box"><strong>Comparatie pe GMM cu K=4:</strong> Figura 24.3 arata ca collapsed Gibbs (rosu) converge mai rapid si mai stabil decat Gibbs standard (albastru) pe date cu N=300 puncte din K=4 Gaussiene 2D. Ambele pot ramane blocate in optime locale.</div>
+  <div class="definition-box"><strong>Regresie liniara multi-nivel:</strong> Figura 24.4 arata cum imprumutarea de forta statistica intre scoli (modelul ierarhic) produce estimari mai stabile decat regresia separata per scoala, in special pentru scolile cu putine date.</div>
+  <div class="highlight-box"><strong>Gibbs pentru GLM-uri ierarhice:</strong> Sectiunea 24.2.5 introduce esantionarea Gibbs pentru modele multi-nivel, unde parametrii fiecarui grup (scoala) provin dintr-o distributie comuna. Aceasta permite "borrowing of statistical strength" intre grupuri.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina confirma experimental superioritatea collapsed Gibbs si face tranzitia catre modele ierarhice, unde Gibbs sampling permite inferenta completa in modele multi-nivel complexe. Modelarea ierarhica este una dintre cele mai puternice aplicatii practice ale MCMC.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Modelarea ierarhica Bayesiana rezolva elegant compromisul bias-varianta: scolile cu putine date "imprumuta" informatii de la scolile cu multe date prin distributia comuna a parametrilor, reducand varianta fara a introduce bias excesiv.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele ierarhice cu Gibbs sunt standard in educatie (evaluarea scolilor), sanatate publica (meta-analiza studiilor clinice) si marketing (modelarea heterogenitatii clientilor).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In evaluarea eficacitatii unui medicament prin meta-analiza a 20 de studii clinice, modelul ierarhic Bayesian cu Gibbs sampling combina informatia din toate studiile, oferind o estimare mai precisa si un interval de incredere mai realist decat analiza per-studiu.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Modele Markov - Netezire Bayesiană și Cuvinte din Afara Vocabularului (p. 595)</h2>
+  <p>Această pagină continuă discuția despre modelele de limbaj Markov, prezentând netezirea Bayesiană cu priori Dirichlet partajate și problema cuvintelor din afara vocabularului.</p>
+  <div class="definition-box"><strong>Kneser-Ney interpolat:</strong> Un model de limbaj de ultimă generație care depășește abordarea Bayesiană standard prin utilizarea contextelor de lungime variabilă pentru estimarea probabilităților cuvintelor.</div>
+  <div class="definition-box"><strong>Cuvinte din afara vocabularului (OOV):</strong> Cuvinte complet noi care nu apar în setul de antrenament și nu pot fi gestionate prin metodele standard de netezire.</div>
+  <div class="highlight-box"><strong>Formula Bayesiană (Ec. 17.15):</strong> Utilizarea formulei Bayesiene oferă automat efectul de „backing off" la m_k în loc de f_k, permițând o estimare mai bună a probabilităților contextuale.</div>
+  <div class="figure-box"><strong>Figura 17.3:</strong> Un lanț Markov în care fiecare rând al matricei de tranziție A are un prior Dirichlet diferit, dar hiperparametrii Dirichlet sunt partajați printr-un nod comun α_m.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstrează cum netezirea Bayesiană cu priori Dirichlet partajați poate îmbunătăți estimarea probabilităților în modelele de limbaj. Se introduce problema cuvintelor din afara vocabularului, care nu poate fi rezolvată prin simpla netezire a frecvențelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferența fundamentală între netezirea standard și cea Bayesiană constă în modul de gestionare a contextelor noi. Modelul Bayesian reușește automat să dea probabilitate mare cuvintelor frecvente în contextele noi, în timp ce netezirea standard tratează toate cuvintele la fel.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele de limbaj sunt esențiale în recunoașterea vorbirii, traducerea automată și completarea automată a textului. Gestionarea cuvintelor necunoscute este critică pentru orice sistem de procesare a limbajului natural.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un sistem de corectare ortografică, cuvintele noi (nume proprii, neologisme) trebuie gestionate fără a le respinge automat. Modelul trebuie să decidă dacă un cuvânt necunoscut este o greșeală sau un cuvânt valid.</p></div>
+  </div>
+</div>

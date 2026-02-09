@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Derivarea gradientului folosind energia libera</h2>
+  <p>Aceasta pagina prezinta o derivare alternativa a gradientului RBM prin marginalizarea variabilelor ascunse si utilizarea energiei libere F(v).</p>
+  <div class="definition-box"><strong>Energia libera:</strong> F(v) = -log sum_h exp(-E(v,h)), obtinuta prin marginalizarea variabilelor ascunse h din functia de energie. Pentru RBM-uri binare, F(v) = prod_k (1 + exp(sum_r v_r W_rk)).</div>
+  <div class="highlight-box"><strong>Echivalenta gradientilor:</strong> Derivarea prin energia libera produce acelasi gradient ca derivarea directa: dL/dw_rk = (1/N) sum_i E[v_r h_k | v, theta] - E[v_r h_k | theta], confirmand consistenta celor doua abordari.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Derivarea alternativa prin energia libera ofera o perspectiva mai clara asupra structurii gradientului. Marginalizarea analitica a variabilelor ascunse este posibila datorita structurii bipartite a RBM-ului, si conduce la o expresie a log-verosimilarii scalate in functie de energia libera.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Log-verosimilitatea se descompune in doi termeni: energia libera a datelor si log-functia de partitie. Gradientul este diferenta intre gradientul energiei libere evaluate pe date si speranta sa sub model. Aceasta derivare se aplica si altor modele bazate pe energie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Energia libera poate fi folosita ca masura de anomalie - datele cu energie libera mare sunt "surprinzatoare" pentru model, utile in detectia de anomalii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In monitorizarea calitatii industriale, energia libera a unui RBM antrenat pe date normale poate fi folosita pentru a detecta produse defecte ca puncte cu energie libera ridicata.</p></div>
+  </div>
+</div>

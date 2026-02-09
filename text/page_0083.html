@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Aproximarea Monte Carlo</h2>
+  <p>Pagina introduce metoda de aproximare Monte Carlo, o tehnică fundamentală pentru estimarea distribuțiilor și a valorilor așteptate prin eșantionare.</p>
+  <div class="definition-box"><strong>Aproximarea Monte Carlo:</strong> Pentru a calcula distribuția lui f(X), se generează S eșantioane x₁,...,x_S din distribuția p(X) și se utilizează distribuția empirică a {f(x_s)} ca aproximare.</div>
+  <div class="highlight-box"><strong>Integrarea Monte Carlo:</strong> E[f(X)] = ∫f(x)p(x)dx ≈ (1/S)Σf(x_s), unde x_s ~ p(X). Avantajul față de integrarea numerică: funcția este evaluată doar acolo unde probabilitatea este semnificativă.</div>
+  <div class="figure-box"><strong>Figura 2.18:</strong> Calculul distribuției lui y = x² unde p(x) este uniformă: (stânga) distribuția uniformă, (centru) rezultatul analitic, (dreapta) aproximarea Monte Carlo.</div>
+  <div class="highlight-box"><strong>Estimări prin MC:</strong> x̄ = (1/S)Σx_s → E[X]; (1/S)Σ(x_s − x̄)² → var[X]; (1/S)#{x_s ≤ c} → P(X ≤ c); median{x₁,...,x_S} → median(X).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Metoda Monte Carlo transformă probleme de integrare în probleme de eșantionare. Generând suficiente eșantioane, putem aproxima orice cantitate statistică de interes.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>MC este o metodă universală: funcționează pentru orice distribuție din care putem eșantiona, indiferent de dimensionalitate. Precizia crește cu √S, deci dublarea preciziei necesită de 4 ori mai multe eșantioane.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MC este utilizat masiv în inferența Bayesiană (MCMC), în fizica computațională, în evaluarea opțiunilor financiare, și în randarea grafică (ray tracing).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Evaluarea opțiunilor financiare exotice în bănci se face prin simulare Monte Carlo: se generează mii de traiectorii posibile ale prețului activului și se calculează valoarea medie a payoff-ului.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>De Unde Vine Sparsitatea in ARD si Conexiunea cu Estimarea MAP</h2>
+  <p>Pagina explica intuitia geometrica din spatele sparsitatii ARD (Figura 13.20) si conexiunea cu estimarea MAP, inclusiv priorul non-factorial efectiv.</p>
+  <div class="highlight-box"><strong>Figura 13.20 - Intuigia sparsitatii ARD:</strong> Cand vectorul de intrari x nu este aliniat cu vectorul de iesiri y, alpha -> infinit elimina feature-ul. (a) Alpha finit: densitatea este elongata in directia x, risipind masa de probabilitate. (b) Alpha = infinit: C = (1/beta)I, densitate sferica concentrata pe y.</div>
+  <div class="highlight-box"><strong>De unde sparsitatea? (Sectiunea 13.7.2):</strong> Daca alpha_j ≈ 0, w_j ≈ w_j^mle (prior slab). Daca alpha_j -> infinit, w_j -> 0 (feature eliminat). ML-II incurajeaza alpha_j -> infinit pentru feature-uri irelevante, deoarece C sferica maximizeaza densitatea la y. Ecuatia C (Eq. 13.159): C = (1/beta)I + (1/alpha)xx^T.</div>
+  <div class="definition-box"><strong>Conexiunea cu estimarea MAP (Sectiunea 13.7.3):</strong> ARD poate fi vazut ca MAP cu prior non-factorial: w^ARD = argmin beta||y - Xw||_2^2 + g_ARD(w), unde g_ARD(w) = min_{alpha>=0} suma alpha_j w_j^2 + log|C_alpha| (Eq. 13.160-13.161). Priorul efectiv p(w|alpha_hat) este non-factorial, imprumutand informatie din toate feature-urile.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sparsitatea ARD provine din principiul parsimoniei Bayesiene (Occam's razor): verosimilitatea marginala preferd modele care concentreaza masa de probabilitate pe datele observate, nu o risipesc in directii irelevante. Feature-urile irelevante (necorelate cu y) sunt penalizate deoarece adauga dimensiuni inutile, reducand densitatea la punctul observat.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conexiunea ARD-MAP reveleaza ca priorul efectiv ARD este non-factorial (alpha_j depinde de toate datele, nu doar de w_j). Wipf si Nagarajan (2007) demonstreaza ca acest prior non-factorial produce mai putine optime locale decat orice prior factorial, iar optimul global corespunde optimului global al regularizarii l0.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intuitia geometrica din Figura 13.20 este utila pentru diagnostic: daca ARD nu produce sparsitate, poate insemna ca feature-urile sunt toate partial corelate cu y, deci niciun alpha_j nu diverge. In acest caz, regularizarea l2 sau elastic net poate fi mai potrivita.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In selectia de biomarkeri genomici, ARD identifica genele relevante pentru o boala exploatand structura de corelatie din datele de expresie genica, spre deosebire de LASSO care trateaza fiecare gena independent.</p></div>
+  </div>
+</div>

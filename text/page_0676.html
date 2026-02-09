@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Inferenta in LG-SSM: Netezirea si Comparatia cu HMM-uri</h2>
+  <p>Pagina continua prezentarea inferentei in modelele spatiului starilor liniar-Gaussiene, acoperind netezirea distributiei si comparatia cu algoritmul forwards-backwards pentru HMM-uri.</p>
+  <div class="definition-box"><strong>Netezirea (Smoothing):</strong> Procesul de calcul al distributiei posterioare p(z_t|y_{1:T}) folosind toate datele disponibile, atat trecute cat si viitoare. Se calculeaza media μ_{t|T} si covarianta Σ_{t|T} folosind reguli de expectatie si covarianta iterate.</div>
+  <div class="highlight-box"><strong>Formule de netezire:</strong> Media netezita: μ_{t|T} = μ_{t|t} + J_t(μ_{t+1|T} − μ_{t+1|t}). Covarianta netezita: Σ_{t|T} = Σ_{t|t} + J_t(Σ_{t+1|T} − Σ_{t+1|t})J_t^T, unde J_t este matricea de castig a netezirii.</div>
+  <div class="highlight-box"><strong>Comparatie forwards-backwards HMM vs LDS:</strong> p(z_t|y_{1:T}) = ∫ p(z_t|y_{1:t}, z_{t+1})p(z_{t+1}|y_{1:T})dz_{t+1} (ec. 18.75). In LDS se lucreaza cu distributii normalizate, spre deosebire de HMM-uri unde trecerea inapoi se calculeaza independent.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta derivarea completa a formulelor de netezire Kalman, incluzand calculul mediei si covariantei netezite. Se face o comparatie importanta intre algoritmul forwards-backwards pentru LDS si cel pentru HMM-uri, subliniind ca in LDS trecerea inapoi depinde de rezultatele trecerii inainte.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Netezirea Kalman foloseste o structura recursiva inversa, propagand informatia de la T la 1. Matricea de castig J_t joaca un rol central in combinarea estimarilor filtrate cu cele netezite. Diferenta fundamentala fata de HMM-uri consta in dependenta pasului backward de pasul forward.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Netezirea Kalman se utilizeaza in reconstructia traiectoriilor GPS, procesarea semnalelor audio, estimarea retroactiva a pozitiei in robotica si analiza seriilor de timp financiare unde se doreste cea mai buna estimare posibila a starii la fiecare moment.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un sistem de navigatie aeriana, netezirea Kalman este folosita post-zbor pentru a reconstrui traiectoria exacta a aeronavei, combinand toate masuratorile senzorilor (GPS, IMU, altimetru) pentru o estimare mult mai precisa decat filtrarea in timp real.</p></div>
+  </div>
+</div>

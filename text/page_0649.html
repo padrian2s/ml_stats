@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Algoritmul Baum-Welch (EM pentru HMM) - Pasul E</h2>
+  <p>Aceasta pagina prezinta algoritmul Baum-Welch (EM aplicat HMM-urilor), derivand pasul E cu statisticile suficiente asteptate si conturile asteptate.</p>
+  <div class="definition-box"><strong>Algoritmul Baum-Welch:</strong> EM aplicat HMM-urilor. Pasul E calculeaza statisticile suficiente asteptate E[N_k^1], E[N_jk] si E[N_j] folosind marginalele gamma_{i,t}(j) = p(z_t=j|x_i, theta^old) si xi_{i,t}(j,k) = p(z_{t-1}=j, z_t=k|x_i, theta^old) obtinute din forward-backward.</div>
+  <div class="highlight-box"><strong>Q-function:</strong> Q(theta, theta^old) = sum E[N_k^1] log pi_k + sum sum E[N_jk] log A_jk + sum sum sum p(z_t=k|x_i, theta^old) log p(x_{i,t}|phi_k), separabila in trei termeni independenti.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pasul E al algoritmului Baum-Welch ruleaza forward-backward pe fiecare secventa de antrenament pentru a calcula marginalele posterioare gamma_{i,t}(j) (probabilitatea starii j la timpul t) si xi_{i,t}(j,k) (probabilitatea tranzitiei j->k la timpul t). Acestea sunt folosite pentru a calcula conturile asteptate: E[N_k^1] (conturi initiale), E[N_jk] (conturi tranzitii), E[N_j] (conturi stare). Q-function-ul se separa in trei termeni optimizabili independent.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura EM pentru HMM este analoga cu EM pentru GMM: pasul E 'atribuie' (probabilistic) fiecare observatie la o stare, pasul M actualizeaza parametrii. Diferenta: in HMM, 'atribuirea' tine cont de structura temporala prin forward-backward, nu doar de verosimilitatea locala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Baum-Welch este implementat in hmmlearn (Python), HMM toolbox (Matlab), GHMM si pomegranate. Convergenta poate fi lenta si depinde de initializare. In practica, se ruleaza de la mai multe initializari aleatorii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea vorbirii, Baum-Welch antreneaza HMM-urile pe mii de ore de vorbire transcrisa, iterand intre estimarea starilor fonemice (E step) si actualizarea parametrilor acustici (M step).</p></div>
+  </div>
+</div>

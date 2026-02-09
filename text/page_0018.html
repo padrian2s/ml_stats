@@ -1,0 +1,39 @@
+<div class="page-content">
+  <h2>Cuprins (Partea 11)</h2>
+
+  <p>Continuarea cuprinsului cu Capitolele 17 si 18.</p>
+
+  <div class="definition-box"><strong>Capitolul 17 - Modele Markov si Modele Markov Ascunse (p. 589):</strong>
+    17.1 Introducere; 17.2 Modele Markov - matricea de tranzitie, modelarea limbajului, distributia stationara a unui lant Markov, algoritmul PageRank al Google;
+    17.3 Modele Markov ascunse (HMM) - aplicatii;
+    17.4 Inferenta in HMM - probleme de inferenta pentru modele temporale, algoritmul forward, algoritmul forward-backward, algoritmul Viterbi, filtrare forward si esantionare backward;
+    17.5 Invatare pentru HMM - date complet observate, algoritmul Baum-Welch (EM), metode bayesiene, antrenare discriminativa, selectia modelului;
+    17.6 Generalizari ale HMM - HMM cu durata variabila (semi-Markov), HMM ierarhice, HMM input-output, HMM auto-regresive si buried, HMM factorial, HMM cuplate, retele bayesiene dinamice (DBN).</div>
+
+  <div class="definition-box"><strong>Capitolul 18 - Modele ale Spatiului Starilor (p. 631):</strong>
+    18.1 Introducere; 18.2 Aplicatii - urmarirea obiectelor, SLAM robotic, invatarea parametrilor online, SSM pentru serii temporale;
+    18.3 Inferenta in LG-SSM - filtrul Kalman, algoritmul de netezire Kalman;
+    18.4 Invatare pentru LG-SSM - identificabilitate, date complet observate, EM, metode sub-spatiu, metode bayesiene;
+    18.5 Inferenta online aproximativa pentru SSM-uri non-liniare/non-Gaussiene - filtrul Kalman extins (EKF), filtrul Kalman unscented (UKF), filtrarea cu densitate presupusa (ADF);
+    18.6 SSM-uri hibride discrete/continue - inferenta, asocierea datelor, diagnosticarea defectiunilor, prognoza econometrica.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section">
+      <h4>Rezumat</h4>
+      <p>Capitolele 17 si 18 trateaza modele secventiale si temporale. HMM-urile (cap. 17) modeleaza secvente cu stari discrete ascunse, iar modelele spatiului starilor (cap. 18) extind ideea la stari continue, cu filtrul Kalman ca instrument central de inferenta.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Tipare Cheie</h4>
+      <p>Ambele capitole urmeaza tiparul: definirea modelului → inferenta (filtrare, netezire, decodare) → invatarea parametrilor → extensii. Proprietatea Markov (viitorul depinde doar de prezent, nu de trecut) unifica ambele cadre.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Aplicatii Practice</h4>
+      <p>HMM-urile (17.3) sunt fundamentale in recunoasterea vocii si bioinformatica (alinierea secventelor ADN). Filtrul Kalman (18.3.1) este esential in navigatia GPS, controlul rachetelor si robotica.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Exemplu din Lumea Reala</h4>
+      <p>Algoritmul PageRank al Google (17.2.4) modeleaza navigarea pe web ca un lant Markov, unde "importanta" unei pagini este probabilitatea stationara de a ajunge pe ea printr-o navigare aleatoare. Filtrul Kalman (18.3) este folosit de GPS-ul telefonului pentru a combina masuratorile satelit cu datele de la accelerometru.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Capitolul 1: Descoperirea Clusterelor</h2>
+  <p>Clusterizarea ca exemplu canonic de invatare nesupervizata, variabile latente si clusterizare bazata pe modele.</p>
+  <div class="definition-box"><strong>Clusterizare (Clustering):</strong> Gruparea datelor in K clustere (grupuri), unde K poate fi necunoscut. Scopul este de a estima distributia p(K|D) si de a asigna fiecare punct unui cluster z_i ∈ {1, ..., K}.</div>
+  <div class="definition-box"><strong>Variabila Latenta (Hidden Variable):</strong> Variabila z_i care indica clusterul din care face parte punctul de date i, dar care nu este observata direct in setul de antrenament.</div>
+  <div class="definition-box"><strong>Clusterizare Bazata pe Modele (Model-Based Clustering):</strong> Ajustarea unui model probabilistic la date, in loc de a folosi un algoritm ad hoc. Permite compararea obiectiva a modelelor prin verosimilitate.</div>
+  <div class="definition-box"><strong>Selectia Modelului (Model Selection):</strong> Alegerea complexitatii potrivite a modelului (de exemplu, numarul K de clustere).</div>
+  <div class="figure-box"><strong>Figura 1.8:</strong> (a) Inaltimea si greutatea a 210 persoane, reprezentate ca date 2D. (b) O posibila clusterizare cu K = 2, unde culorile indica apartenenta la cluster.</div>
+  <div class="highlight-box"><strong>Asignarea Clusterelor:</strong> z_i* = argmax_k p(z_i = k|x_i, D) - fiecare punct de date este asignat clusterului cu cea mai mare probabilitate posterioara.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 1.3.1 introduce clusterizarea ca exemplu fundamental de invatare nesupervizata. Se introduce conceptul de variabila latenta z_i care indica apartenenta la cluster. Abordarea bazata pe modele permite compararea obiectiva a diferitelor configuratii de clustere. Citatul lui Geoffrey Hinton subliniaza ca invatarea nesupervizata este mai naturala decat cea supervizata.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Numarul de clustere K este o alegere critica si ilustreaza problema generala a selectiei modelului. In cazul supervizat, numarul de clase este dat; in cazul nesupervizat, trebuie estimat din date. Abordarea probabilistica permite estimarea lui p(K|D), oferind o solutie principiala la aceasta problema.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clusterizarea este utilizata in astronomie (descoperirea de noi tipuri de stele cu sistemul autoclass), e-commerce (segmentarea clientilor pentru publicitate targetata), si biologie (descoperirea sub-populatiilor de celule prin citometrie in flux).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un magazin online poate folosi clusterizarea pentru a grupa clientii pe baza comportamentului de cumparare si navigare. Fiecare cluster identifica un segment de piata (de exemplu, cumparatori frecventi de electronice, cumparatori ocazionali de carti), permitand campanii de marketing personalizate.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>PCA Clasica: Teorema si Ilustrare</h2>
+  <p>Pagina prezinta Figura 12.5 (comparatie PCA vs PPCA), Figura 12.6 (eigendigits MNIST), norma Frobenius si solutia optima PCA prin vectori proprii.</p>
+  <div class="highlight-box"><strong>Figura 12.5:</strong> (a) PCA: proiectie ortogonala pe prima componenta principala (cea mai buna linie 1D). (b) PPCA: proiectia nu mai este ortogonala, reconstructiile sunt "trase" spre medie (efect de shrinkage).</div>
+  <div class="highlight-box"><strong>Figura 12.6:</strong> (a) Media si primii 3 vectori PC (eigendigits) pentru cifra 3 din MNIST. (b) Reconstructie cu 2, 10, 100 si toti vectorii baza - calitatea creste cu numarul de componente.</div>
+  <div class="definition-box"><strong>Norma Frobenius (Eq. 12.28):</strong> ||A||_F = sqrt(suma a_ij^2) = sqrt(tr(A^T A)) = ||A(:)||_2. Masoara "dimensiunea" totala a unei matrici, generalizand norma L2 la matrice.</div>
+  <div class="highlight-box"><strong>Solutia PCA:</strong> W_hat = V_L (primii L vectori proprii ai Sigma_hat), z_i = W^T x_i (proiectie ortogonala). Standardizarea datelor (sau folosirea matricii de corelatie) este critica pentru a evita dominarea de variabile cu scala mare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>PCA gaseste subspatiul liniar L-dimensional care minimizeaza eroarea de reconstructie (norma Frobenius). Solutia este data de vectorii proprii ai matricii de covarianta empirice corespunzand celor mai mari L valori proprii. Standardizarea datelor este esentiala cand variabilele au scari diferite.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta PCA vs PPCA: PCA proiecteaza ortogonal (z_i = W^T x_i), PPCA include un efect de regularizare (shrinkage spre medie). PPCA este mai robusta la zgomot, PCA este mai simpla si interpretabila.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>PCA pe imagini (eigenfaces, eigendigits) este o tehnica clasica de reducere dimensionala. Reconstructia cu numar variabil de componente permite controlul compromisului compresie-fidelitate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In compresia de imagini, PCA cu L=10-50 componente poate reconstrui fete umane cu eroare imperceptibila, reducand dimensiunea de la mii de pixeli la zeci de coeficienti.</p></div>
+  </div>
+</div>

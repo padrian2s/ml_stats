@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>ICA - Distributii Non-Gaussiene si Identificabilitatea Surselor</h2>
+  <p>Pagina explica de ce distributia gaussiana nu permite recuperarea unica a surselor in ICA si introduce distributiile non-gaussiene ca priori pentru surse.</p>
+  <div class="definition-box"><strong>Analiza componentelor independente (ICA):</strong> Modelul rezultant cand priorul surselor este un produs de distributii non-gaussiene independente: p(zₜ) = Π_j pⱼ(zₜⱼ), cu varianta constransa la 1.</div>
+  <div class="figure-box"><strong>Figura 12.21:</strong> Ilustrarea ICA si PCA pe 100 de esantioane iid dintr-o sursa uniforma 2D. (a) Semnalele latente (distributie uniforma). (b) Observatiile dupa amestecarea liniara. (c) Estimarea PCA - nu recupereaza sursele. (d) Estimarea ICA - recupereaza corect sursele uniforme.</div>
+  <div class="highlight-box"><strong>De ce gaussiana esueaza:</strong> Verosimilitatea PCA este invarianta la orice transformare ortogonala a surselor zₜ si matricei de amestecare W. PCA recupereaza subspatiul corect, dar nu poate identifica unic semnalele individuale.</div>
+  <div class="highlight-box"><strong>Constransa de varianta:</strong> Varianta distributiilor sursa poate fi constransa la 1 fara pierdere de generalitate, deoarece orice alta varianta poate fi absorbita prin scalarea randurilor lui W.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 12.21 ofera o demonstratie vizuala clara: datele uniforme 2D formeaza un patrat in spatiul latent, care devine un paralelogram dupa amestecarea liniara. PCA gaseste axele de varianta maxima (directii gresite), in timp ce ICA gaseste axele paralelogramului (directiile corecte). Cheia este ca distributia uniforma este non-gaussiana, rupand simetria rotationala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ambiguitatea gaussiana este fundamentala: orice distributie gaussiana multivariata poate fi descompusa in infinite moduri in componente gaussiene independente prin rotatii diferite. Distributiile non-gaussiene nu au aceasta proprietate, permitand identificarea unica (pana la permutari si schimbari de semn). Aceasta este o consecinta a Teoremei Limita Centrala - amestecurile sunt mai „gaussiene" decat sursele.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea distributiei non-gaussiene pentru priori este critica in ICA. Distributii cu cozi grele (super-gaussiene/leptokurtice) sunt potrivite pentru semnale rare (imagini naturale), iar distributii cu cozi usoare (sub-gaussiene/platikurtice) sunt potrivite pentru semnale uniforme sau limitate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza imaginilor satelitare multispectrale, fiecare pixel contine un amestec de semnaturi spectrale ale diferitelor materiale (vegetatie, apa, sol). ICA cu priori non-gaussiene poate separa aceste semnaturi, producand harti de abundenta pentru fiecare material - o tehnica numita „spectral unmixing".</p></div>
+  </div>
+</div>

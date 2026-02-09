@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Kerneluri pentru Modele Generative - Kerneluri de Netezire</h2>
+  <p>Pagina introduce kernelurile de netezire (smoothing kernels) folosite pentru estimarea neparametrică a densității și construirea modelelor generative.</p>
+  <div class="definition-box"><strong>Kernel de netezire:</strong> O funcție κ(x) care satisface trei proprietăți: ∫κ(x)dx = 1 (normalizare), ∫xκ(x)dx = 0 (medie zero), ∫x²κ(x)dx > 0 (varianță pozitivă).</div>
+  <div class="definition-box"><strong>Kernelul Gaussian:</strong> κ(x) = (2π)^(−1/2) · e^(−x²/2). Are suport nelimitat dar este diferențiabil peste tot.</div>
+  <div class="definition-box"><strong>Parametrul de bandă h:</strong> Controlează lățimea kernelului: κ_h(x) = (1/h)κ(x/h). Un h mai mare produce estimări mai netede dar cu mai puțin detaliu.</div>
+  <div class="highlight-box"><strong>Kernel RBF multidimensional:</strong> κ_h(x) = κ_h(||x||) pentru intrări vectoriale. Pentru kernelul Gaussian: κ_h(x) = (1/(h^D(2π)^(D/2))) · Πⱼ exp(−xⱼ²/(2h²)).</div>
+  <div class="figure-box"><strong>Figura 14.16:</strong> Compararea kernelurilor de netezire populare: boxcar (suport compact, neted), Epanechnikov (suport compact, nediferențiabil la frontieră), tri-cube (suport compact, două derivate continue) și Gaussian (diferențiabil, suport nelimitat).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Kernelurile de netezire sunt diferite de kernelurile Mercer folosite în SVM/GP. Ele sunt funcții de densitate de probabilitate folosite pentru estimarea neparametrică. Alegerea kernelului afectează netezimea estimării, iar parametrul de bandă h controlează compromisul bias-varianță.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Kernelurile cu suport compact (boxcar, Epanechnikov, tri-cube) permit evaluarea mai rapidă, deoarece doar punctele din vecinătate contribuie. Kernelul Gaussian este cel mai popular dar are suport infinit. Alegerea kernelului este mai puțin importantă decât alegerea lui h.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Kernelurile de netezire sunt fundamentale în estimarea densității kernel (KDE), regresia kernel și vizualizarea datelor. Sunt folosite în statistică, econometrie și procesarea semnalelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În analiza distribuției veniturilor unei populații, KDE cu kernel Gaussian produce o estimare netedă și continuă a densității, mult mai informativă decât o histogramă tradițională cu alegere arbitrară a intervalelor.</p></div>
+  </div>
+</div>

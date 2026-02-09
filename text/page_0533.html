@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>SVM-uri pentru Clasificare Multi-clasă</h2>
+  <p>Pagina discută provocările extinderii SVM-urilor de la clasificare binară la clasificare multi-clasă, prezentând abordările one-versus-rest și one-versus-one.</p>
+  <div class="definition-box"><strong>One-versus-rest (OVR / one-vs-all):</strong> Abordare în care se antrenează C clasificatori binari, fiecare separând clasa c de toate celelalte. Predicția: ŷ(x) = argmax_c f_c(x). Poate genera regiuni ambigue în spațiul de intrare.</div>
+  <div class="definition-box"><strong>One-versus-one (OVO / all pairs):</strong> Abordare în care se antrenează C(C−1)/2 clasificatori, câte unul pentru fiecare pereche de clase. Predicția se face prin vot majoritar. Complexitate de antrenare: O(C²N²).</div>
+  <div class="definition-box"><strong>Dezechilibrul claselor (class imbalance):</strong> Problemă care apare în OVR când clasa pozitivă are mult mai puține exemple decât clasele negative combinate, afectând performanța clasificatorului.</div>
+  <div class="figure-box"><strong>Figura 14.14:</strong> (a) Abordarea one-versus-rest: regiunea verde este prezisă ca aparținând ambelor clase 1 și 2, generând ambiguitate. (b) Abordarea one-versus-one: regiuni ambigue pot apărea și aici la intersecția frontierelor de decizie.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Extinderea SVM la clasificare multi-clasă nu este trivială deoarece ieșirile SVM nu sunt probabilități calibrate, deci nu sunt comparabile între clase. OVR antrenează C clasificatori dar suferă de dezechilibrul claselor. OVO antrenează C(C−1)/2 clasificatori dar are complexitate crescută. Ambele pot genera regiuni ambigue.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Toate dificultățile clasificării multi-clasă cu SVM provin din lipsa modelării probabilistice. Metodele probabilistice (regresie logistică multinomială, GP-uri) gestionează natural mai multe clase. Codurile corectoare de erori oferă o altă alternativă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clasificarea multi-clasă cu SVM este necesară în recunoașterea cifrelor scrise de mână (10 clase), clasificarea documentelor (sute de categorii) și recunoașterea obiectelor în imagini.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În recunoașterea cifrelor poștale (0-9), abordarea OVR antrenează 10 SVM-uri, iar OVO antrenează 45. Pentru un serviciu poștal care procesează milioane de scrisori, alegerea strategiei afectează semnificativ timpul de antrenare și predicție.</p></div>
+  </div>
+</div>

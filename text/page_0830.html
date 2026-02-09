@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Estimarea starii MAP in modele grafice discrete</h2>
+  <p>Aceasta pagina introduce problema estimarii MAP (Maximum A Posteriori) in modele grafice discrete si prezinta relaxarea prin programare liniara (LP relaxation).</p>
+  <div class="definition-box"><strong>Estimarea MAP:</strong> x* = arg max_{x in X^m} p(x|theta) = arg max sum theta_i(x_i) + sum theta_f(x_f) = arg max theta^T*phi(x). Se cauta configuratia de variabile cu probabilitatea maxima.</div>
+  <div class="definition-box"><strong>Relaxarea LP:</strong> In loc de a optimiza peste politopul marginal M(G) (exponential de multe fete), se relaxeaza la L(G) (polinomial de multe constrangeri): max theta^T*mu <= max theta^T*tau. Daca solutia este integrala, este exacta; daca este fractionara, este o aproximare.</div>
+  <div class="highlight-box"><strong>Relaxare de ordinul intai:</strong> Constrangerile impuse corespund consistentei pe arbori (treewidth 1). Se pot impune constrangeri de ordin mai mare pentru treewidth mai mare, obtinand aproximari mai stranse dar mai costisitoare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la inferenta marginala la estimarea MAP, formuland-o ca problema de optimizare liniara peste politopul marginal. Relaxarea LP inlocuieste M(G) cu L(G), transformand o problema NP-hard intr-o problema polinomiala (LP), cu garantia ca solutia este o margine superioara pe obiectivul MAP.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Estimarea MAP difera de inferenta marginala prin absenta termenului de entropie (sau echivalent, limita de temperatura zero). Aceasta simplificare face obiectivul liniar (nu concav), dar face optimizarea combinatorie (nu continua).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Estimarea MAP este esentiala in etichetarea secventelor (NER, POS tagging), segmentarea imaginilor si configurarea optima in sisteme complexe.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In etichetarea gramaticala a textului (POS tagging), estimarea MAP gaseste secventa de etichete (substantiv, verb, adjectiv...) cu probabilitatea maxima data secventa de cuvinte, folosind algoritmul Viterbi pe CRF-uri.</p></div>
+  </div>
+</div>

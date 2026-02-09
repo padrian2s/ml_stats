@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Contractia Bayesiana si Estimatorul James-Stein</h2>
+  <p>Pagina deriveaza formula de contractie (shrinkage) in modelul Gaussiana-Gaussiana si introduce conexiunea cu estimatorul James-Stein, cu aplicatie la mediile de bataie in baseball.</p>
+  <div class="definition-box"><strong>Factor de contractie (Shrinkage factor):</strong> B_hat_j = σ²ⱼ / (σ²ⱼ + τ_hat²) (Ecuatia 5.85), unde 0 ≤ B_hat_j ≤ 1 controleaza cat de mult este media posterioara contractata catre media generala μ.</div>
+  <div class="definition-box"><strong>Estimatorul James-Stein:</strong> θ_hat_j = B_hat · x_bar + (1 - B_hat) · x_bar_j (Ecuatia 5.86) - media posterioara este o medie ponderata intre media generala si media locala a grupului.</div>
+  <div class="highlight-box"><strong>Posterioara grupului j:</strong> p(θⱼ|D, μ_hat, τ_hat²) = N(θⱼ | B_hat_j · μ_hat + (1-B_hat_j) · x_bar_j, (1-B_hat_j) · σ²ⱼ) (Ecuatia 5.84)</div>
+  <div class="highlight-box"><strong>Logica contractiei:</strong> Daca datele sunt fiabile (σ²ⱼ mic relativ la τ²), B_hat_j este mic si ne bazam pe x_bar_j. Daca datele sunt nesigure (σ²ⱼ mare), B_hat_j este mare si ne bazam pe media generala μ.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Formula de contractie este eleganta si intuitiva: θ_hat_j = B·x_bar + (1-B)·x_bar_j. Cand σ²ⱼ este mic (multe date in grupul j), B → 0 si θ_hat_j → x_bar_j (ne bazam pe datele locale). Cand σ²ⱼ este mare (putine date), B → 1 si θ_hat_j → x_bar (ne bazam pe media generala). Aceasta are exact forma estimatorului James-Stein din statistica frecventista.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Estimatorul James-Stein demonstreaza un rezultat surprinzator: in dimensiuni D ≥ 3, MLE nu este admisibil - exista intotdeauna un estimator de contractie care il domina uniform. Aceasta este o justificare frecventista puternica pentru abordarea bayesiana ierarhica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Contractia bayesiana este folosita in genomica (estimarea nivelurilor de expresie genica), finante (estimarea randamentelor asteptate ale activelor) si sport analytics (estimarea performantei jucatorilor).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Aplicatia la baseball (Efron si Morris, 1975): D=18 jucatori, T=45 meciuri. MLE-ul (media de bataie) este bⱼ/T, dar estimatorul EB cu contractie prezice mai bine performanta finala a sezonului, deoarece contracteaza mediile extreme catre media generala.</p></div>
+  </div>
+</div>

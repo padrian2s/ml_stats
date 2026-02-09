@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Capitolul 7: Regresia Liniară - Introducere și Specificarea Modelului</h2>
+  <p>Pagina deschide capitolul 7 despre regresia liniară, „calul de bătaie" al statisticii și învățării automate supervizate, și definește specificarea modelului.</p>
+  <div class="definition-box"><strong>Regresia Liniară:</strong> Model fundamental al statisticii și ML supervizat. Poate modela relații neliniare prin expansiuni de funcții de bază, și poate fi utilizat pentru clasificare prin înlocuirea ieșirii Gaussiene cu o distribuție Bernoulli sau multinoulli.</div>
+  <div class="highlight-box"><strong>Modelul de bază:</strong> p(y|x, θ) = N(y|w^T x, σ²), răspunsul y este distribuit normal cu media liniară în intrări și varianță constantă σ².</div>
+  <div class="definition-box"><strong>Expansiunea Funcțiilor de Bază:</strong> p(y|x, θ) = N(y|w^T φ(x), σ²), unde φ(x) este o transformare neliniară a intrărilor. Modelul rămâne liniar în parametri w, de aceea se numește tot „regresie liniară".</div>
+  <div class="highlight-box"><strong>Funcții de bază polinomiale:</strong> φ(x) = [1, x, x², ..., x^d], unde gradul d controlează complexitatea modelului. Creșterea lui d permite modelarea funcțiilor tot mai complexe.</div>
+  <div class="highlight-box"><strong>Extensie multivariabilă:</strong> Regresia liniară poate fi aplicată la mai mult de o intrare. Exemplu: modelarea temperaturii ca funcție de locație (x₁, x₂) cu E[y|x] = w₀ + w₁x₁ + w₂x₂ sau cu termeni pătratici.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 7 începe cu regresia liniară, unul dintre cele mai importante modele din statistică și ML. Liniaritatea se referă la parametri (w), nu la intrări - prin expansiuni de funcții de bază (polinomiale, RBF, etc.), modelul poate captura relații neliniare arbitrar de complexe.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distincția crucială între „liniar în intrări" și „liniar în parametri" este fundamentală. Toate rezultatele analitice ale regresiei liniare (soluția în formă închisă, proprietățile statistice) se aplică datorită liniarității în parametri, indiferent de complexitatea funcțiilor de bază.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia liniară este omniprezentă: predicția prețurilor, analiza factorilor de risc în medicină, modele economice, și ca fundament pentru modele mai complexe (GLM-uri, rețele neurale).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Modelarea temperaturii într-o clădire ca funcție de locație (exemplul din Figura 7.1) folosind senzori de la Intel demonstrează aplicabilitatea directă: un plan liniar simplu poate captura tendințele principale, iar un model pătratic poate modela variațiile locale.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Regresia Ponderat Local și Exerciții - Capitolul 14</h2>
+  <p>Pagina prezintă regresia ponderat local (LOESS/LOWESS) ca extensie a regresiei kernel și include exercițiile de la sfârșitul Capitolului 14 despre kerneluri.</p>
+  <div class="definition-box"><strong>Regresia ponderat local (LOESS/LOWESS):</strong> Metodă care potrivește un model liniar local pentru fiecare punct de test x*, minimizând Σᵢ κ(x*, xᵢ)[yᵢ − β(x*)ᵀφ(xᵢ)]², unde φ(x) = [1, x]. Aceasta oferă o aproximare mai bună decât regresia kernel simplă (constantă locală).</div>
+  <div class="definition-box"><strong>Kernelul echivalent:</strong> Termenul wᵢ(x*) care combină kernelul local de netezire cu efectul regresiei liniare locale. Vezi Secțiunea 15.4.2 pentru detalii.</div>
+  <div class="highlight-box"><strong>Soluția regresiei locale:</strong> β(x*) = (ΦᵀD(x*)Φ)⁻¹ΦᵀD(x*)y, unde D = diag(κ(x*, xᵢ)) și Φ este matricea de design N × (D+1). Predicția: f̂(x*) = Σᵢ wᵢ(x*)yᵢ.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Regresia ponderat local îmbunătățește regresia kernel simplă prin potrivirea unui model liniar (nu doar o constantă) în vecinătatea fiecărui punct de test. Aceasta reduce biasul la frontierele domeniului și produce estimări mai precise. Exercițiile capitolului acoperă antrenarea manuală a SVM și separabilitatea liniară.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la regresia kernel (constantă locală) la LOESS (liniară locală) reduce biasul fără a crește semnificativ varianța. Kernelul echivalent rezumă efectul combinat al ponderării locale și al regresiei.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LOESS este foarte popular în statistică aplicată și vizualizarea datelor (de ex., funcția geom_smooth din ggplot2 în R). Este folosit în epidemiologie, economie și științele sociale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În analiza tendințelor de poluare atmosferică, LOESS poate estima trendul temporar al concentrațiilor de PM2.5, adaptându-se local la schimbările sezoniere fără a presupune un model global.</p></div>
+  </div>
+</div>

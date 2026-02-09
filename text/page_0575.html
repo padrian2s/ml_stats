@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Arbori de clasificare si regresie (CART) - Bazele</h2>
+  <p>Aceasta pagina introduce arborii de decizie CART, explicand partitionarea recursiva a spatiului de intrare prin separari paralele cu axele si interpretarea ca model ABM.</p>
+  <div class="definition-box"><strong>CART (Classification and Regression Trees):</strong> Arbori de decizie care partitioneaza recursiv spatiul de intrare prin separari paralele cu axele, definind un model local in fiecare regiune rezultata. f(x) = sum w_m * I(x in R_m), unde R_m sunt regiunile si w_m sunt raspunsurile medii.</div>
+  <div class="highlight-box"><strong>CART ca ABM:</strong> Modelul CART este un ABM unde phi_m(x; v_m) = I(x in R_m), cu v_m codificand variabila de separare, pragul si calea de la radacina la frunza m. Gasirea functiilor de baza optime este NP-hard.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>CART partitioneaza recursiv spatiul prin intrebari de forma 'x_j < t?'. Fiecare frunza defineste o regiune R_m cu un raspuns constant w_m (regresie) sau o distributie peste clase (clasificare). In exemplul 2D, 3 separari produc 5 regiuni cu suprafata de raspuns constanta pe portiuni. Pentru clasificare, fiecare frunza stocheaza fractia empirica de exemple pozitive.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Arborii CART au structura ierarhica care permite interpretare usoara. Separarea paralela cu axele limiteaza expresivitatea dar simplifica constructia. Fiecare cale radacina-frunza corespunde unei conjunctii de conditii pe trasaturi - un model 'if-then' natural.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>CART este baza pentru Random Forests, Gradient Boosted Trees (XGBoost, LightGBM, CatBoost) si AdaBoost. Arborii individuali sunt folositi in medicina si drept datorita interpretabilitatii lor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In triajul urgentelor medicale, un arbore de decizie poate fi afisat pe perete: 'Pacientul are febra > 38.5? Da -> Saturatie O2 < 92%? Da -> Prioritate inalta'. Aceasta interpretabilitate este esentiala in domenii reglementate.</p></div>
+  </div>
+</div>

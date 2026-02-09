@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Descompunerea in Valori Singulare (SVD)</h2>
+  <p>Pagina introduce SVD (Singular Value Decomposition) ca metoda alternativa pentru calculul PCA, generalizand descompunerea in vectori proprii la matrice ne-patrate.</p>
+  <div class="definition-box"><strong>SVD (Eq. 12.46):</strong> Orice matrice reala X (N x D) poate fi descompusa ca X = U S V^T, unde U (N x N) si V (D x D) sunt matrice ortogonale, iar S (N x D) contine valorile singulare sigma_i >= 0 pe diagonala.</div>
+  <div class="definition-box"><strong>SVD economica (Thin SVD, Eq. 12.47-12.48):</strong> Retine doar coloanele relevante: X = U_hat S_hat V_hat^T, cu dimensiuni reduse. Complexitate: O(ND min(N,D)).</div>
+  <div class="highlight-box"><strong>Legatura SVD-vectori proprii (Eq. 12.49-12.53):</strong> X^T X = V D V^T (vectorii proprii ai X^T X sunt coloanele V, valorile proprii sunt sigma_i^2). XX^T = U D U^T. Deci: U = evec(XX^T), V = evec(X^T X), S^2 = eval(X^T X).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>SVD este o descompunere matriciala fundamentala care generalizeaza descompunerea in vectori proprii la matrice ne-patrate. Pentru PCA, vectorii singulari dreapta (V) sunt componentele principale, iar valorile singulare patrate sunt proportionale cu valorile proprii ale covariantei. SVD economica reduce costul computational.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>SVD ofera doua perspective complementare: coloanele lui V sunt directiile principale in spatiul original (D-dimensional), coloanele lui U sunt coordonatele in spatiul latent (N-dimensional). Aceasta dualitate este fundamentala in algebra liniara numerica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SVD este metoda preferata pentru calculul PCA in practica, deoarece: (1) este numeric mai stabila decat calculul vectorilor proprii ai X^T X, (2) evita formarea explicita a matricei de covarianta, (3) exista algoritme eficiente (LAPACK, randomized SVD).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In procesarea limbajului natural, SVD pe matricea termen-document produce Latent Semantic Analysis (LSA), care descopera relatii semantice latente intre cuvinte si documente prin reducerea dimensionalitatii.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Regresia Logistică - Figura 8.1 și Estimarea prin Verosimilitate Maximă (MLE)</h2>
+  <p>Pagina prezintă vizualizarea funcției sigmoidale pentru diverse ponderi și introduce funcția de log-verosimilitate negativă (NLL) pentru regresia logistică, cunoscută și ca funcția de eroare cross-entropie.</p>
+  <div class="figure-box"><strong>Figura 8.1:</strong> Grafice ale funcției sigm(w₁x₁ + w₂x₂) pentru diferite valori ale vectorului w = (w₁, w₂). Vectorul w definește normala la frontiera de decizie. Punctele cu sigm(w&#7488;x) > 0.5 sunt la dreapta frontierei, iar cele cu sigm(w&#7488;x) < 0.5 sunt la stânga.</div>
+  <div class="definition-box"><strong>Funcția de log-verosimilitate negativă (NLL):</strong> NLL(w) = -Σᵢ₌₁ᴺ [yᵢ log μᵢ + (1 - yᵢ) log(1 - μᵢ)], unde μᵢ = sigm(w&#7488;xᵢ). Aceasta este funcția de eroare cross-entropie.</div>
+  <div class="highlight-box"><strong>Ecuația 8.4 - Forma alternativă:</strong> NLL(w) = Σᵢ₌₁ᴺ log(1 + exp(-ỹᵢ w&#7488;xᵢ)), unde ỹᵢ ∈ {-1, +1}. Această formă este mai compactă și evidențiază relația cu funcțiile de pierdere din SVM.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Secțiunea 8.3.1 introduce estimarea prin verosimilitate maximă (MLE) pentru regresia logistică. Funcția obiectiv este log-verosimilitatea negativă, care nu poate fi minimizată în formă închisă (spre deosebire de regresia liniară). Este necesară utilizarea unui algoritm de optimizare iterativ. Se prezintă două forme echivalente ale NLL, a doua fiind mai compactă folosind etichete ỹᵢ ∈ {-1, +1}.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cross-entropia este o măsură fundamentală din teoria informației care cuantifică diferența dintre două distribuții de probabilitate. În contextul regresiei logistice, minimizarea cross-entropiei este echivalentă cu maximizarea verosimilitudinii. Absența unei soluții în formă închisă necesită metode iterative de optimizare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Funcția de pierdere cross-entropie este standard în antrenarea rețelelor neurale pentru clasificare. Înțelegerea ei este esențială pentru depanarea modelelor de clasificare și pentru alegerea funcțiilor de pierdere adecvate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un sistem de detectare a fraudelor bancare, NLL măsoară cât de bine modelul prezice tranzacțiile frauduloase vs. legitime. Un NLL mic indică predicții precise, iar optimizarea caută ponderile w care minimizează această eroare pe datele de antrenament.</p></div>
+  </div>
+</div>

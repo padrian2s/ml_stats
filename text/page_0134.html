@@ -1,0 +1,22 @@
+<div class="page-content">
+  <h2>Frontiere de Decizie QDA, Functia Softmax si Analiza Discriminanta Liniara (LDA)</h2>
+  <p>Pagina 103 ilustreaza frontierele de decizie patratice, introduce functia softmax cu parametrul de temperatura si incepe prezentarea LDA.</p>
+
+  <div class="figure-box"><strong>Figura 4.3:</strong> Frontiere de decizie patratice in 2D pentru cazul cu 2 clase (frontiera parabolica) si 3 clase (combinatie de frontiere liniare si patratice).</div>
+
+  <div class="figure-box"><strong>Figura 4.4:</strong> Distributia softmax S(η/T) cu η = (3, 0, 1) la diferite temperaturi T. La T mare, distributia este uniforma; la T mic, toata masa se concentreaza pe elementul maxim.</div>
+
+  <div class="definition-box"><strong>Functia Softmax (Ecuatia 4.39):</strong> S(η)_c = e^(η_c) / Σ_c' e^(η_c'). La temperatura T → 0, S(η/T) devine functia argmax (distributie "spiky").</div>
+
+  <div class="highlight-box"><strong>LDA - Simplificare (Ecuatiile 4.34-4.37):</strong> Cand Σ_c = Σ pentru toate clasele, p(y=c|x,θ) ∝ exp[β_cᵀx + γ_c], unde β_c = Σ⁻¹μ_c si γ_c = -1/2 μ_cᵀΣ⁻¹μ_c + log π_c.</div>
+
+  <div class="definition-box"><strong>Distributia Boltzmann:</strong> In fizica statistica, functia softmax este numita distributia Boltzmann, cu temperatura T controland "ascutimea" distributiei.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la QDA la LDA, aratand cum partajarea matricei de covarianta intre clase simplifica frontierele de decizie de la curbe patratice la linii drepte. Functia softmax este introdusa ca mecanism de normalizare a scorurilor in probabilitati, cu temperatura controland "increderea" distributiei.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Temperatura T in softmax controleaza exploatarea vs. explorarea: T mare = explorare (toate optiunile au probabilitati similare), T mic = exploatare (se alege cea mai buna optiune). Aceasta idee apare in invatarea prin recompensa, optimizare si MCMC.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Functia softmax este fundamentala in retelele neuronale moderne (stratul final de clasificare). Parametrul de temperatura este utilizat in generarea de text cu modele de limbaj (GPT) pentru a controla creativitatea vs. coerenta raspunsurilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelele de limbaj mari (LLM), temperatura softmax controleaza diversitatea raspunsurilor: T=0.1 produce raspunsuri deterministe si repetitive, T=1.0 produce raspunsuri diverse si creative, iar T>1.5 produce text aleatoriu si adesea incoherent.</p></div>
+  </div>
+</div>

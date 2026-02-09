@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Predicția Mai Multor Încercări Viitoare și Distribuția Beta-Binomială Compusă</h2>
+  <p>Pagina derivă distribuția predictivă posterioară pentru mai multe încercări viitoare, introduce distribuția beta-binomială compusă și deschide secțiunea modelului Dirichlet-multinomial.</p>
+  <div class="highlight-box"><strong>Predicția pentru M încercări:</strong> p(x|D,M) = ∫Bin(x|θ,M)·Beta(θ|a,b)dθ, integrând peste incertitudinea în θ.</div>
+  <div class="definition-box"><strong>Distribuția beta-binomială compusă:</strong> Bb(x|a,b,M) ≜ C(M,x)·B(x+a, M−x+b)/B(a,b), cu E[x] = M·a/(a+b) și var[x] = Mab(a+b+M)/[(a+b)²(a+b+1)].</div>
+  <div class="figure-box"><strong>Figura 3.7:</strong> (a) Distribuția predictivă posterioară beta-binomială după N₁=3, N₀=17. (b) Aproximarea plug-in MAP - are cozi mai scurte, deci este mai vulnerabilă la supraajustare și paradoxul lebedei negre.</div>
+  <div class="highlight-box"><strong>Predicția Bayesiană vs plug-in:</strong> Predicția Bayesiană are cozi mai lungi decât aproximarea plug-in, împrăștiind masa de probabilitate mai larg. Este mai puțin vulnerabilă la supraajustare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Distribuția beta-binomială compusă este rezultatul integrării incertitudinii parametrului θ în predicții. Cozile mai lungi ale predicției Bayesiene reflectă incertitudinea parametrică, oferind predicții mai robuste.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Integrarea incertitudinii parametrice produce varianță predictivă mai mare decât aproximarea plug-in: var_predictivă = var_aleatorie + var_parametrică. Aceasta captează ambele surse de incertitudine.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Distribuția beta-binomială este utilizată în modelarea dispersiei (overdispersion) în date de numărare, unde variabilitatea observată depășește ce ar prezice un model binomial simplu.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Predicția numărului de clicuri pe o reclamă din următoarele M afișări: modelul beta-binomial captează atât aleatorismul clicurilor cât și incertitudinea în rata reală de click.</p></div>
+  </div>
+</div>

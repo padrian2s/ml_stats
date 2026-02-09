@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>MLN-uri ca template-uri UGM si invatarea in MRF-uri</h2>
+  <p>Aceasta pagina finalizeaza discutia despre retelele logice Markov si introduce sectiunea de invatare a parametrilor in MRF-uri, cu accent pe modele de entropie maxima.</p>
+  <div class="definition-box"><strong>MLN ca template UGM:</strong> O retea logica Markov poate fi vazuta ca un mod convenabil de a specifica un template de UGM care se poate "derula" (grounding) pentru a gestiona date de dimensiuni arbitrare, similar modului in care HMM-urile se deruleaza pentru secvente de lungimi diferite.</div>
+  <div class="definition-box"><strong>Problema universului deschis:</strong> In unele domenii, numarul sau existenta obiectelor si relatiilor este incert. Aceasta necesita modele care pot gestiona numar variabil de entitati, o provocare activa in cercetare.</div>
+  <div class="highlight-box"><strong>Antrenarea modelelor maxent cu gradient:</strong> Log-verosimilitatea MRF-urilor log-liniare este p(y|θ) = (1/Z(θ)) exp(Σ_c θ_c^T φ_c(y)), o functie convexa in θ, ce poate fi optimizata cu metode de gradient. Unicul maxim global este garantat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MLN-urile sunt template-uri care genereaza UGM-uri concrete prin instantiere cu obiecte specifice. Sectiunea de invatare introduce optimizarea parametrilor MRF-urilor: log-verosimilitatea este convexa pentru modele log-liniare complet observate, dar calculul gradientului necesita inferenta (calculul asteptarilor sub model), ceea ce face antrenarea costisitoare computational.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Convexitatea log-verosimilitutii este o proprietate importanta a MRF-urilor log-liniare, garantand un unic optim global. Insa, fiecare pas de gradient necesita un pas de inferenta, ceea ce face antrenarea MRF-urilor semnificativ mai lenta decat a DGM-urilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Invatarea parametrilor MRF-urilor este esentiala in CRF-uri (campuri conditionate aleatorii), modele de segmentare a imaginilor si modele de limbaj. Modelele relationale probabilistice sunt folosite in biomedicina si chimie computationala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un CRF pentru etichetarea entitatilor in texte medicale invata ponderi pentru trasaturi precum "cuvantul anterior este un determinant", "cuvantul contine cifre", etc. Convexitatea garanteaza ca algoritmul de antrenare gaseste parametrii optimi.</p></div>
+  </div>
+</div>

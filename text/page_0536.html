@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Comparația Metodelor Kernel Discriminative</h2>
+  <p>Pagina continuă comparația detaliată a metodelor kernel discriminative, analizând proprietățile fiecărei metode în ceea ce privește optimizarea, sparsitatea, ieșiri probabilistice, clasificare multi-clasă și kerneluri non-Mercer.</p>
+  <div class="definition-box"><strong>Optimizarea w:</strong> Funcția obiectiv J(w) = −log p(D|w) − log p(w) poate fi convexă (L2VM, L1VM, SVM) sau neconvexă (RVM). GP-urile sunt metode Bayesiene care nu optimizează parametri.</div>
+  <div class="definition-box"><strong>Metode sparse:</strong> L1VM, RVM și SVM folosesc doar un subset al datelor de antrenament pentru predicție, ceea ce accelerează inferența. GP și L2VM folosesc toate datele.</div>
+  <div class="highlight-box"><strong>Performanță comparativă:</strong> Toate metodele au acuratețe similară când kernelul și regularizarea sunt alese corespunzător. Diferențele principale sunt computaționale și în calitatea ieșirilor probabilistice.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Comparația arată că nicio metodă kernel nu domină în toate aspectele. L2VM și GP sunt nesparse dar produc ieșiri probabilistice bune. SVM-urile sunt sparse dar neprobabilistice. RVM oferă un compromis cu sparsitate și ieșiri probabilistice, dar optimizarea este neconvexă.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Convexitatea obiectivului garantează convergența la optimul global (L2VM, L1VM, SVM) dar nu necesarmente performanță superioară. Metodele Bayesiene (EB) pot optimiza kernelul eficient, în timp ce CV este necesar pentru SVM și L1VM.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea metodei depinde de prioritățile aplicației: viteză la predicție (metode sparse), incertitudine calibrată (GP), scalabilitate (SVM liniar), sau simplitate (L2VM cu kernel RBF).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de recomandare medicală ar folosi GP pentru a oferi și intervale de încredere, în timp ce un filtru de spam în timp real ar folosi SVM liniar pentru viteză maximă la clasificarea a milioane de emailuri pe zi.</p></div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Capitolul 2: Exemplul de Diagnostic Medical si Clasificatori Generativi</h2>
+  <p>Calculul complet al diagnosticului medical cu regula lui Bayes si introducerea clasificatorilor generativi.</p>
+  <div class="definition-box"><strong>Falacia Ratei de Baza (Base Rate Fallacy):</strong> Eroarea de a ignora probabilitatea a priori (prevalenta bolii) cand se interpreteaza un rezultat de test. Multi oameni confunda p(test pozitiv|boala) = 0.8 cu p(boala|test pozitiv).</div>
+  <div class="definition-box"><strong>Fals Pozitiv (False Positive):</strong> Rezultat pozitiv al testului cand pacientul nu are boala. p(x=1|y=0) = 0.1 (ecuatia 2.10).</div>
+  <div class="definition-box"><strong>Clasificator Generativ:</strong> Model care specifica cum sunt generate datele folosind densitatea conditionata de clasa p(x|y=c) si probabilitatea a priori a clasei p(y=c): p(y=c|x, θ) = p(y=c|θ)p(x|y=c, θ) / Σ_{c'} p(y=c'|θ)p(x|y=c', θ) (ecuatia 2.13).</div>
+  <div class="definition-box"><strong>Clasificator Discriminativ:</strong> Model care ajusteaza direct posteriorul clasei p(y=c|x), fara a modela distributia datelor.</div>
+  <div class="highlight-box"><strong>Rezultat Surprinzator:</strong> p(y=1|x=1) = (0.8 x 0.004) / (0.8 x 0.004 + 0.1 x 0.996) = 0.031. Desi testul are sensibilitate 80%, probabilitatea de cancer dat fiind un test pozitiv este doar ~3%, din cauza prevalentei scazute (0.4%).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza exemplul medical: cu sensibilitate 80%, rata de fals pozitiv 10% si prevalenta 0.4%, probabilitatea reala de cancer dat fiind un test pozitiv este doar 3.1%. Aceasta demonstreaza falacia ratei de baza. Apoi se introduce clasificatorul generativ, care generalizeaza aceasta abordare la vectori de caracteristici arbitrari.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Clasificatorii generativi si discriminativi reprezinta doua abordari fundamentale in ML. Generativii modeleaza p(x|y) si p(y), apoi aplica Bayes. Discriminativii modeleaza direct p(y|x). Fiecare are avantaje: generativii permit generarea de date sintetice si detectarea datelor din afara distributiei, discriminativii sunt adesea mai precisi.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea falaciei ratei de baza este critica in medicina (screening de cancer), justitie (teste ADN), securitate (detectia terorismului) si testarea software (detectia de bug-uri). In toate aceste cazuri, un test "precis" poate produce mai multe fals pozitive decat adevarate pozitive daca prevalenta este scazuta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un test de securitate la aeroport cu rata de detectie 99% si rata de fals pozitiv 1% pare excelent. Dar daca doar 1 din 1.000.000 de pasageri este terorist, atunci din 1.000.000 de pasageri, testul va genera ~10.000 de alarme false si doar ~1 detectie reala. Aproape toate alertele sunt false pozitive.</p></div>
+  </div>
+</div>

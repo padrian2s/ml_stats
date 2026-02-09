@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>EM pentru Amestecul de Experti si EM pentru DGM-uri cu Variabile Ascunse</h2>
+  <p>Pagina completeaza derivarea EM pentru amestecul de experti si generalizeaza algoritmul EM la grafuri orientate aciclice (DGM) arbitrare cu variabile ascunse.</p>
+  <div class="definition-box"><strong>Regresie ponderata cu cele mai mici patrate:</strong> Q(θₖ, θᵒˡᵈ) = Σᵢ₌₁ᴺ rᵢₖ{-1/(σₖ²)(yᵢ - wₖᵀxᵢ)²} - o problema standard de regresie liniara ponderata, unde ponderile sunt responsabilitatile rᵢₖ.</div>
+  <div class="definition-box"><strong>Marginala de familie (family marginal):</strong> p(xᵢₜ, xᵢ,pa(t)|Dᵢ, θ) - probabilitatea comuna a unui nod si parintilor sai, conditionata de toate variabilele vizibile din cazul i.</div>
+  <div class="highlight-box"><strong>MLE pentru wₖ:</strong> wₖ = (XᵀRₖX)⁻¹XᵀRₖy, unde Rₖ = diag(r:,ₖ) - solutia analitica a regresiei ponderate.</div>
+  <div class="highlight-box"><strong>Varianta:</strong> σₖ² = Σᵢ₌₁ᴺ rᵢₖ(yᵢ - wₖᵀxᵢ)² / Σᵢ₌₁ᴺ rᵢₖ</div>
+  <div class="highlight-box"><strong>Log-verosimilitatea completa pentru DGM:</strong> log p(D|θ) = Σₜ₌₁ⱽ Σc Σₖ Nₜcₖ log θₜcₖ, unde Nₜcₖ sunt contoarele empirice.</div>
+  <div class="highlight-box"><strong>Pasul M pentru DGM:</strong> θ̂ₜcₖ = N̄ₜcₖ / Σₖ' N̄ₜⱼₖ' - estimarea parametrilor tabelelor de probabilitate conditionata din contoarele asteptate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pasul M pentru amestecul de experti se reduce la regresie liniara ponderata pentru parametrii de regresie si la regresie logistica multinomiala cu etichete soft pentru parametrii de gating. Pentru DGM-uri generale, pasul E calculeaza marginalele de familie N̄ₜcₖ folosind orice algoritm de inferenta GM, iar pasul M normalizeaza aceste contoare asteptate pentru a obtine estimarile CPT. Estimarea MAP se obtine simplu adaugand pseudo-contoare (prior Dirichlet).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Unificarea EM pentru DGM-uri arbitrare arata ca structura E-M este universala: pasul E calculeaza statistici suficiente asteptate (contoare), iar pasul M normalizeaza aceste contoare. Aceasta generalitate face EM aplicabil oricarui model grafic.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>EM pentru DGM-uri este folosit pe scara larga in modelarea retelelor Bayesiene din date incomplete, de exemplu in diagnosticul medical unde nu toate testele sunt disponibile pentru toti pacientii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de detectie a fraudei, o retea Bayesiana cu variabile ascunse (intentie frauduloasa) este antrenata prin EM din tranzactii etichetate partial, unde marginalele de familie permit inferenta chiar si cand unele variabile nu sunt observate.</p></div>
+  </div>
+</div>

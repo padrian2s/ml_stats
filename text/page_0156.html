@@ -1,0 +1,22 @@
+<div class="page-content">
+  <h2>Interpolarea cu Zgomot si Distributia Wishart</h2>
+  <p>Pagina 125 finalizeaza demonstratia pentru sisteme Gaussiene liniare cu interpolarea datelor zgomotoase si introduce distributia Wishart.</p>
+
+  <div class="figure-box"><strong>Figura 4.15:</strong> Interpolarea datelor zgomotoase (σ² = 1) cu prior Gaussian. (a) λ = 30: interpolarea este neteda, nu trece exact prin puncte din cauza zgomotului. (b) λ = 0.01: interpolarea este ondulata, apropiindu-se de fiecare punct dar cu varianta mare departe de date.</div>
+
+  <div class="highlight-box"><strong>Matricea de precizie comuna (Ecuatia 4.154):</strong> Σ⁻¹ = [[Σ_x⁻¹ + AᵀΣ_y⁻¹A, -AᵀΣ_y⁻¹], [-Σ_y⁻¹A, Σ_y⁻¹]] = [[Λ_xx, Λ_xy], [Λ_yx, Λ_yy]]</div>
+
+  <div class="highlight-box"><strong>Posteriorul (Ecuatiile 4.155-4.158):</strong>
+    Σ_{x|y} = Λ_xx⁻¹ = (Σ_x⁻¹ + AᵀΣ_y⁻¹A)⁻¹
+    μ_{x|y} = Σ_{x|y}(Σ_x⁻¹μ + AᵀΣ_y⁻¹(y - b))</div>
+
+  <div class="definition-box"><strong>Distributia Wishart (Ecuatia 4.159):</strong> Wi(Λ|S, ν) = (1/Z_Wi) |Λ|^((ν-D-1)/2) exp(-1/2 tr(ΛS⁻¹)). Generalizarea distributiei Gamma la matrice pozitiv definite. ν = grade de libertate, S = matricea de scala.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la sisteme Gaussiene liniare la distributia Wishart, care modeleaza incertitudinea asupra matricelor de covarianta (sau precizie). Wishart este prior conjugat pentru matricea de precizie a unei Gaussiene multivariate, asa cum Gamma este prior conjugat pentru precizia unei Gaussiene univariate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distributia Wishart parametrizata prin (S, ν) are media νS si modul (ν-D-1)S. Gradul de libertate ν controleaza concentrarea distributiei: ν mic = incertitudine mare, ν mare = incertitudine mica (concentrata in jurul mediei).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Distributia Wishart este utilizata ca prior in inferenta Bayesiana pentru matrici de covarianta, in modele de amestec Gaussiene Bayesiene, in analiza factoriala Bayesiana si in modelele grafice Gaussiene.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In managementul portofoliului financiar, matricea de covarianta a randamentelor activelor trebuie estimata cu incertitudine. Un prior Wishart codifica credintele anterioare despre corelatiile intre active, iar posteriorul Wishart actualizeaza aceste credinte cu datele observate.</p></div>
+  </div>
+</div>

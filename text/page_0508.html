@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii Capitolul 13: GSM Group LASSO (continuare), Gradient Proiectat, Subderivata Hinge, Borne Convexe</h2>
+  <p>Pagina continua exercitiul 13.10 (GSM group LASSO) si prezinta exercitiile 13.11-13.13 despre gradient proiectat pentru BPDN, subderivata functiei hinge si borne inferioare pentru functii convexe.</p>
+  <div class="highlight-box"><strong>Exercitiul 13.10 (continuare) - Distributia Normal-Gamma (Eq. 13.202-13.207):</strong> NG(w_j|delta, rho) = (1/Z)|w_j|^{delta-1/2} K_{delta-1/2}(rho|w_j|). Cu prior pe grupuri p(sigma_{1:D}^2) = produs Ga(tau_j^2|delta_g, rho^2/2), marginala pe w_g proportionala cu |u_g|^{delta_g - d_g/2} K_{delta_g - d_g/2}(rho u_g). Cu delta_g = (d_g+1)/2, echivalent cu group LASSO.</div>
+  <div class="highlight-box"><strong>Exercitiul 13.11 - Gradient proiectat pentru l1 least squares:</strong> BPDN: argmin RSS(theta) + lambda||theta||_1. Folosind split variable trick theta = [theta_+, theta_-], rescrierea ca program patratic cu constrangere simplex. Rezolvare prin gradient descent proiectat.</div>
+  <div class="highlight-box"><strong>Exercitiile 13.12-13.13:</strong> 13.12: Subderivata hinge loss f(x) = (1-x)+. Calculul partial f la 0, 1 si 2. 13.13: Borne inferioare pentru functii convexe: cum se gaseste un minorant afin global al lui f la un punct arbitrar x din dom(f).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile finale ale Capitolului 13 leaga concepte avansate: reprezentarea GSM a group LASSO prin distributia Normal-Gamma, reformularea l1 ca program patratic cu gradient proiectat, si fundamentele analizei convexe (subderivate, borne afine). Aceste exercitii pregatesc cititorii pentru capitolele urmatoare despre kerneluri si SVM.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conexiunea Group LASSO - Normal-Gamma (Ex. 13.10) este eleganta: alegerea delta_g = (d_g+1)/2 face ca functia Bessel K_{1/2}(z) = sqrt(pi/(2z)) exp(-z), reducand penalitatea de grup la norma l2 a grupului, exact penalitatea group LASSO.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Subderivata hinge loss (Ex. 13.12) este esentiala pentru intelegerea SVM (Capitolul 14). Borna afina inferioara (Ex. 13.13) este baza metodei cutting-plane si a algoritmilor bundle, folosite in optimizarea SVM la scara mare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In optimizarea portofoliului financiar, reformularea l1 ca program patratic (Ex. 13.11) permite aplicarea de solveri QP eficienti pentru constructia de portofolii sparse (cu putine active), reducand costurile de tranzactionare.</p></div>
+  </div>
+</div>

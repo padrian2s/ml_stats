@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Avantaje și Dezavantaje: Generativ vs. Discriminativ</h2>
+  <p>Pagina oferă o comparație detaliată a avantajelor și dezavantajelor clasificatoarelor generative și discriminative pe multiple dimensiuni practice.</p>
+  <div class="definition-box"><strong>Ușurința ajustării:</strong> Modelele generative (Naive Bayes, LDA) se ajustează prin numărare și mediere. Regresia logistică necesită optimizare convexă, semnificativ mai lentă.</div>
+  <div class="definition-box"><strong>Ajustarea claselor separat:</strong> Modelele generative estimează p(x|y=c) independent per clasă, permițând adăugarea de clase noi fără re-antrenare. Modelele discriminative necesită re-antrenare completă la adăugarea unei clase.</div>
+  <div class="definition-box"><strong>Date lipsă:</strong> Modelele generative gestionează natural datele lipsă prin marginalizare peste componentele neobservate. Modelele discriminative presupun că x este întotdeauna complet observat.</div>
+  <div class="definition-box"><strong>Învățare semi-supervizată:</strong> Modelele generative pot exploata ușor datele neetichetate (care oferă informații despre p(x)). Modelele discriminative nu pot beneficia direct de date neetichetate.</div>
+  <div class="definition-box"><strong>Preprocesarea caracteristicilor:</strong> Modelele discriminative permit transformări arbitrare φ(x) ale intrărilor. Modelele generative necesită un model valid p(φ(x)) care este greu de construit pentru caracteristici corelate.</div>
+  <div class="definition-box"><strong>Calibrarea probabilităților:</strong> Modelele discriminative (regresia logistică) sunt de obicei mai bine calibrate. Modelele generative cu presupuneri de independență (Naive Bayes) produc probabilități extreme și slab calibrate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Comparația relevă că nu există un câștigător clar: fiecare abordare are avantaje distincte. Modelele generative excelează la: ajustare rapidă, clase separate, date lipsă, date neetichetate și simetrie input-output. Modelele discriminative excelează la: acuratețe cu date suficiente, preprocesarea caracteristicilor și calibrarea probabilităților. Concluzia practică: este util să ai ambele tipuri în „cutia de unelte".</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tabelul avantajelor reflectă un principiu mai profund: modelele generative codifică mai multă structură (presupuneri), ceea ce este atât o forță (eficiența datelor) cât și o slăbiciune (bias). Modelele discriminative sunt mai flexibile dar necesită mai multe date. Aceasta este o instanță a compromisului fundamental bias-varianță.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>În practică, abordările hibride sunt populare: se antrenează un model generativ pentru a extrage caracteristici și apoi un model discriminativ pe acele caracteristici. Rețelele neurale profunde pot fi văzute ca modele discriminative cu învățare automată a reprezentării.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de recunoaștere vocală folosește un model generativ (HMM) pentru a modela secvențe acustice per fonem, apoi un model discriminativ (CRF/DNN) pentru a rafina clasificarea. Modelul generativ oferă robustețe la zgomot și date lipsă, iar cel discriminativ oferă acuratețe superioară.</p></div>
+  </div>
+</div>

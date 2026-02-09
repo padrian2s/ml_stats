@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exercitiul 22.4 (Continuare) - Descompunerea Duala pentru Segmentarea Pozei</h2>
+  <p>Aceasta pagina continua exercitiul despre descompunerea duala, detaliind structura modelului pe doua nivele pentru estimarea pozei si segmentarea imaginilor.</p>
+  <div class="highlight-box"><strong>Functia de energie pentru pixeli:</strong> E_1(x) = SUMA_{i in V} 1[x_i = 1] * theta_i + SUMA_{(i,j) in E} 1[x_i != x_j] * theta_ij, unde theta_ij provine dintr-o metrica bazata pe diferente de intensitate a pixelilor.</div>
+  <div class="highlight-box"><strong>Functia de energie pentru parti:</strong> E_2(y) = SUMA_{p in V'} theta_p(y_p) + SUMA_{(p,q) in E'} theta_pq(y_p, y_q), unde y_jk indica daca partea j este in configuratia k, cu constrangerea SUMA_k y_jk = 1.</div>
+  <div class="highlight-box"><strong>Functia de cuplare:</strong> E_3(x, y) = SUMA_{i in V} SUMA_{j in V'} SUMA_k 1[x_i = 0, y_jk = 1] * w_jk^i, penalizand cazul in care o parte candidata este activa dar pixelul de dedesubt este etichetat ca fundal. w_jk^i = 1 pe scheletul partii si scade cu distanta.</div>
+  <div class="definition-box"><strong>Structura modelului:</strong> Nivelul inalt gestioneaza estimarea pozei pe o structura arborescenta T = (V', E'). Nivelul scazut gestioneaza segmentarea pixel-cu-pixel pe o retea neorientata G = (V, E). Cele doua nivele sunt cuplate prin E_3.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiul detaliaza un model elegant pe doua nivele: estimarea pozei corpului uman (pe un arbore de articulatii) cuplata cu segmentarea foreground/background (pe o retea de pixeli). Descompunerea duala permite rezolvarea acestor doua sub-probleme alternativ, coordonandu-le prin multiplicatori Lagrange.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Functia de cuplare E_3 este cheia: leaga pozitia partilor corpului de etichetele pixelilor. Mastile binare w_jk^i permit integrarea informatiei geometrice a pozei cu segmentarea la nivel de pixel. Constrangerea SUMA_k y_jk = 1 asigura ca fiecare parte are exact o configuratie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta abordare este relevanta in realitatea augmentata (incercarea virtuala de haine), analiza miscarii in sport, interfete bazate pe gesturi si sisteme de supraveghere inteligenta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In aplicatiile de incercare virtuala a hainelor, estimarea precisa a pozei corpului si segmentarea simultana a persoanei de fundal permit suprapunerea realista a articolelor vestimentare pe corpul utilizatorului in timp real.</p></div>
+  </div>
+</div>

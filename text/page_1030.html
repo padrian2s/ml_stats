@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Auto-encodere profunde</h2>
+  <p>Aceasta pagina descrie auto-encoderele si auto-encoderele profunde, incluzand procesul de pre-antrenare cu RBM-uri si ajustare fina cu backpropagation.</p>
+  <div class="definition-box"><strong>Auto-encoder:</strong> O retea neuronala feedforward antrenata sa-si prezica propriul input, cu un strat ascuns de obicei mai ingust (bottleneck) care forteaza reteaua sa invete o reprezentare comprimata a datelor.</div>
+  <div class="definition-box"><strong>Auto-encoder profund:</strong> Un auto-encoder cu straturi multiple, care poate descoperi reprezentari neliniare mai puternice decat un auto-encoder cu un singur strat (care este echivalent cu PCA pentru functii de activare liniare).</div>
+  <div class="highlight-box"><strong>Echivalenta cu PCA:</strong> Un auto-encoder liniar cu un singur strat ascuns invata aceeasi subspatiu ca primele K componente principale ale datelor, demonstrand legatura dintre reducerea dimensionalitatii liniara si neliniara.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Auto-encoderele profunde sunt retele simetrice (encoder-decoder) care invata reprezentari comprimate ale datelor. Pre-antrenarea greedy cu RBM-uri initializeaza ponderile intr-o regiune buna a spatiului parametrilor, iar ajustarea fina cu backpropagation rafineaza reprezentarea.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Arhitectura tipica 784-1000-500-250-30-250-500-1000-784 pentru imagini MNIST demonstreaza compresia progresiva si apoi decompresa. Functiile de activare neliniare permit descoperirea de varietati (manifolds) complexe in spatiul datelor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Reducerea dimensionalitatii pentru vizualizare, compresia de date, detectia de anomalii, si invatarea de trasaturi pentru clasificare downstream.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Auto-encoderele profunde sunt folosite in compresia de imagini medicale, unde trebuie pastrata informatia diagnostica esentiala in ciuda reducerii dimensionalitatii.</p></div>
+  </div>
+</div>

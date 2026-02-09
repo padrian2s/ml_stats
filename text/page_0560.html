@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Clasificare GP multi-clasa - Posteriorul si predictia</h2>
+  <p>Aceasta pagina detaliaza clasificarea GP multi-clasa: log-posteriorul, gradientul, Hessianul si calculul distributiei predictive.</p>
+  <div class="definition-box"><strong>Log-posteriorul multi-clasa:</strong> ell(f) = -1/2 f^T K^{-1} f + y^T f - sum_i log(sum_c exp(f_ic)) - 1/2 log|K| - CN/2 log(2*pi), unde f contine NC valori ale functiei latente (N puncte x C clase).</div>
+  <div class="highlight-box"><strong>Pasul Newton multi-clasa:</strong> f^{new} = (K^{-1} + W)^{-1}(Wf + y - pi), cu complexitate redusa de la O(C^3 N^3) la O(CN^3) prin tehnici de bloc.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Clasificarea multi-clasa foloseste C functii latente independente f_{.c} ~ GP(0, K_c), cate una per clasa. Verosimilitatea este softmax (categorica). Hessianul W = diag(pi) - Pi*Pi^T nu este diagonal (spre deosebire de cazul binar) din cauza cuplarii prin softmax. Media predictiva E[f_{*c}] = k_c(x_*)^T K_c^{-1} f_hat_c si covarianta se calculeaza analog cazului binar.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Matricea Q_* este bloc-diagonala, reflectand independenta apriori a functiilor latente din clase diferite. Cuplarea intre clase apare doar prin verosimilitatea softmax si se manifesta in structura Hessianului W. Complexitatea O(CN^3) este liniara in numarul de clase.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clasificarea GP multi-clasa este mai costisitoare decat clasificatoarele one-vs-rest dar modeleaza corect dependentele intre clase. Se foloseste in probleme cu putine clase si seturi de date moderate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea speciilor de plante pe baza trasaturilor morfologice, un GP multi-clasa poate oferi probabilitati calibrate pentru fiecare specie, facilitand identificarea specimenelor ambigue care necesita expertiza suplimentara.</p></div>
+  </div>
+</div>

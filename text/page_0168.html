@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Eroarea standard a mediei, intervalul de credibilitate si testul t Bayesian</h2>
+  <p>Aceasta pagina introduce eroarea standard a mediei, intervalele de credibilitate Bayesiene, si testul t Bayesian pentru compararea mediilor.</p>
+  <div class="definition-box"><strong>Eroarea standard a mediei:</strong> sqrt(var[&mu; | D]) &asymp; s / sqrt(N). Masoara precizia estimarii mediei si scade cu radacina patrata a numarului de observatii.</div>
+  <div class="definition-box"><strong>Intervalul de credibilitate Bayesian (95%):</strong> I_0.95(&mu; | D) = x_bar &plusmn; 2 s/sqrt(N). Acesta este intervalul in care media adevarata se afla cu probabilitate de 95%, conform posteriorului.</div>
+  <div class="definition-box"><strong>Testul t Bayesian pereche:</strong> Se testeaza daca &mu; &ne; &mu;_0 (sau daca doua esantioane pereche au medii diferite) prin calculul p(&mu; > &mu;_0 | D) = 1 - F_{N-1}(t), unde t = (x_bar - &mu;_0) / (s/sqrt(N)).</div>
+  <div class="highlight-box"><strong>Echivalenta Bayesian-frequentista:</strong> Statistica t Bayesiana este identica cu statistica t frequentista cand se utilizeaza un prior neinformativ. Diferenta sta doar in interpretare: Bayesian - probabilitatea parametrului; frequentist - probabilitatea datelor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabileste legatura formala intre abordarea Bayesiana si cea frequentista pentru testarea ipotezelor. Eroarea standard s/sqrt(N) apare natural din posteriorul Student. Intervalul de credibilitate Bayesian are aceeasi formula ca intervalul de incredere frequentist, dar cu interpretare diferita. Testul t Bayesian pereche permite compararea directa a doua tratamente pe aceleasi subiecte.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Eroarea standard scade cu sqrt(N), deci pentru a injumatati eroarea trebuie de 4 ori mai multe date. 2) Aproximarea cu 2 in intervalul de 95% vine din faptul ca pentru distributia Student cu multe grade de libertate, cuantila 0.975 este aproape de 2. 3) Testul pereche elimina variabilitatea inter-subiecti, crescand puterea statistica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Testul t pereche este standard in medicina (compararea masuratorilor inainte/dupa tratament pe aceiasi pacienti), in psihologie experimentala (compararea performantei in doua conditii), si in testarea A/B in industria tech (compararea metricilor pe aceiasi utilizatori).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un site de comert electronic vrea sa testeze daca un nou design al paginii de produs creste timpul de vizitare. Folosind testul t pereche Bayesian pe aceiasi utilizatori expusi ambelor designuri, se poate calcula direct probabilitatea ca noul design sa fie mai bun: p(&mu;_nou - &mu;_vechi > 0 | date), oferind o decizie clara si interpretabila pentru echipa de management.</p></div>
+  </div>
+</div>

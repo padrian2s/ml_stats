@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul EM - Idee de Baza</h2>
+  <p>Pagina introduce algoritmul Expectation Maximization (EM), prezentand ideea de baza, tabelul modelelor aplicabile si formularea matematica fundamentala.</p>
+  <div class="definition-box"><strong>Log-verosimilitate negativa (NLL):</strong> NLL(θ) = -1/N log p(D|θ) - functia obiectiv pe care optimizatoarele bazate pe gradient incearca sa o minimizeze.</div>
+  <div class="definition-box"><strong>Expectation Maximization (EM):</strong> Un algoritm iterativ simplu care alterneaza intre inferarea valorilor lipsa date parametrii (pasul E) si optimizarea parametrilor date datele „completate" (pasul M). Algoritmul impune automat constrangerile necesare.</div>
+  <div class="highlight-box"><strong>Log-verosimilitatea:</strong> ℓ(θ) = Σᵢ₌₁ᴺ log p(xᵢ|θ) = Σᵢ₌₁ᴺ log[Σzᵢ p(xᵢ, zᵢ|θ)] - obiectivul este greu de optimizat deoarece log-ul nu poate fi mutat inauntrul sumei.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul EM exploateaza faptul ca daca datele ar fi complet observate, estimarea ML/MAP ar fi usoara. EM alterneaza intre pasul E (inferarea variabilelor ascunse date parametrii) si pasul M (optimizarea parametrilor date datele completate). Tabelul 11.2 listeaza modelele discutate in carte pentru care EM poate fi aplicat: amestecuri Gaussiene, amestecuri de experti, analiza factoriala, Student T, regresie probit, DGM cu variabile ascunse, MVN cu date lipsa si HMM-uri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>EM are actualizari in forma inchisa la fiecare pas si impune automat constrangerile (de exemplu, matricele de covarianta sa fie pozitiv definite, ponderile de amestec sa se insumeze la unu), ceea ce il face mai simplu decat optimizarea generica bazata pe gradient.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>EM este utilizat pe scara larga in procesarea limbajului natural (modelul Baum-Welch pentru HMM-uri), viziunea computationala (segmentare de imagini cu GMM), si bioinformatica (alinierea secventelor cu modele Markov ascunse).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recomandare, datele lipsa (filme nevazute de utilizatori) pot fi tratate ca variabile latente, iar EM poate fi folosit pentru a completa matricea de evaluari si a face predictii pentru utilizatori.</p></div>
+  </div>
+</div>

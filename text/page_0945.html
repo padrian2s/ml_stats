@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 27 - Modele cu Variabile Latente pentru Date Discrete</h2>
+  <p>Introducerea capitolului 27, care trateaza modelele cu variabile latente pentru date discrete, cu accent pe analiza textului: vectori de biti, secvente categorice, vectori de contorizare, structuri de grafuri si date relationale.</p>
+  <div class="definition-box"><strong>Token:</strong> Un simbol sau o variabila categorica dintr-o secventa. y_il ∈ {1,...,V} reprezinta identitatea cuvantului l din documentul i, unde V este dimensiunea vocabularului.</div>
+  <div class="definition-box"><strong>Bag of words (Sacul de cuvinte):</strong> Reprezentare care ignora ordinea cuvintelor, reducand un document la un vector de contorizare de lungime fixa: n_iv ∈ {0,1,...,L_i} este numarul de aparitii ale cuvantului v in documentul i. Matricea N (N × V) este mare dar rara.</div>
+  <div class="highlight-box"><strong>Scopul capitolului:</strong> Construirea modelelor probabilistice comune p(y_i) sau p(n_i) folosind variabile latente pentru a captura corelatiile intre date discrete. Variabilele latente ofera o reprezentare comprimata si interpretabila a datelor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 27 introduce cadrul general pentru modelarea datelor discrete cu variabile latente. Notatia este stabilita cu precizie: y_il pentru secvente de tokeni, n_iv pentru contorizari, si y_irl pentru canale multiple. Scopul este de a descoperi structura latenta din date nesupravegheate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Reducerea datelor la reprezentarea bag-of-words sacrifica informatia de ordine dar permite metode statistice puternice. Matricea de contorizare este rara deoarece majoritatea cuvintelor nu apar in majoritatea documentelor. Modelele pot trata si date relationale (grafuri, matrici rare discrete).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele cu variabile latente pentru date discrete sunt aplicate in: analiza de text (topic modeling), sisteme de recomandare (filtrare colaborativa), analiza retelelor sociale, clasificarea documentelor, analiza sondajelor si procesarea imaginilor cu intensitate joasa.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-o colectie de articole stiintifice, fiecare document poate fi reprezentat ca un vector bag-of-words. Variabilele latente descoperite automat corespund temelor (ex: "machine learning", "biologie moleculara"), iar fiecare document este o combinatie de teme.</p></div>
+  </div>
+</div>

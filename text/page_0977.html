@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Modele cu variabile latente distribuite - Modele de amestec</h2>
+  <p>Aceasta pagina introduce modelele cu stari latente distribuite pentru date discrete, incepand cu cele mai simple: modelele de amestec de multinomiale.</p>
+  <div class="definition-box"><strong>Model de amestec de multinomiale:</strong> Fiecare document i este asociat cu un singur topic q_i ~ Cat(pi). Cuvintele sunt generate independent: p(y_{i,1:L_i}|q_i=k) = produs Cat(y_{il}|b_k), unde b_k este distributia de cuvinte a topicului k.</div>
+  <div class="definition-box"><strong>Povestea generativa:</strong> Pentru documentul i: (1) alege un topic k din pi, (2) pentru fiecare pozitie l, genereaza cuvantul y_{il} din Cat(b_k). Echivalent cu Naive Bayes nesupervizat.</div>
+  <div class="highlight-box"><strong>Variante:</strong> Pentru raspunsuri categorice fixe: p(y_{i,1:R}|q_i=k) = produs Cat(y_{il}|b_k^(r)). Pentru vectori de numarari: p(n_i|L_i, q_i=k) = Mu(n_i|L_i, b_k) (multinomial) sau p(n_i|q_i=k) = produs Poi(n_{iv}|lambda_{vk}) (Poisson).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta cel mai simplu model cu variabile latente pentru date discrete: amestecul de multinomiale. Fiecare document este generat de un singur topic, care determina distributia de cuvinte. Aceasta este o limitare majora (un document = un topic), dar modelul este simplu si usor de estimat. Se prezinta variante pentru date categorice fixe, numarari multinomiale si numarari Poisson.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Modelul de amestec de multinomiale este analogul nesupervizat al clasificatorului Naive Bayes. Limitarea principala este ca fiecare document apartine unui singur topic, ceea ce nu reflecta realitatea (documentele acopera de obicei mai multe topicuri).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Amestecul de multinomiale este folosit ca baseline in topic modeling, clustering de documente, si segmentarea pietei. Este rapid de estimat cu EM si util ca punct de plecare inainte de modele mai complexe (LDA).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea automata a email-urilor, un amestec de multinomiale poate identifica categorii (business, personal, spam) bazat pe distributia cuvintelor, fara etichete de antrenare - un clasificator nesupervizat.</p></div>
+  </div>
+</div>

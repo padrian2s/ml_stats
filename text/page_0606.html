@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Retele sparse, soft weight sharing si embedding semi-supervizat</h2>
+  <p>Aceasta pagina prezinta regularizarea L1 pentru retele sparse, soft weight sharing si invatarea de embedding-uri semi-supervizate din retele neurale.</p>
+  <div class="definition-box"><strong>Soft weight sharing:</strong> Priorul pe parametri este modelat ca mixtura de Gaussiene: p(theta) = sum pi_k N(theta|mu_k, sigma_k^2). Ponderile din acelasi cluster vor avea valori similare, reducand numarul efectiv de parametri liberi.</div>
+  <div class="highlight-box"><strong>Embedding semi-supervizat:</strong> Functia de pierdere combina NLL supervizat cu un termen de regularizare bazat pe similaritate: sum NLL(f(x_i), y_i) + lambda * sum L(f(x_i), f(x_j), S_ij), unde S_ij indica daca obiectele i si j sunt similare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 16.18 arata o retea profunda sparsa obtinuta prin regularizare L1: multe conexiuni sunt eliminate, producand un model mai eficient. Soft weight sharing (Nowlan si Hinton 1992) grupeaza ponderile in clustere, incurajand valori similare. Embedding-ul semi-supervizat foloseste similaritatea intre exemple neetichetate pentru a regulariza reprezentarea: obiecte similare trebuie sa aiba embeddings apropiati, obiecte diferite trebuie sa fie la distanta > m.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Pierderea contrastiva L(f_i, f_j, S_ij) combina atractia (||f_i - f_j||^2 daca S_ij=1) cu respingerea (max(0, m - ||f_i - f_j||^2) daca S_ij=0). Aceasta este precursorul invatarii contrastive moderne (SimCLR, MoCo). Alternarea pasilor supervizati si semi-supervizati in SGD este simpla si eficienta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Embedding-ul semi-supervizat a evoluat in invatarea contrastiva auto-supervizata, una din cele mai active arii de cercetare. Collobert si Weston (2008) au anticipat word embeddings (Word2Vec, 2013) antrenand retele pe text Wikipedia.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea video, cadrele vecine sunt considerate similare (S_ij=1) iar cadrele indepartate sunt considerate diferite. Aceasta permite invatarea de reprezentari video bune fara etichete manuale, doar din structura temporala a datelor.</p></div>
+  </div>
+</div>

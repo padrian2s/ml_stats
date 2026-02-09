@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Backpropagation - Derivarea gradientilor</h2>
+  <p>Aceasta pagina deriveaza formal gradientii algoritmului de backpropagation pentru un MLP cu un strat ascuns, introducand semnalele de eroare.</p>
+  <div class="definition-box"><strong>Semnalul de eroare:</strong> delta^w_nk = d(J_n)/d(b_nk) = y_hat_nk - y_nk (eroarea stratului de iesire); delta^v_nj = sum_k delta^w_nk * w_kj * g'(a_nj) (eroarea propagata inapoi la stratul ascuns).</div>
+  <div class="highlight-box"><strong>Gradientul straturilor:</strong> nabla_{w_k} J_n = delta^w_nk * z_n (gradient iesire) si nabla_{v_j} J_n = delta^v_nj * x_n (gradient ascuns). Eroarea se propaga inapoi: de la iesire (delta^w) prin ponderi (W) si derivata activarii (g') la stratul ascuns (delta^v).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Backpropagation calculeaza gradientul in doi pasi: (1) forward pass - calculeaza activarile a, z, b, y_hat, (2) backward pass - propaga erorile inapoi. Gradientul stratului de iesire este simplu: delta^w_nk = y_hat_nk - y_nk (sub link canonic). Gradientul stratului ascuns necesita propagarea erorii: delta^v_nj = sum_k delta^w_nk * w_kj * g'(a_nj). Pentru sigmoid: g'(a) = sigma(a)(1-sigma(a)); pentru tanh: g'(a) = 1 - tanh^2(a).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Numele 'backpropagation' vine de la propagarea semnalului de eroare de la iesire inapoi la intrare. Este o aplicare eficienta a regulii lantului: calculul direct al gradientului ar necesita O(W^2) operatii, backpropagation necesita doar O(W). Structura este: eroare iesire -> ponderate prin W -> modulate prin g' -> eroare ascunsa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Backpropagation este generalizat la orice graf computaional aciclic prin 'automatic differentiation' (autograd). Framework-urile moderne construiesc graful computaional dinamic (PyTorch) sau static (TensorFlow 1.x) si calculeaza gradientii automat.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In antrenarea unui model de recunoastere vocala, backpropagation calculeaza cum fiecare ponderea din retea contribuie la eroarea de transcriere, permitand ajustari fine care imbunatatesc acuratetea cu fiecare pas de antrenament.</p></div>
+  </div>
+</div>

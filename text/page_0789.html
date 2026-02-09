@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 21. Inferenta Variationala - Limita Patratica a lui Bohning pentru Log-Sum-Exp (p.758)</h2>
+  <p>Aceasta pagina deriveaza limita patratica a lui Bohning pentru functia log-sum-exp (lse), o aproximare superioara de tip gaussian care permite inferenta tractabila.</p>
+  <div class="highlight-box"><strong>Expansiunea Taylor a lse:</strong> lse(ηᵢ) = lse(ψᵢ) + (ηᵢ-ψᵢ)ᵀg(ψᵢ) + 1/2(ηᵢ-ψᵢ)ᵀH(ψᵢ)(ηᵢ-ψᵢ), unde g(ψᵢ) = S(ψᵢ) = exp[ψᵢ-lse(ψᵢ)] (softmax) si H = diag(g) - ggᵀ.</div>
+  <div class="definition-box"><strong>Limita Bohning:</strong> Inlocuirea Hessianului H(ψᵢ) cu matricea constanta Aᵢ = 1/2[Iₘ - 1/(M+1)1ₘ1ₘᵀ] care satisface Aᵢ ≻ H(ψᵢ) (Bohning 1992). Avantajul: Aᵢ nu depinde de ψᵢ.</div>
+  <div class="highlight-box"><strong>Limita superioara pe lse:</strong> lse(ηᵢ) ≤ 1/2 ηᵢᵀAᵢηᵢ - bᵢᵀηᵢ + cᵢ, cu bᵢ = Aᵢψᵢ - g(ψᵢ) si cᵢ = 1/2 ψᵢᵀAᵢψᵢ - g(ψᵢ)ᵀψᵢ + lse(ψᵢ).</div>
+  <div class="highlight-box"><strong>Model de observatie „gaussianizat":</strong> p(yᵢ|xᵢ,w) ≥ f(xᵢ,ψᵢ) N(ỹᵢ|X,w,Aᵢ⁻¹), unde ỹᵢ = Aᵢ⁻¹(bᵢ+yᵢ) sunt pseudo-masuratori, permitand calcul bayesian standard cu gaussiene.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Limita Bohning transforma problema de inferenta variationala pentru regresie logistica multinomiala intr-o problema de regresie liniara gaussiana echivalenta, prin inlocuirea Hessianului variabil cu o matrice constanta Aᵢ care margineaza superior curbura.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Strategia cheie: inlocuirea unei functii non-conjugate cu o limita patratica care este conjugata cu priorul gaussian. Matricea Aᵢ = 1/2[I - 1/(M+1)11ᵀ] este independenta de parametrii variationali, simplificand enorm calculul. Pseudo-masuratorile ỹᵢ transforma problema in regresie liniara standard.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Limita Bohning este larg utilizata in clasificarea bayesiana multinomiala, regresie logistica ordinala, si modele de alegere discreta in economie si marketing.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul medical automat cu mai multe categorii de boli, limita Bohning permite estimarea incertitudinii in clasificare, informand medicul nu doar despre diagnosticul cel mai probabil, ci si despre cat de sigur este modelul.</p></div>
+  </div>
+</div>

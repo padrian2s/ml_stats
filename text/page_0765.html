@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Ilustrari KL forward vs reverse si alpha-divergente</h2>
+  <p>Aceasta pagina ilustreaza vizual diferentele dintre KL forward si reverse pe distributii bimodale si Gaussiene, si introduce alpha-divergentele ca familie generalizata.</p>
+  <div class="definition-box"><strong>Figura 21.1 - Distributie bimodala:</strong> KL forward (a): q unimodala acopera ambele moduri ale lui p, cu media intre ele (zona de probabilitate joasa). KL reverse (b,c): q se blocheaza pe unul din cele doua moduri, producand o aproximare mai concentrata dar incompleta.</div>
+  <div class="definition-box"><strong>Figura 21.2 - Gaussiana factorizata:</strong> KL reverse pe o Gaussiana 2D corelata: q factorizata capteaza media corect dar varianta este controlata de directia de varianta minima a lui p (prea compacta). KL forward: q factorizata este produsul marginalelor (prea difuza).</div>
+  <div class="highlight-box"><strong>Alpha-divergente:</strong> Familia D_α(p||q) = 4/(1-α^2) [1 - ∫ p(x)^{(1+α)/2} q(x)^{(1-α)/2} dx] interpoleaza intre KL(p||q) (α→1) si KL(q||p) (α→-1). La α=0, se obtine distanta Hellinger D_H(p||q) = ∫ (√p - √q)^2 dx, care este o metrica simetrica.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figurile demonstreaza clar diferentele: KL inversa (zero forcing) produce aproximari prea compacte dar bine centrate pe un mod, iar KL directa (zero avoiding) produce aproximari prea difuze dar care acopera tot suportul. Pentru o Gaussiana factorizata aproximand o Gaussiana corelata, KL inversa capteaza media dar subestimeaza varianta, iar KL directa reproduce marginalele exacte dar ignora corelatia.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Alpha-divergentele ofera un continuum de obiective, fiecare cu proprietati diferite. Distanta Hellinger (α=0) este un compromis natural: simetrica, o metrica valida, si produce aproximari mai echilibrate decat extremele KL. In practica, alegerea lui α este un hiperparametru care controleaza compromisul compacitate-acoperire.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Expectation Propagation (EP) optimizeaza o forma de alpha-divergenta. Power EP generalizeaza la α arbitrar. Rényi-divergentele (legate de alpha-divergente) sunt folosite in evaluarea modelelor generative (FID) si in confidentialitatea diferentiala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea pozitiei unui robot care poate fi in doua locatii posibile (distributie bimodala), KL inversa ar produce o aproximare concentrata pe o singura locatie (util pentru actiune imediata), iar KL directa ar produce o aproximare difuza intre cele doua (util pentru planificare conservatoare).</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Selectia Modelului LASSO: Debiasing si Stabilitate</h2>
+  <p>Pagina discuta utilizarea l1 pentru selectia modelului (nu doar regularizare), conceptul de debiasing, consistenta de selectie, Bootstrap Lasso (Bolasso) si selectia de stabilitate.</p>
+  <div class="definition-box"><strong>Consistenta de selectie (Model selection consistency):</strong> Proprietatea ca metoda recupereaza setul adevarat de variabile cand N -> infinit. LASSO nu este intotdeauna consistent in selectie; conditii restrictive pe matricea de design sunt necesare.</div>
+  <div class="definition-box"><strong>Bootstrap Lasso (Bolasso):</strong> Se ruleaza LASSO pe B subseturi bootstrap ale datelor, se intersecteaza seturile de variabile selectate, si se face OLS pe intersectie. Produce selectie consistenta sub conditii mai slabe decat LASSO simplu.</div>
+  <div class="highlight-box"><strong>Selectia de stabilitate (Stability selection):</strong> Se ruleaza LASSO pe subseturi aleatoare si se calculeaza probabilitatile de selectie per variabila. Se selecteaza variabilele cu probabilitate peste un prag. Controleaza rata de fals pozitivi. Abordare Bayesiana aproximativa.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>LASSO nu este ideal pentru selectia de variabile: bias-ul de shrinkage si lipsa consistentei de selectie sunt limitari cunoscute. Bolasso si selectia de stabilitate rezolva partial aceste probleme prin randomizarea procedurii de selectie si agregarea rezultatelor, producand selectii mai robuste.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia selectie vs predictie: lambda optim pentru predictie (CV) nu este acelasi cu lambda optim pentru selectia corecta a variabilelor. Metodele de stabilitate adreseaza explicit obiectivul de selectie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, se recomanda: (1) LASSO cu CV pentru predictie, (2) Debiased LASSO sau Bolasso pentru selectia variabilelor, (3) Selectia de stabilitate pentru controlul fals pozitivilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In descoperirea de medicamente, selectia de stabilitate identifica tintele moleculare cu probabilitate ridicata de a fi relevante, reducand numarul de experimente costisitoare de validare necesare.</p></div>
+  </div>
+</div>

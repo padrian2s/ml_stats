@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Regiuni HPD si Inferenta pentru Diferenta de Proportii</h2>
+  <p>Pagina completeaza discutia despre regiunile HPD pentru distributii multimodale si introduce problema inferentei pentru diferenta de proportii, cu exemplul cumparaturilor de pe Amazon.</p>
+  <div class="definition-box"><strong>Interval de cea mai mare densitate (HDI - Highest Density Interval):</strong> In 1D, regiunea HPD se numeste si HDI. Este cel mai ingust interval care contine 100(1-α)% din masa probabilitatii.</div>
+  <div class="highlight-box"><strong>Definitia formala HPD:</strong> 1 - α = ∫_{θ:p(θ|D)>p*} p(θ|D)dθ, apoi C_α(D) = {θ : p(θ|D) ≥ p*} (Ecuatiile 5.9-5.10)</div>
+  <div class="figure-box"><strong>Figura 5.4:</strong> (a) Intervalul central si (b) regiunea HPD pentru o posterioara multimodala ipotetica. HPD-ul poate fi o regiune neconectata in cazul distributiilor multimodale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pentru distributii multimodale, HPD-ul poate fi o regiune neconectata (mai multe intervale separate), ceea ce face sumarizarea mai dificila. Sectiunea 5.2.3 introduce o problema practica: compararea a doi vanzatori pe Amazon cu numar diferit de recenzii (Vanzator 1: 90 pozitive, 10 negative; Vanzator 2: 2 pozitive, 0 negative).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Algoritmul simplu pentru HPD 1D: se cauta peste puncte astfel incat intervalul sa contina 95% din masa si sa aiba latime minima. Aceasta se poate face prin optimizare numerica 1D (folosind CDF-ul invers) sau prin cautare pe esantioane sortate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Problema Amazon ilustreaza perfect avantajul abordarii bayesiene: Vanzatorul 2 are rata de 100% (2/2) dar cu foarte putine date, in timp ce Vanzatorul 1 are 90% (90/100) cu date abundente. Abordarea bayesiana ia in calcul incertitudinea, favorizand vanzatorul cu mai multe date.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Pe Amazon, un produs cu 5 stele din 3 recenzii nu este neaparat mai bun decat unul cu 4.5 stele din 1000 de recenzii. Abordarea bayesiana permite compararea corecta prin calculul distributiei posterioare a diferentei de calitate intre cei doi vanzatori.</p></div>
+  </div>
+</div>

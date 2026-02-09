@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Algoritmi de clustering spectral si Laplacianul normalizat</h2>
+  <p>Pagina descrie algoritmul de clustering spectral bazat pe vectori proprii si introduce doua variante de Laplacian normalizat.</p>
+  <div class="definition-box"><strong>Algoritmul de clustering spectral:</strong> Se calculeaza primii K vectori proprii ai lui L, se formeaza matricea U (N×K), iar randurile y_i ∈ ℝ^K sunt clusterizate cu K-means. Punctul i este atribuit clusterului k daca randul i din Y a fost atribuit lui k.</div>
+  <div class="highlight-box"><strong>Laplacianul normalizat (random walk):</strong> L_rw = D⁻¹L = I - D⁻¹W (Ecuatia 25.46)</div>
+  <div class="highlight-box"><strong>Laplacianul normalizat (simetric):</strong> L_sym = D^{-1/2} L D^{-1/2} = I - D^{-1/2} W D^{-1/2} (Ecuatia 25.47)</div>
+  <div class="definition-box"><strong>Teoria perturbatiei:</strong> In practica, grafurile reale nu au componente conexe perfecte. Se presupune ca graful este o perturbatie mica a unui graf ideal, iar vectorii proprii ai Laplacianului perturbat sunt apropiati de vectorii indicator ideali.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Doua variante de normalizare sunt prezentate: L_rw (care creeaza o matrice stocastica) si L_sym (care creeaza o matrice simetrica). Ambele corecteaza pentru diferentele de grad intre noduri. Eigenvectorii generalizati ai L_rw sunt echivalenti cu cei ai lui L care rezolva Lu = λDu.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Clusteringul spectral este legat de kernel PCA: KPCA foloseste cei mai mari vectori proprii ai W, echivalent cu cei mai mici ai I - W. Dar clusteringul spectral ofera rezultate practice mult mai bune decat KPCA.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul Ng-Jordan-Weiss (L_sym) normalizeaza randurile lui U la norma unitara inainte de aplicarea K-means. Aceasta normalizare suplimentara imbunatateste performanta in practica, mai ales pentru clustere de dimensiuni diferite.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In procesarea limbajului natural, clusteringul spectral pe un graf de similaritate semantica intre cuvinte poate descoperi grupuri tematice (sport, politica, tehnologie) fara a presupune o forma specifica a clusterelor in spatiul vectorial al cuvintelor.</p></div>
+  </div>
+</div>

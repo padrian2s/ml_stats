@@ -1,0 +1,19 @@
+<div class="page-content">
+  <h2>Regularizarea Tikhonov si Demonstratia Regulii Bayes pentru Sisteme Gaussiene Liniare</h2>
+  <p>Pagina 124 leaga interpolarea cu zgomot de regularizarea Tikhonov si analiza datelor functionale, apoi incepe demonstratia Teoremei 4.4.1.</p>
+
+  <div class="highlight-box"><strong>Problema de optimizare (Ecuatia 4.148):</strong> min_x (1/2σ²) Σᵢ (xᵢ - yᵢ)² + (λ/2) Σⱼ [(xⱼ - xⱼ₋₁)² + (xⱼ - xⱼ₊₁)²]. Primul termen = fidelitate la date, al doilea = penalizare de netezire.</div>
+
+  <div class="definition-box"><strong>Regularizarea Tikhonov (Ecuatia 4.149):</strong> min_f ∫ (1/2σ²)(f(t) - y(t))² dt + (λ/2) ∫ (f'(t))² dt. Versiunea continua: minimizeaza eroarea patratica + penalizarea curburii. Este un exemplu de analiza datelor functionale.</div>
+
+  <div class="highlight-box"><strong>Demonstratia Teoremei 4.4.1 (Ecuatiile 4.150-4.153):</strong> Se formeaza distributia comuna p(x, y) = p(x)p(y|x) si se identifica matricea de precizie comuna:
+    Σ⁻¹ = [[Σ_x⁻¹ + AᵀΣ_y⁻¹A, -AᵀΣ_y⁻¹], [-Σ_y⁻¹A, Σ_y⁻¹]]</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face o legatura importanta: media posterioara a modelului Gaussian liniar este echivalenta cu solutia problemei de optimizare Tikhonov. Aceasta leaga inferenta Bayesiana de regularizare: priorul Gaussian corespunde penalizarii L2 (Tikhonov), iar varianta zgomotului determina balanta intre fidelitate si netezire. Demonstratia Teoremei 4.4.1 procedeaza prin formarea distributiei comune si aplicarea formulelor de conditionare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Echivalenta intre inferenta Bayesiana si regularizare este profunda: MAP = regularizare Tikhonov, priorul = penalizare, varianta priorului = 1/λ. Aceasta interpretare probabilistica ofera justificari pentru alegerea tipului si cantitatii de regularizare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regularizarea Tikhonov apare in probleme inverse (deconvolutie, tomografie), procesarea imaginilor (denoising, super-rezolutie), geostatistica si orice problema slab conditionata care necesita regularizare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In seismologie, estimarea structurii subterane din unde seismice este o problema inversa slab conditionata. Regularizarea Tikhonov (echivalenta cu un prior Gaussian de netezire) produce imagini ale subsolului care sunt atat compatibile cu datele seismice cat si suficient de netede pentru a fi geologicamente plauzibile.</p></div>
+  </div>
+</div>

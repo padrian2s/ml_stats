@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Retelele logice Markov (MLN)</h2>
+  <p>Aceasta pagina detaliaza retelele logice Markov, combinand logica de ordin intai cu modele grafice probabilistice pentru a modela domenii relationale.</p>
+  <div class="definition-box"><strong>Retea logica Markov (MLN):</strong> Un model care combina logica de ordin intai cu MRF-uri. Regulile logice (de exemplu, "Fumatul cauzeaza cancer", "Prietenii fumeaza impreuna") sunt transformate in clauze si li se ataseaza ponderi care definesc potentialele de clica.</div>
+  <div class="definition-box"><strong>Retea de baza (ground network):</strong> UGM-ul concret obtinut prin instantierea regulilor logice cu obiecte specifice (de exemplu, Anna si Bob). Variabilele binare sunt S_x, C_x, F_{x,y} pentru fumat, cancer si prietenie.</div>
+  <div class="highlight-box"><strong>De la logica la probabilitati:</strong> Regulile logice sunt rescrise in forma normala conjunctiva (CNF), apoi fiecare clauza c primeste o pondere w_c care defineste potentialul ψ_c(x_c) = exp(w_c φ_c(x_c)). Ponderea specifica cat de mult se penalizeaza nerespectarea regulii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MLN-urile rezolva fragilitatea logicii clasice (unde o singura exceptie invalideaza o regula) prin atribuirea de ponderi regulilor. Reteaua de baza se obtine prin "derularea" regulilor universale cu obiecte concrete, producand un UGM cu noduri binare. Ponderile sunt parametrii modelului si pot fi invatate din date.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Transformarea logicii in probabilitati: forma CNF permite scrierea fiecarei reguli ca o clauza, iar ponderea controleaza "rigiditatea" regulii. Regulile cu ponderi mari sunt aproape deterministe, iar cele cu ponderi mici sunt mai relaxate. Reteaua de baza poate avea noduri redundante (de exemplu, Friends(A,A)).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MLN-urile sunt folosite in extractia de informatii din texte nestructurate, integrarea bazelor de cunostinte (knowledge graph completion), si modelarea retelelor sociale. Pachetul Alchemy implementeaza MLN-uri.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-o retea sociala, MLN-ul poate modela reguli precum "Daca doi utilizatori sunt prieteni si unul distribuie un articol, celalalt il va distribui probabil si el". Ponderile regulilor se invata din comportamentul observat al utilizatorilor.</p></div>
+  </div>
+</div>

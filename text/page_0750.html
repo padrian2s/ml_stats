@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Latimea indusa, latimea arborelui (treewidth) si graful indus</h2>
+  <p>Aceasta pagina defineste formal latimea indusa si treewidth-ul, aratand cum acestea determina complexitatea inferentei exacte.</p>
+  <div class="definition-box"><strong>Latimea indusa w(≺):</strong> Dimensiunea celui mai mare factor (clica maximala in graful indus) minus 1, pentru o ordine de eliminare data ≺. Complexitatea VE cu aceasta ordine este O(K^{w(≺)+1}).</div>
+  <div class="definition-box"><strong>Treewidth (latimea arborelui):</strong> Minimul latimii induse peste toate ordinile posibile de eliminare: w = min_≺ max_{c∈G(≺)} |c| - 1. Complexitatea optima a VE este O(DK^{w+1}), unde D este numarul de variabile.</div>
+  <div class="highlight-box"><strong>NP-dificultatea gasirii ordinii optime:</strong> Gasirea ordinii de eliminare care minimizeaza latimea indusa este NP-hard. In practica, euristici greedy (min-fill: alege variabila care adauga cele mai putine muchii de umplere, min-degree: alege variabila cu cei mai putini vecini) functioneaza bine.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Treewidth-ul este parametrul fundamental care determina dificultatea inferentei exacte. Arbori au treewidth 1, lanturile au treewidth 1, retelele 2D de n×n au treewidth O(n). Daca treewidth-ul este mic, inferenta exacta este eficienta; daca este mare, trebuie recurse la metode aproximative. Graful indus G(≺) vizualizeaza efectul unei ordini de eliminare: clicile sale sunt exact factorii intermediari.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Latimea indusa este un concept central in teoria grafurilor si complexitate computationala. Multe probleme NP-hard pe grafuri generale devin polinomiale pe grafuri cu treewidth limitat (FPT - fixed-parameter tractable). Diferenta intre ordinea buna (treewidth 2) si proasta (treewidth 4) in exemplul student este dramatica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Treewidth-ul determina daca inferenta exacta este fezabila. In practica, multe retele Bayesiene din domenii reale au treewidth moderat (< 20), permitand inferenta exacta. Retelele cu structura regulata (retele 2D, retele sociale) au adesea treewidth proportional cu dimensiunea.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O retea Bayesiana pentru diagnosticul auto cu 50 de componente poate avea treewidth 5 daca componentele au dependente locale (fiecare afecteaza doar vecinii). Inferenta exacta necesita O(K^6) operatii per variabila, ceea ce este rapid pentru K mic (binar: 64 operatii).</p></div>
+  </div>
+</div>

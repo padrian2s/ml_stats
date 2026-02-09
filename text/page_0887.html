@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul Gibbs colaps pentru amestecuri DP si propagarea afinitatii</h2>
+  <p>Pagina prezinta pseudocodul algoritmului Gibbs colaps pentru amestecuri DP si introduce metoda de propagare a afinitatii (affinity propagation) ca alternativa la modelele generative de clustering.</p>
+  <div class="definition-box"><strong>Algoritmul 25.1 - Esantionator Gibbs colaps pentru amestecuri DP:</strong> Pentru fiecare punct de date i, se elimina statisticile suficiente din clusterul vechi, se calculeaza probabilitatile pentru fiecare cluster existent si pentru un cluster nou, se normalizeaza si se esantioneaza z_i.</div>
+  <div class="definition-box"><strong>Propagarea afinitatii (Affinity Propagation):</strong> O abordare alternativa de clustering care primeste ca intrare o matrice de similaritate N×N si identifica automat exemplare (centrozi) care actioneaza ca centre de cluster.</div>
+  <div class="definition-box"><strong>K-medoizi (K-centres):</strong> Algoritmul care selecteaza exemplare din setul de date ca centre de cluster, dar poate suferi de minime locale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul 25.1 itereaza prin punctele de date in ordine aleatoare, recalculand atribuirile de cluster. DPMM converge mai rapid decat amestecurile finite deoarece poate crea clustere redundante devreme si le poate folosi pentru a scapa din optime locale. Propagarea afinitatii ofera o alternativa care nu necesita un model generativ.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>DPMM vs. amestecuri finite: DPMM converge mai rapid si evita mai bine optimele locale. Propagarea afinitatii determina automat numarul de clustere folosind o matrice de similaritate, fara a necesita specificarea lui K sau a unui model generativ.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Propagarea afinitatii este utilizata in bioinformatica pentru identificarea genelor reprezentative, in viziunea computerizata pentru segmentarea imaginilor si in analiza retelelor sociale pentru detectarea comunitatilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un retailer online poate folosi propagarea afinitatii pe matricea de similaritate a produselor (bazata pe co-achizitii) pentru a identifica automat categorii de produse si exemplare reprezentative pentru fiecare categorie, fara a specifica numarul de categorii.</p></div>
+  </div>
+</div>

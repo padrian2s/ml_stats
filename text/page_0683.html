@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul UKF si Filtrarea cu Densitate Presupusa (ADF)</h2>
+  <p>Pagina prezinta ecuatiile complete ale algoritmului UKF si introduce filtrarea cu densitate presupusa (ADF) ca metoda generala de inferenta aproximativa online.</p>
+  <div class="highlight-box"><strong>Ecuatiile UKF - Pasul de predictie:</strong> Se genereaza puncte sigma z_{t-1}^{0i} din N(z_{t-1}|μ_{t-1}, Σ_{t-1}), se propaga prin g: z_t^{*i} = g(u_t, z_{t-1}^{0i}), se calculeaza μ̄_t = Σ w_m^i z_t^{*i} si Σ̄_t = Σ w_c^i (z_t^{*i} − μ̄_t)(z_t^{*i} − μ̄_t)^T + Q_t (ec. 18.99-18.102).</div>
+  <div class="highlight-box"><strong>Ecuatiile UKF - Pasul de actualizare:</strong> Se genereaza noi puncte sigma din N(z_t|μ̄_t, Σ̄_t), se propaga prin h: ȳ_t^{*i} = h(z_t^{0i}). Se calculeaza S_t = Σ w_c^i (ȳ_t^{*i} − ŷ_t)(ȳ_t^{*i} − ŷ_t)^T + R_t. Castigul: K_t = Σ_t^{z,y} S_t^{-1}. Actualizare: μ_t = μ̄_t + K_t(y_t − ŷ_t), Σ_t = Σ̄_t − K_t S_t K_t^T (ec. 18.103-18.110).</div>
+  <div class="definition-box"><strong>Filtrarea cu densitate presupusa (ADF):</strong> Metoda generala de inferenta online unde posteriorul exact p̂(θ_t) este proiectat pe o familie tractabila Q prin minimizarea KL(p̂(θ_t)||q(θ_t)). Ciclul este: predictie → actualizare → proiectie (ec. 18.111).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul UKF aplica transformarea unscented de doua ori: o data pentru predictie prin modelul de sistem g si o data pentru actualizare prin modelul de observatie h. ADF generalizeaza ideea de aproximare a posteriorului, fiind un cadru unificator pentru multe metode de inferenta aproximativa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura UKF este paralela cu cea a EKF si filtrului Kalman: predictie + actualizare. ADF introduce paradigma predict-update-project care se regaseste in multe algoritmi moderni de inferenta. Minimizarea KL pe o familie tractabila este echivalenta cu potrivirea momentelor pentru familii exponentiale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>UKF complet este utilizat in localizarea si cartografierea simultana (SLAM) pentru roboti, estimarea starii sistemelor de putere si urmarirea tintelor in aplicatii militare. ADF este baza pentru multi algoritmi de inferenta online in modele grafice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un sistem SLAM pentru un robot autonom, UKF estimeaza simultan pozitia robotului si locatia reperelor din mediu. Punctele sigma captureaza incertitudinea in pozitia robotului si in coordonatele reperelor, permitand navigarea in medii necunoscute.</p></div>
+  </div>
+</div>

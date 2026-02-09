@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Sectiunea 27.3 - Latent Dirichlet Allocation (LDA)</h2>
+  <p>Pagina introduce formal modelul Latent Dirichlet Allocation, prezentand modelul generativ complet si modelele grafice asociate.</p>
+  <div class="definition-box"><strong>LDA - Modelul complet:</strong> π_i|α ~ Dir(α1_K) (Ecuatia 27.18), q_il|π_i ~ Cat(π_i) (Ecuatia 27.19), b_k|γ ~ Dir(γ1_V) (Ecuatia 27.20), y_il|q_il=k, B ~ Cat(b_k) (Ecuatia 27.21). Fiecare cuvant are propriul topic, iar fiecare document are propria distributie de topicuri.</div>
+  <div class="definition-box"><strong>Model de mixtura admixtura (admixture/mixed membership):</strong> Spre deosebire de modelele de mixtura standard unde fiecare document are un singur topic, in LDA fiecare document apartine unei distributii peste topicuri. Aceasta permite un document sa trateze mai multe teme simultan.</div>
+  <div class="figure-box"><strong>Figura 27.2(b):</strong> Modelul grafic LDA: α → π_i → q_il → y_il, cu B influentand y_il. Placile indica repetitia: N documente, fiecare cu L_i cuvinte.</div>
+  <div class="highlight-box"><strong>Diferenta fata de modelele de mixtura:</strong> In mixtura de multinomiale, fiecare document are un singur topic global q_i. In LDA, fiecare cuvant l din documentul i are propriul topic q_il, extras din distributia specifica documentului π_i.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>LDA este formalizat ca un model generativ ierarhic Bayesian: (1) se extrage distributia de topicuri π_i pentru fiecare document, (2) pentru fiecare cuvant se alege un topic q_il din π_i, (3) se genereaza cuvantul din distributia topicului ales. Acest model permite documente multi-tematice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura ierarhica a LDA (hiperparametru α → proportii document π_i → atribuiri cuvant q_il → cuvinte y_il) permite partajarea informatiei intre documente prin priorul Dirichlet comun. Modelul are aplicatii dincolo de analiza textului: genetica, retele sociale, stiintele sanatatii.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LDA este aplicat in: descoperirea automata a temelor in corpusuri mari (Wikipedia, articole stiintifice), analiza genetica a populatiilor (Pritchard et al. 2000 - programul STRUCTURE), modelarea retelelor sociale si analiza imaginilor medicale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In genetica populatiilor, LDA (sub numele STRUCTURE) este folosit pentru a descoperi subpopulatii ancestrale. Fiecare individ (analog documentului) are o proportie de apartenenta la diferite populatii ancestrale (analog topicurilor), iar fiecare marker genetic (analog cuvantului) este atribuit unei populatii ancestrale.</p></div>
+  </div>
+</div>

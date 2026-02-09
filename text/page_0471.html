@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Bolasso, Selectia de Stabilitate si Inferenta Bayesiana cu Prior Laplace</h2>
+  <p>Pagina prezinta Figura 13.10 (comparatie Lasso vs Bolasso), discuta alegerea lui lambda pentru Bolasso si introduce inferenta Bayesiana cu prior Laplace (Sectiunea 13.3.6).</p>
+  <div class="highlight-box"><strong>Figura 13.10:</strong> (a) Probabilitatea de selectie per variabila vs lambda pentru LASSO - nu exista o zona clara de selectie. (b) Bolasso - exista o zona larga unde variabilele corecte sunt selectate stabil. (c) Probabilitatea de recuperare corecta vs numar de bootstrap samples.</div>
+  <div class="highlight-box"><strong>Inferenta Bayesiana cu prior Laplace (Sectiunea 13.3.6):</strong> Media si mediana posterioarei cu prior Laplace nu sunt sparse - doar modul (MAP) este sparse. Media posterioara este optima pentru MSE predictiva, dar nu produce sparsitate.</div>
+  <div class="definition-box"><strong>Media vs Modul posterior:</strong> MAP cu prior Laplace = LASSO (sparse). Media posterioara cu prior Laplace = non-sparse dar predictie mai buna. Media posterioara cu prior spike-and-slab = si mai buna predictie (Schniter et al. 2008, Elad si Yavnch 2009).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Bolasso ofera selectie mai stabila decat LASSO simplu, cu o zona larga de lambda-uri care produc selectie corecta. Inferenta Bayesiana cu prior Laplace reveleaza o subtilitate importanta: sparsitatea este o proprietate a modului (MAP), nu a distributiei posterioare. Pentru predictie optima, media posterioara (non-sparse) este preferabila.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tensiunea selectie vs predictie: estimarile sparse sunt interpretabile dar introduc bias, estimarile non-sparse (media posterioara) sunt optime pentru predictie dar nu ofera selectie. Aceasta tensiune fundamentala nu poate fi eliminata complet.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, se recomanda: (1) LASSO/Bolasso pentru identificarea variabilelor, (2) media posterioara sau Bayesian Model Averaging pentru predictie optima, (3) raportarea ambelor rezultate pentru transparenta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In prognosticul medical, clinicienii doresc atat variabile interpretabile (LASSO) cat si predictii optime (Bayesian averaging). Cele doua obiective sunt adresate de metode diferite dar complementare.</p></div>
+  </div>
+</div>

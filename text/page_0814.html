@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LBP vs Mean Field si extensii ale propagarii increderii</h2>
+  <p>Aceasta pagina compara LBP cu mean field si introduce extensiile BP: propagarea increderii generalizata (GBP) si metoda variationala cluster.</p>
+  <div class="definition-box"><strong>Comparatie LBP vs MF:</strong> (1) LBP este exact pe arbori, MF nu; (2) LBP optimizeaza peste marginale de nod si muchie, MF doar peste marginale de nod; (3) MF are mai multe optime locale; (4) MF ofera margine inferioara pe log Z; (5) MF se extinde mai usor la distributii continue.</div>
+  <div class="definition-box"><strong>Metoda variationala cluster (GBP):</strong> Se grupeaza nodurile in clustere care formeaza cicluri stranse, obtinand un hiper-graf. Se definesc pseudo-marginale peste clustere si constrangeri de marginalizare intre clustere suprapuse.</div>
+  <div class="highlight-box"><strong>Continuum de aproximari:</strong> Daca dimensiunea t a celui mai mare hiper-muchie este egala cu treewidth-ul grafului, metoda este exacta (arbore de jonctiune). LBP corespunde t=1. Prin cresterea lui t, se obtine un continuum de la LBP la inferenta exacta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face o comparatie detaliata intre LBP si MF, concluzionand ca fiecare are avantaje distincte. Apoi introduce GBP (generalized BP) bazat pe clustere, care generalizeaza atat LBP cat si inferenta exacta, oferind un compromis controlabil intre acuratete si cost computational.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ierarhia de aproximari (MF -> LBP -> GBP -> exact) ofera practicianului un meniu de optiuni cu diferite compromisuri. MF este cel mai rapid dar cel mai imprecis, inferenta exacta este perfecta dar intractabila.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GBP este util cand LBP nu este suficient de precis dar inferenta exacta este prea costisitoare. Alegerea clusterelor determina compromisul acuratete-viteza.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea proteinelor, unde aminoacizii vecini in structura 3D formeaza cicluri stranse, GBP cu clustere bazate pe structura locala ofera inferenta mai precisa decat LBP standard.</p></div>
+  </div>
+</div>

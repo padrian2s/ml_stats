@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificator Bayes Naiv — Simulator Interactiv</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --primary: #f59e0b;
+            --primary-light: #fbbf24;
+            --primary-dark: #d97706;
+            --primary-darker: #b45309;
+            --primary-bg: #fffbeb;
+            --primary-border: #fde68a;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius: 12px;
+            --shadow: 0 4px 24px rgba(245,158,11,0.12);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --green: #16a34a;
+            --green-bg: #f0fdf4;
+            --green-border: #bbf7d0;
+            --red: #dc2626;
+            --red-bg: #fef2f2;
+            --red-border: #fecaca;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 24px;
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-darker); }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0 30px;
+        }
+        header h1 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 2.2rem;
+            color: var(--primary-darker);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+        header .subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .explanation {
+            background: var(--surface);
+            border: 1px solid var(--primary-border);
+            border-left: 4px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        .explanation p { font-size: 0.95rem; color: var(--text); }
+
+        .section-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.25rem;
+            color: var(--primary-darker);
+            margin-bottom: 14px;
+        }
+
+        /* Feature selectors */
+        .feature-selection {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .feature-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-group select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text);
+            background: var(--surface);
+            cursor: pointer;
+            transition: border-color 0.2s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+        }
+        .feature-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 22px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .btn:active { transform: scale(0.97); }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(245,158,11,0.35);
+        }
+        .btn-primary:hover { background: var(--primary-dark); box-shadow: 0 4px 12px rgba(245,158,11,0.45); }
+
+        .btn-danger {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+        .btn-danger:hover { background: #fee2e2; }
+
+        /* Training data table */
+        .data-section {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+        thead th {
+            background: var(--primary-bg);
+            color: var(--primary-darker);
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-border);
+            white-space: nowrap;
+        }
+        tbody td {
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        tbody tr:hover { background: #fefce8; }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .tag-da { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+        .tag-nu { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+
+        /* Results */
+        .results-section {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            display: none;
+        }
+        .results-section.visible { display: block; }
+
+        .result-verdict {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .result-verdict.da { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+        .result-verdict.nu { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+
+        .prob-bars {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .prob-card {
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .prob-card.da { background: var(--green-bg); border: 1px solid var(--green-border); }
+        .prob-card.nu { background: var(--red-bg); border: 1px solid var(--red-border); }
+        .prob-card .prob-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .prob-card.da .prob-label { color: var(--green); }
+        .prob-card.nu .prob-label { color: var(--red); }
+        .prob-card .prob-value {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        .prob-card.da .prob-value { color: var(--green); }
+        .prob-card.nu .prob-value { color: var(--red); }
+
+        .prob-bar-visual {
+            display: flex;
+            height: 14px;
+            border-radius: 7px;
+            overflow: hidden;
+            margin-bottom: 6px;
+            background: var(--border);
+        }
+        .prob-bar-da {
+            background: linear-gradient(90deg, #4ade80, #16a34a);
+            transition: width 0.6s ease;
+        }
+        .prob-bar-nu {
+            background: linear-gradient(90deg, #f87171, #dc2626);
+            transition: width 0.6s ease;
+        }
+        .prob-bar-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* Step-by-step computation */
+        .steps-container {
+            border-top: 2px solid var(--primary-border);
+            padding-top: 20px;
+        }
+        .steps-container h4 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.05rem;
+            color: var(--primary-darker);
+            margin-bottom: 14px;
+        }
+
+        .step {
+            background: #fefce8;
+            border: 1px solid var(--primary-border);
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+        }
+        .step-title {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--primary-darker);
+            margin-bottom: 6px;
+        }
+        .step-content {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.84rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .step-content .highlight {
+            color: var(--primary-darker);
+            font-weight: 700;
+        }
+
+        .toggle-table-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--primary-bg);
+            color: var(--primary-darker);
+            border: 1px solid var(--primary-border);
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: inherit;
+            margin-left: 12px;
+        }
+        .toggle-table-btn:hover { background: var(--primary-border); }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.6rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .prob-bars { grid-template-columns: 1fr; }
+            .controls { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-link">&larr; Inapoi la Pagina Principala</a>
+
+    <div class="container">
+        <header>
+            <h1>Clasificator Bayes Naiv</h1>
+            <p class="subtitle">Simulator interactiv pentru clasificarea Bayesiana naiva</p>
+        </header>
+
+        <div class="explanation">
+            <p>
+                <strong>Clasificatorul Bayes Naiv</strong> aplica Teorema lui Bayes presupunand independenta
+                conditionala a caracteristicilor. Calculeaza probabilitatea fiecarei clase pe baza
+                probabilitatilor anterioare (prior) si a verosimilitatilor (likelihood) fiecarei caracteristici.
+                Selectati valorile caracteristicilor si apasati „Clasifica" pentru a vedea calculul pas cu pas.
+            </p>
+        </div>
+
+        <!-- Feature Selection -->
+        <div class="feature-selection">
+            <h3 class="section-title">Selectati Caracteristicile</h3>
+            <div class="feature-grid">
+                <div class="feature-group">
+                    <label>Vreme</label>
+                    <select id="selVreme">
+                        <option value="Insorita">Insorita</option>
+                        <option value="Noroasa">Noroasa</option>
+                        <option value="Ploioasa">Ploioasa</option>
+                    </select>
+                </div>
+                <div class="feature-group">
+                    <label>Temperatura</label>
+                    <select id="selTemp">
+                        <option value="Calda">Calda</option>
+                        <option value="Moderata">Moderata</option>
+                        <option value="Rece">Rece</option>
+                    </select>
+                </div>
+                <div class="feature-group">
+                    <label>Umiditate</label>
+                    <select id="selUmid">
+                        <option value="Ridicata">Ridicata</option>
+                        <option value="Normala">Normala</option>
+                    </select>
+                </div>
+                <div class="feature-group">
+                    <label>Vant</label>
+                    <select id="selVant">
+                        <option value="Da">Da</option>
+                        <option value="Nu">Nu</option>
+                    </select>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="btn btn-primary" id="btnClassify">Clasifica</button>
+                <button class="btn btn-danger" id="btnReset">Reseteaza</button>
+            </div>
+        </div>
+
+        <!-- Training Data -->
+        <div class="data-section">
+            <h3 class="section-title" style="display:inline-block;">Date de Antrenament</h3>
+            <button class="toggle-table-btn" id="btnToggleTable">Ascunde Tabelul</button>
+            <div id="tableWrapper" style="margin-top:14px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Vreme</th>
+                            <th>Temperatura</th>
+                            <th>Umiditate</th>
+                            <th>Vant</th>
+                            <th>Joaca Tenis?</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="results-section" id="resultsSection">
+            <h3 class="section-title">Rezultatul Clasificarii</h3>
+
+            <div class="result-verdict" id="verdict"></div>
+
+            <div class="prob-bars">
+                <div class="prob-card da">
+                    <div class="prob-label">P(Da | Caracteristici)</div>
+                    <div class="prob-value" id="probDa">—</div>
+                </div>
+                <div class="prob-card nu">
+                    <div class="prob-label">P(Nu | Caracteristici)</div>
+                    <div class="prob-value" id="probNu">—</div>
+                </div>
+            </div>
+
+            <div class="prob-bar-visual">
+                <div class="prob-bar-da" id="barDa" style="width:50%"></div>
+                <div class="prob-bar-nu" id="barNu" style="width:50%"></div>
+            </div>
+            <div class="prob-bar-labels">
+                <span>Da</span>
+                <span>Nu</span>
+            </div>
+
+            <div class="steps-container" id="stepsContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        // Training data: weather / play tennis
+        const trainingData = [
+            { vreme: 'Insorita',  temp: 'Calda',    umid: 'Ridicata', vant: 'Nu',  cls: 'Nu'  },
+            { vreme: 'Insorita',  temp: 'Calda',    umid: 'Ridicata', vant: 'Da',  cls: 'Nu'  },
+            { vreme: 'Noroasa',   temp: 'Calda',    umid: 'Ridicata', vant: 'Nu',  cls: 'Da'  },
+            { vreme: 'Ploioasa',  temp: 'Moderata', umid: 'Ridicata', vant: 'Nu',  cls: 'Da'  },
+            { vreme: 'Ploioasa',  temp: 'Rece',     umid: 'Normala',  vant: 'Nu',  cls: 'Da'  },
+            { vreme: 'Ploioasa',  temp: 'Rece',     umid: 'Normala',  vant: 'Da',  cls: 'Nu'  },
+            { vreme: 'Noroasa',   temp: 'Rece',     umid: 'Normala',  vant: 'Da',  cls: 'Da'  },
+            { vreme: 'Insorita',  temp: 'Moderata', umid: 'Ridicata', vant: 'Nu',  cls: 'Nu'  },
+            { vreme: 'Insorita',  temp: 'Rece',     umid: 'Normala',  vant: 'Nu',  cls: 'Da'  },
+            { vreme: 'Ploioasa',  temp: 'Moderata', umid: 'Normala',  vant: 'Nu',  cls: 'Da'  },
+            { vreme: 'Insorita',  temp: 'Moderata', umid: 'Normala',  vant: 'Da',  cls: 'Da'  },
+            { vreme: 'Noroasa',   temp: 'Moderata', umid: 'Ridicata', vant: 'Da',  cls: 'Da'  },
+            { vreme: 'Noroasa',   temp: 'Calda',    umid: 'Normala',  vant: 'Nu',  cls: 'Da'  },
+            { vreme: 'Ploioasa',  temp: 'Moderata', umid: 'Ridicata', vant: 'Da',  cls: 'Nu'  },
+        ];
+
+        // Populate table
+        const tableBody = document.getElementById('tableBody');
+        trainingData.forEach((row, i) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${i + 1}</td>
+                <td>${row.vreme}</td>
+                <td>${row.temp}</td>
+                <td>${row.umid}</td>
+                <td>${row.vant}</td>
+                <td><span class="tag ${row.cls === 'Da' ? 'tag-da' : 'tag-nu'}">${row.cls}</span></td>
+            `;
+            tableBody.appendChild(tr);
+        });
+
+        // Toggle table visibility
+        const btnToggle = document.getElementById('btnToggleTable');
+        const tableWrapper = document.getElementById('tableWrapper');
+        let tableVisible = true;
+        btnToggle.addEventListener('click', () => {
+            tableVisible = !tableVisible;
+            tableWrapper.style.display = tableVisible ? 'block' : 'none';
+            btnToggle.textContent = tableVisible ? 'Ascunde Tabelul' : 'Arata Tabelul';
+        });
+
+        // Naive Bayes computation
+        function classify(vreme, temp, umid, vant) {
+            const n = trainingData.length;
+            const classes = ['Da', 'Nu'];
+            const features = [
+                { key: 'vreme', val: vreme },
+                { key: 'temp',  val: temp },
+                { key: 'umid',  val: umid },
+                { key: 'vant',  val: vant },
+            ];
+            const featureNames = {
+                vreme: 'Vreme',
+                temp: 'Temperatura',
+                umid: 'Umiditate',
+                vant: 'Vant'
+            };
+
+            const results = {};
+            const steps = [];
+
+            // Priors
+            const classCounts = {};
+            classes.forEach(c => {
+                classCounts[c] = trainingData.filter(r => r.cls === c).length;
+            });
+
+            steps.push({
+                title: 'Pasul 1: Probabilitatile Anterioare (Prior)',
+                lines: classes.map(c =>
+                    `P(${c}) = ${classCounts[c]} / ${n} = <span class="highlight">${(classCounts[c]/n).toFixed(4)}</span>`
+                )
+            });
+
+            // Likelihoods with Laplace smoothing
+            classes.forEach(c => {
+                const classRows = trainingData.filter(r => r.cls === c);
+                const nc = classRows.length;
+                let logProb = Math.log(nc / n);
+                const likelihoodLines = [];
+
+                features.forEach(f => {
+                    const count = classRows.filter(r => r[f.key] === f.val).length;
+                    // Laplace smoothing: add 1 to numerator, add number of unique values to denominator
+                    const uniqueVals = [...new Set(trainingData.map(r => r[f.key]))].length;
+                    const smoothedProb = (count + 1) / (nc + uniqueVals);
+                    logProb += Math.log(smoothedProb);
+                    likelihoodLines.push(
+                        `P(${featureNames[f.key]}=${f.val} | ${c}) = (${count}+1) / (${nc}+${uniqueVals}) = <span class="highlight">${smoothedProb.toFixed(4)}</span>`
+                    );
+                });
+
+                results[c] = { logProb, prob: Math.exp(logProb), likelihoodLines };
+            });
+
+            steps.push({
+                title: 'Pasul 2: Verosimilitatile (Likelihood) — cu netezire Laplace',
+                lines: [
+                    '<strong>Clasa "Da":</strong>',
+                    ...results['Da'].likelihoodLines,
+                    '',
+                    '<strong>Clasa "Nu":</strong>',
+                    ...results['Nu'].likelihoodLines,
+                ]
+            });
+
+            // Unnormalized posterior
+            const totalUnnorm = results['Da'].prob + results['Nu'].prob;
+            const pDa = results['Da'].prob / totalUnnorm;
+            const pNu = results['Nu'].prob / totalUnnorm;
+
+            steps.push({
+                title: 'Pasul 3: Posteriorul (Normalizat)',
+                lines: [
+                    `Scor(Da) = P(Da) × &prod; P(Xi|Da) = <span class="highlight">${results['Da'].prob.toExponential(4)}</span>`,
+                    `Scor(Nu) = P(Nu) × &prod; P(Xi|Nu) = <span class="highlight">${results['Nu'].prob.toExponential(4)}</span>`,
+                    '',
+                    `P(Da | X) = ${results['Da'].prob.toExponential(4)} / (${results['Da'].prob.toExponential(4)} + ${results['Nu'].prob.toExponential(4)})`,
+                    `P(Da | X) = <span class="highlight">${(pDa * 100).toFixed(2)}%</span>`,
+                    '',
+                    `P(Nu | X) = <span class="highlight">${(pNu * 100).toFixed(2)}%</span>`,
+                ]
+            });
+
+            const winner = pDa >= pNu ? 'Da' : 'Nu';
+
+            steps.push({
+                title: 'Pasul 4: Decizia',
+                lines: [
+                    `Clasificare: <span class="highlight">${winner === 'Da' ? 'Da — se joaca tenis!' : 'Nu — nu se joaca tenis.'}</span>`,
+                ]
+            });
+
+            return { pDa, pNu, winner, steps };
+        }
+
+        // Event handlers
+        document.getElementById('btnClassify').addEventListener('click', () => {
+            const vreme = document.getElementById('selVreme').value;
+            const temp = document.getElementById('selTemp').value;
+            const umid = document.getElementById('selUmid').value;
+            const vant = document.getElementById('selVant').value;
+
+            const result = classify(vreme, temp, umid, vant);
+
+            // Show results
+            const section = document.getElementById('resultsSection');
+            section.classList.add('visible');
+
+            const verdict = document.getElementById('verdict');
+            if (result.winner === 'Da') {
+                verdict.className = 'result-verdict da';
+                verdict.textContent = 'Decizie: Da — se joaca tenis!';
+            } else {
+                verdict.className = 'result-verdict nu';
+                verdict.textContent = 'Decizie: Nu — nu se joaca tenis.';
+            }
+
+            document.getElementById('probDa').textContent = (result.pDa * 100).toFixed(2) + '%';
+            document.getElementById('probNu').textContent = (result.pNu * 100).toFixed(2) + '%';
+
+            document.getElementById('barDa').style.width = (result.pDa * 100) + '%';
+            document.getElementById('barNu').style.width = (result.pNu * 100) + '%';
+
+            // Steps
+            const stepsContainer = document.getElementById('stepsContainer');
+            stepsContainer.innerHTML = '<h4>Calcul Pas cu Pas</h4>';
+            result.steps.forEach(step => {
+                const div = document.createElement('div');
+                div.className = 'step';
+                div.innerHTML = `
+                    <div class="step-title">${step.title}</div>
+                    <div class="step-content">${step.lines.join('<br>')}</div>
+                `;
+                stepsContainer.appendChild(div);
+            });
+
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        document.getElementById('btnReset').addEventListener('click', () => {
+            document.getElementById('selVreme').selectedIndex = 0;
+            document.getElementById('selTemp').selectedIndex = 0;
+            document.getElementById('selUmid').selectedIndex = 0;
+            document.getElementById('selVant').selectedIndex = 0;
+            document.getElementById('resultsSection').classList.remove('visible');
+        });
+    </script>
+</body>
+</html>

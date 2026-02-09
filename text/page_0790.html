@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 21. Inferenta Variationala - Aplicarea Limitei Bohning la Regresia Logistica Multinomiala (p.759)</h2>
+  <p>Aceasta pagina deriveaza aplicarea concreta a limitei Bohning la regresia logistica multinomiala, incluzand functionalul variational complet si formulele de actualizare.</p>
+  <div class="highlight-box"><strong>Obiectivul variational:</strong> L(q) = -KL(q(w)||p(w|D)) + E_q[Σᵢ yᵢᵀηᵢ] - Σᵢ E_q[lse(ηᵢ)], unde q(w) = N(w|mₙ, Vₙ) este posteriorul aproximativ gaussian.</div>
+  <div class="highlight-box"><strong>Divergenta KL intre gaussiene:</strong> -KL(N(m₀,V₀)||N(mₙ,Vₙ)) = -1/2[tr(VₙV₀⁻¹) - log|VₙV₀⁻¹| + (mₙ-m₀)ᵀV₀⁻¹(mₙ-m₀) - DM].</div>
+  <div class="highlight-box"><strong>Limita inferioara combinata L_QJ:</strong> L_QJ(q) ≥ -1/2[tr(VₙV₀⁻¹) - log|VₙV₀⁻¹| + ...] - 1/2 DM + Σᵢ yᵢᵀm̃ᵢ - 1/2 tr(AᵢṼᵢ) - 1/2 m̃ᵢᵀAᵢm̃ᵢ + bᵢᵀm̃ᵢ - cᵢ, combinand inegalitatea Jensen cu limita patratica pe lse.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta derivarea completa a limitei inferioare variationala L_QJ pentru regresia logistica multinomiala, combinand divergenta KL a posteriorului aproximativ cu limita patratica Bohning pe termenul de verosimilitate. Rezultatul este o limita tractabila care poate fi optimizata eficient.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Limita L_QJ combina doua tipuri de aproximari: inferenta mean field (inegalitatea Jensen) si limita patratica locala (Bohning). Se foloseste ascensiune pe coordonate pentru optimizare: alternarea intre actualizarea parametrilor posteriori (Vₙ, mₙ) si parametrilor variationali ψᵢ.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta derivare sta la baza multor sisteme de clasificare bayesiana din industrie, inclusiv sisteme de recomandare, clasificare de documente si diagnosticare automata cu cuantificarea incertitudinii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de detectare a fraudelor bancare folosind regresie logistica bayesiana cu limita Bohning poate clasifica tranzactiile in multiple categorii (legitima, suspecta, frauda) raportand simultan nivelul de incredere.</p></div>
+  </div>
+</div>

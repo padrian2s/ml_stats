@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii Capitolul 21 (continuare) - Margini VB pentru GMM si exercitii avansate</h2>
+  <p>Aceasta pagina continua exercitiile capitolului 21, detaliind termenii marginii inferioare VB pentru GMM-uri, incluzand constante de normalizare Dirichlet, Wishart si entropii.</p>
+  <div class="definition-box"><strong>Constanta de normalizare Dirichlet:</strong> C_dir(alpha) = Gamma(sum alpha_k) / prod Gamma(alpha_k), folosita in calculul E[ln p(pi)] si E[ln q(pi)].</div>
+  <div class="definition-box"><strong>Constanta de normalizare Wishart:</strong> C_Wi(L, nu) = |L|^(-nu/2) * (2^(nuD/2) * Gamma_D(nu/2))^(-1), necesara pentru calculul termenilor de entropie ai distributiei Wishart.</div>
+  <div class="highlight-box"><strong>Exercitiul 21.5 - Derivarea E[log pi_k] sub Dirichlet:</strong> Se demonstreaza ca exp(E[log pi_k]) = exp(Psi(alpha_k)) / exp(Psi(sum alpha_k')), unde Psi este functia digamma, un rezultat fundamental in VB.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta detalii matematice ale marginii inferioare VB pentru GMM-uri, incluzand toti termenii de expectatie necesari: E[ln p(x|z,mu,Lambda)], E[ln p(z|pi)], E[ln p(pi)], E[ln p(mu,Lambda)], si entropiile E[ln q(z)], E[ln q(pi)], E[ln q(mu,Lambda)]. De asemenea, include exercitii suplimentare despre divergenta KL si mean field.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura ELBO se descompune sistematic in termeni de verosimilitate, prior si entropie. Constantele de normalizare ale distributiilor conjugate (Dirichlet, Wishart) apar frecvent si trebuie calculate cu atentie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea detaliata a fiecarui termen al ELBO este esentiala pentru implementarea corecta a algoritmilor VB si pentru diagnosticarea problemelor de convergenta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea imaginilor medicale, unde se folosesc GMM-uri variationale, calculul corect al fiecarui termen ELBO asigura convergenta algoritmului si selectia automata a numarului optim de segmente.</p></div>
+  </div>
+</div>

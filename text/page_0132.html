@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>Derivarea de Entropie Maxima si Analiza Discriminanta Gaussiana</h2>
+  <p>Pagina 101 demonstreaza ca distributia Gaussiana multivariata are entropie maxima printre toate distributiile cu aceeasi covarianta si introduce analiza discriminanta Gaussiana (GDA).</p>
+
+  <div class="definition-box"><strong>Entropia diferentiala a MVN (Ecuatia 4.25):</strong> h(N(μ, Σ)) = (1/2) ln[(2πe)^D |Σ|]. Aceasta este entropia maxima posibila pentru orice distributie cu covarianta Σ specificata.</div>
+
+  <div class="highlight-box"><strong>Teorema 4.1.2 (Entropie maxima):</strong> Fie q(x) orice densitate cu ∫ q(x) xᵢxⱼ = Σᵢⱼ. Fie p = N(0, Σ). Atunci h(q) ≤ h(p). Demonstratia foloseste KL(q||p) ≥ 0.</div>
+
+  <div class="definition-box"><strong>Analiza Discriminanta Gaussiana (GDA):</strong> O metoda de clasificare generativa unde densitatile conditionale pe clasa sunt Gaussiene: p(x|y=c, θ) = N(x|μ_c, Σ_c). Daca Σ_c este diagonala, GDA se reduce la Naive Bayes.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 4.1.4 ofera o justificare profunda pentru utilizarea distributiei Gaussiene: este distributia de entropie maxima sub constrangerile de medie si covarianta fixate. Aceasta proprietate face Gaussiana cea mai "conservatoare" alegere cand stim doar primele doua momente. Sectiunea 4.2 introduce GDA ca aplicatie directa a MVN in clasificare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Demonstratia prin divergenta KL este eleganta: KL(q||p) ≥ 0 implica -h(q) - ∫q log p ≥ 0, iar pasul cheie este ca q si p au aceleasi momente de ordinul doi, deci ∫q log p = ∫p log p. Aceasta legatura intre entropie maxima si KL este fundamentala in teoria informatiei.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GDA este utilizata in recunoasterea vocii (fiecare vorbitor are propria distributie Gaussiana), clasificarea textelor si diagnosticul medical. Principiul entropiei maxime justifica utilizarea Gaussienei in fizica statistica si inferenta Bayesiana.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In telecomunicatii, zgomotul termic este modelat ca Gaussian tocmai pentru ca, dat fiind ca stim doar puterea zgomotului (varianta), distributia Gaussiana este cea mai pesimista presupunere (entropie maxima), garantand performanta in cel mai rau caz.</p></div>
+  </div>
+</div>

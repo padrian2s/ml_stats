@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Capitolul 2: Distributiile Binomiala si Bernoulli</h2>
+  <p>Distributii discrete fundamentale: binomiala pentru numararea succeselor si Bernoulli ca caz special.</p>
+  <div class="definition-box"><strong>Distributia Binomiala:</strong> Bin(k|n, θ) = C(n,k) θ^k (1-θ)^(n-k) (ecuatia 2.28), unde X este numarul de succese in n incercari independente, fiecare cu probabilitate θ de succes.</div>
+  <div class="definition-box"><strong>Coeficientul Binomial:</strong> C(n,k) = n! / ((n-k)!k!) (ecuatia 2.29) - numarul de moduri de a alege k elemente din n. Se pronunta "n alege k".</div>
+  <div class="definition-box"><strong>Distributia Bernoulli:</strong> Ber(x|θ) = θ^I(x=1) (1-θ)^I(x=0) (ecuatia 2.31). Caz special al binomialei cu n = 1. Modeleaza un singur experiment binar (succes/esec).</div>
+  <div class="highlight-box"><strong>Media si Varianta Binomialei:</strong> media = nθ, varianta = nθ(1-θ) (ecuatia 2.30).</div>
+  <div class="highlight-box"><strong>Forma Compacta Bernoulli:</strong> Ber(x|θ) = θ daca x = 1; 1 - θ daca x = 0 (ecuatia 2.32).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 2.3.1 introduce distributiile binomiala si Bernoulli. Distributia Bernoulli modeleaza un singur experiment binar (aruncare de moneda, spam/non-spam, boala/sanatos). Distributia binomiala modeleaza numarul de succese in n experimente independente. Ambele sunt parametrizate de θ ∈ [0, 1], probabilitatea de succes.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distributia Bernoulli este blocul fundamental al clasificarii binare (regresia logistica foloseste p(y|x) = Ber(y|sigm(w^T x))). Distributia binomiala apare in testarea statistica (testul binomial) si in modelarea numarului de click-uri din n afisari de reclame. Coeficientul binomial apare frecvent in combinatorica si statistica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Bernoulli: modelarea click/non-click pe reclame, succes/esec in teste clinice, spam/ham in filtrarea email-ului. Binomiala: numarul de defecte intr-un lot de produse, numarul de pacienti vindecati dintr-un grup de tratament, numarul de conversii dintr-un set de vizitatori web.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un test A/B pe un site web masoara rata de conversie: din n = 1000 de vizitatori care vad varianta A, k = 50 fac o achizitie. Aceasta se modeleaza ca X ~ Bin(1000, θ), iar scopul este de a estima θ si de a decide daca varianta A este mai buna decat varianta B.</p></div>
+  </div>
+</div>

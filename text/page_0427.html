@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul EM pentru PCA</h2>
+  <p>Pagina prezinta algoritmul Expectation-Maximization (EM) aplicat la PCA probabilistic, oferind o alternativa la metodele bazate pe eigenvectori.</p>
+  <div class="definition-box"><strong>Algoritmul EM pentru PCA:</strong> O metoda iterativa care alterneaza intre calculul reprezentarilor latente (pasul E) si actualizarea matricei de greutati (pasul M), functionand chiar si in limita σ² = 0.</div>
+  <div class="highlight-box"><strong>Pasul E:</strong> Z̃ = (W^T W)⁻¹ W^T X̃, proiectia ortogonala a datelor pe subspatiul curent.</div>
+  <div class="highlight-box"><strong>Pasul M:</strong> W = X̃ Z̃^T (Z̃ Z̃^T)⁻¹, regresia liniara care actualizeaza directiile principale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul EM pentru PCA ofera o alternativa eleganta la descompunerea proprie. In limita zgomotului zero (σ² = 0), pasul E devine o proiectie ortogonala, iar pasul M este o regresie liniara. Algoritmul converge la un punct fix stabil care acopera acelasi subspatiu liniar ca primii L eigenvectori, desi nu produce direct eigenvectorii ordonati.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Pasul E calculeaza coordonatele latente prin proiectie, iar pasul M actualizeaza directiile prin regresie. Convergenta este garantata la solutia globala optima (Tipping si Bishop 1999). Analogia fizica cu tija rigida si arcuri ofera o intuitie excelenta pentru cazul D=2, L=1.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>EM pentru PCA este util in analiza datelor de mari dimensiuni, procesarea online a fluxurilor de date si situatiile cu date lipsa, oferind flexibilitate superioara metodelor spectrale clasice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recomandare cu matrici rare (de exemplu, evaluari de filme), EM pentru PCA poate invata factori latenti chiar si cand majoritatea intrarilor lipsesc, actualizand iterativ profilurile utilizatorilor si ale filmelor.</p></div>
+  </div>
+</div>

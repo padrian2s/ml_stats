@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Metoda lui Newton - Ilustrare și IRLS</h2>
+  <p>Pagina ilustrează metoda lui Newton pe funcții convexe și neconvexe, introduce algoritmul Levenberg-Marquardt și derivă algoritmul IRLS (Iteratively Reweighted Least Squares) pentru regresia logistică.</p>
+  <div class="figure-box"><strong>Figura 8.4:</strong> (a) Metoda lui Newton pe o funcție 1D convexă: curba solidă este f(x), linia punctată este aproximarea pătratică f_quad(x) la x_k. Pasul Newton d_k duce la minimul lui f_quad. (b) Pe o funcție neconvexă, pasul Newton poate duce la un maxim local, nu la un minim.</div>
+  <div class="definition-box"><strong>Algoritmul Levenberg-Marquardt:</strong> O metodă adaptivă care combină pașii Newton cu pașii de coborâre pe gradient. Când H_k nu este pozitiv definit, se revine la coborârea pe gradient cu d_k = -g_k.</div>
+  <div class="definition-box"><strong>Newton trunchiat (Truncated Newton):</strong> Rezolvă sistemul H_k d_k = -g_k folosind gradienți conjugați (CG), oprind iterațiile CG imediat ce se detectează curbură negativă.</div>
+  <div class="highlight-box"><strong>Actualizarea IRLS (Ecuația 8.22):</strong> w_{k+1} = (X&#7488;S_k X)⁻¹ X&#7488;S_k z_k, unde z_k = Xw_k + S_k⁻¹(y - μ_k) este răspunsul de lucru (working response).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Aplicarea metodei lui Newton la regresia logistică produce algoritmul IRLS, care la fiecare iterație rezolvă o problemă de cele mai mici pătrate ponderate. Matricea de ponderi S_k = diag(μᵢ(1-μᵢ)) se schimbă la fiecare iterație, de unde numele „reponderare iterativă". Problemele potențiale ale metodei Newton pe funcții neconvexe sunt discutate cu soluții practice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>IRLS transformă problema de regresie logistică într-o secvență de probleme de regresie liniară ponderată, conectând elegant cele două tipuri de regresie. Conceptul de „răspuns de lucru" z_k liniarizează relația neliniară din modelul logistic.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>IRLS este implementat în pachetele statistice standard (R glm(), Python statsmodels) și este metoda preferată pentru regresia logistică cu seturi de date de dimensiune moderată. Levenberg-Marquardt este folosit extensiv în ajustarea curbelor neliniare și în calibrarea camerelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un cercetător medical ajustează un model logistic pentru a prezice riscul de diabet pe baza unor factori clinici. IRLS converge în 5-10 iterații, fiecare iterație fiind echivalentă cu rezolvarea unei regresii liniare ponderate pe datele transformate.</p></div>
+  </div>
+</div>

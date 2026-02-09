@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Comparatie experimentala a metodelor - Trasaturi de dimensiune joasa</h2>
+  <p>Aceasta pagina prezinta rezultatele comparatiei experimentale Caruana-Niculescu-Mizil (2006) pe 11 seturi de date cu dimensiune joasa, clasificand 10 metode.</p>
+  <div class="definition-box"><strong>Clasificarea metodelor (de la cel mai bun la cel mai slab):</strong> BST-DT (boosted decision trees), RF (random forest), BAG-DT (bagged decision trees), SVM, ANN (retele neurale), KNN, BST-STMP (boosted stumps), DT (arbore de decizie), LOGREG, NB (naive Bayes).</div>
+  <div class="highlight-box"><strong>Rezultat principal:</strong> Tabelul 16.3 arata ca BST-DT ocupa locul 1 in 58% din cazuri, RF in 39%, iar BAG-DT in 3%. Metodele simple (DT, LOGREG, NB) sunt rareori cele mai bune. Nu exista o metoda universal superioara (no free lunch).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Studiul compara 10 metode pe 11 seturi de date cu ~5000 exemple si 9-200 trasaturi, folosind 8 metrici de performanta si 5-fold CV. Arbori boostati domina clar, urmati de random forests si arbori bagged. SVM si ANN sunt competitive dar sub metodele de ansamblu bazate pe arbori. Metodele simple (KNN, stumps, DT, logistic, NB) sunt semnificativ mai slabe.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ordinea BST-DT > RF > BAG-DT reflecta beneficiile boosting-ului (reducerea bias-ului) peste bagging (reducerea variantei). SVM si ANN sunt comparabile intre ele dar sub ansambluri de arbori. Rezultatele pot varia cu dimensionalitatea si zgomotul datelor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Acest studiu a confirmat dominanta gradient boosting pe date tabulare, consolidata ulterior de XGBoost (2016), LightGBM (2017) si CatBoost (2018). In practica, se recomanda incercarea mai multor metode si selectia prin validare incrucisata.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In competitiile Kaggle pe date tabulare, gradient boosting (XGBoost/LightGBM) castiga majoritatea competitiilor, confirmand rezultatele acestui studiu. Deep learning domina insa pe date nestructurate (imagini, text, audio).</p></div>
+  </div>
+</div>

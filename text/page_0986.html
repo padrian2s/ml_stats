@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Estimarea LDA prin Gibbs sampling collapsat</h2>
+  <p>Aceasta pagina prezinta modelul LDA derulat (Figura 27.7) si algoritmul de estimare prin Gibbs sampling collapsat, incluzand conditionalele complete.</p>
+  <div class="definition-box"><strong>LDA collapsat (Figura 27.7b):</strong> Se integreaza analitic pi_i si b_k, ramanand doar variabilele de asignare a topicurilor q_{il}. Aceasta reduce dramatic spatiul de esantionare si imbunatateste amestecarea.</div>
+  <div class="definition-box"><strong>Conditionale complete pentru Gibbs standard:</strong> p(q_{il}=k|...) proportional cu exp[log pi_{ik} + log b_{k,x_{il}}], p(pi_i|...) = Dir(alpha_k + suma I(z_{il}=k)), p(b_k|...) = Dir(gamma_v + suma suma I(x_{il}=v, z_{il}=k)).</div>
+  <div class="highlight-box"><strong>Avantajul collapsed Gibbs:</strong> In loc de a esantiona pi_i, b_k si q_{il}, se esantioneaza doar q_{il}, integrind analitic pi_i si b_k datorita conjugarii Dirichlet-multinomial. Aceasta reduce varianta estimatorului si accelereaza convergenta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta algoritmul principal de estimare LDA. Gibbs sampling standard esantioneaza toate variabilele (q, pi, b), dar collapsed Gibbs integreaza analitic pi si b, esantionand doar asignarile de topicuri q_{il}. Aceasta exploateaza conjugarea Dirichlet-multinomial si produce un esantionator cu varianta mai mica si convergenta mai rapida. Figura 27.7 compara vizual cele doua variante.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Collapsed Gibbs este posibil datorita conjugarii: priorul Dirichlet cu verosimilitatea multinomiala produce un posterior Dirichlet cu parametri actualizati. Integrarea analitica reduce spatiul de esantionare de la O(N*L + K*V + N*K) la O(N*L) variabile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Collapsed Gibbs sampling este implementat in Mallet (Java), gensim (Python) si lda (R). Este metoda standard de estimare LDA pentru corpusuri de dimensiune medie (mii pana la sute de mii de documente).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza automata a brevetelor din domeniul AI, collapsed Gibbs pentru LDA poate procesa sute de mii de brevete si descoperi topicuri tehnologice (viziune computationala, procesarea limbajului, robotica), urmand evolutia lor in timp.</p></div>
+  </div>
+</div>

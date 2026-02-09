@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Învățarea Conceptelor Bayesiene - Jocul Numerelor și Spațiul Versiunilor</h2>
+  <p>Pagina detaliază jocul numerelor al lui Tenenbaum cu date experimentale de la oameni și introduce conceptele de spațiu al ipotezelor și spațiu al versiunilor.</p>
+  <div class="figure-box"><strong>Figura 3.1:</strong> Distribuția predictivă empirică de la 8 subiecți umani. După D={16}: similaritate difuză. După D={16,8,2,64}: comportament de tip regulă (puteri ale lui 2). După D={16,23,19,20}: similaritate focalizată (numere aproape de 20).</div>
+  <div class="definition-box"><strong>Distribuția predictivă posterioară:</strong> p(x̃|D) = probabilitatea ca x̃ ∈ C date fiind datele D. Reflectă combinația tuturor ipotezelor ponderate de probabilitățile lor posterioare.</div>
+  <div class="definition-box"><strong>Spațiul ipotezelor H:</strong> Mulțimea conceptelor posibile: numere pare, impare, prime, puteri ale lui 2, etc. Spațiul versiunilor: submulțimea lui H consistentă cu datele D.</div>
+  <div class="highlight-box"><strong>Gradientul de generalizare:</strong> Tiparul de generalizare diferă în funcție de date: {16,8,2,64} sugerează o regulă abstractă (puteri ale lui 2), pe când {16,23,19,20} sugerează similaritate numerică.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Experimentul demonstrează că oamenii combină multiple tipuri de similaritate (numerică, structurală) și că tiparul de generalizare depinde dramatic de exemplele observate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Spațiul versiunilor se micșorează cu fiecare exemplu nou, dar nu este suficient singur - trebuie ponderat prin verosimilitate și prior pentru a reproduce comportamentul uman.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Această paradigmă de învățare este baza meta-învățării și a învățării din puține exemple (few-shot learning) în sisteme AI moderne precum GPT-4.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un motor de căutare care învață din câteva căutări anterioare ale utilizatorului ce tip de rezultate preferă (știri, academice, comerciale) realizează o formă de învățare a conceptelor.</p></div>
+  </div>
+</div>

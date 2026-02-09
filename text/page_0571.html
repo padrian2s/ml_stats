@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Modelul cu variabile latente GP (GP-LVM)</h2>
+  <p>Aceasta pagina introduce GP-LVM ca alternativa la kernel PCA, bazata pe PCA probabilistic cu kerneluri, si derivand verosimilitatea duala.</p>
+  <div class="definition-box"><strong>GP-LVM (Gaussian Process Latent Variable Model):</strong> Model generativ care invata o mapare kernelizata din spatiul latent in spatiul observat. Spre deosebire de kPCA (care mapeaza din observat in latent), GP-LVM invata maparea inversa si estimeaza Z prin optimizare.</div>
+  <div class="highlight-box"><strong>Verosimilitatea duala:</strong> p(Y|Z, sigma^2) = prod_d N(y_{:,d}|0, K_z), unde K_z = ZZ^T + sigma^2 I (kernel liniar) sau K_z = K + sigma^2 I (kernel general). Se optimizeaza Z prin gradient descent pe log-verosimilitate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>GP-LVM porneste de la PPCA dual: in loc sa estimam W (maparea liniara), integram W si maximizam verosimilitatea in functie de Z (coordonatele latente). Cu kernel liniar, recuperam PCA; cu kernel non-liniar, obtinem o versiune probabilistica a kPCA. Diferenta fata de kPCA: GP-LVM invata maparea latent->observat, nu observat->latent.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Avantajele GP-LVM fata de kPCA: (1) model generativ complet, (2) poate trata date lipsa, (3) optimizarea hiperparametrilor kernelului prin gradient, (4) poate incorpora informatii prior. Dezavantajul: optimizarea este non-convexa si poate avea minime locale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GP-LVM este folosit in vizualizarea datelor de dimensionalitate inalta, animatie (sinteza de miscare), si bioinformatica (vizualizarea datelor de expresie genica). Figura 15.10 compara kPCA si GP-LVM pe date de flux de petrol 12D.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In animatia 3D, GP-LVM este folosit pentru a invata un spatiu latent de dimensiune joasa al miscarilor umane din date de captura de miscare, permitand generarea de miscari noi prin interpolare in spatiul latent.</p></div>
+  </div>
+</div>

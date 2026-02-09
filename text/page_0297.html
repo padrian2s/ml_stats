@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Algoritmul Perceptronului - Pseudocod și Convergență</h2>
+  <p>Pagina prezintă pseudocodul complet al algoritmului perceptronului, discută convergența acestuia și limitările sale, și introduce abordarea bayesiană pentru învățarea online.</p>
+  <div class="highlight-box"><strong>Algoritmul 8.4 - Perceptron:</strong> Input: date liniar separabile xᵢ ∈ ℝᴰ, yᵢ ∈ {-1, +1}. Inițializează θ₀, k ← 0. Repetă: k ← k+1; i ← k mod N; dacă ŷᵢ ≠ yᵢ atunci θ_{k+1} ← θ_k + yᵢxᵢ; altfel no-op; până la convergență.</div>
+  <div class="highlight-box"><strong>Regula de actualizare a perceptronului (Ecuația 8.92):</strong> θ_k = θ_{k-1} + η_k yᵢ xᵢ - actualizarea se face doar la clasificări greșite, adăugând (yᵢ = +1) sau scăzând (yᵢ = -1) vectorul de intrare.</div>
+  <div class="definition-box"><strong>Convergența perceptronului:</strong> Algoritmul converge dacă și numai dacă datele sunt liniar separabile. Dacă datele nu sunt liniar separabile, algoritmul oscilează la nesfârșit fără a converge.</div>
+  <div class="definition-box"><strong>Perspectiva bayesiană online (Ecuația 8.93):</strong> p(θ|D_{1:k}) ∝ p(D_k|θ)p(θ|D_{1:k-1}) - regula Bayes aplicată recursiv. Posterioarul de la pasul anterior devine priorul pentru pasul curent.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul perceptronului este istoric important ca primul algoritm de învățare automată (Rosenblatt, 1957), implementat chiar în hardware analog. Totuși, are limitări severe: convergența doar pentru date liniar separabile, lipsa predicțiilor probabilistice, și sensibilitatea la ordinea datelor. Abordarea bayesiană online oferă o alternativă superioară: posterioarul se actualizează recursiv, oferind estimări de incertitudine și adaptare automată a „ratei de învățare" prin varianța posterioară.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Actualizarea bayesiană recursivă p(θ|D_{1:k}) ∝ p(D_k|θ)p(θ|D_{1:k-1}) este conceptual elegantă: posterioarul se „rafinează" la fiecare observație. Varianța posterioară scade automat, similar cu scăderea ratei de învățare, dar într-un mod principiat care se adaptează la curbura locală a spațiului parametric.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Învățarea bayesiană online este folosită în filtrele de spam (clasificatorul se actualizează pe măsură ce utilizatorul marchează e-mailuri ca spam), în predicția în timp real a prețurilor, și în robotică (modelul se actualizează pe măsură ce robotul explorează mediul).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un filtru de spam bayesian online pornește cu un prior vag. Pe măsură ce utilizatorul marchează e-mailuri, posterioarul se actualizează: primele e-mailuri au impact mare (prior vag), iar ulterior impactul scade (posterioarul devine concentrat). Nu este necesară re-antrenarea pe întregul istoric.</p></div>
+  </div>
+</div>

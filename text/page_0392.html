@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>EM Student t cu ν Necunoscut si Amestecuri de Distributii Student</h2>
+  <p>Pagina prezinta estimarea gradelor de libertate ν cand acestea sunt necunoscute, algoritmul EM generalizat si aplicarea amestecurilor de distributii Student la date de faliment.</p>
+  <div class="definition-box"><strong>Functia digamma:</strong> Ψ(x) = (d/dx) log Γ(x) - derivata logaritmului functiei Gamma, utilizata in estimarea gradelor de libertate ν.</div>
+  <div class="definition-box"><strong>EM generalizat:</strong> O varianta a EM in care pasul M efectueaza doar o imbunatatire partiala (de exemplu, prin optimizare bazata pe gradient) in loc de maximizarea completa a functiei Q. Convergenta la un optim local este garantata.</div>
+  <div class="highlight-box"><strong>Estimarea ν:</strong> Se optimizeaza E[L_G(ν)] in raport cu ν folosind un optimizator 1D pe intervalul (0, +∞), deoarece nu exista o solutie in forma inchisa.</div>
+  <div class="highlight-box"><strong>Gradientul:</strong> (d/dν) E[L_G(ν)] = -(N/2)Ψ(ν/2) + (N/2)log(ν/2) + N/2 + (1/2)Σᵢ(ℓ̄ᵢ⁽ᵗ⁾ - z̄ᵢ⁽ᵗ⁾)</div>
+  <div class="figure-box"><strong>Figura 11.14:</strong> Modelarea amestecurilor pe datele de faliment. Stanga: densitati conditionale de clasa Gaussiene (14 erori). Dreapta: densitati conditionale de clasa Student (4 erori). Punctele din clasa 1 sunt triunghiuri, cele din clasa 2 sunt cercuri. Punctele clasificate gresit sunt colorate in rosu.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cand ν este necunoscut, pasul M foloseste optimizare bazata pe gradient (1D) in loc de o formula in forma inchisa. Aceasta face algoritmul un exemplu de EM generalizat, care garanteaza convergenta chiar si cu imbunatatiri partiale. Exemplul cu datele de faliment (N=66, D=2) demonstreaza avantajul amestecului de distributii Student fata de amestecul Gaussien: 4 erori vs. 14 erori, datorita robustetii la valorile extreme.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>EM generalizat relaxeaza cerinta de maximizare completa in pasul M, facand algoritmul aplicabil si cand nu exista solutii in forma inchisa. Aceasta flexibilitate face EM un framework general de optimizare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Amestecurile de distributii Student sunt superioare amestecurilor Gaussiene in orice aplicatie unde datele contin outlieri sau au cozi grele: detectia anomaliilor, analiza financiara, procesarea semnalelor radar.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza riscului de credit, un model de clasificare bazat pe amestec de distributii Student poate prezice mai bine falimentul companiilor, deoarece ratele financiare ale companiilor in dificultate pot avea valori extreme pe care Gaussiana le clasifica gresit.</p></div>
+  </div>
+</div>

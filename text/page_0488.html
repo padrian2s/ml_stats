@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Elastic Net Imbunatatit, Interpretare GSM si Regularizatori Non-convexi (p.457)</h2>
+  <p>Aceasta pagina completeaza discutia despre elastic net si introduce regularizatorii non-convexi care depasesc limitarile priorului Laplace.</p>
+  <div class="highlight-box"><strong>Elastic Net ca Matrice de Covarianta Regularizata:</strong> (X^T X + lambda_2 I)/(1 + lambda_2) = (1 - rho) * Sigma_hat + rho * I, unde rho = lambda_2/(1 + lambda_2). Elastic net este ca lasso dar cu o matrice de covarianta micsorata catre identitate.</div>
+  <div class="highlight-box"><strong>GSM Elastic Net:</strong> p(w|sigma^2) proportional cu exp(-gamma_1/sigma * suma |w_j| - gamma_2/(2*sigma^2) * suma w_j^2), un produs de distributii Gaussian si Laplace. Modelul ierarhic: w_j|sigma^2, tau_j^2 ~ N(0, sigma^2(tau_j^{-2} + gamma_2)^{-1}).</div>
+  <div class="definition-box"><strong>Regularizatori Non-convexi:</strong> Priorul Laplace are doua probleme: 1) Nu pune suficienta masa de probabilitate langa 0, deci nu suprima zgomotul suficient. 2) Pune prea putina masa pe valori mari, provocand micsorarea (bias) coeficientilor relevanti.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina incheie discutia elastic net si deschide un capitol nou despre regularizatorii non-convexi. Problemele priorului Laplace (spike insuficient la 0, cozi prea subtiri) motiveaza priori mai flexibili care au un spike mai mare si cozi mai grele.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tranzitia de la regularizatori convexi la non-convexi reflecta un compromis fundamental: convexitatea garanteaza optimul global dar produce bias, in timp ce non-convexitatea reduce bias-ul dar introduce optimi locale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regularizatorii non-convexi sunt importanti in estimarea de canale wireless, compressive sensing, si analiza de imagini unde se doreste recuperarea exacta a coeficientilor mari fara micsorare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia fraudelor financiare, semnalul de frauda este rar dar cu amplitudine mare. Priorul Laplace micsoreaza aceste semnale, ceea ce poate duce la nedetectarea fraudelor. Priorii non-convexi cu cozi grele pastreaza magnitudinea semnalelor reale.</p></div>
+  </div>
+</div>

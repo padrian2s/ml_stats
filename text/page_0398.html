@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Alte Variante ale EM - Annealing Determinist si Stepwise EM</h2>
+  <p>Pagina continua cu comparatia variantelor EM si introduce variante avansate, inclusiv annealing determinist pentru evitarea optimelor locale, si ilustratia grafica a acestui proces.</p>
+  <div class="definition-box"><strong>Annealing Determinist (Rose 1998):</strong> Metoda de evitare a optimelor locale prin ridicarea temperaturii peisajului posterior, netezindu-l, si apoi racirea graduala, urmarind maximul global pe parcurs.</div>
+  <div class="highlight-box"><strong>Figura 11.17 - Ilustrarea annealing-ului:</strong> La temperatura ridicata (1), suprafata de optimizare este neteda cu un singur optim. Pe masura ce temperatura scade (2, 3), apar mai multe optime locale, dar algoritmul urmareste maximul global de la inceput.</div>
+  <div class="highlight-box"><strong>Variante ale algoritmului EM:</strong> Se mentioneaza: EM cu annealing, EM variational, Monte Carlo EM (MCEM), EM stocastic, EM generalizat - fiecare adresand o limitare specifica a EM standard.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 11.4.9 trece in revista variantele principale ale EM. Annealing-ul determinist abordeaza problema optimelor locale prin netezirea graduala a suprafetei de optimizare. Rezultatele empirice arata ca stepwise EM este superior ca viteza, dar toate variantele au compromisuri specifice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Principiul annealing-ului - de la explorare globala la exploatare locala - apare in multe contexte: simulated annealing, curriculum learning, rate de invatare cu schedule. Este un meta-principiu de optimizare non-convexa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, alegerea variantei EM depinde de dimensiunea datelor (stepwise pentru date mari), tractabilitatea pasului E (variational/MCEM pentru E intractabil) si peisajul de optimizare (annealing pentru multe optime locale).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In antrenarea modelelor de amestec pentru segmentarea imaginilor medicale, annealing-ul determinist ajuta la evitarea solutiilor suboptimale care ar putea confunda tesuturile sanatoase cu cele afectate.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Normalizare globala vs locala si aplicatii CRF</h2>
+  <p>Aceasta pagina explica diferenta dintre normalizarea locala (MEMM) si globala (CRF), demonstreaza recunoasterea scrisului de mana si introduce aplicatiile CRF-urilor.</p>
+  <div class="definition-box"><strong>Normalizare locala:</strong> In MEMM-uri, fiecare CPD sumeaza la 1 separat, ceea ce poate bloca propagarea informatiei. Aceasta cauzeaza problema label bias.</div>
+  <div class="definition-box"><strong>Normalizare globala:</strong> In CRF-uri, factorii locali nu trebuie sa insumeze la 1 individual; doar functia de partitie Z(x,w) asigura normalizarea intregii distributii. Aceasta permite propagarea libera a informatiei prin graf.</div>
+  <div class="highlight-box"><strong>CRF pe lant:</strong> Modelul p(y|x,w) = (1/Z(x,w)) ∏_t ψ(y_t|x,w) ∏_t ψ(y_t, y_{t+1}|x,w) rezolva label bias si permite inferenta exacta prin algoritmul forward-backward, similar cu HMM-urile.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>CRF-urile pe lant sunt modele cu normalizare globala, unde o singura functie de partitie Z normalizeaza intreaga secventa. Aceasta elimina label bias dar inseamna ca nu avem o distributie valida pana nu observam toata secventa, facand CRF-urile mai putin potrivite pentru aplicatii online/real-time. Recunoasterea scrisului de mana demonstreaza utilitatea contextului: literele 'r' si 'c' arata similar izolat dar pot fi dezambiguizate prin context.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trade-off-ul local vs global: normalizarea locala permite inferenta online dar introduce bias; normalizarea globala elimina bias-ul dar necesita observarea intregii secvente. Z depinde de toti parametrii, facand antrenarea CRF-urilor mai costisitoare decat a DGM-urilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Recunoasterea scrisului de mana, OCR si recunoasterea vorbirii beneficiaza de CRF-uri pe lant care exploateaza contextul secventei. Potentialele de nod pot fi retele neuronale (CNN/RNN), iar potentialele de tranzitie captureaza co-aparitiile de etichete.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea cuvantului "brace" scris de mana, litera 'r' arata similar cu 'c'. CRF-ul foloseste contextul (etichetele vecinilor) pentru a decide corect, deoarece "brace" este un cuvant valid iar "bcace" nu este.</p></div>
+  </div>
+</div>

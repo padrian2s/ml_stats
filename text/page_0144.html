@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>Interpolare Gaussiana cu Prior de Netezire</h2>
+  <p>Pagina 113 prezinta cum se construieste un prior Gaussian de netezire pentru interpolarea functiilor 1D, folosind matricea de diferente finite de ordinul doi.</p>
+
+  <div class="figure-box"><strong>Figura 4.10:</strong> Interpolarea datelor fara zgomot cu prior Gaussian. (a) λ = 30: interpolarea este neteda, trece prin punctele observate. (b) λ = 0.01: interpolarea este foarte ondulata ("wiggly"), cu varianta mare departe de date.</div>
+
+  <div class="highlight-box"><strong>Prior de netezire (Ecuatia 4.75):</strong> xⱼ = (1/2)(xⱼ₋₁ + xⱼ₊₁) + εⱼ, unde ε ~ N(0, (1/λ)I). Fiecare punct este media vecinilor sai plus zgomot Gaussian. λ mare = functie neteda, λ mic = functie ondulata.</div>
+
+  <div class="definition-box"><strong>Matricea de diferente finite de ordinul doi (Ecuatia 4.77):</strong> L = (1/2) [[-1, 2, -1, ...], [..., -1, 2, -1, ...], ...] de dimensiune (D-2) x D. Aceasta este operatorul de derivata a doua discreta.</div>
+
+  <div class="highlight-box"><strong>Priorul Gaussian rezultat (Ecuatia 4.78):</strong> p(x) = N(x|0, (λ² LᵀL)⁻¹) ∝ exp(-λ²/2 ||Lx||₂²). Matricea de precizie Λ = LᵀL are rang D - 2, deci priorul este impropriu (camp aleator Gaussian intrinsec).</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina construieste un prior Gaussian care codifica credinta ca functia este neteda: penalizeaza derivata a doua (schimbarile de panta). Parametrul λ controleaza compromisul netezire-fidelitate. Priorul rezultant are rang deficient (D-2 in loc de D), facandu-l impropriu, dar posteriorul devine propriu cand observam cel putin 2 puncte.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Matricea L implementeaza derivata a doua discreta: Lx masoara curbura functiei. Minimizarea ||Lx||² echivaleaza cu minimizarea curburii totale, producand functii netede. Aceasta este legata de splini cubice si de regularizarea Tikhonov.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Interpolarea cu priori de netezire este utilizata in reconstructia de imagini medicale (CT, MRI), procesarea semnalelor (filtrare), cartografiere (interpolare intre puncte de masurare) si in orice problema unde trebuie estimata o functie continua din observatii discrete.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In reconstructia tomografica (CT scan), se reconstruieste o imagine 2D din proiectii. Priorul de netezire asigura ca imaginea reconstruita nu are artefacte de zgomot excesiv, in timp ce pastreaza detaliile anatomice importante. Parametrul λ controleaza compromisul rezolutie-zgomot.</p></div>
+  </div>
+</div>

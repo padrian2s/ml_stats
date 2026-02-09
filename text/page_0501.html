@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Optimizarea Dictionarului, NMF si Factorizare Matriceala Sparsa</h2>
+  <p>Pagina prezinta optimizarea alternata analysis-synthesis pentru invatarea dictionarului, non-negative matrix factorization (NMF) si factorizarea matriceala sparsa.</p>
+  <div class="highlight-box"><strong>Optimizarea dictionarului (Eq. 13.177):</strong> Constrangerea pe dictionar: C = {W in R^{D x L} : w_j^T w_j <= 1}. Optimizare alternata: (1) analysis - estimarea bazei W (least squares cu constrangeri), (2) synthesis - estimarea coeficientilor Z (problema LASSO). Algoritmi sofisticati: Mairal et al. 2010.</div>
+  <div class="definition-box"><strong>Non-negative matrix factorization (NMF, Eq. 13.178):</strong> min (1/2) suma ||x_i - W z_i||_2^2 cu W >= 0, z_i >= 0. Constrangerea de non-negativitate produce parti interpretabile (suma de parti pozitive). Combinarea cu prior sparse pe z produce non-negative sparse coding (Hoyer 2004).</div>
+  <div class="highlight-box"><strong>Factorizare matriceala sparsa (Eq. 13.179):</strong> min (1/2) suma ||x_i - W z_i||_2^2 + lambda ||z_i||_1 cu ||w_j||_2^2 + gamma ||w_j||_1 <= 1 (elastic net pe dictionar). Variante: group lasso, fused lasso pe z. Prior alternativ: masca binara Bernoulli pe z (Zhou et al. 2009) cu inferinta Bayesiana.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina unifica mai multe metode de factorizare sub cadrul general al optimizarii alternate: se estimeaza alternativ dictionarul W (analysis) si coeficientii Z (synthesis). NMF adauga constrangeri de non-negativitate pentru interpretabilitate, iar factorizarea sparsa combina sparsitatea pe ambele componente. Abordarea Bayesiana cu masca binara permite inferirea automata a dimensiunii dictionarului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Constrangerea de non-negativitate in NMF forteaza descompunerea in parti (nu anulari intre componente pozitive si negative), producand reprezentari mai interpretabile. Elastic net pe coloanele dictionarului asigura convexitate stricta a sub-problemei de optimizare peste W.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>NMF este standard in analiza de text (topic modeling cu cuvinte non-negative), analiza de imagini hiperspectrale si bioinformatica (descompunerea profilurilor de expresie genica). Implementari: scikit-learn (NMF, MiniBatchDictionaryLearning).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In neurostiinta computationala, NMF aplicat pe patch-uri de imagini naturale produce filtre similare cu campurile receptive ale neuronilor din cortexul vizual primar (V1), sugerand ca creierul foloseste o codificare non-negativa sparsa.</p></div>
+  </div>
+</div>

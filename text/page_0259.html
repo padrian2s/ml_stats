@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Conexiunea Ridge Regression cu PCA și Gradele Efective de Libertate</h2>
+  <p>Pagina analizează cum ridge regression funcționează prin prisma SVD, arătând că regularizarea contrage predicțiile mai mult în direcțiile cu variabilitate mică.</p>
+  <div class="figure-box"><strong>Figura 7.9:</strong> Geometria ridge regression. Verosimilitatea (elipsă albastră) și priorul (cerc verde, centrat pe origine) se intersectează la estimatul MAP (x verde), care este diferit de MLE (x roșu). Estimatul MAP este „tras" de la MLE către media priorului (origine).</div>
+  <div class="highlight-box"><strong>Ridge prin SVD:</strong> ŵ_ridge = V(S² + λI)⁻¹ SU^T y, unde X = USV^T este SVD-ul lui X. Predicțiile: ŷ = Σⱼ uⱼ · (σⱼ²/(σⱼ² + λ)) · uⱼ^T y.</div>
+  <div class="highlight-box"><strong>Factorul de contracție:</strong> S̃ⱼⱼ = σⱼ²/(σⱼ² + λ), unde σⱼ sunt valorile singulare ale lui X. Dacă σⱼ² este mic comparativ cu λ, direcția uⱼ este puternic contrasă (aproape eliminată).</div>
+  <div class="highlight-box"><strong>Comparație least squares vs. ridge:</strong> ŷ_ls = Σⱼ uⱼ(uⱼ^T y) (proiecție completă), ŷ_ridge = Σⱼ uⱼ(σⱼ²/(σⱼ² + λ))(uⱼ^T y) (proiecție contrasă). Ridge reduce contribuția direcțiilor cu variabilitate mică.</div>
+  <div class="definition-box"><strong>Grade Efective de Libertate:</strong> dof(λ) = Σⱼ σⱼ²/(σⱼ² + λ). Când λ = 0, dof = D (complexitate maximă). Când λ → ∞, dof → 0 (complexitate minimă). Aceasta oferă o măsură continuă a complexității modelului.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Analiza SVD a ridge regression revelează mecanismul exact al regularizării: direcțiile cu valori singulare mici (variabilitate mică în date, incertitudine mare în parametri) sunt puternic contrase. Gradele efective de libertate oferă o măsură continuă a complexității modelului, conectând λ cu numărul „efectiv" de parametri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ridge contrage mai mult exact direcțiile unde suntem cei mai incerți (valori singulare mici = covarianță posterioară mare). Aceasta este optimă din perspectivă Bayesiană: concentrăm regularizarea acolo unde datele oferă mai puțină informație. dof(λ) interpolarează continuu între D (model complex) și 0 (model constant).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Gradele efective de libertate sunt utilizate în criteriile de selecție a modelelor (AIC, BIC, Cp al lui Mallows) pentru a compara modele cu diferite niveluri de regularizare pe o scală comună.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La analiza datelor genomice cu 10.000 de gene și 100 de pacienți, ridge regression contrage puternic direcțiile principale de variabilitate mică (gene cu expresie aproape constantă), concentrând capacitatea predictivă pe genele cu variabilitate informativă.</p></div>
+  </div>
+</div>

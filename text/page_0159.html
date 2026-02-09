@@ -1,0 +1,26 @@
+<div class="page-content">
+  <h2>Posteriorul pentru μ si Posteriorul pentru Σ</h2>
+  <p>Pagina 128 deriva distributiile posterioare separate pentru media μ (dat Σ) si pentru covarianta Σ (data μ) ale unei Gaussiene multivariate.</p>
+
+  <div class="highlight-box"><strong>Verosimilitatea pentru μ (Ecuatia 4.171):</strong> p(D|μ) = N(x̄|μ, (1/N)Σ). Echivalenta cu o singura observatie x̄ cu precizie NΣ⁻¹.</div>
+
+  <div class="highlight-box"><strong>Posteriorul pentru μ (Ecuatiile 4.172-4.174):</strong>
+    p(μ|D, Σ) = N(μ|m_N, V_N), unde:
+    V_N⁻¹ = V₀⁻¹ + NΣ⁻¹
+    m_N = V_N(Σ⁻¹(Nx̄) + V₀⁻¹m₀)</div>
+
+  <div class="definition-box"><strong>Prior neinformativ pentru μ:</strong> Cu V₀ = ∞I, posteriorul devine p(μ|D, Σ) = N(x̄, (1/N)Σ), echivalent cu rezultatul frecventist ca x̄ ~ N(μ, Σ/N).</div>
+
+  <div class="highlight-box"><strong>Verosimilitatea pentru Σ (Ecuatia 4.175):</strong> p(D|μ, Σ) ∝ |Σ|^(-N/2) exp(-1/2 tr(Σ⁻¹S_μ)), unde S_μ = Σᵢ (xᵢ - μ)(xᵢ - μ)ᵀ.</div>
+
+  <div class="highlight-box"><strong>Posteriorul pentru Σ (Ecuatiile 4.176-4.181):</strong> Cu prior IW(Σ|S₀⁻¹, ν₀):
+    p(Σ|D, μ) = IW(Σ|S_N, ν_N), unde ν_N = ν₀ + N si S_N⁻¹ = S₀ + S_μ.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza conjugarea Bayesiana in actiune: priorul Gaussian pentru μ se combina cu verosimilitatea Gaussiana pentru a produce un posterior Gaussian. Similar, priorul Wishart invers pentru Σ produce un posterior Wishart invers. In ambele cazuri, posteriorul "actualizeaza" parametrii priorului cu statisticile suficiente din date (x̄ si S_μ).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Puterea priorului N₀ = ν₀ + D + 1 joaca un rol analog cu dimensiunea esantionului N. Posteriorul combina matricea scatter a priorului S₀ cu matricea scatter a datelor S_μ prin simpla adunare, si aduna gradele de libertate: ν_N = ν₀ + N.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste formule sunt baza algoritmilor de clustering Bayesian (DPMM - Dirichlet Process Mixture Models), unde fiecare cluster are propriii parametri (μ_c, Σ_c) cu priori conjugati actualizati pe masura ce datele sunt atribuite clusterelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza de imagini satelitare, fiecare tip de teren (apa, padure, urban) este modelat ca o Gaussiana multivariata in spatiul spectral. Priorul IW pentru covarianta codifica cunostinte anterioare despre variabilitatea spectrala a fiecarui tip de teren, iar posteriorul se actualizeaza cu pixelii etichetati.</p></div>
+  </div>
+</div>

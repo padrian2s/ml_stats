@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Taierea Arborelui (Pruning)</h2>
+  <p>Pagina prezinta arborele de decizie neretezat pentru datele Iris, graficul erorii de clasificare in functie de numarul de noduri terminale, si tehnica de retezare (pruning) a arborelui.</p>
+  <div class="definition-box"><strong>Retezarea arborelui (pruning):</strong> Tehnica de a creste un arbore "complet" si apoi de a elimina ramurile care produc cea mai mica crestere a erorii, pentru a preveni supraajustarea.</div>
+  <div class="highlight-box"><strong>Regula de 1 eroare standard:</strong> Se selecteaza arborele a carui eroare de validare incrucisata (CV) este in limita a 1 eroare standard fata de minimul erorii CV.</div>
+  <div class="figure-box"><strong>Figura 16.5:</strong> (a) Arborele de decizie neretezat pentru datele Iris. (b) Graficul erorii de clasificare gresita in functie de numarul de noduri terminale, aratand eroarea de validare incrucisata, eroarea pe datele de antrenament si cea mai buna alegere.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 16.2.3 introduce retezarea arborelui ca solutie la problema supraajustarii. In loc sa ne oprim prematur din cresterea arborelui, se creste arborele complet si apoi se reteza ramurile care contribuie cel mai putin. Eroarea CV este mult mai mare decat eroarea pe datele de antrenament, indicand supraajustare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Oprirea prematura este mioapica - de exemplu pe datele XOR, nicio caracteristica individuala nu are putere predictiva. Prin cresterea completa si retezare ulterioara, se evita aceasta problema. Regula de 1 eroare standard selecteaza arborele cel mai simplu cu performanta apropiata de optim.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Retezarea este esentiala in productie: arborii prea complecsi memoreaza zgomotul din datele de antrenament. In sistemele de detectie a fraudelor, un arbore retezat generalizeaza mai bine la tranzactii noi decat unul care memoreaza toate cazurile de antrenament.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In setul de date Iris, arborele complet are ~15 noduri terminale dar eroarea CV creste. Arborele optim retezat (cel mai simplu din limita de 1 eroare standard) are doar cateva noduri si generalizeaza mult mai bine pe date noi.</p></div>
+  </div>
+</div>

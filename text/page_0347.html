@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>10.2.4 Analiza de Linkaj Genetic - Figuri si Detalii</h2>
+  <p>Pagina contine Figura 10.6 cu arborele genealogic si DGM-ul corespunzator pentru analiza de linkaj genetic, inclusiv modelul de mostenire si modelul de recombinare.</p>
+  <div class="figure-box"><strong>Figura 10.6(a):</strong> Arborele genealogic (pedigree) cu 6 indivizi pe 3 generatii. Cercurile reprezinta femele, patratele reprezinta masculi. Indivizii cu boala de interes sunt marcati (umbriiti). Generatia 1: individul 1 (femeie sanatoasa) si 2 (barbat bolnav); Generatia 2: 3 (femeie sanatoasa) si 4 (barbat bolnav); Generatia 3: 5 (femeie bolnava) si 6 (femeie sanatoasa).</div>
+  <div class="figure-box"><strong>Figura 10.6(b):</strong> DGM-ul corespunzator pentru doua locusuri genetice. Fiecare individ are noduri pentru: X_ij (fenotipul observat, albastru), G_ij^{p/m} (alelele paterne/materne, portocaliu) si Z_ij^{p/m} (variabile de comutare selectie paterna/materna, rosu). Variabilele Z sunt legate intre locusuri prin lanturi Markov, modelul de recombinare.</div>
+  <div class="definition-box"><strong>Markerul (X_ij):</strong> Proprietatea observata (de exemplu, grupa de sange) a individului i la locusul j.</div>
+  <div class="definition-box"><strong>Alelele (G_ij^m, G_ij^p):</strong> Alela materna si alela paterna ale individului i la locusul j. Impreuna formeaza genotipul G_ij.</div>
+  <div class="definition-box"><strong>Modelul de penetranta:</strong> CPD-ul p(X_ij|G_ij^m, G_ij^p) care mapeaza genotipul la fenotip.</div>
+  <div class="definition-box"><strong>Modelul de mostenire (10.13):</strong> p(G_ij^m|G_kj^m, G_kj^p, Z_ij^m) specifica de la care parinte al mamei k se mosteneste alela, controlat de variabila de comutare Z_ij^m.</div>
+  <div class="definition-box"><strong>Modelul fondatorului:</strong> Priorul p(G_ij^m) si p(G_ij^p) pentru nodurile radacina (fondatori), reprezentand prevalenta alelelor in populatie.</div>
+  <div class="definition-box"><strong>Modelul de recombinare:</strong> Lant Markov cu doua stari pe variabilele Z, cu probabilitatea de comutare θ_j = 1/2(1 - e^{-2d_j}), unde d_j este distanta intre locusurile j si j+1.</div>
+  <div class="definition-box"><strong>Haplotipul:</strong> Valorile combinate ale G_{i,j}^p, G_{i,j}^m, Z_{i,j} si Z_{i,j}^m ale individului i la locusul j.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>DGM-ul pentru linkaj genetic este un model complex dar elegant: combina structura genealogica (cine e parintele cui), legile mostenirii mendeliene (selectia aleatorie a unei alele de la fiecare parinte), modelul de penetranta (cum genotipul produce fenotipul) si modelul de recombinare (cum se schimba selectia intre locusuri adiacente). Variabilele Z leaga informatia intre locusuri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura se repeta (replicata) pentru fiecare locus, cu legaturi intre locusuri prin variabilele de comutare Z. Aceasta este o serie de DAG-uri pedigree augmentate cu lanturi Markov - similar unui HMM filogenetic. Distanta genetica d_j controleaza corelatia intre locusuri adiacente.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Analiza de linkaj este folosita in genetica medicala pentru localizarea genelor responsabile de boli ereditare precum fibroza chistica, boala Huntington sau cancerul de san ereditar (BRCA1/BRCA2).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O familie in care mai multi membri au o boala rara poate fi analizata: observand fenotipurile (grupa de sange, boala) ale tuturor membrilor si structura familiei, se poate calcula locatia cea mai probabila a genei responsabile pe cromozom, prin inferenta probabilistica pe DGM-ul genealogic.</p></div>
+  </div>
+</div>

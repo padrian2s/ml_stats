@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LDA - Interpretarea geometrica si polisemia</h2>
+  <p>Aceasta pagina prezinta interpretarea geometrica a LDA (Figura 27.3) si demonstrarea capacitatii LDA de a gestiona polisemia prin topicuri multiple (Figura 27.4).</p>
+  <div class="definition-box"><strong>Interpretarea geometrica (Figura 27.3):</strong> Cu K=2 topicuri si V=3 cuvinte, fiecare topic este un punct in simplexul 3D (distributie pe 3 cuvinte), iar fiecare document este proiectat pe simplexul 2D generat de cele 2 topicuri. Reducerea de dimensionalitate: din V-simplex pe K-simplex.</div>
+  <div class="definition-box"><strong>Polisemia in LDA:</strong> Cuvantul "play" apare in 3 topicuri diferite: Topic 77 (muzica: music, dance, song), Topic 82 (literatura: literature, poem, poetry), Topic 166 (sport: ball, game, playing). LDA dezambiguizeaza folosind contextul documentului.</div>
+  <div class="highlight-box"><strong>Distributia predictiva:</strong> p(y_{il}=v|pi_i) = suma_k pi_{ik} * b_{kv}, un amestec ponderat al distributiilor de cuvinte ale topicurilor, cu ponderi date de proportiile de topicuri ale documentului.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina ofera doua perspective complementare pe LDA. Geometric, LDA proiecteaza documente din simplexul V-dimensional (una dimensiune per cuvant din vocabular) pe un simplex K-dimensional (una dimensiune per topic). Figura 27.4 arata concret cum "play" are sensuri diferite in topicuri diferite (muzica, teatru, sport), iar LDA poate dezambiguiza bazat pe celelalte cuvinte din document.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Capacitatea LDA de a gestiona polisemia este un avantaj major fata de modelele bag-of-words simple. Pi_i actioneaza ca un prior pe topicul fiecarui cuvant: daca documentul este despre muzica, "play" va fi asignat topicului muzical.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Dezambiguizarea cuvintelor polisemice este esentiala in cautarea semantica, traducerea automata, si extragerea informatiilor. LDA ofera o abordare nesupervizata la aceasta problema.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In cautarea juridica, cuvantul "actiune" poate insemna "actiune in justitie" sau "actiune la bursa". LDA poate dezambiguiza bazat pe contextul documentului (alte cuvinte ca "tribunal" vs. "dividend"), imbunatatind relevanta rezultatelor cautarii.</p></div>
+  </div>
+</div>

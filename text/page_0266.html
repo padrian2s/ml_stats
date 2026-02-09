@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Posteriorul NIG si distributia predictiva Student in regresia liniara</h2>
+  <p>Aceasta pagina prezinta Figura 7.12 (comparatia vizuala plug-in vs. Bayesian), formulele posteriorului NIG actualizat, si distributia predictiva Student.</p>
+  <div class="definition-box"><strong>Posteriorul NIG actualizat:</strong> p(w, &sigma;&sup2; | D) = NIG(w, &sigma;&sup2; | w_N, V_N, a_N, b_N), cu w_N si V_N ca in cazul &sigma;&sup2; cunoscut, a_N = a_0 + n/2, si b_N = b_0 + (1/2)(w_0^T V_0^(-1) w_0 + y^T y - w_N^T V_N^(-1) w_N).</div>
+  <div class="definition-box"><strong>Distributia predictiva Student:</strong> p(y_tilde | X_tilde, D) = T(y_tilde | X_tilde w_N, (b_N/a_N)(I_m + X_tilde V_N X_tilde^T), 2a_N). Are cozi mai grele decat Gaussiana, reflectand incertitudinea suplimentara din necunoasterea &sigma;&sup2;.</div>
+  <div class="highlight-box"><strong>Interpretarea lui b_N:</strong> b_N = b_0 (prior) + y^T y (suma patratelor totala) + w_0^T V_0^(-1) w_0 (termen prior) - w_N^T V_N^(-1) w_N (termen posterior). Reprezinta suma rezidualurilor patrate ajustata Bayesian.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 7.12 demonstreaza vizual patru perspective: (a) plug-in cu benzi constante, (b) Bayesian cu benzi variabile, (c) functii esantionate din plug-in (toate foarte similare), si (d) functii esantionate din posterior (diverse, cu variabilitate mai mare la extreme). Formulele NIG actualizate arata ca posteriorul ramane in familia NIG, cu parametri actualizati intuitiv. Distributia predictiva este Student, nu Gaussiana.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Varianta predictiva are doua componente: (b_N/a_N) I_m (zgomot) si (b_N/a_N) X_tilde V_N X_tilde^T (incertitudine parametrica). 2) Gradele de libertate 2a_N cresc cu N, deci predictiva devine Gaussiana asimptotic. 3) Functiile esantionate din posterior (d) arata mai multa diversitate decat cele din plug-in (c), reflectand incertitudinea reala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Distributia predictiva Student este mai realista pentru predictii cu esantioane mici: in farmacocinetrica (putini pacienti), in ingineria de fiabilitate (putine esecuri observate), si in econometria cu date istorice limitate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In testarea materialelor, un inginer are doar 10 masuratori ale rezistentei la rupere a unui aliaj nou. Regresia Bayesiana cu posterior NIG produce intervale de predictie Student (mai largi decat cele Gaussiene), oferind un factor de siguranta mai conservator. Aceasta este critica in domenii unde subestimarea incertitudinii poate duce la esecuri catastrofale (aviatie, poduri, reactoare nucleare).</p></div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Algoritmul complet de clasificare GP binara si exemplu</h2>
+  <p>Aceasta pagina prezinta algoritmul complet de clasificare GP binara (Algorithm 15.2), calculul verosimilitatii marginale si un exemplu 2D de clasificare.</p>
+  <div class="definition-box"><strong>Algoritmul 15.2 - Clasificare GP binara:</strong> Pasi principali: (1) IRLS pentru estimarea MAP a lui f, (2) calculul verosimilitatii marginale log p(y|X), (3) predictia mediei si variantei, (4) conversia la probabilitate prin integrare cu sigm(z).</div>
+  <div class="highlight-box"><strong>Complexitate computationala:</strong> Potrivirea modelului necesita O(TN^3), iar predictia O(N^2 * N_*), unde T este numarul de iteratii Newton si N_* numarul de puncte de test.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul 15.2 ofera implementarea completa a clasificarii GP binare. La convergenta IRLS, a = K^{-1} f_hat, ceea ce permite evaluarea verosimilitatii marginale. Media predictiva se calculeaza prin E[f_*] = k_*^T nabla log p(y|f_hat), iar varianta prin var[f_*] = k_{**} - v^T v unde v = L \ (W^{1/2} k_*). Figura 15.7 compara frontierele de decizie cu hiperparametri manuali vs. invatati.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cu scala de lungime scurta (l=0.5), frontiera de decizie are colturi ascutite si urmeaza datele prea indeaproape. Cu hiperparametri optimizati (l=1.28), frontiera este mai neteda si ofera o explicatie mai parsimonioasa. Punctele de antrenament bine prezise de model nu contribuie semnificativ la predictie, similar vectorilor suport din SVM.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clasificarea GP binara este implementata in scikit-learn (GaussianProcessClassifier), GPy si GPflow. Este preferata cand sunt necesare probabilitati de clasa calibrate si cand setul de date este de dimensiune moderata.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia tumorilor din imagini RMN, un GP clasificator 2D poate fi antrenat pe trasaturi extrase din imagini, oferind atat clasificarea cat si o harta de incertitudine spatiala care indica zonele unde diagnosticul este incert.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Structuri de modele cu variabile latente si modele de amestec</h2>
+  <p>Aceasta pagina prezinta diferite structuri de LVM (Figura 11.2) si introduce modelele de amestec, inclusiv amestecul de Gaussiene (GMM).</p>
+  <div class="definition-box"><strong>Structuri LVM:</strong> (a) Many-to-many: L factori latenti &rarr; D variabile observate. (b) One-to-many: 1 factor latent discret &rarr; D variabile (model de amestec). (c) Many-to-one: L factori &rarr; 1 variabila (factorizare matriceala). (d) One-to-one: 1 factor &rarr; 1 variabila (model de zgomot).</div>
+  <div class="definition-box"><strong>Model de amestec:</strong> p(x_i | &theta;) = &Sigma;_{k=1}^K &pi;_k p_k(x_i | &theta;), unde &pi;_k sunt ponderile de amestec (mixing weights) si p_k sunt distributiile de baza (base distributions).</div>
+  <div class="definition-box"><strong>Amestec de Gaussiene (GMM):</strong> p(x_i | &theta;) = &Sigma;_{k=1}^K &pi;_k N(x_i | &mu;_k, &Sigma;_k). Fiecare componenta este o Gaussiana multivariata cu medie si covarianta proprie. Cu K suficient de mare, GMM poate aproxima orice densitate continua.</div>
+  <div class="highlight-box"><strong>Proprietatea de aproximare universala a GMM:</strong> Cu un numar suficient de componente, un GMM poate aproxima orice densitate definita pe R^D. Aceasta face GMM un model black-box puternic pentru estimarea densitatii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina clasifica LVM-urile dupa structura (Figura 11.2) si introduce modelul de amestec ca cel mai simplu LVM (o singura variabila latenta discreta). Tabelul 11.1 rezuma varietatea de modele: GMM, amestec de multinomiale, PCA probabilistic, ICA, LDA. GMM este cel mai utilizat model de amestec, datorita flexibilitatii sale si existentei algoritmului EM eficient.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Modelele de amestec sunt combinatii convexe de distributii de baza. 2) Variabila latenta z_i indica din care componenta provine observatia i. 3) Ponderile &pi;_k satisfac &pi;_k &ge; 0 si &Sigma; &pi;_k = 1. 4) GMM cu covarianta plina: fiecare componenta poate avea orientare si forma diferita (elipse diferite).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GMM este folosit in recunoasterea vocala (modelarea distributiei trasaturilor acustice per fonem), in segmentarea de imagini (modelarea distributiei culorilor), in compresie de date, si in detectia de anomalii (puncte cu probabilitate mica sub GMM).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Figura 11.3 arata un amestec de 3 Gaussiene in 2D: fiecare componenta are forma de elipsa (covarianta proprie) si centru diferit. Suprafata densitatii totale are trei varfuri, reflectand cele trei moduri ale distributiei. In practica, aceasta ar putea modela trei grupuri de clienti cu caracteristici demografice diferite (varsta vs. venit), fiecare grup avand propria distributie bivariata.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul LMS și SGD pentru Regresia Logistică</h2>
+  <p>Pagina prezintă algoritmul LMS (Least Mean Squares) ca exemplu de SGD aplicat regresiei liniare online, și discută avantajele practice ale SGD pentru seturi mari de date și funcții neconvexe.</p>
+  <div class="highlight-box"><strong>Gradientul online pentru regresia liniară (Ecuația 8.86):</strong> g_k = xᵢ(θ_k&#7488;xᵢ - yᵢ) - gradientul calculat pe un singur exemplu (xᵢ, yᵢ). Actualizarea SGD devine: θ_{k+1} = θ_k - η_k xᵢ(θ_k&#7488;xᵢ - yᵢ).</div>
+  <div class="definition-box"><strong>Algoritmul LMS (Least Mean Squares):</strong> Cunoscut și ca algoritmul Widrow-Hoff sau regula delta, este SGD aplicat regresiei liniare. Fiecare actualizare corectează ponderile proporțional cu eroarea de predicție pe exemplul curent.</div>
+  <div class="definition-box"><strong>Filtrul adaptiv:</strong> LMS este baza filtrelor adaptive din procesarea semnalelor, unde parametrii se ajustează continuu pe măsură ce semnalul sosește, fără a stoca datele istorice.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul LMS demonstrează SGD în cel mai simplu context: regresia liniară. Gradientul online are o formă intuitivă: eroarea de predicție (θ&#7488;x - y) scalată cu vectorul de intrare x. SGD este preferat pentru seturi de date mari datorită eficienței computaționale și pentru funcții neconvexe datorită zgomotului care ajută la evitarea minimelor locale superficiale. SGD este algoritmul dominant în comunitatea de învățare profundă.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Forma gradientului online xᵢ(θ&#7488;xᵢ - yᵢ) apare în multe contexte: regresie liniară, logistică și rețele neurale. Regula generală este: eroarea × intrarea. Aceasta reflectă regula de învățare Hebbianp: „neuronii care se activează împreună se conectează împreună", modulată de eroare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LMS este folosit în cancelarea ecoului în telefonie, egalizarea canalelor de comunicații, și controlul adaptiv. SGD și variantele sale (Adam, SGD cu momentum) sunt algoritmii principali pentru antrenarea rețelelor neurale profunde cu miliarde de parametri.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un căști cu anulare activă a zgomotului folosesc algoritmul LMS: microfonul captează zgomotul ambient, modelul liniar prezice zgomotul la ureche, și diferența (eroarea) este folosită atât pentru a genera anti-zgomotul cât și pentru a actualiza modelul. Totul se întâmplă în timp real, exemplu perfect de învățare online.</p></div>
+  </div>
+</div>

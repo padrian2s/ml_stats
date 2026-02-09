@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Marginea JJ pentru regresie logistica binara si margini pe log-sum-exp</h2>
+  <p>Aceasta pagina prezinta aplicarea marginii JJ in regresia logistica binara, actualizarile posterioare si introducerea altor margini si aproximari pentru functia log-sum-exp (lse) multiclasa.</p>
+  <div class="definition-box"><strong>Actualizarile posterioare cu marginea JJ:</strong> Folosind marginea JJ, actualizarile pentru precizia posterioara V_N si media m_N implica termenul lambda(xi_i), care depinde de parametrul variational xi_i, facand calculul mai complex dar mai precis.</div>
+  <div class="definition-box"><strong>Produs de sigmoizi:</strong> Abordarea lui Bouchard (2007) descompune functia log-sum-exp multiclasa intr-o suma de termeni log(1+e^eta), la care se aplica apoi marginea JJ individual.</div>
+  <div class="highlight-box"><strong>Actualizarea parametrului variational:</strong> Parametrul xi_i se actualizeaza conform (xi_i^new)^2 = x_i^T(V_N + m_N * m_N^T)x_i, ceea ce necesita recalcularea la fiecare iteratie.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina detaliaza formulele de actualizare pentru posterioarul in regresia logistica binara cu marginea JJ, apoi introduce sectiunea 21.8.4 despre alte margini si aproximari pentru functia log-sum-exp multiclasa, incepand cu metoda produsului de sigmoizi.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la cazul binar la cel multiclasa implica noi provocari computationale. Descompunerea functiei lse in produse de sigmoizi este o strategie eleganta care permite reutilizarea marginilor binare in contexte multiclasa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste tehnici sunt esentiale in clasificarea multiclasa Bayesiana, unde trebuie estimate distributii posterioare peste greutati in modele de regresie logistica multinomiala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de clasificare a documentelor in mai multe categorii (sport, politica, stiinta) ar putea folosi regresia logistica multinomiala Bayesiana cu aceste margini pentru a obtine nu doar clasificari ci si estimari de incertitudine.</p></div>
+  </div>
+</div>

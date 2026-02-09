@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Graphical Lasso - Algoritm si aplicatie pe date de citometrie</h2>
+  <p>Aceasta pagina prezinta algoritmul Glasso, aplicarea pe datele de citometrie de flux (Figura 26.18) si comparatia intre GGM-uri si DAG-uri.</p>
+  <div class="definition-box"><strong>Algoritmul Glasso:</strong> Optimizare de tip coordinate descent similar cu algoritmul shooting pentru lasso. Obiectivul este convex dar nu neted (norma L1). Implementari eficiente exista in R (glasso), Python (scikit-learn) si Matlab (ggmLassoHtf).</div>
+  <div class="highlight-box"><strong>Aplicatie pe date de citometrie (Figura 26.18):</strong> GGM-uri cu diferite niveluri de regularizare lambda: (a) lambda=36, 8 muchii, (b) lambda=27, 11 muchii, (c) lambda=7, 18 muchii, (d) lambda=0, 55 muchii (graf complet). Lambda controleaza numarul de muchii, oferind o gama de ipoteze plauzibile.</div>
+  <div class="highlight-box"><strong>Comparatie GGM vs. DAG:</strong> DAG-ul (Figura 26.17b) poate modela interventiile si cauzalitatea, dar GGM-ul nu. GGM-ul poate capta bucle de feedback (cicluri) care exista in cai biologice, dar DAG-ul nu.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina compara vizual GGM-uri cu diferite niveluri de regularizare pe aceleasi date de proteine. La lambda mare, doar cele mai puternice dependente sunt detectate. La lambda mic, graful devine dens. BIC poate fi folosit pentru a selecta lambda optim, dar in practica se prezinta adesea o gama de grafuri. Comparatia cu DAG-ul cauzal evidentiaza compromisuri: DAG-uri pentru cauzalitate, GGM-uri pentru cicluri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Calea de regularizare (variind lambda de la mare la mic) ofera o viziune progresiva a structurii, de la cele mai puternice la cele mai slabe dependente. Aceasta este analoga cu calea lasso in regresie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Glasso cu BIC pentru selectia lui lambda este o procedura standard in analiza retelelor biologice, financiare si neuronale. Vizualizarea grafurilor la diferite niveluri de regularizare este o practica de explorare utila.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza retelelor financiare in timpul unei crize, Glasso aplicat pe date din perioade diferite poate arata cum structura dependentelor intre piete se schimba: in perioade de criza, numarul de muchii creste (contagiune financiara), indicand risc sistemic crescut.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Crearea unui junction tree: mesaje pe arbori si triangulare</h2>
+  <p>Aceasta pagina ilustreaza propagarea mesajelor pe arbori cu diferite radacini si introduce conceptul de triangulare a grafurilor.</p>
+  <div class="definition-box"><strong>Reutilizarea mesajelor:</strong> Figura 20.5 arata ca mesajele trimise la calculul p(x_1|v) pot fi reutilizate partial pentru p(x_2|v), p(x_3|v) si p(x_4|v). Stocand toate mesajele, toate marginalele pot fi calculate in O(DK^2) in loc de O(DK^2) per marginala.</div>
+  <div class="definition-box"><strong>Triangulare (chordalizare):</strong> Procesul de adaugare a muchiilor de umplere la un graf astfel incat fiecare ciclu de lungime ≥ 4 sa contina o coarda (muchie intre noduri non-adiacente din ciclu). Graful rezultat este chordal. Exemplu: ciclul 1-2-3-4-5-1 necesita adaugarea muchiilor 1-3 si 1-4.</div>
+  <div class="highlight-box"><strong>Grafuri cordale vs non-cordale:</strong> Figura 20.6 arata ca un graf care pare "format din triunghiuri" poate sa nu fie chordal (ciclul 1-2-3-4-5-1 nu are coarda). Triangularea adauga muchiile necesare pentru a face graful chordal.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Construirea unui junction tree necesita doi pasi: (1) triangularea grafului (adaugarea de muchii de umplere pentru a-l face chordal) si (2) extragerea clicilor maximale si aranjarea lor intr-un arbore. Triangularea corespunde exact rularii simbolice a VE: muchiile de umplere sunt cele create de procesul de eliminare. Reutilizarea mesajelor pe arbori este analogia exacta a algoritmului collect-distribute.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Triangularea nu este unica: diferite ordini de eliminare produc diferite triangulari cu treewidth-uri diferite. Grafurile deja cordale (de exemplu, arbori) nu necesita muchii de umplere. Ciclurile lungi necesita multe adaugiri si cresc treewidth-ul.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmii de triangulare sunt componente esentiale ale motoarelor de inferenta. Pachetele software precum pgmpy, libDAI si HUGIN implementeaza euristici de triangulare optimizate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O retea de distributie a energiei electrice poate fi modelata ca un graf. Triangularea grafului permite rularea JTA pentru a calcula probabilitatile de defectiune in intreaga retea, identificand rapid componentele critice.</p></div>
+  </div>
+</div>

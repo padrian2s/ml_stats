@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Constructia stick-breaking si posteriorul DP</h2>
+  <p>Aceasta pagina prezinta constructia stick-breaking (ruperea bastonului) pentru procesul Dirichlet si posteriorul DP dupa observarea datelor.</p>
+  <div class="definition-box"><strong>Constructia stick-breaking:</strong> Ponderile pi_k sunt generate prin: beta_k ~ Beta(1, alpha), pi_k = beta_k * produs(1-beta_l) pentru l=1..k-1. Aceasta se noteaza pi ~ GEM(alpha) si genereaza o secventa infinita descrescatoare in medie.</div>
+  <div class="definition-box"><strong>Posteriorul DP:</strong> Dupa observarea esantioanelor theta_1,...,theta_N ~ G, posteriorul este G|theta_1,...,theta_N ~ DP(alpha+N, 1/(alpha+N) * (alpha*H + suma(delta_{theta_i}))). DP-ul este prior conjugat pentru el insusi.</div>
+  <div class="highlight-box"><strong>Proprietatea de conjugare:</strong> Alpha joaca rolul unei "dimensiuni efective a esantionului" pentru masura de baza H, iar posteriorul este un amestec ponderat intre prior (H) si datele observate (suma de delta-uri).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Constructia stick-breaking ofera o procedura constructiva pentru generarea ponderilor: se rupe un baston de lungime 1 la un punct aleator (beta_1), se pastreaza bucata (pi_1), apoi se repeta pe restul bastonului. Figura 25.5 arata atat procesul vizual cat si esantioane pentru alpha=2 si alpha=5. Cu alpha mic, primele componente domina; cu alpha mare, ponderile sunt mai uniform distribuite.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Constructia stick-breaking este esentiala pentru implementarea practica a DP-ului, deoarece ofera o reprezentare parametrica explicita (desi infinita) a masurii aleatoare G. Posteriorul DP pastreaza forma DP, demonstrand conjugarea perfecta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Constructia stick-breaking este baza algoritmilor de inferenta variationala pentru modele DP (de exemplu, variational inference truncata), unde se trunchiaza seria la K componente si se optimizeaza parametrii variationale pentru beta_k.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de dialog conversational, constructia stick-breaking este folosita in modele DP pentru a descoperi automat numarul de intentii ale utilizatorilor, cu alpha controlat astfel incat intentiile rare dar importante (precum urgentele) sa fie detectate.</p></div>
+  </div>
+</div>

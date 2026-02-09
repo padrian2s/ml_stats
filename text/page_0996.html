@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Modelul LDA-HMM - Diagrama si Cuvinte Functionale vs. de Continut (Capitolul 27.4.3)</h2>
+  <p>Pagina prezinta diagrama modelului grafic LDA-HMM si rezultatele aplicarii sale pe corpusul NIPS, demonstrand separarea cuvintelor functionale de cele de continut.</p>
+  <div class="figure-box"><strong>Figura 27.13:</strong> Modelul LDA-HMM reprezentat ca graf orientat. Se observa doua componente: matricea de tranzitie HMM (A^HMM) si matricea de emisie HMM (B^HMM) pentru cuvintele functionale, respectiv matricea de topicuri LDA (B^LDA) pentru cuvintele de continut. Variabilele z_{i,l} controleaza alternarea intre cele doua modele.</div>
+  <div class="figure-box"><strong>Figura 27.14:</strong> Cuvinte functionale si de continut din corpusul NIPS, asa cum sunt distinse de modelul LDA-HMM. Nivelul de gri indica probabilitatea posterioara de atribuire la componenta LDA (negru = maxima). Cuvintele incadrate apar ca functionale intr-o propozitie si ca de continut in alta (ex: "control", "return", "graph").</div>
+  <div class="definition-box"><strong>Dezambiguizare contextuala:</strong> LDA-HMM poate distinge intre utilizarile diferite ale aceluiasi cuvant: "return" ca verb (cuvant functional) vs. "expected return" ca substantiv (cuvant de continut in finante), sau "graph" ca termen sintactic vs. "graph G" ca concept matematic.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>LDA-HMM combina eleganta doua tipuri de modele: HMM-ul capteaza structura sintactica secventiala a limbajului, iar LDA capteaza continutul semantic. O stare HMM speciala (c=0) indica cand modelul LDA trebuie sa genereze cuvantul, permitand o separare naturala intre cuvintele de continut si cele functionale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Metoda este complet nesupervizata (nu foloseste etichete POS) si poate dezambiguiza cuvinte polisemantice bazat pe context. Separarea cuvintelor functionale de cele de continut imbunatateste calitatea topicurilor LDA, care altfel ar fi "poluate" de cuvinte functionale frecvente.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Etichetarea gramaticala nesupervizata, analiza stilistica a textelor stiintifice, imbunatatirea modelelor de generare de text si preprocesarea inteligenta a textelor pentru alte sarcini NLP.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza articolelor de machine learning din NIPS, modelul identifica automat ca "network activity can control single cell parameters" foloseste "control" ca verb (cuvant functional), dar "feed forward control and error feedback adaptive control" il foloseste ca substantiv (cuvant de continut).</p></div>
+  </div>
+</div>

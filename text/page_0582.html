@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Abordari Bayesiene pentru Arbori si CART vs. Amestecul Ierarhic de Experti</h2>
+  <p>Pagina continua discutia despre padurile aleatoare, introduce abordarea Bayesiana pentru arbori (BART) si compara CART cu amestecul ierarhic de experti (HME).</p>
+  <div class="definition-box"><strong>Arbori de regresie adaptivi Bayesieni (BART):</strong> Metoda care realizeaza inferenta Bayesiana asupra spatiului ansamblurilor de arbori folosind MCMC, oferind rezultate comparabile cu padurile aleatoare.</div>
+  <div class="definition-box"><strong>Amestecul ierarhic de experti (HME):</strong> O alternativa la arborii de decizie care poate fi privita ca un arbore de decizie probabilistic de adancime 2, cu mai multi experti la fiecare partitie.</div>
+  <div class="highlight-box"><strong>Avantajele HME fata de CART:</strong> (1) Poate folosi orice granita de decizie liniara, nu doar impartiri paralele cu axele. (2) Face predictii prin medierea peste toti expertii. (3) Potrivirea implica optimizare continua neteda (EM), mai putin susceptibila la optimi locale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea compara doua paradigme: abordarea frequentista (paduri aleatoare, bagging) si cea Bayesiana (BART). Ambele produc clasificatoare de inalta calitate dar pierd interpretabilitatea arborilor individuali. HME ofera o alternativa eleganta cu granite de decizie mai flexibile si optimizare mai stabila.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Costul metodelor Bayesiene bazate pe esantionare este comparabil cu padurile aleatoare. Metodele multi-arbore pierd proprietatea de interpretabilitate, dar masuri de post-procesare pot fi aplicate (Sectiunea 16.8). HME rezolva problema frunzelor cu putine exemple prin medierea predictiilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>HME este util in probleme unde granitele de decizie nu sunt paralele cu axele, de exemplu in recunoasterea vorbirii sau clasificarea imaginilor unde separarea claselor necesita granite oblice sau curbe.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza pietei financiare, diferiti "experti" pot modela regimuri economice diferite (crestere, recesiune, stagnare), iar HME combina predictiile acestor experti in functie de conditiile curente ale pietei.</p></div>
+  </div>
+</div>

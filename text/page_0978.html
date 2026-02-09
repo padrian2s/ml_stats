@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>PCA pentru familia exponentiala (ePCA)</h2>
+  <p>Aceasta pagina introduce PCA pentru familia exponentiala si PCA categoric, modele mai flexibile decat amestecurile de multinomiale, folosind variabile latente continue.</p>
+  <div class="definition-box"><strong>Latent Semantic Analysis (LSA/LSI):</strong> Aplicarea PCA (SVD) pe matricea termen-document. Echivalent cu un prior gaussian pe z_i si o verosimilitate gaussiana p(y_i|z_i) = N(Wz_i, sigma^2 I).</div>
+  <div class="definition-box"><strong>PCA categoric:</strong> p(y_{i,1:L_i}|z_i) = produs Cat(y_{il}|S(Wz_i)), unde S este functia softmax si W in R^{V x K}. Ilustrat in Figura 27.1(a). Un GLM nesupervizat (analog cu ePCA).</div>
+  <div class="definition-box"><strong>ePCA (Exponential family PCA):</strong> Generalizarea PCA la orice membru al familiei exponentiale: multinomial, Poisson, Bernoulli, etc. Distributia marginala p(y) = integrala produs p(y_{il}|z_i, W) N(z_i|mu, Sigma) dz_i.</div>
+  <div class="highlight-box"><strong>Problema overfitting:</strong> ePCA "degenerat" (care calculeaza estimari punctuale ale z_i in E-step) are un numar de variabile latente proportional cu N (cate un z_i per document), ceea ce duce la overfitting sever. Marginalizarea lui z_i prin EM variational sau MCMC rezolva aceasta problema.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta o alternativa mai flexibila la amestecurile de multinomiale: modele cu variabile latente continue (z_i in R^K) si verosimilitate din familia exponentiala. LSA aplica PCA standard pe numarari, dar ignora natura discreta a datelor. PCA categoric si ePCA corecteza aceasta problema folosind verosimilitate softmax/multinomiala. Estimarea corecta necesita marginalizarea lui z_i, nu estimari punctuale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la variabile latente discrete (amestec) la continue (PCA/FA) creste expresivitatea dramatic: un document poate fi o combinatie continua de topicuri, nu doar un singur topic. Dar estimarea devine mai dificila din cauza integralei intractabile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LSA este inca folosit ca baseline in recuperarea informatiei. ePCA cu verosimilitate Poisson este populara in analiza datelor de numarare (de exemplu, date de expresie genica RNA-seq). PCA categoric este util pentru date de sondaje cu raspunsuri multiple-choice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza datelor de secventiere RNA-seq, ePCA cu verosimilitate Poisson (mai adecvata pentru numarari decat PCA gaussian) poate identifica factori latenti biologici (tipuri de celule, stari de diferentiere) din profilele de expresie genica.</p></div>
+  </div>
+</div>

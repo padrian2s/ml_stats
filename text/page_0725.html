@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>SSVM-uri: perspectiva probabilistica</h2>
+  <p>Aceasta pagina dezvolta fundamentul teoretic al SVM-urilor structurale din perspectiva probabilistica, derivand obiectivul prin minimizarea pierderii asteptate a posteriori.</p>
+  <div class="definition-box"><strong>Pierderea asteptata a posteriori:</strong> La testare, se alege eticheta care minimizeaza pierderea asteptata: ŷ = argmin_{ŷ} Σ_y L(ŷ, y) p(y|x, w). Aceasta motiveaza incorporarea functiei de pierdere L in antrenare.</div>
+  <div class="definition-box"><strong>Riscul empiric asteptat (R_EL):</strong> Obiectivul SSVM: R_EL(w) = -log p(w) + Σ_i log[Σ_y L(y_i, y) p(y|x_i, w)]. Pentru pierderea 0-1, aceasta se reduce la obiectivul MAP standard R_MAP.</div>
+  <div class="highlight-box"><strong>Aproximarea SSVM:</strong> Folosind marginile log Σ exp(f) ≈ max f (cand functiile sunt dominate de maximum), obiectivul se simplifica la: R_EL ≈ E(w) + Σ_i [max_y {L̃(y_i, y) + w^T φ(x_i, y)} - max_y w^T φ(x_i, y)], ceea ce necesita doar decodare MAP (nu marginale).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>SSVM-urile sunt derivate dintr-o perspectiva probabilistica prin doua aproximari: (1) inlocuirea sumei cu maximul (log-sum-exp ≈ max) si (2) ignorarea termenului constant |Y|. Rezultatul este un obiectiv care necesita doar doua decodari MAP la fiecare pas: una augmentata cu pierderea (loss-augmented inference) si una standard. Aceasta evita complet calculul marginalelor si al functiei de partitie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Aproximarea log-sum-exp ≈ max transforma problema de la calculul marginalelor la calculul MAP-ului. Inferenta calibrata cu pierderea (loss-calibrated inference) este in general intractabila, asa ca se recurge la estimarea MAP calibrata cu pierderea. Distinctia inferenta-decizie este incalcata in SSVM-uri dar functioneaza bine in practica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SSVM-urile sunt eficiente in probleme de predicere structurata unde decodarea MAP este rapida: segmentarea imaginilor (graph cuts), parsarea (algoritmi CKY), si etichetarea secventelor (Viterbi). Antrenarea necesita doar un oracol MAP, nu un motor de inferenta complet.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In traducerea automata statistica, SSVM-ul antreneaza modelul gasind cea mai buna traducere gresita (loss-augmented MAP) la fiecare pas si ajustand parametrii pentru a o penaliza fata de traducerea corecta. Algoritmul MERT este o varianta populara.</p></div>
+  </div>
+</div>

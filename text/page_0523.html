@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Kernel Ridge Regression: Problema Primala si Duala</h2>
+  <p>Pagina prezinta Sectiunea 14.4.3 despre kernelizarea regresiei ridge, cu formularea primala (14.4.3.1) si duala (14.4.3.2), demonstrand kernel trick-ul pe un model parametric.</p>
+  <div class="highlight-box"><strong>Problema primala (Sectiunea 14.4.3.1, Eq. 14.33-14.34):</strong> J(w) = (y - Xw)^T(y - Xw) + lambda||w||^2. Solutie: w = (X^T X + lambda I_D)^{-1} X^T y. Cost: O(D^3). Aceasta este formularea standard din Capitolul 7.</div>
+  <div class="definition-box"><strong>Problema duala (Sectiunea 14.4.3.2, Eq. 14.35-14.38):</strong> Folosind matrix inversion lemma: w = X^T(XX^T + lambda I_N)^{-1} y. Definind variabile duale alpha = (K + lambda I_N)^{-1} y unde K = XX^T (matricea Gram), obtinem w = X^T alpha = suma alpha_i x_i. Predictia: f(x) = w^T x = suma alpha_i kappa(x, x_i).</div>
+  <div class="highlight-box"><strong>Kernelizare:</strong> Inlocuind XX^T cu matricea Gram K (K_ij = kappa(x_i, x_j)), se obtine kernel ridge regression: alpha = (K + lambda I)^{-1} y, f(x) = suma alpha_i kappa(x, x_i). Nu necesita acces explicit la phi(x), doar la kappa. Cost: O(N^3) (vs O(D^3) primal). Avantajos cand D >> N.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Kernel ridge regression demonstreaza kernel trick-ul pe un model parametric simplu: prin trecerea de la formularea primala (O(D^3)) la cea duala (O(N^3)), si inlocuirea XX^T cu K, se obtine un model non-liniar care poate opera in spatii de feature infinit-dimensionale. Solutia w este o combinatie liniara a datelor de antrenare: w = suma alpha_i x_i (sau phi(x_i) in spatiu kernel).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Principiul dual: orice model liniar cu regularizare l2 poate fi kernelizat, deoarece solutia poate fi scrisa ca combinatie liniara a datelor (representation theorem). Acest principiu nu se aplica pentru regularizare l1 (solutia nu are aceasta forma), ceea ce limiteaza kernelizarea LASSO.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Kernel ridge regression este implementat in scikit-learn (KernelRidge). Este o alternativa mai simpla la GP regression (cu prior Gaussian fix) si mai rapida la antrenare decat SVM regression. Dezavantaj: nu produce solutii sparse (toti alpha_i sunt non-zero).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In chimia computationala, kernel ridge regression cu kernel moleculare (SOAP, Coulomb matrix) prezice proprietatile moleculare (energie, toxicitate) cu acuratete DFT la fractiunea de cost computational, permitand screening virtual de milioane de molecule.</p></div>
+  </div>
+</div>

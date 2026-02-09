@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LARS, Metode de Homotopie si Warm Starting</h2>
+  <p>Pagina detaliaza algoritmul LARS (Least Angle Regression and Shrinkage), metode de homotopie si continuation, warm starting si introduce metodele proximale de gradient (Sectiunea 13.4.3).</p>
+  <div class="definition-box"><strong>LARS (Efron et al. 2004):</strong> Incepe cu lambda mare (w=0), scade lambda si adauga variabile pe masura ce corelatia lor cu reziduul depaseste pragul. Calculeaza intreaga cale de regularizare la costul O(min(ND^2, DN^2)) - ca un singur fit OLS.</div>
+  <div class="highlight-box"><strong>Metode active set:</strong> Actualizeaza simultan toate variabilele din setul activ (cele cu w_j != 0). Mai rapide decat coordinate descent cand setul activ se schimba rar, dar mai complexe de implementat.</div>
+  <div class="highlight-box"><strong>Warm starting:</strong> Solutia la lambda_k serveste ca initializare pentru lambda_{k+1}. glmnet (Friedman et al. 2010) combina coordinate descent cu warm starting pentru a calcula eficient intreaga cale de regularizare pentru orice GLM l1-regularizat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>LARS este elegant teoretic (exploateaza proprietatea pe portiuni liniara) dar limitat la regresia liniara. Warm starting cu coordinate descent (glmnet) este mai general si practic, functionand cu orice pierdere convexa. Ambele calculeaza intreaga cale de regularizare, nu doar o solutie punctuala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Calculul intregii cai de regularizare este mai informativ decat o solutie la un singur lambda: permite vizualizarea stabilitatii variabilelor, alegerea informata a lambda si intelegerea compromisului sparsitate-acuratete.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>glmnet este probabil cel mai folosit pachet software pentru modele sparse, disponibil in R si Python. Suporta regresia liniara, logistica, multinomiala, Poisson si Cox, toate cu regularizare elastic net.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile de asociere la nivel genomic (GWAS), glmnet permite ajustarea unui model logistic cu regularizare l1 pe sute de mii de SNP-uri in minute, identificand variabilele genetice asociate cu boli.</p></div>
+  </div>
+</div>

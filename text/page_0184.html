@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Intervale Credibile Centrale si Regiuni HPD</h2>
+  <p>Pagina continua discutia despre intervalele credibile, prezentand calculul practic si diferenta dintre intervalele credibile bayesiene si intervalele de incredere frecventiste, si introduce regiunile de cea mai mare densitate posterioara (HPD).</p>
+  <div class="definition-box"><strong>Regiune HPD (Highest Posterior Density):</strong> Setul de puncte cele mai probabile care contin in total 100(1-α)% din masa probabilitatii posterioare. Pentru distributii unimodale, este cel mai ingust interval cu aceasta proprietate.</div>
+  <div class="highlight-box"><strong>Exemplu practic:</strong> Pentru posterioara Beta(3,9), intervalul central (CI) este (0.06, 0.52) iar HPD-ul este (0.04, 0.48) - HPD-ul este mai ingust si contine puncte cu densitate mai mare.</div>
+  <div class="figure-box"><strong>Figura 5.3:</strong> (a) Intervalul central si (b) regiunea HPD pentru o posterioara Beta(3,9). HPD-ul este mai ingust si fiecare punct din interior are densitate mai mare decat orice punct din exterior.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se prezinta doua abordari pentru sumarizarea incertitudinii: intervalul central (care pune masa egala in ambele cozi) si regiunea HPD (care minimizeaza latimea intervalului). HPD-ul este superior pentru distributii asimetrice dar mai dificil de calculat. Pentru distributii aproximativ gaussiene, cele doua coincid aproximativ. Se subliniaza si diferenta conceptuala dintre intervalele credibile bayesiene si intervalele de incredere frecventiste.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Aproximarea Monte Carlo permite calculul intervalelor credibile chiar si fara forma analitica a posterioarei: se sorteaza cele S esantioane si se gaseste quantila la pozitia α/S. Aceasta converge la quantila adevarata cand S → ∞.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, intervalele credibile sunt ceea ce majoritatea oamenilor vor sa calculeze, dar intervalele de incredere sunt ceea ce de fapt calculeaza (deoarece statistica frecventista este mai raspandita in educatie). Avantajul intervalelor credibile: sunt conditionte de datele observate si au o interpretare probabilistica directa.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Analogia "umplerii cu apa" pentru HPD: imaginati-va ca coborati nivelul apei intr-un bazin cu forma distributiei posterioare pana cand doar 5% din masa ramane sub apa. Regiunea descoperita este HPD-ul de 95%.</p></div>
+  </div>
+</div>

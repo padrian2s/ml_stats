@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Functii de disimilaritate si evaluarea clustering-ului</h2>
+  <p>Aceasta pagina detaliaza functiile de disimilaritate comune (distanta euclidiana patrata, distanta L1/city block, distanta Hamming) si introduce evaluarea rezultatelor clustering-ului.</p>
+  <div class="definition-box"><strong>Distanta euclidiana patrata:</strong> Delta_j(x_{ij}, x_{i'j}) = (x_{ij} - x_{i'j})^2, aplicabila doar atributelor cu valori reale.</div>
+  <div class="definition-box"><strong>Distanta city block (L1):</strong> Delta_j(x_{ij}, x_{i'j}) = |x_{ij} - x_{i'j}|, mai robusta la diferente mari decat distanta patrata.</div>
+  <div class="definition-box"><strong>Distanta Hamming:</strong> Delta(x_i, x_i') = suma I(x_{ij} != x_{i'j}), folosita pentru variabile categorice, numara cate trasaturi difera.</div>
+  <div class="highlight-box"><strong>Echivalenta clustering-corelatie:</strong> Pentru date standardizate, clustering-ul bazat pe corelatie este echivalent cu clustering-ul bazat pe distanta euclidiana patrata, deoarece suma(x_{ij} - x_{i'j})^2 = 2(1 - corr[x_i, x_i']).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta functiile de disimilaritate specifice diferitelor tipuri de date: distanta euclidiana pentru date continue, distanta L1 pentru robustete, coeficientul de corelatie pentru serii temporale, codificarea ordinala pentru variabile ordinale, si distanta Hamming pentru variabile categorice. Se evidentiaza echivalenta importanta intre corelatie si distanta euclidiana pentru date standardizate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Alegerea functiei de disimilaritate este critica si depinde de tipul datelor. Distanta euclidiana patrata amplifica diferentele mari, in timp ce L1 este mai robusta. Pentru date mixte (continue si categorice), se pot combina diferite masuri pe atribute.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In bioinformatica, coeficientul de corelatie este preferat pentru clustering-ul profilurilor de expresie genica (serii temporale). In text mining, distanta cosinus (legata de corelatie) este standard. In analiza datelor mixte din anchete, combinatia de masuri este esentiala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recomandare, alegerea metricii de similaritate intre utilizatori (corelatie Pearson vs. distanta cosinus vs. Jaccard) afecteaza semnificativ calitatea recomandarilor, fiecare metrica fiind potrivita pentru tipuri diferite de date de rating.</p></div>
+  </div>
+</div>

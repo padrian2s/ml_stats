@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii EM: Calcul Manual Pasul M si Amestec de Scala Finit (cont.)</h2>
+  <p>Pagina continua exercitiile: EM pentru amestecul de scala finit (derivarea completa), calculul manual al pasului M pentru un GMM cu date concrete, si momentele unui amestec de Gaussiene.</p>
+  <div class="highlight-box"><strong>Exercitiul 11.6 (cont.) - Amestec de scala finit:</strong> Derivarea completa a EM generalizat cu log-verosimilitatea completa asteptata (Eq. 11.126) si actualizarile partiale pentru mu_j si sigma_k^2 separat, deoarece optimizarea simultana nu este tractabila.</div>
+  <div class="highlight-box"><strong>Exercitiul 11.7 - Calcul manual pasul M:</strong> Date 1D: x = [1, 10, 20], K=2 clustere. Matrice R de responsabilitati data. Se calculeaza manual: ponderile pi_k, mediile mu_k si variantele sigma_k^2 din formulele MLE.</div>
+  <div class="definition-box"><strong>Exercitiul 11.8 - Momentele GMM (Eq. 11.128-11.130):</strong> E[x] = suma pi_k mu_k. cov[x] = suma pi_k [Sigma_k + mu_k mu_k^T] - E[x]E[x]^T. Media amestecului este media ponderata, dar covarianta include atat dispersia intra-cluster cat si cea inter-cluster.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile ofera practica atat analitica cat si de calcul manual cu EM. Formula covariantei amestecului (Exercitiul 11.8) demonstreaza legea variantei totale: varianta totala = varianta medie intra-cluster + varianta mediilor inter-cluster. Calculul manual (Exercitiul 11.7) solidifica intuitia despre cum functioneaza pasul M.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Legea variantei totale: cov[x] = E[cov[x|z]] + cov[E[x|z]] = suma pi_k Sigma_k + suma pi_k mu_k mu_k^T - (suma pi_k mu_k)(suma pi_k mu_k)^T. Acest principiu apare in multe contexte statistice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Calculul momentelor amestecului este esential in analiza de risc financiar: riscul total al unui portofoliu diversificat pe mai multe regimuri de piata include atat riscul in fiecare regim cat si riscul din tranzitia intre regimuri.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In asigurari, costul total al daunelor se modeleaza ca un amestec (tipuri diferite de daune), iar momentele amestecului sunt folosite pentru calculul primelor si al rezervelor.</p></div>
+  </div>
+</div>

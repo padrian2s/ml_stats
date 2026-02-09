@@ -1,0 +1,23 @@
+<div class="page-content">
+  <h2>Inferenta unui Vector Necunoscut si Fuziunea Senzorilor</h2>
+  <p>Pagina 122 extinde inferenta la vectori multidimensionali si introduce fuziunea senzorilor (sensor fusion) - combinarea mai multor surse de informatii cu fiabilitati diferite.</p>
+
+  <div class="highlight-box"><strong>Posteriorul vectorial (Ecuatiile 4.142-4.144):</strong>
+    p(x|y₁,...,y_N) = N(x|μ_N, Σ_N), unde:
+    Σ_N⁻¹ = Σ₀⁻¹ + NΣ_y⁻¹
+    μ_N = Σ_N(Σ_y⁻¹(Nȳ) + Σ₀⁻¹μ₀)</div>
+
+  <div class="definition-box"><strong>Fuziunea senzorilor (Sensor Fusion):</strong> Combinarea mai multor masuratori de la senzori cu fiabilitati (covarianfe) diferite. Posteriorul este o medie ponderata, cu ponderi proportionale cu precizia (inversa covariantei) fiecarui senzor.</div>
+
+  <div class="figure-box"><strong>Figura 4.13:</strong> Inferenta Bayesiana pentru media unei Gaussiene 2D. (a) Date generate din N(x, Σ_y) cu x = [0.5, 0.5]ᵀ. (b) Prior N(0, 0.1I₂) - contururi circulare. (c) Posterior dupa 10 observatii - elipsa concentrata in jurul valorii reale.</div>
+
+  <div class="highlight-box"><strong>Raportul semnal-zgomot (SNR) (Ecuatia 4.141):</strong> SNR = (Σ₀ + μ₀²) / Σ_y. Un SNR mare inseamna ca semnalul este puternic relativ la zgomot, deci shrinkage-ul este mic.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Extensia la vectori pastreaza structura eleganta: preciziile se aduna, iar media este o medie ponderata de precizii. Fuziunea senzorilor demonstreaza puterea abordarii Bayesiane: senzori cu fiabilitati diferite sunt combinati optim, cu fiecare senzor contribuind proportional cu precizia sa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>In cazul multidimensional, covarianta posterioara nu este doar o scalare a covariantei priorului - ea se contracta diferit pe fiecare directie, in functie de informatia disponibila. Figura 4.13(c) arata cum posteriorul devine o elipsa orientata diferit de prior, reflectand structura datelor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Fuziunea senzorilor este critica in navigatia autonoma (GPS + IMU + viziune), robotica (lidar + camera + ultrasunete), sisteme militare (radar + infrarosu) si in orice sistem cu surse multiple de informatie.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un telefon mobil combina GPS (precis pe orizontala dar slab pe verticala), barometrul (precis pe verticala) si accelerometrul (precis pe termen scurt) pentru a estima pozitia 3D. Fuziunea Bayesiana pondereaza fiecare senzor pe directia unde este cel mai precis.</p></div>
+  </div>
+</div>

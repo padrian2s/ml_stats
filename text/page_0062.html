@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Capitolul 2: Independenta si Independenta Conditionata</h2>
+  <p>Conceptele de independenta neconditionata si conditionata, esentiale pentru construirea modelelor probabilistice eficiente.</p>
+  <div class="definition-box"><strong>Independenta Neconditionata (Marginala):</strong> X ⊥ Y daca si numai daca p(X, Y) = p(X)p(Y) (ecuatia 2.14). Distributia conjuncta se factorizeaza in produsul marginalelor.</div>
+  <div class="definition-box"><strong>Independenta Conditionata (CI):</strong> X ⊥ Y|Z daca si numai daca p(X, Y|Z) = p(X|Z)p(Y|Z) (ecuatia 2.15). Stiind Z, X nu ofera informatii suplimentare despre Y.</div>
+  <div class="definition-box"><strong>Teorema 2.2.1:</strong> X ⊥ Y|Z daca si numai daca exista functii g si h astfel incat p(x, y|z) = g(x, z)h(y, z) (ecuatia 2.16).</div>
+  <div class="figure-box"><strong>Figura 2.2:</strong> Vizualizarea independentei: p(x, y) = p(x)p(y). X are 6 stari, Y are 5. O distributie conjuncta generala necesita 29 parametri, dar sub independenta, doar 9 sunt necesari.</div>
+  <div class="highlight-box"><strong>Reducerea Parametrilor:</strong> Sub independenta, o distributie conjuncta pe X (6 stari) si Y (5 stari) necesita (6-1) + (5-1) = 9 parametri in loc de (6x5)-1 = 29. Independenta conditionata este mai realista si sta la baza modelelor grafice.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 2.2.4 introduce independenta si independenta conditionata. Independenta neconditionata este rara in practica, deoarece majoritatea variabilelor sunt corelate. Independenta conditionata este mult mai comuna: doua variabile pot deveni independente odata ce o a treia variabila (mediatoare) este cunoscuta. Exemplul: probabilitatea de ploaie maine (X) si starea pamantului azi (Y) devin independente dat fiind daca ploua azi (Z).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Independenta conditionata este fundamentul modelelor grafice (Capitolul 10), clasificatorului Bayes naiv (Sectiunea 3.5) si modelelor Markov (Sectiunea 17.2). Permite descompunerea distributiilor conjuncte complexe in produse de factori mai simpli, reducand dramatic numarul de parametri.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Presupunerea de independenta conditionata simplifica modelele si le face tractabile computational. In clasificatorul Bayes naiv, presupunerea ca toate caracteristicile sunt independent conditionate de clasa reduce exponential numarul de parametri, facand clasificarea posibila chiar si cu putine date de antrenament.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un model de diagnostic medical, simptomele (febra, tuse, durere de cap) sunt conditionate independent de boala. Daca stim boala, cunoasterea unui simptom nu ofera informatii suplimentare despre alt simptom. Aceasta presupunere simplificatoare permite calcularea probabilitatilor cu mult mai putine date clinice.</p></div>
+  </div>
+</div>

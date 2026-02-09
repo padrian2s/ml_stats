@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Performanta AdaBoost si Modelarea Aditiva Stagewise</h2>
+  <p>Pagina prezinta performanta AdaBoost cu decision stumps, rezistenta la supraajustare, si introduce modelarea aditiva stagewise inainte ca framework pentru boosting.</p>
+  <div class="definition-box"><strong>Coborare in gradient in spatiul functiilor (gradient descent in function space):</strong> Interpretarea statistica a boosting-ului data de Breiman (1998), extinsa de Friedman et al. (2000) la diverse functii de pierdere.</div>
+  <div class="highlight-box"><strong>Obiectivul boosting-ului:</strong> min_f Σ_{i=1}^{N} L(y_i, f(x_i)) (Ec. 16.25), unde L este o functie de pierdere si f este un model cu functii de baza adaptative.</div>
+  <div name="highlight-box"><strong>Estimatorul optimal (squared error):</strong> f*(x) = argmin_{f(x)} E_{y|x}[(Y - f(x))²] = E[Y|x] (Ec. 16.26), minimizatorul populatiei.</div>
+  <div class="figure-box"><strong>Figura 16.8:</strong> Performanta AdaBoost cu decision stump pe un set de date 2D. Eroarea de antrenament (albastru solid) scade rapid la zero, iar eroarea de test (rosu punctat) continua sa scada chiar si dupa ce eroarea de antrenament a atins zero, demonstrand rezistenta la supraajustare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>AdaBoost cu decision stumps demonstreaza o proprietate surprinzatoare: eroarea de test continua sa scada chiar si dupa ce eroarea de antrenament a atins zero. Aceasta rezistenta la supraajustare a atras atentia statisticienilor. Boosting-ul poate fi interpretat ca o forma de coborare in gradient in spatiul functiilor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Boosting-ul poate fi extins la diverse functii de pierdere: eroare patrata (L2Boosting), eroare absoluta (Gradient boosting), pierdere exponentiala (AdaBoost), logloss (LogitBoost). Fiecare produce un algoritm diferit cu proprietati distincte.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Decision stumps amplificate formeaza baza detectorului de fete Viola-Jones, utilizat in miliarde de camere digitale si telefoane mobile pentru detectia automata a fetelor in timp real.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia fetelor, fiecare decision stump testeaza o singura caracteristica Haar (diferenta de luminozitate intre regiuni ale imaginii). Dupa 200 de runde de boosting, ansamblul poate detecta fete cu acuratete de peste 99%.</p></div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Derivarea Proiecției Optime 1D pentru FLDA</h2>
+  <p>Pagina derivă matematic direcția optimă de proiecție w pentru cazul cu două clase, introducând criteriul Fisher J(w) și matricele de dispersie inter-clasă și intra-clasă.</p>
+  <div class="highlight-box"><strong>Criteriul Fisher (Ecuația 8.100):</strong> J(w) = (m₂ - m₁)² / (s₁² + s₂²) - raportul distanței pătratice între mediile proiectate la suma variațiilor intra-clasă proiectate. Se maximizează peste w.</div>
+  <div class="highlight-box"><strong>Forma matriceală (Ecuația 8.101):</strong> J(w) = w&#7488;S_B w / w&#7488;S_W w - raportul Rayleigh generalizat.</div>
+  <div class="definition-box"><strong>Matricea de dispersie inter-clasă (Between-class scatter):</strong> S_B = (μ₂ - μ₁)(μ₂ - μ₁)&#7488; - matrice de rang 1 în cazul cu două clase.</div>
+  <div class="definition-box"><strong>Matricea de dispersie intra-clasă (Within-class scatter):</strong> S_W = Σ_{i:yᵢ=1}(xᵢ - μ₁)(xᵢ - μ₁)&#7488; + Σ_{i:yᵢ=2}(xᵢ - μ₂)(xᵢ - μ₂)&#7488; - suma covariațelor empirice per clasă.</div>
+  <div class="highlight-box"><strong>Problema de valori proprii generalizate (Ecuația 8.107):</strong> S_B w = λ S_W w - maximizarea J(w) se reduce la o problemă de valori proprii generalizate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Derivarea FLDA este elegantă: se definesc mediile condiționate de clasă μ₁, μ₂, proiecțiile lor m_k = w&#7488;μ_k, și variațele proiectate s_k². Criteriul J(w) maximizează separarea mediilor relative la dispersia intra-clasă. Reformularea în termeni matriceali J(w) = w&#7488;S_B w / w&#7488;S_W w este un raport Rayleigh generalizat, redus la o problemă de valori proprii generalizate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Raportul Rayleigh generalizat apare frecvent în analiză statistică: în PCA (cu S_W = I), în testele MANOVA, și în analiza canonică. Structura „maximizează semnal/zgomot" este universală în inginerie și statistică. S_B are rang cel mult C-1, ceea ce explică restricția L ≤ C-1.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Rezolvarea eficientă a problemei de valori proprii generalizate este implementată în LAPACK/BLAS și disponibilă în numpy (scipy.linalg.eigh), R (MASS::lda), și scikit-learn (LinearDiscriminantAnalysis). Pentru D foarte mare, se poate aplica mai întâi PCA pentru reducere preliminară.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de monitorizare a calității aerului clasifică senzori chimici (nas electronic) în categorii de poluanți. Cu D=32 senzori și C=5 poluanți, FLDA reduce datele la 4 dimensiuni (C-1=4) care maximizează separabilitatea poluanților, permițând vizualizarea și clasificarea eficientă.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Aplicații ale HMM-urilor - Recunoaștere Vocală, ADN și Profil HMM (p. 605)</h2>
+  <p>Pagina prezintă aplicațiile principale ale HMM-urilor: recunoașterea automată a vorbirii, recunoașterea activității, etichetarea morfologică, găsirea genelor și alinierea secvențelor proteice.</p>
+  <div class="definition-box"><strong>Profil HMM:</strong> Un model HMM cu 3 tipuri de stări (match/potrivire, insert/inserare, delete/ștergere) utilizat pentru alinierea secvențelor biologice la o secvență de consens.</div>
+  <div class="definition-box"><strong>Recunoaștere automată a vorbirii:</strong> Aplicație HMM unde xₜ sunt caracteristici acustice extrase din semnal, zₜ este cuvântul rostit, p(zₜ|zₜ₋₁) este modelul de limbaj iar p(xₜ|zₜ) este modelul acustic.</div>
+  <div class="figure-box"><strong>Figura 17.8:</strong> (a) Secvențe ADN pentru alinierea la consensul „AGC". (b) Diagrama de tranziție a stărilor pentru un profil HMM cu stări de potrivire (M), inserare (I) și ștergere (D).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>HMM-urile au o gamă largă de aplicații în care stările ascunse au interpretări specifice domeniului: cuvinte rostite, tipuri de activitate, categorii gramaticale sau regiuni genomice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>În toate aplicațiile, structura este similară: stările ascunse au semnificație semantică, modelul de tranziție captează dinamica temporală, iar modelul de observare conectează stările la măsurătorile disponibile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Profilul HMM este esențial în bioinformatică pentru alinierea secvențelor multiple, detectarea regiunilor codificatoare în ADN și predicția structurii proteinelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În recunoașterea activității video, un HMM poate clasifica automat activitățile unei persoane (mers, alergat, stând) din secvențe de cadre video, folosind stările ascunse pentru tipul de activitate.</p></div>
+  </div>
+</div>

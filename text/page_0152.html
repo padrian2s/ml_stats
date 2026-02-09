@@ -1,0 +1,24 @@
+<div class="page-content">
+  <h2>Inferenta Scalara - Varianta, Shrinkage si Actualizare Secventiala</h2>
+  <p>Pagina 121 continua cu rescrierea posteriorului in termeni de varianta, introduce conceptul de shrinkage (contractie), raportul semnal-zgomot si actualizarea secventiala.</p>
+
+  <div class="figure-box"><strong>Figura 4.12:</strong> Inferenta despre x dat y = 3. (a) Prior puternic N(0,1): media posterioara este "trasa" spre μ₀ = 0. (b) Prior slab N(0,5): media posterioara este aproape de MLE (y = 3).</div>
+
+  <div class="highlight-box"><strong>Posteriorul in termeni de varianta (Ecuatiile 4.132-4.134):</strong>
+    τ_N² = σ²τ₀² / (Nτ₀² + σ²)
+    μ_N = (σ²/(Nτ₀² + σ²)) μ₀ + (Nτ₀²/(Nτ₀² + σ²)) ȳ</div>
+
+  <div class="definition-box"><strong>Shrinkage (Contractie):</strong> Media posterioara este priorul ajustat spre date (Ecuatia 4.139: μ₁ = μ₀ + (y - μ₀) * Σ₀/(Σ_y + Σ₀)) sau datele ajustate spre prior (Ecuatia 4.140: μ₁ = y - (y - μ₀) * Σ_y/(Σ_y + Σ₀)). Cantitatea de contractie depinde de raportul preciziilor.</div>
+
+  <div class="highlight-box"><strong>Raportul semnal-zgomot (Ecuatia 4.141):</strong> SNR = E[X²]/E[ε²] = (Σ₀ + μ₀²)/Σ_y. SNR mare = semnal puternic, contractia spre prior este mica.</div>
+
+  <div class="highlight-box"><strong>Actualizare secventiala (Ecuatiile 4.135-4.140):</strong> Posteriorul se poate calcula secvential, actualizand dupa fiecare observatie: Σ₁ = (1/Σ₀ + 1/Σ_y)⁻¹ si μ₁ = Σ₁(μ₀/Σ₀ + y/Σ_y).</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cele trei forme echivalente ale mediei posterioare (4.138-4.140) ofera perspective complementare: combinatie convexa, prior ajustat spre date, sau date ajustate spre prior. Contractia (shrinkage) este un fenomen ubiquit in statistica Bayesiana si este legata de regularizarea in invatarea automata. Actualizarea secventiala demonstreaza ca inferenta Bayesiana este natural incrementala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Shrinkage-ul Bayesian este echivalentul probabilistic al regularizarii L2 (Ridge). Cu cat priorul este mai puternic (Σ₀ mic), cu atat contractia spre μ₀ este mai mare. Acest mecanism previne supraajustarea in special cand datele sunt putine sau zgomotoase.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Shrinkage-ul este utilizat in estimarea James-Stein (care domina MLE in dimensiuni ≥ 3), in estimarea covariantei (Ledoit-Wolf), in modele ierarhice si in orice estimare cu date limitate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In baseball, rata de succes a unui jucator nou cu doar 10 la-bats poate fi 0.400 (4 din 10). Estimarea Bayesiana aplica shrinkage spre media generala (~0.260), producand o estimare mai realista de ~0.300. Pe masura ce jucatorul acumuleaza mai multe la-bats, estimarea converge spre performanta sa reala.</p></div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Estimarile MAP pentru GMM si EM pentru Amestecul de Experti</h2>
+  <p>Pagina prezinta formulele detaliate ale estimarilor MAP pentru parametrii GMM, setarea hiperparametrilor si introduce EM pentru modelul de amestec de experti.</p>
+  <div class="definition-box"><strong>Varianta pooled:</strong> sⱼ = (1/N) Σᵢ₌₁ᴺ (xᵢⱼ - x̄ⱼ)² - varianta combinata pentru dimensiunea j, utilizata pentru setarea priorului S₀.</div>
+  <div class="highlight-box"><strong>Setarea S₀:</strong> S₀ = (1/K^(1/D)) diag(s₁², ..., s_D²) - volumul rezultat al fiecarui elipsoid este |S₀| = (1/K)|diag(s₁², ..., s_D²)|, distribuind volumul total uniform intre cele K clustere.</div>
+  <div class="highlight-box"><strong>Functia Q pentru amestecul de experti:</strong> Q(θ, θᵒˡᵈ) = Σᵢ₌₁ᴺ Σₖ₌₁ᴷ rᵢₖ log[πᵢₖ N(yᵢ|wₖᵀxᵢ, σₖ²)]</div>
+  <div class="highlight-box"><strong>Ponderi dependente de intrare:</strong> πᵢₖ = S(Vᵀxᵢ)ₖ - ponderile de amestec sunt functii softmax ale intrarii, spre deosebire de GMM unde sunt constante.</div>
+  <div class="highlight-box"><strong>Responsabilitati:</strong> rᵢₖ ∝ πᵢₖᵒˡᵈ N(yᵢ|xᵢᵀwₖᵒˡᵈ, (σₖᵒˡᵈ)²) - identice cu GMM dar cu πₖ inlocuit de πᵢₖ.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se completeaza detaliile estimarii MAP: media estimata este o combinatie convexa intre media ponderata a datelor si media priorului, iar covarianta este regularizata prin adaugarea matricei priorului S₀. Se introduce apoi EM pentru amestecul de experti, unde principala diferenta fata de GMM este ca ponderile de amestec πᵢₖ depind de intrare prin intermediul unei functii softmax. Parametrul ν₀ = D + 2 este cel mai slab prior propriu.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Scalarea S₀ cu 1/K^(1/D) asigura ca volumul total al priorului este distribuit uniform intre cele K clustere, o euristica intuitiva si eficienta. In amestecul de experti, pasul E ramane identic structural cu cel din GMM.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Amestecul de experti este utilizat in finante pentru modelarea diferitelor regimuri de piata, unde fiecare expert este specializat pe un regim specific (de exemplu, piata bull vs. bear), iar functia de gating selecteaza expertul potrivit in functie de conditiile curente.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In robotica, un amestec de experti poate modela diferite strategii de control: un expert pentru navigare in spatiu deschis, altul pentru evitarea obstacolelor, cu functia de gating selectand expertul bazat pe datele senzorilor.</p></div>
+  </div>
+</div>

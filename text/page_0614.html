@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Comparatie experimentala - Detalii si trasaturi de dimensiune inalta</h2>
+  <p>Aceasta pagina detaliaza metodologia experimentala si introduce competitia NIPS 2003 pentru selectie de trasaturi cu dimensiune inalta.</p>
+  <div class="definition-box"><strong>Metrici de evaluare:</strong> Trei categorii: (1) bazate pe prag (acuratete, F-score), (2) de ordonare/clasare (AUC, precizie medie), (3) probabilistice (cross-entropy, eroare patrata). SVM-urile necesita calibrare Platt pentru metrici probabilistice.</div>
+  <div class="highlight-box"><strong>Competitia NIPS 2003:</strong> 5 seturi de date cu dimensiuni D intre 500 si 100,000, cu 30-50% trasaturi 'probe' (irelevante dar corelate cu cele reale). Castigatorul general: retele neurale Bayesiene (HMC MLP).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Rezultatele variaza pe dataset si metrica, deci medierea simpla nu este suficienta - se foloseste analiza bootstrap. Concluziile confirma intelepciunea conventionala: ansamblurile de arbori si ANN sunt cele mai bune, metodele simple sunt cele mai slabe. Pentru trasaturi de dimensiune inalta (NIPS 2003), selectia de trasaturi devine critica, iar retelele neurale Bayesiene cu HMC castiga competitia.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>In dimensiune inalta cu multe trasaturi irelevante ('probes'), capacitatea de selectie a trasaturilor devine critica. ARD in retelele neurale Bayesiene ofera selectie automata. Trasaturile 'probe' sunt deosebit de insidioase deoarece sunt corelate cu trasaturile reale, inducand in eroare metodele naive.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Selectia de trasaturi este esentiala in bioinformatica (mii de gene, putine esantioane), spectrometrie de masa si analiza de text. Metode populare: LASSO, elastic net, mutual information, si metode wrapper (recursive feature elimination).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul cancerului din profiluri de expresie genica (20,000+ gene, <100 pacienti), selectia de trasaturi este critica. ARD sau LASSO identifica genele relevante, reducand suprapotrivirea si oferind interpretabilitate biologica.</p></div>
+  </div>
+</div>

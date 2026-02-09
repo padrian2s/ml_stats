@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Transformarea Unscented si Algoritmul UKF</h2>
+  <p>Pagina detaliaza matematic transformarea unscented si prezinta punctele sigma, ponderile si formulele pentru calculul mediei si covariantei transformate.</p>
+  <div class="definition-box"><strong>Transformarea unscented:</strong> Metoda de propagare a distributiilor Gaussiene prin functii neliniare folosind un set deterministic de 2d+1 puncte sigma, unde d este dimensiunea spatiului de stari.</div>
+  <div class="highlight-box"><strong>Punctele sigma:</strong> x = (μ, {μ + (√((d+λ)Σ))_{:i}}_{i=1}^d, {μ − (√((d+λ)Σ))_{:i}}_{i=1}^d) (ec. 18.93), unde λ = α²(d + κ) − d este un parametru de scalare.</div>
+  <div class="highlight-box"><strong>Media si covarianta transformate:</strong> μ_y = Σ w_m^i y_i (ec. 18.94), Σ_y = Σ w_c^i (y_i − μ_y)(y_i − μ_y)^T (ec. 18.95), cu ponderile: w_m^0 = λ/(d+λ), w_c^0 = λ/(d+λ) + (1 − α² + β), w_m^i = w_c^i = 1/(2(d+λ)) (ec. 18.96-18.98).</div>
+  <div class="highlight-box"><strong>Parametri optimi:</strong> Pentru d=1: α=1, β=0, κ=2, λ=2. Cele 3 puncte sigma sunt μ, μ+√3σ si μ−√3σ. Complexitatea este O(d³) per pas de timp, identica cu EKF.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Transformarea unscented este piesa centrala a UKF. Se selecteaza 2d+1 puncte sigma care captureaza media si covarianta distributiei a priori, se propaga prin functia neliniara, apoi se calculeaza statistica distributiei transformate din punctele propagate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>UKF este precis pana la al doilea ordin (vs ordinul intai pentru EKF). Nu necesita calculul Jacobienilor, fiind un filtru fara derivate. Numarul de puncte sigma creste liniar cu dimensiunea, iar complexitatea totala ramane O(d³).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>UKF este utilizat in estimarea starii bateriilor electrice, navigatia robotilor, fuziunea senzorilor in dispozitive IoT si estimarea parametrilor in modele biologice neliniare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In managementul bateriilor pentru vehicule electrice, UKF estimeaza starea de incarcare (SoC) folosind modele electrochimice neliniare. Punctele sigma captureaza comportamentul neliniar al bateriei la diferite niveluri de incarcare, oferind estimari mai precise decat EKF.</p></div>
+  </div>
+</div>

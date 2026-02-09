@@ -1,0 +1,19 @@
+<div class="page-content">
+  <h2>10.5.1 Regulile Algoritmului Bayes Ball - Figuri si Demonstratii</h2>
+  <p>Pagina prezinta Figura 10.9 cu cele sase reguli ale algoritmului Bayes ball si demonstratiile matematice pentru lant, furca si v-structura.</p>
+  <div class="figure-box"><strong>Figura 10.9(a):</strong> Lant X → Y → Z cu Y umbrit (observat): bila NU poate trece - sageata loveste o bara la nodul umbrit Y. X ⊥ Z | Y.</div>
+  <div class="figure-box"><strong>Figura 10.9(b):</strong> Furca (tent) Y → X si Y → Z cu Y umbrit: bila NU poate trece prin Y observat. X ⊥ Z | Y.</div>
+  <div class="figure-box"><strong>Figura 10.9(c):</strong> V-structura X → Y ← Z cu Y umbrit: bila POATE trece prin colliderul observat Y. X ⊥̸ Z | Y.</div>
+  <div class="figure-box"><strong>Figura 10.9(d):</strong> Lant X → Y → Z cu Y neumbrit: bila POATE trece liber. X ⊥̸ Z (marginal dependente).</div>
+  <div class="figure-box"><strong>Figura 10.9(e):</strong> Furca Y → X si Y → Z cu Y neumbrit: bila POATE trece. X ⊥̸ Z (dependente prin cauza comuna Y).</div>
+  <div class="figure-box"><strong>Figura 10.9(f):</strong> V-structura X → Y ← Z cu Y neumbrit: bila NU poate trece prin colliderul neobservat. X ⊥ Z (marginal independente).</div>
+  <div class="highlight-box"><strong>Demonstratie lant (10.36):</strong> p(x, z|y) = p(x)p(y|x)p(z|y) / p(y) = p(x,y)p(z|y) / p(y) = p(x|y)p(z|y), deci X ⊥ Z | Y.</div>
+  <div class="highlight-box"><strong>Demonstratie furca (10.37):</strong> p(x, y, z) = p(y)p(x|y)p(z|y), distributia comuna a furcii X ← Y → Z.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 10.9 sintetizeaza toate cele sase cazuri ale algoritmului Bayes ball. Regulile sunt simetrice: lantul si furca se comporta identic (observarea nodului intermediar blocheaza informatia), iar v-structura se comporta opus (observarea nodului intermediar deblocheaza informatia). Demonstratiile matematice confirma intuitia vizuala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Regula de baza: informatia curge liber prin lanturi si furci neobservate, dar este blocata de observare. La v-structuri, informatia este blocata implicit, dar observarea colliderului (sau a unui descendent) deblocheaza fluxul - fenomenul de "explaining away".</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea acestor reguli este esentiala pentru designul experimentelor (ce trebuie controlat) si pentru eficienta algoritmilor de inferenta (ce variabile pot fi ignorate datorita independentei). Algoritmul Bayes ball are complexitate liniara in numarul de noduri.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Exemplul furcii: daca Vremea (Y) este cauza comuna a Traficului (X) si a Intarzierilor de zbor (Z), atunci X si Z sunt corelate. Dar daca stim Vremea (observam Y), Traficul si Intarzierile devin independente - informatia despre trafic nu mai spune nimic nou despre intarzieri odata ce cunoastem vremea.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 21. Inferenta Variationala - Posteriorul pentru α si Selectia Modelului (p.748)</h2>
+  <p>Aceasta pagina continua derivarea algoritmului de regresie liniara bayesiana variationala, prezentand posteriorul pentru vectorul de precizie α, verosimilitatea marginala exacta si limita inferioara variationala.</p>
+  <div class="definition-box"><strong>Posteriorul q(α):</strong> Posteriorul aproximativ pentru vectorul de precizie α are forma unui produs de distributii Gamma: q(α) = ∏ⱼ Ga(αⱼ|aᵅₙ, bᵅₙⱼ), unde parametrii se actualizeaza cu aᵅₙ = aᵅ₀ + 1/2 si bᵅₙⱼ = bᵅ₀ + 1/2(aᵏₙ/bᵏₙ · w²ₙ,ⱼ + (Vₙ)ⱼⱼ).</div>
+  <div class="highlight-box"><strong>Distributia predictiva posterioara:</strong> Odata ce w si λ au fost inferate, predictivul posterior este o distributie Student: p(y|x,D) = T(y|wᵀₙx, bᵏₙ/aᵏₙ(1 + xᵀVₙx), 2aᵏₙ).</div>
+  <div class="highlight-box"><strong>Verosimilitatea marginala exacta:</strong> p(D) = ∫∫∫ p(y|X,w,λ)p(w|α)p(λ)dwdαdλ, cu limita inferioara L(q) calculata explicit prin ecuatia 21.116.</div>
+  <div class="highlight-box"><strong>Cazul ARD:</strong> In cazul Automatic Relevance Determination (ARD), ultima linie a limitei inferioare devine o suma peste dimensiunile D, permitand selectia automata a caracteristicilor relevante.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta formele complete ale posteriorului variational pentru vectorul de precizie α in regresia liniara bayesiana, distributia predictiva posterioara (de tip Student), verosimilitatea marginala exacta si limita ei inferioara variationala L(q). Aceste rezultate permit atat predictia cat si selectia modelului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Algoritmul alterneaza intre actualizarea q(w,λ) si q(α), formand un ciclu iterativ similar cu EM. Distributia predictiva Student reflecta incertitudinea reziduala in parametri. Formula ARD permite eliminarea automata a caracteristicilor irelevante prin penalizarea adaptiva.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Selectia automata a caracteristicilor (ARD) este utila in genomica, procesarea semnalelor si orice domeniu cu multe caracteristici potentiale. Limita inferioara L(q) serveste ca criteriu de selectie a modelului, alternativ la BIC sau AIC.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza expresiei genelor, ARD variational poate identifica automat care gene sunt relevante pentru predictia unei boli, eliminand mii de gene irelevante fara supraajustare.</p></div>
+  </div>
+</div>

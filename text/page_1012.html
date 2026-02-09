@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Antrenarea PMF - RMSE si coborare de gradient stocastic</h2>
+  <p>Aceasta pagina prezinta rezultatele PMF pe setul de validare Netflix, comparand variante regularizate, si descrie optimizarea prin coborare de gradient stocastic.</p>
+  <div class="definition-box"><strong>Coborare de gradient stocastic:</strong> Metoda de optimizare care actualizeaza parametrii pe baza unui singur exemplu (sau mini-batch) la fiecare pas, eficienta pentru seturi de date foarte mari precum Netflix (~100 milioane observatii).</div>
+  <div class="highlight-box"><strong>Regula de actualizare PMF:</strong> u_i := u_i + eta * e_ij * v_j, unde e_ij = R_ij - u_i^T v_j este eroarea de reconstructie, iar eta este rata de invatare. Actualizarea pentru v_j este similara.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Antrenarea PMF prin minimizarea NLL este echivalenta cu minimizarea erorii patratice pe evaluarile observate, plus termeni de regularizare. Coborarea de gradient stocastic permite scalabilitate la seturi de date masive.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Regularizarea (prin lambda_U si lambda_V) este esentiala pentru a preveni supraajustarea. Varianta "Constrained PMF" cu prior invatat din date obtine cele mai bune rezultate. Actualizarile sunt simple si eficiente computatinal.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Optimizarea prin SGD este standard industrial pentru sisteme de recomandare la scara larga, folosita de Netflix, Amazon, si alte platforme cu milioane de utilizatori.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In competitia Netflix, antrenarea PMF pe 100 milioane de evaluari necesita coborare de gradient stocastic, deoarece metodele batch clasice ar fi prea lente.</p></div>
+  </div>
+</div>

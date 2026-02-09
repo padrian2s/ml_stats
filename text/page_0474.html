@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Metode Proximale de Gradient: Operatorul Proximal</h2>
+  <p>Pagina introduce metodele proximale de gradient pentru optimizarea compusa f(theta) = L(theta) + R(theta), defineste operatorul proximal si prezinta exemple specifice.</p>
+  <div class="definition-box"><strong>Optimizarea compusa (Eq. 13.66):</strong> f(theta) = L(theta) + R(theta), unde L este pierderea (convexa, diferentiabila) si R este regularizatorul (convex, posibil ne-diferentiabil). Exemplu: L = RSS, R = lambda||theta||_1.</div>
+  <div class="definition-box"><strong>Operatorul proximal (Eq. 13.68-13.69):</strong> prox_R(y) = argmin_z [R(z) + (1/2)||z - y||_2^2]. Gaseste punctul care minimizeaza R fiind cat mai aproape de y. Este generalizarea proiectiei pe o multime convexa.</div>
+  <div class="highlight-box"><strong>Operatori proximali specifici (Eq. 13.70-13.72):</strong> R = lambda||theta||_1: prox = soft(theta, lambda). R = lambda||theta||_0: prox = hard(theta, sqrt(2*lambda)). R = I_C (indicator multime): prox = proj_C(theta).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cadrul de optimizare compusa (pierdere smooth + regularizator non-smooth) este extrem de general si acopera LASSO, group LASSO, nuclear norm minimization si multe altele. Operatorul proximal este componenta cheie: transforma problema de optimizare ne-smooth intr-o secventa de sub-probleme cu solutii analitice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Operatorul proximal generalizeaza trei operatii: soft thresholding (l1), hard thresholding (l0) si proiectie pe multimi convexe (constrangeri). Aceasta unificare permite dezvolarea de algoritme generale care functioneaza cu orice regularizator cu proximal calculabil.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Operatorii proximali sunt implementati eficient in pachete precum proximal (Python), TFOCS (MATLAB). Permitand separarea pierderii de regularizator, acelasi algoritm poate fi reutilizat cu diferiti regularizatori.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In reconstructia de imagini (CT, MRI), operatorul proximal al normei TV (Total Variation) produce denoising care pastreaza marginile ascutite, superior regularizarii l2 care produce blur.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>PCA pentru Date Categoriale</h2>
+  <p>Pagina introduce PCA categorial, extinderea modelului de analiza factoriala la date observate categoriale in loc de continue, cu distributia logistic-normala pe simplex.</p>
+  <div class="definition-box"><strong>PCA Categorial:</strong> Un model de analiza factoriala in care datele observate sunt categoriale (yᵢⱼ ∈ {1,...,C}), generate prin trecerea unei variabile latente gaussiene prin functia softmax.</div>
+  <div class="definition-box"><strong>Distributia logistic-normala:</strong> Distributia indusa pe simplexul probabilistic cand o variabila gaussiana este trecuta prin functia softmax. Poate genera distributii complexe pe simplex.</div>
+  <div class="highlight-box"><strong>Modelul generativ:</strong> p(zᵢ) = N(0, I); p(yᵢ|zᵢ, θ) = Π_r Cat(yᵢᵣ | S(Wᵣᵀ zᵢ + w₀ᵣ))</div>
+  <div class="figure-box"><strong>Figura 12.17:</strong> Exemple ale distributiei logistic-normale pe simplexul 3D. (a) Covarianta diagonala si medie non-zero. (b) Corelatie negativa intre starile 1 si 2. (c) Corelatie pozitiva intre starile 1 si 2.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>PCA categorial extinde analiza factoriala clasica la date discrete. In loc de o verosimilitate gaussiana, se foloseste o distributie categorica cu parametri generati prin softmax dintr-o variabila latenta gaussiana. Distributia logistic-normala rezultanta pe simplex este foarte flexibila, putand modela distributii multimodale si corelate. Inferenta se face prin EM modificat cu aproximare gaussiana a posteriorului in pasul E.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la date continue la categoriale necesita inlocuirea verosimilitudinii gaussiene cu una categorica, dar structura latenta gaussiana ramane aceeasi. Aceasta modularitate este o caracteristica puternica a modelelor cu variabile latente. Distributia logistic-normala este semnificativ mai flexibila decat distributia Dirichlet, care este limitata la forme unimodale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>PCA categorial este util in analiza datelor de sondaj (raspunsuri pe scale Likert), modelarea preferintelor consumatorilor, analiza textului (distributii peste vocabular), si in genomica (genotipuri discrete).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In cercetarea de piata, raspunsurile consumatorilor la chestionare cu optiuni multiple pot fi modelate cu PCA categorial pentru a descoperi dimensiunile latente ale preferintelor (de exemplu, preferinta pentru calitate vs pret, inovatie vs traditie).</p></div>
+  </div>
+</div>

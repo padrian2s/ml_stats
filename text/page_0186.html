@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Inferenta pentru Diferenta de Proportii si Selectia Bayesiana a Modelului</h2>
+  <p>Pagina prezinta analiza bayesiana a problemei Amazon (compararea a doi vanzatori) si introduce problema selectiei modelului bayesian.</p>
+  <div class="definition-box"><strong>Selectia modelului (Model selection):</strong> Problema alegerii celui mai bun model dintr-un set de modele candidate cu complexitati diferite. Abordarea bayesiana calculeaza posterioara peste modele: p(m|D) = p(D|m)p(m) / Σ p(m,D).</div>
+  <div class="definition-box"><strong>Verosimilitatea marginala (Marginal likelihood):</strong> p(D|m) = ∫ p(D|θ)p(θ|m)dθ - cantitate numita si verosimilitate integrata sau evidenta modelului m (Ecuatia 5.13).</div>
+  <div class="highlight-box"><strong>Rezultat Amazon:</strong> p(δ > 0|D) = 0.710 unde δ = θ₁ - θ₂, ceea ce inseamna ca e mai probabil sa fie mai bine sa cumparam de la Vanzatorul 1 (Ecuatia 5.11).</div>
+  <div class="figure-box"><strong>Figura 5.5:</strong> (a) Posterioarele exacte p(θᵢ|Dᵢ) pentru cei doi vanzatori. (b) Aproximarea Monte Carlo a p(δ|D) cu intervalul central de 95%.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Analiza bayesiana a problemei Amazon arata ca p(δ>0|D) = 0.710, deci este mai probabil ca Vanzatorul 1 sa fie mai bun. Aceasta se poate calcula prin integrare numerica sau prin esantionare Monte Carlo (obtinand 0.718, aproape de valoarea exacta). Apoi se introduce selectia modelului: in loc de validare incrucisata, putem calcula posterioara peste modele p(m|D) ∝ p(D|m)p(m).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Verosimilitatea marginala p(D|m) integreaza peste toti parametrii, oferind o masura naturala a cat de bine explica modelul datele. Aceasta este diferita de verosimilitatea maximizata p(D|θ_hat), care favorizeaza intotdeauna modele mai complexe.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Compararea ratelor sau proportiilor intre grupuri este fundamentala in testarea A/B (marketing digital), studii clinice (compararea eficacitatii medicamentelor) si controlul calitatii (compararea ratelor de defecte intre linii de productie).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In testarea A/B, o varianta noua a unui site web cu rata de conversie de 5/10 (50%) nu este neaparat mai buna decat varianta veche cu 450/1000 (45%). Analiza bayesiana ia in calcul incertitudinea si evita concluzii premature bazate pe esantioane mici.</p></div>
+  </div>
+</div>

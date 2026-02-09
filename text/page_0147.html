@@ -1,0 +1,19 @@
+<div class="page-content">
+  <h2>Inversa Matricei Partitionate si Complementul Schur</h2>
+  <p>Pagina 116 prezinta Teorema 4.3.2 privind inversarea unei matrice partitionate folosind complementele Schur, un instrument esential pentru demonstrarea formulelor de conditionare Gaussiana.</p>
+
+  <div class="highlight-box"><strong>Teorema 4.3.2 (Ecuatiile 4.93-4.94):</strong> Pentru M = [[E, F], [G, H]], inversa este:
+    M⁻¹ = [[(M/H)⁻¹, -(M/H)⁻¹FH⁻¹], [-H⁻¹G(M/H)⁻¹, H⁻¹ + H⁻¹G(M/H)⁻¹FH⁻¹]]</div>
+
+  <div class="definition-box"><strong>Complementul Schur (Ecuatiile 4.95-4.96):</strong> M/H = E - FH⁻¹G (complementul Schur al lui M in raport cu H). M/E = H - GE⁻¹F (complementul Schur al lui M in raport cu E). Formula de inversare partitionata foloseste aceste complementuri.</div>
+
+  <div class="highlight-box"><strong>Demonstratia:</strong> Se bazeaza pe diagonalizarea bloc prin inmultire cu matrice triunghiulare: [[I, -FH⁻¹], [0, I]] * M = [[E-FH⁻¹G, 0], [G, H]], care este bloc-diagonala si usor de inversat.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Inversarea matricei partitionate este un instrument fundamental in algebra liniara aplicata. Demonstratia este eleganta: se transforma matricea in forma bloc-diagonala prin inmultire cu matrice triunghiulare, apoi se inverseaza fiecare bloc separat. Complementul Schur joaca un rol central, aparand in covarianta conditionala Gaussiana.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Complementul Schur M/H = E - FH⁻¹G apare in multe contexte: covarianta conditionala Gaussiana, eliminarea Gaussiana pe blocuri, formula Woodbury si determinantul matricelor bloc. Este echivalentul algebrei liniare al "conditionarii" probabilistice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Inversarea partitionata este folosita in algoritmii de eliminare (filtrul Kalman), optimizarea cu constrangeri (conditii KKT), si in orice situatie computationala unde o matrice are structura bloc naturala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In SLAM (Simultaneous Localization and Mapping) pentru roboti, matricea de informatie are structura bloc: pozitia robotului si pozitiile reperelor. Complementul Schur permite marginalizarea eficienta a pozitiei robotului, reducand dramatic dimensiunea problemei de optimizare.</p></div>
+  </div>
+</div>

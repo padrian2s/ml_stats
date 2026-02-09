@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>ARD pentru Regresia Liniara: Verosimilitatea Marginala si Posteriorul</h2>
+  <p>Pagina deriveaza verosimilitatea marginala si posteriorul pentru ARD in regresia liniara, inclusiv formulele de actualizare pentru alpha si beta.</p>
+  <div class="highlight-box"><strong>Verosimilitatea marginala (Eq. 13.149-13.153):</strong> p(y|X, alpha, beta) = N(y|0, C_alpha), unde C_alpha = beta^{-1} I_N + X A^{-1} X^T. Log-verosimilitate: l(alpha, beta) = log|C_alpha| + y^T C_alpha^{-1} y.</div>
+  <div class="highlight-box"><strong>Obiectivul regularizat (Eq. 13.154-13.155):</strong> Cu priori Gamma pe alpha_j si beta: l(alpha, beta) += suma (a*log(alpha_j) - b*alpha_j) + c*log(beta) - d*beta. Cu prior neinformativ (a=b=c=d=0), se obtine sparsitate maxima.</div>
+  <div class="definition-box"><strong>Posteriorul pe w (Eq. 13.156-13.158):</strong> p(w|D, alpha_hat, beta_hat) = N(mu, Sigma), cu Sigma^{-1} = beta_hat X^T X + A si mu = beta_hat Sigma X^T y. Media posterioara mu este (aproximativ) sparsa datorita valorilor mari ale alpha_hat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>ARD optimizeaza log-verosimilitatea marginala (Type II ML) fata de hiperparametrii alpha si beta. Aceasta este analoga cu selectia Bayesiana de variabile, dar cu parametri continui in loc de binari. Obiectivul are mai putine optime locale decat l0, facand optimizarea mai stabila. Posteriorul pe w este Gaussian cu media sparse.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>ARD produce sparsitate prin mecanismul de "automatic relevance determination": variantele alpha_j^{-1} ale ponderilor irelevante converg la zero (alpha_j -> infinit), eliminand efectiv aceste ponderi din model. Aceasta forma de regularizare adaptiva este mai sofisticata decat regularizarea fixa (l1 sau l2).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>ARD este implementat in scikit-learn (ARDRegression), PyMC3, Stan. Este util cand se doreste o estimare Bayesiana completa (inclusiv incertitudine) cu sparsitate automata, fara necesitatea de a alege lambda.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In procesarea de semnal radar, ARD estimeaza automat numarul si pozitia tintelor (semnale non-zero) dintr-un spectru sparse, fara cunoastere a priori a numarului de tinte.</p></div>
+  </div>
+</div>

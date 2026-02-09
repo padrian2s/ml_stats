@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Estimatori Bayes: Pierderea Patratica, Pierderea Absoluta si Invatarea Supervizata</h2>
+  <p>Pagina deriveaza estimatorii Bayes optimi pentru pierderile l₂ (patratica) si l₁ (absoluta), si introduce cadrul teoriei deciziei pentru invatarea supervizata.</p>
+  <div class="definition-box"><strong>Pierderea patratica (l₂ loss):</strong> L(y,a) = (y-a)² (Ecuatia 5.104). Estimatorul Bayes optim este media posterioara: y_hat = E[y|x] (Ecuatia 5.106). Se numeste si estimare MMSE (Minimum Mean Squared Error).</div>
+  <div class="definition-box"><strong>Pierderea absoluta (l₁ loss):</strong> L(y,a) = |y-a|. Estimatorul Bayes optim este mediana posterioara: valoarea a unde P(y < a|x) = P(y ≥ a|x) = 0.5. Mai robusta la outlieri decat pierderea patratica.</div>
+  <div class="highlight-box"><strong>Estimare MMSE in regresie liniara:</strong> E[y|x, D] = xᵀE[w|D] (Ecuatia 5.108) - folosim media posterioara a ponderilor, independent de prior.</div>
+  <div class="figure-box"><strong>Figura 5.14:</strong> Comparatie intre functiile de pierdere |y-a|^q pentru q=0.2, q=1 si q=2. Pierderea patratica (q=2) penalizeaza puternic erorile mari, in timp ce pierderea absoluta (q=1) este liniara.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exista o corespondenta eleganta intre functia de pierdere si estimatorul Bayes optim: pierderea 0-1 → mod posterior (MAP), pierderea l₂ → media posterioara, pierderea l₁ → mediana posterioara. In regresia liniara cu posterioara gaussiana, media si modul coincid, deci MAP si MMSE dau acelasi rezultat. Pierderea l₁ este mai robusta deoarece nu penalizeaza patratic erorile mari.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Media posterioara are o proprietate remarcabila: este optima sub pierderea l₂ independent de alegerea prior-ului (Ecuatia 5.108). Aceasta inseamna ca chiar daca prior-ul este gresit, estimarea ramane optima in clasa estimatorilor liniari.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, alegerea functiei de pierdere este critica: pierderea l₂ este standard in regresia liniara dar sensibila la outlieri, pierderea l₁ (regresia cu mediana) este robusta, iar pierderea Huber combina avantajele ambelor (l₂ pentru erori mici, l₁ pentru erori mari).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In predictia preturilor imobiliare, pierderea l₂ ar fi dominata de cateva proprietati de lux cu erori enorme. Pierderea l₁ (mediana posterioara) ofera predictii mai stabile, nefiind influentata excesiv de outlieri. Regresia cuantica generalizeaza si mai mult, permitand predictia oricarei cuantile.</p></div>
+  </div>
+</div>

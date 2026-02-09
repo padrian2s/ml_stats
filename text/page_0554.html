@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Inferenta Bayesiana pentru hiperparametrele GP</h2>
+  <p>Aceasta pagina prezinta inferenta Bayesiana completa asupra hiperparametrilor, incluzand aproximari prin grila, Monte Carlo si design compozit central.</p>
+  <div class="definition-box"><strong>Design compozit central:</strong> O forma de quasi-Monte Carlo care plaseaza puncte de grila la modul si la distanta de +/-1 deviatie standard de la mod pe fiecare dimensiune, rezultand 2|theta|+1 puncte in total. Este o alternativa eficienta la grila regulata in spatii de dimensionalitate moderata.</div>
+  <div class="highlight-box"><strong>Marginalizarea hiperparametrilor:</strong> p(f|D) proportional cu suma peste s de p(f|D, theta_s) * p(theta_s|D) * delta_s, unde se mediaza predictiile peste mai multe valori ale hiperparametrilor, ponderand cu probabilitatea lor posterioara.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>In loc de o estimare punctuala a hiperparametrilor, se poate calcula posteriorul lor complet. Pentru dimensionalitate mica a theta, se foloseste o grila discreta; pentru dimensionalitate mai mare, Monte Carlo sau quasi-Monte Carlo. Designul compozit central ofera un compromis bun intre acuratete si eficienta computationala. Log-transformarea hiperparametrilor face aproximarea Gaussiana mai rezonabila.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Marginalizarea hiperparametrilor evita problema minimelor locale si produce predictii mai robuste. Figura 15.6 compara trei aproximari: grila, Monte Carlo si design compozit central, aratand ca designul compozit central captureaza bine forma posteriorului cu putine puncte.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Marginalizarea hiperparametrilor este folosita in GPML (Gaussian Process for Machine Learning) si in biblioteci precum GPy si GPflow. Este deosebit de importanta cand setul de date este mic si estimarea punctuala este instabila.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In farmacocinetica, unde datele clinice sunt costisitoare si limitate, marginalizarea hiperparametrilor GP produce intervale de incredere mai realiste pentru predictia concentratiei medicamentului in sange.</p></div>
+  </div>
+</div>

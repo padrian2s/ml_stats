@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Algoritmul Baum-Welch - Pasul M si initializare</h2>
+  <p>Aceasta pagina prezinta pasul M al algoritmului Baum-Welch pentru modele de observatie multinoullic si Gaussian, si discuta strategii de initializare.</p>
+  <div class="definition-box"><strong>Pasul M - model multinoullic:</strong> A_hat_jk = E[N_jk] / sum_k' E[N_jk'], pi_hat_k = E[N_k^1] / N, B_hat_jl = E[M_jl] / E[N_j]. Pentru model Gaussian: mu_hat_k = E[x_bar_k] / E[N_k], Sigma_hat_k = (E[(xx)_k^T] - E[N_k] mu_hat_k mu_hat_k^T) / E[N_k].</div>
+  <div class="highlight-box"><strong>Strategii de initializare:</strong> (1) Date etichetate partiale, (2) Ignorarea dependentelor Markov si estimarea ca GMM standard, (3) Initializari multiple aleatorii cu selectia celei mai bune. Viterbi training ca alternativa la Baum-Welch: foloseste calea MAP in loc de marginalele posterioare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pasul M normalizeaza conturile asteptate: A_hat_jk este frecventa relativa asteptata a tranzitiei j->k, B_hat_jl este frecventa relativa asteptata a emisiei l din starea j. Pentru observatii Gaussiene, statisticile suficiente includ suma ponderata a observatiilor si a produselor lor exterioare. Initializarea este critica: Viterbi training (folosirea caii MAP in loc de marginalele complete) este mai simpla dar mai putin corecta decat Baum-Welch.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Regularizarea modelelor de observatie (ca in GMM) este importanta pentru a evita covariante degenerate. Viterbi training converge mai rapid dar la solutii potentional inferioare. O strategie comuna: incepe cu Baum-Welch si comuta la Viterbi aproape de convergenta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, se foloseste adesea K-means sau GMM pe datele concatenate (ignorand structura temporala) pentru initializare, urmata de Baum-Welch pentru rafinare. Aceasta combina rapiditatea initializarii cu corectitudinea algoritmului EM.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea automata a vorbirii in foneme, initializarea HMM-ului cu un GMM pe intregul set de date produce clustere acustice initiale, iar Baum-Welch rafineaza granitele temporale ale fonemelor.</p></div>
+  </div>
+</div>

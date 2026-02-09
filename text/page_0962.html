@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Invatarea DAG-urilor cauzale - Interpretare si interventii</h2>
+  <p>Aceasta pagina introduce DAG-urile cauzale, distinctia intre corelatie si cauzalitate, presupunerea Markov cauzala si operatorul do() al lui Pearl.</p>
+  <div class="definition-box"><strong>Modelele cauzale:</strong> Modele care pot prezice efectele interventiilor (manipularilor) asupra unui sistem, nu doar asocierile observationale. Un circuit electronic este un exemplu: prezice ce se intampla daca se scoate o componenta.</div>
+  <div class="definition-box"><strong>Presupunerea Markov cauzala:</strong> O muchie directionata A -> B in DAG inseamna ca "A cauzeaza B", nu doar ca sunt corelate. Presupunerea de suficienta cauzala inseamna ca nu exista confunderi ascunse.</div>
+  <div class="definition-box"><strong>Operatorul do():</strong> do(X_i = x_i) noteaza interventia (setarea) lui X_i la valoarea x_i. p(x|do(X_i = x_i)) este diferit de p(x|X_i = x_i): primul implica manipulare, al doilea implica observare.</div>
+  <div class="highlight-box"><strong>Chirurgia grafului (graph surgery):</strong> Pentru a modela o interventie perfecta pe X, se elimina toate arcele care intra in X din DAG (Figura 26.14), apoi se face inferenta probabilistica in graful "mutilat" rezultat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina introduce cadrul cauzal al lui Pearl. Distinctia fundamentala este intre observare (conditionare) si interventie (do). Exemplul clasic: observand degete galbene (Y=1), inferez ca probabil fumezi (S=1). Dar daca vopsesc degetele in galben (do(Y=1)), nu pot inferi ca fumezi. Chirurgia grafului formalizaza aceasta distinctie prin eliminarea arcelor catre nodul intervenit.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia observare vs. interventie este fundamentala pentru stiinta si politica publica. Corelatia nu implica cauzalitate, iar chirurgia grafului ofera un instrument formal pentru a trece de la una la alta cand structura cauzala este cunoscuta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>DAG-urile cauzale sunt folosite in epidemiologie (efectul tratamentelor), economie (efectul politicilor), si inteligenta artificiala (rationament cauzal in roboti si agenti autonomi).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In evaluarea eficacitatii unui vaccin, un DAG cauzal modeleaza relatia intre vaccinare (interventie), infectie, si factori confunderi (varsta, comorbiditati). Operatorul do(vaccinat=1) permite estimarea efectului cauzal, distinct de simpla corelatie observationala.</p></div>
+  </div>
+</div>

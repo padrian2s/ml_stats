@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Aplicarea procesului Dirichlet la modelarea amestecurilor si procesul Pitman-Yor</h2>
+  <p>Aceasta pagina discuta proprietatile CRP (bogatul devine mai bogat, cresterea logaritmica a clusterelor), procesul Pitman-Yor si aplicarea DP la modele de amestec.</p>
+  <div class="definition-box"><strong>Fenomenul "rich get richer":</strong> In CRP, mesele ocupate curent au probabilitate mai mare sa atraga clienti noi. Distributia dimensiunilor clusterelor urmeaza o lege de putere (power law).</div>
+  <div class="definition-box"><strong>Procesul Pitman-Yor:</strong> O generalizare cu doi parametri a procesului Dirichlet care ofera priori mai flexibile peste dimensiunile clusterelor, utila cand distributia power law nu se potriveste perfect.</div>
+  <div class="definition-box"><strong>Modelul de amestec DP (DPM):</strong> pi ~ GEM(alpha), z_i ~ pi, theta_k ~ H(lambda), x_i ~ F(theta_{z_i}). G este acum un prior pe parametrii mecanismului de generare stocastica.</div>
+  <div class="highlight-box"><strong>Reprezentare grafica:</strong> Figura 25.6 arata doua vizualizari echivalente ale DPM: (a) cu pi ~ GEM(alpha) si numar infinit de theta_k, si (b) cu G extras din DP(alpha, H), fiecare punct avand propriul parametru theta_i extras din G.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza descrierea CRP cu proprietati cantitative (cresterea K ~ alpha*log(N)) si introduce procesul Pitman-Yor ca generalizare. Apoi aplica formal DP-ul ca prior in modele de amestec, aratand ca DPM combina flexibilitatea non-parametrica cu structura probabilistica. Datele nu se repeta exact, deci DP-ul serveste ca prior pe parametrii amestecului, nu pe datele insele.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia intre DP ca model direct pentru date (rar util) si DP ca prior pe parametri (foarte util) este esentiala. Modelul DPM pastreaza toata magineria inferentei bayesiene (posteriori, predictive) dar cu flexibilitate non-parametrica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Procesul Pitman-Yor este folosit in modelarea limbajului natural, unde frecventele cuvintelor urmeaza legea lui Zipf (o lege de putere specifica). DPM-urile sunt aplicate in estimarea densitatii, clustering si dezmixare (unmixing) spectrala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza datelor astronomice, DPM permite clasificarea automata a stelelor in tipuri spectrale fara a specifica numarul de tipuri, parametrii gaussieni captand spectrul de emisie caracteristic fiecarui tip stelar.</p></div>
+  </div>
+</div>

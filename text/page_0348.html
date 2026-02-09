@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>10.2.4-10.2.5 Linkaj Genetic (continuare) si Modele Grafice Gaussiene Directionate</h2>
+  <p>Pagina termina discutia despre analiza de linkaj genetic si introduce modelele grafice gaussiene directionate (Gaussian Bayes nets), derivand distributia comuna gaussiana din CPD-urile liniare gaussiene.</p>
+  <div class="definition-box"><strong>Problema inversa in genetica:</strong> Maparea de la fenotip la genotip este ambigua (many-to-one). Informatia de la rude poate fi folosita pentru dezambiguizare prin inferenta pe DGM-ul genealogic.</div>
+  <div class="definition-box"><strong>Sarcina de linkaj genetic:</strong> Determinarea locatiei unei gene care cauzeaza o boala. Se construiesc L+1 modele (cate unul pentru fiecare pozitie posibila intre markeri), se calculeaza verosimilitatea fiecaruia si se alege modelul cu verosimilitate maxima.</div>
+  <div class="definition-box"><strong>Model grafic gaussian directionat (GGM directionat):</strong> DGM in care toate variabilele sunt continue si CPD-urile sunt gaussiene liniare: p(x_t|x_{pa(t)}) = N(x_t|μ_t + w_t^T x_{pa(t)}, σ_t²). Produsul tuturor CPD-urilor rezulta intr-o distributie comuna gaussiana multivariata p(x|μ, Σ).</div>
+  <div class="definition-box"><strong>Retea Bayes gaussiana:</strong> Alt nume pentru GGM directionat. Distributia comuna rezultanta este N(x|μ, Σ), unde μ este concatenarea mediilor locale si Σ se deriva din ponderile de regresie.</div>
+  <div class="highlight-box"><strong>CPD liniar gaussian (10.14):</strong> p(x_t|x_{pa(t)}) = N(x_t|μ_t + w_t^T x_{pa(t)}, σ_t²).</div>
+  <div class="highlight-box"><strong>Forma vectoriala (10.15):</strong> x_t = μ_t + Σ_{s∈pa(t)} w_{ts}(x_s - μ_s) + σ_t z_t, unde z_t ~ N(0, 1).</div>
+  <div class="highlight-box"><strong>Forma matriceala (10.16):</strong> (x - μ) = W(x - μ) + Sz, unde S = diag(σ) si W este matricea de ponderi.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Analiza de linkaj genetic este computational intensiva deoarece necesita marginalizarea tuturor variabilelor ascunse Z si G. Se folosesc metode exacte (eliminarea variabilelor) sau aproximative (inferenta variationala). Modelele grafice gaussiene directionate demonstreaza o proprietate remarcabila: produsul CPD-urilor gaussiene liniare rezulta exact intr-o distributie comuna gaussiana multivariata, legand modelele grafice de algebra liniara.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>CPD-ul liniar gaussian are o forma naturala: media conditionata este o functie liniara a parintilor, iar varianta conditionata este constanta. Matricea W este inferior triunghiulara (datorita ordonarii topologice), facand inversarea triviala. Ponderile de regresie w_{ts} corespund descompunerii Cholesky a matricei de covarianta Σ.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Retelele Bayes gaussiene sunt folosite in modelarea financiara (dependente intre active), inginerie (analiza de fiabilitate) si stiintele climei (modelarea dependentelor spatiale intre variabile meteorologice).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de risc financiar poate fi reprezentat ca retea Bayes gaussiana: variabilele macroeconomice (rata dobanzii, inflatie) sunt parintii variabilelor de performanta a companiilor (venituri, profit), care la randul lor sunt parintii preturilor actiunilor. CPD-urile liniare gaussiene captureaza aceste dependente.</p></div>
+  </div>
+</div>

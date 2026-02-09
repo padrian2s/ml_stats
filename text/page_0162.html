@@ -1,0 +1,27 @@
+<div class="page-content">
+  <h2>Posteriorul Univariat pentru Varianta si Distributia Chi-patrat Inversa Scalata</h2>
+  <p>Pagina 131 continua cu posteriorul Gamma invers pentru varianta, introduce distributia chi-patrat inversa scalata ca parametrizare alternativa si prezinta actualizarea secventiala.</p>
+
+  <div class="figure-box"><strong>Figura 4.18:</strong> Actualizarea secventiala a posteriorului pentru σ², pornind de la un prior neinformativ. Datele sunt generate dintr-o Gaussiana cu μ = 5, σ² = 10. Cu N = 2 posteriorul este larg; cu N = 100 se concentreaza in jurul valorii reale σ² = 10.</div>
+
+  <div class="highlight-box"><strong>Posteriorul IG (Ecuatiile 4.187-4.189):</strong>
+    p(σ²|D) = IG(σ²|a_N, b_N), unde:
+    a_N = a₀ + N/2
+    b_N = b₀ + (1/2) Σᵢ (xᵢ - μ)²</div>
+
+  <div class="definition-box"><strong>Distributia chi-patrat inversa scalata (Ecuatia 4.190):</strong> χ⁻²(σ²|ν₀, σ₀²) = IG(σ²|ν₀/2, ν₀σ₀²/2). ν₀ = puterea priorului (grade de libertate), σ₀² = valoarea priorului pentru varianta.</div>
+
+  <div class="highlight-box"><strong>Posteriorul chi-patrat invers scalat (Ecuatiile 4.191-4.193):</strong>
+    p(σ²|D, μ) = χ⁻²(σ²|ν_N, σ_N²), unde:
+    ν_N = ν₀ + N
+    ν_N σ_N² = ν₀σ₀² + Σᵢ (xᵢ - μ)²
+    Suma de patrate posterioara = suma de patrate a priori + suma de patrate din date.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Parametrizarea chi-patrat inversa scalata este mai intuitiva decat Gamma inversa: ν₀ reprezinta direct numarul de "observatii virtuale" din prior, iar σ₀² este "estimarea a priori" a variantei. Posteriorul combina simplu: gradele de libertate se aduna, sumele de patrate se aduna. Cu prior neinformativ (ν₀ = 0), posteriorul converge la estimatorul frecventist.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Actualizarea secventiala din Figura 4.18 demonstreaza vizual convergenta Bayesiana: cu putine date posteriorul este larg (incertitudine mare), dar se ingusteaza proportional cu 1/N pe masura ce acumulam observatii. Modul posteriorului converge la varianta reala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Inferenta Bayesiana pentru varianta este utilizata in controlul calitatii (este procesul stabil?), in meta-analiza (cat de variabile sunt rezultatele intre studii?) si in modelele ierarhice (varianta intre grupuri).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In productia de semiconductori, varianta dimensiunilor cipurilor trebuie monitorizata continuu. Cu prior informativ bazat pe loturile anterioare (ν₀ = 50, σ₀² = valoarea tinta), posteriorul detecteaza rapid cand varianta procesului se modifica, permitand corectii imediate.</p></div>
+  </div>
+</div>

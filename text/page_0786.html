@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 21. Inferenta Variationala - Demonstratie VBEM pe Old Faithful (p.755)</h2>
+  <p>Aceasta pagina prezinta figurile 21.8 si 21.9 care demonstreaza vizual algoritmul VBEM aplicat la datele Old Faithful, ilustrand eliminarea automata a componentelor de mixtura inutile.</p>
+  <div class="figure-box"><strong>Figura 21.8:</strong> Parametrii medii posteriori la diferite etape ale algoritmului VBEM pe datele Old Faithful. Intensitatea umbrelor este proportionala cu ponderea de mixtura. Se initializeaza cu K-means si α₀ = 0.001. Initial 6 componente, final 2 componente dominante.</div>
+  <div class="figure-box"><strong>Figura 21.9:</strong> Valorile posterioare ale αₖ la iteratia 1 si iteratia 64. Se observa ca componentele inutile sunt „ucise" - αₖ lor scade la aproape zero, in timp ce componentele utile acumuleaza masa de probabilitate.</div>
+  <div class="highlight-box"><strong>Formula VBEM pentru ponderi:</strong> π̃ₖ = exp[Ψ(αₖ)] / exp[Ψ(Σₖ'αₖ')], unde exp(Ψ(x)) ≈ x - 0.5 pentru x > 1. Daca αₖ = 0, este ca si cum am scadea 0.5 din numarul de puncte, penalizand clusterele mici.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figurile demonstreaza vizual mecanismul de sparsitate al VBEM. Pornind de la 6 componente gaussiene, algoritmul elimina automat 4 din ele, pastrand doar cele 2 care corespund modurilor reale ale datelor (eruptii scurte si lungi).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Alegerea α₀ = 0.001 (foarte mic) este cruciala pentru inductia sparsitatii. Cu α₀ mai mare, efectul de sparsitate dispare. Convergenta are doua faze: eliminarea rapida a componentelor inutile (salturi) si ajustarea lenta a componentelor ramase (platouri).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta demonstratie este direct aplicabila in orice problema de clusterizare unde numarul de clustere nu este cunoscut. Metoda evita necesitatea de a rula algoritmul de mai multe ori cu diferite valori ale lui K.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Geyserul Old Faithful din Yellowstone are doua tipuri de eruptii (scurte ~2 min si lungi ~4.5 min). VBEM descopera automat aceasta structura bimodala fara informatii prealabile despre numarul de moduri.</p></div>
+  </div>
+</div>

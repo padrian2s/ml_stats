@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Kernel PCA: Centrarea in Spatiul Feature si Matricea Gram Centrata</h2>
+  <p>Pagina continua derivarea kernel PCA cu detaliile centrarii in spatiul de feature (deoarece nu putem calcula explicit media in spatiul feature) si formula matricei Gram centrate.</p>
+  <div class="highlight-box"><strong>Centrarea in spatiul feature (Eq. 14.41-14.43):</strong> Definim feature-ul centrat: phi_tilde_i = phi_i - (1/N) suma phi_j. Matricea Gram centrata: K_tilde_ij = phi_tilde_i^T phi_tilde_j = kappa(x_i, x_j) - (1/N) suma_k kappa(x_i, x_k) - (1/N) suma_k kappa(x_j, x_k) + (1/N^2) suma_{k,l} kappa(x_k, x_l).</div>
+  <div class="definition-box"><strong>Formula matriceala (Eq. 14.44):</strong> K_tilde = HKH, unde H = I - (1/N) 1_N 1_N^T este matricea de centrare. Aceasta formula permite centrarea eficienta in spatiul feature fara acces explicit la phi(x), doar prin operatii pe matricea Gram K.</div>
+  <div class="highlight-box"><strong>Kernel PCA vs PCA liniar:</strong> PCA liniar: L <= D componente (limitare dimensionala). Kernel PCA: pana la N componente (limitare de date), unde D* (dimensiunea spatiului feature) poate fi infinita. Exemplul Figura 14.7: date 2D cu RBF kernel, 8 componente principale kernel capteaza structura non-liniara a datelor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Centrarea in spatiul feature este o subtilitate importanta a kernel PCA: nu putem calcula direct media phi_bar deoarece phi poate fi infinit-dimensional. Formula K_tilde = HKH rezolva elegant aceasta problema, efectuand centrarea exclusiv prin operatii pe matricea Gram. Aceasta demonstreaza puterea kernel trick-ului: operatii care par imposibile in spatiul feature implicit devin tractabile prin algebra matriceala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Matricea de centrare H = I - (1/N) 1_N 1_N^T este idempotenta (H^2 = H) si simetrica, deci K_tilde = HKH este tot pozitiv semi-definita (daca K este). Aceasta garanteaza ca eigenvalues ale kernel PCA centrat sunt non-negative, asa cum trebuie pentru componente principale valide.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Centrarea Gram matrix-ului este un pas obligatoriu in implementarea kernel PCA (si uneori in SVM). Scikit-learn efectueaza automat aceasta centrare. Neglijarea centrarii poate produce artefacte in componentele principale, in special cand kernelul nu este centrat natural (de exemplu, kernelul polinomial cu r != 0).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza de imagini faciale, kernel PCA cu kernel polinomial extrage "kernel eigenfaces" non-liniare care capteaza variatii de expresie si iluminare pe care eigenfaces liniare le pierd, imbunatatind recunoasterea faciala in conditii dificile de iluminare.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>RBPF - Algoritmul complet si propunerea optima look-ahead</h2>
+  <p>Aceasta pagina prezinta algoritmii 23.2 si 23.3 pentru RBPF cu SLDS, inclusiv varianta cu propunere optimala look-ahead.</p>
+  <div class="definition-box"><strong>Algoritmul 23.2 - RBPF cu propunere prior:</strong> (1) Esantioneaza q_t din prior p(q_t|q_{t-1}^s); (2) Actualizeaza filtrul Kalman: (mu_t^s, Sigma_t^s, L_{tk}^s) = KFupdate(mu_{t-1}^s, Sigma_{t-1}^s, y_t, theta_k); (3) Ponderea: w_t^s = w_{t-1}^s * L_{ts}^s.</div>
+  <div class="definition-box"><strong>Algoritmul 23.3 - RBPF look-ahead:</strong> Se trece fiecare particula prin toate cele K modele, calculand verosimilitatile predictive L_{tk}^s. Ponderile se calculeaza inainte de esantionare: w_t^s = w_{t-1}^s * sum_k L_{tk}^s * p(q_t=k|q_{t-1}^s). Apoi se re-esantioneaza si se esantioneaza q_t din propunerea optima.</div>
+  <div class="highlight-box"><strong>Propunerea optima:</strong> p(q_t=k|q_{1:t-1}^s, y_{1:t}) proportional cu L_{tk}^s * p(q_t=k|q_{t-1}^s). Aceasta incorporeaza observatia curenta y_t prin verosimilitatile predictive, imbunatatind semnificativ eficienta particulelor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua variante ale RBPF: cea simpla (propunere prior) si cea cu look-ahead (propunere optimala). Look-ahead RBPF calculeaza ponderile inainte de esantionare, permitand re-esantionarea bazata pe informatia cea mai recenta si esantionarea starii discrete din propunerea optima.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Look-ahead RBPF exploateaza faptul ca spatiul de stari discrete este mic (K), deci evaluarea tuturor alternativelor este fezabila. Costul O(K*S) este modest dar ofera o imbunatatire semnificativa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>RBPF cu look-ahead este folosit in urmarirea tintelor cu manevre (avioane, rachete), unde starea discreta indica tipul de manevra (zbor drept, viraj, accelerare).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de aparare aeriana, RBPF urmareste avioane care pot efectua manevre evasive: starea discreta indica tipul de manevra (viraj stanga, viraj dreapta, accelerare), iar filtrul Kalman estimeaza pozitia si viteza in cadrul fiecarui mod de zbor.</p></div>
+  </div>
+</div>

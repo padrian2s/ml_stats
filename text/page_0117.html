@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exerciții - Capitolul 3 (Partea 3): MLE Uniform, Analiza Bayesiană Uniformă, Problema Taximetrelor</h2>
+  <p>Pagina prezintă exerciții despre MLE pentru distribuția uniformă, analiza Bayesiană cu prior Pareto, și celebra problemă a taximetrelor germane.</p>
+  <div class="highlight-box"><strong>Exercițiul 3.8 - MLE uniform:</strong> Pentru p(x) = (1/2a)·𝕀(x ∈ [−a,a]), MLE: â = max(|x₁|,...,|xₙ|). Problemă: p(x_{n+1}|â) = 0 pentru orice x în afara intervalului observat.</div>
+  <div class="highlight-box"><strong>Exercițiul 3.9 - Analiza Bayesiană uniformă:</strong> Prior conjugat Pareto: p(θ) = Pareto(θ|b,K). Distribuția comună: p(D,θ) = Kb^K/θ^{N+K+1}·𝕀(θ ≥ max(D)). Posteriorul este tot Pareto.</div>
+  <div class="highlight-box"><strong>Exercițiul 3.10 - Problema taximetrelor:</strong> Se observă un taxi cu numărul 100. Câte taxiuri sunt în oraș? Cu prior Pareto neinformativ p(θ) ∝ 1/θ: posterior ∝ 1/θ²·𝕀(θ ≥ 100). Se calculează media, modul și mediana posterioară.</div>
+  <div class="highlight-box"><strong>Predicția pentru problema taximetrelor:</strong> Se calculează p(x'|D,α) integrând peste θ. Se evaluează probabilitatea de a vedea un taxi cu numărul 100, 50 sau 150 la următoarea observație.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Problema taximetrelor (German tank problem) este un exemplu clasic din statistică, utilizat în al Doilea Război Mondial pentru a estima producția de tancuri germane din numerele de serie capturate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>MLE pentru distribuția uniformă suferă de aceeași problemă ca MLE Bernoulli: nu poate prezice valori în afara intervalului observat. Analiza Bayesiană cu prior Pareto rezolvă elegant această problemă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Problema taximetrelor apare în intelligence militar (estimarea producției), în ecologie (estimarea dimensiunii populațiilor), și în software (estimarea numărului de bug-uri).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Aliații au estimat producția lunară de tancuri germane Panther din numerele de serie capturate, obținând estimări de ~270/lună, remarcabil de precise comparativ cu cifrele reale de ~276/lună descoperite după război.</p></div>
+  </div>
+</div>

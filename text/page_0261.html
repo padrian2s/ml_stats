@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Efectele Regularizării și ale Datelor Mari - Curba de Învățare</h2>
+  <p>Pagina discută regresia pe componente principale (PCR), efectul datelor mari asupra regularizării și introduce conceptul de curbă de învățare.</p>
+  <div class="definition-box"><strong>Regresia pe Componente Principale (PCR):</strong> Se reduce dimensionalitatea la K dimensiuni folosind PCA, apoi se face regresie pe aceste dimensiuni. Dezavantaj: dimensiunile D - K rămase sunt complet ignorate, spre deosebire de ridge care le atenuează gradual.</div>
+  <div class="definition-box"><strong>Curba de Învățare:</strong> Graficul erorii de test (MSE) în funcție de dimensiunea setului de antrenament N. Eroarea de test scade pe măsură ce N crește, convergând către un platou.</div>
+  <div class="definition-box"><strong>Noise Floor:</strong> Componenta ireductibilă a erorii de test datorată variabilității intrinsece a datelor. Nici cel mai bun model nu poate scădea sub acest nivel.</div>
+  <div class="definition-box"><strong>Eroare Structurală:</strong> Componenta erorii datorată discrepanței între modelul ales și procesul generator adevărat. Zero dacă modelul poate captura adevărul (M₂, M₂₅ pentru date generate de polinom de grad 2).</div>
+  <div class="definition-box"><strong>Eroare de Aproximare:</strong> Discrepanța dintre parametrii estimați și parametrii optimi ai modelului, datorită dimensiunii finite a datelor. Scade cu N, mai rapid pentru modele simple.</div>
+  <div class="highlight-box"><strong>Observație cheie:</strong> Cu date suficiente, modelele complexe (grad 25) pot performa la fel de bine ca modelul adevărat (grad 2), dar pentru N mic, modelele simple sunt mai bune datorită erorii de aproximare mai mici.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Curbele de învățare oferă o perspectivă practică esențială: eroarea de test are trei componente (noise floor, eroare structurală, eroare de aproximare). Modele mai expresive au eroare structurală mai mică dar eroare de aproximare mai mare pentru N mic. Cu date suficiente, modelele complexe converg la performanța optimă.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Legea scalării: eroarea de aproximare scade ca O(D/N) pentru modele liniare. Modele mai simple au mai puțini parametri deci converg mai rapid. „Big data" poate compensa complexitatea modelului, dar personalizarea reduce efectiv N la date per-utilizator.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Curbele de învățare sunt un instrument de diagnostic esențial: dacă eroarea de antrenament și test sunt ambele mari, modelul underfittează (eroare structurală); dacă diferă mult, modelul overfittează (eroare de aproximare). Aceasta ghidează decizia: mai multe date sau model mai complex?</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O companie de e-commerce poate trasa curba de învățare pentru modelul de recomandare: dacă platoul erorii de test este prea mare, trebuie un model mai complex; dacă eroarea scade dar lent, trebuie mai multe date de interacțiune cu utilizatorii.</p></div>
+  </div>
+</div>

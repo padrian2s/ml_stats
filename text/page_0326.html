@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>9.4 Regresia Probit (continuare)</h2>
+  <p>Pagina continua discutia despre regresia probit, prezentand regresia probit ordinala si modelele probit multinomiale.</p>
+  <div class="definition-box"><strong>Regresie probit ordinala:</strong> Extensie a regresiei probit pentru variabile de raspuns ordinale, unde variabila poate lua C valori discrete ordonate (de exemplu: scazut, mediu, ridicat). Se introduc C + 1 praguri γ_j.</div>
+  <div class="definition-box"><strong>Model probit multinomial:</strong> Model pentru variabile de raspuns categorice neordonate, unde y_i ∈ {1, ..., C}. Se defineste z_ic = w^T x_ic + ε_ic, cu ε ~ N(0, R), si y_i = argmax_c z_ic.</div>
+  <div class="highlight-box"><strong>Formula regresiei ordinale (9.106):</strong> y_i = j daca γ_{j-1} < z_i ≤ γ_j, unde γ_0 ≤ ... ≤ γ_C, cu γ_0 = -∞, γ_1 = 0 si γ_C = ∞.</div>
+  <div class="highlight-box"><strong>Modelul probit multinomial (9.107-9.109):</strong> z_ic = w^T x_ic + ε_ic, ε ~ N(0, R), y_i = argmax_c z_ic.</div>
+  <div class="definition-box"><strong>Probit multivariat:</strong> Varianta in care y_ic = I(z_ic > 0), modeland C rezultate binare corelate, cu R ca matrice de corelatie.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua extensii importante ale regresiei probit: regresia probit ordinala (pentru variabile de raspuns ordonate) si modelul probit multinomial (pentru variabile categorice neordonate). Regresia ordinala foloseste praguri pe axa reala pentru a partitiona spatiul in intervale corespunzatoare claselor, iar modelul multinomial foloseste variabile latente gaussiene cu selectia prin argmax.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ambele modele se bazeaza pe variabile latente gaussiene, extinzand cadrul probit binar. Regresia ordinala pastreaza ordinea naturala a claselor prin constrangeri pe praguri, iar modelul multinomial trateaza clasele ca neordonate. Legatura cu regresia logistica multinomiala apare cand se foloseste distributia Gumbel in loc de gaussiana.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia probit ordinala este utila in sondaje (de exemplu, scale Likert: total dezacord, dezacord, neutru, acord, total acord). Modelul probit multinomial se aplica in analiza alegerii discrete, marketing si economie comportamentala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un magazin online poate folosi regresia probit ordinala pentru a prezice nivelul de satisfactie al clientilor (1-5 stele) pe baza caracteristicilor comenzii, sau modelul probit multinomial pentru a prezice ce marca de produs va alege un client dintr-un set de optiuni.</p></div>
+  </div>
+</div>

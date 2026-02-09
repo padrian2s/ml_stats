@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Distributia predictiva Bayesiana pentru retele neurale</h2>
+  <p>Aceasta pagina deriveaza distributia predictiva pentru regresie si clasificare in retele neurale Bayesiene, folosind liniarizare si aproximarea probit.</p>
+  <div class="definition-box"><strong>Varianta predictiva dependenta de input:</strong> sigma^2(x) = beta^{-1} + g^T A^{-1} g, unde g = nabla_w f(x, w_MAP). Primul termen este zgomotul observatiei, al doilea captureaza incertitudinea parametrilor si creste departe de datele de antrenament.</div>
+  <div class="highlight-box"><strong>Predictia pentru clasificare:</strong> p(y=1|x, D) = integral sigm(a) p(a|x, D) da ~ sigm(kappa(sigma_a^2) * b^T w_MAP), unde kappa(sigma^2) = (1 + pi*sigma^2/8)^{-1/2} modereaza confidenta output-ului.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pentru regresie, liniarizarea f(x,w) ~ f(x,w_MAP) + g^T(w - w_MAP) permite calculul analitic al integralei predictive, rezultand p(y|x,D) ~ N(y|f(x,w_MAP), sigma^2(x)). Varianta sigma^2(x) = beta^{-1} + g^T A^{-1} g creste in regiunile cu putine date. Figura 16.19 compara Laplace (a) cu HMC (b): HMC produce esantioane mai variate dar aceeasi medie. Pentru clasificare, se foloseste aproximarea probit care modereaza confidenta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Efectul incertitudinii parametrilor este 'moderarea' output-ului: probabilitatile se apropie de 0.5 in regiunile incerte. Frontiera de decizie ramane aceeasi (determinata de w_MAP), dar confidenta scade cu distanta de la datele de antrenament. Aceasta proprietate este valoroasa pentru detectia distributiei out-of-distribution.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MC Dropout, deep ensembles, si SWAG sunt alternative practice la aproximarea Laplace. Deep ensembles (Lakshminarayanan 2017) antreneaza M retele independent si mediaza predictiile, oferind incertitudine robusta cu cost computational moderat.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul radiologic AI, incertitudinea predictiva permite identificarea cazurilor unde modelul nu este sigur, directionandu-le catre un radiolog uman pentru revizuire, imbunatatind siguranta pacientilor.</p></div>
+  </div>
+</div>

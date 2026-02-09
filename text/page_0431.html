@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Verosimilitatea de Profil si Selectia Modelului PPCA</h2>
+  <p>Pagina prezinta verosimilitatea de profil ca metoda de selectie a numarului de dimensiuni latente si comparatia cu graficul scree, urmata de introducerea PCA pentru date categoriale.</p>
+  <div class="definition-box"><strong>Verosimilitatea de profil (Profile Likelihood):</strong> O metoda de detectare a punctului de schimbare in spectrul valorilor proprii, modeland valorile proprii ca provenind din doua regimuri gaussiene cu medii diferite dar varianta comuna.</div>
+  <div class="highlight-box"><strong>Mediile celor doua regimuri:</strong> μ₁(L) = Σ_{k≤L} λ_k / L, μ₂(L) = Σ_{k>L} λ_k / (N-L)</div>
+  <div class="highlight-box"><strong>Log-verosimilitatea de profil:</strong> ℓ(L) = Σ_{k=1}^L log N(λ_k|μ₁(L), σ²(L)) + Σ_{k=L+1}^K log N(λ_k|μ₂(L), σ²(L))</div>
+  <div class="figure-box"><strong>Figura 12.15:</strong> Log-verosimilitatea negativa pe MNIST vs numarul de dimensiuni latente folosind PPCA. (a) Set de antrenament. (b) Set de test - aici se observa curba in forma de U tipica, permitand selectia optima a lui L.</div>
+  <div class="figure-box"><strong>Figura 12.16:</strong> (a) Graficul scree pentru setul de antrenament. (b) Verosimilitatea de profil - prezinta un varf bine determinat care indica numarul optim de componente.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Verosimilitatea de profil transforma problema subiectiva a gasirii „cotului" in graficul scree intr-o problema de optimizare obiectiva. Se modeleaza spectrul valorilor proprii ca un amestec de doua gaussiene (semnal vs zgomot), iar punctul de separare optim L* maximizeaza verosimilitatea de profil. PPCA, fiind un model probabilistic, prezinta forma de U tipica pe setul de test, permitand selectia naturala a complexitatii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta cheie intre PCA si PPCA in selectia modelului: PCA nu poate supraajusta (eroarea pe test scade monoton), in timp ce PPCA poate (curba in U pe test). Aceasta face din PPCA un model superior pentru selectia automata a complexitatii. Verosimilitatea de profil ofera o alternativa eleganta la inspectia vizuala a graficului scree.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Verosimilitatea de profil este aplicabila atat la PCA cat si la K-means, oferind o metoda automata de selectie a numarului de componente/clustere. Este deosebit de utila in pipeline-uri automate de analiza a datelor unde inspectia vizuala nu este practica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un sistem automat de detectie a anomaliilor in traficul de retea, verosimilitatea de profil poate determina automat cate componente principale sunt necesare pentru a modela traficul normal, separand semnalul de zgomot fara interventie umana.</p></div>
+  </div>
+</div>

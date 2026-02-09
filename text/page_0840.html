@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Garantii Teoretice si Coborarea Subgradientului (Sectiunea 22.6.5.3)</h2>
+  <p>Aceasta pagina demonstreaza conditiile de optimalitate globala si introduce metoda coborarii subgradientului pentru optimizarea descompunerii duale.</p>
+  <div class="highlight-box"><strong>Reparametrizare echivalenta:</strong> SUMA_i theta_i(x_i) + SUMA_f theta_f(x_f) = SUMA_i theta_i^delta(x_i) + SUMA_f theta_f^delta(x_f) (Ec. 22.173)</div>
+  <div class="highlight-box"><strong>Functia duala:</strong> L(delta) = SUMA_i max_{x_i} theta_i^delta(x_i) + SUMA_f max_{x_f} theta_f^delta(x_f) (Ec. 22.174)</div>
+  <div class="highlight-box"><strong>Conditia de optimalitate globala:</strong> Daca exista delta* si x* astfel incat asignarile maximizante ale termenilor singleton si de factor sa coincida, atunci L(delta*) = p*, deci x* este asignarea MAP. Aceasta se intampla surprinzator de des in practica (Ec. 22.175-22.176).</div>
+  <div class="definition-box"><strong>Coborarea Subgradientului:</strong> Metoda de actualizare: delta_{fi}^{t+1}(x_i) = delta_{fi}^t(x_i) - alpha_t * g_{fi}^t(x_i) (Ec. 22.177), unde g^t este subgradientul lui L(delta) la delta^t. Converge la optimul global al dualului daca pasii alpha_t sunt alesi corespunzator.</div>
+  <div class="highlight-box"><strong>Calculul subgradientului:</strong> Se gaseste x_i* = argmax theta_i^delta(x_i) si x_f* = argmax theta_f^delta(x_f). Daca factorul f nu este de acord cu termenul local pentru variabila i, se seteaza g_fi(x_i*) = +1 si g_fi(x_i^f) = -1, aducand solutiile mai aproape de acord.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabileste un rezultat remarcabil: daca sub-problemele sunt de acord asupra asignarii variabilelor, atunci solutia este garantat optima global. Coborarea subgradientului este prezentata ca metoda de optimizare a dualului, cu convergenta garantata la optimul global.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Subgradientul are o interpretare intuitiva: cand un factor si un termen local nu sunt de acord, multiplicatorul este ajustat pentru a-i aduce mai aproape de acord. Aceasta este analog cu propagarea credintelor, unde mesajele sunt trimise intre noduri pentru a atinge consensul.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Coborarea subgradientului este utilizata in probleme de optimizare la scara mare unde functia obiectiv nu este diferentiabila. In invatarea automata, apare in antrenarea SVM-urilor structurale si in inferenta MAP pentru modele grafice complexe.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In rutarea vehiculelor cu constrangeri multiple (capacitate, ferestre de timp, zone geografice), fiecare constrangere poate fi tratata ca un factor separat. Coborarea subgradientului ajusteaza iterativ multiplicatorii pana cand toate vehiculele respecta simultan toate constrangerile.</p></div>
+  </div>
+</div>

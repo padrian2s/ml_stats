@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>10.2.3 Diagnosticul Medical - Reteaua Alarm si Reteaua QMR</h2>
+  <p>Pagina prezinta doua retele bayesiene celebre pentru diagnosticul medical: reteaua Alarm (pentru terapie intensiva) si reteaua QMR (Quick Medical Reference), impreuna cu modelul noisy-OR.</p>
+  <div class="definition-box"><strong>Reteaua Alarm:</strong> Retea bayesiana pentru monitorizarea pacientilor in terapie intensiva (ICU), modeland relatiile intre variabile precum ritmul respirator, tensiunea arteriala etc. Contine 37 de variabile si 504 parametri, creata manual prin ingineria cunostintelor.</div>
+  <div class="definition-box"><strong>Sistem expert probabilistic:</strong> Un model grafic ale carui structura si parametri sunt creati manual de experti (ingineria cunostintelor), nu invatati din date.</div>
+  <div class="definition-box"><strong>Reteaua QMR (Quick Medical Reference):</strong> Retea bayesiana bipartita cu 570 de boli (noduri ascunse h_s) in stratul superior si 4075 de simptome (noduri vizibile v_t) in stratul inferior. Structura bipartita: boli → simptome.</div>
+  <div class="definition-box"><strong>Retea de credinte sigmoid:</strong> Un DGM in care CPD-urile sunt distributii de regresie logistica: p(v_t = 1|h_{pa(t)}) = sigm(w_t^T h_{pa(t)}).</div>
+  <div class="definition-box"><strong>Modelul noisy-OR:</strong> Model alternativ pentru CPD-uri in retele cu fan-in mare. Presupune ca fiecare parinte activ poate cauza independent activarea copilului, dar legatura poate esua cu probabilitatea θ_{st} = 1 - q_{st}.</div>
+  <div class="highlight-box"><strong>Distributia QMR (10.10):</strong> p(v, h) = ∏_s p(h_s) ∏_t p(v_t|h_{pa(t)}), cu h_s = boli si v_t = simptome.</div>
+  <div class="figure-box"><strong>Tabelul 10.1:</strong> CPD noisy-OR cu 2 parinti si nod de scurgere (leak node h_0). P(v=0|h_1, h_2) = θ_0 θ_1^{h_1} θ_2^{h_2}, unde θ_i sunt probabilitatile de esec al legaturilor. De exemplu, P(v=0|h_1=1, h_2=1) = θ_0 θ_1 θ_2.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Doua retele bayesiene clasice ilustreaza puterea DGM-urilor in diagnosticul medical. Reteaua Alarm modeleaza un numar moderat de variabile cu structura complexa. Reteaua QMR are o structura simpla (bipartita) dar un numar mare de noduri. Modelul noisy-OR ofera o parametrizare compacta pentru CPD-uri cu multi parinti: O(F) parametri in loc de O(2^F).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Fan-in-ul mare (numar mare de parinti per nod) este o problema recurenta in modelele grafice: CPT-urile cresc exponential cu numarul de parinti. Solutii: (1) regresia logistica (retea sigmoid), (2) modelul noisy-OR. Modelul noisy-OR este intuitiv: fiecare cauza actioneaza independent, iar probabilitatea de inactivare este produsul probabilitatilor individuale de esec.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Reteaua Alarm este folosita in sisteme de monitorizare a pacientilor in terapie intensiva. QMR a fost unul dintre primele sisteme de diagnosticare asistata de calculator. Modelele noisy-OR sunt utilizate in diagnosticare, analiza de defecte si retele de senzori.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In reteaua QMR, daca un pacient are simptomele "febra" si "durere abdominala", modelul calculeaza probabilitatea fiecarei boli (gripa, apendicita, etc.) date simptomele observate. Modelul noisy-OR presupune ca fiecare boala poate cauza independent fiecare simptom, dar uneori legatura cauzala esueaza (de exemplu, gripa nu cauzeaza intotdeauna febra).</p></div>
+  </div>
+</div>

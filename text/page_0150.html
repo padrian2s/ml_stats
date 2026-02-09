@@ -1,0 +1,21 @@
+<div class="page-content">
+  <h2>Finalizarea Demonstratiei si Sisteme Gaussiene Liniare</h2>
+  <p>Pagina 119 finalizeaza demonstratia formulelor de conditionare Gaussiana si introduce Sectiunea 4.4 despre sisteme Gaussiene liniare - regula Bayes pentru modele liniare Gaussiene.</p>
+
+  <div class="highlight-box"><strong>Factorizarea finala (Ecuatiile 4.118-4.121):</strong> p(x₁, x₂) = p(x₁|x₂) * p(x₂) = N(x₁|μ₁|₂, Σ₁|₂) * N(x₂|μ₂, Σ₂₂), cu μ₁|₂ = μ₁ + Σ₁₂Σ₂₂⁻¹(x₂ - μ₂) si Σ₁|₂ = Σ₁₁ - Σ₁₂Σ₂₂⁻¹Σ₂₁ (complementul Schur).</div>
+
+  <div class="definition-box"><strong>Sistem Gaussian Liniar (Ecuatia 4.124):</strong> Prior: p(x) = N(x|μ_x, Σ_x). Verosimilitate: p(y|x) = N(y|Ax + b, Σ_y). Aici x ∈ ℝ^(D_x) este variabila ascunsa si y ∈ ℝ^(D_y) este observatia zgomotoasa.</div>
+
+  <div class="highlight-box"><strong>Teorema 4.4.1 - Regula Bayes pentru sisteme Gaussiene liniare (Ecuatia 4.125):</strong>
+    Posteriorul: p(x|y) = N(x|μ_{x|y}, Σ_{x|y})
+    Σ_{x|y}⁻¹ = Σ_x⁻¹ + AᵀΣ_y⁻¹A
+    μ_{x|y} = Σ_{x|y} [AᵀΣ_y⁻¹(y - b) + Σ_x⁻¹μ_x]</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Demonstratia conditionarii Gaussiene se incheie cu verificarea constantelor de normalizare. Sectiunea 4.4 introduce modelul Gaussian liniar, unde o variabila ascunsa x genereaza observatii y prin transformare liniara cu zgomot Gaussian. Teorema 4.4.1 (regula Bayes) arata ca posteriorul este tot Gaussian, cu precizia posterioara fiind suma preciziei priorului si preciziei verosimilitatii.</div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Formula posteriorului are o interpretare eleganta: precizia posterioara (Σ_{x|y}⁻¹) este suma preciziei priorului (Σ_x⁻¹) si preciziei datelor (AᵀΣ_y⁻¹A). Media posterioara este o medie ponderata a informatiei din prior si din date, cu ponderi proportionale cu preciziile respective.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Sistemul Gaussian liniar este baza filtrarii Kalman, regresiei liniare Bayesiane, modelelor de spatiu al starilor si a multor altor modele din inginerie si stiinta. Este unul dintre cele mai utilizate modele generative din statistica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In urmarirea unui avion pe radar, starea x = (pozitie, viteza) este ascunsa, iar masuratorile radar y sunt observatii zgomotoase ale pozitiei (A selecteaza componenta de pozitie, Σ_y reflecta precizia radarului). Filtrul Kalman aplica exact Teorema 4.4.1 la fiecare pas temporal.</p></div>
+  </div>
+</div>

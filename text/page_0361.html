@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Valoarea informatiei perfecte si politica optima conditionala</h2>
+  <p>Aceasta pagina calculeaza politica optima conditionata de rezultatul testului seismic si introduce conceptul de valoare a informatiei perfecte (VPI).</p>
+  <div class="definition-box"><strong>Politica optima conditionala:</strong> d*(s) depinde de observatia s: daca s=0 (difuz), nu fora (EU=-30.5 < 0); daca s=1 (deschis), foreaza (EU=32.9 > 0); daca s=2 (inchis), foreaza (EU=87.5 >> 0).</div>
+  <div class="definition-box"><strong>Profitul asteptat maxim (MEU):</strong> MEU = &Sigma;_s p(s) EU(d*(s)|s) = 0.41 x 0 + 0.35 x 32.9 + 0.24 x 87.5 = 32.2. Cu testul seismic, profitul asteptat creste de la $20 la $32.2.</div>
+  <div class="highlight-box"><strong>Valoarea informatiei perfecte (VPI):</strong> VPI = MEU(cu test) - MEU(fara test) = 32.2 - 20 = $12.2. Aceasta este suma maxima pe care ar trebui sa o platesti pentru testul seismic. Daca testul costa mai putin de $12.2, merita sa il faci.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza cum informatia suplimentara (testul seismic) permite decizii mai bune. Posteriorul p(o|s=0) = [0.732, 0.219, 0.049] arata ca un semnal difuz indica puternic lipsa petrolului. Politica optimala diferentiaza actiunea in functie de semnal, crescand profitul asteptat cu $12.2. Conceptul VPI cuantifica exact cat valoreaza informatia suplimentara.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) VPI este intotdeauna non-negativa: informatia nu poate dauna daca o folosim optim. 2) VPI masoara imbunatatirea in decizie, nu in cunoastere per se. 3) Politica optima poate diferi radical pentru diferite observatii ale testului. 4) VPI depinde atat de calitatea testului (p(s|o)) cat si de structura utilitatilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>VPI este fundamentala in designul experimental (merita sa colectam mai multe date?), in medicina (merita un test diagnostic suplimentar?), in inginerie (merita un prototip inainte de productia de masa?), si in strategia de afaceri (merita un studiu de piata?).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In medicina, un medic trebuie sa decida daca sa solicite o biopsie ($500, oarecare risc) inainte de a decide tratamentul cancerului. VPI cuantifica beneficiul informational al biopsiei: daca informatia suplimentara nu ar schimba decizia de tratament (de ex., tratamentul este acelasi indiferent de tipul exact de cancer), VPI = 0 si biopsia nu merita. Aceasta este o aplicare directa a cadrului din aceasta pagina.</p></div>
+  </div>
+</div>

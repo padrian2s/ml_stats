@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>MFA: Ajustare si EM pentru Analiza Factoriala</h2>
+  <p>Pagina prezinta Figura 12.4 cu exemple de MFA ajustate pe date 2D si introduce algoritmul EM pentru FA si MFA (Sectiunea 12.1.5).</p>
+  <div class="highlight-box"><strong>Figura 12.4:</strong> MFA cu PPCA 1D ajustat pe date 2D. (a) K=1: un singur subspatiu liniar. (b) K=10: zece subspatii liniare aproximeaza forma circulara a datelor (o varietate curba 1D in 2D).</div>
+  <div class="definition-box"><strong>EM pentru MFA (Eq. 12.17-12.20):</strong> Pasul E: r_ic = p(q_i=c|x_i, theta), p(z_i|x_i, q_i=c, theta) = N(m_ic, Sigma_ic), unde Sigma_ic = (I + W_c^T Psi^{-1} W_c)^{-1} si m_ic = Sigma_ic(W_c^T Psi^{-1}(x_i - mu_c)).</div>
+  <div class="highlight-box"><strong>Avantajul MFA fata de GMM:</strong> MFA necesita O(KLD) parametri vs O(KD^2) pentru GMM cu covarianta completa. Poate reduce overfitting-ul si este un model de densitate generic excelent pentru date de dimensiune mare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>EM pentru MFA combina responsabilitatile GMM (r_ic pentru componenta discreta) cu inferenta FA (posterior Gaussian pe z_i conditionat de componenta). Pasul E calculeaza atat asignarile la componente cat si scorurile latente per componenta. Figura 12.4 demonstreaza vizual cum K componente liniare pot aproxima o varietate curba.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura EM pentru MFA este un exemplu de model cu variabile latente mixte: pasul E calculeaza asteptarile atat peste variabila discreta q_i cat si peste variabilele continue z_i. Aceeasi structura apare in HMM-uri si alte modele ierarhice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MFA este implementat in pachete precum mixfa (R), scikit-learn (Python). Alegerea lui K si L se face prin BIC sau validare incrucisata. In practica, L=1 sau L=2 cu K mare functioneaza adesea bine.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea miscarii umane, diferite tipuri de miscare (mers, alergare, saritura) sunt captate de componente diferite ale MFA, fiecare cu propriul subspatiu care descrie variatiile naturale ale acelei miscari.</p></div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="page-content">
+  <h2>Vizualizarea datelor si descoperirea trasaturilor cu auto-encodere</h2>
+  <p>Aceasta pagina prezinta vizualizarea 2D a datelor text folosind auto-encodere profunde si clasificarea MNIST cu DBN-uri, comparand rezultatele cu LSA si alte metode.</p>
+  <div class="highlight-box"><strong>Vizualizarea Reuters RCV1-v2:</strong> Auto-encoderul profund produce o vizualizare 2D semnificativ mai buna decat LSA pe corpusul Reuters, capturand mai bine structura semantica a documentelor chiar fara etichete de clasa.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Auto-encoderele profunde cu bottleneck 2D produc vizualizari superioare LSA pe date text. Reprezentarile de dimensiune redusa captureaza semnificatia semantica a documentelor. Eroarea de clasificare de 1.25% pe MNIST este remarcabila pentru o metoda invarianta la permutare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Pre-antrenarea nesupervizata invata trasaturi generice utile chiar fara etichetari explicite. Ajustarea fina supervizata specializeaza apoi aceste trasaturi pentru sarcina specifica. Comparatia cu 1-NN (3.1% eroare) si SVM (1.4%) contextualizeaza performanta DBN.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Vizualizarea colectiilor mari de documente pentru explorarea datelor, organizarea automatica a arhivelor de stiri, si descoperirea de clustere tematice in corpusuri text.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Companiile media pot folosi auto-encodere profunde pentru a vizualiza si organiza automat mii de articole de stiri, identificand grupari tematice emergente (piete financiare, politica, dezastre naturale).</p></div>
+  </div>
+</div>

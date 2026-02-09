@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>SLAM - Modelul grafic si ilustrare</h2>
+  <p>Aceasta pagina prezinta modelul grafic al problemei SLAM (Figura 18.2) si ilustrarea problemei SLAM (Figura 18.3).</p>
+  <div class="definition-box"><strong>SLAM (Simultaneous Localization and Mapping):</strong> Robotul trebuie sa invete o harta a mediului si sa-si determine simultan pozitia pe aceasta harta. Modelul grafic (Figura 18.2): L^i sunt locatiile fixe ale reperelor (landmarks), x_t este pozitia robotului, y_t este observatia. Robotul observa repere diferite la momente diferite.</div>
+  <div class="highlight-box"><strong>Problema buclei inchise (loop closure):</strong> Figura 18.3(a) arata ca incertitudinea pozitiei robotului creste pe masura ce se deplaseaza, dar scade cand revine la o locatie familiara. Matricea de precizie (Figura 18.3b) este rara, reflectand corelatii locale intre repere si pozitia robotului. Aceasta raritate poate fi exploatata pentru inferenta eficienta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>SLAM combina doua probleme: localizare (unde sunt?) si cartografiere (cum arata mediul?). Modelul grafic (Figura 18.2) arata L^i (repere fixe) si x_t (pozitia robotului care evolueaza in timp) influentand observatiile y_t. Figura 18.3(a) ilustreaza un robot care se misca circular: elipsele de incertitudine cresc initial apoi scad la inchiderea buclei. Matricea de precizie (Figura 18.3b) este rara initial dar devine densa pe masura ce reperele devin corelate prin pozitia robotului - aceasta este problema 'entanglement'.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Entanglement in SLAM: initial reperele sunt conditionate independente data pozitia robotului, dar pe masura ce robotul se misca, toate reperele devin corelate. Solutii: (1) taierea muchiilor slabe din GGM (junction tree thinning), (2) factorizarea p(L|x_{1:T}, y_{1:T}) = prod p(L^i|x_{1:T}, y_{1:T}) conditionat pe traiectoria completa (FastSLAM).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SLAM este folosit in: robotica mobila (aspiratoare robotice, drone), vehicule autonome (Tesla, Waymo), realitate augmentata (ARKit, ARCore), navigatie in interiorul cladirilor (unde GPS nu functioneaza), si explorare submarina/spatiala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>ARKit de la Apple si ARCore de la Google folosesc Visual SLAM (vSLAM) pentru a construi o harta 3D a mediului in timp real folosind camera telefonului, permitand plasarea obiectelor virtuale in lumea reala. Cand utilizatorul revine la o locatie vizitata anterior, loop closure corecteaza erorile acumulate.</p></div>
+  </div>
+</div>

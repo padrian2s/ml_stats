@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Predicție, Estimare MAP și Algoritmul Forward (p. 608-609)</h2>
+  <p>Pagina continuă cu predicția, estimarea MAP (decodificarea Viterbi), eșantioanele posterioare și probabilitatea evidenței, apoi introduce algoritmul forward.</p>
+  <div class="definition-box"><strong>Decodificare Viterbi:</strong> Calculul arg max_{z₁:T} p(z₁:T|x₁:T) - cea mai probabilă secvență completă de stări ascunse.</div>
+  <div class="definition-box"><strong>Probabilitatea evidenței:</strong> p(x₁:T) = Σ_{z₁:T} p(z₁:T, x₁:T), utilizată pentru clasificare, detectarea anomaliilor și selecția modelelor.</div>
+  <div class="highlight-box"><strong>Ciclul predicție-actualizare:</strong> Predicție: p(zₜ=j|x₁:ₜ₋₁) = Σᵢ p(zₜ=j|zₜ₋₁=i)p(zₜ₋₁=i|x₁:ₜ₋₁). Actualizare: αₜ(j) ∝ p(xₜ|zₜ=j)p(zₜ=j|x₁:ₜ₋₁) (Ec. 17.44-17.46).</div>
+  <div class="highlight-box"><strong>Formula matriceală:</strong> αₜ ∝ ψₜ ⊙ (Ψᵀαₜ₋₁) (Ec. 17.48), unde ψₜ(j) = p(xₜ|zₜ=j) și ⊙ este produsul Hadamard.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul forward implementează filtrarea prin cicluri recursive de predicție (propagarea prin matricea de tranziție) și actualizare (incorporarea observației curente prin regula Bayes). Este eficient și poate fi implementat complet în domeniul logaritmic.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura predicție-actualizare este un tipar universal în filtrarea Bayesiană: se propagă credința prin modelul de tranziție, apoi se corectează cu noua observație. Produsul Hadamard oferă o notație matriceală compactă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul forward este baza tuturor celorlalte algoritmi de inferență în HMM: netezirea, Viterbi și estimarea parametrilor. Funcționarea în domeniul logaritmic previne probleme de underflow numeric.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un sistem de monitorizare a pacienților în terapie intensivă, la fiecare nouă citire a senzorilor se face o predicție (starea se poate deteriora) și o actualizare (noile date confirmă sau infirmă predicția).</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>SVM pentru Clasificare - Pierderea Hinge și Optimizare Secvențială Minimală (SMO)</h2>
+  <p>Pagina continuă cu clasificarea SVM, prezentând formularea duală cu programare pătratică, algoritmul SMO și predicția prin trucul kernel.</p>
+  <div class="definition-box"><strong>Optimizare Secvențială Minimală (SMO):</strong> Algoritm specializat pentru rezolvarea problemei de programare pătratică a SVM-urilor, care evită utilizarea solverilor QP generice. Complexitatea practică este O(N²), dar poate fi prea lentă pentru N mare.</div>
+  <div class="highlight-box"><strong>Obiectivul SVM clasificare:</strong> min_(w,w₀,ξ) ½||w||² + C·Σᵢ₌₁ᴺ ξᵢ, cu constrângerile ξᵢ ≥ 0 și yᵢ(xᵢᵀw + w₀) ≥ 1 − ξᵢ.</div>
+  <div class="highlight-box"><strong>Predicția kernelizată:</strong> ŷ(x) = sgn(ŵ₀ + Σᵢ₌₁ᴺ αᵢκ(xᵢ, x)), cu complexitate O(sD) unde s ≤ N este numărul de vectori suport.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Formularea duală a SVM transformă problema primală cu N + D + 1 variabile într-o problemă cu N variabile duale (multiplicatorii Lagrange). Soluția ŵ = Σᵢ αᵢxᵢ cu αᵢ = λᵢyᵢ este sparse datorită pierderii hinge. Algoritmul SMO rezolvă eficient problema duală.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Complexitatea temporală la predicție depinde doar de numărul vectorilor suport s, nu de N total. Pentru N foarte mare, se preferă SVM-uri liniare cu complexitate O(N). Sparsitatea vectorului α este controlată de parametrul C.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SMO este implementat în biblioteci populare precum LIBSVM și scikit-learn. SVM-urile liniare (LIBLINEAR) sunt preferate pentru clasificarea textului cu milioane de caracteristici.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În clasificarea sentimentelor din recenzii de produse, un SVM liniar antrenat pe 100.000 de recenzii poate avea doar 10.000 de vectori suport, permițând clasificarea unei noi recenzii în microsecunde.</p></div>
+  </div>
+</div>

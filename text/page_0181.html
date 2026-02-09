@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Dezavantajele Estimarii MAP</h2>
+  <p>Pagina discuta trei probleme fundamentale ale estimarii MAP: lipsa masurii de incertitudine, supraajustarea prin plug-in si faptul ca modul este un punct atipic al distributiei.</p>
+  <div class="definition-box"><strong>Estimare punctuala (Point estimate):</strong> Orice sumarizare a distributiei posterioare printr-o singura valoare, cum ar fi media, mediana sau modul posterior. Dezavantajul principal este ca nu ofera nicio masura a incertitudinii.</div>
+  <div class="definition-box"><strong>Functia de pierdere (Loss function):</strong> L(θ, θ_hat) masoara pierderea suferita cand valoarea adevarata este θ iar estimarea noastra este θ_hat. Pierderea 0-1 conduce la modul posterior, pierderea patratica la media posterioara, iar pierderea absoluta la mediana posterioara.</div>
+  <div class="figure-box"><strong>Figura 5.1:</strong> (a) O distributie bimodala unde modul este foarte atipic - media (linia albastra subtire) este o sumarizare mult mai buna. (b) O distributie asimetrica (skewed) unde modul este 0 dar media este nenula.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sunt prezentate trei dezavantaje ale estimarii MAP: (1) nu ofera masura de incertitudine, (2) plug-in-ul estimarii MAP in distributia predictiva poate duce la supraincredere si supraajustare, (3) modul este adesea un punct atipic al distributiei, mai ales pentru distributii asimetrice sau multimodale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Alegerea estimatorului punctual depinde de functia de pierdere: pierderea 0-1 → mod posterior (MAP), pierderea patratica L(θ,θ_hat) = (θ-θ_hat)² → media posterioara, pierderea absoluta L(θ,θ_hat) = |θ-θ_hat| → mediana posterioara. Teoria deciziei (Sectiunea 5.7) formalizeaza aceasta alegere.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In aplicatii critice (medicina, finante), supraincrederea in predictii este periculoasa. Estimarea MAP fara cuantificarea incertitudinii poate duce la decizii riscante. De aceea, abordarea complet bayesiana care integreaza peste intreaga distributie posterioara este preferata.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In distributii asimetrice care apar frecvent la estimarea parametrilor de varianta in modele ierarhice, MAP-ul poate fi 0 in timp ce media adevarata este pozitiva. Aceasta face MAP-ul o estimare extrem de proasta in astfel de cazuri.</p></div>
+  </div>
+</div>

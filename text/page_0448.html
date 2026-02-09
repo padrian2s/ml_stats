@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exercitii Capitolul 12: PCA, Discriminantul Fisher, Deflatie</h2>
+  <p>Pagina contine exercitiile 12.4-12.7 care acopera derivarea componentei principale secunde, eroarea reziduala PCA, discriminantul liniar Fisher si PCA prin deflatie succesiva.</p>
+  <div class="highlight-box"><strong>Exercitiul 12.4 - A doua componenta principala (Eq. 12.125-12.126):</strong> Se demonstreaza ca z_i2 = v_2^T x_i si ca v_2 maximizeaza J_hat(v_2) = -v_2^T C v_2 + lambda_2(v_2^T v_2 - 1) + lambda_12(v_2^T v_1 - 0), dand Cv_2 = lambda_2 v_2.</div>
+  <div class="highlight-box"><strong>Exercitiul 12.5 - Eroarea reziduala PCA (Eq. 12.127-12.129):</strong> ||x_i - suma z_ij v_j||^2 = x_i^T x_i - suma v_j^T x_i x_i^T v_j. Eroarea totala de reconstructie cu K componente: J_K = suma_{j=K+1}^d lambda_j (suma valorilor proprii ramase).</div>
+  <div class="definition-box"><strong>Exercitiul 12.6 - Discriminantul Fisher (Eq. 12.130):</strong> J(w) = w^T S_B w / (w^T S_W w), unde S_B = matrice de dispersie inter-clase, S_W = matrice de dispersie intra-clase. Maximul se obtine din S_B w = lambda S_W w.</div>
+  <div class="definition-box"><strong>Exercitiul 12.7 - PCA prin deflatie:</strong> Gasirea componentelor principale secvential prin "deflarea" matricii de date: scaderea proiectiei pe prima componenta, apoi aplicarea PCA pe reziduuri.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile consolideaza teoria PCA prin demonstratii riguroase. Rezultatul cheie: eroarea de reconstructie cu K componente este exact suma valorilor proprii de la K+1 la d - oferind o formula exacta pentru pierderea de informatie. Discriminantul Fisher este varianta supervizata a PCA, maximizand separarea intre clase.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>PCA prin deflatie (Exercitiul 12.7) ofera o perspectiva algoritmata alternativa: in loc de descompunerea in valori proprii simultana, componentele sunt gasite una cate una prin scaderea proiectiei pe componentele deja gasite.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Discriminantul Fisher (LDA) este fundamental in clasificare: gaseste proiectia care maximizeaza separabilitatea claselor. Este folosit ca preprocesare inainte de clasificatoare simple (KNN, logistic regression).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea faciala, Fisherfaces (LDA) sunt superioare Eigenfaces (PCA) deoarece maximizeaza discriminarea intre persoane, nu doar varianta totala care poate fi dominata de iluminare.</p></div>
+  </div>
+</div>

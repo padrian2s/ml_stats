@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 1: Blestemul Dimensionalitatii</h2>
+  <p>Problema fundamentala a spatiilor de inalta dimensionalitate si efectele asupra clasificatorului KNN.</p>
+  <div class="definition-box"><strong>Blestemul Dimensionalitatii (Curse of Dimensionality):</strong> Fenomenul prin care metodele bazate pe distanta (precum KNN) esueaza in spatii de inalta dimensionalitate, deoarece vecinii "apropiati" devin de fapt foarte indepartati.</div>
+  <div class="definition-box"><strong>Tesselarea Voronoi:</strong> Partitia spatiului in regiuni V(x_i), fiecare continand punctele mai apropiate de x_i decat de orice alt punct de antrenament. KNN cu K=1 asigneaza fiecarei regiuni eticheta punctului corespunzator.</div>
+  <div class="figure-box"><strong>Figura 1.16:</strong> (a) Un cub mic de latura s incorporat intr-un cub unitar de dimensiune mai mare. (b) Lungimea laturii cubului necesare pentru a acoperi o fractie f din volumul cubului unitar, ca functie a numarului de dimensiuni. Formula: e_D(f) = f^(1/D).</div>
+  <div class="highlight-box"><strong>Exemplu Numeric:</strong> In D = 10 dimensiuni, pentru a folosi 10% din date, cubul vecin trebuie sa acopere 80% din fiecare dimensiune: e₁₀(0.1) = 0.8. Pentru 1% din date: e₁₀(0.01) = 0.63. Vecinii nu mai sunt "locali"!</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 1.4.3 introduce blestemul dimensionalitatii, una dintre cele mai importante provocari in ML. In spatii de inalta dimensionalitate, volumul creste exponential, iar datele devin extrem de rare. Pentru a gasi vecini in 10 dimensiuni, trebuie sa ne extindem atat de mult incat acoperim aproape intregul spatiu, facand conceptul de "vecin apropiat" lipsit de sens.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Formula e_D(f) = f^(1/D) arata ca latura cubului creste rapid cu dimensionalitatea. La D=10, chiar si 1% din date necesita un cub care acopera 63% din fiecare dimensiune. Aceasta este motivatia principala pentru modelele parametrice, care fac presupuneri despre structura datelor pentru a evita acest blestem.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Blestemul dimensionalitatii afecteaza toate metodele bazate pe distanta si este motivatia pentru reducerea dimensionalitatii (PCA), selectia de caracteristici si regularizare. In practica, datele de inalta dimensionalitate (imagini, text, genomica) necesita metode care exploateaza structura interna.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In genomica, un esantion poate avea 20.000 de gene masurate (D = 20.000) dar doar cateva sute de pacienti (N = 200). KNN este practic inutilizabil: toti pacientii sunt aproximativ la aceeasi distanta unul de celalalt in acest spatiu imens. Reducerea dimensionalitatii sau selectia de gene este obligatorie.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii: LSI Vizualizare si PPCA vs FA (final)</h2>
+  <p>Pagina prezinta Figura 12.24 (proiectia 2D a 9 documente prin LSI) si exercitiul 12.11 (PPCA vs FA), ultimele exercitii ale Capitolului 12.</p>
+  <div class="highlight-box"><strong>Figura 12.24:</strong> Proiectia 2D a 9 documente prin LSI. Documentele cu topicuri similare sunt grupate aproape in spatiul latent, demonstrand ca SVD capteaza structura semantica din matricea termen-document.</div>
+  <div class="highlight-box"><strong>Exercitiul 12.11 - PPCA vs FA (detalii):</strong> Cu x_1 = z, x_2 = z + 0.001*z_2, x_3 = 10*z_3 si z ~ N(0,I): PCA gaseste directia de varianta maxima (x_3, care are varianta 100), dar FA gaseste factorul latent comun (z, partajat intre x_1 si x_2).</div>
+  <div class="definition-box"><strong>Distinctia fundamentala PCA vs FA:</strong> PCA = maximizarea variantei totale (incluzand zgomot). FA = identificarea variantei partajate (factori comuni), separand-o de varianta specifica (zgomot unic per variabila).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Ultimele exercitii ale Capitolului 12 consolideaza distinctia practica dintre PCA si FA. FA este superioara cand obiectivul este identificarea factorilor latenti comuni (varianta partajata), pe cand PCA este adecvata cand obiectivul este reducerea dimensionalitatii pastrand varianta totala maxima.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Alegerea intre PCA si FA depinde de obiectiv: pentru compresie/reconstructie, PCA este optima. Pentru descoperirea structurii latente si interpretare, FA este preferabila. PPCA este un compromis care ofera avantajele probabilistice ale FA cu simplitatea PCA.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In psihometrie si stiinte sociale, FA este standardul deoarece obiectivul este identificarea factorilor latenti (inteligenta, personalitate). In inginerie si viziune computationala, PCA este preferata pentru compresie si denoising.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In evaluarea riscului de credit, FA identifica factorii de risc comuni (macroeconomici) separati de riscul specific fiecarui debitor, permitand diversificarea corecta a portofoliului.</p></div>
+  </div>
+</div>

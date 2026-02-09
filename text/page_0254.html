@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Regresia Liniară Robustă</h2>
+  <p>Pagina introduce regresia liniară robustă ca soluție la problema outlier-ilor, folosind distribuții cu cozi grele în locul distribuției Gaussiene.</p>
+  <div class="figure-box"><strong>Figura 7.6:</strong> (a) Comparație între regresia least squares (linie roșie, afectată de outlieri) și regresia robustă cu distribuție Laplace (linie albastră, rezistentă la outlieri). Punctele din partea de jos sunt outlieri care distorsionează puternic fitarea least squares. (b) Comparație între funcțiile de pierdere ℓ₂ (pătratică, roșie), ℓ₁ (valoare absolută, albastră punctată) și Huber (verde).</div>
+  <div class="highlight-box"><strong>Problema Outlier-ilor:</strong> Eroarea pătratică penalizează deviațiile pătratic, deci punctele îndepărtate (outlierii) au o influență disproporțională asupra fitului. Aceasta rezultă dintr-un model de zgomot Gaussian care are cozi ușoare.</div>
+  <div class="definition-box"><strong>Regresia cu Verosimilitate Laplace:</strong> p(y|x, w, b) = Lap(y|w^T x, b) ∝ exp(-|y - w^T x|/b). Utilizarea |r| în loc de r² reduce influența outlier-ilor deoarece penalizarea crește liniar, nu pătratic.</div>
+  <div class="highlight-box"><strong>NLL cu distribuție Laplace:</strong> ℓ(w) = Σᵢ|rᵢ(w)|, unde rᵢ = yᵢ - w^T xᵢ. Aceasta este norma ℓ₁ a reziduurilor (least absolute deviations).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Regresia robustă rezolvă sensibilitatea least squares la outlieri prin înlocuirea presupunerii de zgomot Gaussian cu o distribuție cu cozi mai grele (Laplace sau Student-t). NLL corespunzătoare minimizează suma valorilor absolute ale reziduurilor (norma ℓ₁) în loc de suma pătratelor (norma ℓ₂).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Există un spectru de robustete: ℓ₂ (least squares, sensibil la outlieri) → Huber (compromis) → ℓ₁ (least absolute deviations, robust). Alegerea depinde de cât de mult ne așteptăm ca datele să conțină outlieri. Tabelul 7.1 sistematizează combinațiile verosimilitate-prior.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia robustă este esențială în aplicații cu date zgomotoase: date de senzori, date financiare (cu crash-uri), și date din sondaje (cu răspunsuri false). scikit-learn oferă HuberRegressor și RANSAC ca alternative robuste.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La modelarea relației dintre PIB și speranța de viață pentru diferite țări, câteva țări cu conflicte militare (outlieri cu speranță de viață foarte mică) ar distorsiona regresia least squares. Regresia robustă produce o tendință care reflectă mai bine relația generală.</p></div>
+  </div>
+</div>

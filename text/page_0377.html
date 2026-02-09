@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Neidentificabilitatea in Modelele de Amestec</h2>
+  <p>Pagina discuta problema neidentificabilitatii parametrilor in modelele de amestec Gaussiene (GMM), unde posteriorul poate avea moduri multiple corespunzand etichetarilor diferite ale clusterelor.</p>
+  <div class="definition-box"><strong>Neidentificabilitate (Unidentifiability):</strong> Proprietatea unui model in care parametrii nu sunt identificabili, adica nu exista un MLE unic sau o estimare MAP unica, deoarece moduri multiple ale posteriorului corespund etichetarilor diferite ale clusterelor.</div>
+  <div class="highlight-box"><strong>Posteriorul parametrilor:</strong> p(θ|D) = Dir(π|D) ∏ₖ₌₁ᴷ NIW(μₖ, Σₖ|D) - cand z_i sunt observate, posteriorul se factorizeaza si putem gasi usor estimarea MAP optima global.</div>
+  <div class="figure-box"><strong>Figura 11.10:</strong> Stanga: N = 200 puncte de date esantionate dintr-un amestec de 2 Gaussiene 1D, cu πₖ = 0.5, σₖ = 5, μ₁ = -10 si μ₂ = 10. Dreapta: suprafata de verosimilitate p(D|μ₁, μ₂) aratand doua moduri simetrice care reflecta neidentificabilitatea.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cand variabilele latente z_i sunt ascunse, exista multiple modalitati de a le „completa", fiecare producand o verosimilitate unimodala diferita. Marginalizarea peste z_i produce un posterior multi-modal pentru p(θ|D). Exista K! etichetari posibile, dar unele moduri se pot contopi, iar numarul real poate fi exponential.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Simetria in suprafata de verosimilitate este un indicator vizual clar al neidentificabilitatii. Pentru un GMM 2D cu K=2, exista exact doua moduri simetrice corespunzand interschimbarii μ₁ si μ₂.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Neidentificabilitatea afecteaza interpretabilitatea clusterelor in analiza datelor. In segmentarea clientilor, de exemplu, etichetele clusterelor pot fi interschimbate fara a afecta calitatea modelului, dar pot crea confuzie in raportare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In genomica, la gruparea genelor in clustere functionale, neidentificabilitatea inseamna ca „clusterul 1" si „clusterul 2" pot fi interschimbate intre rulari diferite ale algoritmului, necesitand metode de post-procesare pentru alinierea etichetelor.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Transformări din Coordonate Carteziene în Polare și Teorema Limitei Centrale</h2>
+  <p>Pagina demonstrează schimbarea variabilelor din coordonate carteziene în polare și introduce teorema limitei centrale, una dintre cele mai importante teoreme din statistică.</p>
+  <div class="highlight-box"><strong>Exemplu coordonate polare:</strong> Transformarea x = (x₁,x₂) → y = (r,θ) cu x₁ = r·cos(θ), x₂ = r·sin(θ). Jacobianul: |det J| = |r·cos²θ + r·sin²θ| = |r|. Deci p_{r,θ}(r,θ) = p_{x₁,x₂}(r·cosθ, r·sinθ)·r.</div>
+  <div class="figure-box"><strong>Figura 2.16:</strong> Schimbarea variabilelor din coordonate polare în carteziene. Aria zonei umbrite este r·dr·dθ.</div>
+  <div class="definition-box"><strong>Teorema limitei centrale (TLC):</strong> Pentru N variabile aleatoare i.i.d. cu medie μ și varianță σ², distribuția sumei S_N = Σᵢ Xᵢ se apropie de N(Nμ, Nσ²) pe măsură ce N crește. Variabila standardizată Z_N = (X̄ − μ)/(σ/√N) converge la N(0,1).</div>
+  <div class="figure-box"><strong>Figura 2.17:</strong> Ilustrarea TLC: histograma mediei eșantioanelor din Beta(1,5) converge rapid către o Gaussiană pe măsură ce N crește de la 1 la 5.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exemplul coordonatelor polare ilustrează concret formula de schimbare a variabilelor. TLC explică de ce distribuția normală apare atât de frecvent: orice sumă de variabile i.i.d. tinde spre normalitate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>TLC funcționează indiferent de distribuția originală a variabilelor, cu condiția ca acestea să aibă medie și varianță finite. Rata de convergență depinde de asimetria distribuției originale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>TLC justifică utilizarea testelor statistice bazate pe normalitate (testul z, testul t) chiar când datele nu sunt normal distribuite, cu condiția ca dimensiunea eșantionului să fie suficient de mare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Erorile de măsurare în experimentele fizice sunt adesea normal distribuite deoarece sunt suma multor surse mici de eroare independente - o consecință directă a TLC.</p></div>
+  </div>
+</div>

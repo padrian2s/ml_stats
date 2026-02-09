@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>ECM, EM Suprarelaxat si Optimizarea prin Minorizare</h2>
+  <p>Pagina descrie variantele ECM (Expectation Conditional Maximization), ECME, EM suprarelaxat (over-relaxed EM) si legaturile cu algoritmii de optimizare prin minorizare-maximizare (MM).</p>
+  <div class="definition-box"><strong>ECM (Expectation Conditional Maximization):</strong> Varianta care optimizeaza parametrii secvential in pasul M, cand acestia sunt dependenti. Utila cand maximizarea simultana este dificila dar cea conditionala este simpla.</div>
+  <div class="definition-box"><strong>EM Suprarelaxat (Over-relaxed EM):</strong> Actualizeaza theta^{t+1} = theta^t + eta * (M(theta^t) - theta^t), unde eta > 1 face pasi mai mari decat EM standard. Poate accelera convergenta dar poate si diverga daca eta este prea mare.</div>
+  <div class="highlight-box"><strong>Figura 11.19:</strong> Ilustrarea EM suprarelaxat adaptat pe un amestec de 5 Gaussiene in 15 dimensiuni. Rate de actualizare mai mari (eta > 1) pot accelera semnificativ convergenta, dar risca instabilitate.</div>
+  <div class="highlight-box"><strong>Conexiunea cu MM:</strong> EM este un caz special al algoritmilor de optimizare prin minorizare-maximizare (bound optimization / MM algorithms), care construiesc si maximizeaza functii surogat inferioare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza tabloul variantelor EM. ECM descompune pasul M in sub-probleme mai simple (util pentru distributia Student t, unde Sigma si nu se actualizeaza diferit). EM suprarelaxat accelereaza convergenta prin extrapolarea directiei de actualizare, asemanator cu momentum in gradient descent. EM este incadrat in familia mai larga a algoritmilor MM.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ideea suprarelaxarii este un principiu general de accelerare: daca directia de actualizare este buna, un pas mai mare poate fi benefic. Compromisul viteza-stabilitate este gestionat prin parametrul eta. ECME permite chiar optimizarea directa a log-verosimilitudinii observate in unii pasi M.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>ECM este standard pentru ajustarea distributiilor Student t multivariate. EM suprarelaxat este util in aplicatii cu date lipsa unde EM standard converge foarte lent din cauza informatiei incomplete ridicate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In finante, modelarea randamentelor cu distributii Student t multivariate (cozi groase) beneficiaza de ECM: se actualizeaza separat matricea de covarianta Sigma si gradele de libertate nu, simplificand fiecare sub-problema.</p></div>
+  </div>
+</div>

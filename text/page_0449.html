@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii: PCA prin Deflatie, LSI si Comparatie PPCA vs FA</h2>
+  <p>Pagina continua exercitiile 12.7-12.11: PCA prin deflatie succesiva (cont.), Latent Semantic Indexing (LSI), imputarea in FA si comparatia PPCA vs FA pe date sintetice.</p>
+  <div class="highlight-box"><strong>Exercitiul 12.7 (cont.) - Deflatie (Eq. 12.131-12.133):</strong> Matricea deflata X_tilda = (I - v_1 v_1^T) X elimina componenta pe directia v_1. Covarianta deflata C_tilda = C - lambda_1 v_1 v_1^T. Vectorul propriu principal al C_tilda este v_2.</div>
+  <div class="definition-box"><strong>Exercitiul 12.8 - Latent Semantic Indexing (LSI):</strong> Se aplica SVD pe matricea termen-document pentru a crea un embedding low-dimensional. Cautarea semantica: un document query este proiectat in spatiul 2D si se calculeaza similitudinea cosinus cu documentele existente.</div>
+  <div class="highlight-box"><strong>Exercitiul 12.11 - PPCA vs FA:</strong> Model cu x_1 = z, x_2 = z + 0.001*z_2, x_3 = 10*z_3. PCA aliniaza w cu directia de varianta maxima (dim 3), FA aliniaza w cu directia de corelatie maxima (dim 1+2). Demonstreaza diferenta fundamentala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile demonstreaza aplicatii practice ale PCA si FA. LSI (Exercitiul 12.8) aplica SVD pe matrice termen-document pentru cautare semantica - documentele similare sunt apropiate in spatiul latent chiar fara cuvinte comune. Exercitiul 12.11 clarifica diferenta PCA vs FA: PCA maximizeaza varianta, FA identifica corelatia.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta PCA vs FA este subtila dar importanta: PCA este sensibila la scala (gaseste directia cu varianta bruta maxima), FA modeleaza corelatia (gaseste factorul comun ignorand zgomotul specific). In exemplul 12.11, FA identifica corect factorul latent partajat.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LSI este precursorul tehnicilor moderne de embedding (Word2Vec, BERT) si ramane o referinta importanta. Deflarea este utila cand se doresc componente calculate secvential, de exemplu in algoritme online de PCA.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In motoarele de cautare, LSI permite gasirea documentelor relevante chiar cand query-ul si documentul nu au cuvinte comune, prin capturarea relatiilor semantice latente in spatiul low-dimensional.</p></div>
+  </div>
+</div>

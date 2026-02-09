@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>IPF: Conditia de potrivire a momentelor si exemplu practic</h2>
+  <p>Aceasta pagina deriveaza conditia de optimalitate pentru IPF, prezinta pseudocodul algoritmului si ofera un exemplu numeric cu un tabel de contingenta 2x2.</p>
+  <div class="definition-box"><strong>Conditia de potrivire a momentelor:</strong> La optimul MLE, marginala modelului pentru fiecare clica trebuie sa egaleze marginala empirica: p_emp(y_c) = p(y_c|θ). Aceasta este echivalenta cu potrivirea momentelor (moment matching).</div>
+  <div class="definition-box"><strong>Algoritmul IPF (pseudocod):</strong> Se initializeaza ψ_c = 1 pentru toate clicile, apoi se itereaza: pentru fiecare clica c, se calculeaza p_c = p(y_c|ψ) si p̂_c = p_emp(y_c), apoi se actualizeaza ψ_c = ψ_c * p̂_c / p_c. Se repeta pana la convergenta.</div>
+  <div class="highlight-box"><strong>Exemplu 2x2:</strong> Pentru doua variabile binare (sex si mana dominanta) cu un tabel de contingenta 2x2, IPF gaseste potentialele ψ_1 si ψ_2 ale caror produse reproduc totalurile pe randuri si coloane ale datelor: M=[45.24, 6.76; 41.76, 6.24].</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>IPF impune iterativ ca marginalele modelului sa corespunda celor empirice. Algoritmul actualizeaza un potential la fiecare pas, inmultindu-l cu raportul marginala empirica / marginala curenta a modelului. Exemplul cu tabelul de contingenta 2x2 arata ca, pentru un graf deconectat, IPF gaseste potentialele marginale ale celor doua variabile.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>IPF este un caz special de algoritmul I-projection (minimizarea KL(p_data || p_model)). Actualizarea multiplicativa ψ_c = ψ_c * (p̂_c / p_c) garanteaza ca potentialele raman pozitive. Convergenta intr-o iteratie pentru grafuri decomposabile indica ca IPF gaseste solutia inchisa direct.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>IPF este standard in analiza log-liniara a tabelelor de contingenta, o tehnica fundamentala in statistica categoriala. Este folosit si in pre-procesarea datelor de sondaj pentru ajustarea la distributiile demografice cunoscute.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un sondaj cu 100 de persoane despre sex si mana dominanta, IPF permite construirea unui model care reproduce exact distributiile marginale (52 barbati, 48 femei; 87 dreptaci, 13 stangaci) sub ipoteza de independenta.</p></div>
+  </div>
+</div>

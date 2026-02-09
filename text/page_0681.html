@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Filtrul Kalman Fara Miros (UKF) si Transformarea Unscented</h2>
+  <p>Pagina introduce filtrul Kalman fara miros (UKF) si compara vizual cele trei abordari: esantionare reala, puncte sigma si liniarizare EKF, prin Figura 18.10.</p>
+  <div class="figure-box"><strong>Figura 18.10:</strong> Exemplu de transformare unscented in doua dimensiuni. Stanga: esantionarea reala cu media si covarianta adevarata. Centru: metoda punctelor sigma care propaga un set deterministic de puncte prin functia neliniara. Dreapta: liniarizarea EKF care aproximeaza functia cu o transformare liniara.</div>
+  <div class="definition-box"><strong>Filtrul Kalman fara miros (UKF):</strong> Versiune imbunatatita a EKF care utilizeaza transformarea unscented in loc de liniarizare Taylor. Intuitia cheie: este mai usor sa aproximezi o distributie Gaussiana decat sa aproximezi o functie neliniara.</div>
+  <div class="definition-box"><strong>EKF iterat:</strong> Varianta a EKF care re-liniarizeaza ecuatiile in jurul estimarii curente μ_t in loc de μ_{t|t-1}, obtinand rezultate mai bune cu cost computational mai mare.</div>
+  <div class="highlight-box"><strong>Limitarile EKF:</strong> EKF functioneaza slab in doua cazuri: (1) cand covarianta a priori este mare, trimitand masa de probabilitate prin regiuni indepartate de medie; (2) cand functia este puternic neliniara in jurul mediei curente.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la EKF la UKF, motivand necesitatea unei abordari mai bune pentru sisteme puternic neliniare. EKF iterat ofera o imbunatatire incrementala, dar UKF reprezinta un salt conceptual prin utilizarea punctelor sigma in loc de derivate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Comparatia vizuala din Figura 18.10 ilustreaza clar avantajul UKF: punctele sigma captureaza mai bine forma distributiei transformate decat liniarizarea. UKF este un filtru fara derivate, ceea ce il face aplicabil si functiilor ne-diferentiabile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>UKF este preferat in aplicatii cu neliniaritati puternice: reintarea in atmosfera a vehiculelor spatiale, navigatia submarina, estimarea orientarii in realitatea virtuala si urmarirea obiectelor in viziunea computerizata.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In urmarirea unei rachete care efectueaza manevre de reintare in atmosfera, modelul de miscare este puternic neliniar. UKF captureaza mai bine incertitudinea traiectoriei decat EKF, deoarece punctele sigma exploreaza efectiv spatiul de stari fara a depinde de liniarizare locala.</p></div>
+  </div>
+</div>

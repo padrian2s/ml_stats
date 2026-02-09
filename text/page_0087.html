@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Divergența KL - Demonstrație și Entropia Maximă</h2>
+  <p>Pagina prezintă demonstrația formală că KL(p||q) ≥ 0 (inegalitatea informației) utilizând inegalitatea lui Jensen, și demonstrează că distribuția uniformă maximizează entropia.</p>
+  <div class="highlight-box"><strong>Teorema 2.8.1 (Inegalitatea informației):</strong> KL(p||q) ≥ 0 cu egalitate dacă și numai dacă p = q.</div>
+  <div class="definition-box"><strong>Inegalitatea lui Jensen:</strong> Pentru orice funcție convexă f: f(Σλᵢxᵢ) ≤ Σλᵢf(xᵢ), unde λᵢ ≥ 0 și Σλᵢ = 1.</div>
+  <div class="highlight-box"><strong>Entropia maximă:</strong> H(X) ≤ log|X|, cu egalitate dacă și numai dacă p(x) este uniformă. Demonstrație: 0 ≤ KL(p||u) = −H(X) + log|X|, deci H(X) ≤ log|X|.</div>
+  <div class="definition-box"><strong>Principiul rațiunii insuficiente (Laplace):</strong> În absența altor informații, ar trebui preferate distribuțiile uniforme. Gaussiana satisface constrângeri de momente de ordinul 1 și 2 și are entropie maximă în rest.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Demonstrația KL ≥ 0 este fundamentală și se bazează pe inegalitatea lui Jensen aplicată funcției logaritm (concavă). Rezultatul despre entropia maximă conectează teoria informației cu principiul lui Laplace.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Inegalitatea Jensen este un instrument matematic esențial care apare în multe demonstrații din învățarea automată, inclusiv în limitele inferioare variaționale (ELBO) și în algoritmul EM.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Principiul entropiei maxime este utilizat în modelele MaxEnt pentru procesarea limbajului natural și în fizica statistică pentru derivarea distribuțiilor de echilibru termodinamic.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Modelele MaxEnt în ecologie estimează distribuția geografică a speciilor: dată fiind informația disponibilă (temperatură, precipitații), modelul alege distribuția cu entropia maximă consistentă cu datele.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Sectiunea 26.7.3 - Inferenta Bayesiana pentru Structura GGM</h2>
+  <p>Pagina discuta inferenta Bayesiana pentru determinarea structurii modelelor grafice Gaussiene, permitand calculul probabilitatilor posterioare ale muchiilor in loc de estimari punctuale.</p>
+  <div class="definition-box"><strong>Inferenta Bayesiana pentru GGM:</strong> In loc de estimarea punctuala a structurii (ca in Glasso), se calculeaza posteriorul p(G|D) si se extrag marginale ale muchiilor p(G_ij = 1|D), similar cu selectia Bayesiana a variabilelor.</div>
+  <div class="definition-box"><strong>Grafuri decomponabile:</strong> Grafuri pentru care verosimilitatea marginala poate fi calculata in forma inchisa folosind priori conjugate. Numarul lor este mult mai mic decat numarul total de grafuri neorientate.</div>
+  <div class="highlight-box"><strong>Aproximarea Laplace:</strong> Lenkoski si Dobra (2008) propun o aproximare Laplace pentru p(G|D), calculand estimatorul MAP al Ω sub un prior G-Wishart. Moghaddam et al. (2009) imbunatatesc aceasta metoda folosind o aproximare Laplace diagonala, mai rapida dar la fel de precisa ca BIC.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Glasso ofera doar o estimare punctuala si nu este consistent in selectia modelului (nu recupereaza graful adevarat chiar cu N → ∞). Inferenta Bayesiana permite calculul posteriorului complet p(G|D), oferind incertitudine asupra structurii. Se discuta abordari pentru grafuri decomponabile si nedecomponabile.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Analogia cu Capitolul 13 (selectia variabilelor) este explicita: selectia Bayesiana a variabilelor corespunde inferentei Bayesiene pentru structura GGM. Grafurile decomponabile permit calcule exacte dar sunt foarte restrictive (formeaza o fractie disparitoare din spatiul total de ipoteze).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Inferenta Bayesiana pentru GGM este preferata cand incertitudinea asupra structurii este importanta, de exemplu in studii medicale unde deciziile se bazeaza pe prezenta sau absenta relatiilor intre biomarkeri. Probabilitatile posterioare ale muchiilor permit cuantificarea confidentei.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Numarul de grafuri decomponabile pe V noduri creste mult mai lent decat numarul total de grafuri neorientate. De exemplu, pentru V = 8, exista 30,888,596 grafuri decomponabile fata de 2^(8*7/2) = 2^28 ≈ 268 milioane grafuri neorientate, un raport de doar 0.12. Aceasta restrictie limiteaza sever spatiul de cautare.</p></div>
+  </div>
+</div>

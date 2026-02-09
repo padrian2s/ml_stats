@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Bridge Regression si Hierarchical Adaptive Lasso (p.458)</h2>
+  <p>Aceasta pagina introduce bridge regression ca generalizare a regularizarii l1 si hierarchical adaptive lasso (HAL) ca metoda de corectare a bias-ului lasso.</p>
+  <div class="definition-box"><strong>Bridge Regression:</strong> Generalizare a regularizarii l1: w_hat = NLL(w) + lambda * suma |w_j|^b, pentru b >= 0. Corespunde MAP cu distributia putere exponentiala: ExpPower(w|mu, a, b) = b/(2a*Gamma(1+1/b)) * exp(-(|x-mu|/a)^b).</div>
+  <div class="highlight-box"><strong>Cazuri Speciale:</strong> b = 2: distributia Gaussiana (ridge regression). b = 1: distributia Laplace (lasso). b = 0: selectia celor mai bune subseturi (l0). Pentru b < 1, obiectivul nu este convex. Norma l1 este cea mai stransa aproximare convexa a normei l0.</div>
+  <div class="definition-box"><strong>Hierarchical Adaptive Lasso (HAL):</strong> Fiecare tau_j^2 are propriul parametru de ajustare gamma_j, tratat ca variabila aleatoare: gamma_j ~ IG(a, b), tau_j^2|gamma_j ~ Ga(1, gamma_j^2/2), w_j|tau_j^2 ~ N(0, tau_j^2). Aceasta produce o mixtura scalata de Laplacieni.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua abordari complementare pentru regularizarea rara: bridge regression (o familie parametrica de penalizari indexata de b) si HAL (o abordare ierarhica Bayesiana cu parametri de ajustare adaptivi pentru fiecare coeficient).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Bridge regression ilustreaza spectrul complet de la ridge (b=2, neted) la selectia de subseturi (b=0, discret), cu lasso (b=1) ca punct de tranzitie intre convex si non-convex. HAL rezolva problema bias-ului prin ajustare adaptiva a penalizarii.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>HAL este deosebit de util in situatii unde coeficientii reali au magnitudini foarte diferite: coeficientii mari primesc penalizari mici (pastrandu-si valoarea), iar coeficientii mici primesc penalizari mari (fiind eliminati).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea riscului de portofoliu, unele actiuni au expuneri mari la factorii de risc, altele mici. HAL pastreaza magnitudinea expunerilor mari nemodificata, eliminand in acelasi timp expunerile nesemnificative.</p></div>
+  </div>
+</div>

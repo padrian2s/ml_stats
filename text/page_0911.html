@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Esantioane din procesul Dirichlet - Vizualizare</h2>
+  <p>Aceasta pagina prezinta Figura 25.3 cu esantioane din modelul de amestec cu proces Dirichlet al gaussienelor 2D, demonstrand cum numarul de clustere creste cu datele.</p>
+  <div class="definition-box"><strong>Parametrul de concentrare alpha:</strong> Controleaza numarul asteptat de clustere in procesul Dirichlet. Alpha = 1 in exemplul prezentat. Cu cat alpha este mai mare, cu atat sunt generate mai multe clustere.</div>
+  <div class="highlight-box"><strong>Proprietate demonstrata vizual:</strong> Cu N=50 (putine date), se observa putine clustere; cu N=500 si N=1000, numarul de clustere creste, iar distributia rezultata seamana mai mult cu date reale decat esantioanele dintr-un amestec finit.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 25.3 ilustreaza esantioane din modelul DPM (Dirichlet Process Mixture) de gaussiene 2D cu alpha=1 si prior NIW (Normal-Inverse-Wishart) vag. Se arata trei dimensiuni ale esantionului (N=50, 500, 1000) si doua rulari diferite, demonstrand variabilitatea si cresterea numarului de clustere. Trecerea la limita infinita poate fi de fapt mai rapida computational decat compararea multiplelor modele finite.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cresterea logaritmica a numarului de clustere cu N este vizibila in figuri. Modelul DPM produce distributii mai realiste decat amestecurile finite cu K fixat incorect. Elipsele reprezinta parametrii clusterelor (media si covarianta), iar punctele sunt datele generate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Vizualizarea esantioanelor din prior este esentiala pentru calibrarea hiperparametrilor (alpha si parametrii NIW) inainte de a aplica modelul pe date reale. In practica, se verifica daca priorul genereaza structuri plauzibile.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza datelor GPS ale vehiculelor, modelul DPM poate descoperi automat locatiile frecvent vizitate (casa, serviciu, magazine), fara a specifica numarul de locatii in avans, numarul de clustere crescand pe masura ce se acumuleaza mai multe date.</p></div>
+  </div>
+</div>

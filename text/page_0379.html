@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Non-convexitatea si Introducerea Algoritmului EM</h2>
+  <p>Pagina demonstreaza ca obiectivul de optimizare pentru modelele cu variabile latente nu este nici convex nici concav, si introduce algoritmul EM ca solutie.</p>
+  <div class="definition-box"><strong>Log-verosimilitatea datelor complete:</strong> ℓc(θ) = Σᵢ log p(xᵢ, zᵢ|θ) = θᵀ(Σᵢ φ(xᵢ, zᵢ)) - NZ(θ) - aceasta este liniara in θ si concava, avand un maxim unic.</div>
+  <div class="definition-box"><strong>Log-verosimilitatea datelor observate:</strong> ℓ(θ) = Σᵢ log Σzᵢ p(xᵢ, zᵢ|θ) = Σᵢ log[Σzᵢ exp(θᵀφ(zᵢ, xᵢ))] - N log Z(θ) - diferenta a doua functii convexe, deci nici convexa nici concava.</div>
+  <div class="highlight-box"><strong>Reporniri multiple aleatorii:</strong> In practica, se ruleaza un optimizator local de mai multe ori cu initializari diferite pentru a creste sansele de a gasi un optim local „bun".</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se demonstreaza formal ca log-verosimilitatea datelor observate este diferenta a doua functii convexe (log-sum-exp si log Z(θ)), deci obiectivul nu este nici convex nici concav si are optime locale. Majoritatea algoritmilor de optimizare vor gasi doar un optim local, iar rezultatul depinde de punctul de pornire. Se introduce apoi algoritmul EM ca solutie eleganta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Morala este sa nu ne fie teama de non-convexitate. Metodele cu penalizari non-convexe, cum ar fi cele de promovare a sparsitatii, pot fi optimizate eficient cu EM. Initializarea atenta este la fel de importanta ca alegerea algoritmului.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Metode convexe alternative, cum ar fi atribuirea unui cluster per punct de date cu penalizare ℓ₁, au fost propuse pentru ajustarea amestecurilor Gaussiene, dar penalizarea ℓ₁ nu este neaparat optima pentru promovarea sparsitatii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In compresia de imagini cu cuantizare vectoriala (bazata pe K-means/GMM), initializarea clusterelor folosind K-means++ reduce semnificativ numarul de reporniri necesare pentru a obtine o solutie buna.</p></div>
+  </div>
+</div>

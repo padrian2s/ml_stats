@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Pasul M pentru MVN cu Date Lipsa si Exercitii</h2>
+  <p>Pagina completeaza derivarea pasului M, prezinta un exemplu practic si introduce extensia la cazul GMM, urmate de exercitiile capitolului 11.</p>
+  <div class="highlight-box"><strong>Pasul M (Eq. 11.112-11.113):</strong> mu^t = (1/N) suma_i E[x_i], Sigma^t = (1/N) suma_i E[x_i x_i^T] - mu^t (mu^t)^T. Important: nu este echivalent cu simpla inlocuire a variabilelor lipsa cu asteptarile lor - trebuie folosite statisticile suficiente asteptate.</div>
+  <div class="highlight-box"><strong>Exemplu practic (Sectiunea 11.6.1.4):</strong> N=100 observatii 10-dimensionale cu 50% date lipsa. Parametrii estimati prin EM sunt aproape la fel de buni ca parametrii reali. Performanta se imbunatateste cu mai multe date sau mai putine date lipsa.</div>
+  <div class="definition-box"><strong>Extensia la GMM:</strong> Ajustarea unui amestec de Gaussiene cu date partial observate se extinde natural din cazul MVN singur, combinand imputarea conditionata cu asignarea probabilistica la componente.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pasul M pentru MVN cu date lipsa foloseste aceleasi formule MLE standard, dar cu statisticile suficiente asteptate din pasul E. Greseala comuna de a inlocui pur si simplu valorile lipsa cu medii si apoi a aplica MLE standard duce la subestimarea variantei. Exemplul practic confirma ca EM functioneaza bine chiar si cu 50% date lipsa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Principiul "plug-in ESS" (expected sufficient statistics): pasul M al EM este intotdeauna identic cu MLE/MAP standard, dar cu statisticile suficiente inlocuite de asteptarile lor conditionate. Acest principiu simplifica enorm derivarea EM pentru noi modele.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Implementarea gaussMissingFitEm este disponibila ca pachet software. Extensia la GMM permite clustering simultan cu imputare, util cand datele au structura de cluster si sunt incomplete.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recomandare, matricea utilizator-produs este extrem de sparsa (>99% date lipsa). EM pentru modele de amestec cu date lipsa permite atat gruparea utilizatorilor in segmente, cat si prezicerea evaluarilor lipsa.</p></div>
+  </div>
+</div>

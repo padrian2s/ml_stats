@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Mean field ca problema de optimizare variationala</h2>
+  <p>Aceasta pagina reformuleaza inferenta mean field in cadrul optimizarii variationale, definind spatiul parametrilor restrictionat si functionala de energie mean field.</p>
+  <div class="definition-box"><strong>Spatiul parametrilor restrictionat Omega(F):</strong> Pentru o aproximare factorizata complet, F_0 elimina toate muchiile, deci theta_st = 0 pentru toate (s,t). Spatiul parametrilor medii corespunzator M_F(G) este o aproximare interioara (neconvexa) a politopului marginal M(G).</div>
+  <div class="definition-box"><strong>Functionala de energie mean field:</strong> max_{mu in M_F(G)} theta^T * mu + H(mu) <= log Z(theta). Obiectivul este concav dar multimea M_F(G) este neconvexa, ceea ce duce la optime locale multiple.</div>
+  <div class="highlight-box"><strong>Actualizarea mean field:</strong> mu_s(x_s) proportional cu exp(theta_s(x_s)) * exp(sum_{t in nbr(s)} sum_{x_t} mu_t(x_t) * theta_st(x_s,x_t)), care este optimizarea coordonata a obiectivului concav peste o multime neconvexa.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina reinterpreteaza mean field ca optimizare peste un politop interior M_F(G). Desi obiectivul este concav, neconvexitatea multimii face ca solutia sa depinda de initializare. Se face tranzitia catre discutia LBP ca problema variationala in sectiunea 22.3.5.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Comparatia dintre M_F(G) (interior, neconvex) si L(G) (exterior, convex) evidentiaza avantajele si dezavantajele fiecarei metode. Mean field subestimeaza log Z (margine inferioara), iar LBP poate supraestima (nu garanteaza o margine).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Mean field este preferat cand se doreste o margine inferioara pe verosimilitatea marginala (util pentru selectia modelului), in timp ce LBP este preferat cand se doreste acuratete mai mare a marginalelor estimate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In selectia automata a modelului in NLP (alegerea numarului de topicuri intr-un model LDA), margina inferioara VB oferita de mean field serveste ca criteriu de comparare intre modele cu numere diferite de topicuri.</p></div>
+  </div>
+</div>

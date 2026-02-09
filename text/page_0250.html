@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Metoda Celor Mai Mici Pătrate și Derivarea MLE</h2>
+  <p>Pagina ilustrează geometric metoda celor mai mici pătrate și începe derivarea analitică a MLE-ului pentru regresia liniară.</p>
+  <div class="figure-box"><strong>Figura 7.2:</strong> (a) Ilustrarea geometrică a least squares: se minimizează suma lungimilor liniilor verticale albastre (distanțele pătrate de la punctele roșii la linia de regresie roșie). Reziduurile sunt verticale, nu perpendiculare pe linia de regresie. (b) Contururile suprafeței RSS în spațiul parametrilor (w₀, w₁). Crucea roșie marchează MLE w = (1.45, 0.93). Suprafața este un „bol" pătratic cu un singur minim global.</div>
+  <div class="highlight-box"><strong>Forma matriceală a NLL:</strong> NLL(w) = (1/2)(y - Xw)^T(y - Xw) = (1/2)w^T(X^T X)w - w^T(X^T y), o formă pătratică în w cu un minim unic.</div>
+  <div class="definition-box"><strong>Reziduurile:</strong> εᵢ = yᵢ - w^T xᵢ, diferența dintre valoarea observată și valoarea prezisă. Liniile verticale albastre din Figura 7.2(a) reprezintă aceste reziduuri.</div>
+  <div class="highlight-box"><strong>Observație geometrică importantă:</strong> Reziduurile least squares sunt distanțe verticale (în direcția y), nu perpendiculare pe linia de regresie. Aceasta reflectă presupunerea că zgomotul este numai în y, nu și în x.</div>
+  <div class="highlight-box"><strong>Proprietatea de convexitate:</strong> NLL(w) este o funcție pătratică convexă, deci are un unic minim global. Contururile din Figura 7.2(b) sunt elipse centrate pe soluția optimă.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Vizualizarea geometrică clarifică ce face exact least squares: minimizează suma distanțelor pătrate verticale de la punctele de date la linia de regresie. Forma matriceală a NLL arată că problema este o optimizare pătratică cu soluție analitică unică, datorită convexității funcției obiectiv.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Convexitatea este proprietatea cheie care face regresia liniară computațional tractabilă. Matricea X^T X (matricea Gram) determină forma „bolului" pătratic - eigenvalorile sale controlează rata de convergență a metodelor iterative. Dacă X^T X este singulară, soluția nu este unică.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Forma matriceală permite implementări foarte eficiente folosind biblioteci de algebră liniară optimizate (BLAS, LAPACK). Pentru date mari, se pot folosi metode iterative (gradient descent) în loc de soluția directă.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La ajustarea unei linii de tendință pentru vânzările unei companii în funcție de bugetul de publicitate, Figura 7.2(a) arată exact ce face regresia: găsește linia care minimizează suma abaterilor pătrate ale vânzărilor reale față de cele prezise.</p></div>
+  </div>
+</div>

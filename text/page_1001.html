@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>PCA Categoric Discriminativ si LVM-uri pentru Date Structurate pe Grafuri (Capitolul 27.5)</h2>
+  <p>Pagina prezinta PCA categoric discriminativ cu intrari si introduce sectiunea 27.5 despre modele cu variabile latente pentru date structurate pe grafuri, incluzand matricea de adiacenta si aplicatii.</p>
+  <div class="figure-box"><strong>Figura 27.17:</strong> (a) PCA categoric cu intrari si iesiri interschimbabile - modelul grafic arata fluxul x_i -> z_i (prin V) -> y_il (prin W). (b) Aceeasi structura cu nodurile vectoriale expandate, evidentiind conexiunile complete intre straturi.</div>
+  <div class="definition-box"><strong>Strat Bottleneck Latent:</strong> Diferenta cheie fata de o retea neurala conventionala este ca informatia poate curge intre variabilele y_il prin stratul latent z_i. Acest lucru functioneaza mai bine cand etichetele de iesire sunt puternic corelate, o problema frecventa in clasificarea multi-eticheta.</div>
+  <div class="definition-box"><strong>Matricea de Adiacenta:</strong> Orice graf pe D noduri poate fi reprezentat ca o matrice de adiacenta D x D, G, unde G(i,j) = 1 daca exista o muchie de la nodul i la nodul j. Aceste matrice sunt binare si adesea foarte rare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la extensiile LDA la modelele pentru date structurate pe grafuri. PCA categoric discriminativ este esential o retea neurala probabilistica cu strat ascuns, iar sectiunea 27.5 introduce reprezentarea grafurilor prin matrice de adiacenta si obiectivele analizei: descoperirea structurii si predictia legaturilor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Stratul bottleneck latent permite transferul de informatie intre iesiri corelate, un avantaj crucial fata de predictia independenta. Modelarea grafurilor necesita abordari speciale deoarece variabilele latente ale nodurilor devin corelate prin structura grafului.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelarea retelelor sociale (cine este prieten cu cine), retele de interactiuni proteina-proteina in bioinformatica, retele de transmisie a bolilor in epidemiologie si retele de citari in academia.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Facebook sau LinkedIn pot folosi modele cu variabile latente pe grafuri pentru a descoperi comunitati de utilizatori si a prezice conexiuni viitoare ("persoane pe care le-ati putea cunoaste") bazat pe structura retelei sociale existente.</p></div>
+  </div>
+</div>

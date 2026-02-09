@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exerciții - Clasificarea Spam-ului cu Regresia Logistică</h2>
+  <p>Pagina începe secțiunea de exerciții a Capitolului 8, cu un exercițiu detaliat despre clasificarea spam-ului folosind regresia logistică cu diferite metode de preprocesare a caracteristicilor.</p>
+  <div class="highlight-box"><strong>Exercițiul 8.1 - Clasificarea spam-ului:</strong> Setul de date conține 4601 e-mailuri cu 57 de caracteristici: 48 frecvențe de cuvinte [0,100], 6 frecvențe de caractere speciale, și 3 caracteristici despre literele majuscule. Set de antrenament: 3065, set de test: 1536.</div>
+  <div class="definition-box"><strong>Preprocesarea caracteristicilor:</strong> Trei variante testate: (a) Standardizare (medie 0, varianță 1); (b) Transformare logaritmică log(x_{ij} + 0.1); (c) Binarizare I(x_{ij} > 0). Fiecare afectează performanța regresiei logistice diferit.</div>
+  <div class="highlight-box"><strong>Rezultate orientative:</strong> Standardizat: eroare antrenament 0.082, test 0.079; Log-transformat: 0.052 / 0.059; Binarizat: 0.065 / 0.072. Transformarea logaritmică oferă cele mai bune rezultate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercițiul 8.1 demonstrează importanța practică a preprocesării caracteristicilor. Transformarea logaritmică funcționează cel mai bine deoarece frecvențele de cuvinte au distribuții puternic asimetrice (multe zerouri, câteva valori mari), iar logaritmul le comprimă, producând o distribuție mai simetrică și mai compatibilă cu presupunerile regresiei logistice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Alegerea preprocesării poate avea un impact mai mare decât alegerea algoritmului. Binarizarea pierde informație (frecvența exactă), dar este robustă la outlieri. Standardizarea presupune o relație liniară cu log-odds-ul, ceea ce poate fi inadecvat pentru distribuții asimetrice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Filtrarea spam-ului este una dintre cele mai de succes aplicații ale ML. Sisteme moderne (Gmail) folosesc rețele neurale, dar regresia logistică cu caracteristici bine alese rămâne competitivă și este folosită ca baseline în cercetare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Setul de date spam din exercițiu (colectat de George Forman de la HP Labs) este unul dintre cele mai utilizate seturi de benchmark din ML. Cuvântul „george" apare frecvent (e-mailurile lui Forman), arătând că preprocesarea trebuie adaptată la context.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Metode Cutting Plane pentru Antrenarea SSVM-urilor</h2>
+  <p>Pagina prezinta algoritmul cutting plane pentru antrenarea eficienta a SSVM-urilor, ilustrat cu Figura 19.21 si inceputul sectiunii despre decodarea cu pierdere augmentata.</p>
+  <div class="figure-box"><strong>Figura 19.21:</strong> Ilustrarea algoritmului cutting plane in 2D. (a) Se incepe cu w = w₀ = 0, se adauga prima constrangere, regiunea umbrita este noul set fezabil, solutia cu norma minima este w₁. (b) Se adauga o alta constrangere, regiunea intunecata este noul set fezabil. (c) Se adauga o a treia constrangere, rafinand si mai mult setul fezabil.</div>
+  <div class="definition-box"><strong>Metoda cutting plane:</strong> Un algoritm iterativ din optimizarea convexa (Kelley, 1960) care incepe cu w si fara constrangeri, apoi adauga iterativ constrangerile cele mai violate pana la convergenta.</div>
+  <div class="highlight-box"><strong>Pachetul SVMstruct:</strong> Implementarea populara a algoritmului cutting plane pentru SSVM-uri, care poate gestiona functii de pierdere generale.</div>
+  <div class="highlight-box"><strong>Decodare cu pierdere augmentata:</strong> argmax_{y∈Y} L(yᵢ,y) - wᵀδᵢ(y) = argmax_{y∈Y} L(yᵢ,y) + wᵀφ(xᵢ,y) (Ecuatia 19.107) - gasirea constrangerii cel mai violate, un pas cheie in eficienta algoritmului.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul cutting plane rezolva problema numarului exponential de constrangeri prin adaugarea iterativa doar a constrangerilor cel mai violate. La fiecare iteratie, se gaseste exemplul cu cea mai mare violare a marginii augmentate cu pierdere, se adauga constrangerea corespunzatoare, si se rezolva QP-ul rezultat. Doar un numar polinomial de constrangeri trebuie adaugate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Metoda cutting plane exploateaza faptul ca din numarul exponential de constrangeri, doar un numar mic sunt active la optim. Figura 19.21 ilustreaza vizual cum setul fezabil este rafinat iterativ prin adaugarea de hiperplane care taie regiuni nefezabile. Eficienta depinde de capacitatea de a rezolva subproblema de decodare augmentata.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SVMstruct este unul dintre cele mai utilizate pachete software pentru antrenarea SSVM-urilor si este disponibil public. Este folosit in cercetarea academica si in industrie pentru probleme de clasificare structurata, de la NLP la viziune computationala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia obiectelor, SSVM-ul trebuie sa prezica atat categoria obiectului cat si cadrul de delimitare (bounding box). Algoritmul cutting plane permite antrenarea eficienta chiar daca spatiul iesirilor (toate combinatiile posibile de categorii si pozitii) este imens.</p></div>
+  </div>
+</div>

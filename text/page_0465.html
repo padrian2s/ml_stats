@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LASSO: Soft Thresholding, Hard Thresholding si lambda_max</h2>
+  <p>Pagina completeaza analiza soft thresholding, explica numele LASSO si calculeaza lambda_max (valoarea maxima a lui lambda deasupra careia toate ponderile sunt zero).</p>
+  <div class="highlight-box"><strong>Solutia LASSO prin soft thresholding (Eq. 13.54-13.56):</strong> w_hat_j = sign(c_j)(|c_j| - lambda)_+ / a_j. Bias-ul LASSO: linia soft thresholding nu coincide cu diagonala, deci chiar si coeficientii mari sunt micsortati spre zero.</div>
+  <div class="definition-box"><strong>LASSO = Least Absolute Shrinkage and Selection Operator:</strong> Selectie: pune coeficientii cu |c_j| <= lambda la zero. Shrinkage: micsoreaza coeficientii ramasi cu lambda. Least Absolute: penalizeaza suma valorilor absolute.</div>
+  <div class="highlight-box"><strong>lambda_max (Eq. 13.57-13.58):</strong> lambda_max = ||X^T y||_inf = max_j |y^T x_{:,j}|. Daca lambda >= lambda_max, toate ponderile sunt zero (w_hat = 0). In general, lambda_max = max_j |grad_j NLL(0)|.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Explicatia numelui LASSO clarifca mecanismul dual: selectie (zerouri) + shrinkage (micsorare). lambda_max este valoarea critica: pentru lambda > lambda_max, modelul trivial w = 0 este optim. Cale de regularizare (regularization path) variaza lambda de la lambda_max la 0, trecand de la modelul nul la OLS.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Bias-ul shrinkage al LASSO este pretul platit pentru convexitate: l0/hard thresholding nu are bias dar nu este convex, l1/soft thresholding are bias dar este convex. Elastic net si penalizarile non-convexe (SCAD, MCP) incearca sa combine avantajele.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>lambda_max este punctul de start natural pentru calea de regularizare (regularization path). Pachetele software (glmnet) calculeaza eficient intreaga cale, de la lambda_max la o fractiune din lambda_max, folosind warm starting.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In selectia de biomarkeri pentru diagnosticul cancerului, calea de regularizare LASSO arata ordinea de intrare a genelor in model pe masura ce lambda scade, oferind o ierarhizare naturala a importantei genelor.</p></div>
+  </div>
+</div>

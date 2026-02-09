@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Procesul VAR si grafuri de tip lant Gaussiene</h2>
+  <p>Aceasta pagina prezinta procesele vectoriale autoregresive (VAR) ca exemplu de combinare a DGM-urilor si UGM-urilor in grafuri de tip lant, cu aplicatii in analiza seriilor temporale.</p>
+  <div class="definition-box"><strong>Proces VAR (Vector Auto-Regressive):</strong> Un model de serii temporale multivariate unde starea la momentul t depinde liniar de starile la momentele anterioare: p(y_t|y_{t-1}, y_{t-2}, θ) = N(y_t | A_1 y_{t-1} + A_2 y_{t-2}, Σ). Aspectul temporal este modelat ca DGM, iar corelatia intre componente ca UGM.</div>
+  <div class="definition-box"><strong>Graf de tip lant (chain graph):</strong> Un graf care combina muchii directionate (pentru relatii temporale cauzale) cu muchii nedirectionate (pentru corelatii simetrice intre componente la acelasi moment de timp).</div>
+  <div class="highlight-box"><strong>Sparsitatea duala:</strong> Matricele A_1, A_2 (regresie) sunt sparse, indicand dependente temporale selective, iar Σ^{-1} (precizie) este sparse, indicand independente conditionate intre componente. Aceasta combinatie ofera un model parcimonios si interpretabil.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Procesele VAR combina avantajele ambelor formalisme: DGM-urile captureaza cauzalitatea temporala naturala (trecutul influenteaza viitorul), iar UGM-urile captureaza corelatiile simetrice intre variabile la acelasi moment de timp. Graful de tip lant rezultat este mai expresiv decat oricare formalism individual.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Sparsitatea in A indica cauzalitate Granger (care variabile din trecut influenteaza pe care in viitor). Sparsitatea in Σ^{-1} indica independente conditionate contemporane. Combinarea ofera un model complet al structurii de dependenta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele VAR sunt standarde in macroeconomie (modelarea interactiunilor intre PIB, inflatie, rata dobanzii), neurostiinta (conectivitatea functionala cerebrala) si climatologie (teleconexiuni climatice).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In neurostiinta, un model VAR cu 5 variabile (regiuni cerebrale) poate captura atat influenta temporala (regiunea A la t-1 influenteaza regiunea B la t) cat si coactivarea simultana (regiunile C si D tind sa fie active impreuna), oferind o imagine completa a conectivitatii cerebrale.</p></div>
+  </div>
+</div>

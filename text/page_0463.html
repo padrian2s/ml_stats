@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Conditii de Optimalitate pentru LASSO: Subgradient si Subdiferential</h2>
+  <p>Pagina introduce conceptele de subderivativa si subdiferential necesare pentru analiza LASSO, deoarece norma l1 nu este diferentiabila in zero.</p>
+  <div class="definition-box"><strong>Subderivativa/Subgradient (Eq. 13.44-13.46):</strong> O subderivativa g a functiei convexe f la theta_0 satisface f(theta) - f(theta_0) >= g(theta - theta_0). Subdiferentialul partial f(theta)|_{theta_0} = [a, b] este intervalul tuturor subderivativelor.</div>
+  <div class="highlight-box"><strong>Figura 13.4:</strong> Ilustrarea subderivativelor: la un punct nediferentiabil, orice dreapta care trece prin punct si sta sub functie defineste un subgradient. Setul lor formeaza subdiferentialul.</div>
+  <div class="highlight-box"><strong>Subdiferentialul valorii absolute (Eq. 13.47):</strong> partial |theta| = {-1} daca theta < 0, [-1, +1] daca theta = 0, {+1} daca theta > 0. La zero, subdiferentialul este intregul interval [-1, 1].</div>
+  <div class="definition-box"><strong>Conditia de optimalitate:</strong> theta_hat este minim local al f daca si numai daca 0 in partial f(theta)|_{theta_hat}. Generalizarea conditiei clasice df/dtheta = 0 la functii ne-smooth.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Conceptele de subgradient si subdiferential sunt esentiale pentru intelegerea LASSO. Valoarea absoluta |w_j| nu are derivata in zero, dar subdiferentialul [-1, 1] la zero permite derivarea conditiilor de optimalitate: w_j = 0 este optim daca |c_j| <= lambda, adica feature-ul j nu este suficient de corelat cu reziduul.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Subdiferentialul la zero este un interval, nu un punct - aceasta permite ca w_j = 0 sa fie optim pentru o gama de valori ale gradientului, nu doar pentru gradient zero. Aceasta este mecanismul matematic precis prin care l1 produce sparsitate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Calculul subgradient este fundamentul algoritmilor proximali (ISTA, FISTA) care sunt standard pentru optimizarea LASSO la scara mare. Intelegerea subdiferentialului este necesara pentru verificarea corectitudinii solutiilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In optimizarea de portofolii cu constrangeri de sparsitate, conditiile KKT (bazate pe subgradient) determina exact care active sunt incluse in portofoliu si care sunt excluse, in functie de raportul rendament/risc.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exerciții Avansate - Capitolul 3: Modele Ierarhice și Priori Empirice</h2>
+  <p>Pagina prezintă exerciții despre modelarea ierarhică Bayesiană, unde hiperparametrii sunt ei înșiși tratați ca variabile aleatoare cu propriile lor priori (hiper-priori).</p>
+  <div class="definition-box"><strong>Modele ierarhice:</strong> Structură cu mai multe niveluri: date → parametri → hiperparametri → hiper-priori. Exemplu: xᵢ ~ Ber(θ), θ ~ Beta(α,β), (α,β) ~ p(α,β).</div>
+  <div class="highlight-box"><strong>Priori empirice:</strong> Estimarea hiperparametrilor din date prin maximizarea verosimilității marginale: (α̂,β̂) = argmax p(D|α,β) = argmax ∫p(D|θ)p(θ|α,β)dθ. Numită și estimare de tip II.</div>
+  <div class="highlight-box"><strong>Avantajele modelelor ierarhice:</strong> (1) Permit partajarea informației între grupuri similare. (2) Adaptează automat gradul de regularizare. (3) Sunt mai robuste la specificarea greșită a priorului.</div>
+  <div class="definition-box"><strong>Contracția (shrinkage) ierarhică:</strong> Grupuri cu puține date sunt „trase" mai puternic către media globală, în timp ce grupuri cu date suficiente își păstrează estimările proprii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelele ierarhice extind cadrul Bayesian prin adăugarea de niveluri de incertitudine. Priori empirice oferă un compromis practic: estimează hiperparametrii din date fără a specifica totul a priori.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Contracția ierarhică este un fenomen fundamental: grupuri cu puține date „împrumută putere" de la alte grupuri similare. Aceasta este baza meta-învățării și a transferului de învățare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modele ierarhice sunt standard în analiza datelor clinice multi-centru, în educație (evaluarea școlilor), și în baseball (estimarea ratelor de batting cu date limitate).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Evaluarea spitalelor după rata mortalității: spitale mici (puțini pacienți) beneficiază de contracție ierarhică, evitând clasificări false ca „cele mai bune" sau „cele mai rele" doar din cauza varianței mari.</p></div>
+  </div>
+</div>

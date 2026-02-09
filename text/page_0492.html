@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Comportamentul de Pragare si Distributia t Generalizata (p.461)</h2>
+  <p>Aceasta pagina analizeaza comportamentul de pragare al HAL comparativ cu lasso si introduce distributia t generalizata (dubla Pareto) ca marginala a HAL.</p>
+  <div class="figure-box"><strong>Figura 13.19:</strong> Comportamentul de pragare al doua functii de penalizare. (a) Lasso: pragare soft - coeficientii mari sunt micsorati catre zero (linia punctata sub diagonala). (b) HAL: pragare aproape hard - coeficientii mari sunt pastrati aproape la valoarea MLE (linia aproape diagonala).</div>
+  <div class="definition-box"><strong>Distributia t Generalizata (Dubla Pareto):</strong> GT(w|mu, a, c, q) = q / (2c*a^{1/q}*B(1/q, a)) * (1 + |w-mu|^q / (a*c^q))^{-(a+1/q)}. Cazuri speciale: q=2, c=sqrt(2): distributia t Student; q=1, a=infinit: distributia Laplace.</div>
+  <div class="highlight-box"><strong>Penalizarea HAL:</strong> pi_lambda(w_j) = (a+1) * log(1 + |w_j|/b) + const. Aceasta penalizare logaritmica pune mult mai multa densitate de-a lungul axelor ("forma de stea"), impunand raritate mai agresiv decat diamantul Laplace.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Comparatia vizuala dintre pragarea soft (lasso) si pragarea aproape hard (HAL) demonstreaza avantajul principal al HAL: coeficientii mari sunt pastrati la valoarea lor adevarata, reducand dramatic bias-ul estimatorilor lasso.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Legatura cu distributia t generalizata ofera un cadru unificator: familia de priori HAL interpoleaza continuu intre Laplace (regularizare convexa cu bias) si priori cu cozi foarte grele (regularizare non-convexa fara bias).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In orice aplicatie unde amplitudinea coeficientilor are semnificatie fizica (concentratii chimice, intensitati de semnal), HAL este preferat fata de lasso deoarece pastreaza aceste amplitudini.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In monitorizarea calitatii aerului, concentratiile poluantilor variaza enorm. HAL identifica corect poluantii prezenti si estimeaza concentratiile lor fara bias-ul sistematic de subestimare al lasso-ului.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 10: Modele Grafice Directionate (Retele Bayes)</h2>
+  <p>Pagina de titlu a Capitolului 10, care introduce modelele grafice directionate (retele bayesiene), prezentand regula lantului si conceptul de distributie comuna.</p>
+  <div class="definition-box"><strong>Distributia comuna:</strong> Reprezentarea compacta a distributiei comune p(x|θ) pentru variabile corelate multiple, cum ar fi cuvintele intr-un document, pixelii dintr-o imagine sau genele dintr-un microarray.</div>
+  <div class="definition-box"><strong>Regula lantului (chain rule):</strong> Orice distributie comuna poate fi descompusa ca: p(x_{1:V}) = p(x_1) p(x_2|x_1) p(x_3|x_2, x_1) p(x_4|x_1, x_2, x_3) ... p(x_V|x_{1:V-1}), unde V este numarul de variabile.</div>
+  <div class="highlight-box"><strong>Regula lantului (10.1):</strong> p(x_{1:V}) = p(x_1) p(x_2|x_1) p(x_3|x_2, x_1) ... p(x_V|x_{1:V-1}).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 10 abordeaza una dintre cele mai importante teme in invatarea automata probabilistica: modelele grafice. Citatul lui Michael Jordan subliniaza cele doua principii fundamentale - modularitatea si abstractizarea - implementate prin factorizare si mediere. Regula lantului permite descompunerea oricarei distributii comune, dar necesita tabele de probabilitate conditionata (CPT) de dimensiune exponentiala O(K^V).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Problema fundamentala: reprezentarea directa prin regula lantului necesita O(K^V) parametri, ceea ce este intractabil pentru un numar mare de variabile. Solutia va fi introducerea de presupuneri de independenta conditionata prin modele grafice. Matricea stocastica T, unde p(x_2=j|x_1=i) = T_ij, este un exemplu simplu de reprezentare compacta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele grafice sunt fundamentale in bioinformatica (retele de gene), procesarea limbajului natural (modele de limbaj), viziune computerizata (segmentarea imaginilor), diagnosticare medicala si multe alte domenii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de diagnosticare medicala poate reprezenta relatiile dintre simptome si boli ca un model grafic: fiecare simptom si fiecare boala este un nod, iar arcele directionate codifica relatiile cauzale (de exemplu, gripa cauzeaza febra si tuse).</p></div>
+  </div>
+</div>

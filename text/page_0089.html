@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Informația Mutuală pentru Variabile Continue și Coeficientul Maximal de Informație</h2>
+  <p>Pagina discută MI pentru variabile continue, introduce coeficientul maximal de informație (MIC) și prezintă o aplicație practică pe datele OMS.</p>
+  <div class="definition-box"><strong>MI pentru variabile continue:</strong> Poate fi estimată prin discretizare (binning) a variabilelor, dar rezultatele depind de numărul și locația bin-urilor.</div>
+  <div class="definition-box"><strong>Coeficientul maximal de informație (MIC):</strong> m(x,y) = max_{G∈G(x,y)} I(X(G);Y(G)) / log min(x,y), unde se maximizează peste toate grilele 2D de dimensiune x×y.</div>
+  <div class="highlight-box"><strong>MIC:</strong> MIC ≜ max_{x,y:xy≤B} m(x,y), cu B = N^0.6. MIC ∈ [0,1], unde 0 = nicio relație și 1 = relație fără zgomot de orice formă.</div>
+  <div class="figure-box"><strong>Figura 2.22:</strong> Corelația Pearson vs MIC pentru 63.566 perechi de variabile din datele OMS cu 357 variabile. MIC detectează relații neliniare (E, F, G) pe care corelația le ratează, dar și relații liniare (D, H).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MIC generalizează corelația detectând relații de orice formă. Comparația cu corelația Pearson pe datele OMS arată clar avantajul: punctele cu CC scăzut dar MIC ridicat corespund relațiilor neliniare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>MIC a fost numit „o corelație pentru secolul 21". Avantajul principal: echitate - detectează relații liniare și neliniare cu aceeași sensibilitate. Dezavantajul: cost computațional mai mare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MIC este util în explorarea datelor biomedicale, economice și sociale unde relațiile sunt adesea neliniare. Permite descoperirea automată a relațiilor interesante în seturi mari de date.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Analiza datelor OMS cu MIC a revelat relații surprinzătoare: de exemplu, relația neliniară între cheltuielile de sănătate și speranța de viață, care saturează dincolo de un anumit prag de cheltuieli.</p></div>
+  </div>
+</div>

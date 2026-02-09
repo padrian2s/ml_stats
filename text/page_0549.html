@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Predictii cu observatii zgomotoase in Procese Gaussiene</h2>
+  <p>Aceasta pagina prezinta predictia GP cu observatii zgomotoase, distributia comuna a datelor observate si a punctelor de test, si formula predictiva posterioara.</p>
+  <div class="definition-box"><strong>Covarianta observatiilor zgomotoase:</strong> cov[y_p, y_q] = kappa(x_p, x_q) + sigma_y^2 * delta_pq, unde zgomotul independent se adauga fiecarei observatii, rezultand matricea K_y = K + sigma_y^2 * I_N.</div>
+  <div class="highlight-box"><strong>Distributia predictiva posterioara:</strong> p(f_*|X_*, X, y) = N(f_*|mu_*, Sigma_*) unde mu_* = K_*^T K_y^{-1} y si Sigma_* = K_{**} - K_*^T K_y^{-1} K_*, permitand predictii cu incertitudine calibrata.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina extinde regresia GP la cazul realist al observatiilor zgomotoase, unde y = f(x) + epsilon cu epsilon ~ N(0, sigma_y^2). Media predictiva posterioara este o combinatie liniara ponderata a observatiilor, f_* = sum(alpha_i * kappa(x_i, x_*)), unde alpha = K_y^{-1} y. Varianta predictiva creste pe masura ce ne indepartam de datele de antrenament.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Formula predictiva are o structura eleganta: media este o combinatie liniara de evaluari ale kernelului (similar cu metodele kernel), iar varianta captureaza doua surse de incertitudine - incertitudinea functiei si zgomotul observatiei. Expresia mu_* = K_*^T K_y^{-1} y arata ca predictia este o interpolare ponderata a datelor observate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia GP cu zgomot este fundamentala in optimizarea Bayesiana, modelarea surogatelor, si prognoza seriilor temporale. Aplicatia DACE (Design and Analysis of Computer Experiments) foloseste GP fara zgomot ca proxy ieftin computational pentru simulatoare complexe.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In prognoza meteo, un GP poate fi antrenat pe iesirile unui simulator atmosferic costisitor. In loc sa rulam simulatorul pentru fiecare combinatie de parametri, antrenam GP-ul pe cateva rulari si folosim predictia GP pentru a explora rapid spatiul parametrilor.</p></div>
+  </div>
+</div>

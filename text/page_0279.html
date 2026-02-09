@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Căutare Liniară, Comportamentul Zig-Zag și Momentum</h2>
+  <p>Pagina discută metode de îmbunătățire a coborârii pe gradient: căutarea liniară pentru stabilitate, explicația comportamentului zig-zag, și adăugarea termenului de momentum pentru accelerare.</p>
+  <div class="figure-box"><strong>Figura 8.3:</strong> (a) Coborârea pe gradient cu căutare liniară pe aceeași funcție ca Figura 8.2, pornind de la (0,0). (b) Ilustrarea faptului că la sfârșitul unei căutări liniare, gradientul local este perpendicular pe direcția de căutare, explicând comportamentul zig-zag.</div>
+  <div class="definition-box"><strong>Convergență globală:</strong> Proprietatea unui algoritm de a fi garantat să convergă la un optim local indiferent de punctul de pornire. Nu trebuie confundată cu convergența la optimul global!</div>
+  <div class="definition-box"><strong>Căutare liniară (Line Search):</strong> Metoda de alegere a ratei de învățare η prin minimizarea φ(η) = f(θ_k + ηd_k), rezolvând o problemă de optimizare 1D la fiecare pas.</div>
+  <div class="highlight-box"><strong>Momentum (Ecuația 8.12):</strong> θ_{k+1} = θ_k - η_k g_k + μ_k(θ_k - θ_{k-1}), unde 0 ≤ μ_k ≤ 1 controlează importanța termenului de momentum. Cunoscut și ca metoda bilei grele (heavy ball method).</div>
+  <div class="definition-box"><strong>Gradienți conjugați:</strong> Metodă alternativă pentru eliminarea zig-zag-ului, optimă pentru obiective pătratice f(θ) = θ&#7488;Aθ. Varianta neliniară este mai puțin populară.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Căutarea liniară rezolvă problema alegerii ratei de învățare prin optimizarea ei la fiecare pas. Totuși, aceasta produce un comportament zig-zag deoarece direcțiile consecutive sunt ortogonale. Termenul de momentum atenuează acest efect prin adăugarea unei „inerții" bazate pe pașii anteriori. Metodele de gradienți conjugați oferă o alternativă elegantă pentru funcții pătratice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ortogonalitatea direcțiilor consecutive în căutarea liniară exactă este o consecință matematică: condiția de optimalitate φ'(η) = 0 implică g ⊥ d. Momentum-ul este o euristică simplă dar eficientă care „amortizează" oscilațiile, similar cu fizica unei bile care se rostogolește pe o suprafață.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SGD cu momentum este algoritmul standard pentru antrenarea rețelelor neurale profunde. Variante moderne precum Nesterov momentum (accelerated gradient) oferă garanții teoretice de convergență mai puternice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Imaginați-vă o minge care se rostogolește într-o vale. Fără momentum, mingea oscilează între pereții vaii. Cu momentum, mingea acumulează viteză în direcția dominantă și traversează rapid valea spre minim, similar cu modul în care SGD cu momentum accelerează convergența în învățarea profundă.</p></div>
+  </div>
+</div>

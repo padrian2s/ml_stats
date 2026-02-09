@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>PCA pentru Date Pereche si Multi-Vedere</h2>
+  <p>Pagina introduce modelele gaussiene latente pentru date pereche, incluzand PCA supervizat, cele mai mici patrate partiale (PLS) si analiza corelatiei canonice (CCA).</p>
+  <div class="definition-box"><strong>Fuziunea datelor (Data Fusion):</strong> Combinarea a doua sau mai multe seturi de date corelate intr-o reprezentare latenta comuna de dimensiune redusa.</div>
+  <div class="definition-box"><strong>PCA Supervizat:</strong> Un model cu o singura variabila latenta comuna zᵢ care genereaza atat datele de intrare xᵢ cat si eticheta yᵢ, conectand reducerea dimensionalitatii cu predictia.</div>
+  <div class="figure-box"><strong>Figura 12.19:</strong> Modele gaussiene latente pentru date pereche. (a) PCA Supervizat - o variabila latenta comuna genereaza atat x cat si y. (b) Cele mai mici patrate partiale (PLS) - variabile latente separate pentru x si y cu o componenta comuna. (c) Analiza corelatiei canonice (CCA) - variabile latente separate cu componente partajate si private.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina introduce o familie de modele pentru date pereche (de exemplu, expresie genica si numar de copii genice, sau evaluari de filme de catre utilizatori si recenzii). PCA supervizat foloseste o variabila latenta comuna, PLS permite variabile latente separate cu componenta comuna, iar CCA adauga si componente private. Toate sunt cazuri speciale ale modelelor gaussiene latente liniare, ajustabile prin EM sau esantionare Gibbs.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cele trei modele difera in gradul de separare intre reprezentarile latente ale celor doua vizualizari. PCA supervizat forteaza o singura variabila latenta (cea mai restrictiva), PLS separa partial, iar CCA permite cel mai mare grad de flexibilitate cu componente partajate si private.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste modele sunt esentiale in bioinformatica (integrarea datelor genomice multi-omic), in procesarea limbajului natural (alinierea textului cu imagini), si in sistemele de recomandare (combinarea evaluarilor cu metadatele).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In cercetarea cancerului, CCA poate fi utilizata pentru a integra datele de expresie genica (ARN) cu datele de metilare ADN, identificand factori latenti partajati care explica ambele tipuri de masuratori si factori specifici fiecarui tip de date.</p></div>
+  </div>
+</div>

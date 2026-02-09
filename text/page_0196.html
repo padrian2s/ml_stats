@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Paradoxul Jeffreys-Lindley si Introducere in Priori</h2>
+  <p>Pagina completeaza discutia despre paradoxul Jeffreys-Lindley si introduce Sectiunea 5.4 despre alegerea priori-lor in statistica bayesiana.</p>
+  <div class="definition-box"><strong>Paradoxul Jeffreys-Lindley:</strong> Folosirea priori-lor improprii (p(θ|M₁) ∝ c₁) in selectia modelului duce la rezultate arbitrare: posterioara p(M₀|D) poate fi manipulata prin alegerea constantelor c₀ si c₁. Factorul Bayes va favoriza intotdeauna modelul simplu cand prior-ul este foarte difuz.</div>
+  <div class="definition-box"><strong>Prior neinformativ (Uninformative prior):</strong> Un prior care incearca sa "lase datele sa vorbeasca" prin minimizarea influentei informatiei anterioare. Exemplu: prior-ul uniform Beta(1,1) pentru un parametru Bernoulli.</div>
+  <div class="highlight-box"><strong>Problema prior-ului uniform:</strong> Chiar si prior-ul uniform Beta(1,1) nu este complet neinformativ: media posterioara E[θ|D] = (N₁+1)/(N₁+N₀+2) ≠ MLE = N₁/(N₁+N₀). Prior-ul adauga efectiv 2 pseudo-observatii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Paradoxul Jeffreys-Lindley arata ca prior-urile improprii sunt periculoase in selectia modelului (dar nu si in inferenta parametrilor, unde constantele se anuleaza). Sectiunea 5.4 introduce problema controversata a alegerii priori-lor: bayesienii argumenteaza ca toata inferenta este conditionata de anumite presupuneri, iar priori-le fac aceste presupuneri explicite.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exista o tensiune fundamentala: prior-urile neinformative sunt dorite pentru obiectivitate, dar "neinformativ" este mai greu de definit decat pare. Chiar si prior-ul uniform Beta(1,1) contine informatie (echivalent cu 2 pseudo-observatii). Analiza de senzitivitate este recomandata pentru a verifica robustetea concluziilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, este important sa se foloseasca priori proprii (care se integreaza la 1) pentru selectia modelului. Pentru inferenta parametrilor, priori-le improprii sunt acceptabile daca posterioara este proprie. Regulile sunt diferite pentru cele doua situatii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile clinice, alegerea prior-ului poate influenta semnificativ rezultatul: un prior sceptic (centrat pe efect zero) vs. un prior optimist (centrat pe efect pozitiv) vor da posterioare diferite, mai ales cu esantioane mici. Transparenta in specificarea prior-ului este esentiala.</p></div>
+  </div>
+</div>

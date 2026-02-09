@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Interventii, DAG-uri augmentate si paradoxul lui Simpson</h2>
+  <p>Aceasta pagina prezinta chirurgia grafului (Figura 26.14), Teorema de manipulare, DAG-urile augmentate si introduce paradoxul lui Simpson.</p>
+  <div class="definition-box"><strong>Teorema de manipulare (Pearl 2000):</strong> Pentru a calcula p(X_i|do(X_j)), se face interventie chirurgicala pe nodurile X_j si se face inferenta probabilistica standard in graful mutilat.</div>
+  <div class="definition-box"><strong>DAG augmentat:</strong> Generalizare a interventiei perfecte: se adauga noduri de actiune explicite la graf, permitand interventii "cu mana grasa" (fat hand) care afecteaza mai multe componente simultan.</div>
+  <div class="definition-box"><strong>Paradoxul lui Simpson:</strong> O relatie statistica intre doua variabile poate fi inversata cand se conditioneaza pe o a treia variabila. De exemplu: un medicament pare sa ajute overall, dar dauneaza atat barbatilor cat si femeilor separat.</div>
+  <div class="highlight-box"><strong>Exemplu numeric Simpson:</strong> p(E|C) = 0.5 > p(E|not C) = 0.4, DAR p(E|C,F) = 0.2 < p(E|not C,F) = 0.3 si p(E|C, not F) = 0.6 < p(E|not C, not F) = 0.7. Efectul global se inverseaza la nivel de subgrup!</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta paradoxul lui Simpson, unul dintre cele mai contra-intuitive fenomene din statistica, si arata cum rationamentul cauzal il rezolva. Exemplul: un medicament (C) pare sa creasca sansa de vindecare (E) overall (50% vs. 40%), dar in fiecare subgrup (barbati si femei) scade sansa. Figura 26.15 ilustreaza vizual paradoxul.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Paradoxul apare din cauza confunderii: genul (F) afecteaza atat luarea medicamentului cat si vindecare. Fara rationament cauzal, nu stim daca sa conditionam pe F sau nu. Doar modelul cauzal poate rezolva ambiguitatea.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Paradoxul lui Simpson apare frecvent in studiile observationale medicale, analiza datelor educationale (procesul de admitere la Berkeley), si evaluarea performantei angajatilor. Recunoasterea si rezolvarea lui necesita gandire cauzala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In celebrul caz Berkeley (1973), universitatea parea sa discrimineze impotriva femeilor in admitere (rata globala mai mica), dar in fiecare departament, femeile aveau rate egale sau mai bune. Paradoxul: femeile se aplicau mai mult la departamente competitive. Rationamentul cauzal rezolva ambiguitatea.</p></div>
+  </div>
+</div>

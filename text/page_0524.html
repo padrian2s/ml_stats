@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Kernel PCA: Cost Computational, Figura 14.7 si Derivare</h2>
+  <p>Pagina prezinta Sectiunea 14.4.3.3 (costul computational al kernel ridge regression), Sectiunea 14.4.4 (kernel PCA) cu Figura 14.7 si derivarea matematica.</p>
+  <div class="highlight-box"><strong>Cost computational (Sectiunea 14.4.3.3):</strong> Variabile duale alpha: O(N^3). Variabile primale w: O(D^3). Kernel method avantajos cand D >> N (dimensionalitate mare, putine date). Predictia duala: O(ND), primala: O(D). Sparsificarea alpha accelereaza predictia.</div>
+  <div class="definition-box"><strong>Kernel PCA (Sectiunea 14.4.4):</strong> PCA clasica: eigenvectori ai S = (1/N) X^T X (D x D). Kernel PCA: eigenvectori ai K = XX^T (N x N). V_pca = X^T U Lambda^{-1/2} (Eq. 14.39). Proiectia pe test: phi_*^T V_kpca = k_*^T U Lambda^{-1/2} (Eq. 14.40), unde k_* = [kappa(x_*, x_1), ..., kappa(x_*, x_N)].</div>
+  <div class="highlight-box"><strong>Figura 14.7 - Kernel PCA:</strong> Primele 8 componente principale kernel (RBF, sigma^2=0.1) pe date 2D. Fiecare subplot arata contururile unei componente in spatiul de intrare, cu eigenvalue corespunzatoare. Componentele capteaza structura non-liniara a datelor, spre deosebire de PCA liniar.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Kernel PCA extinde PCA la reducerea de dimensionalitate non-liniara: in loc de a gasi directii de varianta maxima in spatiul original (PCA liniar), gaseste directii in spatiul de feature implicit definit de kernel. Aceasta permite capturarea de structuri non-liniare (cercuri, spirale) pe care PCA liniar le pierde.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>PCA liniar: L <= D componente (rang X^T X). Kernel PCA: pana la N componente (rang XX^T = K), indiferent de D*. Aceasta este importanta: chiar daca spatiul de feature este infinit-dimensional (kernel Gaussian), kernel PCA poate extrage cel mult N componente.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Kernel PCA este implementat in scikit-learn (KernelPCA). Este util pentru vizualizare non-liniara si prelucrare de date inainte de clasificare. Dezavantaj: O(N^3) la antrenare si O(ND) la proiectie, ceea ce il limiteaza la seturi de date mici-medii (N < 10000). Alternative scalabile: Nystrom approximation.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia de defecte in fabricatie (semiconductor manufacturing), kernel PCA cu kernel RBF identifica pattern-uri non-liniare in datele senzorilor care indica defecte subtile, invizibile pentru PCA liniar, reducand rata de produse defecte cu 20-30%.</p></div>
+  </div>
+</div>

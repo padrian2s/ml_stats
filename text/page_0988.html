@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exemplu Collapsed Gibbs pentru LDA si introducere in inferenta variationala batch</h2>
+  <p>Aceasta pagina prezinta Figura 27.8 cu un exemplu de collapsed Gibbs pe un corpus mic si introduce inferenta variationala batch pentru LDA.</p>
+  <div class="definition-box"><strong>Exemplu collapsed Gibbs (Figura 27.8):</strong> Pe un corpus mic cu N=16 documente, V=5 cuvinte si K=2 topicuri, se ruleaza collapsed Gibbs sampling. Dupa convergenta, topicul 1 captureaza cuvintele {ball, game} iar topicul 2 captureaza {music, song}, demonstrand separarea tematica sport vs. muzica.</div>
+  <div class="definition-box"><strong>Inferenta variationala batch:</strong> O alternativa la Gibbs sampling care aproximeaza posteriorul prin mean field: q(pi_i, q_i) = Dir(pi_i|pi_tilde_i) * prod_l Cat(q_{il}|q_tilde_{il}). Se optimizeaza parametrii variationali pi_tilde_i si q_tilde_{il} prin minimizarea KL(q||p).</div>
+  <div class="highlight-box"><strong>Avantajul inferentei variationale:</strong> Spre deosebire de Gibbs sampling care produce esantioane corelate, inferenta variationala produce o aproximare determinista a posteriorului. Este mai usor de diagnosticat convergenta (se monitorizeaza ELBO) si se paralelizeaza mai bine pe documente.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la Gibbs sampling la inferenta variationala. Figura 27.8 ofera un exemplu didactic al collapsed Gibbs pe un corpus mic, vizualizand cum topicurile se separa tematic. Apoi se introduce framework-ul variational, care aproximeaza posteriorul intractabil prin o distributie factorizata mai simpla. Aproximatia mean field pentru LDA factorizeaza peste documente si cuvinte.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul Gibbs vs. variational este central in practica LDA: Gibbs este mai simplu de implementat si asimptotic exact, dar lent pe corpusuri mari; variational este mai rapid si paralelizabil, dar produce doar o aproximare. Mean field ignora corelatiile intre variabile, ceea ce poate fi o limitare semnificativa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Inferenta variationala pentru LDA este implementata in scikit-learn (LatentDirichletAllocation cu solver='batch'), gensim, si Stanford TMT. Este preferata pentru corpusuri mari (peste 100,000 documente) unde Gibbs sampling devine prea lent.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza automata a stirilor din presa online (milioane de articole), inferenta variationala batch pentru LDA permite procesarea eficienta a intregului corpus, descoperind topicuri curente (politica, economie, sport, cultura) in cateva ore pe un cluster de calcul.</p></div>
+  </div>
+</div>

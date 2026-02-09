@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Recunoasterea entitatilor numite si CRF-uri skip-chain</h2>
+  <p>Aceasta pagina prezinta recunoasterea entitatilor numite (NER) si CRF-urile skip-chain care adauga conexiuni la distanta intre aparitiile aceluiasi cuvant.</p>
+  <div class="definition-box"><strong>Recunoasterea entitatilor numite (NER):</strong> Sarcina de a identifica si clasifica entitati (persoane, locatii, organizatii) in text. Se extinde notatia BIO la B-Per, I-Per, B-Loc, I-Loc, B-Org, I-Org, Other.</div>
+  <div class="definition-box"><strong>CRF skip-chain:</strong> Un CRF care adauga muchii intre toate aparitiile aceluiasi cuvant in text, fortand aceeasi entitate sa primeasca aceeasi eticheta indiferent de pozitie. Structura grafului depinde de intrare, un avantaj al CRF-urilor discriminative.</div>
+  <div class="highlight-box"><strong>Clase deschise vs inchise:</strong> Numele proprii apartin unei clase deschise (numar nelimitat de posibilitati), spre deosebire de substantivele sau verbele comune. Aceasta face NER mai dificil decat POS tagging si motiveaza corelatiile la distanta din CRF-urile skip-chain.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>NER este o sarcina fundamentala in NLP, unde CRF-urile skip-chain rezolva problema consistentei: daca "Green" apare ca B-Per intr-un loc, ar trebui sa primeasca aceeasi eticheta peste tot. Conexiunile skip-chain adauga muchii intre aparitiile aceluiasi cuvant, dar fac inferenta mai dificila (nu mai e un simplu lant). Structura grafului depinde de intrare, un avantaj unic al CRF-urilor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul structura/inferenta: CRF-urile skip-chain sunt mai expresive dar inferenta exacta devine intractabila din cauza conexiunilor la distanta. Se recurge la metode aproximative (loopy belief propagation, MCMC). Structura dependenta de intrare este posibila doar in modele discriminative.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>NER este esential in extractia de informatii, construirea grafurilor de cunostinte (knowledge graphs), motoare de cautare si sisteme de dialog. CRF-urile skip-chain se aplica si in rezolvarea coreferencei (linking pronouns).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In textul "Mrs. Green spoke today in New York. Green chairs the finance committee", CRF-ul skip-chain leaga cele doua aparitii ale lui "Green" si asigura ca ambele primesc eticheta B-Per, chiar daca contextul local difera semnificativ.</p></div>
+  </div>
+</div>

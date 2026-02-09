@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Recurență, Ergodicitate și Echilibru Detaliat (p. 599)</h2>
+  <p>Pagina extinde teoria distribuțiilor staționare la lanțuri Markov cu spații de stare infinite, introducând conceptele de recurență, ergodicitate și echilibru detaliat.</p>
+  <div class="definition-box"><strong>Stare recurentă:</strong> O stare la care sistemul va reveni cu probabilitate 1. Stările ne-recurente sunt numite tranzitorii.</div>
+  <div class="definition-box"><strong>Recurent non-nul:</strong> O stare este recurent non-nulă dacă timpul mediu de întoarcere la acea stare este finit.</div>
+  <div class="definition-box"><strong>Stare ergodică:</strong> O stare care este aperiodică, recurentă și non-nulă simultan.</div>
+  <div class="definition-box"><strong>Reversibilitate temporală:</strong> Un lanț Markov A este reversibil temporal dacă există o distribuție π astfel încât πᵢAᵢⱼ = πⱼAⱼᵢ (Ec. 17.29).</div>
+  <div class="highlight-box"><strong>Teorema 17.2.2:</strong> Orice lanț Markov ergodic, ireductibil (simplu conex) are o distribuție limită egală cu π, distribuția sa staționară unică.</div>
+  <div class="highlight-box"><strong>Teorema 17.2.3:</strong> Dacă un lanț Markov cu matrice de tranziție A este regulat și satisface echilibrul detaliat față de π, atunci π este distribuția sa staționară.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se generalizează condițiile de existență a distribuției staționare pentru lanțuri cu spații de stare infinite. Echilibrul detaliat oferă o condiție suficientă mai ușor de verificat decât ecuațiile globale de echilibru.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Mișcarea aleatoare pe numere întregi demonstrează că ireductibilitatea singură nu este suficientă - stările trebuie să fie și recurente. Echilibrul detaliat este o condiție mai puternică decât echilibrul global, dar mai ușor de verificat.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Echilibrul detaliat este baza construcției algoritmilor MCMC: se proiectează o matrice de tranziție care satisface echilibrul detaliat față de distribuția țintă, garantând convergența.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un proces chimic în echilibru termodinamic satisface echilibrul detaliat: rata reacției directe între oricare două stări moleculare este egală cu rata reacției inverse, ponderate de concentrațiile de echilibru.</p></div>
+  </div>
+</div>

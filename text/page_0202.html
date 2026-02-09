@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Bayes Ierarhic si Modelarea Ratelor de Cancer</h2>
+  <p>Pagina introduce modelele bayesiene ierarhice (multi-nivel) si le ilustreaza cu exemplul clasic al ratelor de cancer in diferite orase.</p>
+  <div class="definition-box"><strong>Model bayesian ierarhic (Hierarchical Bayesian model):</strong> Un model cu multiple niveluri de variabile necunoscute: η → θ → D (Ecuatia 5.76), unde η sunt hiperparametrii, θ parametrii si D datele observate.</div>
+  <div class="definition-box"><strong>Legare de parametri (Parameter tying):</strong> Presupunerea ca toti parametrii θᵢ sunt identici. MLE combinat: θ_hat = Σxᵢ/ΣNᵢ. Alternativa: modelul ierarhic care presupune θᵢ ~ Beta(a,b) - similar dar nu identic.</div>
+  <div class="highlight-box"><strong>Distributia comuna:</strong> p(D, θ, η|N) = p(η) ∏ᵢ Bin(xᵢ|Nᵢ, θᵢ)Beta(θᵢ|η) (Ecuatia 5.77), unde η = (a,b) sunt hiperparametrii distributiei Beta.</div>
+  <div class="highlight-box"><strong>Imprumut de forta statistica:</strong> Tratand η ca variabila necunoscuta (nu constanta), orasele cu date putine "imprumuta" informatie de la orasele cu date abundente, imbunatatind estimarile globale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelele ierarhice rezolva dilema intre estimarea separata (supraajustare pentru grupuri mici) si estimarea combinata (ignorarea diferentelor intre grupuri). Prin presupunerea θᵢ ~ Beta(a,b), fiecare oras are propriul parametru dar toate sunt legate printr-o distributie comuna. Hiperparametrii η = (a,b) sunt estimati din datele tuturor oraselor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conceptul cheie este "imprumutul de forta statistica" (borrowing statistical strength): orasele cu esantioane mici beneficiaza de informatia din orasele cu esantioane mari. Acest lucru se realizeaza prin partajarea hiperparametrilor η, nu prin fixarea lor la constante.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele ierarhice sunt omniprezente in stiintele sociale (efecte aleatoare), epidemiologie (rate de boala pe regiuni), educatie (scoruri de teste pe scoli) si marketing (preferinte de consumatori pe segmente).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In exemplul ratelor de cancer din 20 de orase din Missouri: orasul 1 are 0 cazuri din populatia mica, iar orasul 15 are 54 cazuri din 53637 locuitori. Modelul ierarhic "impinge" estimarea orasului 1 catre media generala, evitand estimarea nerealista de 0% rata de cancer.</p></div>
+  </div>
+</div>

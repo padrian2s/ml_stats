@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LBP pe grafuri factor - Grafuri factor si reprezentari</h2>
+  <p>Aceasta pagina introduce grafurile factor ca reprezentare unificata pentru modele grafice directionate si nedirectionate, si prezinta exemple de conversie intre UGM, DGM si grafuri factor.</p>
+  <div class="definition-box"><strong>Graf factor:</strong> Un graf bipartit neorientat cu doua tipuri de noduri: noduri rotunde (variabile) si noduri patrate (factori). Exista o muchie de la fiecare variabila la fiecare factor care o mentioneaza. Unifica reprezentarea modelelor directionate si nedirectionate.</div>
+  <div class="definition-box"><strong>Cod LDPC:</strong> Un cod corector de erori cu matrice de paritate de densitate scazuta, a carui structura poate fi reprezentata ca un graf factor. Grafurile LDPC mari sunt "local tree-like" (ciclurile au lungime ~log m), ceea ce explica de ce LBP functioneaza bine pe ele.</div>
+  <div class="highlight-box"><strong>Factorizare prin graf factor:</strong> Un UGM cu 4 noduri poate fi reprezentat fie cu un factor per clica maximala (graf factor mai compact) fie cu un factor per muchie (graf factor mai granular), fiecare reprezentare corespunzand unei factorizari diferite.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina introduce grafurile factor ca limbaj unificator: orice model grafic (directionat sau nedirectionat) poate fi exprimat ca graf factor. Se prezinta exemple concrete de conversie si se arata cum codurile LDPC se incadreaza natural in aceasta reprezentare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Grafurile factor separa clar structura (care variabile interactioneaza) de semantica (cum interactioneaza). Aceasta separare permite aplicarea uniforma a algoritmilor de transmitere a mesajelor, indiferent daca modelul original era directionat sau nedirectionat.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Grafurile factor sunt fundamentale in bibliotecile moderne de inferenta probabilistica (LibDAI, OpenGM) si in proiectarea codurilor corectoare de erori moderne.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un graf factor poate modela un sistem de verificare a integritatii datelor in stocare distribuita, unde fiecare bit de date este o variabila si fiecare constrangere de paritate este un factor.</p></div>
+  </div>
+</div>

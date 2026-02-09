@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>LDA cu Doua Clase - d-prime si MLE pentru Analiza Discriminanta</h2>
+  <p>Pagina 106 continua cu regula finala de decizie LDA cu doua clase, introduce masura d-prime din teoria detectiei semnalelor si prezinta estimarea MLE pentru analiza discriminanta.</p>
+
+  <div class="highlight-box"><strong>Regula de decizie (Ecuatia 4.50):</strong> p(y=1|x, θ) = sigm(wᵀ(x - x₀)), unde se deplaseaza x cu x₀, se proiecteaza pe directia w si se aplica functia sigmoid.</div>
+
+  <div class="definition-box"><strong>d-prime (Ecuatia 4.51):</strong> d' = (μ₁ - μ₀) / σ, o masura din psihologie si teoria detectiei semnalelor care cuantifica discriminabilitatea intre semnal si zgomot. d' mare inseamna separare usoara.</div>
+
+  <div class="highlight-box"><strong>Log-verosimilitatea pentru GDA (Ecuatia 4.52):</strong> log p(D|θ) = [Σᵢ Σ_c I(yᵢ=c) log π_c] + Σ_c [Σᵢ:yᵢ=c log N(x|μ_c, Σ_c)]. Se factorizeaza intr-un termen pentru π si cate un termen pentru fiecare (μ_c, Σ_c).</div>
+
+  <div class="highlight-box"><strong>MLE pentru GDA (Ecuatia 4.53):</strong> π̂_c = N_c/N, μ̂_c = (1/N_c) Σᵢ:yᵢ=c xᵢ, Σ̂_c = (1/N_c) Σᵢ:yᵢ=c (xᵢ - μ̂_c)(xᵢ - μ̂_c)ᵀ</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Regula de decizie LDA se reduce la: deplaseaza, proiecteaza, aplica sigmoid. Masura d-prime ofera o metrica intuitiva de dificultate a clasificarii. MLE-ul pentru GDA este simplu: se partitioneaza datele pe clase si se calculeaza media si covarianta empirica pentru fiecare clasa separat.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Factorizarea log-verosimilitatii permite estimarea independenta a parametrilor fiecarei clase. Acest lucru face ca antrenarea GDA sa fie foarte eficienta computational - nu necesita optimizare iterativa, ci doar calcule statistice directe.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Masura d-prime este utilizata pe scara larga in psihofizica (cat de bine poate un subiect distinge doua stimuluri), in evaluarea sistemelor biometrice (separarea intre scoruri de potrivire si nepotrivire) si in radiologie (detectabilitatea leziunilor).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In evaluarea unui sistem de recunoastere a amprentelor digitale, d-prime masoara separarea intre distributia scorurilor pentru amprente care se potrivesc vs. cele care nu se potrivesc. Un d' = 4 indica performanta excelenta, in timp ce d' = 1 indica suprapunere semnificativa intre distributii.</p></div>
+  </div>
+</div>

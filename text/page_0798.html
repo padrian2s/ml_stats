@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 22: Inferenta variationala avansata - Introducere si propagarea increderii in bucle</h2>
+  <p>Aceasta pagina deschide Capitolul 22, care trateaza metode avansate de inferenta variationala, inclusiv propagarea increderii in bucle (loopy belief propagation - LBP) si estimarea MAP aproximativa.</p>
+  <div class="definition-box"><strong>Inferenta variationala avansata:</strong> Spre deosebire de capitolul 21 (mean field cu posterior factorizat), aici se minimizeaza KL(q||p_tilde) unde q nu trebuie sa fie factorizat sau o distributie comuna valida, ci doar consistent local (marginalele nodurilor adiacente trebuie sa coincida).</div>
+  <div class="definition-box"><strong>Loopy Belief Propagation (LBP):</strong> Un algoritm simplu de inferenta aproximativa care aplica propagarea increderii (din Sectiunea 20.2) pe grafuri cu cicluri, chiar daca nu este garantat sa dea rezultate corecte sau sa converga.</div>
+  <div class="highlight-box"><strong>Idee principala:</strong> In acest capitol, q nu trebuie sa fie factorizat sau global consistent - este suficient sa fie local consistent, ceea ce permite algoritmi mai flexibili si mai puternici decat mean field.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 22 introduce o perspectiva diferita asupra inferentei variationale: in loc sa cerem ca distributia aproximativa q sa fie un produs de marginale (mean field), permitem ca q sa fie doar local consistent. Aceasta relaxare duce la algoritmi precum LBP care sunt simpli si eficienti in practica.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tema centrala este compromisul intre restrictiile impuse distributiei aproximative si calitatea aproximarii. Mean field impune factorizare completa, LBP impune doar consistenta locala, iar metodele exacte cer consistenta globala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LBP este folosit pe scara larga in decodarea codurilor corectoare de erori (turbo codes, LDPC), segmentarea imaginilor, viziune computationala si procesarea limbajului natural.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In comunicatii digitale, algoritmii de decodare a codurilor LDPC (folosite in WiFi, 5G) sunt direct bazati pe LBP aplicat pe grafuri factor, atingand performante aproape de limita teoretica Shannon.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Neidentificabilitate in FA si Solutii</h2>
+  <p>Pagina detaliaza problema neidentificabilitatii rotationale in FA, formula pentru L_max si diverse solutii: constrangeri pe W, priori sparse, rotatii informative (varimax) si ICA.</p>
+  <div class="highlight-box"><strong>Limita superioara L_max (Eq. 12.12):</strong> L_max = floor[D + 0.5(1 - sqrt(1+8D))]. Pentru D=6, L <= 3. Aceasta asigura ca FA are mai putini parametri decat o covarianta completa D(D+1)/2.</div>
+  <div class="definition-box"><strong>Solutii la neidentificabilitate:</strong> (1) W ortonormala (PCA), (2) W inferior triunghiulara (Eq. 12.13, abordare Bayesiana), (3) Priori sparse pe W (l1, ARD, spike-and-slab), (4) Rotatie varimax, (5) Prior non-Gaussian pe z (ICA).</div>
+  <div class="highlight-box"><strong>Constrangerea inferior triunghiulara (Eq. 12.13):</strong> W are zerouri deasupra diagonalei si w_jj > 0, rezultand D + DL - L(L-1)/2 parametri identificabili. Dezavantaj: primele L variabile vizibile au rol special ("founder variables").</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Neidentificabilitatea FA este fundamentala si inevitabila: orice rotatie a factorilor produce aceeasi distributie marginala. Solutiile variaza de la constrangeri geometrice (ortonormalitate, triangularitate) la regularizare statistica (sparsitate) si presupuneri distributionale (non-Gaussianitate pentru ICA).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Fiecare solutie la neidentificabilitate impune o interpretare diferita factorilor: PCA ordoneaza dupa varianta explicata, varimax cauta factori sparsi, ICA cauta componente independente statistic. Nu exista o solutie universal "corecta".</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, rotarea varimax este cea mai populara in stiintele sociale. Constrangerea inferior triunghiulara este preferata in abordari Bayesiene (MCMC). Sparsitatea (Sectiunea 13.8) este din ce in ce mai folosita in aplicatii moderne.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In neuroimagistica (fMRI), ICA separa semnalele cerebrale in componente independente spatial (retele neuronale), exploatand non-Gaussianitatea semnalelor pentru a rezolva ambiguitatea rotationala.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exerciții Avansate - Capitolul 3: Relații între Modele și Proprietăți Asimptotice</h2>
+  <p>Pagina conține exerciții avansate care explorează proprietățile asimptotice ale estimatorilor Bayesieni și relațiile între diferite modele generative.</p>
+  <div class="highlight-box"><strong>Convergența posterioară:</strong> Pe măsură ce N → ∞, posteriorul p(θ|D) se concentrează în jurul valorii adevărate θ*. Rata de convergență este O(1/√N) pentru deviația standard posterioară.</div>
+  <div class="highlight-box"><strong>Consistența Bayesiană:</strong> Dacă θ* ∈ suportul priorului, atunci posteriorul converge la δ(θ−θ*). Aceasta garantează că inferența Bayesiană recuperează adevărul cu date suficiente.</div>
+  <div class="highlight-box"><strong>Aproximarea normală a posteriorului (Laplace):</strong> Pentru N mare, p(θ|D) ≈ N(θ|θ̂_MAP, H⁻¹), unde H = −∂²log p(θ|D)/∂θ² este Hessianul negativ evaluat la MAP.</div>
+  <div class="definition-box"><strong>Informația Fisher:</strong> I(θ) = E[−∂²log p(x|θ)/∂θ²], măsoară „cantitatea de informație" pe care o observație o conține despre θ. Varianța posterioară este aproximativ 1/(N·I(θ̂)).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Proprietățile asimptotice conectează inferența Bayesiană cu cea frecventistă: cu date suficiente, posteriorul devine aproximativ Gaussian centrat pe MLE, cu varianță inversă informației Fisher.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Aproximarea Laplace transformă orice posterior într-o Gaussiană, permițând inferență rapidă. Informația Fisher cuantifică precizia maximă obtenabilă pentru un anumit model statistic.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aproximarea Laplace este utilizată în rețelele neurale Bayesiene (Laplace approximation), în inferența variațională, și în calculul intervalelor de încredere asimptotice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intervalele de încredere raportate în sondajele de opinie (±3%) sunt calculate exact cu aceste formule asimptotice, utilizând informația Fisher a modelului binomial.</p></div>
+  </div>
+</div>

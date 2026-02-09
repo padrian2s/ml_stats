@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Clustering diviziv</h2>
+  <p>Pagina descrie clusteringul diviziv (top-down) ca alternativa la cel aglomerativ, prezentand mai multe metode incluzand K-means bisector si analiza disimilaritatii.</p>
+  <div class="definition-box"><strong>Clustering diviziv:</strong> Porneste cu toate datele intr-un singur cluster si imparte recursiv fiecare cluster in doua sub-clustere, in mod top-down.</div>
+  <div name="definition-box"><strong>Algoritmul bisecting K-means:</strong> Se alege clusterul cu cel mai mare diametru si se imparte in doua folosind K-means cu K=2. Procesul se repeta pana se obtine numarul dorit de clustere.</div>
+  <div class="definition-box"><strong>Analiza disimilaritatii (Macnaughton-Smith et al. 1964):</strong> Se masoara disimilaritatea medie a fiecarui i ∈ G fata de toti ceilalti: d_i^G = (1/n_G) Σ_{i'∈G} d_{i,i'}. Se muta obiectul cel mai disimilar intr-un cluster nou H.</div>
+  <div class="highlight-box"><strong>Criteriu de oprire:</strong> Se continua mutarea obiectelor din G in H pana cand d_i^G - d_i^H < 0 pentru toate obiectele ramase in G (Ecuatia 25.54).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Clusteringul diviziv are doua avantaje fata de cel aglomerativ: poate fi mai rapid (O(N) pentru un numar constant de niveluri) si deciziile de impartire sunt luate in contextul tuturor datelor, spre deosebire de deciziile miope de imbinare din abordarea bottom-up.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exista 2^{N-1} - 1 moduri de a imparti N obiecte in 2 grupuri, deci gasirea impartirii optime este computationally intractabila. Euristic: se poate construi un arbore de acoperire minima si se pot crea clustere noi prin taierea legaturii cu cea mai mare disimilaritate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Bisecting K-means este folosit ca alternativa la K-means standard in motoarele de cautare pentru indexarea documentelor. Clusteringul diviziv este preferat in cazurile in care se doreste o ierarhie de sus in jos cu un numar mic de niveluri.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O organizatie mare poate folosi clusteringul diviziv pentru a segmenta angajatii: mai intai in departamente mari (tehnic vs. non-tehnic), apoi in sub-departamente, pana la echipe individuale, creand o structura organizationala ierarhica bazata pe competente similare.</p></div>
+  </div>
+</div>

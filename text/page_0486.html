@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Interpretarea GSM a Fused Lasso si Elastic Net (p.455)</h2>
+  <p>Aceasta pagina prezinta interpretarea fused lasso ca model ierarhic GSM si introduce elastic net ca o combinatie intre lasso si ridge.</p>
+  <div class="highlight-box"><strong>GSM Fused Lasso:</strong> Modelul ierarhic echivalent: w|sigma^2, tau, omega ~ N(0, sigma^2 * Sigma(tau, omega)), cu tau_j^2|gamma_1 ~ Expon(gamma_1^2/2) si omega_j^2|gamma_2 ~ Expon(gamma_2^2/2), unde Sigma = Omega^{-1} cu Omega matrice tridiagonala.</div>
+  <div class="definition-box"><strong>Elastic Net:</strong> Combinatie intre lasso si ridge regression care rezolva problemele lasso-ului: selectia arbitrara intre variabile corelate, limita de N variabile cand D > N, si performanta slaba comparativ cu ridge cand variabilele sunt corelate.</div>
+  <div class="highlight-box"><strong>Problemele Lasso:</strong> 1) Selecteaza arbitrar dintre variabile foarte corelate. 2) Poate selecta maxim N variabile cand D > N. 3) Ridge are performanta de predictie mai buna cand N > D si variabilele sunt corelate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la fused lasso la elastic net, motivand nevoia de a combina regularizarile l1 si l2. Interpretarea GSM a fused lasso ca model cu matrice de precizie tridiagonala conecteaza metoda cu campurile aleatoare Markov Gaussiene.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cele trei probleme ale lasso-ului (selectie arbitrara, saturare la N variabile, performanta de predictie inferioara ridge) motiveaza dezvoltarea elastic net. Structura tridiagonala a fused lasso corespunde unui lant Markov pe coeficienti.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Elastic net este preferat in situatii practice frecvente unde exista multi-coliniaritate intre predictori (economie, genomica) sau unde numarul de variabile depaseste numarul de observatii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile de asociere la nivelul intregului genom (GWAS), exista milioane de SNP-uri dar doar mii de subiecti. Elastic net poate selecta mai mult de N variabile si gestioneaza corelarea intre SNP-uri vecine pe cromozom.</p></div>
+  </div>
+</div>

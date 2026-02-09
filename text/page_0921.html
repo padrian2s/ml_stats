@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Propagarea afinitatii - Exemplu vizual si clustering spectral</h2>
+  <p>Aceasta pagina prezinta Figura 25.10 cu un exemplu pas cu pas al propagarii afinitatii si introduce clustering-ul spectral bazat pe taieturi de graf.</p>
+  <div class="definition-box"><strong>Taietura de graf (graph cut):</strong> cut(A_1,...,A_K) = (1/2) * suma W(A_k, A_k_bar), unde W(A,B) = suma w_{ij} pentru i in A, j in B. Minimizarea taieturii gaseste partitii cu putine conexiuni intre clustere.</div>
+  <div class="definition-box"><strong>Taietura normalizata (Ncut):</strong> Ncut(A_1,...,A_K) = (1/2) * suma cut(A_k, A_k_bar)/vol(A_k), unde vol(A) = suma d_i. Normalizeaza prin volumul fiecarui cluster pentru a evita partitii triviale (un singur nod izolat).</div>
+  <div class="definition-box"><strong>Clustering spectral:</strong> Relaxeaza problema NP-hard a minimizarii Ncut de la vectori binari la vectori reali, transformand-o intr-o problema de valori proprii. Se bazeaza pe teoria spectrala a grafurilor.</div>
+  <div class="highlight-box"><strong>Exemplu propagare afinitate:</strong> Figura 25.10 arata convergenta in 6 iteratii pe date 2D, cu colorarea punctelor dupa dorinta de a fi exemplar (rosu = maxima, verde = minima) si sagetile aratand asignarile la exemplare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Propagarea afinitatii converge rapid (6 iteratii in exemplu) si identifica automat 3 exemplare. Numarul de clustere este controlat de auto-similaritatile S(i,i). Apoi se introduce clustering-ul spectral, motivat de taieturile de graf: se construieste un graf ponderat din matricea de similaritate si se minimizeaza Ncut. Problema este NP-hard, dar relaxarea continua o transforma in analiza valorilor proprii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Clustering-ul spectral depaseste limitarile K-means (care presupune clustere sferice) prin captarea structurii topologice a datelor. Taietura normalizata este mai robusta decat taietura simpla, care tinde sa izoleze puncte individuale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clustering-ul spectral este folosit extensiv in segmentarea imaginilor (unde similaritatea este bazata pe culoare si proximitate spatiala), detectia comunitatilor in retele sociale, si analiza retelelor biologice (interactiuni proteina-proteina).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea imaginilor satelitare, clustering-ul spectral poate identifica regiuni coerente (apa, vegetatie, zone urbane) chiar si cand formele sunt neregulate si nu pot fi captate de clustere sferice, utilizand similaritatea bazata pe culoare si textura.</p></div>
+  </div>
+</div>

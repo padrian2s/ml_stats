@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 21. Inferenta Variationala - Comparatie VB vs EB si Introducere VBEM (p.749)</h2>
+  <p>Aceasta pagina prezinta Figura 21.6 care compara VB si EB pe selectia modelului polinomial, apoi introduce sectiunea 21.6 despre Variational Bayes EM (VBEM) pentru modele cu variabile latente.</p>
+  <div class="figure-box"><strong>Figura 21.6:</strong> Comparatie intre VB si EB pe o problema de selectie a modelului pentru regresie polinomiala. Pentru N=5, VB este mai difuz decat EB deoarece modeleaza incertitudinea in hiperparametri. Pentru N=30, estimarile devin similare deoarece posteriorul hiperparametrilor devine mai concentrat.</div>
+  <div class="definition-box"><strong>Variational Bayes EM (VBEM):</strong> Metoda pentru modele cu variabile latente de forma zᵢ → xᵢ ← θ, incluzand modele de mixtura, PCA, HMM-uri. Exista doua tipuri de necunoscute: parametrii θ si variabilele latente zᵢ.</div>
+  <div class="highlight-box"><strong>Comparatie α estimat:</strong> α̂ = D / (wᵀₙwₙ + tr(Vₙ)) pentru VB, comparabil cu estimarea EB din ecuatia 13.167, demonstrand echivalenta asimptotica intre cele doua abordari.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la VB pentru regresie liniara la VBEM pentru modele cu variabile latente. Se demonstreaza ca VB si EB produc rezultate similare, dar VB ofera o incertitudine mai bine calibrata, mai ales pentru esantioane mici.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta cheie: EB maximizeaza log p(D) direct, VB maximizeaza o limita inferioara. Cu suficiente date (N=30), ambele converg la acelasi rezultat. Cu date putine (N=5), VB este mai conservator si mai robust.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>VBEM este esential pentru clusterizare bayesiana (GMM), modelarea topicurilor (LDA), modele Markov ascunse si orice model generativ cu variabile latente.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea clientilor, VBEM poate fi folosit pentru a ajusta un model de mixtura gaussiana determinand automat numarul optim de segmente, fara a necesita validare incrucisata.</p></div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="page-content">
+  <h2>Cuprins (Partea 7)</h2>
+
+  <p>Continuarea cuprinsului cu Capitolele 11 si 12.</p>
+
+  <div class="definition-box"><strong>Capitolul 11 - Modele cu Mixturi si Algoritmul EM (p. 337):</strong>
+    11.1 Modele cu variabile latente; 11.2 Modele cu mixturi - mixturi de Gaussiene (GMM), mixturi de multinoulli, utilizarea mixturilor pentru clustering, mixturi de experti;
+    11.3 Estimarea parametrilor pentru modele cu mixturi - neidentificabilitate, non-convexitatea estimarii MAP;
+    11.4 Algoritmul EM - ideea de baza, EM pentru GMM, EM pentru mixturi de experti, EM pentru DGM-uri cu variabile ascunse, EM pentru distributia Student, EM pentru regresia probit, baza teoretica, EM online, alte variante;
+    11.5 Selectia modelului pentru modele cu variabile latente;
+    11.6 Antrenarea modelelor cu date lipsa - EM pentru MLE a unui MVN cu date lipsa.</div>
+
+  <div class="definition-box"><strong>Capitolul 12 - Modele Liniare Latente (p. 381):</strong>
+    12.1 Analiza factoriala (FA) - parametrizare de rang scazut a MVN, inferenta factorilor latenti, neidentificabilitate, mixturi de analizatori factoriali, EM pentru FA, date lipsa;
+    12.2 Analiza componentelor principale (PCA) - teorema clasica, demonstratie, SVD, PCA probabilistic, EM pentru PCA;
+    12.3 Alegerea numarului de dimensiuni latente;
+    12.4 PCA pentru date categoriale;
+    12.5 PCA pentru date pereche si multi-view - PCA supervizat, partial least squares, analiza corelatiei canonice;
+    12.6 Analiza componentelor independente (ICA) - MLE, FastICA, EM.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section">
+      <h4>Rezumat</h4>
+      <p>Capitolele 11 si 12 se concentreaza pe modele cu variabile latente. Algoritmul EM (cap. 11) este prezentat ca instrumentul principal de inferenta pentru aceste modele, iar capitolul 12 detaliaza modelele liniare latente precum PCA, FA si ICA - tehnici esentiale pentru reducerea dimensionalitatii.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Tipare Cheie</h4>
+      <p>Variabilele latente sunt un concept unificator: atat mixturile (cap. 11) cat si PCA/FA (cap. 12) presupun existenta unor factori neobservati care explica structura datelor. Algoritmul EM apare ca solutie generala pentru optimizarea in prezenta variabilelor latente.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Aplicatii Practice</h4>
+      <p>PCA (12.2) este folosit pe scara larga pentru reducerea dimensionalitatii in procesarea imaginilor si a datelor genomice. GMM (11.2.1) sunt utilizate in recunoasterea vocii si segmentarea imaginilor.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Exemplu din Lumea Reala</h4>
+      <p>In recunoasterea vocii, un GMM modeleaza distributia caracteristicilor acustice ale fiecarui vorbitor (cap. 11). PCA (cap. 12) este folosit pentru compresia imaginilor faciale in sistemele de recunoastere faciala, reducand mii de pixeli la cateva zeci de componente principale.</p>
+    </div>
+  </div>
+</div>

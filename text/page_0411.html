@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitiul 11.15: Media si Varianta Posterioara a Gaussienei Trunchiate</h2>
+  <p>Pagina prezinta exercitiul 11.15 despre calculul mediei si variantei posterioare ale unei Gaussiene trunchiate, rezultate folosite in regresia probit si regresia cenzurata.</p>
+  <div class="definition-box"><strong>Gaussiana trunchiata:</strong> Fie z_i = mu_i + sigma * epsilon_i cu epsilon_i ~ N(0,1). Observam evenimentul E = I(z_i >= c_i). Media conditionata: E[z_i|z_i >= c_i] = mu_i + sigma * H((c_i - mu_i)/sigma), unde H(u) = phi(u)/(1 - Phi(u)) este rata de hazard.</div>
+  <div class="highlight-box"><strong>Media conditionata (Eq. 11.137):</strong> E[z_i|z_i >= c_i] = mu_i + sigma * H((c_i - mu_i)/sigma). Rata de hazard H(u) = phi(u)/(1 - Phi(u)) masoara cat de departe de medie trebuie sa fie valorile trunchiate.</div>
+  <div class="highlight-box"><strong>Momentul doi conditionat (Eq. 11.138):</strong> E[z_i^2|z_i >= c_i] = mu_i^2 + sigma^2 + sigma(c_i + mu_i) * H((c_i - mu_i)/sigma). Include corectia pentru trunchere.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiul 11.15 deriveaza formulele esentiale pentru media si varianta unei Gaussiene trunchiate, folosind rata de hazard H(u) = phi(u)/(1-Phi(u)). Aceste rezultate sunt ingredientele cheie pentru pasul E al EM in regresia probit (Sectiunea 11.4.6) si regresia cenzurata (Exercitiul 11.14).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Rata de hazard H(u) a distributiei Gaussiene standard apare natural in multe contexte: analiza de supravietuire, modele probit, date cenzurate. Proprietatea cheie: cu cat pragul de trunchere este mai departe de medie, cu atat corectia este mai mica (H(u) -> 0 cand u -> -infinit).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste formule sunt implementate in toate pachetele software care fac regresia probit sau analiza de supravietuire cu date Gaussiene cenzurate. Corectitudinea lor este critica pentru estimari nepartinitoare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea salariilor, observam doar salariile angajatilor (selectie pozitiva), nu ofertele refuzate. Modelul Heckman de selectie, bazat pe aceste formule de Gaussiana trunchiata, corecteaza bias-ul de selectie.</p></div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>Profilul Centroizilor Contractati si Inferenta in Distributii Gaussiene Comune</h2>
+  <p>Pagina 110 prezinta profilele centroizilor contractati pentru cele 4 clase SRBCT si introduce Sectiunea 4.3 despre inferenta in distributii Gaussiene comune (marginale si conditionale).</p>
+
+  <div class="figure-box"><strong>Figura 4.8:</strong> Profilul centroizilor contractati pentru λ = 4.4 (optim CV), selectand 39 de gene din 2308. (a-d) Cele 4 clase. In gri: estimarile neregularizate d_cⱼ; in albastru: estimarile contractate Δ_cⱼ. Majoritatea genelor au Δ_cⱼ = 0 (neinformative).</div>
+
+  <div class="highlight-box"><strong>Comparatie metode pe date genomice:</strong> Pe setul cu 14 tipuri de cancer (16603 gene): centroizi contractati = 17 erori (6520 gene), RDA = 12 erori (toate genele). Centroizii contractati ofera interpretabilitate superioara cu performanta competitiva.</div>
+
+  <div class="definition-box"><strong>Inferenta in distributii Gaussiene comune (Sectiunea 4.3):</strong> Data o distributie comuna p(x₁, x₂), calcularea marginalelor p(x₁) si conditionalelor p(x₁|x₂) necesita operatii O(D³) in cazul cel mai rau.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 4.8 demonstreaza vizual puterea regularizarii prin sparsitate: din 2308 de gene, doar cateva zeci au coeficienti nenuli, indicand genele discriminative pentru fiecare tip de tumora. Sectiunea 4.3 trece la un subiect fundamental: calcularea distributiilor marginale si conditionale din distributii Gaussiene comune.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Profilele sparse ale centroizilor contractati permit identificarea "semnaturii genice" a fiecarui tip de tumora. Tranzitia la Sectiunea 4.3 marcheaza trecerea de la aplicatii (clasificare) la operatii fundamentale (marginalizare si conditionare) pe distributii Gaussiene.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Operatiile de marginalizare si conditionare sunt esentiale in filtrarea Kalman (predictia starii urmatoare), imputarea datelor lipsa, procesele Gaussiene si orice model probabilistic cu variabile latente.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In prognoza meteo, un model Gaussian multivariat peste temperatura, presiunea si umiditatea permite calcularea distributiei conditionate a temperaturii de maine, data presiunea si umiditatea de azi, prin simpla aplicare a formulelor de conditionare Gaussiana.</p></div>
+  </div>
+</div>

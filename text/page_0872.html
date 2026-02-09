@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Label switching si esantionarea Gibbs colapsata</h2>
+  <p>Aceasta pagina discuta problema label switching in esantionarea Gibbs pentru modele de amestec si introduce esantionarea Gibbs colapsata (collapsed Gibbs).</p>
+  <div class="definition-box"><strong>Problema label switching:</strong> Parametrii modelului de amestec si functiile indicator z sunt neidentificabile: permutarea etichetelor nu schimba verosimilitatea. Aceasta face ca media Monte Carlo peste parametri sa fie nesemnificativa (de ex. media mu_1 si mu_2 se confunda).</div>
+  <div class="definition-box"><strong>Collapsed Gibbs sampling:</strong> Se integreaza analitic unii parametri (de ex. theta = {pi, mu_k, Sigma_k}) si se esantioneaza doar variabilele ramase (indicatorii z). Aceasta reduce dimensionalitatea spatiului de esantionare si amelioreaza label switching.</div>
+  <div class="highlight-box"><strong>Teorema Rao-Blackwell (24.2):</strong> var_{x,theta}[f(x,theta)] >= var_x[E_theta[f(x,theta)|x]]. Integrarea analitica a parametrilor reduce intotdeauna varianta estimatorului, facand collapsed Gibbs mai eficient decat Gibbs standard.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina acopera doua probleme practice importante: label switching (care face mediile parametrilor nesemnificative) si eficienta Gibbs (care poate fi imbunatatita prin colapsarea parametrilor). Collapsed Gibbs rezolva partial ambele probleme.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Label switching este un exemplu de neidentificabilitate: modelul are simetrii (permutari de etichete) care trebuie sparte pentru a interpreta parametrii. Solutii: constrangeri de ordine (mu_1 < mu_2), post-procesare, sau lucrul direct cu indicatorii z (collapsed Gibbs).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Collapsed Gibbs este standard in modele de topicuri (LDA), unde parametrii Dirichlet sunt integrati analitic si se esantioneaza doar asignarile de topicuri z.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea topicurilor din colectii de documente (LDA), collapsed Gibbs sampling esantioneaza doar asignarea fiecarui cuvant la un topic, integrand analitic distributiile de topicuri si de cuvinte. Aceasta produce convergenta mai rapida.</p></div>
+  </div>
+</div>

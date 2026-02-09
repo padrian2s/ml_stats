@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>FA: Parametrizare Low-Rank si Inferenta Factorilor Latenti</h2>
+  <p>Pagina continua cu simplificarea parametrizarii FA (mu_0 = 0, Sigma_0 = I fara pierdere de generalitate), descompunerea low-rank a covariantei si inferenta posterioara a factorilor latenti.</p>
+  <div class="highlight-box"><strong>Figura 12.1:</strong> Ilustrarea procesului generativ PPCA: o distributie Gaussiana 1D (prior pe z) este "pulverizata" de-a lungul liniei definite de w, producand o Gaussiana 2D elongata (distributia marginala p(x)).</div>
+  <div class="highlight-box"><strong>Descompunerea low-rank (Eq. 12.6):</strong> C = cov[x] = WW^T + Psi. Foloseste O(LD) parametri in loc de O(D^2), un compromis flexibil intre covarianta completa si diagonala.</div>
+  <div class="definition-box"><strong>Posteriorul factorilor latenti (Eq. 12.7-12.9):</strong> p(z_i|x_i, theta) = N(m_i, Sigma), unde Sigma = (I + W^T Psi^{-1} W)^{-1} si m_i = Sigma(W^T Psi^{-1}(x_i - mu)). Scorurile latente m_i sunt proiectiile datelor in spatiul latent.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se demonstreaza ca mu_0 si Sigma_0 pot fi absorbite in mu si W, simplificand modelul la p(z) = N(0, I) si p(x|z) = N(Wz + mu, Psi). Posteriorul p(z|x) este Gaussian cu Sigma independenta de i (doar media m_i depinde de observatie). Scorurile latente m_i ofera o reprezentare low-dimensional a datelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Inferenta in FA este exacta (Gaussiana conjugata), spre deosebire de multe alte modele latente. Covarianta posterioara Sigma este aceeasi pentru toate observatiile - doar media variaza, facand inferenta eficienta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Scorurile latente m_i sunt folosite pentru vizualizare (proiectie in 2D/3D), reducerea dimensionalitatii ca preprocesare, si detectia anomaliilor (observatii cu scoruri extreme).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza de imagine, factorii latenti extrasi prin FA din seturi de fete (eigenfaces) capteaza variatii principale: iluminare, orientare, expresie faciala, permitand recunoasterea faciala in spatiu low-dimensional.</p></div>
+  </div>
+</div>

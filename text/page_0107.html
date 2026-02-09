@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Distribuția Predictivă Posterioară Multinomială și Modele de Limbaj Bag-of-Words</h2>
+  <p>Pagina prezintă distribuția predictivă posterioară pentru modelul Dirichlet-multinomial și o exemplifică prin modelarea de limbaj cu bag-of-words.</p>
+  <div class="highlight-box"><strong>Predictiva posterioară:</strong> p(X̃=j|D) = E[θ_j|D] = (α_j + N_j)/(α₀ + N). Cu α_j = 1: p(X̃=j|D) = (1 + N_j)/(K + N), netezirea Bayesiană evitând probabilități zero.</div>
+  <div class="definition-box"><strong>Modelul bag-of-words:</strong> Un model de limbaj simplu unde fiecare cuvânt X_i ∈ {1,...,K} este eșantionat independent dintr-o distribuție Cat(θ). Se ignoră ordinea cuvintelor.</div>
+  <div class="highlight-box"><strong>Exemplu - versuri pentru copii:</strong> „Mary had a little lamb..." codificat ca numărători de cuvinte. Cu prior Dirichlet uniform (α_j=1), distribuția predictivă: p(X̃=j|D) = (1+N_j)/(10+17). Cuvintele nevăzute (big, black, rain) primesc probabilitate nenulă (1/27).</div>
+  <div class="definition-box"><strong>Preprocesarea textului:</strong> Eliminarea punctuației, a cuvintelor de legătură (stop words), radicalizarea (stemming), și înlocuirea cuvintelor necunoscute cu un token special „unk".</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Netezirea Bayesiană rezolvă problema numărătorilor zero în modelele de limbaj. Cuvintele care nu apar în corpusul de antrenament primesc probabilitate mică dar nenulă.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Modelul bag-of-words sacrifică informația de ordine pentru simplitate computațională. Este surprinzător de eficient în sarcini precum clasificarea documentelor, deși ignoră gramatica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Bag-of-words este baza clasificării de documente, analizei sentimentelor, și sistemelor de recuperare a informațiilor (search engines). Netezirea este esențială în toate aceste aplicații.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Filtrele de spam Gmail utilizează (printre altele) un model bag-of-words: cuvinte precum „câștigător", „gratuit", „urgent" au frecvențe ridicate în clasa spam, permițând clasificarea eficientă.</p></div>
+  </div>
+</div>

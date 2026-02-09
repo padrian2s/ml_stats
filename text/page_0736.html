@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Exercitiul 19.5 (continuare) - Conditionala Completa in Modelul Ising</h2>
+  <p>Pagina continua exercitiul 19.5 despre modelul Ising, cerandu-se derivarea expresiei pentru conditionala completa p(xᵢ = 1|x₋ᵢ, θ) folosind functia sigmoid, pentru ambele cazuri xᵢ ∈ {0,1} si xᵢ ∈ {-1,+1}.</p>
+  <div class="definition-box"><strong>Conditionala completa:</strong> p(xᵢ = 1|x₋ᵢ, θ) = p(xᵢ = 1|x_{nbᵢ}, θ) (Ecuatia 19.126) - probabilitatea conditionata a nodului i dat fiind toate celelalte noduri depinde doar de vecinii nbᵢ din graf (proprietatea Markov).</div>
+  <div class="highlight-box"><strong>Rezultat cheie:</strong> Pentru xᵢ ∈ {0,1}, conditionala completa se exprima folosind functia sigmoid σ(z) = 1/(1 + e⁻ᶻ). Pentru xᵢ ∈ {-1,+1}, se obtine o expresie inrudita. Acest rezultat este esential pentru aplicarea esantionarii Gibbs modelului Ising.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiul cere derivarea explicita a conditionalelor complete in modelul Ising, aratand ca acestea au forma sigmoida. Proprietatea Markov garanteaza ca fiecare nod depinde doar de vecinii sai, nu de intregul graf. Aceasta proprietate face posibila esantionarea Gibbs eficienta, actualizand cate un nod pe rand.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Forma sigmoida a conditionalei complete conecteaza modelul Ising cu regresia logistica: fiecare nod face o "clasificare" bazata pe valorile vecinilor sai. Termenul de bias hᵢ si fortele de cuplare Jᵢⱼ joaca roluri analoge cu interceptul si coeficientii in regresia logistica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Esantionarea Gibbs bazata pe conditionalele complete este algoritmul standard pentru inferenta in modelele Ising si MRF-uri generale. Este folosita in reconstructia imaginilor, simulari fizice si modele de retele sociale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In restaurarea imaginilor deteriorate, fiecare pixel este actualizat pe rand conform conditionalei sale complete, care ia in calcul pixelii vecini (prin Jᵢⱼ) si observatia bruita (prin hᵢ). Dupa suficiente iteratii, esantionarea Gibbs produce o imagine restaurata.</p></div>
+  </div>
+</div>

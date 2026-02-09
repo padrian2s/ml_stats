@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LDA Discriminativ si Variante de Regresie Multinomiala (Capitolul 27.4.4.2)</h2>
+  <p>Pagina prezinta LDA discriminativ, regresie multinomiala LDA si alte variante discriminative ale modelului LDA care incorporeaza informatii laterale.</p>
+  <div class="figure-box"><strong>Figura 27.16:</strong> Variante discriminative ale LDA: (a) Mixture of experts / MR-LDA - cercul dublu denota ca π_i este o functie determinista a parintilor sai. (b) Mixture of experts cu efecte aleatoare. (c) DMR-LDA (Dirichlet Multinomial Regression LDA).</div>
+  <div class="definition-box"><strong>LDA Discriminativ:</strong> Model discriminativ p(y_i|c_i, θ) unde priorul pe topicuri depinde de intrare: p(q_il|π_i, c_i=c, θ) = Cat(A_c·π) (27.67), cu A_c o matrice stocastica K x K. Aceasta permite topicurilor sa fie influentate de eticheta clasei.</div>
+  <div class="highlight-box"><strong>Regresie Multinomiala LDA:</strong> π_i = S(W·x_i) (27.68), unde priorul Dirichlet este inlocuit cu o functie determinista a intrarii. Eliminand π_i deterministic: p(q_il|x_i, W) = Cat(S(W·x_i)) (27.69). Aceasta permite etichetarea de imagini (image tagging) bazata pe caracteristici.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina exploreaza mai multe variante discriminative ale LDA care incorporeaza covariate de intrare. LDA discriminativ conditioneaza topicurile pe eticheta clasei, regresie multinomiala LDA inlocuieste priorul Dirichlet cu o functie softmax a intrarilor, iar DMR-LDA face parametrul alpha functie de intrare. Fiecare varianta ofera un compromis diferit intre flexibilitate si interpretabilitate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la modele generative la discriminative in contextul LDA reflecta un tipar general in machine learning: modelele discriminative sunt adesea mai precise pentru predictie, dar modelele generative ofera mai multa interpretabilitate. MR-LDA combina ambele prin functia determinista softmax.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Etichetarea automata a imaginilor (image tagging), clasificarea multi-eticheta a documentelor, generarea de tag-uri pentru articole web si recomandarea de continut bazata pe caracteristicile utilizatorului.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de etichetare automata a fotografiilor poate folosi MR-LDA: caracteristicile vizuale x_i ale imaginii determina distributia de topicuri prin π_i = S(W·x_i), iar apoi tag-urile sunt generate din aceste topicuri, permitand generarea de etichete corelate ("plaja", "ocean", "soare").</p></div>
+  </div>
+</div>

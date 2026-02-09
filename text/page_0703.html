@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>MRF-uri Gaussiene</h2>
+  <p>Aceasta pagina introduce MRF-urile Gaussiene (GGM nedirectionate), evidentiind conexiunea dintre matricea de precizie si structura grafului.</p>
+  <div class="definition-box"><strong>MRF Gaussiana (GMRF):</strong> Un MRF pe perechi cu potentiale Gaussiene: ψ_st(y_s, y_t) = exp(-1/2 y_s Λ_st y_t) pentru muchii si ψ_t(y_t) = exp(-1/2 Λ_tt y_t^2 + η_t y_t) pentru noduri. Distributia comuna este o Gaussiana multivariata in forma informationala.</div>
+  <div class="definition-box"><strong>Zerouri structurale:</strong> Intrarile zero din matricea de precizie Λ corespund muchiilor absente din graf: y_s ⊥ y_t | y_{-(st)} daca si numai daca Λ_st = 0. Aceasta permite inferenta despre structura grafului din date.</div>
+  <div class="highlight-box"><strong>Comparatie DGM vs UGM Gaussiene:</strong> DGM-urile Gaussiene corespund matricilor de regresie sparse (factorizare Cholesky a covariantei), in timp ce UGM-urile corespund matricilor de precizie sparse. Cele doua pot fi combinate in grafuri de tip lant (chain graphs).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MRF-urile Gaussiene sunt modele grafice nedirectionate cu variabile continue, unde distributia comuna este o Gaussiana multivariata. Structura grafului este codificata direct in matricea de precizie Λ = Σ^{-1}: zero-urile din Λ corespund muchiilor lipsa. Aceasta legatura face posibila invatarea structurii grafului prin estimarea unei matrice de precizie sparse.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Forma informationala (η, Λ) este naturala pentru UGM-uri, in timp ce forma de momente (μ, Σ) este naturala pentru DGM-uri. Dualitatea intre sparsitatea covariantei (DGM) si sparsitatea preciziei (UGM) este un principiu fundamental in modelarea grafica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GMRF-urile sunt folosite extensiv in geostatistica, procesarea semnalelor si genomica pentru modelarea corelatiilor spatiale sau temporale. Estimarea grafului (graphical lasso) este o tehnica populara pentru descoperirea retelelor de gene sau a retelelor financiare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In genomica, un GMRF poate modela relatiile de co-expresie intre gene. Matricea de precizie sparse indica care perechi de gene interactioneaza direct, dupa eliminarea efectelor indirecte mediate de alte gene.</p></div>
+  </div>
+</div>

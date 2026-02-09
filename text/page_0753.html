@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Junction tree: proprietatea intersectiei curgatoare si propagarea mesajelor</h2>
+  <p>Aceasta pagina prezinta proprietatea intersectiei curgatoare (RIP) a junction tree-urilor si introduce algoritmii Shafer-Shenoy si Hugin pentru propagarea mesajelor.</p>
+  <div class="definition-box"><strong>Proprietatea intersectiei curgatoare (RIP):</strong> Intr-un junction tree, orice variabila care apare in doua clici apare si in toate clicile de pe calea dintre ele. Aceasta asigura ca informatia despre o variabila se propaga corect prin arbore.</div>
+  <div class="definition-box"><strong>Modele decomposabile:</strong> Grafuri al caror graf chordal nu necesita muchii de umplere suplimentare. Clicile lor se "descompun" natural in piese mici. IPF converge intr-o iteratie pe aceste modele.</div>
+  <div class="highlight-box"><strong>Algoritmii Shafer-Shenoy si Hugin:</strong> Doua variante ale propagarii mesajelor pe junction tree. Shafer-Shenoy foloseste forma sum-product pura, iar Hugin (Lauritzen-Spiegelhalter) foloseste actualizari prin raport (belief updating cu impartire), fiind echivalente ca rezultat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>RIP este proprietatea fundamentala care face junction tree-urile sa functioneze corect: garanteaza ca informatia despre fiecare variabila se propaga complet prin arbore. Distributia se factorizeaza ca produs de potentiale de clica impartit la potentiale de separator: p(x) = ∏_c ψ_c(x_c) / ∏_s ψ_s(x_s). Propagarea mesajelor (Shafer-Shenoy sau Hugin) calibreaza aceste potentiale la marginalele exacte.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>RIP este echivalenta cu faptul ca graful de clici este un arbore (nu are cicluri). Separatorii (intersectiile clicilor adiacente) joaca rolul de "canal" prin care informatia circula. Algoritmul Hugin este mai eficient computational datorita impartirii (evita recalculari).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul Hugin a dat numele companiei HUGIN, unul dintre primele si cele mai influente sisteme de inferenta in retele Bayesiene. Este folosit in diagnostic medical, analiza de risc si sisteme expert.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul medical, clicile junction tree-ului corespund grupurilor de variabile interdependente (de exemplu, {tensiune, colesterol, boala cardiaca}). Mesajele propaga informatia de la simptomele observate la bolile nediagnosticate prin separatori.</p></div>
+  </div>
+</div>

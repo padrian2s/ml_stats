@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Efectul hiperparametrilor MLP - Ilustratie vizuala</h2>
+  <p>Aceasta pagina prezinta Figura 16.17 cu functii esantionate dintr-un MLP cu diferite configuratii de hiperparametri, ilustrand efectul fiecaruia.</p>
+  <div class="definition-box"><strong>Configuratii de hiperparametri:</strong> (a) Default: alpha_v=0.01, alpha_b=0.1, alpha_w=1, alpha_c=1. (b) alpha_v redus cu 10x -> functii mai abrupte. (c) alpha_b redus cu 10x -> centre deplasate. (d) alpha_w redus cu 10x -> functii mai oscilatorii. (e) alpha_c redus cu 10x -> nivel mediu variabil.</div>
+  <div class="highlight-box"><strong>Interpretare vizuala:</strong> Fiecare panou arata 10 functii esantionate din priorul MLP. Variatia intre panouri demonstreaza cum fiecare hiperparametru controleaza un aspect diferit al functiei: forma sigmoidului, pozitia, amplitudinea si nivelul mediu.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 16.17 este o demonstratie vizuala puternica a rolului hiperparametrilor in priorii MLP. Panoul (a) arata configuratia default - functii moderate. Panoul (b) cu alpha_v mic produce tranzitii abrupte (sigmoide inguste). Panoul (c) cu alpha_b mic permite deplasarea sigmoizilor pe axa x. Panoul (d) cu alpha_w mic mareste amplitudinea (functii mai 'wiggly'). Panoul (e) cu alpha_c mic permite variatie in nivelul mediu al functiei.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Aceasta separare a efectelor este analoga cu hiperparametrii kernelului GP: alpha_v ~ 1/ell (scala de lungime inversa), alpha_w ~ sigma_f (amplitudinea functiei). Conexiunea cu GP (sectiunea 15.4.5) devine vizibila: priorul pe ponderi MLP induce un prior pe functii similar cu GP.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea efectului hiperparametrilor ajuta la initializarea retelelor neurale. Metode precum Xavier/Glorot initialization si He initialization calibreaza varianta ponderilor in functie de dimensiunea straturilor, asigurand propagarea corecta a semnalului.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In antrenarea retelelor profunde, o initializare gresita a ponderilor poate duce la explozia sau disparitia gradientilor. Tehnici ca batch normalization si residual connections (ResNet) rezolva aceste probleme la nivel arhitectural.</p></div>
+  </div>
+</div>

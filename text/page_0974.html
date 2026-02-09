@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>MRF pe date text si arbori de jonctiune subtiri</h2>
+  <p>Aceasta pagina prezinta un MRF invatat din datele 20-newsgroup (Figura 26.19) si discuta invatarea grafurilor cu treewidth limitat (thin junction trees).</p>
+  <div class="definition-box"><strong>MRF pe date text (Figura 26.19):</strong> Un MRF estimat cu regularizare group L1 (lambda=256) pe datele 20-newsgroup, unde nodurile sunt cuvinte si muchiile indica dependente conditionale intre cuvinte. Nodurile izolate nu sunt afisate.</div>
+  <div class="definition-box"><strong>Thin junction trees:</strong> Grafuri cu treewidth limitat, care permit inferenta exacta eficienta. Invatarea unor astfel de grafuri combina selectia structurii cu garantia tractabilitatii inferentei.</div>
+  <div class="highlight-box"><strong>Compromis structura-inferenta:</strong> Un graf rar nu garanteaza treewidth mic (de exemplu, o grila D x D are O(D) treewidth). Constrangerea pe treewidth este mai directa dar mai greu de impus in algoritmi de invatare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 26.19 arata un MRF pe cuvinte din 20-newsgroup: cuvintele sunt conectate daca au dependenta conditionala semnificativa (controlata de lambda). Se observa clustere semantice naturale. Apoi se discuta problema practica: grafurile invatate pot fi inutilizabile pentru inferenta daca treewidth-ul este prea mare. Thin junction trees si modele cu circuit complexity mic ofera solutii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Invatarea structurii are doua scopuri potential conflictuale: (1) descoperirea cunostintelor (knowledge discovery) si (2) inferenta eficienta. Un graf fidel datelor poate fi intractabil pentru inferenta. Constrangerea pe treewidth reconciliaza aceste scopuri.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In procesarea limbajului natural, MRF-urile rare pe cuvinte sunt folosite pentru modelarea dependentelor intre trasaturi in CRF-uri de etichetare, iar thin junction trees permit inferenta rapida in modele complexe.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea vorbirii, thin junction trees permit construirea de modele de limbaj care captureaza dependente complexe intre cuvinte, dar permit totusi decodare in timp real, un compromis esential pentru aplicatii practice.</p></div>
+  </div>
+</div>

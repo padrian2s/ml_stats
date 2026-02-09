@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Regularizarea CRF-urilor si SVM-uri structurale</h2>
+  <p>Aceasta pagina discuta regularizarea in antrenarea CRF-urilor (L1, L2), CRF-uri cu variabile ascunse si introduce SVM-urile structurale (SSVM) ca alternativa la CRF-uri.</p>
+  <div class="definition-box"><strong>Regularizare mixta L1/L2:</strong> Se poate folosi regularizare L1 pentru ponderile de muchie w_e (incurajand sparsitate in structura grafului) si L2 pentru ponderile de nod w_n: ℓ'(w) = (1/N) Σ_i log p(y_i|x_i, w) - λ_1||w_e||_1 - λ_2||w_n||_2^2.</div>
+  <div class="definition-box"><strong>SVM-uri structurale (SSVM):</strong> Metoda de antrenare a clasificatorilor cu iesiri structurate care foloseste decodarea MAP (estimarea celei mai probabile configuratii) in loc de calculul marginalelor. Sunt numite si retele Markov max-margin (M3nets).</div>
+  <div class="highlight-box"><strong>CRF-uri cu variabile ascunse:</strong> Cand exista variabile latente in CRF (de exemplu, aliniament necunoscut intre trasaturi si etichete), functia obiectiv nu mai este convexa, dar se poate gasi un optim local prin EM sau metode de gradient.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Regularizarea este esentiala in CRF-uri datorita numarului mare de trasaturi. Regularizarea L1 pe ponderile de muchie produce grafuri sparse (invatare de structura implicita). CRF-urile cu variabile ascunse pierd convexitatea dar sunt utile pentru probleme cu aliniere necunoscuta. SSVM-urile ofera o alternativa: in loc de marginale (care necesita sumarea peste toate configuratiile), calculeaza doar configuratia MAP.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trade-off-ul central: CRF-urile necesita marginale (mai dificil dar mai informativ) iar SSVM-urile necesita doar MAP (mai usor dar pierd informatie probabilistica). SGD permite scalarea la seturi de date mari. Pierderea convezitatii la variabile ascunse este similara cu situatia din modelele cu variabile latente in general.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SSVM-urile sunt populare in viziunea computationala (detectarea obiectelor, segmentare) unde decodarea MAP este mai naturala si mai rapida decat calculul marginalelor. Regularizarea L1 pentru CRF-uri permite descoperirea automata a structurii grafului relevant.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea imaginilor, un SSVM antreneaza modelul gasind configuratia de etichete MAP care violeaza cel mai mult marginea (loss-augmented decoding), in loc de a calcula probabilitatile marginale ale fiecarui pixel. Aceasta abordare este mai rapida si produce rezultate competitive.</p></div>
+  </div>
+</div>

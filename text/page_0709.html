@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Metode aproximative pentru MLE si pseudo-verosimilitatea</h2>
+  <p>Aceasta pagina discuta dificultatea calculului MLE exact in MRF-uri si introduce pseudo-verosimilitatea ca alternativa aproximativa eficienta.</p>
+  <div class="definition-box"><strong>Pseudo-verosimilitate (PL):</strong> O aproximare a MLE care maximizeaza produsul conditionalelor complete: ℓ_PL(θ) = (1/N) Σ_i Σ_d log p(y_{id}|y_{i,-d}, θ), evitand calculul functiei de partitie globale Z(θ).</div>
+  <div class="definition-box"><strong>Verosimilitate compozita (composite likelihood):</strong> Un alt nume pentru pseudo-verosimilitate, care optimizeaza produsul conditionalelor locale in loc de verosimilitatea comuna.</div>
+  <div class="highlight-box"><strong>Avantajul PL:</strong> Fiecare conditionala locala p(y_{id}|y_{i,-d}, θ) necesita doar sumarea peste starile unui singur nod, nu peste toate configuratiile posibile. Pentru MRF-uri Gaussiene, PL este echivalenta cu ML exact.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Antrenarea MRF-urilor prin MLE exact este intractabila in general, deoarece necesita calculul functiei de partitie Z(θ) si al asteptarilor sub model la fiecare pas de gradient. Pseudo-verosimilitatea (PL) evita aceste calcule prin descompunerea problemei in conditionale locale. PL este consistenta asimptotic dar poate fi ineficienta cu variabile ascunse.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>PL este similara cu antrenarea separata a fiecarui nod ca un clasificator conditionat, cu partajarea parametrilor intre noduri. Dezavantajul PL: presupune ca vecinii sunt observati, ceea ce o face dificil de aplicat cu variabile ascunse. Un nod poate invata sa se bazeze exclusiv pe un vecin perfect, ignorand evidenta locala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>PL este folosita frecvent in antrenarea modelelor Ising/Potts si in estimarea structurii grafurilor (de exemplu, in algoritmul Ravikumar). Este mult mai rapida decat MLE exact si functioneaza bine pentru modele complet observate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza retelelor de gene, PL permite estimarea eficienta a unei retele Ising din date de expresie genica, fara a calcula functia de partitie. Fiecare gena este modelata conditionat pe genele vecine din retea.</p></div>
+  </div>
+</div>

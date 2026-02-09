@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>9.5.2-9.5.4 Aplicatii ale Invatarii Multi-Task</h2>
+  <p>Pagina prezinta aplicatii ale invatarii multi-task: filtrarea personalizata a spam-ului, adaptarea la domeniu si alte tipuri de priori, inclusiv conceptul de transfer negativ.</p>
+  <div class="definition-box"><strong>Filtrare personalizata de spam:</strong> Antrenarea unui clasificator per utilizator β_j, cu un prior comun β_* reprezentand parametrii unui utilizator generic. Se combina datele tuturor utilizatorilor cu datele specifice fiecarui utilizator.</div>
+  <div class="definition-box"><strong>Adaptare la domeniu:</strong> Antrenarea clasificatoarelor pe date provenite din distributii diferite (de exemplu, email si stiri), tratata ca un caz special de invatare multi-task.</div>
+  <div class="definition-box"><strong>Transfer negativ:</strong> Fenomenul in care invatarea multi-task produce performante mai slabe decat antrenarea separata a fiecarei sarcini, din cauza bias-ului inductiv incorect al priorului.</div>
+  <div class="highlight-box"><strong>Predictor personalizat (9.111-9.112):</strong> E[y_i|x_i, u] = (β_*, w_1, ..., w_J)^T [x_i, I(u=1)x_i, ..., I(u=J)x_i], unde E[y_i|x_i, u=j] = (β_*^T + w_j)^T x_i.</div>
+  <div class="highlight-box"><strong>Log probabilitatea modelului (9.113):</strong> Σ_j [log p(D_j|β_* + w_j) - ||w_j||² / (2σ²_j)] - ||β_*||² / (2σ²_*).</div>
+  <div class="definition-box"><strong>Analiza conjoint:</strong> Determinarea preferintelor clientilor privind caracteristicile produselor, modelata cu Bayes ierarhic si priori care promoveaza sparsitatea (selectie multi-task de trasaturi).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina detaliaza trei aplicatii practice ale invatarii multi-task: filtrarea personalizata a spam-ului (unde fiecare utilizator are un model, dar impartasesc un prior comun), adaptarea la domeniu (antrenarea pe domenii diferite cu structura ierarhica) si analiza conjoint (selectia de trasaturi cu priori sparse). Se discuta si riscul transferului negativ.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trucul trasaturii augmentate: se creaza doua copii ale fiecarei trasaturi (una concatenata cu ID-ul utilizatorului, una nu), permitand separarea efectelor globale de cele specifice utilizatorului. Corespondenta cu modelul Bayes ierarhic se obtine prin definirea w_j = β_j - β_*.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Filtrarea de spam personalizata permite un filtru adaptat fiecarui utilizator fara a necesita etichetarea extensiva din partea acestuia. Adaptarea la domeniu este esentiala in NLP pentru recunoasterea entitatilor si parsare pe texte din domenii diferite.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un serviciu de email poate antrena un filtru global de spam pe milioane de email-uri, apoi il personalizeaza pentru fiecare utilizator pe baza celor cateva email-uri pe care le marcheaza manual ca spam, combinand informatia globala cu cea specifica utilizatorului.</p></div>
+  </div>
+</div>

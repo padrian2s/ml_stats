@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 1: Regresie si Invatare Nesupervizata</h2>
+  <p>Exemple de regresie din lumea reala si introducerea invatarii nesupervizate ca estimare de densitate.</p>
+  <div class="definition-box"><strong>Estimare de Densitate (Density Estimation):</strong> Formalizarea invatarii nesupervizate ca construirea de modele de forma p(x_i|θ), unde θ sunt parametrii modelului.</div>
+  <div class="definition-box"><strong>Descoperire de Cunostinte (Knowledge Discovery):</strong> Alt nume pentru invatarea nesupervizata, unde scopul este gasirea structurii interesante in date.</div>
+  <div class="figure-box"><strong>Figura 1.7:</strong> (a) Regresie liniara pe date 1D - o linie dreapta ajustata datelor. (b) Aceleasi date cu regresie polinomiala de gradul 2 - o curba patratica care se potriveste mai bine.</div>
+  <div class="highlight-box"><strong>Diferenta cheie:</strong> Invatarea supervizata este estimare de densitate conditionata p(y_i|x_i, θ), pe cand invatarea nesupervizata este estimare de densitate neconditionata p(x_i|θ). In cazul nesupervizat, x_i este un vector multidimensional, necesitand modele de probabilitate multivariata.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea prezinta exemple concrete de regresie: prezicerea preturilor actiunilor, estimarea varstei spectatorilor YouTube, localizarea unui brat robotic, prezicerea PSA si estimarea temperaturii. Apoi se introduce invatarea nesupervizata, formalizata ca estimare de densitate neconditionata. Spre deosebire de invatarea supervizata, nu exista etichete si nu exista o metrica de eroare evidenta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la estimare conditionata (supervizata) la estimare neconditionata (nesupervizata) implica o crestere semnificativa a complexitatii: modelele trebuie sa captureze distributia comuna a tuturor caracteristicilor, nu doar a unei singure iesiri. Invatarea nesupervizata este mai tipica pentru invatarea umana si animala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia este folosita in finante (prezicerea preturilor), robotica (controlul bratelor robotice), medicina (prezicerea nivelurilor PSA), si stiinta cladirilor (estimarea temperaturii). Invatarea nesupervizata este folosita in segmentarea pietei, detectarea anomaliilor si compresia datelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de regresie poate prezice temperatura in orice punct al unei cladiri inteligente, folosind date de la senzori meteo, ora zilei si starea usilor. Aceasta permite optimizarea automata a sistemului HVAC pentru eficienta energetica.</p></div>
+  </div>
+</div>

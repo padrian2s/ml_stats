@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Informatia mutuala si modelele de amestec cu proces Dirichlet</h2>
+  <p>Aceasta pagina prezinta informatia mutuala normalizata ca metrica de evaluare si introduce modelele de amestec infinite bazate pe procesul Dirichlet.</p>
+  <div class="definition-box"><strong>Informatia mutuala normalizata (NMI):</strong> NMI(U,V) = I(U,V)/((H(U)+H(V))/2), variaza intre 0 si 1, corecteaza pentru tendinta informatiei mutuale de a favoriza multi clustere mici.</div>
+  <div class="definition-box"><strong>Clustering bazat pe modele (model-based clustering):</strong> Foloseste un model probabilistic de amestec finit si optimizeaza verosimilitatea sau posteriorul, oferind un cadru principial pentru clustering.</div>
+  <div class="definition-box"><strong>Modele de amestec infinite:</strong> Folosesc un prior non-parametric (procesul Dirichlet) care nu impune o limita superioara pe numarul de clustere K, permitand numarului de clustere sa creasca cu datele.</div>
+  <div class="highlight-box"><strong>Procesul Dirichlet ca prior:</strong> G ~ DP(alpha, H) inlocuieste distributia discreta fixa cu o masura aleatoare de probabilitate, permitand un numar potential infinit de componente in amestec.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la evaluarea clustering-ului la modele mai avansate. Informatia mutuala normalizata ofera o metrica bazata pe teoria informatiei. Sectiunea 25.2 introduce modelele de amestec cu proces Dirichlet, motivate de problema alegerii lui K in amestecurile finite. Reprezentarea standard p(x_i|z_i=k,theta) cu p(z_i=k|pi)=pi_k si pi ~ Dir(alpha/K) este generalizata la K infinit.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la amestecuri finite la infinite rezolva elegant problema selectiei modelului: in loc sa comparam modele cu K diferite, lasam datele sa determine complexitatea necesara. Aceasta este o aplicatie fundamentala a statisticii bayesiene non-parametrice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele de amestec cu proces Dirichlet sunt folosite in modelarea topicilor (topic modeling) in text mining, segmentarea vorbitorilor in procesarea vorbirii, si descoperirea tipurilor de celule in secventierea single-cell RNA.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza single-cell RNA-seq, numarul de tipuri de celule nu este cunoscut a priori. Un model de amestec cu proces Dirichlet poate descoperi automat tipurile de celule din profilurile de expresie genica, fara a necesita specificarea prealabila a numarului de clustere.</p></div>
+  </div>
+</div>

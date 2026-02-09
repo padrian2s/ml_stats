@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Algoritmul LMS - Ilustrare și Algoritmul Perceptronului</h2>
+  <p>Pagina ilustrează algoritmul LMS cu un exemplu practic, arătând convergența spre soluția celor mai mici pătrate, și introduce algoritmul perceptronului pentru clasificare binară online.</p>
+  <div class="figure-box"><strong>Figura 8.8:</strong> (a) Traiectoria algoritmului LMS pornind de la θ = (-0.5, 2) convergând spre soluția celor mai mici pătrate θ̂ = (1.45, 0.92) (crucea roșie). Traiectoria nu este liniară. (b) Suma reziduurilor pătrate (RSS) în funcție de iterație - scade monotonic dar nu uniform.</div>
+  <div class="highlight-box"><strong>Actualizarea LMS (Ecuația 8.87):</strong> θ_{k+1} = θ_k - η_k(ŷ_k - y_k)x_k - actualizarea ponderilor proporțional cu eroarea de predicție. Cunoscută și ca regula delta sau regula Widrow-Hoff.</div>
+  <div class="definition-box"><strong>Algoritmul perceptronului:</strong> Aproximare a SGD pentru regresia logistică binară unde predicția ŷᵢ = sign(θ&#7488;xᵢ) și actualizarea se face doar la clasificări greșite: θ_k = θ_{k-1} + η_k yᵢ xᵢ dacă ŷᵢ ≠ yᵢ.</div>
+  <div class="highlight-box"><strong>Actualizarea SGD online pentru regresia logistică (Ecuația 8.88):</strong> θ_k = θ_{k-1} - η_k(μᵢ - yᵢ)xᵢ, unde μᵢ = p(yᵢ=1|xᵢ, θ_k) = sigm(θ_k&#7488;xᵢ). Aceeași formă ca LMS dar cu predicții probabilistice.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>LMS converge la soluția OLS dar poate necesita mai multe treceri prin date (spre deosebire de algoritmul recursiv bazat pe filtrul Kalman care converge într-o singură trecere). Algoritmul perceptronului este o aproximare mai grosieră a SGD pentru regresia logistică, înlocuind predicția probabilistică cu una binară și actualizând doar la erori. Convergența perceptronului este garantată doar dacă datele sunt liniar separabile.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Relația ierarhică între acești algoritmi este clarificatoare: LMS (regresie liniară) → SGD logistic (regresie logistică) → perceptron (aproximare). Toți au forma „actualizare = eroare × intrare", reflectând structura comună a modelelor liniare generalizate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul perceptronului, deși primitiv, rămâne relevant ca componentă a rețelelor neurale (fiecare neuron este un perceptron). LMS este fundamentul procesării adaptive a semnalelor (cancelarea ecoului, egalizarea canalelor).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Frank Rosenblatt a implementat perceptronul în hardware (Mark I Perceptron, 1957-1958) la Cornell, folosind fotocelule conectate aleator la potențiometre. Mașina putea învăța să recunoască forme simple, demonstrând pentru prima dată învățarea automată din date.</p></div>
+  </div>
+</div>

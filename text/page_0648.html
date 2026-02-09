@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Invatarea parametrilor HMM - Date complet observate</h2>
+  <p>Aceasta pagina introduce invatarea parametrilor HMM theta = (pi, A, B), tratand mai intai cazul cu date complet observate (starile ascunse sunt cunoscute).</p>
+  <div class="definition-box"><strong>Parametrii HMM:</strong> theta = (pi, A, B), unde pi(i) = p(z_1=i) este distributia initiala, A(i,j) = p(z_t=j|z_{t-1}=i) este matricea de tranzitie, si B sunt parametrii modelului de observatie p(x_t|z_t=j).</div>
+  <div class="highlight-box"><strong>MLE cu date complet observate:</strong> B_hat_jl = N_jl^X / N_j, unde N_jl^X = sum_i sum_t I(z_{i,t}=j, x_{i,t}=l) numara de cate ori starea j emite simbolul l. Parametrii pi si A se estimeaza ca in lantul Markov observat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 17.5 trateaza invatarea parametrilor HMM. Cu date complet observate (z_{1:T} si x_{1:T} cunoscute), MLE-urile sunt simple: pi si A se estimeaza din conturile tranzitiilor (ca in Sectiunea 17.2.2.1), iar B se estimeaza din conturile emisiilor. Cu model de observatie multinoullic, B_jl = N_jl / N_j. Estimarea este identica cu ajustarea unui clasificator generativ pe clasele z_t. Cu prior conjugat Dirichlet, posteriorul este tot Dirichlet.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Descompunerea in doua probleme independente (tranzitii si emisii) simplifica estimarea. Fiecare rand al lui A si fiecare rand al lui B sunt estimate independent cu priori Dirichlet. Cazul complet observat este rar in practica; de obicei z_{1:T} este ascuns si trebuie inferat.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In bioinformatica, HMM-urile sunt adesea antrenate pe secvente anotate (de ex. gene cu exoni/introni marcati), unde starile sunt observate. In alte aplicatii (recunoastere vocala, finante), starile sunt ascunse si necesita algoritmul EM (Baum-Welch).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In antrenarea HMM-urilor pentru profiluri de secvente proteice (profile HMMs), alinierele multiple furnizeaza 'starile observate' (pozitii in aliniament), permitand estimare directa a parametrilor de emisie si insertie.</p></div>
+  </div>
+</div>

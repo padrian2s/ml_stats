@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Echivalenta Bayesian-frequentista in regresia liniara si exemplul Caterpillar</h2>
+  <p>Aceasta pagina demonstreaza ca, cu prior neinformativ, intervalele de credibilitate Bayesiene sunt identice cu intervalele de incredere frequentiste, si prezinta un exemplu numeric pe datele Caterpillar.</p>
+  <div class="definition-box"><strong>Marginala posterioara pentru w_j:</strong> p(w_j | D) = T(w_j | w_hat_j, C_jj s&sup2;/(N-D), N-D), unde C = (X^T X)^(-1) si s_j = sqrt(s&sup2; C_jj/(N-D)) este eroarea standard a coeficientului j.</div>
+  <div class="definition-box"><strong>Semnificatia statistica:</strong> Un coeficient este „semnificativ" daca intervalul sau de credibilitate de 95% nu include 0. Din Tabelul 7.2 (datele Caterpillar), coeficientii w0, w1, w2, w4, w5 sunt semnificativi.</div>
+  <div class="highlight-box"><strong>Echivalenta exacta:</strong> (w_j - w_hat_j)/s_j ~ t_{N-D}, identic cu distributia de esantionare frequentista. Intervalele de credibilitate Bayesiene de 95% sunt identice cu intervalele de incredere frequentiste la nivelul de 5%. Aceasta echivalenta tine doar cu prior neinformativ.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabileste un rezultat remarcabil: inferenta Bayesiana cu prior neinformativ reproduce exact inferenta frequentista in regresia liniara. Tabelul 7.2 arata rezultatele pentru 11 coeficienti pe datele Caterpillar: mediile posterioare, deviatiile standard, intervalele de credibilitate si semnificatia. Se noteaza ca aceasta echivalenta nu mai tine cand N < D (unde MLE nici nu exista), dar inferenta Bayesiana functioneaza cu priori proprii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Echivalenta Bayesian-frequentista este exacta in regresia liniara cu prior neinformativ. 2) Testul de semnificativa „CI nu include 0" este echivalent cu p-value < 0.05. 3) Cand N < D, abordarea frequentista esueaza complet, dar cea Bayesiana functioneaza cu un prior propriu. 4) Eroarea standard s_j depinde de pozitia variabilei j in spatiul corelat al predictorilor (prin C_jj).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta echivalenta inseamna ca rezultatele standard din regresie (tabelul ANOVA, p-values, intervale de incredere) au o interpretare Bayesiana valida. Dar avantajul Bayesian apare cand N < D (genomica, imagistica), cand se doresc priori informative, sau cand se doreste medierea peste modele.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Tabelul 7.2 arata ca w3, w6, w7, w8, w9, w10 nu sunt semnificativi (intervalele lor de credibilitate includ 0). Un practician ar putea decide sa le elimine din model, obtinand un model mai parcimonios. Aceasta este exact ceea ce fac procedurile standard de selectie a variabilelor in software-urile statistice (SPSS, Stata, R).</p></div>
+  </div>
+</div>

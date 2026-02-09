@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Verosimilitatea Marginala si Aproximarea BIC</h2>
+  <p>Pagina deriveaza verosimilitatea marginala completa (integrand peste sigma^2), aproximarea BIC si introduce modelul Bernoulli-Gaussiana ca alternativa la spike-and-slab.</p>
+  <div class="highlight-box"><strong>Verosimilitatea marginala completa (Eq. 13.15-13.17):</strong> Integrarea peste sigma^2 cu prior Jeffrey p(sigma^2) proportional cu sigma^{-2} produce p(D|gamma) proportional cu |X_gamma^T X_gamma + Sigma_gamma^{-1}|^{-1/2} |Sigma_gamma|^{-1/2} (2b_sigma + S(gamma))^{-(2a_sigma+N-1)/2}.</div>
+  <div class="highlight-box"><strong>Aproximarea BIC (Eq. 13.18-13.19):</strong> log p(D|gamma) ≈ log p(y|X, w_hat, sigma_hat^2) - (||gamma||_0 / 2) log N. Obiectivul total: log p(gamma|D) ≈ log-verosimilitate - (||gamma||_0 / 2) log N - lambda||gamma||_0 + const.</div>
+  <div class="definition-box"><strong>Modelul Bernoulli-Gaussian (Eq. 13.20-13.22):</strong> y_i ~ N(suma gamma_j w_j x_ij, sigma^2), gamma_j ~ Ber(pi_0), w_j ~ N(0, sigma_w^2). Varianta unde gamma_j "mascheaza" ponderile: gamma_j -> y <- w_j, spre deosebire de spike-and-slab unde gamma_j -> w_j -> y.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Verosimilitatea marginala completa (Eq. 13.15-13.16) este disponibila in forma inchisa pentru regresia liniara, dar nu pentru modele nonliniare (logistica, etc.). BIC ofera o aproximare universala. Modelul Bernoulli-Gaussian este o alternativa la spike-and-slab cu structura grafica diferita.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>BIC combina doua penalizari: una din verosimilitatea marginala (proportionala cu log N) si una din prior (proportionala cu lambda). Ambele favorizeaza modele sparse. BIC este util cand calculul exact al verosimilitudinii marginale nu este fezabil.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>BIC este cel mai utilizat criteriu de selectie a modelului in practica datorita simplitatii: necesita doar ajustarea modelului (MLE sau MAP) si numararea parametrilor, fara integrare Bayesiana completa.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In procesarea de semnal (compressed sensing), modelul Bernoulli-Gaussian este standard pentru modelarea semnalelor sparse: fiecare coeficient wavelet este fie zero (zgomot/detalii irelevante), fie non-zero (structura relevanta).</p></div>
+  </div>
+</div>

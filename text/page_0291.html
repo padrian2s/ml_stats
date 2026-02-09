@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Aproximarea Probit - Derivare Completă și Analiza Reziduală</h2>
+  <p>Pagina completează derivarea aproximării probit cu formula finală pentru predicția bayesiană moderată și introduce analiza reziduală (detectarea valorilor aberante) pentru regresia logistică.</p>
+  <div class="definition-box"><strong>Funcția probit:</strong> Φ(a) = ∫_{-∞}^a N(x|0,1)dx - funcția de repartiție a distribuției normale standard, similară cu funcția sigmoidă dar cu proprietăți analitice superioare pentru convoluție cu Gaussiana.</div>
+  <div class="highlight-box"><strong>Convoluția sigm-Gaussiană (Ecuația 8.69-8.71):</strong> ∫ sigm(a)N(a|μ,σ²)da ≈ sigm(κ(σ²)μ), unde κ(σ²) = (1 + πσ²/8)^{-½}. Factorul κ ∈ [0,1] „moderează" predicția, apropiind-o de 0.5.</div>
+  <div class="highlight-box"><strong>Proprietatea de moderare (Ecuația 8.72):</strong> sigm(κ(σ²)μ) ≤ sigm(μ) = p(y=1|x, ŵ) - predicția bayesiană este întotdeauna mai puțin extremă decât predicția plug-in, dar frontiera de decizie rămâne aceeași.</div>
+  <div class="definition-box"><strong>Analiza reziduală / Detectarea valorilor aberante (Secțiunea 8.4.5):</strong> Identificarea punctelor cu probabilitate mică sub distribuția predictivă posterioară cu validare încrucișată: p(yᵢ|xᵢ, x_{-i}, y_{-i}). Metodele clasice bazate pe reziduuri nu funcționează bine pentru date binare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Formula sigm(κ(σ²)μ) oferă o aproximare elegantă și rapidă a predicției bayesiene. Factorul de moderare κ(σ²) depinde doar de varianța proiecției, comprimând predicția spre 0.5 proporțional cu incertitudinea. Remarcabil, frontiera de decizie (unde predicția = 0.5) rămâne identică cu cea MAP. Analiza reziduală bayesiană definește outlier-ii ca puncte cu probabilitate mică sub distribuția predictivă cu validare încrucișată.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Echivalența frontierei de decizie între predicția moderată și plug-in înseamnă că acuratețea clasificării este identică, dar log-verosimilitatea (calibrarea) diferă. Aceasta separă două aspecte importante ale predicției: discriminarea (acuratețe) și calibrarea (corectitudinea probabilităților).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Detectarea valorilor aberante este esențială în curățarea datelor, detectarea fraudelor și controlul calității. Abordarea bayesiană cu validare încrucișată oferă o metodă principială, deși mai costisitoare computațional, care evită problemele metodelor clasice bazate pe normalitatea asimptotică.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un studiu clinic, un pacient care este prezis ca sănătos cu 99% probabilitate dar este de fapt bolnav ar fi detectat ca outlier de analiza reziduală bayesiană. Aceasta poate indica o eroare de etichetare, un subtip rar de boală, sau o caracteristică neobișnuită a pacientului.</p></div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>HMM auto-regresive si modele buried Markov</h2>
+  <p>Aceasta pagina introduce HMM-urile auto-regresive (AR-HMM), modelele de comutare de regim si modelele buried Markov.</p>
+  <div class="definition-box"><strong>AR-HMM (Auto-Regressive HMM):</strong> Extinde HMM adaugand dependente directe intre observatii consecutive: p(x_t|x_{t-1}, z_t=j) = N(x_t|W_j x_{t-1} + mu_j, Sigma_j). Starea ascunsa z_t selecteaza parametrii modelului autoregresiv. Cunoscut si ca 'regime switching model'.</div>
+  <div class="highlight-box"><strong>Buried Markov Model:</strong> Generalizeaza AR-HMM permitand structurii de dependenta intre observatii sa se schimbe in functie de starea ascunsa. Este o mixtura de retele Bayesiene dinamice, unde starea z_t selecteaza atat matricea de regresie W_j cat si structura de dependenta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>HMM standard presupune ca observatiile sunt conditionat independente data starea - adesea nerealist. AR-HMM adauga arce directe x_{t-1} -> x_t, captand dependente pe termen scurt in observatii. Starea z_t comuta intre mai multe modele AR (W_j, mu_j, Sigma_j). Modelul de ordin L conditioneaza pe ultimele L observatii. Pasul M necesita rezolvarea a K probleme de regresie ponderata. Buried Markov model permite si structurii grafice sa depinda de z_t.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>AR-HMM combina doua lanturi Markov: una pe starile ascunse (dependente pe termen lung) si una pe observatii (dependente pe termen scurt). Hamilton (1990) a popularizat aceste modele in econometrie pentru detectarea schimbarilor de regim in serii temporale financiare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>AR-HMM este standard in econometrie (Markov switching models) si este implementat in statsmodels (Python) si MSwM (R). In neurostiinta, modeleaza schimbarile de regim in activitatea cerebrala EEG/fMRI.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza PIB-ului, un AR-HMM cu 2 stari (expansiune si recesiune) detecteaza automat schimbarile de regim economic, oferind estimari ale datei de incepere si sfarsit ale recesiunilor, similare cu cele ale comitetului NBER.</p></div>
+  </div>
+</div>

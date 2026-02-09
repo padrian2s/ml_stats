@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>Demonstratia Inversei Partitionate si Lema de Inversare Matriceala</h2>
+  <p>Pagina 117 completeaza demonstratia inversei partitionate si introduce lema de inversare matriceala (Sherman-Morrison-Woodbury).</p>
+
+  <div class="highlight-box"><strong>Diagonalizarea bloc (Ecuatia 4.99):</strong> X * M * Z = W, unde X si Z sunt matrice triunghiulare bloc, iar W este bloc-diagonala. Atunci M⁻¹ = Z * W⁻¹ * X.</div>
+
+  <div class="highlight-box"><strong>Inversarea finala (Ecuatiile 4.102-4.105):</strong> M⁻¹ se obtine ca produs Z * W⁻¹ * X, rezultand formulele cu complementele Schur M/H si M/E. Cele doua forme (4.93 si 4.94) corespund eliminarii din dreapta vs. stanga.</div>
+
+  <div class="definition-box"><strong>Lema de inversare matriceala (Corolarul 4.3.1, Ecuatia 4.106):</strong> (E - FH⁻¹G)⁻¹ = E⁻¹ + E⁻¹F(H - GE⁻¹F)⁻¹GE⁻¹. Cunoscută si ca formula Sherman-Morrison-Woodbury.</div>
+
+  <div class="highlight-box"><strong>Lema determinantului matriceal (Ecuatia 4.108):</strong> |E - FH⁻¹G| = |H - GE⁻¹F| * |H⁻¹| * |E|</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Demonstratia inversei partitionate se incheie cu derivarea ambelor forme alternative. Corolarul major este lema de inversare matriceala, care permite inversarea eficienta a sumelor de matrice. Aceasta lema este esentiala in invatarea automata pentru actualizari incrementale ale modelelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Lema Sherman-Morrison-Woodbury transforma inversarea unei matrice N x N modificata de un termen de rang D in inversarea unei matrice D x D, economisind timp cand D << N. Cazul special D = 1 (actualizare de rang 1) permite actualizari O(N²) in loc de O(N³).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Formula Woodbury este utilizata in regresia liniara Bayesiana (trecerea intre spatiul parametrilor si spatiul datelor), in procesele Gaussiene (inversarea eficienta a matricei nucleu) si in filtrarea Kalman (actualizarea covariantei).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recomandare online, cand un utilizator nou adauga un rating, formula de actualizare de rang 1 (Ecuatia 4.111) permite actualizarea modelului in O(N²) in loc de a reinversa intreaga matrice in O(N³), facand sistemul responsive in timp real.</p></div>
+  </div>
+</div>

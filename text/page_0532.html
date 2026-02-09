@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Clasificatorul ν-SVM și Ieșiri Probabilistice ale SVM</h2>
+  <p>Pagina prezintă clasificatorul ν-SVM care controlează fracția de erori permise și metodele de conversie a ieșirilor SVM în probabilități.</p>
+  <div class="definition-box"><strong>Clasificator ν-SVM:</strong> O variantă a SVM în care parametrul C = 1/(νN), unde 0 < ν ≤ 1 controlează fracția de puncte clasificate greșit permise în timpul antrenării. Se alege de obicei prin validare încrucișată.</div>
+  <div class="definition-box"><strong>Calibrare probabilistică Platt:</strong> Metoda de conversie a ieșirilor SVM în probabilități folosind p(y = 1|x, θ) = σ(af(x) + b), unde a și b sunt estimați prin verosimilitate maximă pe un set de validare separat.</div>
+  <div class="highlight-box"><strong>Limitarea SVM pentru probabilități:</strong> Probabilitățile obținute din SVM sunt slab calibrate deoarece funcția f(x) nu este antrenată ca un raport log-odds. Comparația cu RVM arată că RVM produce probabilități mult mai fidele.</div>
+  <div class="figure-box"><strong>Figura 14.13:</strong> Grafic comparativ al log-odds-ului versus x pentru trei metode: log-odds-ul corect, RVM f(x) și SVM f(x). RVM aproximează bine log-odds-ul real, în timp ce SVM produce o aproximare deficitară.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Clasificatorul ν-SVM oferă o parametrizare mai intuitivă decât C. Ieșirile probabilistice ale SVM sunt obținute prin metoda Platt (sigmoid fitting), dar sunt în general slab calibrate. RVM-ul produce probabilități superioare deoarece este antrenat prin verosimilitate maximă.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>SVM-urile nu modelează incertitudinea în mod nativ, ceea ce este o limitare fundamentală. Calibrarea post-hoc (Platt scaling) este un artificiu care nu garantează probabilități fiabile. Modelele probabilistice native (RVM, GP) sunt preferate când incertitudinea este importantă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>În sistemele de diagnostic medical sau de conducere autonomă, probabilitățile calibrate sunt esențiale pentru luarea deciziilor. SVM-urile nu sunt ideale în aceste contexte fără calibrare suplimentară.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de detectare a fraudei bancare necesită nu doar o decizie da/nu, ci și o probabilitate de fraudă pentru a prioritiza investigațiile. Folosirea unui SVM cu calibrare Platt poate subestima sau supraestima riscul real comparativ cu un model probabilistic nativ.</p></div>
+  </div>
+</div>

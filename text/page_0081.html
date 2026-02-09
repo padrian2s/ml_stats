@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Transformări Generale ale Variabilelor Aleatoare</h2>
+  <p>Pagina prezintă metode pentru derivarea distribuției unei variabile aleatoare transformate, atât pentru cazul discret cât și pentru cel continuu, incluzând formula de schimbare a variabilelor.</p>
+  <div class="definition-box"><strong>Transformare discretă:</strong> Dacă X este discretă, pmf-ul lui y se obține prin p_y(y) = Σ_{x:f(x)=y} p_x(x), sumând peste toate valorile x care produc aceeași valoare y.</div>
+  <div class="highlight-box"><strong>Formula de schimbare a variabilelor:</strong> Pentru funcții monotone și inversabile: p_y(y) = p_x(x)|dx/dy|, unde se ia valoarea absolută a derivatei pentru a asigura pozitivitatea densității.</div>
+  <div class="definition-box"><strong>Schimbarea multivariată a variabilelor:</strong> Matricea Jacobiană J_{x→y} conține derivatele parțiale ∂yᵢ/∂xⱼ. |det J| măsoară cât de mult se modifică volumul unui cub unitar sub transformarea f.</div>
+  <div class="highlight-box"><strong>Formula multivariată:</strong> p_y(y) = p_x(x)|det(∂x/∂y)| = p_x(x)|det J_{y→x}|, unde se utilizează Jacobianul transformării inverse.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Formula de schimbare a variabilelor permite calcularea densității unei variabile transformate. Factorul |dx/dy| (sau determinantul Jacobianului în cazul multivariat) compensează compresia sau expansiunea spațiului sub transformare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Densitățile nu se transformă direct - trebuie multiplicat cu Jacobianul. Aceasta este o consecință a faptului că densitățile sunt „per unitate de volum", iar transformarea modifică volumul.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Formula este esențială în fluxurile de normalizare (normalizing flows), o clasă modernă de modele generative care utilizează lanțuri de transformări inversabile pentru a modela distribuții complexe.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Transformarea Box-Muller generează eșantioane din distribuția normală pornind de la eșantioane uniforme, utilizând exact această formulă de schimbare a variabilelor cu o transformare specifică.</p></div>
+  </div>
+</div>

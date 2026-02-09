@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Kerneluri: Sigmoid, Liniar, Matern si Constructia de Kerneluri Noi</h2>
+  <p>Pagina prezinta Sectiunile 14.2.4-14.2.5 despre kernelul sigmoid, kernelul liniar, kernelul Matern si principiile de constructie a kernelurilor noi din kerneluri existente.</p>
+  <div class="highlight-box"><strong>Kernelul sigmoid (Eq. 14.17):</strong> kappa(x, x') = tanh(gamma x^T x' + r). Nu este Mercer (nu este pozitiv definit in general). Inspirat de perceptronul multi-strat, dar fara avantaj practic real. Pentru un kernel neural net veritabil (pozitiv definit), vezi Sectiunea 15.4.5.</div>
+  <div class="definition-box"><strong>Kernelul liniar (Sectiunea 14.2.4, Eq. 14.18-14.19):</strong> Cu phi(x) = x: kappa(x, x') = x^T x'. Util cand datele sunt deja inalt-dimensionale si individual informative (bag of words cu vocabular mare, expresie genica). Granita de decizie este liniara in spatiul original.</div>
+  <div name="definition-box"><strong>Kernelul Matern (Sectiunea 14.2.5, Eq. 14.20):</strong> kappa(r) = (2^{1-nu}/Gamma(nu)) (sqrt(2 nu) r / l)^nu K_nu(sqrt(2 nu) r / l), unde K_nu este functia Bessel modificata, l este lungimea scalei si nu controleaza netezimea. Folosit frecvent in regresie cu procese Gaussiene (Capitolul 15).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta kerneluri cu proprietati diferite: liniar (simplu, fara non-liniaritate), sigmoid (non-Mercer, de evitat), Matern (flexibil, cu control explicit al netezirii). Regula de compunere: suma si produsul de kerneluri Mercer sunt Mercer, permitand constructia modulara de kerneluri complexe adaptate problemei.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Parametrul nu al kernelului Matern controleaza netezimea functiei: nu = 1/2 (Ornstein-Uhlenbeck, continuu dar nediferentiabil), nu = 3/2 (o data diferentiabil), nu = 5/2 (de doua ori diferentiabil), nu -> infinit (SE/RBF kernel, infinit diferentiabil). Aceasta flexibilitate il face superior RBF cand presupunerea de netezire infinita nu este justificata.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Kernelul Matern cu nu = 5/2 este recomandat ca default in GPyTorch si scikit-learn GaussianProcessRegressor, fiind un compromis bun intre flexibilitate si netezime. Kernelul liniar este preferat in NLP (text classification cu SVM liniar) datorita eficientei O(D) si performantei competitive.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In geostatistica (kriging), kernelul Matern modeleaza corelatia spatiala a datelor de poluare atmosferica, unde parametrul nu reflecta netezimea reala a campului de poluare (adesea nu = 3/2, reflectand discontinuitati in gradienti din cauza surselor punctiforme).</p></div>
+  </div>
+</div>

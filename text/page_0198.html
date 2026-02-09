@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Prior-ul Jeffreys pentru Bernoulli, Multinomial si Parametri de Locatie/Scala</h2>
+  <p>Pagina calculeaza explicit prior-ul Jeffreys pentru distributiile Bernoulli si multinomiale si introduce prior-urile Jeffreys pentru parametri de locatie si scala.</p>
+  <div class="highlight-box"><strong>Jeffreys pentru Bernoulli:</strong> I(θ) = 1/(θ(1-θ)), deci p(θ) ∝ θ^(-1/2)(1-θ)^(-1/2) = Beta(1/2, 1/2) (Ecuatia 5.61)</div>
+  <div class="highlight-box"><strong>Jeffreys pentru Multinomial:</strong> p(θ) ∝ Dir(1/2, ..., 1/2) (Ecuatia 5.62) - diferit de prior-ul uniform Dir(1,...,1) sau Dir(1/K,...,1/K).</div>
+  <div class="definition-box"><strong>Prior invariant la translatie:</strong> p(μ) ∝ 1 pentru un parametru de locatie (media gaussiana). Satisface proprietatea ca masa probabilitatii atribuita oricarui interval [A,B] este aceeasi ca cea atribuita [A-c, B-c] (Ecuatia 5.63).</div>
+  <div class="definition-box"><strong>Prior invariant la scala:</strong> p(s) ∝ 1/s pentru un parametru de scala (varianta gaussiana). Satisface proprietatea ca masa probabilitatii atribuita [A,B] este aceeasi ca cea atribuita [A/c, B/c] (Ecuatia 5.64).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se demonstreaza explicit ca prior-ul Jeffreys pentru Bernoulli este Beta(1/2, 1/2), nu prior-ul uniform Beta(1,1). Pentru multinomiale cu K stari, este Dir(1/2,...,1/2). Pentru parametri de locatie, prior-ul Jeffreys este uniform p(μ) ∝ 1 (impropriu dar acceptabil). Pentru parametri de scala, este p(σ²) ∝ 1/σ², care este si impropriu dar da posterioare proprii cu N ≥ 2.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exista o simetrie eleganta: prior-ul invariant la translatie este uniform pe scala naturala, iar prior-ul invariant la scala este uniform pe scala logaritmica (deoarece p(s) ∝ 1/s inseamna p(log s) = constant).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica bayesiana, prior-urile Jeffreys sunt adesea "puncte de plecare" care sunt apoi ajustate pe baza cunostintelor de domeniu. In MCMC si Stan, se folosesc frecvent prior-uri vag informative (de exemplu, N(0, 100²)) in locul prior-urilor improprii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Cand estimam varianta zgomotului de masurare in fizica, prior-ul Jeffreys p(σ²) ∝ 1/σ² reflecta faptul ca nu avem preferinta pentru nicio scala particulara: nu stim daca zgomotul este de ordinul milimetrilor sau metrilor.</p></div>
+  </div>
+</div>

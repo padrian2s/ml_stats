@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Cautare Stocastica, EM Variational si Introducere in Regularizarea l1</h2>
+  <p>Pagina acopera cautarea stocastica (MCMC) pentru selectia de variabile, limitarile EM/variational inference si introduce sectiunea 13.3 despre regularizarea l1 (LASSO).</p>
+  <div class="definition-box"><strong>Cautare stocastica (Eq. 13.31):</strong> p(gamma|D) ≈ exp(-f(gamma)) / suma_{gamma' in S} exp(-f(gamma')). Se genereaza un set S de modele bune prin cautare stocastica (MCMC sau alt algoritm) si se aproximeaza posteriorul peste acest set.</div>
+  <div class="highlight-box"><strong>Limitarile EM pentru spike-and-slab:</strong> EM poate calcula p(gamma_j=1|w_j), dar pasul E reduce la clasificarea w_j sub doua Gaussiene (delta vs slab), suferind de optime locale severe. Mean field variational inference este o alternativa dar tot aproximativa.</div>
+  <div class="highlight-box"><strong>Trecerea la regularizarea l1 (Sectiunea 13.3):</strong> Problema cu l0 este ca gamma_j in {0,1} sunt discrete, facand optimizarea NP-hard. Solutia: inlocuirea spike-and-slab cu priori continue care incurajeaza sparsitatea, precum distributia Laplace (prior l1).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div name="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia critica de la selectia Bayesiana exacta (computational intractabila pentru D mare) la regularizarea l1 (tractabila). Motivatia: inlocuirea variabilelor discrete gamma cu priori continue sparse (Laplace) transforma problema combinatoriala NP-hard intr-o problema de optimizare convexa, rezolvabila eficient.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Relaxarea continua: l0 -> l1 este analogia clasica din optimizare combinatoriala (inlocuirea constrangerilor intregi cu constrangeri continue). In cazul sparsitatii, aceasta relaxare este adesea stransa (l1 recupereaza aceeasi solutie sparse ca l0).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LASSO (l1-regularized regression) este probabil cea mai influenta metoda statistica moderna. A fost propusa de Tibshirani (1996) si a generat un intreg domeniu de cercetare. Este implementata in toate pachetele statistice majore.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza text, regularizarea l1 permite selectia automata a cuvintelor cheie (dintr-un vocabular de sute de mii) relevante pentru clasificarea documentelor, producand modele interpretabile si eficiente.</p></div>
+  </div>
+</div>

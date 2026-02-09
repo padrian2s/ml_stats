@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Modele de limbaj si n-grame</h2>
+  <p>Aceasta pagina introduce modelele de limbaj statistice bazate pe lanturi Markov, modelele n-gram si aplicatiile lor.</p>
+  <div class="definition-box"><strong>Modele n-gram:</strong> Modele de limbaj bazate pe lanturi Markov de ordin n-1: unigram p(X_t=k), bigram p(X_t=k|X_{t-1}=j), trigram p(X_t=k|X_{t-1}=j, X_{t-2}=i). Spatiul starilor este multimea tuturor cuvintelor din vocabular.</div>
+  <div class="highlight-box"><strong>Aplicatii ale modelelor de limbaj:</strong> Completarea propozitiilor (predictive text), compresie de date (coduri mai scurte pentru secvente probabile), clasificare de text (generativ, ca naive Bayes), si generare automata de text.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelele de limbaj definesc distributii de probabilitate peste secvente de cuvinte. Modelul n-gram presupune ca probabilitatea urmatoarei cuvant depinde doar de ultimele n-1 cuvinte. Tabelul 17.1 arata text generat de un model 4-gram antrenat pe Broadcast News: textul este local gramatical dar lipsit de coerenta globala. Figura 17.2 arata statistici de 1-grame si 2-grame la nivel de caracter din 'On The Origin Of Species'.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Calitatea textului generat creste cu ordinul n dar si numarul de parametri creste exponential (V^n). Netezirea (smoothing) este esentiala pentru n-grame deoarece multe combinatii nu sunt observate in corpus. Modelele neurale de limbaj (Tomas et al. 2011) depasesc semnificativ n-gramele clasice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele n-gram au fost standardul in recunoasterea vorbirii si traducerea automata pana in ~2015, cand au fost inlocuite de modele neurale (LSTM, Transformer). Raman folosite in corectarea ortografica si auto-completarea textului pe dispozitive cu resurse limitate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Tastatura predictiva a smartphone-ului foloseste un model de limbaj (initial n-gram, acum neuronal) pentru a sugera urmatorul cuvant. Sistemul Dasher al lui MacKay foloseste un model de limbaj pentru a permite persoanelor cu dizabilitati sa scrie eficient.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>JTA pe HMM si complexitatea computationala a JTA</h2>
+  <p>Aceasta pagina continua exemplul JTA pe un HMM, derivand echivalenta cu algoritmul forward-backward, si discuta complexitatea JTA.</p>
+  <div class="definition-box"><strong>Junction tree derivat din HMM:</strong> Figura 20.8 arata arborele junction derivat dintr-un HMM cu T=4: clicile de tranzitie (X_{t-1}, X_t), separatorii X_t, si clicile de observatie (X_t, Y_t). Mesajele forward sunt densitatile predictive p(X_{t-1}, X_t|v_{1:t-1}).</div>
+  <div class="definition-box"><strong>Complexitatea JTA:</strong> Pentru variabile discrete cu K stari, JTA necesita O(|C|K^{w+1}) timp si spatiu, unde |C| este numarul de clici si w este treewidth-ul. Pentru modele Gaussiene, complexitatea este O(|C|w^3) timp si O(|C|w^2) spatiu.</div>
+  <div class="highlight-box"><strong>Echivalenta cu algoritmii clasici:</strong> JTA pe un lant reproduce forward-backward. JTA pe un graf cu structura de sistem dinamic liniar reproduce algoritmul de netezire Kalman (Kalman smoother). Aceasta unifica toti acesti algoritmi intr-un singur cadru.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pe un HMM, mesajele forward din JTA corespund filtrarilor α_t, iar mesajele backward sunt rapoartele de actualizare γ_t/α_t. Complexitatea JTA depinde exponential de treewidth: tractabila pentru grafuri cu w mic (lanturi w=1, arbori w=1), dar intractabila pentru grafuri dense. Pentru modele Gaussiene, dependenta de w este polinomiala (cubica), nu exponentiala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Complexitatea exponentiala in treewidth este inevitabila (sub ipoteze standard de complexitate computationala). JTA Gaussiana este mai eficienta deoarece operatiile cu Gaussiene (inversare de matrice) au complexitate polinomiala in dimensiune. Unificarea algoritmilor clasici sub JTA simplifica implementarea si demonstratiile de corectitudine.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>JTA Gaussiana este folosita in modelarea spatio-temporala, procesarea semnalelor multidimensionale si filtrare adaptiva. Complexitatea O(|C|w^3) o face aplicabila chiar si la grafuri moderate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de predictie meteo pe o retea de 100 de statii poate fi tratat ca un GMRF. JTA Gaussiana calculeaza eficient toate predictiile de temperatura (100 de marginale) in O(|C|w^3) timp, fara a inversa matricea de precizie 100×100.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>ICA: Modelarea Surselor cu Amestecuri de Gaussiene si EM</h2>
+  <p>Pagina descrie utilizarea amestecurilor de Gaussiene univariate pentru modelarea distributiilor surselor in ICA, cu modelul grafic corespunzator (Figura 12.23) si derivarea algoritmului EM.</p>
+  <div class="highlight-box"><strong>Figura 12.23:</strong> Modelul grafic al ICA cu surse modelate ca amestecuri de Gaussiene. Fiecare sursa z_j are o distributie amestec cu indicatorul latent q_j, permitand distributii non-Gaussiene flexibile.</div>
+  <div class="definition-box"><strong>ICA cu amestec de Gaussiene (Eq. 12.115-12.118):</strong> p(q_j = k) = pi_k, p(z_j|q_j = k) = N(mu_{j,k}, sigma_{j,k}^2), p(x|z) = N(Wz, Psi). Sursele au distributii amestec univariate, observatiile sunt combinatii liniare ale surselor plus zgomot.</div>
+  <div class="highlight-box"><strong>EM pentru ICA:</strong> Pasul E necesita sumarea peste toate K^L combinatii ale indicatorilor q. Pentru L mic si K mic, aceasta este fezabila. Alternativ, se poate folosi aproximare variationala mean field.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 12.6.3 propune modelarea surselor ICA ca amestecuri de Gaussiene univariate, oferind flexibilitate in forma distributiei (sub-Gaussiana, super-Gaussiana, multimodala). EM devine fezabil daca numarul de surse L si componente per sursa K sunt mici. Alternativa variationala mean field permite scalarea la probleme mai mari.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ideea centrala: non-Gaussianitatea este esentiala pentru identificabilitatea ICA (teorema Comon). Amestecurile de Gaussiene pot aproxima orice distributie continua, oferind non-Gaussianitate controlabila prin K.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta abordare este mai flexibila decat ICA cu functii de contrast fixe (kurtosis, negentropie), deoarece distributiile surselor sunt estimate din date, nu presupuse a priori. Utila cand forma surselor variaza intre probleme.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In separarea surselor audio (cocktail party problem), sursele vocale au distributii variabile (unele sunt sparse/super-Gaussiene, altele sunt mai uniforme). Modelarea cu amestecuri permite adaptarea automata la fiecare sursa.</p></div>
+  </div>
+</div>

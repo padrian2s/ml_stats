@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Existența Distribuției Staționare - Ireductibilitate și Aperiodicitate (p. 598)</h2>
+  <p>Pagina discută condițiile necesare și suficiente pentru existența unei distribuții staționare unice: ireductibilitatea, aperiodicitatea și conceptul de distribuție limită.</p>
+  <div class="definition-box"><strong>Stare absorbantă:</strong> O stare din care nu se poate ieși niciodată (ex: starea 4 din Figura 17.4(b)), conducând la π = (0, 0, 0, 1) ca distribuție staționară.</div>
+  <div class="definition-box"><strong>Lanț ireductibil:</strong> Un lanț Markov în care diagrama de tranziție formează o componentă conexă - se poate ajunge din orice stare în orice altă stare.</div>
+  <div class="definition-box"><strong>Distribuția limită:</strong> πⱼ = lim_{n→∞} Aⁿᵢⱼ există și este independentă de starea inițială i, pentru toate j (Ec. 17.27).</div>
+  <div class="highlight-box"><strong>Teorema 17.2.1:</strong> Orice lanț Markov finit, ireductibil (simplu conex) și aperiodic are o distribuție limită care este egală cu π, distribuția sa staționară unică.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se stabilesc condițiile matematice riguroase pentru existența și unicitatea distribuției staționare: ireductibilitatea asigură accesibilitatea tuturor stărilor, iar aperiodicitatea elimină comportamentul oscilant.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Periodicitatea (d(i) = gcd{t: Aᵢᵢ(t) > 0}) poate împiedica convergența la o distribuție limită chiar dacă lanțul este ireductibil. O buclă proprie (auto-tranziție) garantează aperiodicitatea.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Înțelegerea condițiilor de existență a distribuției staționare este crucială pentru proiectarea algoritmilor MCMC care garantează convergența la distribuția țintă.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un joc de societate în care jucătorul poate ajunge din orice poziție în orice altă poziție (ireductibil) și nu are cicluri fixe (aperiodic) va avea o distribuție staționară - timpul petrecut pe fiecare căsuță converge la o valoare fixă.</p></div>
+  </div>
+</div>

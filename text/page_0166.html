@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Distributia NI&chi;&sup2; si posteriorul predictiv</h2>
+  <p>Aceasta pagina prezinta distributia Normal-Inverse-Chi-patrat (NI&chi;&sup2;) pentru cazul univariat, posteriorul predictiv Student multivariat, si vizualizarea distributiei NI&chi;&sup2;.</p>
+  <div class="definition-box"><strong>Distributia NI&chi;&sup2;:</strong> NI&chi;&sup2;(&mu;, &sigma;&sup2; | m_0, &kappa;_0, &nu;_0, &sigma;_0&sup2;) = N(&mu; | m_0, &sigma;&sup2;/&kappa;_0) &times; &chi;^(-2)(&sigma;&sup2; | &nu;_0, &sigma;_0&sup2;). Aceasta este versiunea scalara a distributiei NIW, folosita frecvent in literatura statistica.</div>
+  <div class="highlight-box"><strong>Posteriorul predictiv:</strong> p(x | D) = T(x | m_N, (&kappa;_N + 1)/(&kappa;_N(&nu;_N - D + 1)) S_N, &nu;_N - D + 1). Distributia predictiva este Student multivariata, cu cozi mai grele decat Gaussiana, reflectand incertitudinea asupra parametrilor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta Figura 4.19 care vizualizeaza distributia NI&chi;&sup2; in spatiul (&mu;, &sigma;&sup2;), aratand forma caracteristica de „ou turtit": de-a lungul axei &mu; distributia este Gaussiana, iar de-a lungul axei &sigma;&sup2; este &chi;^(-2). Cresterea &kappa;_0 ingusteaza distributia pe axa &mu;, iar cresterea &nu;_0 o ingusteaza pe axa &sigma;&sup2;. Posteriorul predictiv este derivat prin integrarea peste parametrii necunoscuti.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Contururile distributiei NI&chi;&sup2; sunt mai ascutite pentru valori mici ale &sigma;&sup2;, ceea ce inseamna ca media este estimata mai precis cand varianta este mica. 2) Posteriorul predictiv Student are cozi mai grele decat Gaussiana, incorporand natural incertitudinea parametrica. 3) Pe masura ce N creste, posteriorul predictiv devine Gaussian.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Posteriorul predictiv este esential in planificarea experimentala (posterior predictive checks), in detectia de anomalii (un punct este anomal daca are probabilitate foarte mica sub predictivul posterior), si in selectia de modele prin verosimilitatea marginala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In controlul proceselor industriale, distributia predictiva posterioara este folosita pentru a genera benzi de toleranta adaptive: pe masura ce se acumuleaza masuratori, benzile se ingusteaza (incertitudinea scade). Forma Student a predictivei ofera protectie impotriva alarmelor false cauzate de variabilitatea naturala nemodelata.</p></div>
+  </div>
+</div>

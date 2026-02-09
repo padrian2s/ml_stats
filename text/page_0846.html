@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 23: Inferenta Monte Carlo - Introducere (Sectiunea 23.1-23.2)</h2>
+  <p>Aceasta pagina deschide Capitolul 23 dedicat inferentei Monte Carlo, prezentand motivatia pentru metodele de esantionare si introducand esantionarea din distributii standard.</p>
+  <div class="definition-box"><strong>Inferenta Monte Carlo:</strong> O clasa alternativa de algoritmi bazata pe generarea de esantioane (neponderate) din posteriorul p(x|D), folosite apoi pentru a calcula orice cantitate de interes: marginale posterioare p(x_1|D), diferente p(x_1 - x_2|D), predictive posterioare p(y|D), etc.</div>
+  <div class="highlight-box"><strong>Aproximarea Monte Carlo:</strong> E[f|D] aproximat prin (1/S) SUMA_{s=1}^S f(x^s), unde x^s ~ p(x|D). Cu suficiente esantioane, se poate atinge orice nivel dorit de acuratete.</div>
+  <div class="definition-box"><strong>Transformarea Probabilitatii Inverse:</strong> Cea mai simpla metoda de esantionare dintr-o distributie univariata. Fie F functia de distributie cumulativa (cdf) si F^{-1} inversa sa. Se genereaza u ~ Uniform(0,1) si se calculeaza x = F^{-1}(u).</div>
+  <div class="highlight-box"><strong>Avantaje fata de metode deterministe:</strong> Metodele Monte Carlo nu necesita priori conjugate sau familii exponentiale, nu sunt limitate de forma aproximarii si pot atinge precizie arbitrara prin cresterea numarului de esantioane.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 23 trece de la metodele deterministe de inferenta (variationala, EP, BP) la metodele stocastice bazate pe esantionare. Avantajul principal: flexibilitate si convergenta garantata la solutia exacta. Dezavantajul: costul computational poate fi ridicat, mai ales in dimensiuni inalte. Se prezinta mai intai metode non-iterative, urmand ca MCMC sa fie discutat in capitolul urmator.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tranzitia de la metode deterministe la stocastice reflecta un compromis fundamental: metodele deterministe sunt rapide dar aproximative si limitate, in timp ce metodele Monte Carlo sunt exacte asimptotic dar pot fi lente. Transformarea probabilitatii inverse este baza multor metode mai avansate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Metodele Monte Carlo sunt omniprezente in statistica Bayesiana, finante computationale, fizica computationala, inginerie si invatare automata. Sunt esentiale cand posteriorul nu are o forma analitica tractabila.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In evaluarea riscului financiar, simularea Monte Carlo genereaza mii de scenarii posibile de piata pentru a estima distributia pierderilor unui portofoliu. Aceasta permite calculul Value-at-Risk si a altor masuri de risc fara a presupune o forma parametrica a distributiei.</p></div>
+  </div>
+</div>

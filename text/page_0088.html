@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Informația Mutuală</h2>
+  <p>Pagina introduce informația mutuală (MI) ca o măsură generală a dependenței între două variabile aleatoare, superioară coeficientului de corelație.</p>
+  <div class="definition-box"><strong>Informația mutuală:</strong> I(X;Y) ≜ KL(p(X,Y)||p(X)p(Y)) = ΣₓΣᵧ p(x,y)·log[p(x,y)/(p(x)p(y))], măsoară cât de mult diferă distribuția comună de produsul marginale lor.</div>
+  <div class="highlight-box"><strong>Relația cu entropiile:</strong> I(X;Y) = H(X) − H(X|Y) = H(Y) − H(Y|X), interpretată ca reducerea incertitudinii despre X după observarea lui Y.</div>
+  <div class="definition-box"><strong>Entropia condiționată:</strong> H(Y|X) = Σₓ p(x)·H(Y|X=x), entropia medie a lui Y dată fiind cunoașterea lui X.</div>
+  <div class="definition-box"><strong>Informația mutuală punctuală (PMI):</strong> PMI(x,y) = log[p(x,y)/(p(x)p(y))] = log[p(x|y)/p(x)], măsoară discrepanța între co-ocurența observată și cea așteptată sub independență.</div>
+  <div class="highlight-box"><strong>PMI ca actualizare Bayesiană:</strong> PMI(x,y) = log[p(x|y)/p(x)] = log[p(y|x)/p(y)], cantitatea de informație câștigată despre x prin observarea lui y.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MI este o măsură mai generală a dependenței decât corelația: captează orice tip de dependență, nu doar cea liniară. I(X;Y) = 0 dacă și numai dacă X și Y sunt independente.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>MI este simetrică (I(X;Y) = I(Y;X)), spre deosebire de KL. PMI este utilizat extensiv în NLP pentru a măsura asocierile între cuvinte în corpus.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MI este utilizată în selecția de caracteristici, în clusterizare (NMI ca metrică), și în antrenarea rețelelor adversariale informaționale (InfoGAN). PMI este baza multor metode de word embeddings.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În bioinformatică, MI între pozițiile dintr-o secvență proteică detectează co-evoluția aminoacizilor, permițând predicția structurii 3D a proteinelor din secvențe.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Aproximarea entropiei Bethe si energia libera Bethe</h2>
+  <p>Aceasta pagina introduce aproximarea entropiei Bethe, derivata din entropia exacta pe arbori, si defineste energia libera Bethe ca baza teoretica a LBP.</p>
+  <div class="definition-box"><strong>Entropia exacta pe arbori:</strong> H(mu) = sum_{s in V} H_s(mu_s) - sum_{(s,t) in E} I_st(mu_st), unde H_s este entropia nodului s si I_st este informatia mutuala intre s si t. Informatia mutuala I_st = H_s + H_t - H_st.</div>
+  <div class="definition-box"><strong>Aproximarea entropiei Bethe:</strong> H_Bethe(tau) = sum_{s in V} H_s(tau_s) - sum_{(s,t) in E} I_st(tau_st). Se foloseste aceeasi formula ca pe arbori, dar pe grafuri cu cicluri, unde nu mai este exacta.</div>
+  <div class="definition-box"><strong>Energia libera Bethe:</strong> F_Bethe(tau) = -[theta^T * tau + H_Bethe(tau)]. Problema variationala Bethe (BVP): min F_Bethe(tau) peste tau in L(G).</div>
+  <div class="highlight-box"><strong>Proprietate fundamentala:</strong> Entropia Bethe este exacta pe arbori dar nu este concava in general. Astfel, BVP poate avea optime locale multiple, ceea ce explica de ce LBP poate converge la solutii diferite in functie de initializare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina construieste baza teoretica a LBP: entropia Bethe este o generalizare a entropiei exacte pe arbori catre grafuri cu cicluri. Combinata cu relaxarea L(G), obtinem problema variationala Bethe (BVP), ale carei puncte stationare corespund punctelor fixe ale LBP.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Formula entropiei Bethe rescrie entropia comuna ca suma de entropii locale minus informatii mutuale. Pe arbori acest lucru este exact (fiecare muchie contribuie independent), pe grafuri cu cicluri este o aproximare (ciclurile introduc redundanta in informatia mutuala).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Energia libera Bethe poate fi evaluata dupa convergenta LBP pentru a compara calitatea diferitelor puncte fixe si a selecta cea mai buna solutie.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In decodarea turbo codes, unde LBP ruleaza pe un graf cu cicluri, energia libera Bethe serveste ca indicator al calitatii decodarii - valori mai mici indica decodari mai fiabile.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>EM pentru HAL si Comportamentul de Pragare (p.460)</h2>
+  <p>Aceasta pagina detaliaza algoritmul EM pentru Hierarchical Adaptive Lasso si prezinta modelul grafic asociat cu contururile penalizarii.</p>
+  <div class="figure-box"><strong>Figura 13.18:</strong> (a) Modelul grafic dirijat (DGM) pentru HAL: a, b -> gamma_j -> tau_j^2 -> w_j (D variabile), a_sigma, b_sigma -> sigma^2 -> y_i cu x_i (N observatii). (b) Contururile penalizarii HAL Laplace adapative ierarhice pentru diferite valori ale parametrilor.</div>
+  <div class="highlight-box"><strong>Pasul E (HAL):</strong> E[1/gamma_j] = (a + 1) / (b + |w_j^(t)|) = s_j^(t). Coeficientii mari (|w_j| mare) au factor de scalare s_j mic, deci sunt penalizati putin.</div>
+  <div class="highlight-box"><strong>Pasul M (HAL):</strong> w_hat^{(t+1)} = argmin ||y - Xw||_2^2 + suma s_j^(t) * |w_j|. Aceasta este o problema lasso ponderata, rezolvabila cu LARS standard.</div>
+  <div class="highlight-box"><strong>Adaptive Lasso:</strong> Daca a = b = 0 si se executa o singura iteratie EM, se obtine metoda adaptive lasso (Zou 2006), inrudita cu metodele l1 ponderate iterativ din procesarea de semnale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>HAL adapteaza automat penalizarea fiecarui coeficient: coeficientii estimati ca mari in iteratia anterioara primesc penalizari mici (sunt pastrati), iar coeficientii mici primesc penalizari mari (sunt eliminati). Rezultatul este mai rar si mai putin bias-at decat lasso standard.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Mecanismul adaptiv al HAL imita pragarea hard fara a renunta complet la convexitate la fiecare pas: fiecare sub-problema este un lasso ponderat (convex), dar secventa de solutii converge catre un estimator non-convex.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>HAL este preferat in situatii cu raport semnal-zgomot variabil, unde unele semnale sunt puternice si altele slabe. Penalizarea adaptiva recupereaza ambele tipuri corect.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza spectroscopica, compusii chimici au absorbtii de intensitati foarte diferite. HAL identifica corect atat compusii cu absorbtie puternica cat si pe cei cu absorbtie slaba, fara a micsora amplitudinile celor puternici.</p></div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Capitolul 1: Regresia Liniara si Expansiunea in Functii de Baza</h2>
+  <p>Modelul de regresie cu zgomot Gaussian, expansiunea in functii de baza si regresia polinomiala.</p>
+  <div class="definition-box"><strong>Distributia Gaussiana (Normala):</strong> Distributie de probabilitate cu forma de clopot, notata N(μ, σ²), unde μ este media si σ² este varianta. Eroarea reziduala ε este adesea modelata ca Gaussiana.</div>
+  <div class="definition-box"><strong>Model de Densitate Conditionata:</strong> p(y|x, θ) = N(y|μ(x), σ²(x)) - modelul probabilistic care exprima explicit ca raspunsul y urmeaza o distributie Gaussiana conditionata de intrarea x (ecuatia 1.5).</div>
+  <div class="definition-box"><strong>Expansiune in Functii de Baza (Basis Function Expansion):</strong> Inlocuirea intrarii x cu o transformare neliniara φ(x), permitand modelarea relatiilor neliniare: p(y|x, θ) = N(y|w^T φ(x), σ²) (ecuatia 1.7).</div>
+  <div class="definition-box"><strong>Regresie Polinomiala:</strong> Caz special al expansiunii in functii de baza unde φ(x) = [1, x, x², ..., x^d], cu d gradul polinomului.</div>
+  <div class="figure-box"><strong>Figura 1.18:</strong> Polinoame de grad 14 si 20 ajustate prin metoda celor mai mici patrate la 21 puncte de date. Polinomul de grad 20 prezinta oscilatii extreme (overfitting).</div>
+  <div class="highlight-box"><strong>Formule Cheie:</strong> μ(x) = w₀ + w₁x = w^T x (ecuatia 1.6); p(y|x, θ) = N(y|w^T φ(x), σ²) (ecuatia 1.7), unde φ(x) = [1, x, x², ..., x^d].</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina dezvolta modelul de regresie liniara, aratand ca eroarea reziduala Gaussiana conduce la modelul p(y|x,θ) = N(y|μ(x), σ²). Se introduce termenul de interceptare w₀ (bias) si panta w₁. Pentru relatii neliniare, se inlocuieste x cu φ(x) - o transformare neliniara. Regresia polinomiala (φ(x) = [1,x,...,x^d]) este un exemplu important, dar polinoamele de grad inalt pot produce oscilatii extreme.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Expansiunea in functii de baza este un concept unificator: SVM-uri, retele neuronale, arborii de clasificare si regresie pot fi vazute ca metode diferite de estimare a functiilor de baza din date. Aceasta perspectiva unificata este una dintre temele centrale ale cartii.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia polinomiala este folosita in calibrarea senzorilor, modelarea curbelor de crestere in biologie, si ajustarea datelor experimentale. Expansiunea in functii de baza permite modelarea oricarei relatii neliniare pastrand cadrul liniar in parametri.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un inginer care calibreaza un senzor de temperatura poate folosi regresie polinomiala: relatia intre tensiunea masurata si temperatura reala poate fi neliniara, dar un polinom de grad 2 sau 3 o aproximeaza bine. Un polinom de grad 20 ar ajusta perfect datele de calibrare dar ar da predictii absurde intre punctele de calibrare.</p></div>
+  </div>
+</div>

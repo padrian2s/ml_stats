@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>PCA Supervizat (Regresia Factoriala Latenta)</h2>
+  <p>Pagina prezinta PCA supervizat, un model care combina reducerea dimensionalitatii cu predictia, si introduce conceptul de bottleneck informational.</p>
+  <div class="definition-box"><strong>PCA Supervizat (Regresia factoriala bayesiana):</strong> Un model in care variabila latenta zᵢ genereaza atat intrarea xᵢ cat si raspunsul yᵢ, astfel incat reducerea dimensionalitatii ia in considerare variabila tinta.</div>
+  <div class="definition-box"><strong>Bottleneck informational:</strong> O tehnica din teoria informatiei care minimizeaza I(X;Z) - βI(X;Y), echilibrand compresia informatiei cu acuratetea predictiva, unde β ≥ 0 controleaza compromisul.</div>
+  <div class="highlight-box"><strong>Modelul generativ:</strong> p(zᵢ) = N(0, I_L); p(yᵢ|zᵢ) = N(wᵧᵀzᵢ + μᵧ, σ²ᵧ); p(xᵢ|zᵢ) = N(Wₓzᵢ + μₓ, σ²ₓI_D)</div>
+  <div class="highlight-box"><strong>Distributia conditionata:</strong> yᵢ|xᵢ ~ N(xᵢᵀw, σ²ᵧ + wᵧᵀCwᵧ), unde w = Ψ⁻¹WₓCwᵧ si C⁻¹ = I + WₓᵀΨ⁻¹Wₓ</div>
+  <div class="highlight-box"><strong>Conexiunea cu priorul g al lui Zellner:</strong> p(w) = N(0, g(XᵀX)⁻¹), priorul pentru w este derivat indirect din modelul comun al lui X si y.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>PCA supervizat leaga reducerea dimensionalitatii de predictie: variabila latenta zᵢ este invatata astfel incat sa fie informativa atat pentru xᵢ cat si pentru yᵢ. Conexiunea cu priorul g al lui Zellner este eleganta: priorul implicit asupra greutatilor de regresie depinde de structura datelor de intrare X. Bottleneck-ul informational ofera o perspectiva din teoria informatiei asupra aceluiasi compromis compresie-predictie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>PCA supervizat difera de PCA urmat de regresie: in PCA clasic, dimensiunile latente sunt alese pentru a maximiza varianta datelor, nu relevanta pentru predictie. PCA supervizat poate gasi dimensiuni cu varianta mica dar relevanta mare pentru yᵢ. Extensia la date discrete se face prin familia exponentiala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>PCA supervizat este utilizat in chemometrie (spectroscopie NIR pentru predictia compozitiei chimice), in neuroimagistica (predictia starii cognitive din semnale fMRI), si in filtrarea colaborativa (predictia evaluarilor).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In controlul calitatii alimentelor, spectrul infrarosu al unui produs (sute de lungimi de unda) trebuie redus la cateva componente latente care sunt direct relevante pentru predictia continutului de proteine, grasimi sau umiditate - exact ceea ce face PCA supervizat.</p></div>
+  </div>
+</div>

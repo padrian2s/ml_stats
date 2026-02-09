@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Inferenta bayesiana pentru structura GGM</h2>
+  <p>Aceasta pagina discuta inferenta bayesiana pentru structura GGM, limitarile Glasso si metode alternative bazate pe grafuri descompozabile si cautare stocastica.</p>
+  <div class="definition-box"><strong>Grafuri descompozabile:</strong> Un subset de grafuri UGM pentru care verosimilitatea marginala poate fi calculata in forma inchisa. Numarul de grafuri descompozabile este mult mai mic decat totalul grafurilor nedirijate, dar creste exponential cu V.</div>
+  <div class="definition-box"><strong>Inferenta bayesiana pentru GGM:</strong> In loc de a selecta un singur graf (ca Glasso), se calculeaza posteriorul p(G|D) si se estimeaza probabilitatile marginale ale muchiilor p(G_{ij}=1|D).</div>
+  <div class="highlight-box"><strong>Metoda Moghaddam et al. (2009):</strong> O varianta mai rapida care modifica Glasso: in loc de a identifica clicile, modifica gradient-based methods pentru a gasi MAP si apoi aproximeaza scorul BIC pe grafuri descompozabile, outperformand Glasso in precizie predictiva si structurala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina discuta limitarile Glasso: ofera doar o estimare punctuala, nu selectie de model, si nu garanteaza ca graful rezultat este descompozabil (util pentru inferenta). Inferenta bayesiana completa este preferabila dar costisitoare. Restrictia la grafuri descompozabile permite calcul exact al verosimilitatii marginale, dar cautarea locala in spatiul grafurilor descompozabile este necesara.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul intre tractabilitatea inferentei (grafuri descompozabile) si expresivitatea modelului (grafuri generale) este o tema centrala. In practica, grafuri descompozabile sunt suficiente pentru multe aplicatii si permit inferenta exacta eficienta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Inferenta bayesiana pentru GGM ofera incertitudine pe structura, utila in aplicatii unde o singura structura estimata ar fi inselatoare (de exemplu, in genomica cu putine esantioane relative la numarul de gene).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile de asociere genome-wide (GWAS), inferenta bayesiana pentru GGM permite cuantificarea increderii in fiecare muchie (relatie intre gene), informand biologisti care relatii sunt robuste si care sunt incerte.</p></div>
+  </div>
+</div>

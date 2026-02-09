@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>SVM pentru Regresie - Soluția Optimală și Kernelizare</h2>
+  <p>Pagina prezintă formularea cu variabile de relaxare a regresiei SVM, soluția optimală sparse și extensia prin kernelizare, apoi introduce SVM-urile pentru clasificare.</p>
+  <div class="definition-box"><strong>Variabile de relaxare (slack variables):</strong> ξᵢ⁺ și ξᵢ⁻ sunt variabile nenegative care măsoară cât de mult depășesc punctele tubul ε în direcțiile pozitivă și negativă. Constrângerile sunt: yᵢ ≤ f(xᵢ) + ε + ξᵢ⁺ și yᵢ ≥ f(xᵢ) − ε − ξᵢ⁻.</div>
+  <div class="highlight-box"><strong>Soluția optimală:</strong> ŵ = Σᵢ αᵢxᵢ, cu αᵢ ≥ 0 sparse. Predicția kernelizată: ŷ(x) = ŵ₀ + Σᵢ αᵢκ(xᵢ, x), unde doar vectorii suport (αᵢ > 0) contribuie.</div>
+  <div class="highlight-box"><strong>Funcția de pierdere hinge:</strong> L_hinge(y, η) = max(0, 1 − yη) = (1 − yη)₊, utilizată pentru clasificarea SVM binară, unde η = f(x) este funcția discriminantă.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Soluția SVM regresie are forma ŵ = Σᵢ αᵢxᵢ, ceea ce permite kernelizarea directă. Vectorii suport sunt punctele care se află pe sau în afara tubului ε. Se introduce apoi pierderea hinge pentru clasificare, care este o aproximare convexă a funcției de pierdere 0-1.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Sparsitatea soluției (multe αᵢ = 0) este cheia eficienței SVM la predicție. Kernelizarea înlocuiește xᵢᵀx cu κ(xᵢ, x). Tranziția de la regresie la clasificare se face prin schimbarea funcției de pierdere de la epsilon-insensitivă la hinge loss.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Formularea duală și sparsitatea permit aplicarea SVM pe seturi de date mari în care N >> D. Clasificarea SVM cu kernel este standard în recunoașterea optică a caracterelor (OCR) și detectarea spamului.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de filtrare a emailurilor folosește SVM cu kernel liniar pe reprezentări bag-of-words. Din milioane de emailuri de antrenament, doar câteva mii de vectori suport sunt necesari pentru predicții rapide.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Expansiunea cu Funcții de Bază, Densități Condiționate și Date Lipsă</h2>
+  <p>Pagina ilustrează regresia logistică multinomială cu nucleuri RBF, comparația vizuală a densităților condiționate de clasă versus posterioare de clasă, și introduce problema datelor lipsă.</p>
+  <div class="figure-box"><strong>Figura 8.9:</strong> (a) Regresia logistică multinomială liniară pentru 5 clase - frontiere de decizie liniare. (b) După expansiunea cu nuclee RBF (bandwidth=1, centrate pe toate punctele de date) - frontiere de decizie neliniare, mult mai flexibile.</div>
+  <div class="figure-box"><strong>Figura 8.10:</strong> (a) Densitățile condiționate de clasă p(x|y=c) pot fi complexe (multimodale). (b) Posteriorii de clasă p(y=c|x) sunt funcții sigmoidale simple. Modelele discriminative au sarcina mai ușoară: modelează posteriorii simpli, nu densitățile complexe.</div>
+  <div class="definition-box"><strong>Problema datelor lipsă (Missing Data Problem):</strong> Unele componente ale vectorului x nu sunt observate (defecțiune senzor, răspunsuri lipsă). Se introduce o variabilă rᵢ ∈ {0,1} care indică dacă xᵢ este observat sau nu. Modelul comun: p(xᵢ, rᵢ|θ, φ) = p(rᵢ|xᵢ, φ)p(xᵢ|θ).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 8.9 demonstrează dramatic cum expansiunea cu funcții de bază transformă regresia logistică liniară într-un clasificator neliniar puternic, fără a schimba algoritmul de optimizare. Figura 8.10 ilustrează vizual de ce modelele discriminative sunt adesea mai ușoare: posteriorii p(y|x) sunt funcții simple chiar și când densitățile p(x|y) sunt complexe. Secțiunea 8.6.2 introduce problema datelor lipsă, un avantaj major al modelelor generative.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trucul nucleelor RBF (kernel trick) arată că flexibilitatea neliniară poate fi obținută prin transformarea spațiului de caracteristici, nu prin schimbarea modelului. Aceasta prefigurează mașinile cu vectori suport (SVM) și rețelele neurale, care ambele operează în spații de caracteristici transformate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Nucleele RBF sunt folosite extensiv în geostatistică (interpolare spațială), procesarea imaginilor (clasificare cu textură), și bioinformatică (clasificarea proteinelor). Problema datelor lipsă apare în aproape orice aplicație reală: sondaje incomplete, senzori defecți, înregistrări medicale incomplete.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de diagnostic medical are 20 de teste de laborator ca intrări, dar pentru un pacient din urgență doar 8 sunt disponibile. Un model generativ poate face predicții marginalizând peste cele 12 teste lipsă, în timp ce un model discriminativ standard nu poate funcționa cu intrări incomplete fără imputare ad-hoc.</p></div>
+  </div>
+</div>

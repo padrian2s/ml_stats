@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Verosimilitatea Marginala: Modelele Beta-Binomial si Dirichlet-Multinomial</h2>
+  <p>Pagina prezinta calculul explicit al verosimilitatii marginale pentru modelele Beta-Binomial si Dirichlet-Multinomial, si introduce modelul Gaussiana-Gaussiana-Wishart.</p>
+  <div class="definition-box"><strong>Modelul Beta-Binomial:</strong> Verosimilitatea marginala se obtine combinand prior-ul Beta(a,b) cu verosimilitatea binomiala, rezultand p(D) = C(N,N₁) · B(a+N₁, b+N₀) / B(a,b) (Ecuatia 5.23).</div>
+  <div class="definition-box"><strong>Modelul Dirichlet-Multinomial:</strong> Generalizarea la K clase: p(D) = B(N+α) / B(α) (Ecuatia 5.24), unde B(α) = ∏ᵏ Γ(αₖ) / Γ(Σₖ αₖ).</div>
+  <div class="highlight-box"><strong>Formula explicita Dirichlet-Multinomial:</strong> p(D) = Γ(Σₖ αₖ) / Γ(N + Σₖ αₖ) · ∏ₖ Γ(Nₖ + αₖ) / Γ(αₖ) (Ecuatia 5.26)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se deriveaza verosimilitatea marginala pentru doua modele fundamentale cu prior conjugat. Pentru Beta-Binomial, rezultatul este un raport de functii Beta. Pentru Dirichlet-Multinomial, formula este analogica dar generalizata la K clase. Se introduce si modelul Gaussiana-Gaussiana-Wishart (NIW) pentru date multivariate continue.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>In toate cazurile, verosimilitatea marginala se reduce la raportul constantelor de normalizare ale posterioarei si prior-ului. Aceasta structura comuna reflecta proprietatea priori-lor conjugate: posterioara are aceeasi forma functionala ca prior-ul.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Formula Dirichlet-Multinomial (Ecuatia 5.26) este folosita extensiv in modelarea textelor (LDA - Latent Dirichlet Allocation), clasificarea documentelor si modelarea limbajului. Permite calculul exact al verosimilitatii marginale fara aproximari.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea textelor cu Naive Bayes multinomial, verosimilitatea marginala Dirichlet-Multinomial permite compararea directa a modelelor cu vocabulare de dimensiuni diferite, selectand automat nivelul optim de complexitate.</p></div>
+  </div>
+</div>

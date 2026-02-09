@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>AdaBoost - Derivarea Matematica</h2>
+  <p>Pagina prezinta derivarea detaliata a algoritmului AdaBoost din perspectiva minimizarii pierderii exponentiale, cu ponderile datelor si formula pentru β_m.</p>
+  <div class="definition-box"><strong>AdaBoost:</strong> Algoritmul de boosting pentru clasificare binara cu pierdere exponentiala, unde ponderile datelor w_{i,m} = exp(-ỹ_i f_{m-1}(x_i)) sunt crescute pentru exemplele clasificate gresit.</div>
+  <div class="highlight-box"><strong>Functia de pierdere AdaBoost:</strong> L_m(φ) = Σ_{i=1}^{N} exp[-ỹ_i(f_{m-1}(x_i) + βφ(x_i))] = Σ_{i=1}^{N} w_{i,m} exp(-βỹ_iφ(x_i)) (Ec. 16.37)</div>
+  <div class="highlight-box"><strong>Clasificatorul optimal:</strong> φ_m = argmin_φ Σ w_{i,m} I(ỹ_i ≠ φ(x_i)) (Ec. 16.40), gasit prin aplicarea clasificatorului slab pe datele ponderate.</div>
+  <div class="highlight-box"><strong>Ponderea clasificatorului:</strong> β_m = (1/2) log [(1 - err_m) / err_m] (Ec. 16.41), unde err_m este rata de eroare ponderata.</div>
+  <div class="figure-box"><strong>Figura 16.10:</strong> Exemplu de AdaBoost cu decision stump. (a) Dupa 1 runda. (b) Dupa 3 runde. (c) Dupa 120 de runde. Dimensiunea punctelor reprezinta ponderea lor, gradul de negrire/albire reprezinta increderea in clasa rosie/albastra, iar granita de decizie este in galben.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>AdaBoost minimizeaza pierderea exponentiala prin descompunerea in suma pe exemple corect si incorect clasificate. Clasificatorul optimal la fiecare pas minimizeaza rata de eroare ponderata, iar ponderea β_m creste cu cat clasificatorul este mai precis. Exemplele dificile primesc ponderi din ce in ce mai mari.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Descompunerea L_m = e^{-β} Σ_{corect} w_{i,m} + e^β Σ_{incorect} w_{i,m} separa contributiile exemplelor corect si incorect clasificate. Formula β_m = (1/2) log((1-err)/err) este pozitiva cand err < 0.5, demonstrand ca clasificatorul trebuie sa fie doar putin mai bun decat ghicitul aleatoriu.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>AdaBoost este fundamental in cascadele de clasificare pentru detectia obiectelor, unde fiecare etapa filtreaza rapid regiunile negative, permitand procesare in timp real a imaginilor si video-urilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In Figura 16.10, dupa 120 de runde, decision stumps simple (impartiri pe o singura linie) creaza impreuna o granita de decizie complexa, neliniara, care separa bine cele doua clase - demonstrand puterea ansamblului.</p></div>
+  </div>
+</div>

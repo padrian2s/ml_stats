@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Gradientul, Hessianul și Coborârea pe Gradient</h2>
+  <p>Pagina prezintă gradientul și Hessianul funcției NLL pentru regresia logistică, apoi introduce algoritmul de coborâre pe gradient (steepest descent) cu discuții despre alegerea ratei de învățare.</p>
+  <div class="figure-box"><strong>Figura 8.2:</strong> Coborârea pe gradient pe o funcție simplă, pornind de la (0,0), pentru 20 de pași. (a) Cu η = 0.1, convergența este lentă dar stabilă. (b) Cu η = 0.6, algoritmul oscilează și nu converge la optim.</div>
+  <div class="highlight-box"><strong>Gradientul NLL (Ecuația 8.5):</strong> g = d/dw f(w) = Σᵢ (μᵢ - yᵢ)xᵢ = X&#7488;(μ - y) - gradientul este o sumă ponderată a erorilor de predicție.</div>
+  <div class="highlight-box"><strong>Hessianul NLL (Ecuația 8.7):</strong> H = X&#7488;SX, unde S = diag(μᵢ(1 - μᵢ)). Hessianul este pozitiv definit, deci NLL este convexă cu un minim global unic.</div>
+  <div class="definition-box"><strong>Coborârea pe gradient (Gradient Descent):</strong> θ_{k+1} = θ_k - η_k g_k, unde η_k este rata de învățare (step size). Alegerea ratei de învățare este critică: prea mică → convergență lentă; prea mare → divergență.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Gradientul NLL are o formă elegantă: este produsul matricei de design transpuse cu vectorul de erori (μ - y). Hessianul H = X&#7488;SX este pozitiv definit, garantând convexitatea NLL și existența unui minim global unic. Algoritmul de coborâre pe gradient este cel mai simplu algoritm de optimizare, dar alegerea ratei de învățare este problematică.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Convexitatea funcției obiectiv este o proprietate foarte importantă deoarece garantează că orice minim local este și minim global. Matricea S = diag(μᵢ(1-μᵢ)) reflectă incertitudinea predicțiilor - cu valori maxime când μᵢ = 0.5 (incertitudine maximă).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Coborârea pe gradient stochastică (SGD), o variantă a acestui algoritm, este baza antrenării rețelelor neurale moderne. Tehnicile de alegere adaptivă a ratei de învățare (Adam, RMSprop) au fost dezvoltate tocmai pentru a rezolva problema sensibilității la rata de învățare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Antrenarea unui clasificator de imagini (pisici vs. câini) folosește coborârea pe gradient pentru a ajusta milioane de ponderi. Dacă rata de învățare este prea mare, pierderea oscilează; dacă este prea mică, antrenarea durează zile în loc de ore.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 8: Regresia Logistică - Introducere</h2>
+  <p>Acest capitol introduce regresia logistică, un model discriminativ fundamental pentru clasificare binară, care modelează direct p(y|x) fără a construi un model generativ complet.</p>
+  <div class="definition-box"><strong>Abordarea discriminativă:</strong> Spre deosebire de abordarea generativă care modelează p(y, x) și apoi derivă p(y|x), abordarea discriminativă ajustează direct un model de forma p(y|x). Aceasta simplifică semnificativ ajustarea modelului.</div>
+  <div class="definition-box"><strong>Regresia logistică:</strong> Model de clasificare binară definit ca p(y|x, w) = Ber(y|sigm(w&#7488;x)), unde sigm() este funcția sigmoidă. Modelul produce o frontieră de decizie liniară.</div>
+  <div class="highlight-box"><strong>Specificarea modelului (Ecuația 8.1):</strong> p(y|x, w) = Ber(y|sigm(w&#7488;x)) - modelul de clasificare binară care stă la baza regresiei logistice.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 8 deschide discuția despre modele discriminative, cu accent pe regresia logistică. Spre deosebire de clasificatoarele generative (care modelează distribuția comună p(y,x)), regresia logistică modelează direct probabilitatea condiționată p(y|x). Se presupun modele liniare în parametri, ceea ce simplifică ajustarea. Modelul se extinde ușor la intrări multidimensionale, iar frontiera de decizie este liniară și perpendiculară pe vectorul de ponderi w.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distincția generativ vs. discriminativ este fundamentală în învățarea automată. Modelele discriminative sunt adesea mai simple și mai directe, dar pierd informații despre structura datelor. Regresia logistică folosește funcția sigmoidă pentru a transforma o combinație liniară a intrărilor într-o probabilitate între 0 și 1.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia logistică este unul dintre cele mai utilizate modele în practică: diagnostic medical (boală/sănătos), filtrarea spam-ului (spam/nu spam), aprobarea creditelor (aprobare/respingere), predicția churn-ului clienților.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O bancă folosește regresia logistică pentru a decide dacă aprobă un credit. Intrările x includ venitul, istoricul creditului și vârsta. Modelul calculează sigm(w&#7488;x) și dacă probabilitatea depășește 0.5, creditul este aprobat. Frontiera de decizie separă linear solicitanții în două categorii.</p></div>
+  </div>
+</div>

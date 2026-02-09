@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Alegerea Numarului de Dimensiuni Latente</h2>
+  <p>Pagina introduce problema selectiei numarului de dimensiuni latente L in modelele FA/PCA, discutand selectia modelului pentru FA/PPCA si determinarea automata a relevantei (ARD).</p>
+  <div class="definition-box"><strong>Selectia modelului pentru FA/PPCA:</strong> Alegerea optima a lui L prin maximizarea verosimilitudinii marginale L* = argmax_L p(L|D), utilizand aproximari precum BIC sau validare incrucisata.</div>
+  <div class="definition-box"><strong>Determinarea automata a relevantei (ARD):</strong> O tehnica care seteaza modelul la dimensiunea maxima si elimina automat greutatile irelevante prin priori ierarhice, combinata cu EM variational.</div>
+  <div class="figure-box"><strong>Figura 12.12:</strong> Ilustrarea estimarii dimensionalitatilor efective intr-o mixtura de analizoare factoriale folosind VBEM. Coloanele albe au fost fortate la 0 prin mecanismul ARD. Datele provin din 6 clustere cu dimensionalitati intrinseci de 7, 4, 3, 2, 2, 1, pe care metoda le-a estimat cu succes.</div>
+  <div class="figure-box"><strong>Figura 12.13:</strong> Numarul estimat de clustere si dimensionalitatile lor estimate in functie de marimea esantionului. Metoda VBEM descopera clustere cu dimensionalitati mai mari pe masura ce marimea esantionului creste, in acord cu principiul lui Occam bayesian.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Alegerea numarului corect de dimensiuni latente este o problema centrala. Pentru modelele probabilistice (FA/PPCA), putem folosi verosimilitatea marginala sau aproximari ale ei (BIC, validare incrucisata). ARD ofera o alternativa eleganta: se porneste cu un model mare si se lasa priorile ierarhice sa elimine automat dimensiunile inutile. Diagramele Hinton vizualizeaza matricile de greutati, unde patratelele mai mari indica intrari mai importante.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cu esantioane mici, principiul lui Occam bayesian prefera modele mai simple. Pe masura ce datele cresc, modelul descopera progresiv structura mai complexa. ARD automatizeaza acest compromis, eliminand nevoia de cautare exhaustiva peste toate valorile candidate ale lui L.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>ARD cu VBEM este utilizat in genomica pentru a determina automat numarul de factori biologici relevanti, in procesarea semnalelor pentru separarea surselor, si in analiza datelor financiare pentru identificarea factorilor de risc latenti.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza expresiei genice, un cercetator poate aplica mixtura de analizoare factoriale cu ARD pentru a descoperi automat cate subtipuri de cancer exista in date si cate gene sunt relevante pentru fiecare subtip, fara a specifica aceste numere in avans.</p></div>
+  </div>
+</div>

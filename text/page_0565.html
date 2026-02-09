@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>SVM comparate cu GP si LIVM/RVM</h2>
+  <p>Aceasta pagina compara obiectivul SVM cu estimarea MAP a clasificatorului GP si introduce conexiunea cu masinile kernel sparse (LIVM, RVM).</p>
+  <div class="definition-box"><strong>Obiectivul SVM kernelizat:</strong> J(f) = 1/2 f^T K^{-1} f + C * sum(1 - y_i f_i)_+, comparabil cu estimarea MAP GP: J(f) = 1/2 f^T K^{-1} f - sum log p(y_i|f_i). Diferenta principala este functia de pierdere: hinge vs. log-verosimilitate.</div>
+  <div class="highlight-box"><strong>Conexiunea LIVM/RVM cu GP:</strong> Masinile kernel sparse cu phi(x) = [kappa(x,x_1),...,kappa(x,x_N)] sunt echivalente cu un GP avand kernel degenerat kappa(x,x') = sum (1/alpha_j) phi_j(x) phi_j(x'), cu cel mult N valori proprii nenule.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>SVM si GP clasificator au obiective similare: ambele contin un termen de regularizare f^T K^{-1} f si un termen de pierdere. Hinge loss (SVM) este strict 0 pentru erori > 1, producand solutii sparse. Log-loss (GP) nu are aceasta proprietate dar permite interpretare probabilistica. Masinile kernel sparse (LIVM, RVM) sunt GP cu kerneluri degenerate, avand limitari similare cu regresia liniara kernelizata.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Sparsitatea SVM (vectori suport putini) vine din forma hinge loss, care are gradient zero cand marginea este indeplinita. GP nu produce solutii sparse natural dar ofera probabilitati calibrate. RVM produce sparsitate prin priori ARD dar are kernel degenerat.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea intre SVM si GP depinde de necesitati: SVM pentru clasificare rapida cu seturi mari de date, GP cand sunt necesare probabilitati calibrate si intervale de incertitudine. RVM ofera un compromis dar cu dezavantajul kernelului degenerat.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recomandare, GP clasificator poate oferi nu doar clasarea produselor ci si incertitudinea, permitand explorare activa - recomandand produse unde modelul este incert pentru a colecta informatii utile.</p></div>
+  </div>
+</div>

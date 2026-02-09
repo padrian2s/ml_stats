@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Selectia Modelului Non-Probabilistic si Modele cu Date Lipsa</h2>
+  <p>Pagina discuta metoda "cotului" (knee/kink) pentru selectia K in modele non-probabilistice si introduce sectiunea 11.6 despre ajustarea modelelor cu date lipsa.</p>
+  <div class="definition-box"><strong>Metoda cotului (Knee/Kink):</strong> Se traseaza eroarea de reconstructie vs K si se cauta punctul unde rata de scadere incetineste brusc. Statistica gap (Tibshirani et al. 2001) automatizeaza acest proces, dar in practica identificarea cotului este adesea ambigua.</div>
+  <div class="definition-box"><strong>Date lipsa (Missing data):</strong> Situatia in care matricea de date are "gauri" (NaN-uri). O_ij = 1 daca componenta j a observatiei i este vizibila, 0 altfel. X_v = date vizibile, X_h = date lipsa/ascunse.</div>
+  <div class="highlight-box"><strong>Formularea MLE cu date lipsa (Eq. 11.96-11.100):</strong> theta_hat = argmax_theta p(X_v|theta, O). Sub ipoteza MAR (missing at random), log-verosimilitatea devine suma_i log p(x_{iv}|theta), unde fiecare termen necesita marginalizare peste componentele lipsa.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la selectia modelului la problema datelor lipsa. Metoda cotului este o euristica populara dar nesatisfacatoare pentru modele non-probabilistice. Sectiunea 11.6 formalizeaza problema datelor lipsa: fiecare observatie are un subset diferit de componente vizibile, iar MLE necesita marginalizare peste componentele lipsa, ceea ce face log-verosimilitatea dificil de optimizat direct.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Datele lipsa sunt tratate ca variabile latente, facand EM aplicabil natural: pasul E imputa datele lipsa (calculeaza asteptarile), pasul M actualizeaza parametrii. Acest cadru unifica imputarea datelor cu estimarea parametrilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Datele lipsa sunt omniprezente in practica: raspunsuri necompletate la chestionare, masuratori senzorilor defecte, valori neobservate in sisteme de recomandare. EM ofera o abordare principiala pentru a trata aceste situatii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile clinice, pacientii abandoneaza adesea studiul inainte de final (dropout), creand date lipsa sistematice. EM permite estimarea parametrilor modelului luand in considerare toate datele disponibile, nu doar cazurile complete.</p></div>
+  </div>
+</div>

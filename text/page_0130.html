@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>MLE pentru Distributia Gaussiana Multivariata</h2>
+  <p>Pagina 99 prezinta estimarea prin maximum likelihood (MLE) a parametrilor distributiei Gaussiene multivariate, inclusiv demonstratia bazata pe calculul matriceal.</p>
+
+  <div class="definition-box"><strong>Teorema 4.1.1 (MLE pentru Gaussiana):</strong> Pentru N esantioane i.i.d. x_i ~ N(μ, Σ), estimarile MLE sunt: μ̂_mle = (1/N) Σᵢ xᵢ = x̄ (media empirica) si Σ̂_mle = (1/N) Σᵢ (xᵢ - x̄)(xᵢ - x̄)ᵀ (covarianta empirica).</div>
+
+  <div class="highlight-box"><strong>Cazul univariat (Ecuatiile 4.8-4.9):</strong> μ̂ = (1/N) Σᵢ xᵢ = x̄ si σ̂² = (1/N) Σᵢ (xᵢ - x̄)² = (1/N) Σᵢ xᵢ² - x̄²</div>
+
+  <div class="highlight-box"><strong>Identitati de calcul matriceal (Ecuatia 4.10):</strong> ∂(bᵀa)/∂a = b; ∂(aᵀAa)/∂a = (A + Aᵀ)a; ∂tr(BA)/∂A = Bᵀ; ∂log|A|/∂A = A⁻ᵀ; tr(ABC) = tr(CAB) = tr(BCA) (proprietatea de permutare ciclica)</div>
+
+  <div class="definition-box"><strong>Trucul urmei (trace trick):</strong> xᵀAx = tr(xᵀAx) = tr(xxᵀA) = tr(Axxᵀ), transformand un produs scalar intr-o urma de matrice, util pentru derivarea MLE.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta rezultatul fundamental ca MLE pentru o distributie Gaussiana multivariata este pur si simplu media si covarianta empirica. Demonstratia necesita identitati de algebra liniara si calcul matriceal, incluzand derivate de urme, determinanti si forme patratice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trucul urmei (trace trick) este o tehnica eleganta care permite reordonarea termenilor intr-un produs scalar prin transformarea in operatia de urma. Proprietatea de permutare ciclica a urmei (tr(ABC) = tr(CAB)) este fundamentala in multe derivari din invatarea automata.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MLE pentru Gaussiana este utilizat in orice model care presupune date distribuite normal: regresie liniara, analiza discriminanta, modele de amestec Gaussiene. Estimatorul MLE al covariantei este biased (se prefera impartirea la N-1 pentru estimatorul nebiased).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In procesarea semnalelor, cand estimam spectrul de putere al unui semnal, calculam media si covarianta empirica din esantioanele colectate. Aceste estimari MLE sunt apoi folosite pentru filtrarea optima Wiener sau pentru detectia semnalelor.</p></div>
+  </div>
+</div>

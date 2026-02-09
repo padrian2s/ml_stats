@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Algoritmul FastICA</h2>
+  <p>Pagina prezinta algoritmul FastICA, o metoda Newton aproximativa eficienta pentru ajustarea modelelor ICA, descriind obiectivul, gradientul si regula de actualizare.</p>
+  <div class="definition-box"><strong>FastICA:</strong> Un algoritm Newton aproximativ pentru ICA care estimeaza greutatile de recunoastere v prin maximizarea non-gaussianitatii proiectiilor, bazat pe lucrarile lui Hyvarinen si Oja (2000).</div>
+  <div class="highlight-box"><strong>Obiectivul constrans:</strong> f(v) = E[G(vᵀx)] + λ(1 - vᵀv), unde G(z) = -log p(z) si g(z) = dG/dz.</div>
+  <div class="highlight-box"><strong>Gradientul:</strong> ∇f(v) = E[xg(vᵀx)] - βv, unde β = 2λ este multiplicatorul Lagrange.</div>
+  <div class="highlight-box"><strong>Regula de actualizare Newton:</strong> v* = E[xg(vᵀx)] - E[g'(vᵀx)]v, urmata de normalizare v^new = v*/||v*||.</div>
+  <div class="highlight-box"><strong>Aproximarea Hessianului:</strong> E[xxᵀg'(vᵀx)] ≈ E[xxᵀ]E[g'(vᵀx)] = E[g'(vᵀx)] (pentru date albite), simplificand dramatic inversarea Hessianului.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>FastICA este un algoritm eficient care exploateaza o aproximare a Hessianului pentru a obtine o regula de actualizare Newton simpla si rapida. Algoritmul lucreaza pe date pre-albite, ceea ce face ca Hessianul aproximat sa fie diagonal. Actualizarea necesita doar calculul a doua asteptari (care pot fi estimate Monte Carlo din date) si o normalizare. Convergenta este monitorizata prin |vᵀv^new| → 1.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>FastICA separa estimarea ICA in doua etape: (1) albirea datelor (PCA), (2) gasirea rotatiei optime prin iteratii Newton. Aproximarea Hessianului transforma un pas Newton costisitor intr-o operatie simpla. Obiectivul nu este convex, deci exista optima locale multiple, dar aceasta este de fapt o proprietate utila pentru invatarea mai multor trasaturi.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>FastICA este unul dintre cei mai populari algoritmi ICA datorita simplitatii si vitezei sale. Este implementat in scikit-learn (Python), MATLAB si R, si este folosit pe scara larga in procesarea semnalelor biomedicale, analiza imaginilor si separarea surselor audio.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In procesarea semnalelor EEG inaintea unei operatii pe creier, FastICA este rulat pe cele 64+ canale de electrozi pentru a separa rapid componentele cerebrale de artefacte (clipitul ochilor, activitate musculara), oferind chirurgului o imagine mai clara a activitatii cerebrale.</p></div>
+  </div>
+</div>

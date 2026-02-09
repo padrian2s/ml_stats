@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Metode Bayesiene pentru HMM, antrenare discriminativa si selectia modelului</h2>
+  <p>Aceasta pagina prezinta metode Bayesiene (VBEM, Gibbs sampling) pentru HMM, antrenarea discriminativa si selectia numarului de stari.</p>
+  <div class="definition-box"><strong>Antrenare discriminativa pentru HMM:</strong> Maximizeaza verosimilitatea conditionala prod p(y_i|x_i, theta) = prod p(y_i|theta)p(x_i|y_i,theta) / sum_c p(y_i=c|theta)p(x_i|c,theta), in loc de verosimilitatea comuna. Necesita optimizare bazata pe gradient (nu EM).</div>
+  <div class="highlight-box"><strong>Selectia numarului de stari K:</strong> Optiuni: (1) cautare pe grila cu CV/BIC/verosimilitate marginala, (2) RJMCMC (reversible jump), (3) VB cu 'stingerea' componentelor neutilizate, (4) HMM infinit bazat pe procesul Dirichlet ierarhic.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>VBEM pentru HMM inlocuieste estimarea MAP a parametrilor cu actualizarea posteriorilor conjugati. Block Gibbs sampling alterneaza esantionarea z_{1:T} (forward-backward sampling) cu esantionarea parametrilor din posteriorii lor. Antrenarea discriminativa (Jelinek 1997) produce HMM-uri cu acuratete de clasificare mai buna dar pierde interpretabilitatea generativa. Selectia K este analoga cu selectia numarului de clustere in GMM.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Practica standard in recunoastere vocala: antrenare generativa (EM) urmata de rafinare discriminativa (MCE, MMI). HMM infinit (bazat pe hierarchical Dirichlet process) evita selectia K prin inferenta non-parametrica, permitand numarului de stari sa creasca cu datele.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica moderna de recunoastere vocala, HMM-urile au fost inlocuite de retele neurale end-to-end (CTC, attention-based encoder-decoder). Totusi, HMM-urile raman relevante in bioinformatica si analiza seriilor temporale financiare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza pietelor financiare, un HMM cu 2-3 stari (bull market, bear market, volatilitate ridicata) identifica automat regimurile de piata, permitand ajustarea strategiilor de investitie in functie de regimul detectat.</p></div>
+  </div>
+</div>

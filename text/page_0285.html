@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Hessianul Multinomial, Estimarea MAP și Regresia Logistică Bayesiană</h2>
+  <p>Pagina completează derivarea Hessianului pentru cazul multinomial, discută estimarea MAP cu regularizare, și introduce regresia logistică bayesiană care calculează distribuția posterioară completă p(w|D).</p>
+  <div class="highlight-box"><strong>Hessianul multinomial (Ecuația 8.41):</strong> H(W) = ∇²f(w) = Σᵢ₌₁ᴺ (diag(μ_i) - μ_i μ_i&#7488;) ⊗ (x_i x_i&#7488;). Blocul (c,c') este H_{c,c'}(W) = Σᵢ μ_{ic}(δ_{c,c'} - μ_{i,c'}) x_i x_i&#7488;.</div>
+  <div class="highlight-box"><strong>Obiectivul MAP multinomial (Ecuația 8.46):</strong> f'(W) = f(W) + ½ Σ_c w_c V₀⁻¹ w_c, cu gradientul g'(W) = g(W) + V₀⁻¹(Σ_c w_c) și Hessianul H'(W) = H(W) + I_C ⊗ V₀⁻¹.</div>
+  <div class="definition-box"><strong>Regresia logistică bayesiană:</strong> Calculează distribuția posterioară completă p(w|D), utilă pentru intervale de încredere și probleme de banditul contextual. Nu există un prior conjugat convenabil, deci sunt necesare aproximări (Laplace, MCMC, inferență variațională).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Hessianul multinomial are o structură bloc structurată D(C-1) × D(C-1), de C ori mai mare decât în cazul binar. Aceasta face metoda Newton impracticabilă pentru probleme cu multe clase, favorizând L-BFGS. Estimarea MAP adaugă regularizare Gaussiană. Regresia logistică bayesiană completă nu are soluție analitică, necesitând aproximări precum aproximarea Laplace.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la estimare punctuală (MLE/MAP) la inferență bayesiană completă este un pas conceptual important. Distribuția posterioară p(w|D) captează incertitudinea în parametri, care se propagă în predicțiile probabilistice, oferind o cuantificare naturală a incertitudinii.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia logistică bayesiană este folosită în aplicații medicale unde cuantificarea incertitudinii este critică (diagnostic, predicția riscului), în sistemele de recomandare (banditul contextual) și în învățarea activă (selectarea datelor informative pentru etichetare).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de recomandare de articole web folosește regresia logistică bayesiană pentru a decide ce articol să afișeze. Posterioarul p(w|D) permite calcularea incertitudinii în predicții, iar algoritmul Thompson sampling eșantionează din posterior pentru a balansa explorarea și exploatarea.</p></div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Modelarea Aditiva Stagewise Inainte si L2Boosting</h2>
+  <p>Pagina detaliaza modelarea aditiva stagewise inainte, initializarea, actualizarile iterative, oprirea timpurie si shrinkage, si introduce L2boosting (least squares boosting).</p>
+  <div class="definition-box"><strong>Modelarea aditiva stagewise inainte (forward stagewise additive modeling):</strong> Metoda in care la fiecare iteratie m se adauga o noua functie de baza fara a ajusta parametrii anteriori: f_m(x) = f_{m-1}(x) + β_m φ(x; γ_m) (Ec. 16.34).</div>
+  <div class="definition-box"><strong>Shrinkage:</strong> Actualizari partiale cu un parametru de pas ν (0 < ν ≤ 1): f_m(x) = f_{m-1}(x) + ν β_m φ(x; γ_m) (Ec. 16.35), unde ν = 0.1 este o valoare comuna.</div>
+  <div class="definition-box"><strong>L2Boosting (least squares boosting):</strong> Boosting cu pierdere de eroare patrata, unde functia de baza noua se gaseste prin potrivirea clasificatorului slab pe reziduurile curente r_im = y_i - f_{m-1}(x_i) (Ec. 16.36).</div>
+  <div class="highlight-box"><strong>Subproblema la iteratia m:</strong> (β_m, γ_m) = argmin_{β,γ} Σ_{i=1}^{N} L(y_i, f_{m-1}(x_i) + β φ(x_i; γ)) (Ec. 16.33)</div>
+  <div class="highlight-box"><strong>Oprirea timpurie (early stopping):</strong> Se monitorizeaza performanta pe un set de validare separat si se opreste cand aceasta incepe sa scada. Alternativ, se pot folosi criterii de selectie a modelului precum AIC sau BIC.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelarea aditiva stagewise construieste modelul incremental, adaugand cate o functie de baza la fiecare pas. Numarul de iteratii M este principalul hiperparametru. Shrinkage-ul (ν mic) imbunatateste performanta pe date de test prin incetinirea invatarii. L2Boosting potriveste clasificatorul slab pe reziduuri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Initializarea depinde de functia de pierdere: media datelor pentru eroare patrata, log-odds ratio initial pentru pierdere exponentiala/logloss. Nu se ajusteaza parametrii anteriori, ceea ce face metoda eficienta computational dar potentiala suboptimala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>L2Boosting cu alegere potrivita a clasificatorului slab produce aceleasi rezultate ca LARS, permitand selectia automata a variabilelor in probleme de regresie de inalta dimensiune (genomica, text mining).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In prezicerea consumului de energie, L2Boosting adauga iterativ arbori mici care capteaza reziduurile: primul arbore capteaza trendul principal, urmatorii capteaza efectele sezoniere, iar oprirea timpurie previne memorarea zgomotului.</p></div>
+  </div>
+</div>

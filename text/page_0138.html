@@ -1,0 +1,26 @@
+<div class="page-content">
+  <h2>Strategii pentru Prevenirea Supraajustarii si LDA Regularizata</h2>
+  <p>Pagina 107 discuta problema supraajustarii in estimarea MLE a matricelor de covarianta si prezinta solutii, inclusiv LDA regularizata (RDA).</p>
+
+  <div class="definition-box"><strong>Supraajustarea MLE:</strong> MLE pentru matricea de covarianta completa este singulara cand N_c < D si slab conditionata chiar cand N_c > D. Aceasta este o problema critica in spatii de dimensiune mare.</div>
+
+  <div class="highlight-box"><strong>Strategii anti-supraajustare:</strong>
+    1. Matrice de covarianta diagonala (= Naive Bayes);
+    2. Covarianta partajata Σ_c = Σ (= LDA, parameter tying);
+    3. Covarianta diagonala partajata (= LDA diagonala);
+    4. Covarianta completa cu prior conjugat (abordare Bayesiana);
+    5. Estimare MAP cu diferite tipuri de priori;
+    6. Proiectie in subspatiu de dimensiune redusa.</div>
+
+  <div class="definition-box"><strong>LDA Regularizata (RDA) (Ecuatia 4.54):</strong> Σ̂ = λ * diag(Σ̂_mle) + (1 - λ) * Σ̂_mle, unde λ ∈ [0,1] controleaza cantitatea de regularizare. λ = 0 da LDA standard, λ = 1 da LDA diagonala.</div>
+
+  <div class="highlight-box"><strong>Trucul SVD pentru RDA:</strong> Se foloseste descompunerea SVD a matricei de design X = UDVᵀ pentru a lucra in spatiul de dimensiune redusa N (in loc de D), definind Z = UD si μ_z = Vᵀμ.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Supraajustarea este problema principala a MLE in dimensiuni mari. Pagina prezinta un spectru de solutii, de la cele mai restrictive (Naive Bayes, cu D parametri per clasa) la cele mai flexibile (covarianta completa, cu D(D+1)/2 parametri). RDA interpoleaza elegant intre LDA completa si LDA diagonala folosind un singur hiperparametru λ.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul bias-varianta este central: modele mai simple (mai putini parametri) au bias mai mare dar varianta mai mica. Trucul SVD permite evitarea inversarii matricei D x D prin lucrul in spatiul de dimensiune N, esential cand D >> N.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>RDA este utilizata in clasificarea datelor genomice (zeci de mii de gene, doar cateva zeci de pacienti), analiza imaginilor hiperspectrale si orice problema cu raport D/N mare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea cancerului pe baza profilului de expresie genica (D ≈ 20000 gene, N ≈ 100 pacienti), MLE-ul standard pentru covarianta esueaza complet. RDA cu λ ales prin validare incrucisata poate clasifica cu succes subtipurile de cancer.</p></div>
+  </div>
+</div>

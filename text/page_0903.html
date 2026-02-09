@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Aproximarea verosimilitatii marginale</h2>
+  <p>Aceasta pagina prezinta metode de aproximare a verosimilitatii marginale p(D|M), esentiala pentru selectia bayesiana a modelelor, incluzand metoda candidatului si estimarea mediei armonice.</p>
+  <div class="definition-box"><strong>Verosimilitatea marginala:</strong> p(D|M) = integrala peste p(D|theta,M)p(theta|M)d(theta), o cantitate cheie pentru compararea modelelor bayesiene care integreaza peste toti parametrii posibili.</div>
+  <div class="definition-box"><strong>Metoda candidatului (Chib 1995):</strong> Exploateaza identitatea p(D|M) = p(D|theta,M)p(theta|M)/p(theta|D,M) pentru orice valoare a lui theta, dar necesita marginalizare corecta peste toate modurile posteriorului.</div>
+  <div class="highlight-box"><strong>Estimarea mediei armonice:</strong> 1/p(D) ≈ (1/S) * suma(1/p(D|theta^s)), unde theta^s sunt esantioane din posterior. Aceasta metoda este considerata "cea mai proasta metoda Monte Carlo" deoarece depinde doar de esantioane din posterior, in timp ce verosimilitatea marginala nu este.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta provocarea calcularii verosimilitatii marginale, o integrala adesea intractabila. Se discuta doua metode: metoda candidatului, care functioneaza teoretic dar are limitari practice legate de marginalizarea peste moduri, si estimatorul mediei armonice, care este simplu dar notoriu de imprecis. Radford Neal a numit-o "cea mai proasta metoda Monte Carlo din toate timpurile".</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Calculul verosimilitatii marginale este fundamental pentru selectia modelelor bayesiene, dar dificil in practica. Metodele naive pot da rezultate incorecte din cauza discrepantei dintre distributia din care se esantioneaza si cea care trebuie evaluata. Metoda candidatului necesita cunoasterea posteriorului, creand o circularitate partiala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Verosimilitatea marginala este folosita in selectia modelelor (factori Bayes), determinarea complexitatii optime a modelului, si compararea intre familii de modele diferite (de exemplu, regresie liniara vs. retele neuronale).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In genomica, cand se compara modele diferite pentru expresia genelor (de exemplu, numarul de clustere intr-o analiza de expresie genica), verosimilitatea marginala permite selectia automata a modelului fara a recurge la validare incrucisata costisitoare.</p></div>
+  </div>
+</div>

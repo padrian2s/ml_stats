@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Distribuția Predictivă Posterioară și Paradoxul Lebedei Negre</h2>
+  <p>Pagina introduce distribuția predictivă posterioară, discută problema supraajustării cu MLE (paradoxul lebedei negre), și prezintă regula de succesiune a lui Laplace.</p>
+  <div class="highlight-box"><strong>Distribuția predictivă posterioară:</strong> p(x̃=1|D) = ∫θ·Beta(θ|a,b)dθ = E[θ|D] = a/(a+b), echivalentă cu inserarea mediei posterioare în modelul Bernoulli.</div>
+  <div class="definition-box"><strong>Paradoxul lebedei negre:</strong> Cu MLE, dacă observăm N=3 pajuri consecutive, θ̂=0/3=0, predicând probabilitate zero pentru cap. Aceasta este problema numărătorilor zero (zero count problem) sau a datelor rare (sparse data problem).</div>
+  <div class="highlight-box"><strong>Regula de succesiune a lui Laplace:</strong> Cu prior uniform Beta(1,1): p(x̃=1|D) = (N₁+1)/(N₁+N₀+2). Adăugarea 1 la numărători previne predicții de probabilitate zero.</div>
+  <div class="definition-box"><strong>Netezirea add-one (Laplace smoothing):</strong> Practică standard de a adăuga 1 la toate numărătorile empirice. Justificată Bayesian prin priorul uniform.</div>
+  <div class="highlight-box"><strong>Relevanța în era big data:</strong> Chiar cu date mari, odată partiționate pe criterii specifice (utilizator × activitate), dimensiunile eșantioanelor devin mici, făcând metodele Bayesiene relevante.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MLE eșuează dramatic cu puține date, producând predicții de probabilitate zero. Soluția Bayesiană (Laplace smoothing) adaugă pseudo-observații, prevenind supraajustarea.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Paradoxul lebedei negre ilustrează pericolul inducției naive: absența observării unui eveniment nu implică imposibilitatea sa. Bayes oferă o soluție principială prin prior.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Laplace smoothing este standard în clasificatoarele Naive Bayes, modele de limbaj n-gram, și orice model bazat pe numărători. Fără ea, un singur cuvânt necunoscut ar face probabilitatea zero.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un model de limbaj n-gram, cuvântul „blockchain" absent din corpusul de antrenament ar primi probabilitate zero fără smoothing, făcând orice propoziție care îl conține imposibilă.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Functii de Pierdere pentru Boosting si Pierderea Exponentiala</h2>
+  <p>Pagina prezinta tabelul functiilor de pierdere comune, graficul comparativ al pierderilor pentru clasificare binara, si introduce pierderea exponentiala si logloss.</p>
+  <div class="definition-box"><strong>Minimizatorul populatiei (population minimizer):</strong> Estimatorul optimal f* care minimizeaza pierderea asteptata; necesita cunoasterea distributiei conditionate adevarate p(y|x), deci nu poate fi calculat in practica.</div>
+  <div class="definition-box"><strong>Pierderea exponentiala:</strong> L(ỹ, f) = exp(-ỹf) (Ec. 16.28), o margine superioara convexa a pierderii 0-1, cu avantaje computationale fata de logloss.</div>
+  <div class="highlight-box"><strong>Estimatorul optimal pentru logloss si pierdere exponentiala:</strong> f*(x) = (1/2) log [p(ỹ=1|x) / p(ỹ=-1|x)] (Ec. 16.27), jumatate din log-odds ratio.</div>
+  <div class="figure-box"><strong>Figura 16.9:</strong> Comparatia functiilor de pierdere pentru clasificare binara. Axa orizontala este marginea yη. Pierderea 0-1 (albastru), logloss (rosu punctat) si pierderea exponentiala (rosu solid). Pierderea exponentiala creste rapid pentru exemple clasificate gresit.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Tabelul 16.1 rezuma patru functii de pierdere comune: eroare patrata (L2Boosting), eroare absoluta (Gradient boosting), pierdere exponentiala (AdaBoost) si logloss (LogitBoost). Fiecare are un minimizator al populatiei si un algoritm de boosting asociat. Pierderea exponentiala este o alternativa la logloss cu avantaje computationale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Atat logloss cat si pierderea exponentiala au acelasi minimizator al populatiei (jumatate din log-odds ratio), deci ambele incearca sa aproximeze aceeasi cantitate. Diferenta sta in sensibilitatea la outlieri: pierderea exponentiala creste mult mai rapid, facand-o mai sensibila.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea functiei de pierdere depinde de aplicatie: eroarea patrata pentru regresie, logloss pentru clasificare cu probabilitati calibrate, pierderea exponentiala pentru clasificare rapida fara necesitatea probabilitatilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de publicitate online, se prefera logloss deoarece este necesara estimarea probabilitatii de click (CTR) pentru licitarea in timp real, nu doar clasificarea binara click/non-click.</p></div>
+  </div>
+</div>

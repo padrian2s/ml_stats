@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>CD persistent si aplicatii ale RBM-urilor</h2>
+  <p>Aceasta pagina introduce CD persistent (PCD) si sectiunea despre aplicatiile RBM-urilor, inclusiv modelarea limbajului si recuperarea documentelor.</p>
+  <div class="definition-box"><strong>CD persistent (PCD):</strong> Varianta a CD care mentine lanturi Markov persistente intre iteratiile de antrenare, exploatand faptul ca parametrii se schimba lent, astfel incat lanturile nu se indeparteaza prea mult de echilibru.</div>
+  <div class="definition-box"><strong>Modelul softmax replicat:</strong> Un RBM categoric cu ponderi legate care modeleaza bag-of-words, echivalent nedirectionat al mPCA/LDA, oferind o alternativa la modelele de topicuri directionate.</div>
+  <div class="highlight-box"><strong>Algoritmul PCD:</strong> Mentine S lanturi MCMC (v_s, h_s) care sunt actualizate continuu cu pasi scurti de Gibbs, in timp ce parametrii se actualizeaza pe baza gradientului estimat din aceste lanturi.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>PCD imbunatateste CD prin mentinerea lanturilor Markov intre iteratii, producand esantioane mai apropiate de distributia de echilibru. Aplicatiile RBM-urilor includ modelarea limbajului natural, unde modelul softmax replicat ofera o alternativa nedirectionata la LDA.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>PCD functioneaza mai bine decat CD pe termen lung, dar CD poate fi mai rapid in fazele initiale. Doua scale de timp diferite: starile se schimba rapid, parametrii se schimba lent. Multiplicarea termenilor de bias c_k cu lungimea documentului L compenseaza dependenta de lungime a functiei de partitie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelarea bag-of-words cu RBM pentru recuperarea informatiei, clasificarea documentelor si analiza de sentiment.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In motoarele de cautare, un RBM softmax replicat poate invata reprezentari ale documentelor care sunt mai precise decat LDA pentru recuperarea documentelor relevante.</p></div>
+  </div>
+</div>

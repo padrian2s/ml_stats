@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>HSMM - Distributii de durata si aproximari</h2>
+  <p>Aceasta pagina detaliaza CPD-urile HSMM, complexitatea inferentei si aproximarea prin stari expandate cu auto-bucle.</p>
+  <div class="definition-box"><strong>Aproximare prin stari expandate:</strong> Fiecare stare este inlocuita cu n sub-stari cu auto-bucle (probabilitate p) si tranzitii (probabilitate 1-p). Distributia de durata rezultanta este binomiala negativa: p(d) = C(d-1,n-1) p^{d-n} (1-p)^n, o aproximare flexibila a oricarei distributii de durata.</div>
+  <div class="highlight-box"><strong>Complexitate HSMM:</strong> Inferenta exacta prin marginalizarea D_t necesita O(TK^2D), unde D este durata maxima. Aproximarea prin stari expandate reduce la O(TKE*F_in), unde E este numarul de expansiuni, de obicei mult mai rapid.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>CPD-urile HSMM: cand D_t=0, se esantioneaza o noua durata D_t' ~ p_j(d') si se face tranzitie z_t ~ A_{j,.}; cand D_t>0, D_t' = D_t-1 si z_t ramane neschimbat. Inferenta prin mega-variabila Y_t = (D_t, z_t) este ineficienta. Aproximarea prin stari expandate (Figura 17.15) foloseste n sub-stari cu auto-bucle, producand distributia binomiala negativa. Prin ajustarea n si p, se poate modela o gama larga de distributii de durata.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul precizie-viteza: HSMM exact are complexitate O(TK^2D) dar distributii de durata arbitrare; aproximarea prin stari expandate are complexitate O(TKE*F_in) dar distributii limitate la familia binomiala negativa. Distributia geometrica (HMM standard) corespunde n=1.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In recunoasterea vorbirii, F_in ~ 3, D ~ 50, K ~ 10^6, T ~ 10^5, facand metoda expandata mult mai rapida. In gasirea genelor, distributii de durata specifice sunt esentiale si HSMM exact este preferat.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In monitorizarea somnului, fazele de somn (REM, NREM stadii 1-3) au durate caracteristice (de ex. REM ~ 10-60 minute). HSMM modeleaza corect aceste durate, imbunatatind detectia automata a fazelor de somn din EEG.</p></div>
+  </div>
+</div>

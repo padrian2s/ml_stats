@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Capitolul 1: Invatarea Supervizata - Clasificare</h2>
+  <p>Introducerea invatarii supervizate cu focus pe clasificare, aproximarea de functii si exemplul cu forme colorate.</p>
+  <div class="definition-box"><strong>Clasificare Binara:</strong> Clasificare cu C = 2 clase, unde y ∈ {0, 1}.</div>
+  <div class="definition-box"><strong>Clasificare Multi-clasa:</strong> Clasificare cu C > 2 clase.</div>
+  <div class="definition-box"><strong>Aproximare de Functii (Function Approximation):</strong> Formalizarea clasificarii ca y = f(x), unde f este o functie necunoscuta care trebuie estimata din setul de antrenament.</div>
+  <div class="definition-box"><strong>Generalizare:</strong> Capacitatea modelului de a face predictii corecte pe intrari noi, care nu au fost vazute in timpul antrenamentului.</div>
+  <div class="figure-box"><strong>Figura 1.1:</strong> (a) Exemple etichetate de forme colorate cu 3 cazuri de test neetichetate (semiluna albastra, cerc galben, sageata albastra). (b) Reprezentarea datelor de antrenament ca o matrice de design N x D, cu caracteristici (culoare, forma, dimensiune) si etichete.</div>
+  <div class="highlight-box"><strong>Matricea de Design:</strong> Datele de antrenament sunt reprezentate ca o matrice X de dimensiune N x D, unde randul i reprezinta vectorul de caracteristici x_i, iar ultima coloana contine etichetele y_i ∈ {0, 1}.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 1.2 introduce invatarea supervizata prin exemplul clasificarii. Problema este formalizata ca aproximare de functii: se estimeaza o functie f dintr-un set de antrenament etichetat, apoi se fac predictii pe date noi folosind y_hat = f_hat(x). Scopul principal este generalizarea - capacitatea de a performa bine pe date nevazute.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exemplul cu forme colorate ilustreaza provocarile clasificarii: semiluna albastra este relativ usor de clasificat (toate formele albastre au eticheta 1), dar cercul galben este ambiguu (unele obiecte galbene au eticheta 0, altele 1). Aceasta ambiguitate motiveaza nevoia de predictii probabilistice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Matricea de design este reprezentarea standard a datelor in invatarea automata. In practica, caracteristicile pot fi discrete (culoare), continue (dimensiune) sau combinatii ale acestora. Generalizarea este metrica fundamentala de evaluare a unui model.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de recunoastere a obiectelor in imagini primeste ca intrare vectori de caracteristici (pixeli, margini, texturi) si produce ca iesire etichete de clasa (masina, pieton, semafor). Generalizarea este critica: sistemul trebuie sa recunoasca obiecte in conditii noi de iluminare sau unghi.</p></div>
+  </div>
+</div>

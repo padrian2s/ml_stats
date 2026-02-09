@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Algoritmul BHC si conexiunea cu modelele de amestec DP</h2>
+  <p>Pagina prezinta pseudocodul algoritmului de clustering ierarhic Bayesian (Algoritmul 25.3) si stabileste conexiunea formala intre BHC si modelele de amestec cu procese Dirichlet (DPMM).</p>
+  <div class="definition-box"><strong>Algoritmul 25.3 - BHC:</strong> Se initializeaza clusterele ca singletoane D_i = {x_i}. Se calculeaza p(D_i|T_i) pentru fiecare. La fiecare pas, se gaseste perechea cu cel mai mare raport de imbinare r_{ij}, se imbina si se repeta pana toate clusterele sunt unite.</div>
+  <div class="highlight-box"><strong>Verosimilitatea marginala DPMM:</strong> p(D_k) = Σ_{v∈V} p(v)·p(D_v), unde V este multimea tuturor partitiilor posibile (Ecuatia 25.59)</div>
+  <div class="highlight-box"><strong>Probabilitatea partitiei:</strong> p(v) = α^{m_v} · ∏_{l=1}^{m_v} Γ(n_l^v) / [Γ(n_k + α)/Γ(α)] (Ecuatia 25.60)</div>
+  <div class="highlight-box"><strong>Calculul lui π_k:</strong> π_k = p(M_k = 1) pentru fiecare nod k cu copiii i si j. Se initializeaza d_i = α si π_i = 1 pentru fiecare frunza, apoi d_k = αΓ(n_k) + d_i·d_j si π_k = αΓ(n_k)/d_k.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>BHC poate fi interpretat ca o cautare greedy prin spatiul exponential de mare al partitiilor consistente cu arbori, pentru a gasi cele mai bune partitii de o anumita dimensiune. p(D_k|T_k) calculat de BHC este similar cu p(D_k) din DPMM, dar sumeaza doar peste partitiile consistente cu arborele curent.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conexiunea BHC-DPMM: BHC calculeaza o limita inferioara asupra verosimilitatii marginale a datelor dintr-un DPMM. Numarul de partitii consistente cu un arbore binar echilibrat este exponential in numarul de puncte de date, dar BHC navigheaza eficient acest spatiu.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul BHC poate fi folosit ca o alternativa rapida la inferenta completa in DPMM, oferind un clustering ierarhic cu fundament probabilistic solid si determinare automata a numarului de clustere.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In organizarea unei biblioteci digitale, BHC poate crea automat o taxonomie ierarhica a documentelor, determinand simultan care documente ar trebui grupate si la ce nivel de specificitate, cu masuri de incredere pentru fiecare decizie de grupare.</p></div>
+  </div>
+</div>

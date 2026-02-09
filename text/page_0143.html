@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>Exemple: Marginale si Conditionale ale unei Gaussiene 2D</h2>
+  <p>Pagina 112 ilustreaza cu un exemplu concret 2D cum functioneaza marginalele si conditionalele Gaussiene, inclusiv efectul corelatiei asupra incertitudinii.</p>
+
+  <div class="figure-box"><strong>Figura 4.9:</strong> (a) Distributia Gaussiana comuna p(x₁, x₂) cu coeficient de corelatie ρ = 0.8, conturul de 95% si axele principale. (b) Marginala neconditionata p(x₁) - o Gaussiana 1D. (c) Conditionala p(x₁|x₂ = 1) = N(x₁|0.8, 0.36) - mai ingusta decat marginala, deoarece observarea lui x₂ reduce incertitudinea.</div>
+
+  <div class="highlight-box"><strong>Conditionala 2D (Ecuatia 4.72):</strong> p(x₁|x₂) = N(x₁|μ₁ + ρσ₁σ₂/σ₂² (x₂ - μ₂), σ₁² - (ρσ₁σ₂)²/σ₂²)</div>
+
+  <div class="highlight-box"><strong>Cazul σ₁ = σ₂ = σ (Ecuatia 4.73):</strong> p(x₁|x₂) = N(x₁|μ₁ + ρ(x₂ - μ₂), σ²(1 - ρ²)). Cu ρ = 0.8 si x₂ = 1: E[x₁|x₂=1] = 0.8, var[x₁|x₂=1] = 1 - 0.64 = 0.36.</div>
+
+  <div class="definition-box"><strong>Interpolarea datelor fara zgomot (Sectiunea 4.3.2.2):</strong> Se doreste estimarea unei functii 1D f(t) din N observatii exacte. Se discretizeaza functia in D puncte si se defineste xⱼ = f(sⱼ), sⱼ = jh, h = T/D.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exemplul 2D face formulele abstracte tangibile. Cand ρ = 0.8, observarea ca x₂ = 1 deplaseaza media lui x₁ de la 0 la 0.8 (regresie catre media) si reduce varianta de la 1 la 0.36. Cu cat corelatia este mai mare, cu atat observatia reduce mai mult incertitudinea. Sectiunea de interpolare introduce aplicarea acestor formule la estimarea functiilor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Factorul de reducere a variantei este (1 - ρ²): pentru ρ = 0 nu se reduce deloc, pentru ρ = 1 varianta devine zero (determinare perfecta). Aceasta este esenta "invatarii" intr-un model Gaussian: observatiile corelate reduc incertitudinea.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Interpolarea Gaussiana este precursorul proceselor Gaussiene, utilizate in optimizarea bayesiana (tuning hiperparametri ML), geostatistica (kriging) si modelarea suprafetelor 3D din scanari laser.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In monitorizarea calitatii aerului, senzori plasati in diferite locatii masoara poluarea. Datorita corelatiei spatiale, masurarea ridicata la un senzor (x₂ = mare) deplaseaza estimarea la senzorul vecin (E[x₁|x₂]) in sus, cu incertitudine redusa proportional cu ρ².</p></div>
+  </div>
+</div>

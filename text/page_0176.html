@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii: Raportul de Verosimilitate si Clasificatori Gaussieni (Sectiunea 4.6)</h2>
+  <p>Pagina contine exercitii avansate despre clasificatori gaussieni, incluzand raportul de verosimilitate, LDA/QDA pe date de inaltime/greutate si clasificatorul Naive Bayes cu caracteristici mixte.</p>
+  <div class="definition-box"><strong>Raportul de verosimilitate (Likelihood ratio):</strong> Logaritmul raportului posterior log p(y=1|x)/p(y=0|x) este egal cu logaritmul raportului de verosimilitate plus logaritmul raportului prior, conform regulii lui Bayes.</div>
+  <div class="highlight-box"><strong>Formula raportului posterior:</strong> log p(y=1|x)/p(y=0|x) = log p(x|y=1)/p(x|y=0) + log p(y=1)/p(y=0) (Ecuatia 4.282)</div>
+  <div class="highlight-box"><strong>Naive Bayes cu caracteristici mixte:</strong> y ~ Mu(y|π, 1), x₁|y=c ~ Ber(x₁|θ_c), x₂|y=c ~ N(x₂|μ_c, σ²_c) (Ecuatia 4.283)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Aceasta pagina prezinta exercitii care exploreaza raportul de verosimilitate pentru clasificatori gaussieni cu diferite forme ale matricei de covarianta (arbitrara, partajata, aliniata pe axe, sferica). Se examineaza si clasificatorul Naive Bayes cu caracteristici mixte (binare si continue) si frontierele de decizie pentru LDA cu covariante semi-legate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Numarul de parametri variaza dramatic in functie de forma matricei de covarianta: de la Kd(d+1)/2 pentru covarianta arbitrara la doar 1 parametru pentru covarianta sferica. Aceasta tradeoff intre flexibilitate si complexitate este fundamentala in selectia modelului.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clasificatorii cu covariante semi-legate (tied covariances) sunt utili cand clasele au forme similare dar dimensiuni diferite, oferind un compromis intre LDA (prea restrictiv) si QDA (prea flexibil). Naive Bayes cu caracteristici mixte este comun in aplicatii medicale unde avem atat masuratori continue cat si indicatori binari.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul medical, un clasificator Naive Bayes poate combina o caracteristica binara (prezenta/absenta unui simptom) cu una continua (nivelul colesterolului) pentru a prezice o boala. Exercitiul 4.18 modeleaza exact aceasta situatie cu π = (0.5, 0.25, 0.25) si parametri diferiti pentru fiecare clasa.</p></div>
+  </div>
+</div>

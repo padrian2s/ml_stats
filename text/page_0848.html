@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Esantionarea din Gaussiana (Box-Muller) si esantionarea prin respingere</h2>
+  <p>Aceasta pagina prezinta metoda Box-Muller pentru generarea de esantioane Gaussiene si introduce esantionarea prin respingere (rejection sampling).</p>
+  <div class="definition-box"><strong>Metoda Box-Muller:</strong> Se genereaza z1, z2 uniform in (-1,1), se pastreaza doar perechile cu z1^2+z2^2 <= 1, apoi x_i = z_i * sqrt(-2*ln(r^2)/r^2) produce doua esantioane independente din N(0,1). Pentru Gaussiene multivariate: y = L*x + mu, unde Sigma = L*L^T (Cholesky).</div>
+  <div class="definition-box"><strong>Esantionarea prin respingere:</strong> Se construieste o distributie propus q(x) cu M*q(x) >= p_tilde(x). Se genereaza x ~ q(x) si u ~ U(0,1). Daca u > p_tilde(x)/(M*q(x)), se respinge; altfel se accepta. Esantioanele acceptate au distributia p(x).</div>
+  <div class="highlight-box"><strong>Eficienta esantionarii prin respingere:</strong> Probabilitatea de acceptare este p(accept) = (1/M)*integral p_tilde(x)dx. Vrem M cat mai mic (dar cu M*q(x) >= p_tilde(x)) pentru eficienta maxima.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua tehnici fundamentale: Box-Muller transforma esantioane uniforme in Gaussiene printr-un truc geometric elegant, iar esantionarea prin respingere ofera o metoda generala pentru orice distributie, cu costul respingerii unor esantioane.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Box-Muller exploateaza simetria radiala a Gaussienei 2D. Esantionarea prin respingere exploateaza ideea de "invelis": daca putem esantiona uniform sub o curba care acopera distributia tinta, esantioanele acceptate au distributia corecta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Box-Muller este metoda standard in GPU-uri pentru generarea rapida de esantioane Gaussiene. Esantionarea prin respingere este utila cand distributia tinta este nenormalizata dar evaluabila punctual.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In simularea Monte Carlo a preturilor optiunilor financiare (modelul Black-Scholes), milioane de esantioane Gaussiene sunt generate prin Box-Muller pe GPU-uri pentru a estima pretul asteptat al optiunii.</p></div>
+  </div>
+</div>

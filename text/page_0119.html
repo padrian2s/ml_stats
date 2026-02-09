@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Exerciții - Capitolul 3 (Partea 5): Predictiva Dirichlet-Multinomială, Setarea Hiperparametrilor Beta, Factorul Bayes</h2>
+  <p>Pagina conține exerciții despre distribuția predictivă pentru lot în modelul Dirichlet-multinomial, setarea hiperparametrilor beta, verosimilitatea marginală, și factorul Bayes.</p>
+  <div class="highlight-box"><strong>Exercițiul 3.13 - Predictiva pentru lot:</strong> p(D̃|D,α) = Γ(α)/Γ(N+α)·∏_k Γ(N_k+α_k)/Γ(α_k), verosimilitatea marginală Dirichlet-multinomială.</div>
+  <div class="highlight-box"><strong>Exercițiul 3.14 - Predictiva Dirichlet-multinomială:</strong> Cu 2000 caractere observate (e: 260, a: 100, p: 87, etc.) și prior Dir(α_k=10), se calculează p(x₂₀₀₁=e|D) și p(x₂₀₀₁=p, x₂₀₀₂=a|D).</div>
+  <div class="highlight-box"><strong>Exercițiul 3.15 - Hiperparametri Beta:</strong> Se rezolvă α₁ și α₂ din E[θ] = m și var[θ] = v. Pentru m=0.7, v=0.04: α₁=2.975, α₂=1.275.</div>
+  <div class="highlight-box"><strong>Exercițiul 3.17 - Verosimilitatea marginală uniformă:</strong> Cu θ ~ Beta(1,1): p(N₁|N) = 1/(N+1), uniformă peste toate valorile posibile de N₁.</div>
+  <div class="highlight-box"><strong>Exercițiul 3.18 - Factorul Bayes:</strong> BF pentru monedă biasată vs corectă, N=10, N₁=9. Se compară cu N=100, N₁=90.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercițiile acoperă calculul predictivei pentru lot (esențial în modelarea topicilor), setarea principială a hiperparametrilor, și utilizarea factorului Bayes pentru testarea ipotezelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Factorul Bayes implementează automat briciul lui Occam: modelul mai simplu (monedă corectă) este preferat cu excepția cazurilor cu evidență puternică. Verosimilitatea marginală uniformă arată că priorul neinformativ produce predicții surprinzător de simple.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Factorul Bayes este alternativa Bayesiană la testele de semnificație (p-values). Are avantajul de a permite cuantificarea evidenței atât în favoarea cât și împotriva ipotezei nule.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Testarea dacă un zar este corect: cu 100 aruncări și 90 de „6", factorul Bayes oferă evidență copleșitoare că zarul este biased, mult mai informativ decât un simplu p-value.</p></div>
+  </div>
+</div>

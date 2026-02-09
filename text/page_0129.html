@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>Distributia Gaussiana 2D - Vizualizare si Distanta Mahalanobis</h2>
+  <p>Pagina 98 prezinta vizualizarea densitatii Gaussiene bidimensionale si introduce descompunerea in valori proprii a matricei de covarianta pentru a intelege distanta Mahalanobis.</p>
+
+  <div class="figure-box"><strong>Figura 4.1:</strong> Vizualizarea unei densitati Gaussiene bidimensionale. Axele majore si minore ale elipsei sunt definite de vectorii proprii u₁ si u₂ ai matricei de covarianta, iar lungimile semi-axelor sunt λ₁^(1/2) si λ₂^(1/2).</div>
+
+  <div class="definition-box"><strong>Descompunerea in valori proprii:</strong> Σ = UΛUᵀ, unde U este o matrice ortogonala de vectori proprii si Λ este o matrice diagonala de valori proprii.</div>
+
+  <div class="highlight-box"><strong>Distanta Mahalanobis (Ecuatia 4.3-4.4):</strong> (x - μ)ᵀ Σ⁻¹ (x - μ) = Σᵢ (yᵢ²/λᵢ), unde yᵢ = uᵢᵀ(x - μ). Contururile de probabilitate egala formeaza elipse: y₁²/λ₁ + y₂²/λ₂ = 1.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Aceasta pagina ofera o interpretare geometrica eleganta a distributiei Gaussiene. Prin descompunerea in valori proprii a matricei de covarianta, distanta Mahalanobis se reduce la o suma de patrate normalizate. Contururile de probabilitate constanta sunt elipse ale caror orientare si alungire sunt determinate de vectorii si valorile proprii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distanta Mahalanobis corespunde distantei Euclidiene intr-un sistem de coordonate transformat, unde deplasam cu μ si rotim cu U. Valorile proprii mari indica varianta mare de-a lungul directiei corespunzatoare, producand elipse alungite.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Distanta Mahalanobis este utilizata in detectia anomaliilor - punctele cu distanta Mahalanobis mare fata de media datelor de antrenare sunt clasificate ca anomalii. Este superioara distantei Euclidiene deoarece tine cont de corelatiile intre variabile.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In controlul calitatii industrial, masuratorile unui produs (greutate, dimensiuni, densitate) sunt modelate ca MVN. Un produs cu distanta Mahalanobis mare fata de distributia normala este marcat ca defect, chiar daca fiecare dimensiune individuala pare acceptabila.</p></div>
+  </div>
+</div>

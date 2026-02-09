@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Localizarea Monte Carlo - Ilustrare detaliata</h2>
+  <p>Aceasta pagina prezinta o ilustrare vizuala detaliata a localizarii Monte Carlo intr-un mediu de birouri, cu 6 pozitii de referinta.</p>
+  <div class="definition-box"><strong>Evolutia belief-ului:</strong> Figura 23.5 arata cum belief-ul (distributia peste pozitii posibile) evolueaza pe masura ce robotul se deplaseaza: (b) initial uniform, (c-d) se concentreaza dar ramane ambiguu (aliasing perceptual), (e) se rezolva ambiguitatea, (f) belief concentrat pe pozitia corecta.</div>
+  <div class="definition-box"><strong>Urmarirea vizuala cu 250 de particule:</strong> Figura 23.6 arata urmarirea unui elicopter: (a-c) urmarire reusita, (d) confuzie intre gri-ul elicopterului si al cladirii (posterior bimodal), (e-f) pierderea obiectului cand masa probabilistica se muta pe modul gresit.</div>
+  <div class="highlight-box"><strong>Limitarea PF in urmarire:</strong> Cand obiectul este pierdut, recuperarea este foarte dificila deoarece particulele s-au concentrat in zona gresita. Solutia practica: "tracking by detection" - rularea periodica a unui detector de obiecte pentru re-initializarea particulelor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina ofera vizualizari concrete ale succeselor si esecurilor filtrarii particulelor. In localizare, metoda functioneaza excelent, rezolvand gradual ambiguitatea. In urmarirea vizuala, metoda poate esua cand distractorii sunt prea similari cu obiectul urmarit.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>PF gestioneaza bine ambiguitatea temporara (multimodalitate) dar are dificultati la recuperare dupa pierderea obiectului. Combinarea PF cu detectori de obiecte (tracking-by-detection) rezolva aceasta limitare in practica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Sistmele moderne de urmarire (DeepSORT, SORT) combina retele neuronale (pentru detectie si re-identificare) cu filtre de asociere (Kalman sau particule) pentru urmarire robusta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In supravegherea video a aeroporturilor, filtrele cu particule urmaresc pasagerii prin terminale, iar detectoarele bazate pe deep learning re-identifica persoanele pierdute dupa ocluzii (de ex. trecerea pe dupa un stalp).</p></div>
+  </div>
+</div>

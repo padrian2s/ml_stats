@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii Capitolul 13: E Step GSM, EM Probit Sparse, GSM Group LASSO</h2>
+  <p>Pagina prezinta exercitiile 13.7 (continuare), 13.8-13.10 cu Figura 13.24 (comparatia OLS, ridge, LASSO), derivarea pasului E pentru GSM prior, EM pentru regresie probit sparsa si reprezentarea GSM a group LASSO.</p>
+  <div class="highlight-box"><strong>Figura 13.24:</strong> Graficul w_hat_k vs c_k (corelatia cu raspunsul) pentru trei estimatori: (1) OLS (linie cu panta 1), (2) Ridge (linie cu panta &lt; 1, fara thresholding), (3) LASSO (soft thresholding cu punct de taiere la lambda_1).</div>
+  <div class="highlight-box"><strong>Exercitiul 13.8 - Pasul E pentru GSM prior (Eq. 13.197-13.201):</strong> Se demonstreaza ca E[1/tau_j^2 | w_j] = pi'(w_j)/|w_j|, unde pi(w_j) = -log p(w_j). Derivare: (1/tau_j^2) N(w_j|0, tau_j^2) proportional cu (1/|w_j|) (d/d|w_j|) N(w_j|0, tau_j^2). Legatura cu penalitatea log-prior.</div>
+  <div class="highlight-box"><strong>Exercitiul 13.9 - EM pentru regresie probit sparsa:</strong> Derivarea algoritmului EM pentru regresie probit binara (Sectiunea 9.4) cu prior Laplace pe ponderi. Exercitiul 13.10 - GSM group LASSO: tau_j^2 ~ Ga(delta, rho^2/2), distributia marginala normala-Gamma pe w_j.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile 13.8-13.10 acopera aspecte avansate ale modelelor sparse. Exercitiul 13.8 demonstreaza conexiunea eleganta intre pasul E al GSM si derivata log-priorului, unificand diferiti regularizatori intr-un cadru EM comun. Exercitiul 13.9 extinde sparse regression la modele de clasificare (probit), iar exercitiul 13.10 leaga group LASSO de reprezentarea GSM.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Formula E[1/tau_j^2 | w_j] = pi'(w_j)/|w_j| este remarcabila: pasul E al EM pentru orice prior GSM se reduce la evaluarea derivatei log-priorului. Pentru Laplace: pi'(w_j) = lambda, deci E[1/tau_j^2] = lambda/|w_j|, producand reweighted l2. Pentru Student t: pi'(w_j) depinde de w_j, producand penalitati adaptive.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Cadrul EM-GSM permite implementarea unificata a multor regularizatori (Laplace, Student t, horseshoe) in acelasi algoritm EM, schimband doar functia pi'(w_j)/|w_j|. Aceasta simplifica semnificativ codul si permite experimentarea rapida cu diferiti priori.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza de supravietuire (survival analysis) cu date censurate, EM pentru regresie probit sparsa (Ex. 13.9) permite selectia automata a factorilor de risc relevanti dintr-un numar mare de covariati candidati.</p></div>
+  </div>
+</div>

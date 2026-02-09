@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>RBM categorice si Gaussiene</h2>
+  <p>Aceasta pagina descrie extensiile RBM pentru variabile vizibile categorice (1-of-C encoding) si variabile vizibile Gaussiene, detaliind functiile de energie si conditionalele complete.</p>
+  <div class="definition-box"><strong>RBM categoric:</strong> Extensie a RBM binar pentru variabile vizibile categorice, folosind codificarea 1-din-C. Conditionalele complete sunt date de functia softmax (Cat) pentru vizibile si sigmoid pentru ascunse.</div>
+  <div class="definition-box"><strong>RBM Gaussian:</strong> Generalizare a RBM pentru date cu valori reale, cu functia de energie ce include un termen patratic (v_r - b_r)^2 pentru variabilele vizibile, rezultand in conditionale Gaussiene.</div>
+  <div class="highlight-box"><strong>Conexiunea cu forma informationala:</strong> Daca setam Lambda = I, atunci media conditionala a fiecarui nod vizibil Gaussian este o combinatie liniara a ponderilor activate de nodurile ascunse: mu = sum_k h_k w_{.,k}.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina extinde cadrul RBM la date categorice si continue. RBM-ul categoric foloseste softmax in loc de sigmoid pentru variabilele vizibile, in timp ce RBM-ul Gaussian adauga un termen patratic in functia de energie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Flexibilitatea RBM-urilor provine din modularitatea functiei de energie - schimbarea tipului de nod vizibil modifica doar termenul corespunzator din E(v,h). Structura bipartita se mentine indiferent de tipul nodurilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>RBM-urile categorice sunt utile pentru modelarea textelor (bag-of-words) si evaluari discrete, in timp ce RBM-urile Gaussiene sunt potrivite pentru date audio si imagini cu valori continue.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Pentru procesarea vorbirii, unde inputul sunt caracteristici spectrale continue (MFCC), RBM-ul Gaussian este alegerea naturala ca prim strat al unei retele profunde.</p></div>
+  </div>
+</div>

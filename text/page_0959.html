@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Studiu de caz: Google Rephil</h2>
+  <p>Aceasta pagina prezinta Rephil, un model grafic dirijat masiv invatat automat de Google din date text la scala milioanelor de noduri (Figura 26.12).</p>
+  <div class="definition-box"><strong>Rephil:</strong> Un DGM binar cu noisy-OR CPDs. Frunzele (12 milioane) reprezinta prezenta/absenta cuvintelor sau frazelor. Nodurile latente (~1 milion) reprezinta clustere de cuvinte co-ocurente ("concepte"). Modelul are ~350 milioane de legaturi.</div>
+  <div class="definition-box"><strong>Invatarea structurii Rephil:</strong> Se bazeaza pe principiul "neurons that fire together wire together". Se ruleaza inferenta si se adauga muchii intre clustere-cuvinte si clustere-clustere care co-activeaza frecvent. Se initializeaza cu un cluster per "document" semantic.</div>
+  <div class="highlight-box"><strong>Scala:</strong> Modelul a fost antrenat pe ~100 miliarde de fragmente de text, folosind o arhitectura distribuita paralela. Cel mai lung drum in graf are lungimea 555, demonstrand un model foarte profund.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Rephil este un exemplu remarcabil de invatare a structurii la scala industriala. Modelul a fost folosit intern la Google pentru AdSense (potrivirea reclamelor la continut) si alte sisteme. Inferenta exacta este infezabila, dar se exploateaza faptul ca majoritatea frunzelor sunt inactive (cuvintele absente pot fi eliminate analitic). Se foloseste ICM (Iterated Conditional Modes) pentru a gasi moduri locale ale posteriorului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Scalabilitatea este obtinuta prin exploatarea raritatii (sparsity): majoritatea cuvintelor sunt absente intr-un document dat, iar frunzele inactive pot fi marginalizate eficient. Principiul hebbian ("neurons that fire together wire together") ghideaza invatarea structurii la scala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Rephil demonstreaza ca modelele grafice probabilistice pot fi aplicate la scala web-ului. Principii similare sunt folosite in sisteme de recomandare, clasificare de documente, si extragere de informatii la scala mare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Google AdSense foloseste modele similare cu Rephil pentru a intelege "conceptele" din paginile web si a potrivi reclame relevante. De exemplu, o pagina despre "retete de gatit" activeaza concepte latente legate de alimentatie, permitand afisarea de reclame pentru ingrediente sau ustensile de bucatarie.</p></div>
+  </div>
+</div>

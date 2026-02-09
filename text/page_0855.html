@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Filtrarea particulelor - Esantionarea secventiala prin importanta (SIS)</h2>
+  <p>Aceasta pagina detaliaza esantionarea secventiala prin importanta (SIS), baza teoretica a filtrarii particulelor.</p>
+  <div class="definition-box"><strong>Reprezentarea prin particule:</strong> p(z_{1:t}|y_{1:t}) aproximat de sum w_hat_t^s * delta_{z_{1:t}^s}(z_{1:t}), unde w_hat_t^s sunt ponderile normalizate ale particulei s la momentul t.</div>
+  <div class="definition-box"><strong>Actualizarea recursiva a ponderilor:</strong> w_t^s proportional cu w_{t-1}^s * p(y_t|z_t^s)*p(z_t^s|z_{t-1}^s) / q(z_t^s|z_{t-1}^s, y_t), unde q este distributia propunere. Fiecare particula este extinsa cu o noua stare z_t esantionata din propunere.</div>
+  <div class="highlight-box"><strong>Propunerea Markov:</strong> Daca q(z_t|z_{1:t-1}, y_{1:t}) = q(z_t|z_{t-1}, y_t), doar starea curenta si observatia sunt necesare pentru a genera noul esantion, nu intreaga istorie. Aceasta simplifica dramatic algoritmul.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>SIS construieste traiectorii incrementale: la fiecare pas, fiecare particula este extinsa cu o noua stare esantionata din propunere, iar ponderea este actualizata recursiv. Formula de actualizare a ponderilor este cheia algoritmului si depinde critic de alegerea propunerii q.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Recursivitatea este esentiala: ponderile la momentul t depind de ponderile la t-1, iar noile stari depind doar de starea anterioara si observatia curenta (asumptia Markov). Aceasta face algoritmul online si eficient in memorie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SIS este implementat in librarii precum particles (Python), SMC (R) si LibBi (C++). Alegerea propunerii q este critica pentru performanta practica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In prognoza meteo probabilistica, fiecare particula reprezinta un scenariu meteo posibil. La fiecare ora, particulele sunt extinse cu noi stari atmosferice si reponderate pe baza noilor observatii satellite.</p></div>
+  </div>
+</div>

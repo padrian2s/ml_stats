@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>TrueSkill - Modelul simplificat si reprezentarea prin graf factor</h2>
+  <p>Aceasta pagina simplifica modelul TrueSkill si prezinta reprezentarea prin graf factor, cu figuri detaliate ale DGM-ului si grafului factor pentru 4 jucatori / 3 echipe si 3 jucatori.</p>
+  <div class="definition-box"><strong>Modelul simplificat TrueSkill:</strong> p(s) = prod N(s_i|mu_0, sigma^2); p(d_g|s) = N(d_g|s_{i_g} - s_{j_g}, 1); p(y_g|d_g) = I(y_g = sign(d_g)). Priorul este Gaussian factorizat, iar modelul dynamic este ignorat pentru simplitate.</div>
+  <div class="definition-box"><strong>Graful factor TrueSkill:</strong> Contine trei tipuri de noduri factor: F_i (priori pe abilitati), S (factori de joc care conecteaza abilitati la diferente), si k_g (factori de rezultat). Mesajele circula in 6 pasi per joc.</div>
+  <div class="highlight-box"><strong>Similitudine cu regresia probit:</strong> Modelul este foarte similar cu regresia probit (Sectiunea 9.4), cu exceptia ca intrarile sunt diferentele de abilitati (factori latenti 1D). Daca se foloseste zgomot logistic in loc de Gaussian, se obtine modelul Bradley-Terry.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta versiunea simplificata a TrueSkill cu prior static si fara echipe, impreuna cu graful factor corespunzator. Aceasta simplificare mentine esenta algoritmului EP si permite intelegerea clara a fluxului de mesaje.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Graful factor are o structura clara de flux: abilitati -> diferente -> rezultate. Mesajele EP circula in sus (de la factori de joc la abilitati) si in jos (de la abilitati la factori de joc), actualizand iterativ estimarile de abilitate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>TrueSkill poate fi extins la jocuri cu echipe, jocuri cu mai mult de doi participanti, si jocuri cu scoruri continue (nu doar castig/pierdere). Microsoft a dezvoltat TrueSkill 2 care include si aceste extensii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sporturile electronice competitive (e-sports), clasamentele bazate pe TrueSkill sunt folosite pentru a crea turnee echilibrate si pentru a identifica jucatori cu potential ridicat pe baza performantelor lor relative.</p></div>
+  </div>
+</div>

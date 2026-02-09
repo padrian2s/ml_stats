@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>PCA: Eigendigits, Standardizare si Efectul Scalei</h2>
+  <p>Pagina prezinta Figura 12.6 cu eigendigits, Figura 12.7 cu efectul standardizarii pe PCA (inaltime/greutate) si incepe demonstratia formala a PCA (Sectiunea 12.2.2).</p>
+  <div class="highlight-box"><strong>Figura 12.7:</strong> (a) PCA pe date brute inaltime-greutate: prima componenta dominata de axa cu varianta mai mare (greutate). (b) PCA pe date standardizate: componenta principala reflecta corelatia reala intre variabile.</div>
+  <div class="definition-box"><strong>Standardizare:</strong> Transformarea fiecarei variabile sa aiba medie 0 si varianta 1 inainte de PCA. Echivalent cu folosirea matricii de corelatie in loc de cea de covarianta. Esentiala cand variabilele au unitati de masura diferite.</div>
+  <div class="highlight-box"><strong>Demonstratia PCA (inceputul):</strong> Se incepe cu cazul L=1. Eroarea de reconstructie J(w_1, z_1) = (1/N) suma ||x_i - z_i1 w_1||^2. Se optimizeaza intai fata de z_i1 si apoi fata de w_1.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina subliniaza importanta preprocesarii datelor inainte de PCA: fara standardizare, variabilele cu varianta mare (din cauza scalei, nu a relevantei) domina componentele principale. Demonstratia formala a PCA incepe cu cazul simplu L=1, urmand sa fie generalizata prin inductie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Sensibilitatea PCA la scala variabilelor este o limitare fundamentala: PCA nu este invarianta la transformari afine ale variabilelor. Standardizarea rezolva aceasta problema dar impune tratarea egala a tuturor variabilelor, ceea ce nu este intotdeauna dorit.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In bioinformatica, unde variabilele (gene) au scari foarte diferite, standardizarea inainte de PCA este obligatorie. In procesarea de imagini, unde pixelii au aceeasi scala, standardizarea nu este necesara.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza financiara, randamentele actiunilor au scari comparabile, deci PCA pe covariante este adecvata. Dar daca se amesteca randamente cu volume sau preturi, standardizarea este esentiala.</p></div>
+  </div>
+</div>

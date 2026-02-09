@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exerciții - Capitolul 3 (Partea 1)</h2>
+  <p>Pagina prezintă exercițiile capitolului 3, acoperind derivarea MLE pentru modelul Bernoulli/binomial, verosimilitatea marginală pentru modelul beta-Bernoulli, și proprietăți ale distribuției predictive.</p>
+  <div class="highlight-box"><strong>Exercițiul 3.1 - MLE Bernoulli/binomial:</strong> Se derivă θ̂_MLE = N₁/N prin optimizarea log-verosimilității din ecuația 3.11.</div>
+  <div class="highlight-box"><strong>Exercițiul 3.2 - Verosimilitatea marginală Beta-Bernoulli:</strong> p(D) = Γ(α₁+N₁)·Γ(α₀+N₀)·Γ(α)/[Γ(α₁+α₀+N)·Γ(α₁)·Γ(α₀)], derivată folosind regula lanțului: p(x_{1:N}) = p(x₁)·p(x₂|x₁)·...·p(x_N|x_{1:N-1}).</div>
+  <div class="highlight-box"><strong>Derivarea prin predicție secvențială:</strong> p(D) = ∏ p(x_t|x_{1:t-1}) unde fiecare termen este predictiva posterioară: p(X=k|D_{1:t}) = (N_k+α_k)/(N+α). Exemplu cu D = {H,T,T,H,H}: se calculează pas cu pas.</div>
+  <div class="highlight-box"><strong>Proprietatea funcției Gamma:</strong> (α−1)! = Γ(α) pentru numere întregi, conectând formula produsului secvențial cu formula cu funcții Gamma.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercițiile consolidează conceptele fundamentale: derivarea MLE, calculul verosimilității marginale, și conexiunea între actualizarea secvențială și formula cu funcții Gamma.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Verosimilitatea marginală p(D) este crucială pentru compararea modelelor Bayesiene (Bayes factors). Formula prin predicție secvențială oferă o interpretare intuitivă și numerică stabilă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Verosimilitatea marginală este utilizată în selecția automată de modele, în compararea hiperparametrilor, și în inferența structurii modelelor grafice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Compararea a două modele de limbaj (unigram vs bigram) prin raportul verosimilităților marginale determină care model este mai potrivit pentru un corpus dat, penalizând automat complexitatea.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Compresia de Imagini cu VQ, Initializarea si Evitarea Minimelor Locale</h2>
+  <p>Pagina discuta aplicarea cuantizarii vectoriale la compresia de imagini, metodele de initializare pentru K-means si EM, si problema supraajustarii in estimarea ML pentru GMM.</p>
+  <div class="definition-box"><strong>Farthest point clustering (K-means++):</strong> O metoda de initializare unde primul punct este ales aleator uniform, iar fiecare punct ulterior este ales cu probabilitate proportionala cu distanta patratica la cel mai apropiat centru existent. Garanteaza o distorsiune de cel mult O(log K) fata de optim.</div>
+  <div class="definition-box"><strong>Cresterea incrementala a GMM-urilor:</strong> O euristica din recunoasterea vorbirii unde clusterele sunt „crescute" incremental: se atribuie un scor fiecarui cluster, se imparte clusterul cu scorul cel mai mare in doua, si se elimina clusterele cu scor sau varianta prea mica.</div>
+  <div class="highlight-box"><strong>Compresia imaginilor:</strong> Pentru o imagine de 200x320 pixeli in tonuri de gri (C=8 biti/pixel), compresia cu K=4 reduce de la 512KB la ~128KB (factor 4), iar cu K=8 la ~192KB (factor 2.6), cu pierderi perceptuale neglijabile.</div>
+  <div class="highlight-box"><strong>Estimare MAP:</strong> Problema supraajustarii in GMM: este posibil sa se obtina o verosimilitate infinita prin atribuirea unui centru μ₂ unui singur punct de date si reducerea σ₂ → 0.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Rata de codificare pentru VQ este aproximativ O(log₂ K) biti per obiect, mult mai mica decat O(DC) pentru reprezentarea directa. K-means++ ofera o initializare inteligenta cu garantii teoretice. Problema „variantei colapsate" in estimarea ML pentru GMM este severa: verosimilitatea poate deveni infinita cand o componenta se concentreaza pe un singur punct cu varianta apropiata de zero.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Initializarea inteligenta (K-means++) este un exemplu de cum o euristica simpla poate oferi garantii teoretice puternice. Problema variantei colapsate motiveaza utilizarea estimarii MAP in loc de MLE.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In compresia JPEG, blocurile 5x5 de pixeli sunt codificate impreuna, exploatand corelatia spatiala pentru o compresie si mai mare. K-means++ este implementat implicit in scikit-learn si este recomandat ca metoda standard de initializare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de cautare a imaginilor la scara mare (de exemplu, Google Images), cuantizarea vectoriala de produs (PQ) comprima descriptorii de imagine de la sute de octeti la zeci, permitand cautarea eficienta peste miliarde de imagini.</p></div>
+  </div>
+</div>

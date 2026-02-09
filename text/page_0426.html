@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Analiza Componentelor Principale (PCA) - Aproximare de Rang Scazut si PCA Probabilistic</h2>
+  <p>Pagina continua discutia despre PCA ca aproximare de rang scazut prin SVD trunchiat si introduce PCA probabilistic (PPCA).</p>
+  <div class="definition-box"><strong>Aproximare SVD trunchiat:</strong> Daca X = USV^T este descompunerea SVD, atunci reconstructia optima de rang L este X̂ = USV^T, identica cu proiectia PCA.</div>
+  <div class="definition-box"><strong>PCA Probabilistic (PPCA):</strong> Un model de analiza factoriala in care Ψ = σ²I, adica zgomotul este izotrop, permitand o interpretare probabilistica a PCA clasic.</div>
+  <div class="highlight-box"><strong>Log-verosimilitatea datelor observate:</strong> log p(X|W, σ²) = -N/2 ln|C| - 1/2 Σ xᵢᵀ C⁻¹ xᵢ, unde C = WW^T + σ²I</div>
+  <div class="highlight-box"><strong>Estimatorul MLE al zgomotului:</strong> σ̂² = 1/(D-L) Σⱼ₌L₊₁ᴰ λⱼ, media valorilor proprii asociate dimensiunilor eliminate.</div>
+  <div class="highlight-box"><strong>Posteriorul factorilor latenti:</strong> p(zᵢ|xᵢ, θ̂) = N(zᵢ | F̂⁻¹Ŵ^T xᵢ, σ²F̂⁻¹), unde F̂ = Ŵ^T Ŵ + σ̂²I</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Aceasta pagina stabileste legatura fundamentala intre PCA clasic si descompunerea SVD trunchiat, demonstrand ca PCA ofera cea mai buna aproximare de rang scazut. Apoi introduce PCA probabilistic (PPCA) ca un caz special al analizei factoriale cu zgomot izotrop, derivand log-verosimilitatea, estimatorii MLE pentru matricea de greutati W si varianta zgomotului σ², precum si distributia posterioara a factorilor latenti.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cand σ² → 0, PPCA converge la PCA clasic: Ŵ → V (eigenvectorii), iar posteriorul devine o proiectie ortogonala. Varianta zgomotului estimata σ̂² este media valorilor proprii eliminate, ceea ce are o interpretare intuitiva: zgomotul captureaza varianta medie in directiile ignorate de model.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>PPCA este utilizat in reducerea dimensionalitatii cu un cadru probabilistic solid, permitand selectia modelului prin verosimilitate marginala, gestionarea datelor lipsa si combinarea cu alte modele generative. Este preferat PCA clasic cand se doreste cuantificarea incertitudinii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In procesarea imaginilor medicale, PPCA poate fi utilizat pentru a reduce dimensionalitatea scanurilor RMN, modeland explicit zgomotul senzorului ca σ²I si recuperand componentele principale care captureaza variabilitatea anatomica reala.</p></div>
+  </div>
+</div>

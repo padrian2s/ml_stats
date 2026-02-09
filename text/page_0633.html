@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Calculul Eficient al Vectorului PageRank (p. 602)</h2>
+  <p>Pagina prezintă exemplul numeric al PageRank-ului, graful web Harvard și definirea matricei de tranziție pentru calculul eficient al vectorului PageRank.</p>
+  <div class="definition-box"><strong>Matricea de tranziție M:</strong> M_ij = pG_ij/c_j + δ dacă c_j ≠ 0, sau 1/n dacă c_j = 0, unde p = 0.85 este probabilitatea de a urma un link și δ = (1-p)/n este probabilitatea de salt aleatoriu (Ec. 17.34).</div>
+  <div class="highlight-box"><strong>Distribuția staționară exemplu:</strong> π = (0.3209, 0.1706, 0.1065, 0.1368, 0.0643, 0.2008) pentru graful din Figura 17.5 (Ec. 17.33).</div>
+  <div class="figure-box"><strong>Figura 17.6:</strong> (a) Graful web de 500 de site-uri pornind de la www.harvard.edu. (b) Vectorul PageRank corespunzător, arătând distribuția inegală a importanței.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se arată cum se construiește matricea de tranziție din graful web și cum distribuția staționară reflectă importanța reală a paginilor. Nodul 1 are cel mai mare PageRank (32%) datorită link-urilor de la noduri influente.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Parametrul de salt aleatoriu δ servește dublu scop: asigură ireductibilitatea lanțului (orice pagină este accesibilă) și regularitatea sa, garantând convergența la o distribuție staționară unică.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Pentru web-ul real cu miliarde de pagini, stocarea eficientă a matricei rare G este esențială. Matricea M = pGD + 1z^T permite calculul fără stocarea explicită a elementelor mici δ.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Graful web Harvard ilustrează cum structura link-urilor unei universități reflectă ierarhia informațională: pagina principală și hub-urile de departamente primesc cele mai mari scoruri PageRank.</p></div>
+  </div>
+</div>

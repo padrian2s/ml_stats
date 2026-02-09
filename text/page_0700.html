@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Retele Hopfield si masinile Boltzmann</h2>
+  <p>Aceasta pagina prezinta retelele Hopfield ca modele Ising complet conectate folosite ca memorii asociative, si introduce masinile Boltzmann.</p>
+  <div class="definition-box"><strong>Retea Hopfield:</strong> Un model Ising complet conectat cu matrice de ponderi simetrica W = W^T. Este folosita ca memorie asociativa: se antreneaza pe tipare binare si poate completa tipare partiale (pattern completion).</div>
+  <div class="definition-box"><strong>ICM (Iterative Conditional Modes):</strong> Un algoritm de descindere pe coordonate care seteaza fiecare nod la starea cea mai probabila dat fiind vecinii sai: p(y_s=1|y_{-s}, θ) = sigm(w_s^T y_{-s} + b_s). Este o metoda determinista de inferenta aproximativa.</div>
+  <div class="highlight-box"><strong>Masina Boltzmann:</strong> O generalizare a retelei Hopfield/Ising care include noduri ascunse, facand modelul mai expresiv. Inferenta foloseste esantionarea Gibbs, o versiune stocastica a ICM.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Retelele Hopfield functioneaza ca memorii cu adresare prin continut: se prezinta un tipar partial si reteaua converge la cel mai apropiat tipar memorat. ICM este algoritmul de inferenta standard, dar este deterministic si poate ramane blocat in minime locale. Masinile Boltzmann adauga noduri ascunse si folosesc esantionare stocastica.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Reteaua Hopfield poate fi interpretata ca o retea neuronala recurenta (RNN). Algoritmul ICM este echivalentul determinist al esantionarii Gibbs. Masinile Boltzmann sunt mai puternice datorita variabilelor latente, dar mai greu de antrenat.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Memoriile asociative au fost folosite in sisteme de recunoastere a tiparelor si completarea datelor lipsa. Masinile Boltzmann restrictionate (RBM) au revolutionat deep learning-ul ca componente ale retelelor deep belief.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O retea Hopfield antrenata pe imagini de cifre 50x50 pixeli poate reconstitui o cifra chiar daca 60% din pixeli sunt ascunsi sau corupti, asa cum se vede in Figura 19.7 din carte.</p></div>
+  </div>
+</div>

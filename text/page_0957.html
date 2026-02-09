@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Descoperirea variabilelor ascunse - Arbori latenti ierarhici</h2>
+  <p>Aceasta pagina prezinta metode de descoperire automata a variabilelor ascunse, incluzand arbori latenti ierarhici si paduri latente invatate din date text (Figura 26.10).</p>
+  <div class="definition-box"><strong>Semnaturi structurale:</strong> Daca o variabila ascunsa exista in modelul "adevarat", copiii sai vor fi dens conectati in graful invatat pe variabilele vizibile. Se cauta quasi-clique-uri si se introduce o variabila ascunsa pentru fiecare.</div>
+  <div class="definition-box"><strong>Model latent de clase ierarhic:</strong> Un arbore de variabile latente discrete, fiecare cu un set mic de copii. Algoritmul lui Zhang (2004) cauta greedy prin adaugarea/stergerea nodurilor ascunse si a muchiilor.</div>
+  <div class="highlight-box"><strong>Exemplu 20-newsgroups (Figura 26.10):</strong> Arborele latent invatat arata clustere interpretabile: medicina (health, insurance, cancer, disease), sport (hockey, baseball, season, team), si religie (christian, bible, god), oferind o alternativa la LDA cu inferenta exacta in arbori.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina abordeaza intrebarea fundamentala: cum automatizam descoperirea variabilelor ascunse? O euristica este cautarea de noduri dens conectate (quasi-clique-uri) in graful vizibil. O abordare mai principiala este modelul latent de clase ierarhic, care construieste un arbore de variabile latente. Exemplul pe date text arata ca arborele captureaza ierarhii semantice naturale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Arborii latenti ofera un avantaj major fata de LDA: inferenta este exacta si liniara in numarul de noduri. Constrangerea la arbore limiteaza expresivitatea, dar in practica structurile descoperite sunt interpretabile si utile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Arborii latenti sunt folositi in modelarea topicilor (alternativa la LDA), analiza filogentetica, comprimarea datelor, si construirea de taxonomii automate din date nestructurate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In organizarea automata a continutului web, arborii latenti pot descoperi ierarhia tematica naturala a articolelor (de exemplu, sport -> fotbal -> liga campionilor), fara supervizare, oferind o structura navigabila pentru utilizatori.</p></div>
+  </div>
+</div>

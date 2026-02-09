@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Extensii ale Regularizarii l1: Caveat EM si Group Lasso (p.449)</h2>
+  <p>Aceasta pagina discuta o problema numerica a metodei EM pentru lasso si introduce extensiile regularizarii l1, incepand cu Group Lasso.</p>
+  <div class="definition-box"><strong>Group Lasso:</strong> Extensie a regularizarii l1 care selecteaza grupuri de variabile simultan, folosind penalizarea ||w||_grup = suma lambda_g * ||w_g||_2, unde se aplica norma l2 pe fiecare grup si norma l1 intre grupuri.</div>
+  <div class="highlight-box"><strong>Caveat EM:</strong> Desi obiectivul lasso este convex, metoda EM poate esua numeric cand w_j = 0 in pasul M, ducand la tau_j^2 = 0, care blocheaza permanent coeficientul la zero. Aceasta situatie este rara in practica.</div>
+  <div class="highlight-box"><strong>Obiectivul Group Lasso:</strong> J(w) = NLL(w) + suma_{g=1}^{G} lambda_g * ||w_g||_2, unde ||w_g||_2 = sqrt(suma_{j in g} w_j^2) este norma l2 a grupului.</div>
+  <div class="highlight-box"><strong>Exemple Group Lasso:</strong> Regresie logistica multinomiala (C ponderi per trasatura), regresie liniara cu intrari categorice (codare one-hot), si invatare multi-task (C sarcini legate).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina tranziteaza de la algoritmul EM pentru lasso standard la extensiile structurate, in special Group Lasso. Acesta impune raritate la nivel de grup, nu la nivel individual, fiind esential cand variabilele au o structura de grupare naturala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Group Lasso combina norma l2 in interiorul grupurilor cu norma l1 intre grupuri, creand o penalizare mixta care selecteaza sau elimina grupuri intregi de variabile. Lambda_g = lambda * sqrt(d_g) penalizeaza mai mult grupurile mari.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Group Lasso este crucial in analiza genetica (selectia de gene grupate pe cai metabolice), in invatarea multi-task (selectia de trasaturi comune mai multor sarcini), si in regresia cu variabile categorice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza expresiei genice, genele sunt organizate in cai biologice. Group Lasso poate selecta cai intregi relevante pentru o boala, nu doar gene individuale, oferind o interpretare biologica mai naturala.</p></div>
+  </div>
+</div>

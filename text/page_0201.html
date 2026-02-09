@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Aplicatie: Gasirea Regiunilor Conservate in Secvente ADN si Proteine</h2>
+  <p>Pagina prezinta o aplicatie a mixturilor de priori Dirichlet-Multinomial la identificarea regiunilor conservate in secvente biologice, folosind logo-uri de secventa.</p>
+  <div class="definition-box"><strong>Regiune conservata:</strong> O pozitie in alinierea secventelor ADN/proteine unde aceeasi litera (nucleotida sau aminoacid) apare in majoritatea speciilor, indicand presiune evolutiva de conservare.</div>
+  <div class="highlight-box"><strong>Verosimilitatea marginala per coloana:</strong> p(N_t|Z_t) = ∫ p(N_t|θ_t)p(θ_t|Z_t)dθ_t (Ecuatia 5.74), unde N_t este vectorul de contoare (A,C,G,T) la pozitia t.</div>
+  <div class="highlight-box"><strong>Prior pentru coloane conservate:</strong> p(θ|Z_t=1) = (1/4)Dir(θ|(10,1,1,1)) + ... + (1/4)Dir(θ|(1,1,1,10)) (Ecuatia 5.75) - mixtura de 4 Dirichlet, fiecare "inclinata" catre o nucleotida.</div>
+  <div class="figure-box"><strong>Figura 5.10:</strong> Mixtura de doua distributii Beta: prior-ul (rosu, linie continua) si posterioara (albastru, linie intrerupta), demonstrand cum datele actualizeaza credintele.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Aplicatia combina toate conceptele introduse: mixturi de priori conjugate (Dirichlet), verosimilitate marginala si variabile latente (Z_t indica daca pozitia este conservata). Prior-ul neinformativ Dir(1,1,1,1) se foloseste pentru pozitii neconservate, iar o mixtura de 4 Dirichlet concentrate pentru pozitii conservate. Calculul este tractabil datorita conjugatiei.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Mixtura de priori Dirichlet permite modelarea fina a conservarii: fiecare componenta corespunde conservarii unei nucleotide specifice (A, C, G sau T). Variabila latenta Z_t poate fi modelata cu un lant Markov pentru a captura conservarea corelata intre pozitii adiacente.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta metodologie este folosita in bioinformatica pentru identificarea motivelor functionale in ADN (situsuri de legare a factorilor de transcriptie), regiunilor codificatoare in genom si domeniilor conservate in proteine.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Logo-urile de secventa (sequence logos) sunt vizualizari care arata conservarea la fiecare pozitie a unei alinieri. Inaltimea literelor indica gradul de conservare (entropie scazuta). Abordarea bayesiana permite atribuirea de intervale credibile acestor estimari.</p></div>
+  </div>
+</div>

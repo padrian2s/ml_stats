@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exemplu DPMM si functia obiectiv a propagarii afinitatii</h2>
+  <p>Aceasta pagina prezinta rezultatele Gibbs sampling pentru DPMM pe date 2D (Figura 25.7) si formuleaza matematic functia obiectiv a propagarii afinitatii.</p>
+  <div class="definition-box"><strong>Functia obiectiv a propagarii afinitatii:</strong> S(c) = suma s(i,c_i) + suma delta_k(c), unde s(i,c_i) este similaritatea punctului i cu exemplarul sau c_i, si delta_k penalizeaza situatiile in care un punct este ales ca exemplar dar nu s-a ales pe sine.</div>
+  <div class="definition-box"><strong>Constrangerea de consistenta:</strong> delta_k(c) = -infinit daca c_k != k dar exista i cu c_i = k (un punct alege k ca exemplar, dar k nu s-a ales pe sine), altfel 0.</div>
+  <div class="highlight-box"><strong>Convergenta DPMM:</strong> Figura 25.7 arata ca dupa 50 de iteratii clustering-ul este inca nesigur, dar dupa 200 de iteratii se stabilizeaza. Posteriorul peste K arata ca K=3 este cel mai probabil, cu K=2 si K=4 ca alternative.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza vizual convergenta DPMM: de la un clustering nesigur la iteratia 50 la unul stabil la iteratia 200. Posteriorul pe K arata incertitudinea reziduala. Functia obiectiv a propagarii afinitatii este formulata ca maximizarea similaritatii totale cu exemplarele, sub constrangerea ca exemplarele trebuie sa fie auto-selectate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>DPMM furnizeaza nu doar un clustering punctual, ci si incertitudinea asupra numarului de clustere - un avantaj major fata de metodele non-probabilistice. Propagarea afinitatii transforma clustering-ul intr-o problema de optimizare combinatorie, rezolvabila eficient prin propagarea credintelor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Posteriorul pe K este extrem de util in practica: in loc de un singur K "optim", avem o distributie care cuantifica incertitudinea. Aceasta poate ghida decizii ulterioare, de exemplu daca se justifica investitia in K=4 segmente de marketing vs. K=3.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul medical, DPMM aplicat pe date de pacienti (tensiune, colesterol, etc.) poate descoperi subtipuri de boala si cuantifica incertitudinea: posteriorul pe K arata daca exista 2 sau 3 subtipuri distincte ale unei boli, informand decizii terapeutice.</p></div>
+  </div>
+</div>

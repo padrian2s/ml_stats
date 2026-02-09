@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Invatarea structurii DAG - Cautare locala si aproximarea posteriorului</h2>
+  <p>Aceasta pagina prezinta un DAG optimal local invatat din datele 20-newsgroup (Figura 26.8) si discuta metode de aproximare a altor functii ale posteriorului pe structuri de graf.</p>
+  <div class="definition-box"><strong>Factorul Bayes local:</strong> delta(G -> G') = log p(G'|D) - log p(G|D), calculabil in timp constant datorita anularii termenilor comuni in verosimilitatea marginala, cand se modifica doar o muchie.</div>
+  <div class="definition-box"><strong>Probabilitatea marginala a muchiei:</strong> p(G_{st} = 1|D), probabilitatea ca muchia s->t sa existe, obtinuta prin marginalizare peste toate structurile DAG din posterior.</div>
+  <div class="highlight-box"><strong>Metode de esantionare din posteriorul pe structuri:</strong> Se pot esantiona DAG-uri din posterior folosind Metropolis-Hastings cu propuneri locale sau un esantionator MH collapsat pe ordini totale (Friedman si Koller 2003), care imbunatateste amestecarea exploatand independenta selectiei parintilor pentru fiecare nod.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta un DAG complex invatat din date text (Figura 26.8), demonstrand capacitatea metodelor de cautare de a descoperi relatii semantice intre cuvinte. Se discuta apoi metode mai avansate: in loc de a gasi un singur DAG MAP, se poate calcula probabilitatea fiecarei muchii prin marginalizare. Programarea dinamica exacta este limitata la ~16 noduri, dar metodele MCMC permit scalarea.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la estimarea punctuala (un singur DAG) la incertitudinea pe structura (distributia posterioara pe muchii) este un progres important. Esantionarea pe ordini totale evita problema ciclurilor, deoarece oricarui DAG ii corespunde cel putin o ordine topologica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Invatarea structurii retelelor bayesiene este folosita in bioinformatica (retele de reglare genica), epidemiologie (retele de transmisie a bolilor), si sisteme expert medicale (relatii intre simptome si diagnostice).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In descoperirea de medicamente, invatarea structurii DAG din date de expresie genica permite identificarea cailor de semnalizare celulara si a tintelor terapeutice potentiale, ghidand dezvoltarea de medicamente noi.</p></div>
+  </div>
+</div>

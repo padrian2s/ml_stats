@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>ICA: Minimizarea Informatiei Mutuale si Infomax</h2>
+  <p>Pagina continua cu minimizarea multi-informatiei pentru ICA, principiul infomax (maximizarea informatiei mutuale) si demonstrarea echivalentei cu ML. Include si inceputul exercitiilor Capitolului 12.</p>
+  <div class="highlight-box"><strong>Minimizarea multi-informatiei (Eq. 12.123):</strong> I(z) = suma H(z_j) - H(Vx) = suma H(z_j) - H(x) (cand V ortogonala). Se reduce la minimizarea suma H(z_j), echivalenta cu maximizarea negentropiei.</div>
+  <div class="definition-box"><strong>Principiul Infomax (Eq. 12.124):</strong> Maximizarea informatiei mutuale I(x; y) intr-o retea y_j = phi(v_j^T x) + epsilon. H(y) = suma E[log phi'(v_j^T x)] + log|det(V)|. Cu phi = sigmoid, infomax = ML cu distributie logistica.</div>
+  <div class="highlight-box"><strong>Echivalenta fundamentala:</strong> Maximizarea negentropiei = Minimizarea multi-informatiei = Infomax = Maximum Likelihood. Toate aceste principii produc aceleasi estimari ale matricii de amestecare W.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza demonstratia echivalentei tuturor principiilor de estimare ICA. Infomax, propus de Bell si Sejnowski (1995), maximizeaza informatia transmisa printr-o retea neuronala neliniara. Se demonstreaza ca aceasta este echivalenta cu ML cand neliniaritatile corespund CDF-urilor distributiilor surselor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Unificarea tuturor perspectivelor sub ML este un rezultat puternic: indiferent de motivatia intuitiva (independenta, non-Gaussianitate, informatie), formalismul matematic converge la aceeasi problema de optimizare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Exercitiile capitolului acopera pasul M pentru FA, estimarea MAP pentru FA, euristica pentru utilitatea PCA si derivarea componentei principale secunde. Sunt exercitii fundamentale pentru intelegerea aprofundata.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In telecomunicatii, blind source separation (separarea oarba a surselor) foloseste principiul infomax pentru a recupera semnalele transmise din amestecuri receptionate, fara cunoasterea canalului de transmisie.</p></div>
+  </div>
+</div>

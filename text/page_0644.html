@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Inferenta in HMM - Trellis si comparatia MAP vs MPM</h2>
+  <p>Aceasta pagina prezinta diagrama trellis pentru HMM, comparatia intre estimarea MAP (Viterbi) si MPM (marginalele posterioare maxime), si robustetea MPM.</p>
+  <div class="definition-box"><strong>Diagrama trellis:</strong> Grila bidimensionala cu stari pe axa verticala si timp pe axa orizontala. Fiecare arc conecteaza starea i la t-1 cu starea j la t, cu ponderea data de probabilitatea de tranzitie si observatie.</div>
+  <div class="highlight-box"><strong>MAP vs MPM:</strong> MAP (Viterbi) gaseste z* = argmax p(z_{1:T}|x_{1:T}) - secventa comuna cea mai probabila. MPM gaseste z_t* = argmax p(z_t|x_{1:T}) - starea marginala cea mai probabila la fiecare t. MPM este mai robust deoarece mediaza peste vecinii fiecarui nod.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 17.12 arata diagrama trellis cu N stari si T observatii. MAP si MPM pot da rezultate diferite: exemplul cu 2 variabile arata MAP=(0,1) dar MPM=(1,1). MAP asigura consistenta globala (secventa linguistic plauzibila in recunoastere vocala) dar MPM este mai robust per nod. In Viterbi, maximizam peste variabilele vecine; in forward-backward, sumam - sumarea este mai robusta la incertitudine.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta MAP vs MPM reflecta o tensiune fundamentala: consistenta globala (MAP) vs. robustete locala (MPM). In practica, se foloseste Viterbi (MAP) cand consistenta secventei este importanta si forward-backward (MPM) cand se doresc probabilitati marginale per stare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In recunoasterea vorbirii, Viterbi (MAP) este preferat deoarece asigura secvente de cuvinte gramatical coerente. In etichetarea secventelor (POS tagging, NER), MPM poate fi mai potrivit deoarece etichetele sunt evaluate independent.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In decodarea comunicatiilor digitale, Viterbi decodifica secventa de biti transmisa prin canal zgomotos, folosind codul convolutional ca 'HMM' pentru a gasi secventa de biti cea mai probabila.</p></div>
+  </div>
+</div>

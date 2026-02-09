@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Filtrarea particulelor Rao-Blackwellizata (RBPF)</h2>
+  <p>Aceasta pagina introduce RBPF, o metoda care reduce varianta filtrului cu particule prin marginalizarea analitica a unor variabile latente.</p>
+  <div class="definition-box"><strong>RBPF (Rao-Blackwellised Particle Filter):</strong> Se partitioneaza variabilele ascunse in q_t (discrete, esantionate) si z_t (continue, marginalizate analitic). Fiecare particula contine o valoare q_{1:t}^s si o distributie p(z_t|y_{1:t}, q_{1:t}^s) reprezentata parametric. Se numesc particule distributionale sau collapsed particles.</div>
+  <div class="definition-box"><strong>RBPF pentru SLDS (Switching Linear Dynamical Systems):</strong> Fiecare particula esantioneaza starea discreta q_t, iar starea continua z_t este urmarita de un filtru Kalman. Ponderea w_t^s = w_{t-1}^s * L_{tk}^s, unde L_{tk}^s este verosimilitatea predictiva a filtrului Kalman.</div>
+  <div class="highlight-box"><strong>Reducerea dimensionalitatii:</strong> Prin marginalizarea analitica a z_t, se reduce dimensionalitatea spatiului de esantionare, reducand varianta estimatorului conform teoremei Rao-Blackwell.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>RBPF combina puterea filtrarii particulelor (pentru variabile discrete/nelineari) cu eficienta filtrarii Kalman (pentru variabile liniare-Gaussiene). Fiecare particula mentine un filtru Kalman, obtinand o aproximare "amestec de Gaussiene" a posteriorului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Principiul Rao-Blackwell: inlocuirea esantionarii cu calcul analitic reduce intotdeauna varianta. Deci cu cat mai multe variabile pot fi marginalizate analitic, cu atat RBPF este mai eficient.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>RBPF este standard in SLAM (Simultaneous Localization and Mapping), unde starea discreta este pozitia robotului iar starea continua este harta mediului.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Algoritmul FastSLAM foloseste RBPF: fiecare particula reprezinta o traiectorie posibila a robotului, iar harta este mentinuta analitic (ca set de filtre Kalman) conditionat de traiectorie. Aceasta permite cartografierea simultana cu localizarea.</p></div>
+  </div>
+</div>

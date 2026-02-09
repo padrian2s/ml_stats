@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Spline-uri de regresie si conexiunea cu GP</h2>
+  <p>Aceasta pagina continua cu spline-urile de regresie, spline-urile penalizate, si demonstreaza formal ca spline-ul cubic este estimarea MAP a unui GP specific.</p>
+  <div class="definition-box"><strong>Spline penalizat:</strong> Spline de regresie cu regularizare L2 pe coeficientii alpha_j. Combina flexibilitatea nodurilor fixe cu controlul complexitatii prin penalizare.</div>
+  <div class="highlight-box"><strong>Echivalenta spline-GP:</strong> Spline-ul cubic este estimarea MAP a unui GP semi-parametric f(x) = beta_0 + beta_1*x + r(x), unde r(x) ~ GP(0, kappa) cu un kernel specific derivat din termenul de penalizare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Spline-urile de regresie f(x) = beta_0 + beta_1 x + sum alpha_j(x - xi_k)^3_+ sunt modele parametrice cu K noduri. Se pot ajusta prin regresie ridge: w_hat = (Phi^T Phi + lambda I)^{-1} Phi^T y, cu complexitate O(N). Conexiunea formala cu GP: spline-ul cubic este exact estimarea MAP a unui GP semi-parametric cu trend liniar si un GP pe reziduuri. Aceasta unifica doua perspective aparent diferite.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Dualitatea spline-GP arata ca penalizarea derivatei a m-a este echivalenta cu un prior GP specific pe functie. Parametrul de netezire lambda corespunde raportului sigma_y^2 / varianta kernelului GP. Aceasta conexiune permite transferul tehnicilor intre cele doua cadre.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, spline-urile sunt mai eficiente computational (O(N) vs O(N^3) pentru GP), dar GP-ul ofera incertitudine calibrata. Metode hibride (GP cu functii de baza spline) combina avantajele ambelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea curbelor de randament ale obligatiunilor, spline-urile sunt standardul industrial datorita eficientei computationale, dar GP-urile sunt folosite in managementul riscului unde incertitudinea estimarii este importanta.</p></div>
+  </div>
+</div>

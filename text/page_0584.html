@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Spline-uri de Regresie Adaptiva Multivariata (MARS)</h2>
+  <p>Pagina introduce MARS ca extensie a GAM care permite efecte de interactiune, descompunerea ANOVA, functiile de baza liniare cu noduri si perechile reflectante.</p>
+  <div class="definition-box"><strong>MARS (Multivariate Adaptive Regression Splines):</strong> Un algoritm care foloseste cautare greedy pentru a decide ce variabile sa adauge, bazat pe un produs tensorial al spline-urilor de regresie pentru a reprezenta functii de regresie multidimensionale.</div>
+  <div class="definition-box"><strong>Pereche reflectanta (reflecting pair):</strong> Spline-uri liniare 1D cu inclinatii in ambele directii: (x_j - t)₊ si (t - x_j)₊, unde nodurile sunt la toate valorile observate ale variabilei.</div>
+  <div class="highlight-box"><strong>Descompunerea ANOVA:</strong> f(x) = β₀ + Σ_j f_j(x_j) + Σ_{j,k} f_{jk}(x_j, x_k) + Σ_{j,k,l} f_{jkl}(x_j, x_k, x_l) + ... (Ec. 16.20)</div>
+  <div class="highlight-box"><strong>Setul de functii de baza candidat:</strong> C = {(x_j - t)₊, (t - x_j)₊ : t ∈ {x_{1j},...,x_{Nj}}, j = 1,...,D} (Ec. 16.22)</div>
+  <div class="figure-box"><strong>Figura 16.7:</strong> (a) Spline liniara cu nod la 5: (x-5)₊ (albastru) si (5-x)₊ (rosu). (b) Model MARS in 1D. (c) Model MARS in 2D cu suprafata de regresie rezultata.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MARS extinde GAM prin permiterea interactiunilor intre variabile. Modelul se construieste greedy, adaugand perechi reflectante de functii de baza si apoi retezand. Procedura este strans legata de CART: daca inlocuim functiile liniare cu functii step, obtinem exact strategia CART.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Modelul M incepe cu {1} si creste prin multiplicarea functiilor existente cu perechi reflectante noi. Se impune constrangerea ca o variabila folosita intr-o interactiune nu mai poate fi impartita din nou, garantand ca modelul poate fi reprezentat ca arbore.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MARS este utilizat in modelarea ecologica, inginerie si stiintele pamantului pentru a captura relatii neliniare complexe cu interactiuni, oferind interpretabilitate superioara retelelor neuronale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea preturilor imobiliare, MARS poate captura efectul neliniar al suprafetei (f₁), al locatiei (f₂) si interactiunea lor (f₁₂) - de exemplu, suprafata suplimentara valorizeaza mai mult in locatii premium.</p></div>
+  </div>
+</div>

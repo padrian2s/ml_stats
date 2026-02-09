@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>LDA, PLSI si modelul GaP / Factorizare matriciala non-negativa</h2>
+  <p>Aceasta pagina prezinta relatia intre LDA si PLSI, introduce modelul Gamma-Poisson (GaP) si factorizarea matriciala non-negativa (NMF).</p>
+  <div class="definition-box"><strong>User Rating Profile (URP):</strong> Extensia LDA la raspunsuri categorice multiple: p(y_{i,1:R}|pi_i) = produs Cat(y_{il}|B^(r)*pi_i). Numit si "simplex factor model" (Bhattacharya si Dunson 2011).</div>
+  <div class="definition-box"><strong>Modelul Gamma-Poisson (GaP):</strong> z_i^+ ~ produs Ga(alpha_k, beta_k), p(n_i|z_i^+) = produs Poi(n_{iv}|b_v^T z_i^+). Variabilele latente sunt non-negative (dar nu suma la 1). Conditionat pe L_i fix, se reduce la mPCA.</div>
+  <div class="definition-box"><strong>NMF (Non-negative Matrix Factorization):</strong> Cazul special al GaP cu alpha_k = beta_k = 0 (fara prior propriu pe z_i^+). Nu este un model generativ propriu-zis, si algoritmul original (Lee si Seung 2001) este un EM degenerat predispus la overfitting.</div>
+  <div class="highlight-box"><strong>Prior spike-and-gamma:</strong> p(z_{ik}^+) = rho_k * I(z_{ik}^+=0) + (1-rho_k)*Ga(z_{ik}^+|alpha_k, beta_k), incurajand raritate in reprezentarea latenta. Numit "conditional Gamma Poisson model".</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina conecteaza mai multe modele aparent diferite: LDA, NMF si GaP sunt toate forme de factorizare matriciala non-negativa cu priori diferite. NMF (Lee si Seung 2001) este popular dar nu are un model probabilistic complet. GaP (Canny 2004) adauga un prior Gamma propriu, iar conditionat pe lungimea fixa se reduce la mPCA. Priorul spike-and-gamma adauga raritate, incurajand reprezentari cu multi zero-uri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Unificarea LDA, NMF si GaP sub cadrul factorizarii non-negative cu priori diferite ofera o perspectiva clara: alegerea priorului determina proprietatile modelului (raritate, normalizare, flexibilitate). NMF fara prior este predispus la overfitting.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>NMF este popular in procesarea semnalelor audio (separarea surselor sonore), analiza imaginilor (extragerea trasaturilor non-negative), si bioinformatica (identificarea semnaturilor mutationale in cancer).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza genomica a cancerului, NMF este folosit standard pentru identificarea semnaturilor mutationale: fiecare semnatura (topic) este un profil de mutatii, iar fiecare tumora este o combinatie non-negativa de semnaturi, reflectand procesele mutagene active.</p></div>
+  </div>
+</div>

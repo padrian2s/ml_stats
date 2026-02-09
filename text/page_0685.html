@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Aproximarea Gaussiana pentru Inferenta Online in Regresia Logistica Dinamica</h2>
+  <p>Pagina detaliaza aplicarea filtrarii cu densitate presupusa Gaussiana la regresia logistica binara dinamica, incluzand formulele pentru distributia predictiva si actualizarea posteriorului.</p>
+  <div class="highlight-box"><strong>Modelul de regresie logistica dinamica:</strong> p(y_t|x_t, θ_t) = Ber(y_t|sigm(x_t^T θ_t)) (ec. 18.117), p(θ_t|θ_{t-1}) = N(θ_t|θ_{t-1}, σ²I) (ec. 18.118), unde σ² este zgomotul de proces care permite parametrilor sa se schimbe in timp.</div>
+  <div class="highlight-box"><strong>Distributia predictiva pentru s_t:</strong> Definind s_t = θ_t^T x_t, distributia predictiva este q_{t|t-1}(s_t) = N(s_t|m_{t|t-1}, v_{t|t-1}) (ec. 18.119), cu m_{t|t-1} = Σ_j x_{t,j} μ_{t|t-1,j} si v_{t|t-1} = Σ_j x_{t,j}² τ_{t|t-1,j} (ec. 18.120-18.121).</div>
+  <div class="highlight-box"><strong>Actualizarea posteriorului:</strong> q_t(s_t) = N(s_t|m_t, v_t) (ec. 18.122), unde m_t = ∫ s_t p(y_t|s_t) q_{t|t-1}(s_t) ds_t / Z_t (ec. 18.123) si v_t = ∫ s_t² p(y_t|s_t) q_{t|t-1}(s_t) ds_t / Z_t − m_t² (ec. 18.124).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina aplica cadrul general ADF la un caz concret: regresia logistica dinamica. Parametrii modelului evolueaza in timp conform unui proces de difuzie Gaussiana, iar posteriorul este aproximat cu o Gaussiana factorizata. Integralele necesare pot fi calculate eficient datorita unidimensionalitatii variabilei s_t.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Reducerea la o variabila scalara s_t = θ_t^T x_t simplifica dramatic calculele. Potrivirea momentelor necesita integrarea unor produse de Gaussiene cu functii sigmoide, care pot fi aproximate analitic. Zgomotul de proces σ² controleaza rata de adaptare a parametrilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia logistica dinamica se utilizeaza in detectarea fraudelor in timp real, filtrarea spam-ului adaptiva, sisteme de recomandare care se adapteaza la schimbarile de preferinte si monitorizarea medicala cu praguri variabile in timp.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un sistem de detectare a fraudelor bancare, regresia logistica dinamica permite modelului sa se adapteze continuu la noi tipare de frauda. Parametrii se actualizeaza online dupa fiecare tranzactie, iar zgomotul de proces permite detectarea schimbarilor in comportamentul fraudulos.</p></div>
+  </div>
+</div>

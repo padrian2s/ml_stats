@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Planificarea mesajelor avansata, residual BP si acuratetea LBP</h2>
+  <p>Aceasta pagina continua discutia despre planificarea mesajelor cu tree reparameterization (TRP) si residual BP, apoi introduce analiza acuratetii LBP.</p>
+  <div class="definition-box"><strong>Tree Reparameterization (TRP):</strong> Se selecteaza arbori de acoperire, se calculeaza mesajele pe nivelul gros, apoi se propaga la nivelul fin. Nu trebuie confundat cu metoda mai sofisticata tree-reweighted BP (TRW-BP) din Sectiunea 22.4.2.</div>
+  <div class="definition-box"><strong>Residual BP:</strong> Mesajele sunt planificate intr-o coada de prioritati, trimitandu-se intotdeauna mesajul cu cel mai mare rezidual r(s,t,k) = ||log m_st^k - log m_st^{k-1}||. Converge mai rapid decat actualizarile sincrone sau asincrone simple.</div>
+  <div class="highlight-box"><strong>Acuratetea LBP:</strong> Pentru grafuri cu un singur ciclu, produsul max al LBP gaseste estimatorul MAP corect daca converge. Pentru grafuri generale, erorile pot fi marginite. In cazul Gaussian, mediile sunt exacte dar variantele nu sunt (belief-urile sunt supraincrezatoare).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta metode avansate de planificare (TRP, residual BP) si analizeaza riguros acuratetea LBP. Rezultatul surprinzator este ca, pentru modele Gaussiene, mediile estimate de LBP sunt exacte chiar daca belief-urile nu sunt corect calibrate in termeni de varianta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exista o tensiune intre viteza convergentei si acuratetea rezultatelor. Residual BP optimizeaza viteza, dar acuratetea depinde de structura grafului. Grafurile "local tree-like" produc rezultate mai bune.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Acuratetea LBP pentru medii dar nu si pentru variante inseamna ca estimarile punctuale sunt fiabile, dar intervalele de incredere trebuie interpretate cu precautie.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In localizarea robotilor folosind SLAM (Simultaneous Localization and Mapping), LBP pe modele Gaussiene ofera pozitii estimate corecte (medii exacte), dar incertitudinea raportata poate fi optimista (variante subestimate).</p></div>
+  </div>
+</div>

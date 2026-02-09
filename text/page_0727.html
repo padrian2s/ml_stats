@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>SSVM-uri: Formularea cu Constrangeri si Variabile Slack</h2>
+  <p>Pagina prezinta formularea SSVM ca o problema de optimizare cu constrangeri liniare, introducand variabilele slack si doua strategii de rescalare: slack rescaling si margin rescaling.</p>
+  <div class="definition-box"><strong>Constrangeri liniare SSVM:</strong> ∀i.∀y ∈ Y \ yᵢ: wᵀφ(xᵢ,yᵢ) - wᵀφ(xᵢ,y) ≥ 0 - un total de N|Y| - N constrangeri liniare (Ecuatia 19.93).</div>
+  <div class="definition-box"><strong>Notatia delta:</strong> δᵢ(y) ≜ φ(xᵢ,yᵢ) - φ(xᵢ,y) - diferenta intre vectorii de trasaturi pentru eticheta corecta si una alternativa (Ecuatia 19.94).</div>
+  <div class="definition-box"><strong>Marginea:</strong> γ ≜ minᵢ f(x,yᵢ;w) - max_{y'∈Y\y} f(x,y';w) - distanta minima intre scorul etichetei corecte si cel al celei mai bune etichete incorecte (Ecuatia 19.95).</div>
+  <div class="highlight-box"><strong>Slack rescaling:</strong> min_{w,ξ} (1/2)||w||² + C Σᵢ ξᵢ, cu constrangerea wᵀδᵢ(y) ≥ 1 - ξᵢ/L(yᵢ,y), ξᵢ ≥ 0 (Ecuatia 19.99) - variabila slack este impartita la dimensiunea pierderii.</div>
+  <div class="highlight-box"><strong>Margin rescaling:</strong> min_{w,ξ} (1/2)||w||² + C Σᵢ ξᵢ, cu constrangerea wᵀδᵢ(y) ≥ L(yᵢ,y) - ξᵢ, ξᵢ ≥ 0 (Ecuatia 19.100) - marginea este proportionala cu pierderea.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina transforma problema SSVM intr-o formulare standard de optimizare cu constrangeri. Se introduce notatia compacta δᵢ(y) pentru diferenta de trasaturi. Problema de maximizare a marginii cu norma fixa este echivalenta cu minimizarea normei cu margine fixa. Variabilele slack ξᵢ permit cazuri neseparabile. Doua strategii de rescalare (slack si margin) trateaza diferit violari ale constrangerilor in functie de gravitatea pierderii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Slack rescaling imparte variabila slack la pierdere, penalizand mai mult violari pe exemple cu pierdere mare. Margin rescaling ajusteaza marginea ceruta proportional cu pierderea. Ambele abordari sunt echivalente asimptotic, dar margin rescaling este mai usor de optimizat computational.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In segmentarea imaginilor, nu toate erorile sunt egale - a gresi un singur pixel este mai putin grav decat a gresi o regiune intreaga. Rescalarea permite modelului sa se concentreze pe evitarea erorilor grave, nu doar pe maximizarea numarului de clasificari corecte.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In traducerea automata, o traducere cu un singur cuvant gresit este mult mai buna decat una complet incorecta. Margin rescaling permite SSVM-ului sa ceara margini mai mari pentru traduceri foarte diferite de referinta, concentrand capacitatea modelului pe distinctiile importante.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Pasul M pentru MFA, FA cu Date Lipsa si Introducere in PCA</h2>
+  <p>Pagina prezinta pasul M al EM pentru MFA (ecuatiile de actualizare), ajustarea FA cu date lipsa si introduce Sectiunea 12.2 despre Analiza Componentelor Principale (PCA).</p>
+  <div class="highlight-box"><strong>Pasul M pentru MFA (Eq. 12.21-12.25):</strong> W_hat_c = [suma r_ic x_i b_ic^T][suma r_ic C_ic]^{-1}, Psi_hat = (1/N) diag{suma r_ic (x_i - W_hat_c b_ic) x_i^T}, pi_hat_c = (1/N) suma r_ic.</div>
+  <div class="definition-box"><strong>FA cu date lipsa (Sectiunea 12.1.6):</strong> EM se extinde natural pentru FA/PPCA cu date lipsa, esential in filtrarea colaborativa. Important: cu multe date lipsa, overfitting-ul este o problema - se recomanda estimarea MAP sau inferenta Bayesiana.</div>
+  <div class="highlight-box"><strong>PCA ca caz limita al FA (Sectiunea 12.2):</strong> Cand Psi = sigma^2 I si W este ortonormala, FA devine PPCA. La limita sigma^2 -> 0, PPCA se reduce la PCA clasica (transformata Karhunen-Loeve).</div>
+  <div class="definition-box"><strong>Teorema 12.2.1 (PCA clasica):</strong> Minimizarea erorii de reconstructie J(W,Z) = (1/N) suma ||x_i - x_hat_i||^2 se obtine cu W = V_L (primii L vectori proprii ai covariantei empirice) si z_i = W^T x_i (proiectie ortogonala).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la FA la PCA. Pasul M al MFA actualizeaza incarcerile W_c, zgomotul Psi si ponderile pi_c folosind statisticile suficiente asteptate din pasul E. PCA este introdusa ca perspectiva de sinteza: gasirea bazei ortogonale care minimizeaza eroarea de reconstructie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Legatura FA -> PPCA -> PCA: pe masura ce zgomotul devine izotrop si apoi tinde la zero, modelul probabilistic se reduce la proiectia geometrica clasica. Aceasta ierarhie clarifica relatia intre metode.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>FA cu date lipsa este fundamentul sistemelor de recomandare bazate pe factorizarea matricii (Netflix, Spotify). PCA este folosita universal pentru reducerea dimensionalitatii ca preprocesare inainte de clasificare sau vizualizare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemul Netflix Prize, factorizarea matricii utilizator-film (FA cu date lipsa masive) a fost tehnica castigatoare, exploatand faptul ca preferintele pot fi descrise prin cativa factori latenti (gen, ritm, actori).</p></div>
+  </div>
+</div>

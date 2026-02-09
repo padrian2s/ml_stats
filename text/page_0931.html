@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>BHC - Conexiunea cu DPMM si prior pe probabilitatea de imbinare</h2>
+  <p>Aceasta pagina detaliaza conexiunea matematica intre BHC si modelele de amestec cu proces Dirichlet, prezentand calculul priorului pe probabilitatea de imbinare.</p>
+  <div class="definition-box"><strong>Verosimilitatea marginala DPMM:</strong> p(D_k) = suma peste partitii v: p(v) * p(D_v), unde p(v) depinde de alpha prin formula CRP: p(v) = alpha^{m_v} * produs Gamma(n_l^v) / Gamma(n_k + alpha).</div>
+  <div class="definition-box"><strong>Probabilitatea prioara de imbinare pi_k:</strong> pi_k = p(M_k=1) = alpha*Gamma(n_k) / d_k, unde d_k = alpha*Gamma(n_k) + d_i*d_j. Se calculeaza recursiv bottom-up, cu d_i = alpha si pi_i = 1 pentru frunze.</div>
+  <div class="highlight-box"><strong>Conexiunea BHC-DPMM:</strong> p(D_k|T_k) calculat de BHC este similar cu verosimilitatea marginala a DPMM, dar sumeaza doar peste partitii consistente cu arborele (un subset al tuturor partitiilor), oferind o limita inferioara pe verosimilitatea DPMM.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabileste legatura formala intre BHC si DPMM: BHC poate fi vazut ca o cautare greedy prin spatiul exponential al partitiilor consistente cu arborele, aproximand verosimilitatea marginala a DPMM. Formulele recursive pentru pi_k permit calculul eficient al probabilitatii de imbinare, care depinde de parametrul de concentrare alpha al procesului Dirichlet.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conexiunea BHC-DPMM ofera o interpretare probabilistica riguroasa a clustering-ului ierarhic. BHC calculeaza o limita inferioara pe verosimilitatea marginala DPMM, ceea ce inseamna ca este o aproximare conservatoare dar tractabila a modelului complet non-parametric.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta conexiune permite transferul de hiperparametri intre BHC si DPMM: alpha estimat dintr-un model poate fi folosit in celalalt. De asemenea, BHC poate fi folosit ca initializare rapida pentru inferenta MCMC in DPMM.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza datelor de secventiere single-cell, BHC poate fi folosit ca pas de initializare rapida pentru a identifica o structura ierarhica preliminara a tipurilor de celule, care apoi este rafinata prin MCMC complet in modelul DPMM.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Modelul Potts si MRF-uri partial observate</h2>
+  <p>Aceasta pagina detaliaza modelul Potts ca generalizare a modelului Ising si introduce MRF-urile partial observate pentru segmentarea imaginilor.</p>
+  <div class="definition-box"><strong>Modelul Potts:</strong> O generalizare a modelului Ising la K stari discrete, cu potentialul ψ_st(y_s, y_t) = e^J daca y_s = y_t si 1 altfel. Cu J > 0, nodurile vecine sunt incurajate sa aiba aceeasi eticheta.</div>
+  <div class="definition-box"><strong>MRF partial observat:</strong> Un model in care variabilele ascunse y_t formeaza un MRF (priorul), iar fiecare y_t genereaza o observatie x_t prin p(x_t|y_t, θ). Este un analog 2D al HMM-ului.</div>
+  <div class="highlight-box"><strong>Segmentarea imaginilor cu modelul Potts:</strong> Distributia comuna este p(y,x|θ) = [1/Z(J) ∏ ψ(y_s,y_t;J)] ∏ p(x_t|y_t,θ), unde priorul Potts incurajeaza coerenta spatiala iar termenii de likelihood conecteaza etichetele la observatii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelul Potts generalizeaza Ising de la 2 stari la K stari si prezinta tranzitii de faza la o valoare critica J ≈ 1.44 (pentru 10 stari). Combinarea cu un model de observatie produce un MRF partial observat, echivalentul 2D al unui HMM. Inferenta in cazul 2D este semnificativ mai dificila decat in 1D.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Graful de tip lant (chain graph) combina muchii nedirectionate (priorul spatial) cu muchii directionate (modelul de observatie). Nodurile observate x_t sunt "absorbite" in modelul nedirectionat ca evidenta locala. Tranzitia de faza indica o schimbare brusca in structura clusterelor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Segmentarea imaginilor folosind modelul Potts este o aplicatie clasica in viziunea computationala si imagistica medicala. Priorul Potts regularizeaza segmentarea, prevenind artefactele zgomotoase care ar aparea doar cu clasificare per-pixel.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea imaginilor RMN cerebrale, fiecare pixel este clasificat in tesut cerebral, lichid cefalorahidian sau materie alba/cenusie. Modelul Potts asigura regiuni spatiale continue, evitand clasificari izolate eronate.</p></div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Spline-uri de netezire si conexiunea cu GP</h2>
+  <p>Aceasta pagina introduce spline-urile de netezire ca metoda non-parametrica, derivand spline-ul cubic natural si definind spline-urile de regresie cu noduri.</p>
+  <div class="definition-box"><strong>Spline de netezire:</strong> Minimizeaza J(f) = sum(f(x_i) - y_i)^2 + lambda * integral((d^m f/dx^m)^2)dx. Solutia pentru m=2 este spline-ul cubic natural - un polinom cubic pe portiuni cu derivate continue pana la ordinul 2.</div>
+  <div class="highlight-box"><strong>Spline de regresie:</strong> f(x) = beta_0 + beta_1*x + sum alpha_j (x - xi_k)^3_+, unde xi_k sunt noduri fixe. Alegerea numarului si locatiei nodurilor este analoga cu alegerea vectorilor suport in SVM.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Spline-urile de netezire minimizeaza un compromis intre potrivirea datelor si netezimea functiei. Solutia este un polinom pe portiuni cu ordinul 2m-1 in interiorul intervalelor si m-1 la capete. Spline-ul cubic (m=2) este cel mai comun: f(x) = beta_0 + beta_1 x + suma de polinoame cubice trunchiate. Spline-urile de regresie folosesc un numar fix K de noduri, similar cu functiile de baza fixe.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Spline-urile de netezire sunt solutii ale unei probleme de optimizare in spatiu functional (nu parametric), ceea ce le conecteaza natural cu GP. Lambda controleaza compromisul bias-varianta: lambda mic -> interpolare, lambda mare -> functie neteda.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Spline-urile sunt folosite extensiv in modele aditive generalizate (GAM), unde fiecare predictor are o functie spline non-liniara. Sunt standard in R (functia smooth.spline) si Python (scipy.interpolate). Spline-urile penalizate combina avantajele ambelor abordari.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza curbei de crestere a copiilor, spline-urile de netezire sunt folosite pentru a construi curbe de referinta (percentile) care sunt netede dar captureaza schimbarile rapide din jurul pubertatii.</p></div>
+  </div>
+</div>

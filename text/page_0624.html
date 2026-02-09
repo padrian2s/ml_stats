@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Netezirea n-gramelor si abordarea 'brute force'</h2>
+  <p>Aceasta pagina discuta problema conturilor zero in modelele n-gram, solutii prin netezire (add-one smoothing) si abordarea Google bazata pe cantitati masive de date.</p>
+  <div class="definition-box"><strong>Add-one smoothing (Laplace):</strong> Se adauga 1 la toate conturile inainte de normalizare, echivalent cu un prior Dirichlet uniform. Justificarea Bayesiana este in Sectiunea 3.3.4.1. Problema: presupune ca toate n-gramele sunt la fel de probabile a priori.</div>
+  <div class="highlight-box"><strong>Abordarea Google:</strong> Modele n-gram (n=1:5) antrenate pe un trilion de cuvinte extrase din web, cu date disponibile public (>100GB necomprimate). Cantitatea mare de date compenseaza partial lipsa unor priori inteligente.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cu K~50,000 cuvinte, un model bigram are 2.5 miliarde de parametri, si majoritatea nu vor fi observate in corpusul de antrenament. Add-one smoothing este o solutie simpla dar nerafinta. Google a aratat ca 'brute force' (cantitati uriase de date) poate fi eficient: modelele n-gram pe un trilion de cuvinte captureaza majoritatea combinatiilor posibile. Exemplul '4-gram counts' arata frecventele observate ale secventei 'serve as the ...'.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul cantitate de date vs. sofisticare a modelului: cu date suficiente, metode simple (n-grame) pot rivaliza cu metode complexe. Totusi, Tenenbaum si Xu (2000) argumenteaza ca abordarea 'brute force' nu reflecta modul in care oamenii invata limba - din putine exemple, cu priori puternice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Google N-Gram Viewer (books.google.com/ngrams) permite explorarea frecventei termenilor in milioane de carti publicate pe parcursul secolelor, fiind un instrument valoros pentru studii lingvistice si culturale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In corectarea ortografica contextuala (de ex. 'their' vs 'there'), modelele n-gram folosesc contextul cuvintelor vecine pentru a alege forma corecta, o sarcina unde cantitatea de date de antrenament este cruciala.</p></div>
+  </div>
+</div>

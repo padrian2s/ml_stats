@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>RBM-uri binare si ponderi generative vs. de recunoastere</h2>
+  <p>Aceasta pagina prezinta diferite tipuri de RBM-uri (binare, categorice, Gaussiene) si formula distributiei comune pentru RBM-urile binare.</p>
+  <div class="definition-box"><strong>Ponderi generative:</strong> Ponderile din W sunt numite ponderi generative deoarece sunt folosite pentru a genera observatiile din variabilele ascunse: E[v|h,theta] = sigm(Wh).</div>
+  <div class="definition-box"><strong>Ponderi de recunoastere:</strong> Ponderile din W^T sunt numite ponderi de recunoastere deoarece sunt folosite pentru a recunoaste (inferi) variabilele ascunse din input: E[h|v,theta] = sigm(W^T v).</div>
+  <div class="highlight-box"><strong>Familia harmonium exponentiala:</strong> Toate variantele de RBM (binare, categorice, Gaussiene) sunt cazuri speciale ale harmonium-ului familiei exponentiale, diferind prin functiile potentiale pereche.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina detaliaza functia de energie si distributia comuna pentru RBM-uri binare, si explica dualitatea intre generare si recunoastere prin aceeasi matrice de ponderi W. Tabelul 27.2 sumarizeaza diferitele tipuri de RBM in functie de tipul variabilelor vizibile si ascunse.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Functia de energie E(v,h;theta) = -(v^T W h + v^T b + h^T c) are o forma biliniara in v si h. Calcul naive al functiei de partitie Z(theta) necesita O(2^R * 2^K) timp, dar se poate reduce la O(min(R2^K, K2^R)).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea tipului de RBM depinde de natura datelor: binar-binar pentru date binare, Gaussian-binar pentru date continue, categoric-binar pentru date categorice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un sistem de recomandare de filme, nodul ascuns k se activeaza proportional cu cat inputul v "seamana" cu vectorul de ponderi w_{.,k}, capturand astfel un anumit tipar de preferinte.</p></div>
+  </div>
+</div>

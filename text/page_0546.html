@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>GP pentru Regresie - Predicții cu Observații Fără Zgomot</h2>
+  <p>Pagina prezintă predicțiile GP cu observații fără zgomot, unde modelul funcționează ca interpolator, și introduce kernelul exponențial pătratic (SE/RBF).</p>
+  <div class="definition-box"><strong>Predicții fără zgomot:</strong> Când observațiile sunt fᵢ = f(xᵢ) exacte, GP-ul interpolează perfect datele: incertitudinea predictivă este zero la punctele de antrenament și crește cu distanța de la ele.</div>
+  <div class="definition-box"><strong>Kernelul exponențial pătratic (SE):</strong> κ(x, x') = σ²_f · exp(−(x − x')² / (2ℓ²)), unde ℓ controlează scara orizontală de variație și σ²_f controlează amplitudinea verticală.</div>
+  <div class="highlight-box"><strong>Distribuția posterioară:</strong> p(f*|X*, X, f) = N(f*|μ*, Σ*), unde μ* = K*ᵀK⁻¹f și Σ* = K** − K*ᵀK⁻¹K*. Modelul trece exact prin punctele de antrenament.</div>
+  <div class="figure-box"><strong>Figura 15.2:</strong> Stânga: funcții eșantion din priorul GP cu kernel SE. Dreapta: funcții eșantion din posteriorul GP după condiționare pe 5 observații fără zgomot. Zona umbrită reprezintă ±2 abateri standard.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pentru observații fără zgomot, GP-ul interpolează exact datele de antrenament. Incertitudinea predictivă crește pe măsură ce ne depărtăm de punctele observate. Kernelul SE (RBF) este cel mai popular, cu doi hiperparametri: lungimea caracteristică ℓ și amplitudinea σ²_f.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Interpolarea exactă este utilă pentru modelarea simulatoarelor deterministe (DACE). Posteriorul GP este complet specificat de media și covarianța condiționate, care au forme analitice închise. Calculul principal este inversarea matricei K de dimensiune N×N.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GP-urile fără zgomot sunt utilizate ca surogaturi pentru simulări computațional costisitoare (simulări climatice, simulări de dinamică a fluidelor, simulări de structuri mecanice).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un inginer aerospațial folosește un GP fără zgomot pentru a modela coeficientul de rezistență al unei aripi de avion în funcție de parametrii de design, bazat pe simulări CFD costisitoare (ore per evaluare). GP-ul interpolează exact rezultatele simulărilor existente.</p></div>
+  </div>
+</div>

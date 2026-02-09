@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Retele neurale feedforward - Arhitectura si proprietati</h2>
+  <p>Aceasta pagina detaliaza arhitectura MLP cu un strat ascuns, proprietatea de aproximator universal, si extensii la clasificare si iesiri multiple.</p>
+  <div class="definition-box"><strong>Aproximator universal:</strong> Un MLP cu un strat ascuns poate modela orice functie suficient de neteda, cu orice acuratete dorita, cu suficient de multe unitati ascunse H (Hornik 1991). Functia de activare g trebuie sa fie non-liniara.</div>
+  <div class="highlight-box"><strong>MLP pentru clasificare multi-clasa:</strong> p(y|x, theta) = Cat(y|S(Wz(x))), unde S este functia softmax si z(x) = phi(x, V) este stratul ascuns. Inhibitia mutuala intre unitatile de iesire asigura constrangerea suma-la-unu.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MLP-ul cu un strat ascuns are structura: input x -> strat ascuns z = g(Vx) -> output y = w^T z. Figura 16.11 ilustreaza arhitectura cu D intrari, H unitati ascunse si C iesiri. Este esential ca g sa fie non-liniara (sigmoid, tanh, ReLU), altfel modelul se reduce la regresie liniara. Pentru clasificare binara: p(y|x) = Ber(y|sigm(w^T z(x))); pentru multi-clasa: p(y|x) = Cat(y|S(Wz(x))).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Scopul stratului ascuns este 'feature extraction' sau 'feature construction' - transformarea non-liniara a intrarii intr-o reprezentare mai utila pentru sarcina finala. Aceasta este deosebit de importanta cand trasaturile individuale nu sunt informative (ex: pixeli in imagini), dar combinatiile lor sunt.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MLP-ul cu un singur strat ascuns este cel mai simplu model de retea neurala. In practica moderna, se folosesc retele profunde cu mai multe straturi ascunse. Framework-uri: PyTorch, TensorFlow, JAX.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia fraudei online, un MLP poate invata combinatii non-liniare ale trasaturilor tranzactiei (suma, ora, locatie, tip de card) care sunt indicatori de frauda, depasind modelele liniare care nu pot capta aceste interactiuni.</p></div>
+  </div>
+</div>

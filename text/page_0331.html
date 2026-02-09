@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>9.6.2 Probleme Computationale si 9.7 Invatarea Rangurilor (Learning to Rank)</h2>
+  <p>Pagina discuta problemele computationale ale GLMM-urilor si introduce sectiunea despre invatarea rangurilor (LETOR), cu aplicatii in regasirea informatiei.</p>
+  <div class="definition-box"><strong>Probleme computationale ale GLMM:</strong> Doua dificultati principale: (1) p(y_ij|θ) poate sa nu fie conjugata cu priorul p(θ), unde θ = (α, β); (2) exista doua niveluri de necunoscute - coeficientii de regresie θ si mediile/variantele priorilor η = (μ, σ).</div>
+  <div class="definition-box"><strong>Ecuatii de estimare generalizate (GEE):</strong> Metoda frecventista populara pentru ajustarea GLMM-urilor, dar care nu este la fel de eficienta statistic ca metodele bazate pe verosimilitate si nu furnizeaza estimari ale efectelor aleatoare β_j.</div>
+  <div class="definition-box"><strong>Learning to rank (LETOR):</strong> Problema de a invata o functie care ordoneaza un set de elemente. Cea mai frecventa aplicatie este in regasirea informatiei: ordonarea documentelor d^1, ..., d^m dupa relevanta fata de o interogare q.</div>
+  <div class="highlight-box"><strong>Similaritatea interogare-document (9.117):</strong> p(t|d) = (1 - λ) TF(t,d)/LEN(d) + λ p(t|background), unde TF(t,d) este frecventa termenului t in documentul d, LEN(d) este numarul de cuvinte, si λ este un parametru de netezire.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina tranziteaza de la problemele computationale ale GLMM-urilor (rezolvate prin Bayes variational, MCMC sau EM empiric) la problema invatarii rangurilor. LETOR este o problema fundamentala in motoarele de cautare: dandu-se o interogare si un set de documente, se doreste invatarea unei functii de ordonare bazata pe mai multe semnale de relevanta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Relevanta document-interogare poate fi masurata prin modele probabilistice de limbaj (bag of words), PageRank si alte semnale. Provocarea consta in combinarea optima a acestor semnale intr-un scor unic de relevanta, folosind tehnici de invatare automata.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Motoarele de cautare web (Google, Bing), sistemele de recomandare, filtrarea colaborativa si ordonarea jucatorilor in jocuri competitive sunt toate aplicatii ale LETOR.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Cand un utilizator cauta "retete de pizza" pe Google, sistemul LETOR combina similaritatea textului, PageRank-ul paginii, frecventa click-urilor si alte semnale pentru a ordona rezultatele, astfel incat cele mai relevante retete sa apara primele.</p></div>
+  </div>
+</div>

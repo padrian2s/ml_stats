@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>EM pentru Distributia Student t - Pasii E si M</h2>
+  <p>Pagina detaliaza pasii E si M ai algoritmului EM pentru distributia Student t, atat cu ν cunoscut cat si cu ν necunoscut.</p>
+  <div class="definition-box"><strong>Distanta Mahalanobis:</strong> δᵢ = (xᵢ - μ)ᵀ Σ⁻¹ (xᵢ - μ) - masura distantei unui punct de la centrul distributiei, tinand cont de structura de covarianta.</div>
+  <div class="highlight-box"><strong>Pasul E (ν cunoscut):</strong> z̄ᵢ⁽ᵗ⁾ = E[zᵢ|xᵢ, θ⁽ᵗ⁾] = (ν⁽ᵗ⁾ + D) / (ν⁽ᵗ⁾ + δᵢ⁽ᵗ⁾) - ponderile de precizie pentru fiecare observatie, bazate pe distributia Gamma posterioara.</div>
+  <div class="highlight-box"><strong>Pasul M - Media:</strong> μ̂⁽ᵗ⁺¹⁾ = Σᵢ z̄ᵢ⁽ᵗ⁾ xᵢ / Σᵢ z̄ᵢ⁽ᵗ⁾ - media ponderata cu ponderile de precizie.</div>
+  <div class="highlight-box"><strong>Pasul M - Covarianta:</strong> Σ̂⁽ᵗ⁺¹⁾ = (1/N) Σᵢ z̄ᵢ⁽ᵗ⁾ (xᵢ - μ̂⁽ᵗ⁺¹⁾)(xᵢ - μ̂⁽ᵗ⁺¹⁾)ᵀ</div>
+  <div class="highlight-box"><strong>Decompozitta log-verosimilitudinii:</strong> ℓc(θ) = Lₙ(μ, Σ) + L_G(ν) - se descompune in doi termeni independenti, unul pentru μ, Σ si altul pentru ν.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cantitatea z̄ᵢ este precizia masurii i: daca este mica, punctul de date corespunzator este sub-ponderat la estimarea mediei si covariantei. Aceasta este mecanismul prin care distributia Student obtine robustete la outlieri - punctele cu distanta Mahalanobis mare primesc ponderi mici. Formulele pentru μ si Σ sunt versiuni ponderate ale estimatorilor standard, cu ponderile z̄ᵢ in loc de ponderi uniforme.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Descompunerea log-verosimilitudinii in Lₙ si L_G permite optimizarea separata a parametrilor (μ, Σ) si ν, simplificand algoritmul. Ponderea z̄ᵢ scade pe masura ce δᵢ creste, oferind robustete naturala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Estimarea robusta a mediei si covariantei prin EM Student-t este folosita in portofoliul de investitii (estimarea robusta a matricei de covarianta a randamentelor) si in procesarea de imagini (eliminarea zgomotului impulsiv).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In monitorizarea calitatii productiei, masuratorile pot contine erori grosolane (outlieri). Estimarea robusta Student-t ignora automat aceste masuratori aberante, oferind estimari mai fiabile ale parametrilor procesului decat metoda clasica bazata pe Gaussiana.</p></div>
+  </div>
+</div>

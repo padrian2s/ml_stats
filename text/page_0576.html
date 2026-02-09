@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Arbori de Clasificare si Regresie (CART)</h2>
+  <p>Pagina prezinta sectiunea 16.2 despre arborii de clasificare si regresie (CART), cu figuri ilustrative ale arborilor de regresie si decizie.</p>
+  <div class="definition-box"><strong>Arbore de regresie:</strong> Un model care partitioneaza spatiul de intrare in regiuni rectangulare si potriveste o valoare constanta in fiecare regiune, producand o suprafata de raspuns in trepte.</div>
+  <div class="definition-box"><strong>Arbore de decizie:</strong> Un model de clasificare care imparte datele pe baza unor teste succesive asupra atributelor (culoare, forma, dimensiune), fiecare frunza avand o distributie a etichetelor de clasa.</div>
+  <div class="highlight-box"><strong>Formula de partitionare:</strong> (j*, t*) = arg min_{j} min_{t} cost({x_i, y_i : x_ij ≤ t}) + cost({x_i, y_i : x_ij > t}) (Ec. 16.5)</div>
+  <div class="figure-box"><strong>Figura 16.1:</strong> Un arbore de regresie simplu cu doua intrari. (a) Structura arborelui cu noduri de decizie X_1 ≤ t_1, etc. (b) Suprafata de regresie rezultata, cu regiuni rectangulare si valori constante pe fiecare.</div>
+  <div class="figure-box"><strong>Figura 16.2:</strong> Un arbore de decizie simplu pentru datele din Figura 1.1. Frunzele sunt etichetate (n_1, n_0) - exemple pozitive si negative. Arborele testeaza culoarea, forma si dimensiunea.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 16.2 introduce arborii CART, care sunt modele bazate pe functii de baza adaptative. Arborii partitioneaza recursiv spatiul de intrare si aplica modele simple (constante) in fiecare regiune. Se prezinta atat varianta de regresie cat si cea de clasificare, cu procedura greedy pentru construirea arborelui.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Gasirea partitionarii optime este NP-completa (Hyafil si Rivest, 1976), de aceea se foloseste o procedura greedy. Metodele populare includ CART (Breiman et al. 1984), C4.5 (Quinlan 1993) si ID3 (Quinlan 1986). Functia de impartire alege cea mai buna caracteristica si cel mai bun prag.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Arborii de decizie sunt utilizati pe scara larga in diagnosticul medical, evaluarea creditului si sisteme de recomandare datorita interpretabilitatii lor ridicate. Fiecare decizie poate fi urmarita si explicata.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea obiectelor vizuale, un arbore de decizie poate testa secvential culoarea (albastru/rosu/alta), forma (elipsa/alta) si dimensiunea (<10) pentru a clasifica obiecte, similar cu exemplul din Figura 16.2.</p></div>
+  </div>
+</div>

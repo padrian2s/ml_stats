@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Rezultate experimentale BHC si clustering al punctelor de date si trasaturilor</h2>
+  <p>Aceasta pagina prezinta Tabelul 25.1 cu comparatia BHC vs. metodele clasice de clustering ierarhic si introduce clustering-ul simultan al punctelor si trasaturilor.</p>
+  <div class="definition-box"><strong>Invatarea hiperparametrilor in BHC:</strong> Modelul are doi hiperparametri: alpha (concentrarea DP) si lambda (parametrii priorului pe theta). Se pot estima prin back-propagarea gradientilor dp(D_k|T_k)/d(lambda) prin arbore, folosind Bayes empiric.</div>
+  <div class="highlight-box"><strong>Rezultate experimentale (Tabelul 25.1):</strong> BHC depaseste semnificativ single linkage, complete linkage si average linkage pe 4 din 5 seturi de date (Synthetic, Newsgroups, Spambase, Digits), cu scoruri de puritate de 0.828, 0.465, 0.728 si 0.393 respectiv. Doar pe Fglass average linkage este usor superior.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Tabelul 25.1 demonstreaza superioritatea BHC fata de metodele clasice pe diverse seturi de date. BHC exceleaza mai ales pe date cu multe clase (Newsgroups cu C=4, Digits cu C=10). Sectiunea 25.6 introduce o noua directie: clustering-ul simultan al punctelor de date si trasaturilor, util cand datele au structura bidimensionala (de exemplu, matrice gene x conditii).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>BHC beneficiaza de fundamentul probabilistic care ii permite sa evalueze calitatea imbinarilor in mod principiat, in timp ce metodele clasice folosesc euristici de distanta. Imbunatatirea este mai mare pe date complexe cu multe clase, unde euristicile clasice fac erori critice de imbinare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>BHC cu invatarea hiperparametrilor este o metoda plug-and-play: necesita putine decizii manuale si se adapteaza automat la date. Este deosebit de util in situatii unde nu exista expertiza de domeniu pentru a ghida alegerea tipului de legatura.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea automata a email-urilor (spam vs. non-spam, cu subcategorii), BHC poate identifica automat structura ierarhica a tipurilor de mesaje, outperformand metodele clasice care necesita ajustare manuala a parametrilor.</p></div>
+  </div>
+</div>

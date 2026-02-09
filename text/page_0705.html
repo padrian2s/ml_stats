@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Grafuri bi-directionate si retele logice Markov</h2>
+  <p>Aceasta pagina introduce grafurile bi-directionate (pentru matrici de covarianta sparse), modelele grafice mixte si incepe discutia despre retelele logice Markov (MLN).</p>
+  <div class="definition-box"><strong>Graf bi-directionat:</strong> Un graf in care fiecare muchie are sageti in ambele directii, reprezentand independenta neconditionata (nu conditionata). O matrice de covarianta Σ sparse corespunde unui graf de covarianta, in contrast cu matricea de precizie Λ sparse din UGM-uri.</div>
+  <div class="definition-box"><strong>Confounder (cauza comuna ascunsa):</strong> O variabila latenta care cauzeaza corelatie intre doua variabile observate. Fiecare muchie bi-directionata poate fi interpretata ca o variabila latenta comuna (cauza ascunsa).</div>
+  <div class="highlight-box"><strong>Model grafic mixt directionat:</strong> Combinarea muchiilor bi-directionate si directionate produce un model grafic mixt, util pentru reprezentarea modelelor ARMA, ecuatiilor structurale si altor modele complexe.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina extinde tipologia modelelor grafice dincolo de DGM-uri si UGM-uri simple. Grafurile bi-directionate captureaza corelatii marginale (nu conditionate), iar modelele mixte combina mai multe tipuri de muchii. Se introduce ideea retelelor logice Markov pentru modelarea domeniilor cu numar variabil de obiecte si relatii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia covariance vs precizie: sparsitatea in Σ indica independenta neconditionata (graf de covarianta), iar sparsitatea in Λ indica independenta conditionata (UGM). Confounders sunt o sursa comuna de corelatie spuria in studii observationale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele de ecuatii structurale (SEM) din stiintele sociale folosesc grafuri mixte. Retelele logice Markov sunt utile in extragerea de informatii din texte, integrarea bazelor de cunostinte si inteligenta artificiala relationala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In epidemiologie, corelatia intre consumul de cafea si bolile de inima poate fi explicata de un confounder ascuns (stresul). Un graf bi-directionat captureaza aceasta relatie fara a impune o directie cauzala gresita.</p></div>
+  </div>
+</div>

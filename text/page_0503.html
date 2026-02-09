@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Compressed Sensing si Image Inpainting</h2>
+  <p>Pagina introduce Sectiunile 13.8.3 (compressed sensing) si 13.8.4 (image inpainting/denoising), aplicatii practice ale sparse coding.</p>
+  <div class="definition-box"><strong>Compressed sensing (Sectiunea 13.8.3):</strong> Se observa y = Rx + e, unde x in R^D, y in R^M (M &lt; D), R este matricea de masurare (cunoscuta), e este zgomot. Se presupune ca x = Wz cu z sparse. Scopul: reconstituirea lui x din mai putine masuratori decat dimensiunile sale, exploatand sparsitatea.</div>
+  <div class="highlight-box"><strong>Conditii pentru compressed sensing:</strong> R poate fi aleator Gaussian sau alta matrice cu proprietatea RIP (Restricted Isometry Property). Dictionarul W poate fi fix (wavelet, DCT) sau invatat. In aplicatii CS, matricea de masurare R este aleatorea; in aplicatii clasice, R selecteaza componente observate.</div>
+  <div class="definition-box"><strong>Image inpainting (Sectiunea 13.8.4):</strong> Imaginea este corupta (text suprapus, zgomot, pixeli lipsa). Se partitioneaza in patch-uri y_i, se defineste R pentru a selecta pixelii vizibili V, si se calculeaza p(y_H|y_V, theta) cu dictionar W invatat. Figura 13.23: exemplu de inpainting cu dictionar de 256 atomi invatat din 7x10^6 patch-uri 12x12.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Compressed sensing si image inpainting sunt doua aplicatii cheie ale sparse coding. CS permite reconstructia semnalelor din masuratori insuficiente (sub-Nyquist), exploatand sparsitatea in baza corecta. Inpainting-ul restaureaza regiunile corupte ale imaginilor folosind dictionare sparse invatate din portiunile intacte sau din baze de date externe.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ambele probleme pot fi formulate ca inferinta Bayesiana in modelul grafic din Figura 13.22: z -> x (sparse coding) -> y (masurare/observare). Diferenta: in CS, R este aleatorea si cunoscuta; in inpainting, R selecteaza pixelii vizibili. In ambele cazuri, sparsitatea lui z este esentiala pentru reconstructie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Compressed sensing a revolutionat imagistica medicala (MRI accelerat cu factor 4-8x), radar si seismologie. Image inpainting este standard in editarea foto (Content-Aware Fill in Photoshop) si restaurarea fotografiilor vechi deteriorate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In MRI clinic, compressed sensing reduce timpul de achizitie de la 45 minute la 10 minute pentru scanari 3D, imbunatatind confortul pacientului si capacitatea departamentului de radiologie, fara pierdere semnificativa de calitate diagnostica.</p></div>
+  </div>
+</div>

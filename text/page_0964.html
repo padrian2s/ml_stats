@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Paradoxul lui Simpson - DAG-uri augmentate si interventii</h2>
+  <p>Aceasta pagina prezinta Figura 26.15 (vizualizarea paradoxului lui Simpson) si discuta cand si cum sa se ajusteze pentru variabile confundere folosind DAG-uri cauzale augmentate.</p>
+  <div class="definition-box"><strong>Criteriul backdoor:</strong> Pentru a estima efectul cauzal al C pe E, trebuie sa "ajustam" (conditionam) pe variabila confundere F daca exista un "backdoor path" de la C la E prin F. Aceasta blocheaza fluxul de informatie non-cauzala.</div>
+  <div class="highlight-box"><strong>Rezolvarea paradoxului:</strong> Daca F este confunder (Figura 26.16a: F=gen), trebuie sa conditionam pe F, si concluzia corecta este ca medicamentul dauneaza. Daca F este mediator (Figura 26.16b: F=tensiune), NU trebuie sa conditionam pe F, si concluzia poate fi diferita.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza ca rezolvarea paradoxului depinde de structura cauzala, nu de datele in sine. Daca F (gen) este confunder comun al C (tratament) si E (vindecare), trebuie sa conditionam pe F. Daca F (tensiune) este efect al C (medicament), conditionarea pe F poate bloca o cale cauzala si da concluzii gresite. Acelasi set de date, doua structuri cauzale, doua concluzii opuse!</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Rationamentul cauzal nu poate fi facut doar din date - necesita presupuneri cauzale (structura DAG). Paradoxul lui Simpson demonstreaza ca analiza statistica fara gandire cauzala poate duce la concluzii gresite si chiar periculoase.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In studiile clinice, identificarea corecta a confunderilor vs. mediatorilor este critica pentru estimarea efectului tratamentului. Criteriul backdoor ofera o metoda sistematica pentru a decide pe ce variabile sa se ajusteze.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In evaluarea unui program educational, daca performanta initiala (confunder) afecteaza atat participarea cat si rezultatul, trebuie ajustata. Dar daca motivatia (mediator) este crescuta de program si apoi afecteaza rezultatul, ajustarea pe motivatie ar subestima efectul real al programului.</p></div>
+  </div>
+</div>

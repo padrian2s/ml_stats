@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Multinoulli si functia softmax in familia exponentiala</h2>
+  <p>Aceasta pagina arata cum distributia Multinoulli (categorica) se exprima in forma exponentiala si introduce functia softmax ca inversa functiei de legatura canonica.</p>
+  <div class="definition-box"><strong>Multinoulli in forma exponentiala:</strong> Cat(x|&mu;) = exp(&theta;^T &phi;(x) - A(&theta;)), unde &theta;_k = log(&mu;_k/&mu;_K) pentru k=1,...,K-1, &phi;(x) = [I(x=1), ..., I(x=K-1)], si A(&theta;) = -log(&mu;_K).</div>
+  <div class="definition-box"><strong>Functia softmax:</strong> &mu;_k = e^(&theta;_k) / (1 + &Sigma;_{j=1}^{K-1} e^(&theta;_j)). Generalizarea functiei sigmoide la K clase, recupereaza probabilitatile din parametrii naturali.</div>
+  <div class="highlight-box"><strong>Functia log-partitie pentru Multinoulli:</strong> A(&theta;) = log(1 + &Sigma;_{k=1}^{K-1} e^(&theta;_k)). Daca definim &theta;_K = 0, atunci &mu; = S(&theta;) (softmax) si A(&theta;) = log &Sigma;_{k=1}^K e^(&theta;_k), forma familiara din regresia logistica multinomiala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina generalizeaza exemplul Bernoulli la K clase. Derivarea arata cum constrangerea &Sigma; &mu;_k = 1 reduce numarul de parametri liberi la K-1, iar ultima clasa K serveste ca referinta (&theta;_K = 0). Functia softmax apare natural ca inversa functiei de legatura canonica. Aceasta justifica teoretic utilizarea softmax in regresia logistica multinomiala si in stratul final al retelelor neurale de clasificare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Reducerea de la K la K-1 parametri elimina supra-completitudinea. 2) Alegerea clasei de referinta (&theta;_K = 0) este arbitrara si nu afecteaza probabilitatile. 3) Softmax este generalizarea naturala a sigmoidei pentru clasificare multi-clasa. 4) Log-partitia A(&theta;) = logsumexp(&theta;) este o functie numericesteforma stabila.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Softmax este omniprezent in deep learning (stratul final al retelelor de clasificare), in procesarea limbajului natural (modele de limba), in sistemele de recomandare (selectia dintr-un catalog), si in orice problem de clasificare multi-clasa.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea de imagini cu ImageNet (1000 clase), stratul final al retelei neurale aplica softmax pe 999 logit-uri (parametri naturali), producand probabilitati normalizate pentru fiecare clasa. Aceasta nu este o alegere de design arbitrara, ci o consecinta naturala a faptului ca distributia categorica apartine familiei exponentiale cu functia de legatura canonica.</p></div>
+  </div>
+</div>

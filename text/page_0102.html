@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Media și Modul Posterior, Varianța Posterioară</h2>
+  <p>Pagina derivă estimările MAP, MLE și media posterioară pentru modelul beta-binomial, demonstrând că media posterioară este o combinație convexă a priorului și MLE.</p>
+  <div class="highlight-box"><strong>Estimarea MAP:</strong> θ̂_MAP = (a + N₁ − 1)/(a + b + N − 2). Cu prior uniform (a=b=1), aceasta se reduce la MLE.</div>
+  <div class="highlight-box"><strong>Estimarea MLE:</strong> θ̂_MLE = N₁/N, simpla fracțiune de succese observate.</div>
+  <div class="definition-box"><strong>Media posterioară:</strong> θ̄ = (a + N₁)/(a + b + N) = λ·m₁ + (1−λ)·θ̂_MLE, unde λ = α₀/(N+α₀) și m₁ = a/α₀ este media priorului. Este o combinație convexă între prior și date.</div>
+  <div class="highlight-box"><strong>Varianța posterioară:</strong> var[θ|D] = (a+N₁)(b+N₀)/[(a+b+N)²(a+b+N+1)]. Pentru N ≫ a,b: var[θ|D] ≈ θ̂(1−θ̂)/N.</div>
+  <div class="highlight-box"><strong>Bara de eroare:</strong> σ = √(var[θ|D]) ≈ √(θ̂(1−θ̂)/N), care scade cu rata 1/√N. Incertitudinea maximă la θ̂=0.5, minimă la θ̂ aproape de 0 sau 1.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Media posterioară „trage" estimarea MLE către priorul m₁, cu intensitate controlată de puterea relativă a priorului (λ). Aceasta este o formă de contracție (shrinkage) sau regularizare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Combinația convexă prior-MLE este un tipar general al inferenței Bayesiene. Contracția previne estimări extreme când datele sunt puține, dar devine neglijabilă cu date mari.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Contracția Bayesiană este echivalentă cu regularizarea L2 în regresie. Este esențială pentru clasificatorii Naive Bayes unde unele categorii pot avea puține observații.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Estimarea ratei de batting în baseball: un jucător cu 3 lovituri din 5 la-bats nu are neapărat media 0.6. Contracția Bayesiană „trage" estimarea către media ligii (~0.26), producând o estimare mai realistă.</p></div>
+  </div>
+</div>

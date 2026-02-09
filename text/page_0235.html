@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Ilustrarea Compromisului Bias-Varianță în Ridge Regression și Minimizarea Riscului Empiric</h2>
+  <p>Pagina prezintă o ilustrare vizuală detaliată a compromisului bias-varianță și introduce minimizarea riscului empiric (ERM) ca abordare practică.</p>
+  <div class="figure-box"><strong>Figura 6.5:</strong> Ilustrarea compromisului bias-varianță pentru ridge regression. Se generează 100 seturi de date. Stânga: fitările individuale regularizate pentru 20 seturi de date. Dreapta: media fitărilor peste toate cele 100 seturi. Sus (ln(λ)=5, regularizare puternică): fitările individuale sunt similare (varianță mică) dar media este departe de adevăr (bias mare). Jos (ln(λ)=-5, regularizare slabă): fitările individuale sunt foarte diferite (varianță mare) dar media este aproape de adevăr (bias mic).</div>
+  <div class="definition-box"><strong>Minimizarea Riscului Empiric (ERM):</strong> O abordare care evită problema fundamentală a teoriei frecventiste (necesitatea de a cunoaște distribuția adevărată a datelor) prin focalizarea pe predicția de cantități observabile, nu estimarea de parametri ascunși.</div>
+  <div class="highlight-box"><strong>Schimbarea de perspectivă ERM:</strong> În loc de funcții de pierdere L(θ, δ(D)) care compară estimatul cu parametrul adevărat, ERM utilizează funcții de pierdere care compară predicțiile cu datele observate, eliminând dependența de θ necunoscut.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 6.5 oferă o vizualizare puternică a compromisului bias-varianță: regularizarea puternică produce modele stabile dar inexacte (bias mare), regularizarea slabă produce modele instabile dar în medie corecte (varianță mare). Secțiunea 6.5 introduce ERM ca soluție practică, evitând necesitatea de a cunoaște distribuția adevărată.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>ERM schimbă focusul de la estimarea parametrilor la predicție, ceea ce este mai practic și mai relevant pentru majoritatea aplicațiilor de ML. Această schimbare de perspectivă stă la baza învățării automate moderne.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Practic toate algoritmii de ML moderni folosesc ERM: rețelele neurale minimizează pierderea pe datele de antrenament, SVM-urile minimizează pierderea hinge, iar arborii de decizie minimizează impuritatea. Validarea încrucișată aproximează riscul adevărat.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de clasificare a e-mailurilor ca spam este evaluat prin performanța sa pe e-mailuri reale (ERM), nu prin estimarea parametrilor distribuției „adevărate" a e-mailurilor. Aceasta este filosofia ERM aplicată în practică.</p></div>
+  </div>
+</div>

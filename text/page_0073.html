@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Cazuri speciale ale distributiei Gamma, distributia Gamma inversa si distributia Beta</h2>
+  <p>Aceasta pagina continua discutia despre distributia Gamma si cazurile sale speciale (exponentiala, Erlang, chi-patrat), introduce distributia Gamma inversa si incepe prezentarea distributiei Beta.</p>
+  <div class="definition-box"><strong>Distributia exponentiala:</strong> Expon(x|&lambda;) = Ga(x|1, &lambda;), descrie timpii intre evenimente intr-un proces Poisson cu rata medie &lambda;.</div>
+  <div class="definition-box"><strong>Distributia chi-patrat:</strong> &chi;&sup2;(x|&nu;) = Ga(x|&nu;/2, 1/2), este distributia sumei patratelor a &nu; variabile aleatoare Gaussiene standard.</div>
+  <div class="definition-box"><strong>Distributia Gamma inversa:</strong> IG(x|a, b) = (b^a / &Gamma;(a)) x^(-(a+1)) e^(-b/x), cu media = b/(a-1) pentru a > 1 si varianta = b&sup2;/((a-1)&sup2;(a-2)) pentru a > 2.</div>
+  <div class="definition-box"><strong>Distributia Beta:</strong> Beta(x|a, b) = (1/B(a,b)) x^(a-1) (1-x)^(b-1), definita pe intervalul [0,1], unde B(a,b) = &Gamma;(a)&Gamma;(b)/&Gamma;(a+b).</div>
+  <div class="highlight-box"><strong>Relatia Gamma-Gamma inversa:</strong> Daca X ~ Ga(a,b), atunci 1/X ~ IG(a,b). Aceasta relatie este utila in statistica Bayesiana unde Gamma inversa serveste ca prior conjugat pentru varianta distributiei Gaussiene.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta o familie bogata de distributii derivate din Gamma. Distributia exponentiala modeleaza timpii de asteptare fara memorie, distributia Erlang (Gamma cu parametru intreg) modeleaza suma timpilor de asteptare, iar chi-patrat apare natural in testele statistice. Distributia Gamma inversa este importanta ca prior conjugat in inferenta Bayesiana. Distributia Beta, definita pe [0,1], este fundamentala pentru modelarea probabilitatilor si proportiilor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Familia Gamma formeaza o ierarhie: exponentiala este cel mai simplu caz, Erlang adauga un parametru intreg, iar Gamma generalizeaza la parametru real. 2) Functia Beta B(a,b) este strans legata de functia Gamma. 3) Conditiile de existenta a momentelor (media necesita a > 1 pentru IG, varianta necesita a > 2) sunt cruciale in practica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Distributia chi-patrat este omniprezenta in testele de potrivire (goodness-of-fit) si in testele de independenta. Distributia Beta este folosita ca prior pentru parametrii Bernoulli si binomiali in statistica Bayesiana. Gamma inversa serveste ca prior pentru varianta in modele ierarhice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In controlul calitatii industrial, distributia Beta modeleaza rata de defecte a unui proces de fabricatie. Daca avem a succese si b esecuri in inspectii anterioare, Beta(a,b) reprezinta incertitudinea noastra asupra adevaratei rate de defecte, actualizandu-se natural cu fiecare nou lot inspectat.</p></div>
+  </div>
+</div>

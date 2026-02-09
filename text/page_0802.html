@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>BP pe grafuri factor si convergenta LBP</h2>
+  <p>Aceasta pagina prezinta algoritmul de transmitere a mesajelor pe grafuri factor bipartite si discuta problemele de convergenta ale LBP.</p>
+  <div class="definition-box"><strong>Mesaje pe graf factor:</strong> Exista doua tipuri de mesaje: (1) de la variabila la factor: m_{x->f}(x) = prod_{h in nbr(x)\{f}} m_{h->x}(x); (2) de la factor la variabila: m_{f->x}(x) = sum_y f(x,y) * prod_{y in nbr(f)\{x}} m_{y->f}(y). Belief-ul final: bel(x) proportional cu prod_{f in nbr(x)} m_{f->x}(x).</div>
+  <div class="definition-box"><strong>Arborele de calcul (computation tree):</strong> Un instrument analitic care vizualizeaza mesajele propagate in LBP. T iteratii de LBP sunt echivalente cu inferenta exacta pe un arbore de calcul de inaltime T+1.</div>
+  <div class="highlight-box"><strong>Convergenta LBP:</strong> LBP nu converge intotdeauna, si chiar cand converge, poate da raspunsuri gresite. Intrebarile cheie sunt: cand va converge? cum putem creste probabilitatea si rata convergentei?</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina extinde ecuatiile de transmitere a mesajelor la grafuri factor (cu doua tipuri de mesaje) si introduce analiza convergentei LBP. Arborele de calcul ofera o perspectiva eleganta: LBP este exact pe "versiunea desfasurata" a grafului, dar acest arbore creste exponential.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Dualitatea intre mesaje variabila->factor si factor->variabila este fundamentala. Convergenta depinde de puterea conexiunilor: daca influentele scad suficient de repede cu distanta, LBP va converge.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, se folosesc scheme de amortizare (damping) si planificari asincrone pentru a imbunatati convergenta LBP. Monitorizarea belief-urilor intre iteratii ajuta la detectarea oscilatie.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In viziunea computationala, LBP este folosit pentru estimarea adancimii stereo, unde pixelii formeaza un graf 2D cu cicluri. Amortizarea mesajelor previne oscilatiile si produce harti de adancime stabile.</p></div>
+  </div>
+</div>

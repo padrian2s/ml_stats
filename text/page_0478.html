@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>EM pentru Lasso - Mixtura Gaussiana de Scara (p.447)</h2>
+  <p>Aceasta pagina arata cum se poate rezolva problema lasso folosind algoritmul EM, reprezentand distributia Laplace ca o mixtura Gaussiana de scara (GSM).</p>
+  <div class="definition-box"><strong>Mixtura Gaussiana de Scara (GSM):</strong> Distributia Laplace poate fi reprezentata ca: Lap(w_j|0, 1/gamma) = (gamma/2) * e^{-gamma|w_j|} = integrala din N(w_j|0, tau_j^2) * Ga(tau_j^2|1, gamma^2/2) d(tau_j^2).</div>
+  <div class="highlight-box"><strong>Distributia Comuna:</strong> p(y, w, tau, sigma^2 | X) = N(y|Xw, sigma^2 I_N) * N(w|0, D_tau) * IG(sigma^2|a_sigma, b_sigma) * produs Ga(tau_j^2|1, gamma^2/2), unde D_tau = diag(tau_j^2).</div>
+  <div class="highlight-box"><strong>De ce EM?</strong> Perspectiva variabilei latente ofera mai multe avantaje: permite derivarea usoara a estimatorilor regularizati l1 pentru diverse modele (regresie robusta, regresie probit), si permite calculul posterioarei complete p(w|D) - tehnica cunoscuta ca Bayesian lasso.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 13.4.4 prezinta o abordare eleganta pentru rezolvarea problemei lasso prin algoritmul EM, bazata pe reprezentarea distributiei Laplace ca mixtura Gaussiana de scara. Aceasta perspectiva unifica abordarea frecventista (penalizare) cu cea Bayesiana (variabile latente).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ideea centrala este ca orice prior promovator de raritate poate fi exprimat ca o mixtura de Gaussiene, ceea ce transforma problema non-diferentiabila a regularizarii l1 intr-o secventa de probleme l2 ponderate (diferentiabile si usor de rezolvat).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Abordarea EM este deosebit de utila cand se doreste extinderea lasso la alte modele (regresie logistica, regresie probit) sau cand se doreste cuantificarea incertitudinii prin posterioara completa.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile clinice, Bayesian lasso nu doar selecteaza biomarkerii relevanti, ci furnizeaza si intervale de incredere pentru efectele lor, permitand medicilor sa ia decizii informate bazate pe nivelul de incertitudine.</p></div>
+  </div>
+</div>

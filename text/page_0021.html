@@ -1,0 +1,44 @@
+<div class="page-content">
+  <h2>Cuprins (Partea 14)</h2>
+
+  <p>Continuarea cuprinsului cu Capitolele 20-22.</p>
+
+  <div class="definition-box"><strong>Capitolul 20 - Inferenta Exacta (continuare):</strong>
+    20.4.4 Generalizari JTA (p. 726); 20.5 Intractabilitatea computationala a inferentei exacte in cazul cel mai defavorabil (p. 726) - inferenta aproximativa (p. 727).</div>
+
+  <div class="definition-box"><strong>Capitolul 21 - Inferenta Variationala (p. 731):</strong>
+    21.1 Introducere; 21.2 Inferenta variationala - interpretari alternative ale obiectivului variational, KL forward vs. reverse;
+    21.3 Metoda campului mediu (mean field) - derivare, exemplu pe modelul Ising;
+    21.4 Campul mediu structurat - exemplu: HMM factorial;
+    21.5 Bayes variational - exemplu pentru Gaussiana univariata, exemplu pentru regresie liniara;
+    21.6 Bayes variational EM - exemplu: VBEM pentru mixturi de Gaussiene;
+    21.7 Transmiterea mesajelor variationala si VIBES;
+    21.8 Margini variationale locale - aplicatii motivante, marginea patratica a lui Bohning, margini pentru functia sigmoid, inferenta variationala pe margini superioare.</div>
+
+  <div class="definition-box"><strong>Capitolul 22 - Mai Multa Inferenta Variationala (p. 767):</strong>
+    22.1 Introducere; 22.2 Propagarea credintelor in bucla (Loopy BP) - istorie, LBP pe modele pairwise, LBP pe factor graph, convergenta, acuratete;
+    22.3 LBP: aspecte teoretice - UGM-uri in forma familiei exponentiale, politopul marginal, inferenta exacta/mean field/LBP ca probleme de optimizare variationala;
+    22.4 Extensii ale BP - BP convexa, BP generalizata;
+    22.5 Propagarea expectatiilor (EP) - EP ca problema variationala, optimizare prin potrivire de momente, TrueSkill;
+    22.6 Estimarea starii MAP - relaxare prin programare liniara, max-product BP, graphcuts.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section">
+      <h4>Rezumat</h4>
+      <p>Capitolele 21 si 22 acopera inferenta variationala, o alternativa la inferenta exacta (cap. 20) pentru modele in care aceasta din urma este intractabila. Metodele includ campul mediu, Bayes variational, propagarea credintelor in bucla si propagarea expectatiilor.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Tipare Cheie</h4>
+      <p>Inferenta variationala transforma o problema de inferenta intr-una de optimizare - minimizarea divergentei KL intre o distributie aproximativa si posteriorul real. Aceasta idee unificatoare conecteaza multiple metode aparent diferite.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Aplicatii Practice</h4>
+      <p>Inferenta variationala este esentiala in modelele LDA pentru topic modeling, in autoencodere variationale (VAE) pentru generarea de imagini, si in multe sisteme de recomandare la scara industriala.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Exemplu din Lumea Reala</h4>
+      <p>Sistemul TrueSkill de la Microsoft (22.5.5) foloseste propagarea expectatiilor pentru a clasifica jucatorii de jocuri online (Xbox Live) pe baza rezultatelor meciurilor, estimand atat abilitatea fiecarui jucator cat si incertitudinea asociata.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LBP ca caz special al EP si verosimilitatea marginala EP</h2>
+  <p>Aceasta pagina demonstreaza ca LBP este un caz special al EP si arata ca aproximarea EP a entropiei se reduce la aproximarea Bethe.</p>
+  <div class="definition-box"><strong>LBP ca caz special al EP:</strong> Cand distributia de baza contine doar potentialele de nod si termenii intractabili sunt potentialele de muchie, aproximarea EP a entropiei devine exact entropia Bethe: H_ep = sum H_s(tau_s) - sum I(tau_uv).</div>
+  <div class="definition-box"><strong>Verosimilitatea marginala EP:</strong> p(D) aproximat de (2*pi*v)^{D/2} * exp(c/2) * prod s_i*(2*pi*v_i)^{-D/2}, unde c = m^T*m/v - sum m_i^T*m_i/v_i. Ofera o estimare a verosimilitatii marginale utila pentru selectia modelului.</div>
+  <div class="highlight-box"><strong>EP vs VB vs MCMC:</strong> Minka (2001) a aratat ca EP ofera acuratete mai buna per unitate de timp CPU decat VB si MCMC pe problema clutter, sugerand ca EP este o metoda eficienta de inferenta aproximativa.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabileste doua rezultate importante: (1) LBP este un caz special al EP cand factorii intractabili sunt potentialele de muchie, si (2) entropia EP se reduce la entropia Bethe in acest caz. Aceasta unifica LBP si EP intr-un cadru teoretic comun.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Unificarea LBP-EP arata ca diferentele sunt in alegerea factorizarii: LBP trateaza muchiile ca factori intractabili, EP general trateaza orice factor neconjugat. Cadrul EP este mai general si permite extensii precum tree EP.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Tree EP (unde distributia de baza este un arbore, nu un produs) ofera o imbunatatire directa a LBP, mentinand aceeasi structura de mesaje dar cu o baza mai informativa.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea epidemiologica, unde factorii de transmisie sunt neliniare si intractabili, EP ofera un cadru flexibil pentru inferenta aproximativa, generalizand natural BP-ul folosit in modele mai simple.</p></div>
+  </div>
+</div>

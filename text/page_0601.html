@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Backpropagation - Functii de activare si formulare</h2>
+  <p>Aceasta pagina compara functiile de activare sigmoid si tanh, si formuleaza complet modelul MLP cu notatia pre-sinaptic/post-sinaptic.</p>
+  <div class="definition-box"><strong>Functii de activare:</strong> tanh(a) mapeaza R -> [-1,+1] si este preferata pentru straturi ascunse; sigmoid sigma(a) mapeaza R -> [0,1] si este preferata pentru straturi de iesire binare. Pentru iesiri continue se foloseste h(b) = b (identitate).</div>
+  <div class="highlight-box"><strong>Modelul complet MLP:</strong> x_n ->(V)-> a_n ->(g)-> z_n ->(W)-> b_n ->(h)-> y_hat_n, unde g este functia de activare ascunsa si h este functia de link a stratului de iesire (GLM).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 16.16 compara vizual tanh si sigmoid: tanh este centrata pe zero (output mediu 0), ceea ce ajuta la convergenta, in timp ce sigmoid este centrata pe 0.5. SGD este metoda standard de optimizare deoarece: (1) NLL-ul este non-convex, (2) datele pot fi prea mari pentru metode batch. Mini-batch-urile sunt un compromis intre actualizare stochastica (un exemplu) si batch (toate exemplele). Varianta zgomotului de output sigma^2 se estimeaza din reziduuri dupa antrenare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Alegerea functiei de activare afecteaza profund antrenarea: sigmoid si tanh au problema 'vanishing gradient' pentru valori mari ale intrarii. In practica moderna, ReLU(a) = max(0,a) a inlocuit ambele pentru straturi ascunse, evitand saturatia.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, ReLU si variantele sale (Leaky ReLU, GELU, Swish) au inlocuit sigmoid/tanh in straturi ascunse. Sigmoid ramane standard pentru iesiri binare, iar softmax pentru multi-clasa. Rata de invatare si batch size sunt hiperparametri critici.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de procesare a limbajului natural, functia de activare GELU (Gaussian Error Linear Unit) este folosita in modelele Transformer (BERT, GPT), oferind proprietati superioare de gradient fata de ReLU clasic.</p></div>
+  </div>
+</div>

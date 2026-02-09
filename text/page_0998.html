@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LDA Supervizat si Generativ (Capitolul 27.4.4)</h2>
+  <p>Pagina introduce extensiile supervizate ale LDA, in special LDA supervizat generativ (SLDA), care permite incorporarea informatiilor laterale (etichete de clasa) in modelul de topicuri.</p>
+  <div class="figure-box"><strong>Figura 27.15:</strong> (a) LDA supervizat (SLDA) - modelul grafic arata cum eticheta clasei c_i este generata din distributia empirica de topicuri q̄_i prin intermediul unui vector de ponderi w. (b) LDA discriminativ - topicul prior depinde de eticheta clasei prin matricea A.</div>
+  <div class="definition-box"><strong>LDA Supervizat (SLDA):</strong> Extensie a LDA care construieste un model conjunct p(c_i, y_i|θ), unde eticheta clasei c_i este generata din topicurile documentului: p(c_i|q̄_i) = Ber(sigm(w^T·q̄_i)), unde q̄_i este distributia empirica de topicuri pentru documentul i.</div>
+  <div class="highlight-box"><strong>Analiza sentimentelor:</strong> SLDA poate fi folosit pentru a determina daca o recenzie este pozitiva sau negativa. De exemplu, fraza "Brad Pitt was excellent until the middle of the movie" contine cuvantul "excellent" dar sentimentul general este negativ - SLDA poate capta acest lucru prin inferenta la nivel de topic.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 27.4.4 introduce LDA supervizat, care extinde LDA standard prin adaugarea unui model predictiv pentru etichete de clasa bazat pe distributia de topicuri. In loc de a folosi doar cuvinte individuale pentru clasificare, SLDA foloseste topicurile ca reprezentari intermediare, permitand dezambiguizarea contextuala a cuvintelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distributia empirica de topicuri q̄_ik = (1/L_i)·Σ q_ilk serveste ca reprezentare a documentului pentru clasificare. Modelul conjunct permite topicurilor sa fie influentate de eticheta clasei, producand reprezentari mai relevante pentru sarcina de clasificare decat LDA nesupervizat.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Analiza sentimentelor in recenzii de produse/filme, clasificarea automata a documentelor (spam, categorie tematica), triajul automat al emailurilor si detectarea intentiei in dialoguri cu asistenti virtuali.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de analiza a recenziilor de filme poate folosi SLDA pentru a determina sentimentul general: daca topicul dominant este "performanta actorilor" cu cuvinte negative in context, modelul clasifica recenzia ca negativa, chiar daca contine cuvinte pozitive izolate.</p></div>
+  </div>
+</div>

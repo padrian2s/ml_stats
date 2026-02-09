@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Estimarea lui π prin Integrare Monte Carlo</h2>
+  <p>Pagina prezintă un exemplu clasic de utilizare a metodei Monte Carlo pentru estimarea numărului π și introduce conceptul de precizie a aproximării MC.</p>
+  <div class="figure-box"><strong>Figura 2.19:</strong> Estimarea lui π prin integrare Monte Carlo. Punctele albastre sunt în interiorul cercului, crucile roșii sunt în exterior.</div>
+  <div class="highlight-box"><strong>Estimarea lui π:</strong> Aria cercului cu raza r este πr². Se generează puncte uniform în pătratul [-r,r]×[-r,r] și se numără fracțiunea din interiorul cercului: I ≈ 4r²·(1/S)·Σf(x_s,y_s), unde f(x,y) = 𝕀(x²+y² ≤ r²). Rezultat: π̂ ≈ 3.1416 cu eroare standard 0.09.</div>
+  <div class="definition-box"><strong>Precizia aproximării MC:</strong> Eroarea standard este σ̂/√S, unde σ̂² = (1/S)Σ(f(x_s) − μ̂)². Intervalul de încredere 95%: P{μ − 1.96·σ̂/√S ≤ μ̂ ≤ μ + 1.96·σ̂/√S} ≈ 0.95.</div>
+  <div class="highlight-box"><strong>Determinarea dimensiunii eșantionului:</strong> Pentru o precizie ±ε cu probabilitate 95%, necesită S ≥ 4σ̂²/ε² eșantioane.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exemplul estimării lui π demonstrează eleganta metodei MC: o problemă geometrică complexă se reduce la numărarea punctelor aleatorii. Eroarea standard scade ca 1/√S, oferind un compromis clar între precizie și cost computațional.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Rata de convergență O(1/√S) este independentă de dimensionalitate, ceea ce face MC superioară metodelor de integrare pe grilă în dimensiuni mari (unde grila suferă de „blestemul dimensionalității").</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intervalele de încredere MC sunt esențiale pentru a raporta incertitudinea rezultatelor în simulări, și pentru a decide când suficiente eșantioane au fost generate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În simulările climatice, mii de rulări Monte Carlo ale modelelor atmosferice sunt utilizate pentru a estima probabilitatea evenimentelor extreme (inundații, caniculă), cu erori standard raportate explicit.</p></div>
+  </div>
+</div>

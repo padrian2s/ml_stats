@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Posteriorul parametrilor pentru regresie in retele neurale</h2>
+  <p>Aceasta pagina prezinta aproximarea Laplace a posteriorului parametrilor unei retele neurale pentru regresie, incluzand Hessianul si aproximarea cuadratica.</p>
+  <div class="definition-box"><strong>Aproximarea Laplace pentru NN:</strong> p(w|alpha, beta, D) ~ N(w|w_MP, A^{-1}), unde A = nabla nabla E(w_MP) = beta*H + alpha*I este Hessianul energiei totale la estimarea MAP, cu H Hessianul erorii de date.</div>
+  <div class="highlight-box"><strong>Energia totala:</strong> E(w) = beta*E_D(w) + alpha*E_W(w), unde E_D = 1/2 sum(y_n - f(x_n,w))^2 este eroarea datelor, E_W = 1/2 w^T w este priorul, beta = 1/sigma^2 este precizia zgomotului si alpha este precizia priorului.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Posteriorul p(w|D, alpha, beta) proportional cu exp(-E(w)) este aproximat ca o Gaussiana centrata pe estimarea MAP w_MP cu covarianta A^{-1}. Hessianul H poate fi calculat exact in O(d^2) sau aproximat prin metode quasi-Newton (low-rank). Aproximarile diagonale ale lui H sunt de obicei imprecise. Aceasta aproximare Laplace este baza pentru 'Bayesian neural networks' in sensul MacKay.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura A = beta*H + alpha*I arata compromisul intre informatia din date (H) si informatia din prior (alpha*I). In regiunile cu putine date, priorul domina si incertitudinea este mare. In regiunile cu multe date, Hessianul H domina si incertitudinea este mica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aproximarea Laplace pentru NN a fost recent revitalizata de Immer et al. (2021) si Daxberger et al. (2021), oferind o metoda eficienta de estimare a incertitudinii post-antrenament prin calculul Hessianului doar o data dupa antrenarea standard.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele medicale AI, aproximarea Laplace post-antrenament permite adaugarea de incertitudine la modele deja antrenate, fara a le re-antrena, facilitand conformitatea cu reglementarile care cer estimarea fiabilitatii predictiilor.</p></div>
+  </div>
+</div>

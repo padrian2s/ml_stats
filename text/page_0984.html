@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Evaluarea LDA ca model de limbaj - Perplexitate</h2>
+  <p>Aceasta pagina introduce evaluarea cantitativa a LDA ca model de limbaj prin perplexitate, definind formal cross-entropia si perplexitatea.</p>
+  <div class="definition-box"><strong>Perplexitate:</strong> perplexity(p, q) = 2^{H(p,q)}, unde H(p,q) este cross-entropia intre distributia adevarata p si modelul q. Masoara cat de "surprins" este modelul de datele de test.</div>
+  <div class="definition-box"><strong>Cross-entropia:</strong> H(p,q) = lim_{N->inf} -1/N * suma p(y_{1:N}) log q(y_{1:N}). Pentru modele unigram: H = -1/N * suma_i 1/L_i * suma_l log q(y_{il}).</div>
+  <div class="definition-box"><strong>Branching factor:</strong> Perplexitatea masoara "factorul de ramificare" mediu ponderat al distributiei predictive. Daca modelul prezice uniform 1/K, perplexitatea este K. Daca unele simboluri sunt mai probabile, perplexitatea scade sub K.</div>
+  <div class="highlight-box"><strong>Perplexitate pentru modele unigram:</strong> perplexity = exp(-1/N * suma_i 1/L_i * suma_l log q(y_{il})). Cu cat perplexitatea este mai mica, cu atat modelul prezice mai bine.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina introduce perplexitatea ca metrica standard de evaluare a modelelor de limbaj. Este definita prin cross-entropia intre distributia empirica si model, si poate fi interpretata ca media geometrica a inverselor probabilitatilor predictive. Perplexitatea mai mica = model mai bun. LDA este evaluat ca model unigram (ignora ordinea cuvintelor), deci perplexitatea compara doar cu alte modele unigram.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Perplexitatea nu masoara interpretabilitatea topicurilor (Chang et al. 2009 au aratat ca perplexitate buna nu implica topicuri interpretabile). Este o metrica de fit statistic, nu de utilitate practica. In practica se folosesc si metrici de coerenta a topicurilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Perplexitatea este metrica standard in NLP pentru compararea modelelor de limbaj (n-gram, LDA, retele neuronale). Este folosita si pentru selectia numarului de topicuri K in LDA: se alege K care minimizeaza perplexitatea pe date held-out.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In dezvoltarea asistentilor vocali (Siri, Alexa), perplexitatea este folosita pentru a compara modele de limbaj candidate: modelul cu perplexitate mai mica va produce transcrieri si completari de text mai precise.</p></div>
+  </div>
+</div>

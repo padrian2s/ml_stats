@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Calcul Numeric Stabil pentru Ridge Regression</h2>
+  <p>Pagina prezintă metode numeric stabile pentru calculul soluției ridge regression: augmentarea datelor, descompunerea QR și trucul cu date virtuale.</p>
+  <div class="highlight-box"><strong>Stabilitate Numerică:</strong> Ridge regression este mai stabilă numeric decât OLS deoarece (λI_D + X^T X) este mai bine condiționată decât X^T X singur. Adăugarea lui λ la diagonală asigură inversabilitatea.</div>
+  <div class="highlight-box"><strong>Trucul Augmentării Datelor:</strong> Priorul Gaussian p(w) = N(0, Λ⁻¹) poate fi incorporat ca „date virtuale": X̃ = [X/σ; √Λ], ỹ = [y/σ; 0]. NLL pe datele augmentate este echivalentă cu NLL penalizată pe datele originale.</div>
+  <div class="highlight-box"><strong>Demonstrație:</strong> f(w) = (ỹ - X̃w)^T(ỹ - X̃w) = (1/σ²)(y - Xw)^T(y - Xw) + w^T Λw, exact funcția obiectiv regularizată.</div>
+  <div class="definition-box"><strong>Descompunerea QR:</strong> X̃ = QR, unde Q este ortonormală și R este superior triunghiulară. Soluția: ŵ_ridge = R⁻¹ Q^T ỹ = R⁻¹ Qỹ. R este ușor de inversat datorită structurii triunghiulare.</div>
+  <div class="highlight-box"><strong>Complexitate computațională:</strong> QR pe matrice N × D: O(ND²). Aceasta este metoda preferată pentru rezolvarea least squares (operatorul backslash \ din Matlab). SVD este preferată când D ≫ N.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Secțiunea prezintă două trucuri computaționale importante: augmentarea datelor cu „pseudo-date" din prior (echivalent matematic cu penalizarea) și utilizarea descompozirii QR pentru stabilitate numerică. SVD este alternativa când dimensionalitatea este mai mare decât numărul de exemple.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Echivalența între priori Bayesiene și date virtuale este o idee profundă: priorul adaugă informație echivalentă cu observații suplimentare. QR este preferată lui (X^T X)⁻¹ X^T y din motive de stabilitate numerică. SVD este O(DN²) și preferabilă când D ≫ N.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Implementările industriale ale regresiei liniare (LAPACK, numpy) folosesc QR sau SVD intern, nu inversarea directă a matricei. Dezvoltatorii ar trebui să folosească aceste implementări optime, nu să implementeze formula directă.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La fitarea unui model cu mii de features genomice (D ≫ N), SVD este metoda de calcul preferată deoarece complexitatea O(DN²) este mult mai mică decât O(ND²) al QR. Aceasta permite analiza genomică la scară largă pe hardware standard.</p></div>
+  </div>
+</div>

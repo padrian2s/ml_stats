@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Denoising cu mean field si introducerea structured mean field</h2>
+  <p>Aceasta pagina ilustreaza denoising-ul de imagini cu mean field Ising si introduce metoda structured mean field ca imbunatatire a aproximarii factorizate complete.</p>
+  <div class="definition-box"><strong>Denoising mean field (Figura 21.3):</strong> Imaginea literei "A" cu zgomot este curatata iterativ prin mean field Ising. Dupa 1 iteratie, structura incepe sa apara; dupa 3 iteratii, litera este vizibila; dupa 15 iteratii, rezultatul este stabil si clar.</div>
+  <div class="definition-box"><strong>Structured mean field:</strong> O imbunatatire a mean field clasic care permite grupuri de variabile sa fie corelate in aproximare: q(x) = ∏_b q_b(x_b), unde fiecare bloc b contine mai multe variabile. Aceasta captureaza corelatii intra-bloc mentinand independenta inter-bloc.</div>
+  <div class="highlight-box"><strong>Substructura tractabila:</strong> Daca blocurile formeaza subgrafuri cu treewidth mic (de exemplu, lanturi sau arbori), inferenta exacta in cadrul fiecarui bloc este eficienta, iar aproximarea globala captureaza mai multe corelatii decat mean field clasic.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Denoising-ul cu mean field demonstreaza eficacitatea metodei: pornind de la o imagine foarte zgomotoasa, algoritmul recupereaza litera clara in cateva iteratii. Amortizarea (λ=0.5) previne artefactele de tip tabla de sah. Structured mean field generalizeaza abordarea, permitand aproximari mai bogate care captureaza corelatii intre variabile inrudite, in timp ce mentin tractabilitatea.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trade-off-ul mean field: aproximarea factorizata complet este simpla si rapida dar ignora corelatiile. Structured mean field introduce corelatii intra-bloc dar creste complexitatea. Alegerea blocurilor este o decizie de design: blocuri mai mari captureaza mai multe corelatii dar sunt mai costisitoare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Structured mean field este folosit in HMM-uri factoriale (fiecare lant este un bloc), modele de amestec (fiecare componenta este un bloc) si fizica statistica (clustere de spinuri). Este o alternativa populara la loopy BP.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea vorbirii cu un HMM factorial (mai multe surse audio suprapuse), structured mean field trateaza fiecare sursa ca un bloc (lant), captureaza dependentele temporale in cadrul fiecarei surse dar presupune independenta intre surse.</p></div>
+  </div>
+</div>

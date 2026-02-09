@@ -1,0 +1,40 @@
+<div class="page-content">
+  <h2>Cuprins (Partea 15)</h2>
+
+  <p>Continuarea cuprinsului cu Capitolele 23 si 24.</p>
+
+  <div class="definition-box"><strong>Capitolul 23 - Inferenta Monte Carlo (p. 815):</strong>
+    23.1 Introducere; 23.2 Esantionarea din distributii standard - folosind CDF, metoda Box-Muller;
+    23.3 Esantionarea prin respingere (rejection sampling) - idee, exemplu, aplicatie in statistica bayesiana, esantionare adaptiva, dimensiuni mari;
+    23.4 Esantionarea prin importanta (importance sampling) - idee, distributii nenormalizate, importance sampling pentru DGM-uri, SIR;
+    23.5 Filtrarea cu particule - esantionare secventiala prin importanta, degenerescenta, pasul de re-esantionare, distributia propusa, aplicatii (localizare robot, urmarire vizuala, serii temporale);
+    23.6 Filtrarea Rao-Blackwellizata cu particule (RBPF) - RBPF pentru SSM-uri cu comutare, urmarirea unei tinte manevrant, Fast SLAM.</div>
+
+  <div class="definition-box"><strong>Capitolul 24 - Inferenta Markov Chain Monte Carlo (MCMC) (p. 837):</strong>
+    24.1 Introducere; 24.2 Esantionarea Gibbs - idee, exemplu Ising, exemplu GMM, Gibbs collapsat, Gibbs pentru GLM-uri ierarhice, BUGS si JAGS, IP algorithm, blocking Gibbs;
+    24.3 Algoritmul Metropolis-Hastings - idee, Gibbs ca caz special, distributii propuse, MCMC adaptiv, initializare si mode hopping, de ce functioneaza MH, reversible jump MCMC;
+    24.4 Viteza si acuratetea MCMC - burn-in, rate de mixaj, diagnostice de convergenta, acuratete, cate lanturi?;
+    24.5 MCMC cu variabile auxiliare - esantionare slice, Swendsen-Wang, MCMC hamiltonian/hibrid;
+    24.6 Metode de annealing - simulated annealing, annealed importance sampling, parallel tempering;
+    24.7 Aproximarea likelihood-ului marginal.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section">
+      <h4>Rezumat</h4>
+      <p>Capitolele 23 si 24 prezinta metode de inferenta bazate pe esantionare. Capitolul 23 acopera metode Monte Carlo simple si filtrarea cu particule, in timp ce capitolul 24 detaliaza MCMC - o familie de algoritmi pentru esantionarea din distributii posterioare complexe.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Tipare Cheie</h4>
+      <p>Inferenta prin esantionare completeaza inferenta variationala (cap. 21-22): variationala este mai rapida dar aproximativa, MCMC este mai lenta dar converge la solutia exacta. Alegerea intre ele depinde de compromisul viteza/acuratete.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Aplicatii Practice</h4>
+      <p>MCMC (cap. 24) este folosit pe scara larga in statistica bayesiana prin software-ul Stan, BUGS si JAGS. Filtrarea cu particule (23.5) este esentiala in robotica si urmarirea tintelor.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Exemplu din Lumea Reala</h4>
+      <p>Un robot autonom de curatenie (precum Roomba) foloseste filtrarea cu particule (23.5.5) pentru localizare: mentine mii de ipoteze despre pozitia sa si le actualizeaza pe masura ce primeste citiri de la senzori, converging catre pozitia reala.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>SSVM-uri Latente - Optimizare CCCP si Procedura Concav-Convexa</h2>
+  <p>Pagina detaliaza optimizarea SSVM-urilor latente folosind procedura concav-convexa (CCCP), prezentand functia obiectiv, marginile superioare si Algoritmul 19.5.</p>
+  <div class="definition-box"><strong>Functia de pierdere cu variabile latente:</strong> L(y*,y,h) - masoara pierderea cand se prezice y folosind variabilele latente h. De obicei se foloseste L(y*,y) deoarece h este o variabila de nuisanta.</div>
+  <div class="highlight-box"><strong>Obiectivul SSVM latent:</strong> R_EL(w) ≤ E(w) + Σᵢ max_{y,h} {L̃(yᵢ,y,h) + wᵀφ(xᵢ,y,h)} - Σᵢ max_h wᵀφ(xᵢ,yᵢ,h) (Ecuatia 19.118). Cu E(w) = -(1/2C)||w||², se obtine obiectivul SVM latent.</div>
+  <div class="definition-box"><strong>CCCP (Concave-Convex Procedure):</strong> Metoda pentru minimizarea functiilor de forma f(w) - g(w), unde f si g sunt convexe. Alterneaza intre gasirea unei margini superioare liniare pe -g si minimizarea functiei convexe rezultante (Algoritmul 19.5).</div>
+  <div class="highlight-box"><strong>Algoritmul 19.5 - CCCP:</strong> 1) Initializeaza w₀. 2) Gaseste hiperplanul v_t cu -g(w) ≤ -g(w_t) + (w - w_t)ᵀv_t. 3) Rezolva w_{t+1} = argmin_w f(w) + wᵀv_t. 4) Repeta pana la convergenta. Garanteaza descresterea obiectivului la fiecare iteratie.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Obiectivul SSVM latent nu mai este convex din cauza termenului max_h wᵀφ(xᵢ,yᵢ,h) care este convex in w (maximul functiilor liniare). Scazut din obiectiv, produce o diferenta de functii convexe. CCCP rezolva aceasta problema prin liniarizarea iterativa a partii concave, similar cu algoritmul EM. In pasul "E", se estimeaza variabilele latente h*ᵢ; in pasul "M", se rezolva un SSVM standard cu h-urile fixate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>CCCP garanteaza convergenta la un minim local sau punct de sa, nu la minimul global. Aceasta este inevitabil pentru obiective non-convexe. Similaritatea cu EM este profunda: ambele alterneaza intre estimarea variabilelor latente si optimizarea parametrilor. Diferenta este ca CCCP lucreaza cu margini superioare, nu cu margini inferioare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SSVM-urile latente sunt centrale in viziunea computationala moderna: detectia obiectelor cu parti deformabile, recunoasterea actiunilor umane (unde poza exacta este latenta), si segmentarea semantica cu regiuni latente.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea documentelor pentru motoare de cautare, un SSVM latent poate modela relevanta unui document pentru o interogare, unde variabila latenta h reprezinta ordinea totala de relevanta a documentelor. Pierderea este definita ca 1 minus precision@k, optimizand direct metrica de evaluare a sistemului de ranking.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Detalii despre single link, complete link si average link</h2>
+  <p>Aceasta pagina detaliaza matematic cele trei tipuri de legatura in clustering-ul aglomerativ, cu proprietatile si compromisurile fiecareia.</p>
+  <div class="definition-box"><strong>Single link:</strong> d_SL(G,H) = min_{i in G, i' in H} d_{i,i'}. Arborele rezultat este un arbore de acoperire minima (minimum spanning tree). Se poate implementa in O(N^2), mai rapid decat celelalte variante O(N^3).</div>
+  <div class="definition-box"><strong>Complete link:</strong> d_CL(G,H) = max_{i in G, i' in H} d_{i,i'}. Produce clustere compacte cu diametru mic, dar necesita ca toate perechile de puncte sa fie apropiate pentru a imbina grupuri.</div>
+  <div class="definition-box"><strong>Proprietatea de compactitate:</strong> Toate observatiile dintr-un cluster ar trebui sa fie similare intre ele. Single linkage o violeaza (poate produce clustere cu diametru mare), complete linkage o impune strict.</div>
+  <div class="highlight-box"><strong>Average link ca compromis:</strong> d_avg(G,H) = (1/n_G*n_H) * suma suma d_{i,i'}, produce clustere relativ compacte si bine separate. Dezavantaj: nu este invarianta la transformari monotone ale distantelor, spre deosebire de single si complete linkage.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina formuleaza matematic fiecare tip de legatura si analizeaza compromisurile. Single link este rapida (O(N^2)) si echivalenta cu arborele de acoperire minima, dar produce efect de lant. Complete link produce clustere compacte dar poate fi prea conservatoare. Average link este un compromis bun dar sensibila la scala de masurare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conexiunea single linkage - arbore de acoperire minima este o legatura eleganta intre clustering si teoria grafurilor. Invarianta la transformari monotone (single si complete) vs. sensibilitatea la scala (average) este o proprietate practica importanta in alegerea metodei.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In analiza filogenetica, UPGMA (un tip de average linkage) presupune un ceas molecular constant si produce arbori ultrametrici. Neighbor-joining, o alternativa mai flexibila, nu face aceasta presupunere si este preferata pentru arbori filogenetici precisi.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia fraudelor in tranzactii financiare, single linkage poate identifica "lanturi" de tranzactii suspecte conectate prin intermediari, in timp ce complete linkage ar identifica doar grupuri compacte de tranzactii foarte similare.</p></div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Capitolul 11: Modele de amestec si algoritmul EM - Variabile latente</h2>
+  <p>Aceasta pagina deschide Capitolul 11, introducand modelele cu variabile latente (LVM) si motivand utilizarea lor prin reducerea numarului de parametri si reprezentarea comprimata a datelor.</p>
+  <div class="definition-box"><strong>Modele cu variabile latente (LVM):</strong> Modele in care variabilele observate sunt explicate de variabile ascunse (neobservate) care reprezinta cauze comune. LVM-urile au mai putini parametri decat modelele directe si produc reprezentari comprimate ale datelor.</div>
+  <div class="highlight-box"><strong>Avantajele variabilelor latente:</strong> 1) Reducerea parametrilor: modelul cu H are 17 parametri vs. 59 fara H (Figura 11.1). 2) Variabilele latente servesc ca „bottleneck", producand reprezentari comprimate utile in invatarea nesupervizata. 3) Diferite combinatii p(x|z) si p(z) produc modele diferite: GMM, PCA probabilistic, LDA, etc. (Tabelul 11.1).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 11 introduce o clasa fundamentala de modele in invatarea automata. Ideea centrala este simpla dar profunda: daca variabilele observate sunt corelate, aceasta corelatie poate fi explicata de variabile ascunse comune. Aceasta idee unifica o gama larga de modele: de la clustering (GMM) la reducerea dimensionalitatii (PCA) si modelarea textului (LDA).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) LVM-urile fac presupunerea de independenta conditionala: variabilele observate sunt conditionalindependente dato variabilele latente. 2) Diferite alegeri pentru p(x|z) si p(z) produc modele complet diferite. 3) Cu L > 1 variabile latente per observatie, avem o mapare many-to-many. 4) Cu L = 1 si z discret, avem modele de amestec (clustering).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LVM-urile sunt omniprezente in ML: topic models in NLP (LDA), modele generative de imagini (VAE, GAN), reducerea dimensionalitatii (PCA probabilistic, factor analysis), si clustering (GMM, k-means). Algoritmul EM din acest capitol este metoda standard de estimare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In Figura 11.1, un model medical cu variabila ascunsa „boala cardiaca" (H) explica corelatiile intre simptome (durere toracica, dispnee, oboseala) folosind doar 17 parametri. Fara H, ar trebui 59 de parametri pentru a capta aceleasi corelatii direct. Aceasta este puterea modelarii cauzale: mecanismul real (boala cauzeaza simptomele) este si cel mai parcimonios.</p></div>
+  </div>
+</div>

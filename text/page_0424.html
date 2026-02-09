@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>SVD Trunchiata si Aproximarea Low-Rank</h2>
+  <p>Pagina prezinta Figura 12.8 (diagrama SVD completa si trunchiata), legatura intre SVD si PCA, si formulele pentru aproximarea low-rank a matricilor.</p>
+  <div class="highlight-box"><strong>Figura 12.8:</strong> (a) SVD completa: X = U S V^T cu dimensiunile N x D. (b) SVD trunchiata de rang L: X ≈ U_L S_L V_L^T, retinand doar primele L valori singulare si vectorii asociati.</div>
+  <div class="definition-box"><strong>Descompunerea in rang 1 (Eq. 12.54):</strong> X = sigma_1 u_1 v_1^T + ... + sigma_r u_r v_r^T. Fiecare matrice de rang 1 sigma_i u_i v_i^T capteaza un "pattern" din date, ponderat de valoarea singulara.</div>
+  <div class="highlight-box"><strong>SVD trunchiata (Eq. 12.55-12.56):</strong> X ≈ U_{:,1:L} S_{1:L,1:L} V_{:,1:L}^T. Necesita L(N + D + 1) parametri in loc de ND. Este cea mai buna aproximare de rang L in norma Frobenius (teorema Eckart-Young).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>SVD trunchiata ofera cea mai buna aproximare de rang L a oricarei matrice, in sensul normei Frobenius (teorema Eckart-Young). Aceasta este fundatia teoretica a PCA: proiectia pe primele L componente principale este echivalenta cu cea mai buna aproximare de rang L a matricii de date centrate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compresia prin rang scazut: o matrice N x D cu ND elemente poate fi aproximata cu doar L(N+D+1) parametri. Daca L << min(N,D), compresia este masiva. Calitatea depinde de cat de repede scad valorile singulare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>SVD trunchiata este folosita in compresia de date, sisteme de recomandare (factorizarea matricii), reducerea zgomotului in imagini, si Latent Semantic Analysis (LSA) pentru procesarea limbajului natural.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In compresia video, SVD trunchiata pe fiecare cadru (sau pe diferente intre cadre) permite stocarea eficienta a filmelor, pastrand doar componentele vizuale semnificative si eliminand zgomotul.</p></div>
+  </div>
+</div>

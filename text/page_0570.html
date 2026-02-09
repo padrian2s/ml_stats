@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Metode RKHS si teorema reprezentantului</h2>
+  <p>Aceasta pagina introduce spatiile Hilbert cu kernel reproductor (RKHS), proprietatea de reproducere, norma functionala si teorema reprezentantului.</p>
+  <div class="definition-box"><strong>RKHS (Reproducing Kernel Hilbert Space):</strong> Spatiul H_k = {f: f(x) = sum f_i phi_i(x), sum f_i^2/lambda_i < infinit}, unde phi_i sunt eigenfunctiile kernelului kappa(x,x') = sum lambda_i phi_i(x) phi_i(x'). Proprietatea de reproducere: <kappa(x_1,.), kappa(x_2,.)>_H = kappa(x_1, x_2).</div>
+  <div class="highlight-box"><strong>Teorema reprezentantului:</strong> Solutia optimala a problemei min_f 1/(2*sigma_y^2) sum(y_i - f(x_i))^2 + 1/2 ||f||_H^2 are forma f(x) = sum alpha_i kappa(x, x_i), o combinatie liniara de evaluari ale kernelului la punctele de date.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Teorema lui Mercer garanteaza ca orice kernel pozitiv definit are o decompoztie kappa = sum lambda_i phi_i phi_i. Functiile din RKHS au norma ||f||_H = sum f_i^2/lambda_i - functiile complexe (multi coeficienti) au norma mare. Teorema reprezentantului arata ca solutia optima este intotdeauna o combinatie de N evaluari ale kernelului, reducand optimizarea din spatiu functional infinit-dimensional la un problem finit-dimensional.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Norma RKHS penalizeaza functiile cu eigenfunctii de frecventa inalta (lambda_i mic), impunand netezime. Teorema reprezentantului este fundament pentru toate metodele kernel: SVM, kernel ridge regression, GP. Solutia alpha_hat = (K + sigma_y^2 I)^{-1} y este identica cu media GP.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>RKHS ofera cadrul teoretic pentru intelegerea generalizarii metodelor kernel. Norma RKHS este folosita ca masura de complexitate in bound-urile de generalizare si in regularizarea Tikhonov.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In invatarea prin transfer, norma RKHS poate fi folosita pentru a masura distanta intre functii din domenii diferite, ghidand adaptarea modelului de la un domeniu sursa la un domeniu tinta.</p></div>
+  </div>
+</div>

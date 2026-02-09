@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>21.5 Bayes Variational — Determinarea Automata a Relevantei (ARD)</h2>
+  <p>Aceasta pagina prezinta derivarea algoritmului VB pentru regresie liniara Bayesiana cu determinare automata a relevantei (ARD), extinzand metoda la prioruri individuale per caracteristica.</p>
+  <div class="definition-box"><strong>Determinarea Automata a Relevantei (ARD):</strong> Tehnica in care fiecare caracteristica primeste propriul hiperparametru de precizie α_j, permitand modelului sa determine automat care caracteristici sunt relevante prin estimarea preciziei lor din date.</div>
+  <div class="definition-box"><strong>Prior Factorizat VB:</strong> Aproximarea q(w,α,λ) = q(w,λ)q(α) care permite derivarea analitica a posteriorului variational, cu distributii Gaussiene pentru w si distributii Gamma pentru α si λ.</div>
+  <div class="highlight-box"><strong>Ecuatiile de actualizare VB (21.99-21.108):</strong> Setul complet de ecuatii pentru posteriorurile variational: V_N^{-1} = Ā + X^TX, w_N = V_N X^T y, cu actualizari pentru hiperparametrii distributiilor Gamma ale lui λ si α.</div>
+  <div class="highlight-box"><strong>Extensia ARD (21.109-21.110):</strong> Priorul devine p(w) = N(0, diag(α)^{-1}) cu p(α) = ∏ Ga(α_j|a_0^α, b_0^α), oferind un hiperparametru de precizie separat pentru fiecare dimensiune.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina deriveaza algoritmul Bayes variational pentru regresie liniara cu prioruri conjugate (Gaussiene si Gamma). Se prezinta ecuatiile complete de actualizare pentru aproximarea factorizata a posteriorului, apoi se extinde la cazul ARD unde fiecare caracteristica are propriul hiperparametru de precizie, permitand selectia automata a caracteristicilor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura factorizata a aproximarii variational permite actualizari analitice in forma inchisa. Matricea de precizie Ā = (a_N^α / b_N^α)I joaca un rol central in regularizare, iar extensia la ARD inlocuieste aceasta matrice scalara cu una diagonala, oferind regularizare adaptiva per dimensiune.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>ARD este esential in probleme cu multe caracteristici, unde doar un subset este relevant. In genomica, de exemplu, din mii de gene, doar cateva pot fi predictive pentru o boala. ARD identifica automat aceste gene relevante fara a necesita selectie manuala a caracteristicilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza semnalelor EEG pentru interfete creier-calculator, sute de canale produc caracteristici, dar doar cateva sunt informative. ARD cu inferenta VB permite selectarea automata a canalelor relevante in timp real, imbunatatind acuratetea clasificarii.</p></div>
+  </div>
+</div>

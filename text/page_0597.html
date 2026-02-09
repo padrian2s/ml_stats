@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>CNN - LeNet, arhitecturi avansate si augmentarea datelor</h2>
+  <p>Aceasta pagina continua discutia despre CNN, prezentand LeNet, arhitecturi cu subsamplare si tehnici de augmentare a datelor pentru imbunatatirea performantei.</p>
+  <div class="definition-box"><strong>LeNet:</strong> Arhitectura CNN cu straturi de subsamplare (subsampling/pooling) intre straturile convolutionale, care reduce dimensiunea spatiala si creste invarianta la mici translatii. Obtine ~0.7% eroare pe MNIST.</div>
+  <div class="highlight-box"><strong>Augmentarea datelor:</strong> Tehnica de extindere a setului de antrenament prin aplicarea de transformari (distorsiuni elastice, translatii, rotatii) la imaginile originale. Reduce rata de eroare pe MNIST de la ~1.4% la ~0.7%.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>LeNet (LeCun et al. 1998) si variantele sale folosesc alternanta de straturi convolutionale si de subsamplare, urmate de straturi complet conectate. O singura trecere prin date dureaza ~10 minute, cu convergenta in ~30 epoci. Augmentarea datelor prin campuri de flux aleatoare creeaza distorsiuni elastice realiste, reducand eroarea. Modelul Simard stocheaza discretizari si le aplica on-the-fly. Reteaua neuronala conditionala (Gu si Cao, 2013) adauga un camp aleator conditional la o retea neuronala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Subsamplarea (pooling) reduce dimensionalitatea si creste invarianta la mici perturbatii spatiale. Augmentarea datelor este o forma de regularizare implicita care incorporeaza cunostinte despre invariantele relevante ale problemei (cifrele raman aceleasi dupa mici rotatii si distorsiuni).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Augmentarea datelor este standard in antrenarea CNN-urilor moderne: random crop, flip orizontal, color jitter, mixup, cutout. In domeniul medical, unde datele sunt limitate, augmentarea este esentiala pentru obtinerea performantei bune.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea automata a scrisului de mana pentru procesarea corespondentei postale, CNN-urile antrenate cu augmentare de date au inlocuit sistemele manuale, procesand milioane de scrisori zilnic cu acuratete superioara.</p></div>
+  </div>
+</div>

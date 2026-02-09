@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Posteriorul si predictia in clasificarea GP</h2>
+  <p>Aceasta pagina detaliaza calculul posteriorului prin aproximarea Laplace (IRLS), media si varianta predictiva, si regula variantei iterate.</p>
+  <div class="definition-box"><strong>Actualizarea IRLS pentru GP:</strong> f^{new} = (K^{-1} + W)^{-1} (Wf + nabla log p(y|f)), unde W = -nabla nabla log p(y|f) este o matrice diagonala. La convergenta, posteriorul este aproximat ca N(f_hat, (K^{-1} + W)^{-1}).</div>
+  <div class="highlight-box"><strong>Varianta predictiva:</strong> var[f_*] = k_{**} - k_*^T (K + W^{-1})^{-1} k_*, care include atat incertitudinea din prior cat si informatia din observatii prin matricea W.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Posteriorul functiei latente se calculeaza prin IRLS (Iteratively Reweighted Least Squares), iar la convergenta se obtine o aproximare Gaussiana. Media predictiva se calculeaza ca k_*^T K^{-1} f_hat, iar varianta predictiva foloseste regula variantei iterate: var[f_*] = E[var[f_*|f]] + var[E[f_*|f]]. Predictia de clasa se obtine integrandu-se functia sigma prin distributia predictiva.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Varianta predictiva contine doua componente: incertitudinea intrinseca din prior (k_{**} - k_*^T K^{-1} k_*) si contributia din datele observate prin W. Aproximarea probit pi_* ~ sigm(kappa(v) * E[f_*]) ofera o formula analitica aproximativa pentru probabilitatea de clasa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>IRLS converge de obicei rapid (cateva iteratii) pentru clasificare GP. Regula variantei iterate permite propagarea corecta a incertitudinii de la functia latenta la probabilitatea de clasa.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia fraudei bancare, clasificarea GP poate oferi nu doar predictia daca o tranzactie este frauduloasa, ci si incertitudinea asociata, permitand prioritizarea investigatiilor umane pe cazurile cu incertitudine ridicata.</p></div>
+  </div>
+</div>

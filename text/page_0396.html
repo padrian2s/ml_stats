@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>EM Online</h2>
+  <p>Pagina introduce variantele online ale algoritmului EM pentru seturi mari de date sau date in flux, inclusiv EM batch (recapitulare), EM incremental si EM pas-cu-pas (stepwise).</p>
+  <div class="definition-box"><strong>EM Online:</strong> Variante ale EM care actualizeaza parametrii fara a procesa intregul set de date la fiecare iteratie, permitand invatarea din date in flux sau din seturi foarte mari.</div>
+  <div class="definition-box"><strong>EM Incremental (Neal si Hinton 1998):</strong> Mentine statisticile suficiente s_i pentru fiecare observatie si le actualizeaza pe rand, inlocuind vechile s_i cu cele noi calculate. Convergenta monotona garantata.</div>
+  <div class="highlight-box"><strong>Algoritmul 11.2 (Batch EM):</strong> La fiecare iteratie recalculeaza toate statisticile suficiente s_i si le sumeaza in mu, apoi actualizeaza parametrii theta(mu). Simplu dar costisitor pentru date mari.</div>
+  <div class="highlight-box"><strong>Algoritmul 11.3 (EM Incremental):</strong> Actualizeaza mu := mu + s_i^new - s_i la fiecare observatie, permitand actualizari rapide fara recalcularea intregii sume.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 11.4.8 abordeaza problema scalabilitatii EM. EM batch recalculeaza totul la fiecare iteratie, ceea ce este ineficient pentru date mari. EM incremental rezolva partial aceasta problema, mentinand si actualizand statisticile suficiente individual. Ambele variante sunt prezentate formal cu pseudo-cod.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ideea centrala este exploatarea structurii aditive a statisticilor suficiente: mu = suma s_i. Actualizarea unui singur s_i necesita doar modificarea locala a sumei, nu recalcularea completa. Acest tipar apare in multe algoritme online.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>EM incremental este util in modelarea limbajului nesupervizat, unde datele sunt masive. Stocarea statisticilor suficiente per observatie necesita memorie O(N), dar actualizarile sunt mult mai rapide decat batch EM.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recomandare cu milioane de utilizatori, EM incremental permite actualizarea modelului de amestec pe masura ce sosesc noi date de interactiune, fara a reprocessa intregul istoric.</p></div>
+  </div>
+</div>

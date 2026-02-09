@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Structured mean field: exemplul HMM factorial</h2>
+  <p>Aceasta pagina prezinta structured mean field aplicat la HMM-ul factorial, demonstrand cum substructura tractabila (lanturi individuale) este exploatata.</p>
+  <div class="definition-box"><strong>HMM factorial:</strong> Un model cu M lanturi Markov paralele, fiecare de lungime T cu K stari. Observatia y_t la momentul t este generata de starea comuna a tuturor lanturilor: p(y_t|x_t) = N(y_t | Σ_m W_m x_{tm}, Σ). Lanturile sunt a priori independente dar cuplate prin observatiile comune.</div>
+  <div class="definition-box"><strong>Aproximarea structured mean field:</strong> q(x) = ∏_m q_m(x_m), unde fiecare q_m este o distributie pe un lant Markov complet (nu o aproximare factorizata). Fiecare lant poate fi tratat cu forward-backward, captureaza dependentele temporale dar ignora dependentele inter-lant.</div>
+  <div class="highlight-box"><strong>Complexitate:</strong> Inferenta exacta (JTA) necesita O(TMK^{M+1}) - exponentiala in M. Structured mean field necesita O(TMK^2 I) - liniara in M, unde I ≈ 10 iteratii. Castigul este dramatic pentru M > 3.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>HMM-ul factorial demonstreaza puterea structured mean field: M lanturi care sunt a priori independente devin cuplate prin observatii comune. Inferenta exacta este exponentiala in numarul de lanturi M, dar structured mean field trateaza fiecare lant independent (cu forward-backward), folosind mediile celorlalte lanturi ca "evidenta" aproximativa. Rezultatul este O(TMK^2) per iteratie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Blocurile naturale sunt lanturile individuale. Evidenta locala ξ_{tm} mediaza efectele celorlalte lanturi, inlocuind cuplajul exact cu o aproximare de camp mediu. Fiecare lant "vede" o observatie ajustata ỹ_{tm} = y_t - Σ_{l≠m} W_l E[x_{t,l}], din care contributia celorlalte lanturi a fost scazuta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>HMM-urile factoriale sunt folosite in separarea surselor audio (cocktail party problem), modelarea activitatii cerebrale (fMRI) si analiza miscarii in video (multiple obiecte in miscare).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In separarea vorbirii din zgomot (cocktail party), fiecare sursa este un lant HMM. Observatia este amestecul surselor. Structured mean field separa sursele iterativ: fiecare lant estimeaza sursa sa din observatia minus contributia estimata a celorlalte surse.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exercitii: Regresia Robusta, EB, Date Cenzurate</h2>
+  <p>Pagina contine exercitiile 11.12-11.14 si Figura 11.25: EM pentru regresie liniara robusta cu Student t, estimarea Bayes empiric cu Gaussian shrinkage si regresia liniara cu date cenzurate.</p>
+  <div class="highlight-box"><strong>Exercitiul 11.12 - Regresie robusta cu Student t (Eq. 11.136):</strong> p(y_i|x_i, w, sigma^2, nu) = T(y_i|w^T x_i, sigma^2, nu). Se cere derivarea algoritmului EM pentru MLE al lui w, tratand gradele de libertate nu si sigma^2 ca fixe.</div>
+  <div class="definition-box"><strong>Regresia cenzurata (Exercitiul 11.14):</strong> Date unde se stie doar ca y_i >= c_i (cenzurare la dreapta): observam y_i = min(z_i, c_i). EM trateaza valorile cenzurate ca variabile latente si le imputa cu media Gaussianei trunchiate.</div>
+  <div class="highlight-box"><strong>Figura 11.25:</strong> Regresie liniara cu date cenzurate. Cercuri negre = puncte observate, cruci rosii = puncte cenzurate, stele verzi = valori prezise. Linia EM (inclinata in sus) corecteaza bias-ul liniei OLS care ignora cenzurarea.</div>
+  <div class="highlight-box"><strong>Modelul Tobit:</strong> Varianta strans inrudita: y_i = max(z_i, 0). Observam doar rezultate pozitive, modelul latent z_i poate fi negativ. Folosit in econometrie pentru investitii, cheltuieli etc.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile demonstreaza versatilitatea EM: regresia robusta (Student t ca amestec de Gaussiene cu varianta variabila), Bayes empiric (EB) cu Gaussian shrinkage si regresia cu date cenzurate. Fiecare model are variabile latente naturale care fac EM aplicabil elegant.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cenzurarea este o forma speciala de date lipsa: stim ca valoarea depaseste un prag, dar nu stim valoarea exacta. EM corecteaza bias-ul sistematic care apare cand se ignora cenzurarea (ca in OLS naiv).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia cu date cenzurate apare in analiza de supravietuire (timp pana la deces, cu pacienti inca in viata la sfarsitul studiului), fiabilitate industriala (timp pana la defectare) si studii de mediu (concentratii sub limita de detectie).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In industria farmaceutica, timpul pana la raspunsul terapeutic este adesea cenzurat la dreapta (studiul se termina inainte ca toti pacientii sa raspunda). EM pentru regresia cenzurata permite estimarea corecta a efectului tratamentului.</p></div>
+  </div>
+</div>

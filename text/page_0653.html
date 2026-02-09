@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Generalizari HMM - HMM cu durata variabila (semi-Markov)</h2>
+  <p>Aceasta pagina introduce HMM-urile cu durata variabila (HSMM), explicand limitarea distributiei geometrice si modelul semi-Markov.</p>
+  <div class="definition-box"><strong>HSMM (Hidden Semi-Markov Model):</strong> Extinde HMM standard permitand distributii de durata arbitrare p(t_i=d) in loc de distributia geometrica implicita p(t_i=d) = (1-A_ii) * A_ii^d. Include un contor de durata D_t care numara inapoi de la durata esantionata.</div>
+  <div class="highlight-box"><strong>Modelul grafic HSMM:</strong> Figura 17.14 arata graful cu variabile D_t (contoare de durata), Q_t (stari) si X_t (observatii). D_t este deterministic (numara inapoi), Q_t se schimba doar cand D_t ajunge la 0. Observatiile pot fi modelate ca iid sau corelate in cadrul unei stari.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>In HMM standard, durata in fiecare stare urmeaza o distributie geometrica (memoryless), ceea ce este adesea nerealist. HSMM permite distributii de durata arbitrare (Gaussian, Poisson, etc.) prin adaugarea unui contor de durata D_t. Cand intram intr-o stare, esantionam durata D_t ~ p_j(.), apoi D_t numara inapoi deterministic. Observatiile pot fi modelate ca: (1) iid in cadrul starii, (2) un bloc de l observatii corelate p(x_{t:t+l}|z_t=k, d_t=l).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Flexibilitatea HSMM: poate modela durate cu medie si varianta specifice, nu doar decadere exponentiala. Modelele cu observatii corelate per segment pot capta trend-uri locale (de ex. cresteri/descresteri). Costul: complexitatea creste de la O(K^2 T) la O(K^2 T D), unde D este durata maxima.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>HSMM-urile sunt folosite in: gasirea genelor (distributia lungimii exonilor nu este geometrica), analiza segmentata a serilor temporale (ChIP-Seq), si recunoasterea activitatii umane (activitatile au durate caracteristice).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In bioinformatica, lungimea exonilor si intronilor are distributii specifice (nu geometrice). HSMM modeleaza corect aceste distributii, imbunatatind semnificativ acuratetea predictiei genelor fata de HMM standard.</p></div>
+  </div>
+</div>

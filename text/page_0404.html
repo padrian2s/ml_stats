@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>EM pentru MLE al MVN cu Date Lipsa</h2>
+  <p>Pagina prezinta aplicarea detaliata a algoritmului EM pentru estimarea parametrilor unei distributii Gaussiene multivariate (MVN) in prezenta datelor lipsa, cu derivarea pasilor E si M.</p>
+  <div class="definition-box"><strong>Initializare (Getting started):</strong> Se calculeaza MLE initial din randurile complet observate ale matricei de date. Daca nu exista astfel de randuri, se folosesc proceduri de imputare ad-hoc.</div>
+  <div class="highlight-box"><strong>Pasul E - Log-verosimilitatea completa asteptata (Eq. 11.101-11.105):</strong> Q(theta, theta^{t-1}) necesita calculul E[S(mu)] = suma_i (E[x_i x_i^T] + mu*mu^T - 2*mu*E[x_i]^T). Statisticile suficiente asteptate sunt E[x_i] si E[x_i x_i^T].</div>
+  <div class="highlight-box"><strong>Imputarea conditionata (Eq. 11.106-11.108):</strong> x_{ih}|x_{iv}, theta ~ N(m_i, V_i), unde m_i = mu_h + Sigma_{hv} Sigma_{vv}^{-1} (x_{iv} - mu_v) si V_i = Sigma_{hh} - Sigma_{hv} Sigma_{vv}^{-1} Sigma_{vh}. Media conditionata Gaussiana completeaza valorile lipsa.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 11.6.1 deriveaza EM pentru o MVN cu date lipsa. Pasul E calculeaza statisticile suficiente asteptate E[x_i] si E[x_i x_i^T] folosind proprietatile conditionarii Gaussiene: valorile observate raman fixe, valorile lipsa sunt inlocuite cu media lor conditionata, iar momentele de ordinul doi includ si varianta posterioara V_i.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Elementul crucial este ca E[x_i x_i^T] != E[x_i] E[x_i]^T: trebuie adaugata varianta posterioara V_i. Ignorarea acestui termen (simpla inlocuire cu medii) ar subestima varianta, un error comun in imputarea naiva a datelor lipsa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta procedura este fundamentul multor pachete software de imputare multipla (MICE, Amelia). Imputarea corecta necesita nu doar valorile asteptate, ci si incertitudinea lor, pentru inferenta statistica valida.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza sondajelor cu multe intrebari necompletate, EM pentru MVN cu date lipsa permite estimarea corelatiilor intre variabile folosind toate datele disponibile, nu doar respondentii care au completat tot.</p></div>
+  </div>
+</div>

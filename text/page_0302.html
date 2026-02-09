@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Date Lipsă la Testare și Antrenament, Analiza Discriminantă Liniară Fisher (FLDA)</h2>
+  <p>Pagina discută tratarea datelor lipsă la testare (prin marginalizare în modele generative) și la antrenament (necesitând algoritmi mai sofisticați), apoi introduce FLDA ca hibrid generativ-discriminativ.</p>
+  <div class="highlight-box"><strong>Date lipsă la testare - Naive Bayes (Ecuația 8.96):</strong> Σ_{x₁} p(x₁, x_{2:D}|y=c, θ) = [Σ_{x₁} p(x₁|θ_{1c})] ∏_{j=2}^D p(x_j|θ_{jc}) = ∏_{j=2}^D p(x_j|θ_{jc}). În Naive Bayes, caracteristicile lipsă sunt pur și simplu ignorate!</div>
+  <div class="highlight-box"><strong>Date lipsă la testare - Analiza discriminantă (Ecuația 8.97):</strong> p(x_{2:D}|y=c, θ) = N(x_{2:D}|μ_{c,2:D}, Σ_{c,2:D,2:D}) - se marginalizează analitic peste variabilele lipsă folosind proprietățile distribuției Gaussiene.</div>
+  <div class="definition-box"><strong>Analiza Discriminantă Liniară Fisher (FLDA):</strong> Găsește direcția de proiecție w care maximizează separarea între clase în spațiul proiectat. Hibrid generativ-discriminativ: folosește un model generativ (Gaussiene per clasă) pentru a defini un criteriu discriminativ (raportul variației inter-clase la intra-clase). Restricție: cel mult L ≤ C-1 dimensiuni.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelele generative oferă o soluție elegantă pentru date lipsă la testare: marginalizarea analitică. În Naive Bayes, aceasta se reduce la ignorarea pur și simplu a caracteristicilor lipsă. FLDA este introdusă ca o alternativă la reducerea dimensionalității nesupervizate (PCA): în loc de a maximiza varianța totală, FLDA maximizează separabilitatea claselor, producând proiecții mai utile pentru clasificare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>FLDA ilustrează o temă importantă: reducerea dimensionalității supervizate vs. nesupervizate. PCA (nesupervizat) maximizează varianța totală, care poate fi dominată de variabilitate intra-clasă irelevantă. FLDA (supervizat) maximizează variabilitatea inter-clase relativă la cea intra-clasă, direct relevantă pentru clasificare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>FLDA este folosită extensiv în recunoașterea facială (Fisherfaces), analiza senzorială (diferențierea produselor alimentare), și chemiometrie (clasificarea substanțelor chimice pe baza spectrelor). PCA urmată de FLDA este o combinație populară pentru date de dimensiune foarte mare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de recunoaștere facială reduce imagini de 10.000 pixeli la 2D folosind FLDA pe 3 persoane (C=3, L≤2). Proiecția FLDA separă cele 3 persoane mult mai bine decât PCA, deoarece PCA captează variația de iluminare (dominantă dar irelevantă), nu diferențele între fețe.</p></div>
+  </div>
+</div>

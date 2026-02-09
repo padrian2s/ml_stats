@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Esantionarea prin importanta - Distributii nenormalizate si self-normalized IS</h2>
+  <p>Aceasta pagina trateaza cazul practic in care distributia tinta p(x) si/sau propunerea q(x) sunt nenormalizate, introducand estimatorul self-normalized.</p>
+  <div class="definition-box"><strong>Ponderi nenormalizate:</strong> w_tilde_s = p_tilde(x^s)/q_tilde(x^s), unde p_tilde si q_tilde sunt versiunile nenormalizate. Raportul Z_p/Z_q poate fi estimat ca (1/S)*sum w_tilde_s.</div>
+  <div class="definition-box"><strong>Estimatorul self-normalized:</strong> I_hat = (sum w_tilde_s * f(x^s)) / (sum w_tilde_s) = sum w_s * f(x^s), unde w_s = w_tilde_s / sum w_tilde_j sunt ponderile normalizate. Nu necesita cunoasterea constantelor de normalizare.</div>
+  <div class="highlight-box"><strong>Propunerea adaptativa:</strong> Propunerea q poate fi adaptata iterativ pentru a se apropia de distributia tinta. Aceasta se numeste esantionare adaptativa prin importanta (adaptive importance sampling).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina rezolva o problema practica fundamentala: in statistica Bayesiana, atat posterioarul cat si propunerea sunt adesea cunoscute doar pana la o constanta. Estimatorul self-normalized evita aceasta problema prin normalizarea ponderilor, la costul introducerii unui bias mic (care dispare cu S).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Estimatorul self-normalized este biased dar consistent: pe masura ce numarul de esantioane creste, biasul dispare. Este mai stabil numeric decat estimatorul nenormalizat, deoarece ponderile sunt normalizate sa insumeze 1.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Estimatorul self-normalized este standard in filtrarea particulelor (particle filters) si in estimarea Bayesiana cand posterioarul este cunoscut doar pana la o constanta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In urmarirea vizuala a obiectelor in video (filtrarea particulelor), fiecare particula are o pondere de importanta bazata pe cat de bine observatia curenta se potriveste cu pozitia estimata, iar ponderile self-normalized determina estimarea pozitiei.</p></div>
+  </div>
+</div>

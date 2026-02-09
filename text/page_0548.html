@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Efectul Parametrilor Kernel asupra GP</h2>
+  <p>Pagina ilustrează cum parametrii kernelului SE (lungimea caracteristică ℓ, amplitudinea σ_f și zgomotul σ_y) afectează predicțiile GP pe date zgomotoase.</p>
+  <div class="definition-box"><strong>Kernelul SE cu zgomot:</strong> κ_y(x_p, x_q) = σ²_f · exp(−(x_p − x_q)² / (2ℓ²)) + σ²_y · δ_pq. Are trei hiperparametri: ℓ (lungimea caracteristică), σ_f (amplitudinea semnalului), σ_y (deviația zgomotului).</div>
+  <div class="highlight-box"><strong>Efectul ℓ:</strong> ℓ mic → funcție „ondulată" cu variații rapide. ℓ mare → funcție netedă care variază lent. ℓ controlează cât de departe trebuie să fie două puncte pentru ca funcția să se schimbe semnificativ.</div>
+  <div class="figure-box"><strong>Figura 15.3:</strong> GP-uri 1D cu kernel SE potrivite pe 20 observații zgomotoase cu diferite hiperparametre: (a) (ℓ, σ_f, σ_y) = (1, 1, 0.1) - potrivire bună. (b) (0.3, 0.108, 0.00005) - funcție ondulată, zgomot aproape zero. (c) (3.0, 1.16, 0.89) - funcție foarte netedă, zgomot mare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cei trei hiperparametri ai kernelului SE controlează caracteristicile predicției GP. Lungimea caracteristică ℓ determină netezimea, σ_f amplitudinea variațiilor și σ_y nivelul de zgomot. Alegerea greșită a hiperparametrilor poate duce la supraadaptare (ℓ mic, σ_y mic) sau subadaptare (ℓ mare, σ_y mare).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul între complexitatea modelului și zgomot este vizibil: un model cu ℓ mic și σ_y mic atribuie toată variația funcției (supraadaptare), în timp ce un model cu ℓ mare și σ_y mare atribuie toată variația zgomotului (subadaptare). Verosimilitatea marginală echilibrează aceste extreme.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea corectă a hiperparametrilor este critică. În practică, se estimează prin maximizarea verosimilității marginale (empirical Bayes) sau prin validare încrucișată. Inițializarea multiplă este necesară din cauza minimelor locale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În monitorizarea calității aerului, un GP care modelează concentrația de ozon trebuie să distingă variațiile reale (ciclul diurn) de zgomotul senzorilor. Un ℓ de câteva ore captează ciclul diurn, iar σ_y reflectă precizia senzorilor.</p></div>
+  </div>
+</div>

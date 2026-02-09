@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Cuvinte din Afara Vocabularului și Distribuția Staționară (p. 596)</h2>
+  <p>Pagina abordează gestionarea cuvintelor necunoscute prin simbolul special „unk" și introduce conceptul de distribuție staționară a unui lanț Markov.</p>
+  <div class="definition-box"><strong>Simbolul unk:</strong> O euristică standard pentru gestionarea cuvintelor necunoscute prin înlocuirea tuturor cuvintelor noi cu un simbol special „necunoscut", căruia i se alocă o anumită masă de probabilitate.</div>
+  <div class="definition-box"><strong>Distribuția staționară:</strong> Distribuția pe termen lung peste stări a unui lanț Markov, notată π, care rămâne neschimbată după aplicarea matricei de tranziție: π = πA.</div>
+  <div class="highlight-box"><strong>Distribuția la momentul t:</strong> π₁(j) = Σᵢ π₀(i)A_ij, sau în notație matriceală: π₁ = π₀A (Ec. 17.19-17.20).</div>
+  <div class="figure-box"><strong>Figura 17.4:</strong> (a) Un lanț Markov aperiodic cu 3 stări. (b) Un lanț Markov reductibil cu 4 stări, ilustrând diferite proprietăți structurale ale lanțurilor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se prezintă două concepte importante: gestionarea vocabularului deschis în modelele de limbaj și distribuția staționară a lanțurilor Markov ca sisteme dinamice stochastice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la modelele de limbaj la proprietățile matematice ale lanțurilor Markov. Distribuția staționară conectează teoria probabilistică cu aplicații practice precum PageRank și MCMC.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Distribuția staționară este fundamentul algoritmului PageRank al Google pentru clasarea paginilor web și al algoritmilor MCMC pentru generarea de eșantioane din distribuții complexe.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un robot de navigare web care urmează linkuri aleatoriu va petrece, pe termen lung, mai mult timp pe paginile importante (cu multe linkuri de intrare) - aceasta este esența PageRank-ului bazat pe distribuția staționară.</p></div>
+  </div>
+</div>

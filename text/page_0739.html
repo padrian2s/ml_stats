@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Propagarea Credintelor pe Arbori - Faza de Colectare (Bottom-Up)</h2>
+  <p>Pagina detaliaza mecanismul de transmitere a mesajelor in faza de colectare a evidentei (collect-to-root), prezentand calculul starilor de credinta bottom-up si al mesajelor de la copii la parinti.</p>
+  <div class="figure-box"><strong>Figura 20.1:</strong> Transmiterea mesajelor pe un arbore. (a) Faza de colectare spre radacina (collect-to-root): mesajele se propaga de la frunze in sus. (b) Faza de distribuire de la radacina (distribute-from-root): mesajele se propaga de la radacina in jos.</div>
+  <div class="definition-box"><strong>Starea de credinta bottom-up:</strong> bel⁻ₜ(xₜ) ≜ p(xₜ|v⁻ₜ) = (1/Zₜ)ψₜ(xₜ) ∏_{c∈ch(t)} m⁻_{c→t}(xₜ) (Ecuatia 20.2) - credinta bazata doar pe evidenta din subarborele de sub nodul t.</div>
+  <div class="definition-box"><strong>Mesajul bottom-up:</strong> m⁻_{s→t}(xₜ) = Σ_{xₛ} ψₛₜ(xₛ,xₜ) bel⁻ₛ(xₛ) (Ecuatia 20.3) - converteste credintele despre xₛ in credinte despre xₜ folosind potentialul de muchie ψₛₜ.</div>
+  <div class="highlight-box"><strong>Credinta la radacina:</strong> belᵣ(xᵣ) ≜ p(xᵣ|v) ∝ ψᵣ(xᵣ) ∏_{c∈ch(r)} m⁻_{c→r}(xᵣ) (Ecuatia 20.4) - la radacina, credinta bottom-up este egala cu marginala posterioara completa.</div>
+  <div class="highlight-box"><strong>Probabilitatea evidentei:</strong> p(v) = ∏ₜ Zₜ (Ecuatia 20.5) - produsul constantelor de normalizare din fiecare nod da probabilitatea totala a evidentei.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Faza de colectare a evidentei functioneaza de la frunze la radacina. Fiecare nod isi calculeaza starea de credinta bottom-up combinand evidenta sa locala ψₜ(xₜ) cu mesajele primite de la toti copiii. Mesajul de la copil la parinte sumarizeaza toata evidenta din subarborele respectiv. La radacina, credinta incorporeaza toata evidenta din arbore. Ca bonus, produsul constantelor de normalizare da probabilitatea evidentei.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Analogia cu algoritmul forward este directa: mesajele bottom-up sunt generalizarea variabilelor forward α de la lanturi la arbori. Recursia are aceeasi structura: sumarizare (marginalizare) peste starea copilului, ponderata de potentialul de muchie. Complexitatea este O(K²|V|) pentru variabile cu K stari si |V| noduri.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Faza de colectare este utilizata in inferenta pe arbori filogenetici (biologie evolutiva), coduri de corectie a erorilor (decodare iterativa), si modele de limbaj cu structura de arbore sintactic.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In reconstructia filogenetica, fiecare frunza reprezinta o specie observata, iar nodurile interne reprezinta stramosi necunoscuti. Mesajele bottom-up calculeaza probabilitatea fiecarei stari posibile a stramosului, combinand informatia de la toate speciile descendente.</p></div>
+  </div>
+</div>

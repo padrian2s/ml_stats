@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Indexul Gini si Exemplu cu Setul de Date Iris</h2>
+  <p>Pagina prezinta indexul Gini ca masura de impuritate a nodului, comparatia cu entropia si rata de eroare, si un exemplu cu setul de date Iris cu 3 clase.</p>
+  <div class="definition-box"><strong>Indexul Gini:</strong> Σ_{c=1}^{C} π̂_c(1 - π̂_c) = Σ_c π̂_c - Σ_c π̂_c² = 1 - Σ_c π̂_c² (Ec. 16.14), rata asteptata de eroare.</div>
+  <div class="highlight-box"><strong>Cazul cu doua clase:</strong> Cand p = π_m(1), rata de clasificare gresita este 1 - max(p, 1-p), entropia este H₂(p), iar indexul Gini este 2p(1-p).</div>
+  <div class="figure-box"><strong>Figura 16.3:</strong> Masurile de impuritate a nodului pentru clasificare binara. Axa orizontala este p (probabilitatea clasei 1). Se compara rata de eroare, indicele Gini si entropia (rescalata). Gini si entropia sunt mai sensibile la schimbarile de probabilitate.</div>
+  <div class="figure-box"><strong>Figura 16.4:</strong> (a) Datele Iris - doua din patru caracteristici (lungime si latime sepal). (b) Granitele de decizie induse de arborele de decizie din Figura 16.5(a).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Indexul Gini masoara probabilitatea ca o intrare aleatoare sa fie clasificata gresit. Entropia si Gini sunt foarte similare si mai sensibile la schimbarile probabilitatii de clasa decat rata de clasificare gresita. Exemplul cu Iris demonstreaza aplicarea practica pe date reale cu 3 clase.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Intr-un exemplu cu doua clase (400 per clasa), impartirile (300,100)/(100,300) vs (200,400)/(200,0) au aceeasi rata de eroare (0.25), dar entropia si Gini favorizeaza a doua varianta deoarece un nod este pur. Aceasta proprietate face Gini si entropia superioare ratei de eroare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Indexul Gini este criteriul implicit in algoritmul CART si este utilizat in biblioteci populare precum scikit-learn. Este preferat entropiei in unele implementari deoarece evita calculul logaritmului, fiind mai rapid computational.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Clasificarea speciilor de flori Iris (setosa, versicolor, virginica) pe baza masurarilor sepalelor si petalelor este un exemplu clasic. Arborele de decizie rezultat arata ca setosa este usor separabila, dar versicolor si virginica se suprapun partial.</p></div>
+  </div>
+</div>

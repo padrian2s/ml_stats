@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii: convergenta regresiei online si regresie Bayesiana 1D cu &sigma;&sup2; cunoscut</h2>
+  <p>Aceasta pagina contine continuarea exercitiului de regresie online (Figura 7.14 cu convergenta) si exercitiul 7.8 despre regresia Bayesiana unidimensionala cu varianta cunoscuta.</p>
+  <div class="definition-box"><strong>Convergenta regresiei online:</strong> Figura 7.14 arata ca coeficientii estimati online (puncte) converge rapid la valorile batch (linii), confirmand ca statisticile suficiente captureaza toata informatia necesara.</div>
+  <div class="definition-box"><strong>Regresie Bayesiana 1D:</strong> p(y | x, &theta;, &sigma;&sup2;) = N(y | w_0 + w_1 x, &sigma;&sup2;). Cu prior p(w) = p(w_0)p(w_1), unde p(w_0) este uniform improper si p(w_1) = N(0,1), se cere calculul posteriorului marginal p(w_1 | D, &sigma;&sup2;) si a intervalului de credibilitate de 95%.</div>
+  <div class="highlight-box"><strong>Estimator nedeplasat al variantei in regresie:</strong> &sigma;_hat&sup2; = (1/(N-2)) &Sigma;(y_i - y_hat_i)&sup2;, unde se imparte la N-2 (nu N) deoarece au fost estimati 2 parametri (w_0 si w_1). Aceasta este generalizarea corectiei Bessel la regresie.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza empiric convergenta algoritmului de regresie online si apoi prezinta un exercitiu complet de regresie Bayesiana 1D. Exercitiul 7.8 ghideaza studentul prin: specificarea priorului (semi-conjugat), calculul posteriorului exact, obtinerea momentelor si a intervalului de credibilitate. Datele furnizate (x = temperature, y = intensitati) permit un calcul numeric complet.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Corectia de la N la N-2 in estimatorul variantei reflecta „pierderea" a 2 grade de libertate prin estimarea interceptului si pantei. 2) Priorul semi-conjugat (uniform pe w_0, Gaussian pe w_1) este mai realist decat un prior joint conjugat. 3) Posteriorul marginal pentru w_1 necesita integrarea peste w_0, care se face analitic datorita structurii Gaussiene.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Acest tip de regresie Bayesiana simpla apare in calibrarea instrumentelor de laborator (relatie liniara intre citirea instrumentului si valoarea reala), in chimia analitica (curbe de calibrare), si in fizica experimentala (estimarea constantelor fizice din masuratori).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Datele din exercitiu (x = temperaturi, y = intensitati) par a fi o curba de calibrare pentru un senzor. Priorul N(0,1) pe panta exprima credinta ca panta este probabil mica dar nenula. Posteriorul rafineaza aceasta credinta folosind cele 10 masuratori, iar intervalul de credibilitate de 95% ofera inginerului o evaluare a preciziei calibrarii.</p></div>
+  </div>
+</div>

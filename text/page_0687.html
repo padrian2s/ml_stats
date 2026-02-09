@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Inferenta in SLDS si Metode Aproximative</h2>
+  <p>Pagina prezinta problema inferentei in modelele SLDS, demonstrand explozia exponentiala a numarului de moduri si metodele aproximative disponibile.</p>
+  <div class="figure-box"><strong>Figura 18.12:</strong> (a) Reprezentarea DGM a unui sistem liniar dinamic cu comutare, cu noduri patrate pentru variabilele discrete q_t si noduri circulare pentru variabilele continue z_t si y_t. (b) Ilustrarea cresterii exponentiale a numarului de moduri in starea de credinta, presupunand doua stari binare.</div>
+  <div class="highlight-box"><strong>Explozia exponentiala:</strong> La pasul 1 avem 2 Gaussiene, la pasul 2 avem 4 Gaussiene, la pasul 3 avem 8 Gaussiene. In general, la pasul t starea de credinta este o mixtura de 2^t Gaussiene, ceea ce face inferenta exacta intractabila.</div>
+  <div class="definition-box"><strong>Urmarirea ipotezelor multiple (MHT):</strong> Metoda care elimina traiectoriile cu probabilitate scazuta din arborele discret, pastrandu-le doar pe cele mai probabile.</div>
+  <div class="highlight-box"><strong>Metode aproximative pentru SLDS:</strong> (1) Urmarirea ipotezelor multiple - elimina traiectorii improbabile. (2) Monte Carlo - esantioneaza traiectorii discrete si aplica filtre Kalman analitice conditionat. (3) ADF - aproximeaza mixtura exponentiala cu una mai mica.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Inferenta exacta in SLDS este intractabila datorita cresterii exponentiale a numarului de componente Gaussiene. Trei familii principale de metode aproximative sunt prezentate: eliminarea ipotezelor, Monte Carlo si filtrarea cu densitate presupusa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Intractabilitatea in SLDS provine din interactiunea dintre variabilele discrete si continue. Numarul de moduri creste exponential cu K^t. Toate metodele aproximative fac un compromis diferit intre acuratete si eficienta computationala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MHT este standard in urmarirea radar a tintelor multiple cu manevre. Monte Carlo este preferat cand spatiul discret este mare. ADF ofera un bun echilibru pentru sisteme cu putine moduri discrete dar multe pasi de timp.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de supraveghere aeriana, fiecare aeronava poate fi in moduri diferite (zbor rectiliniu, viraj, decelerare). Un SLDS cu MHT urmareste simultan toate ipotezele plauzibile despre modul de zbor si traiectoria fiecarei aeronave.</p></div>
+  </div>
+</div>

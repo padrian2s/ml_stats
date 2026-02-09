@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 1: KNN cu 3 Clase si Probabilitati</h2>
+  <p>Exemplu vizual de KNN cu K=10 pe date 2D cu 3 clase, inclusiv harti de probabilitate si estimarea MAP.</p>
+  <div class="definition-box"><strong>Invatare Bazata pe Memorie (Memory-Based Learning):</strong> Metoda de invatare care stocheaza toate datele de antrenament si le foloseste direct la momentul predictiei, fara a construi un model parametric explicit. Sinonim cu invatare bazata pe instante (instance-based learning).</div>
+  <div class="definition-box"><strong>Distanta Euclidiana:</strong> Cea mai comuna metrica de distanta folosita in KNN, aplicabila datelor cu valori reale, desi pot fi folosite si alte metrici.</div>
+  <div class="figure-box"><strong>Figura 1.15:</strong> (a) Date sintetice de antrenament cu 3 clase in 2D. (b) Probabilitatea clasei 1 pentru KNN cu K=10. (c) Probabilitatea clasei 2. (d) Estimarea MAP a etichetei de clasa - regiunile de decizie colorate.</div>
+  <div class="highlight-box"><strong>Proprietate Importanta KNN:</strong> Se poate demonstra ca KNN poate atinge performante la un factor de 2 de cea mai buna performanta posibila, daca N → ∞ (Cover si Hart, 1967).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 1.15 demonstreaza vizual cum functioneaza KNN cu K=10 pe date 2D cu 3 clase. Panoul (b) arata probabilitatea clasei 1, unde culorile calde indica regiuni cu probabilitate ridicata. Panoul (d) arata estimarea MAP - fiecare punct din spatiu este colorat conform clasei celei mai probabile. Frontierele de decizie sunt neregulate dar capteaza structura datelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>KNN produce natural estimari probabilistice, nu doar etichete. Hartile de probabilitate (panourile b si c) arata ca increderea variaza spatial - in zonele de granita intre clase, probabilitatile sunt apropiate de 1/3, indicand incertitudine. Alegerea lui K afecteaza netezimea frontierelor de decizie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>KNN este folosit ca baseline in competitii de ML, in sisteme de clasificare a imaginilor simple, in detectia anomaliilor si in imputation (completarea valorilor lipsa prin media vecinilor). Simplitatea sa il face ideal pentru prototiparea rapida.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de detectie a fraudelor bancare poate folosi KNN: fiecare tranzactie noua este comparata cu cele K tranzactii cele mai similare din istoric. Daca majoritatea vecinilor sunt tranzactii frauduloase, tranzactia noua este marcata ca suspecta, cu un grad de incredere proportional cu fractia de vecini fraudulosi.</p></div>
+  </div>
+</div>

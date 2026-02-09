@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Latent Dirichlet Allocation (LDA) - Detalii</h2>
+  <p>Aceasta pagina introduce detaliat modelul LDA (Blei et al. 2003), prezentand modelul grafic (Figura 27.2b), procesul generativ complet si relatia cu amestecuri de admixturi.</p>
+  <div class="definition-box"><strong>LDA (Latent Dirichlet Allocation):</strong> pi_i|alpha ~ Dir(alpha*1_K), q_{il}|pi_i ~ Cat(pi_i), b_k|gamma ~ Dir(gamma*1_V), y_{il}|q_{il}=k, B ~ Cat(b_k). Fiecare cuvant are propriul topic, iar fiecare document are propria distributie pe topicuri.</div>
+  <div class="definition-box"><strong>Amestec de admixturi (mixed membership model):</strong> Modelul LDA este un amestec de admixturi: in loc de a asigna un document la un singur cluster, fiecare document este o "admixtura" (combinatie) de topicuri, cu proportii pi_i specifice documentului.</div>
+  <div class="highlight-box"><strong>Procesul generativ LDA:</strong> (1) Genereaza proportiile de topicuri pi_i ~ Dir(alpha). (2) Pentru fiecare cuvant l in document: (a) alege topicul q_{il} ~ Cat(pi_i), (b) genereaza cuvantul y_{il} ~ Cat(b_{q_{il}}). Ilustrat in Figura 27.2(b).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta LDA complet: modelul grafic, ecuatiile generative si relatia cu alte modele. Cheia LDA este ca fiecare cuvant din fiecare document are propriul indicator de topic q_{il}, in timp ce documentul in ansamblu are o distributie pi_i pe topicuri. Aceasta permite unui document sa amestece mai multe topicuri. Priorul Dirichlet pe pi_i cu alpha mic incurajeaza documente dominate de putine topicuri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>LDA generalizeaza amestecul de multinomiale permitand topicuri multiple per document. Modelul are doi hiperparametri cheie: alpha (concentrarea topicurilor per document) si gamma (concentrarea cuvintelor per topic). Ambii afecteaza raritatea reprezentarii.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LDA este folosit extensiv in: analiza de text (descoperirea topicurilor), sisteme de recomandare (profilarea utilizatorilor), genetica populatiilor (structura populatiilor cu admixtura), si analiza retelelor sociale (detectia comunitatilor cu apartenenta multipla).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In jurnalism digital, LDA aplicat pe arhiva de stiri poate descoperi topicurile dominante (politica, sport, economie, stiinta) si urmari evolutia lor in timp, oferind o analiza automata a agendei mediatice fara etichetare manuala.</p></div>
+  </div>
+</div>

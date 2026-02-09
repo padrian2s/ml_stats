@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exerciții - Capitolul 3 (Partea 4): Analiza Bayesiană a Distribuției Exponențiale</h2>
+  <p>Pagina prezintă exerciții detaliate despre analiza Bayesiană a distribuției exponențiale, MLE și estimarea MAP pentru Bernoulli cu priori neconjugate.</p>
+  <div class="highlight-box"><strong>Exercițiul 3.11 - Distribuția exponențială:</strong> p(x|θ) = θe^{−θx}. MLE: θ̂ = 1/x̄ = N/Σxᵢ. Prior conjugat exponențial: p(θ|λ) = Expon(θ|λ). Prior conjugat general: Ga(θ|a,b).</div>
+  <div class="highlight-box"><strong>Posteriorul exponențial:</strong> p(θ|D,λ̂) ∝ θ^N·e^{−θ(Σxᵢ+λ̂)} = Ga(θ|N+1, Σxᵢ+λ̂). Media posterioară: (N+1)/(Σxᵢ+λ̂).</div>
+  <div class="highlight-box"><strong>Exercițiul 3.12 - MAP cu prior neconjugat:</strong> Prior discret pe θ: p(θ=0.5) = 0.5, p(θ=0.4) = 0.5. MAP: se compară p(D|θ=0.5)·0.5 vs p(D|θ=0.4)·0.5 pentru diferite N.</div>
+  <div class="highlight-box"><strong>Diferența MLE vs media posterioară:</strong> MLE: 1/x̄. Media posterioară: (N+1)/(Σxᵢ+λ̂). Cu date puține, acestea pot diferi semnificativ; media posterioară este mai stabilă.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Distribuția exponențială modelează timpi de așteptare cu proprietatea de lipsă de memorie. Priorul conjugat Gamma produce un posterior tractabil, similar modelului beta-binomial.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Priorul exponențial este un caz special de prior Gamma (a=1). Cu priori neconjugate, posteriorul nu are formă analitică simplă, dar MAP poate fi calculat prin enumerare sau optimizare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Distribuția exponențială modelează durata de viață a componentelor (fiabilitate), timpii între evenimente (procese Poisson), și timpii de așteptare în cozi (telecomunicații).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Estimarea ratei de defectare a serverelor dintr-un centru de date: cu doar 3 observații (5, 6, 4 ani), media posterioară cu un prior Gamma informativ oferă estimări mai fiabile decât MLE.</p></div>
+  </div>
+</div>

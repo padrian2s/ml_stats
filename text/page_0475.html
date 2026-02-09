@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Gradient Proiectat si Proiectii pe Multimi Convexe</h2>
+  <p>Pagina prezinta Figura 13.11 (ilustrarea gradient descent proiectat), proiectiile pe diverse multimi convexe (box, l2 ball, l1 ball) si introduce metoda de gradient proximal.</p>
+  <div class="highlight-box"><strong>Figura 13.11:</strong> Ilustrarea gradient descent proiectat: pasul de gradient theta_k - g_k poate iesi din setul fezabil. Proiectia pe setul fezabil produce theta_{k+1} = proj_C(theta_k - g_k).</div>
+  <div class="highlight-box"><strong>Proiectii pe multimi convexe specifice (Eq. 13.73-13.76):</strong> Box: clip la limitele [l_j, u_j]. L2 ball: normalizare daca ||theta||_2 > 1. L1 ball: soft thresholding cu lambda ales sa satisfaca constrangerea ||theta||_1 <= 1. Cost: O(D).</div>
+  <div class="definition-box"><strong>Gradient proximal (Sectiunea 13.4.3.2):</strong> Generalizarea gradient descent proiectat: in loc de proiectie pe o multime, se aplica operatorul proximal al regularizatorului dupa fiecare pas de gradient pe pierdere. Separa pierderea (smooth) de regularizator (non-smooth).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Gradient descent proiectat si gradient proximal sunt algoritme iterative generale pentru optimizare cu constrangeri sau regularizare non-smooth. Eficienta lor depinde de calculul rapid al proiectiei/operatorului proximal. Proiectia pe l1 ball (O(D)) face aceste metode scalabile pentru probleme LASSO de dimensiune mare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Separarea pierdere-regularizator este cheia: pasul de gradient (pe L smooth) si operatia proximala (pe R non-smooth) sunt efectuate alternativ. Aceasta structura este analoga cu splitting in optimizarea ADMM.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>ISTA (Iterative Shrinkage-Thresholding Algorithm) si varianta accelerata FISTA sunt implementari standard ale gradient proximal pentru LASSO. FISTA are convergenta O(1/k^2), semnificativ mai rapida decat ISTA (O(1/k)).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In invatare automata distribuita (federated learning), gradient proximal permite antrenarea modelelor sparse pe date distribuite pe multiple dispozitive, aplicand operatorul proximal local pe fiecare dispozitiv.</p></div>
+  </div>
+</div>

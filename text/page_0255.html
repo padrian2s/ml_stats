@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Programare Liniară pentru Regresie Robustă și Funcția de Pierdere Huber</h2>
+  <p>Pagina prezintă formularea ca program liniar a regresiei ℓ₁, introduce funcția de pierdere Huber și rezumă combinațiile verosimilitate-prior pentru regresia liniară.</p>
+  <div class="highlight-box"><strong>Tabelul 7.1 - Combinații Verosimilitate-Prior:</strong> Gaussian + Uniform = Least Squares (7.3); Gaussian + Gaussian = Ridge (7.5); Gaussian + Laplace = Lasso (13.3); Laplace + Uniform = Regresie Robustă (7.4); Student + Uniform = Regresie Robustă (Ex. 11.12).</div>
+  <div class="definition-box"><strong>Trucul Variabilelor Separate (Split Variable):</strong> rᵢ = rᵢ⁺ - rᵢ⁻ cu rᵢ⁺ ≥ 0, rᵢ⁻ ≥ 0. Aceasta transformă minimizarea |rᵢ| în min(rᵢ⁺ + rᵢ⁻) sub constrângeri liniare, rezultând un program liniar.</div>
+  <div class="highlight-box"><strong>Programul liniar:</strong> min Σ(rᵢ⁺ - rᵢ⁻) sub constrângerile rᵢ⁺ ≥ 0, rᵢ⁻ ≥ 0, w^T xᵢ + rᵢ⁺ + rᵢ⁻ = yᵢ. Aceasta are D + 2N necunoscute și 3N constrângeri.</div>
+  <div class="definition-box"><strong>Funcția de Pierdere Huber:</strong> L_H(r, δ) = r²/2 dacă |r| ≤ δ, sau δ|r| - δ²/2 dacă |r| > δ. Este ℓ₂ pentru erori mici și ℓ₁ pentru erori mari, combinând avantajele ambelor.</div>
+  <div class="highlight-box"><strong>Avantajul Huber:</strong> Funcția Huber este peste tot diferențiabilă (C¹ continuă la ±δ) și poate fi optimizată cu metode standard de optimizare netedă (quasi-Newton), mult mai eficiente decât programarea liniară.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Regresia ℓ₁ poate fi rezolvată ca program liniar prin trucul variabilelor separate, dar pierderea Huber oferă o alternativă mai eficientă computațional. Tabelul 7.1 oferă o viziune de ansamblu excelentă a diferitelor variante de regresie liniară ca combinații de verosimilități și priori.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Pragul δ din funcția Huber controlează granița între comportamentul ℓ₂ (erori mici, eficient) și ℓ₁ (erori mari, robust). Alegerea lui δ necesită cunoștințe despre scala zgomotului „normal" din date.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Funcția Huber este implementată în PyTorch (torch.nn.SmoothL1Loss) și TensorFlow (tf.keras.losses.Huber), fiind utilizată frecvent în regresie robustă și în rețele neurale pentru sarcini de regresie cu outlieri.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La antrenarea unui model de estimare a adâncimii din imagini pentru vehicule autonome, funcția Huber previne ca punctele cu erori de etichetare (outlieri de adâncime) să destabilizeze antrenarea, combinând precizia ℓ₂ pentru estimări bune cu robustetea ℓ₁ pentru estimări eronate.</p></div>
+  </div>
+</div>

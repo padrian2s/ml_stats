@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 1: Exercitii</h2>
+  <p>Exercitii practice pentru Capitolul 1, acoperind KNN pe MNIST, clasificatori aproximativi si validare incrucisata.</p>
+  <div class="definition-box"><strong>Compromis Viteza-Acuratete-Complexitate:</strong> Pentru fiecare model, exista mai multi algoritmi de antrenament care fac diferite compromisuri intre viteza, acuratete si complexitate computationala.</div>
+  <div class="highlight-box"><strong>Exercitiul 1.1:</strong> Rularea clasificatorului 1-NN pe MNIST si verificarea ca rata de clasificare gresita este 3.8% pe primele 1000 de teste (3.09% pe toate 10.000). Se verifica ca permutarea aleatorie a caracteristicilor nu schimba performanta.</div>
+  <div class="highlight-box"><strong>Exercitiul 1.2:</strong> Utilizarea cautarii aproximative a vecinilor apropiati (FLANN) cu KNN pe MNIST. Se masoara compromisul intre accelerare si pierderea de acuratete.</div>
+  <div class="highlight-box"><strong>Exercitiul 1.3:</strong> Utilizarea validarii incrucisate pentru KNN si compararea cu eroarea pe setul de test din Figura 1.21(a).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina incheie Capitolul 1 cu o reflectie asupra consecintelor teoremei No Free Lunch: trebuie dezvoltate multe tipuri diferite de modele si algoritmi. Exercitiile practice cer studentilor sa implementeze si sa experimenteze cu KNN pe MNIST, sa exploreze cautari aproximative ale vecinilor si sa aplice validarea incrucisata.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exercitiile sunt proiectate sa ilustreze conceptele cheie din capitol: invarianta la permutare (Ex. 1.1), compromisul viteza-acuratete (Ex. 1.2) si selectia modelului prin CV (Ex. 1.3). Aceasta abordare practica, bazata pe cod MATLAB/PMTK, este caracteristica intregii carti.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Cautarea aproximativa a vecinilor (FLANN) este esentiala in aplicatiile la scara mare, unde cautarea exacta este prea lenta. Biblioteci moderne precum FAISS (Facebook) si Annoy (Spotify) permit cautari de vecini in miliarde de puncte in milisecunde.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Spotify foloseste cautarea aproximativa de vecini (libraria Annoy) pentru a gasi melodii similare in spatiul de embedding-uri. Cautarea exacta in milioane de melodii ar fi prea lenta, dar cautarea aproximativa returneaza rezultate aproape identice in cateva milisecunde.</p></div>
+  </div>
+</div>

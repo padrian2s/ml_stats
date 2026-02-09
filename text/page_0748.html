@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Legea distributiva generalizata si complexitatea VE</h2>
+  <p>Aceasta pagina prezinta cadrul abstract al legii distributive generalizate si introduce conceptul de semi-inel comutativ pentru unificarea diferitelor algoritmi de inferenta.</p>
+  <div class="definition-box"><strong>Legea distributiva generalizata (GDL):</strong> VE poate fi vazut abstract ca evaluarea expresiei p(x_q|x_v) ∝ Σ_x ∏_c ψ_c(x_c), unde Σ si ∏ sunt operatii intr-un semi-inel comutativ. Aceasta abstractizare unifica sum-product, max-product, min-sum si satisfiabilitatea booleana.</div>
+  <div class="definition-box"><strong>Semi-inel comutativ:</strong> O structura algebrica cu doua operatii "+" si "×" satisfacand: asociativitate si comutativitate, element neutru pentru fiecare, si legea distributiva (a×b)+(a×c) = a×(b+c). Exemple: sum-product ([0,∞), +, ×), max-product, min-sum, (T,F, ∨, ∧).</div>
+  <div class="highlight-box"><strong>Programare dinamica non-seriala:</strong> VE este o forma de programare dinamica non-seriala, care memoreaza rezultatele intermediare (factorii τ) pentru a evita recalculari. Aceasta perspectiva unifica VE cu algoritmi din alte domenii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cadrul abstract al semi-inelului comutativ arata ca VE este de fapt un meta-algoritm care se aplica la o varietate larga de probleme: calculul marginalelor (sum-product), estimarea MAP (max-product), distantelor minime (min-sum) si satisfiabilitate booleana (OR-AND). Singura cerinta este ca operatiile sa satisfaca legea distributiva.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Unificarea diferitelor probleme sub acelasi cadru abstract permite reutilizarea acelorasi implementari. Transformata Fourier rapida (FFT) poate fi vazuta ca un caz special de VE pe un graf cu structura speciala. Legea distributiva este cea care permite "impingerea sumelor in interiorul produselor".</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta abstractizare justifica utilizarea acelorasi biblioteci software pentru inferenta probabilistica, probleme de satisfiabilitate si optimizare combinatoriala. Decodarea codurilor LDPC si turbo folosesc exact aceleasi ecuatii ca BP.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In telecomunicatii, decodarea codurilor LDPC foloseste algoritmul sum-product pe un graf factor (semi-inelul ([0,∞), +, ×)), in timp ce decodarea Viterbi in GSM foloseste min-sum (semi-inelul ((-∞,∞], min, +)). Ambele sunt instante ale aceluiasi cadru abstract.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Date non-gaussiene si modele grafice discrete nedirijate</h2>
+  <p>Aceasta pagina prezinta extensia Glasso la date non-gaussiene prin copule gaussiene si introduce invatarea structurii modelelor grafice discrete nedirijate (MRF/CRF).</p>
+  <div class="definition-box"><strong>Distributia normala nonparametrica:</strong> Se estimeaza transformari monotone f_j pentru fiecare variabila j, astfel incat datele transformate sa fie joint-gaussian. Aceasta este echivalenta cu familia de copule gaussiene (Klaassen si Wellner 1997).</div>
+  <div class="definition-box"><strong>Invatarea structurii UGM discrete:</strong> Mai dificila decat cazul gaussian deoarece functia de partitie Z(theta) este intractabila (complexitate comparabila cu permanentul unei matrice).</div>
+  <div class="definition-box"><strong>Graphical lasso pentru MRF/CRF:</strong> Se foloseste analogul group lasso: penalitatea ||w_{st}||_p pe vectorii de parametri ai fiecarei muchii (nu pe scalari individuali). Norma p=2 sau p=infinit sunt alegeri comune.</div>
+  <div class="highlight-box"><strong>Obiectivul:</strong> J = -NLL + lambda_1 * suma ||w_{st}||_p + lambda_2 * suma ||v_t||_2^2, unde lambda_1 controleaza raritatea grafului si lambda_2 regularizeaza parametrii nodurilor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina extinde Glasso in doua directii: (1) date non-gaussiene continue, prin transformari monotone (copule gaussiene) care permit aplicarea Glasso pe corelatie dupa transformare, si (2) date discrete, unde problema este fundamental mai dificila din cauza intractabilitatii functiei de partitie. Group lasso ofera o solutie: penalizeaza vectorii de parametri ai muchiilor, incurajand eliminarea completa a muchiilor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Copulele gaussiene extind Glasso elegant la date non-gaussiene fara a necesita specificarea distributiilor marginale. Pentru date discrete, pseudo-verosimilitatea (regresii locale) ofera o alternativa la verosimilitatea exacta, evitand calculul functiei de partitie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Copulele gaussiene sunt folosite in finante (modelarea dependentelor intre randamente non-gaussiene) si bioinformatica (date de expresie genica cu distributii non-normale). MRF-urile rare sunt folosite in procesarea imaginilor si text mining.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza sentimentului pe retele sociale, un CRF rar invatat prin group lasso poate identifica relatiile intre cuvinte care sunt indicative de sentiment pozitiv sau negativ, selectand automat perechile relevante de cuvinte.</p></div>
+  </div>
+</div>

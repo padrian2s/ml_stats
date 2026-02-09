@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 21. Inferenta Variationala - VBEM pentru Mixturi Gaussiene: Priorul si Posteriorul (p.751)</h2>
+  <p>Aceasta pagina incepe exemplul detaliat de VBEM aplicat la mixturi de gaussiene (GMM), prezentand priorul conjugat factorizat, aproximarea VB a posteriorului si derivarea pasului E variational.</p>
+  <div class="highlight-box"><strong>Priorul conjugat factorizat:</strong> p(θ) = Dir(π|α₀) ∏ₖ N(μₖ|m₀, (β₀Λₖ)⁻¹)Wi(Λₖ|L₀, ν₀), unde Λₖ este matricea de precizie pentru clusterul k.</div>
+  <div class="definition-box"><strong>Forma optima a posteriorului:</strong> q(z,θ) = [∏ᵢCat(zᵢ|rᵢ)] · [Dir(π|α) ∏ₖ N(μₖ|mₖ, (βₖΛₖ)⁻¹)Wi(Λₖ|Lₖ, νₖ)], unde lipsa indicelui 0 indica parametrii posteriorului, nu ai priorului.</div>
+  <div class="highlight-box"><strong>Pasul E variational:</strong> log q(z) = E_q(θ)[log p(x,z,θ)] + const = ΣᵢΣₖ zᵢₖ log ρᵢₖ + const, unde log ρᵢₖ combina asteptarile log π̃ₖ, log |Λₖ| si forma patratica.</div>
+  <div class="highlight-box"><strong>Formula log π̃ₖ:</strong> log π̃ₖ = E[log πₖ] = ψ(αₖ) - ψ(Σₖ' αₖ'), unde ψ() este functia digamma.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabileste cadrul matematic pentru VBEM aplicat la GMM. Priorul conjugat (Dirichlet-Normal-Wishart) garanteaza ca posteriorul are aceeasi forma, iar pasul E variational calculeaza responsabilitatile rᵢₖ folosind asteptari ale parametrilor in loc de estimari punctuale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura conjugata este esentiala: priorul Dirichlet pentru ponderile de mixtura, Normal-Wishart pentru medie si precizie. Functia digamma ψ apare natural in asteptarea logaritmului distributiei Dirichlet. Indicele 0 semnifica priorii, lipsa lui semnifica posteriorul.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GMM-urile bayesiene cu VBEM sunt utilizate in recunoasterea vorbirii (modelarea acustica), segmentarea imaginilor medicale si detectia anomaliilor in retele de calculatoare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea vocala, fiecare fonem poate fi modelat ca o mixtura gaussiana, iar VBEM determina automat cate componente sunt necesare pentru fiecare fonem, evitand supraajustarea.</p></div>
+  </div>
+</div>

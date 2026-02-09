@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Modelul Gaussiana-Wishart, Aproximarea BIC si Criteriul AIC</h2>
+  <p>Pagina prezinta verosimilitatea marginala pentru modelul Gaussiana-Wishart, introduce aproximarea BIC (Bayesian Information Criterion) si criteriul AIC (Akaike Information Criterion).</p>
+  <div class="definition-box"><strong>BIC (Bayesian Information Criterion):</strong> Aproximare a log-verosimilitatii marginale: BIC ≈ log p(D|θ_hat) - dof(θ_hat)/2 · log N (Ecuatia 5.30), unde dof(θ_hat) este numarul de grade de libertate al modelului.</div>
+  <div class="definition-box"><strong>AIC (Akaike Information Criterion):</strong> AIC(m,D) = log p(D|θ_hat_MLE) - dof(m) (Ecuatia 5.35). Derivat din cadrul frecventist, penalizeaza mai putin complexitatea decat BIC.</div>
+  <div class="definition-box"><strong>MDL (Minimum Description Length):</strong> Principiul lungimii minime de descriere, strans legat de BIC. Caracterizeaza scorul modelului in termeni de cat de bine ajusteaza datele minus cat de complex este modelul.</div>
+  <div class="highlight-box"><strong>BIC pentru regresie liniara:</strong> BIC = -N/2 · log(σ_hat²) - D/2 · log(N) (Ecuatia 5.32), BIC-cost = N · log(σ_hat²) + D · log(N) (Ecuatia 5.34)</div>
+  <div class="highlight-box"><strong>Modelul Gaussiana-Wishart:</strong> p(D) = (1/π^(ND/2)) · (κ₀/κ_N)^(D/2) · |S₀|^(ν₀/2)/|S_N|^(ν_N/2) · Γ_D(ν_N/2)/Γ_D(ν₀/2) (Ecuatia 5.29)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se completeaza calculul verosimilitatii marginale pentru modelul Gaussiana-Wishart si se introduce BIC ca aproximare simpla dar eficienta. BIC penalizeaza complexitatea modelului proportional cu log N, in timp ce AIC penalizeaza doar cu numarul de parametri. BIC tinde sa selecteze modele mai simple decat AIC.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta fundamentala BIC vs AIC: BIC penalizeaza cu (D/2)·log(N) iar AIC cu D. Pentru N > e² ≈ 7.4, BIC penalizeaza mai mult, favorizand modele mai simple. BIC este consistent (selecteaza modelul corect cand N → ∞), in timp ce AIC selecteaza modelul cu cea mai buna acuratete predictiva.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>BIC si AIC sunt printre cele mai folosite criterii de selectie a modelului in practica. BIC este preferat cand scopul este identificarea modelului adevarat, iar AIC cand scopul este predictia optima. In R si Python, ambele sunt disponibile ca functii standard.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In regresia liniara cu D variabile si N observatii, BIC-cost = N·log(σ²) + D·log(N) balanceaza ajustarea datelor (primul termen) cu complexitatea modelului (al doilea termen). Un model cu 10 variabile si N=1000 primeste o penalizare de 10·log(1000) ≈ 69.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Trucul Kernel - Kernel PCA (Algoritmul 14.2)</h2>
+  <p>Pagina prezintă algoritmul Kernel PCA și vizualizarea datelor 2D folosind PCA și kPCA, demonstrând diferențele dintre proiecțiile liniare și cele neliniare.</p>
+  <div class="definition-box"><strong>Kernel PCA:</strong> Algoritm care aplică PCA în spațiul de caracteristici indus de o funcție kernel, permițând reducerea dimensionalității neliniare. Se primește matricea kernel K de dimensiune N×N și se calculează vectorii proprii ai matricei kernel centrate.</div>
+  <div class="highlight-box"><strong>Algoritmul 14.2:</strong> K̃ = K − OK − KO + OKO, unde O = 1_N · 1_N^T / N este matricea de centrare. Se calculează descompunerea spectrală [U, Λ] = eig(K̃), iar vectorii de proiecție sunt v_i = u_i / √Λ_i.</div>
+  <div class="figure-box"><strong>Figura 14.8:</strong> Vizualizare 2D a unor date bidimensionale. (a) Proiecția PCA standard păstrează structura clusterelor perfect. (b) Proiecția Kernel PCA reprezintă fiecare cluster printr-o linie diferită, fiind mai puțin utilă pentru vizualizare în acest caz.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul Kernel PCA extinde PCA clasic folosind trucul kernel pentru a opera în spații de caracteristici de dimensiune înaltă. Centrarea matricei kernel este esențială și se realizează prin formula K̃ = K − OK − KO + OKO. Deși kPCA poate fi utilă pentru clasificare, nu este întotdeauna optimă pentru vizualizare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Centrarea în spațiul de caracteristici se realizează implicit prin operații pe matricea kernel. PCA clasic poate fi superior kPCA pentru vizualizare când datele au o structură liniară naturală. Primele două componente principale separă cele trei clustere în ambele metode.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Kernel PCA se utilizează în recunoașterea facială, analiza imaginilor medicale și orice domeniu unde reducerea dimensionalității neliniare este necesară. Este frecvent utilizat ca etapă de preprocesare pentru clasificatori.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un sistem de detectare a anomaliilor în rețele de calculatoare, kPCA poate proiecta traficul de rețea de înaltă dimensionalitate într-un spațiu de dimensiune redusă, unde tiparele anormale devin mai vizibile decât cu PCA liniar.</p></div>
+  </div>
+</div>

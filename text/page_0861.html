@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Urmarirea vizuala (continuare) si tracking by detection</h2>
+  <p>Aceasta pagina continua exemplul de urmarire vizuala si discuta solutia "tracking by detection" pentru recuperarea dupa pierderea obiectului.</p>
+  <div class="definition-box"><strong>Tracking by detection:</strong> In loc de a se baza exclusiv pe modelul dinamic, se ruleaza periodic un detector de obiecte pe imagine pentru a reinitializa particulele. Aceasta combina avantajele filtrarii secventiale cu robustetea detectiei frame-by-frame.</div>
+  <div class="highlight-box"><strong>Limitarile PF stochastic:</strong> Algoritmul este stochastic, deci rerularea poate da rezultate diferite. In lumea reala, aceasta nu este o optiune - sunt necesare mai multe particule sau propuneri mai bune pentru robustete.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina evidentiaza limitarile practice ale PF pur si introduce solutia pragmatica a combinarii cu detectie. Aceasta paradigma "tracking by detection" a devenit dominanta in viziunea computationala moderna.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Combinarea modelelor generative (PF) cu modele discriminative (detectori) ofera robustete superioara. PF mentine continuitatea temporala, iar detectorul ofera recuperare dupa esecuri.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Sisteme precum MOT (Multiple Object Tracking) Challenge evalueaza algoritmi de urmarire pe benchmark-uri standardizate. Cele mai bune metode combina detectie deep learning cu filtrare Bayesiana.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In conducerea autonoma, sistemul de perceptie urmareste sute de obiecte simultan (masini, pietoni, biciclisti) combinand detectia LiDAR/camera cu filtre de urmarire pentru a mentine identitatea fiecarui obiect in timp.</p></div>
+  </div>
+</div>

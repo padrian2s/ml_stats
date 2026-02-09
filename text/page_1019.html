@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Aproximarea sperantelor si divergenta contrastiva</h2>
+  <p>Aceasta pagina descrie esantionarea Gibbs bloc pentru RBM-uri, problemele cu aproximarea prin camp mediu, si introduce divergenta contrastiva (CD).</p>
+  <div class="definition-box"><strong>Esantionare Gibbs bloc:</strong> Procedura de esantionare din distributia comuna p(v,h|theta) prin alternarea intre h ~ p(h|v) si v ~ p(v|h), posibila datorita independentei conditionate a nodurilor din fiecare strat.</div>
+  <div class="definition-box"><strong>Divergenta contrastiva (CD):</strong> Metoda rapida de aproximare a gradientului care initializeaza lantul Markov la datele observate si ruleaza doar K pasi de Gibbs (de obicei K=1), in loc sa astepte convergenta la echilibru.</div>
+  <div class="highlight-box"><strong>Problema cu campul mediu:</strong> Aproximarea prin camp mediu nu functioneaza bine pentru RBM-uri deoarece distributia p(v,h) este tipic multimodala, iar semnul negativ din gradient face ca metoda sa "slabeasca" limita variationala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Calcularea exacta a sperantelor sub distributia modelului necesita asteptarea convergentei lantului Markov, ceea ce este prea lent. CD rezolva aceasta problema prin rularea a doar cativa pasi de Gibbs, pornind de la date reale, oferind o aproximare surprinzator de buna a gradientului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>CD poate fi interpretata ca diferenta a doua divergente KL sau ca coborare de gradient stocastic cu esantionare scurta Gibbs. Metoda este biased dar functioneaza bine in practica, mai ales in fazele initiale ale antrenarii.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>CD-1 (un singur pas Gibbs) este cel mai folosit algoritm de antrenare pentru RBM-uri in practica, oferind un compromis excelent intre viteza si calitate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Antrenarea pre-procesarii nesupervizate pentru recunoasterea vorbirii (de exemplu, in sistemele de recunoastere vocala de la Google sau Microsoft) foloseste CD pentru antrenarea eficienta a straturilor RBM.</p></div>
+  </div>
+</div>

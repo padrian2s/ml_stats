@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>9.7.4 Functii de Pierdere pentru Ranking (continuare)</h2>
+  <p>Pagina continua discutia despre functiile de pierdere pentru ranking, incluzand NDCG, corelatia de rang Kendall τ, pierderea WARP si abordari bayesiene vs. frecventiste.</p>
+  <div class="definition-box"><strong>Corelatia de rang Kendall τ:</strong> Masoara consistenta pairwise intre lista ordonata π si judecata de relevanta π*, definita ca τ(π, π*) = Σ_{u<v} w_uv [1 + sgn(π_u - π_v) sgn(π*_u - π*_v)] / (2 Σ_{u<v} w_uv).</div>
+  <div class="definition-box"><strong>WARP (Weighted Approximate-Rank Pairwise):</strong> Pierdere care aproximeaza precision@k, definita ca WARP(f(x,:), y) = L(rank(f(x,:), y)), unde rank masoara numarul de clase incorecte clasate mai sus decat clasa corecta.</div>
+  <div class="highlight-box"><strong>Kendall τ (9.130):</strong> τ(π, π*) = Σ_{u<v} w_uv [1 + sgn(π_u - π_v) sgn(π*_u - π*_v)] / (2 Σ_{u<v} w_uv).</div>
+  <div class="highlight-box"><strong>WARP loss (9.131-9.133):</strong> WARP(f(x,:), y) = L(rank(f(x,:), y)), rank(f(x,:), y) = Σ_{y'≠y} I(f(x,y') ≥ f(x,y)), L(k) = Σ_{j=1}^{k} α_j cu α_1 ≥ α_2 ≥ ... ≥ 0.</div>
+  <div class="figure-box"><strong>Tabelul 9.3:</strong> Ilustrare a calculului NDCG: pentru 6 documente cu scoruri de relevanta r = (3, 2, 3, 0, 1, 2), DCG@6 = 3 + 2/1 + 1.887 + 0 + 0.431 + 0.772 = 8.09. DCG-ul ideal este 8.693, deci NDCG = 8.09/8.693 = 0.9306.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta metrici avansate de evaluare si functii de pierdere surogat pentru ranking. Kendall τ masoara concordanta globala intre doua ordonari. WARP loss ofera o aproximare mai buna a precision@k decat pierderile pairwise standard. Abordarea bayesiana esantioneaza din posterior si evalueaza metrica, in timp ce abordarea frecventista minimizeaza direct pierderea empirica folosind functii surogat.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Problemele principale ale optimizarii directe a metricilor de ranking: acestea nu sunt diferentiabile (contin functii indicator si operatii de sortare). Solutii: (1) functii de pierdere surogat diferentiabile (cross-entropy), (2) metode de optimizare fara gradient, (3) abordari bayesiene care decupleaza antrenarea de evaluare. WARP rezolva partial problema prin ponderarea diferita a erorilor la diferite ranguri.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>WARP loss este utilizat in sisteme de recomandare (de exemplu, recomandarea de muzica sau filme) unde conteaza mai mult topul listei. Corelatia Kendall τ este folosita in evaluarea sistemelor de traducere automata si sumarizare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un serviciu de streaming video poate folosi WARP loss pentru a optimiza recomandarea primelor 5 filme afisate pe ecranul principal, punand accent pe acuratetea primelor pozitii, deoarece utilizatorii rareori deruleaza mai departe de primele cateva sugestii.</p></div>
+  </div>
+</div>

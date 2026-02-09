@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Gibbs sampling pentru modele liniare ierarhice - Derivare detaliata</h2>
+  <p>Aceasta pagina derivaza esantinatorul Gibbs pentru modelul liniar ierarhic (multi-level) aplicat la date educationale.</p>
+  <div class="definition-box"><strong>Modelul multi-nivel:</strong> y_ij = x_ij^T * w_j + epsilon_ij, unde w_j ~ N(mu_w, Sigma_w). Fiecare scoala j are proprii coeficienti w_j, dar acestia provin dintr-o distributie comuna cu hiperparametri mu_w si Sigma_w invatati din date.</div>
+  <div class="definition-box"><strong>Priori:</strong> mu_w ~ N(mu_0, V_0), Sigma_w ~ IW(eta_0, S_0^{-1}), sigma^2 ~ IG(nu_0/2, nu_0*sigma_0^2/2). Toate sunt priori semi-conjugate care produc conditionale Gibbs standard.</div>
+  <div class="highlight-box"><strong>Imprumutarea de forta statistica:</strong> In Figura 24.4, scolile cu putini elevi (N_j mic) au estimari OLS extreme (pante foarte mari sau negative). Modelul ierarhic trage aceste estimari catre medie, producand predictii mai stabile - un efect cunoscut ca "shrinkage".</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina construieste un model multi-nivel complet cu priori conjugate si deriva conditionalele Gibbs. Exemplul cu date educationale (scor matematic vs statut socio-economic per scoala) demonstreaza puterea modelarii ierarhice: scolile mici beneficiaza de informatia din scolile mari.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Shrinkage-ul Bayesian este automat si adaptiv: scolile cu mult zgomot (N_j mic) sunt trase mai tare catre medie, iar scolile cu date precise (N_j mare) sunt putin afectate. Gradul de shrinkage este determinat de date, nu fixat a priori.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modele similare sunt folosite de OECD pentru evaluarea PISA, de autoritatile educationale pentru evaluarea scolilor si de companiile de asigurari pentru stabilirea primelor per regiune.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In evaluarea performantei spitalelor, modelele ierarhice Bayesiene cu Gibbs sampling estimeaza rata mortalitatii ajustate pentru fiecare spital, imprumutand informatii de la spitale similare pentru a produce clasamente mai fiabile.</p></div>
+  </div>
+</div>

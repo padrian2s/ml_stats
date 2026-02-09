@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Curbele Precision-Recall si Scorul F</h2>
+  <p>Pagina introduce curbele precision-recall ca alternativa la ROC pentru date dezechilibrate si prezinta scorul F ca metrica unica de sumarizare.</p>
+  <div class="definition-box"><strong>Precizia (Precision):</strong> P = TP/N_hat₊ = p(y=1|y_hat=1) - fractiunea din detectiile noastre pozitive care sunt cu adevarat pozitive (Valoarea Predictiva Pozitiva, PPV).</div>
+  <div class="definition-box"><strong>Recall (Sensibilitate):</strong> R = TP/N₊ = p(y_hat=1|y=1) - fractiunea din pozitivele adevarate pe care le-am detectat.</div>
+  <div class="definition-box"><strong>Scorul F1:</strong> F₁ = 2PR/(R+P) = media armonica a preciziei si recall-ului (Ecuatia 5.116). Media armonica penalizeaza valorile mici mai puternic decat media aritmetica.</div>
+  <div class="highlight-box"><strong>Formulele de estimare:</strong> P = Σᵢ yᵢy_hatᵢ / Σᵢ y_hatᵢ, R = Σᵢ yᵢy_hatᵢ / Σᵢ yᵢ (Ecuatia 5.115)</div>
+  <div class="highlight-box"><strong>Macro vs Micro F1:</strong> Macro-averaged F1 = (1/C) Σ F₁(c) da pondere egala fiecarei clase. Micro-averaged F1 combina tabelele de contingenta si este dominat de clasele mari.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Curbele precision-recall sunt preferate cand clasele sunt foarte dezechilibrate (de exemplu, detectarea evenimentelor rare). In acest caz, FPR este mic deoarece N₋ este mare, facand curba ROC excesiv de optimista. Scorul F1 combina precizia si recall-ul intr-un singur numar. Distinctia macro vs. micro averaging este importanta in clasificarea multi-clasa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Media armonica (F1) este mai conservatoare decat media aritmetica: daca P=10⁻⁴ si R=1, media aritmetica este ~50% (prea optimista), dar media armonica este ~0.02% (reflecta mai bine ca precizia este groaznica). Aceasta face F1 o metrica mai onesta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In regasirea informatiei (information retrieval), precision@K (precizia pentru primele K rezultate) si average precision sunt metrici standard. In clasificarea documentelor si detectia obiectelor, F1 si mAP (mean Average Precision) sunt cele mai utilizate metrici.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia bolilor rare (prevalenta 0.01%), un clasificator care prezice mereu "sanatos" are acuratete 99.99% dar recall 0%. Curba precision-recall si F1 expun aceasta problema: F1 ar fi 0, reflectand inutilitatea clasificatorului.</p></div>
+  </div>
+</div>

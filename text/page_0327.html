@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>9.5 Invatarea Multi-Task</h2>
+  <p>Pagina introduce conceptul de invatare multi-task si prezinta metoda Bayes ierarhica pentru partajarea informatiei intre sarcini conexe.</p>
+  <div class="definition-box"><strong>Invatare multi-task:</strong> Antrenarea simultana a mai multor modele de clasificare sau regresie conexe, presupunand ca maparea intrare-iesire este similara intre diferitele modele, pentru a obtine performante mai bune.</div>
+  <div class="definition-box"><strong>Transfer learning:</strong> Concept inrudit cu invatarea multi-task, in care cunostintele dobandite dintr-o sarcina sunt transferate pentru imbunatatirea performantei pe alta sarcina.</div>
+  <div class="definition-box"><strong>Modelarea alegerii discrete:</strong> Cadru in care j indexeaza persoane, i indexeaza achizitii, iar y_ij este identitatea produsului cumparat.</div>
+  <div class="highlight-box"><strong>Bayes ierarhic pentru multi-task (9.110):</strong> log p(D|β) + log p(β) = Σ_j [log p(D_j|β_j) - ||β_j - β_*||² / (2σ²_j)] - ||β_*||² / (2σ²_*), unde β_j ~ N(β_*, σ²_j I) si β_* ~ N(μ, σ²_* I).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Invatarea multi-task permite antrenarea simultana a mai multor modele conexe, impartasind forta statistica intre grupuri. Abordarea bayesiana ierarhica introduce un prior comun β_* din care sunt derivati parametrii individuali β_j, permitand grupurilor cu putine date sa imprumute informatie de la grupurile cu date abundente.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura ierarhica: parametrii individuali β_j sunt legati printr-un prior comun β_*. Termenul σ²_j controleaza cat de mult depinde grupul j de priorul comun, iar σ²_* controleaza forta priorului general. Estimarea MAP se poate realiza prin metode de gradient sau optimizare alternanta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Invatarea multi-task se aplica in procesarea limbajului natural (NLP), viziune computerizata si sisteme de recomandare, unde mai multe sarcini conexe beneficiaza de antrenare comuna.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O companie de comert electronic poate antrena simultan modele de recomandare pentru diferite categorii de produse (carti, electronice, imbracaminte), permitand categoriilor cu putine date de antrenare sa beneficieze de informatia din categoriile cu date abundente.</p></div>
+  </div>
+</div>

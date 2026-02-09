@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>10.3 Inferenta in Modele Grafice (continuare)</h2>
+  <p>Pagina continua introducerea inferentei probabilistice, definind formal problema si constanta de normalizare (probabilitatea evidentei).</p>
+  <div class="highlight-box"><strong>Inferenta posterioara (10.23 repetat):</strong> p(x_h|x_v, θ) = p(x_h, x_v|θ) / p(x_v|θ), unde numitorul este calculat prin marginalizare: p(x_v|θ) = Σ_{x'_h} p(x'_h, x_v|θ).</div>
+  <div class="definition-box"><strong>Variabile vizibile (x_v):</strong> Variabilele observate, ale caror valori sunt cunoscute. In inferenta, acestea sunt fixate (clamped) la valorile lor observate.</div>
+  <div class="definition-box"><strong>Variabile ascunse (x_h):</strong> Variabilele neobservate, ale caror distributie posterioara dorim sa o calculam.</div>
+  <div class="definition-box"><strong>Probabilitatea evidentei:</strong> p(x_v|θ) = Σ_{x_h} p(x_h, x_v|θ), constanta de normalizare care asigura ca posterioara sumeaza la 1. Numita si verosimilitatea marginala a datelor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Inferenta probabilistica este operatia fundamentala pe un model grafic: data o distributie comuna si niste observatii, se calculeaza distributia posterioara a variabilelor neobservate. Problema se reduce matematic la conditionare (fixarea variabilelor observate) si normalizare (impartirea la probabilitatea evidentei). Dificultatea principala este calculul eficient al sumei de marginalizare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Formula de inferenta este conceptual simpla (regula Bayes aplicata variabilelor grafice), dar computational provocatoare. Suma de marginalizare are un numar exponential de termeni in cazul general. Structura grafului determina daca inferenta exacta este fezabila - grafuri cu latime de arbore mica permit algoritmi eficienti (eliminarea variabilelor, propagarea mesajelor).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Inferenta apare in aproape orice aplicatie a modelelor grafice: decodarea mesajelor in telecomunicatii (coduri LDPC), diagnosticare automata, sisteme de recomandare, analiza retelelor sociale si multe altele.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In HMM-ul pentru recunoasterea vorbirii, observam secventa de spectrograme acustice x_{1:T} si dorim sa inferem secventa de foneme z_{1:T}. Algoritmul forward-backward calculeaza eficient p(z_t|x_{1:T}) pentru fiecare moment t, exploatand structura de lant a grafului.</p></div>
+  </div>
+</div>

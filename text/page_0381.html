@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Algoritmul EM - Functia Auxiliara si Pasii E si M</h2>
+  <p>Pagina detaliaza mecanismul algoritmului EM, definind log-verosimilitatea datelor complete, functia auxiliara Q, statisticile suficiente asteptate si pasii E si M.</p>
+  <div class="definition-box"><strong>Log-verosimilitatea datelor complete:</strong> ℓc(θ) = Σᵢ₌₁ᴺ log p(xᵢ, zᵢ|θ) - nu poate fi calculata direct deoarece zᵢ este necunoscut.</div>
+  <div class="definition-box"><strong>Functia auxiliara Q:</strong> Q(θ, θᵗ⁻¹) = E[ℓc(θ)|D, θᵗ⁻¹] - valoarea asteptata a log-verosimilitudinii complete, unde asteptarea este luata in raport cu parametrii vechi θᵗ⁻¹.</div>
+  <div class="definition-box"><strong>Statistici suficiente asteptate (ESS):</strong> Termenii din interiorul functiei Q de care depinde MLE - acestia sunt calculati in pasul E.</div>
+  <div class="highlight-box"><strong>Pasul E:</strong> Calculeaza Q(θ, θᵗ⁻¹), adica statisticile suficiente asteptate. <strong>Pasul M:</strong> θᵗ = arg maxθ Q(θ, θᵗ⁻¹) - optimizeaza functia Q in raport cu θ.</div>
+  <div class="highlight-box"><strong>Estimare MAP:</strong> θᵗ = arg maxθ Q(θ, θᵗ⁻¹) + log p(θ) - se adauga log-priorul la functia Q.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul EM creste monoton log-verosimilitatea datelor observate (plus log-priorul pentru estimarea MAP). Daca obiectivul scade vreodata, aceasta indica o eroare in matematica sau in cod, facand aceasta proprietate un instrument de depanare surprinzator de util. Se introduce apoi EM pentru GMM, presupunand ca numarul de componente K este cunoscut.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura E-M este universala: pasul E calculeaza distributia posterioara a variabilelor latente date parametrii cureniti, iar pasul M reestimeaza parametrii folosind aceasta distributie. Monotonitatea convergentei este o proprietate fundamentala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Proprietatea de monotonitate a EM-ului este utilizata in practica ca test de corectitudine: daca log-verosimilitatea scade intre iteratii, implementarea contine o eroare. Aceasta este o tehnica standard de depanare in bibliotecile de invatare automata.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In antrenarea modelelor de recunoastere a vorbirii cu HMM-uri, algoritmul Baum-Welch (o instanta a EM) este monitorizat prin verificarea ca log-verosimilitatea creste la fiecare iteratie, garantand convergenta corecta.</p></div>
+  </div>
+</div>

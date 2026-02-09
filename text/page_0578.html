@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Costul de Clasificare - Rata de Eroare, Entropie si Castigul Informational</h2>
+  <p>Pagina prezinta masurile de cost pentru clasificare: rata de clasificare gresita, entropia (deviance) si castigul informational, cu formulele matematice corespunzatoare.</p>
+  <div class="definition-box"><strong>Rata de clasificare gresita (Misclassification rate):</strong> Se defineste clasa cea mai probabila ŷ_c = argmax_c π̂_c, iar rata de eroare este (1/|D|) Σ I(y_i ≠ ŷ) = 1 - π̂_ŷ (Ec. 16.9).</div>
+  <div class="definition-box"><strong>Entropia (deviance):</strong> H(π̂) = -Σ_{c=1}^{C} π̂_c log π̂_c (Ec. 16.10), o masura a impuritatii nodului.</div>
+  <div class="definition-box"><strong>Castigul informational (information gain):</strong> infoGain(X_j < t, Y) ≜ H(Y) - H(Y|X_j < t) (Ec. 16.11), echivalent cu minimizarea entropiei.</div>
+  <div class="highlight-box"><strong>Probabilitati conditionate pe clasa:</strong> π̂_c = (1/|D|) Σ_{i∈D} I(y_i = c) (Ec. 16.8), unde D sunt datele din frunza care satisfac testul X_j < t.</div>
+  <div class="highlight-box"><strong>Formulele castigului informational:</strong> infoGain = (-Σ_c p(y=c) log p(y=c)) + (Σ_c p(y=c|X_j<t) log p(c|X_j<t)) (Ec. 16.12-16.13)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>In clasificare, se potriveste un model multinoulli datelor din fiecare frunza. Trei masuri principale evalueaza calitatea unei partitii: rata de clasificare gresita, entropia si castigul informational. Minimizarea entropiei este echivalenta cu maximizarea castigului informational (Quinlan 1986).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Entropia este mai sensibila la schimbarile probabilitatii de clasa decat rata de clasificare gresita. Castigul informational masoara cat de multa informatie despre eticheta de clasa Y obtinem prin testarea atributului X_j. Daca X_j este categoric, E[infoGain] corespunde informatiei mutuale I(Y; X_j).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Selectia atributelor pe baza castigului informational este utilizata pe scara larga in clasificarea textelor, diagnosticul medical automatizat si filtrarea spam-ului, unde se alege atributul care reduce cel mai mult incertitudinea.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In filtrarea email-urilor spam, castigul informational determina care cuvinte-cheie (de ex. "gratuit", "castig", "oferta") sunt cele mai informative pentru separarea mesajelor spam de cele legitime.</p></div>
+  </div>
+</div>

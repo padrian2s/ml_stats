@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Spline-uri thin-plate, intrari multidimensionale si MARS</h2>
+  <p>Aceasta pagina extinde spline-urile la 2D (thin-plate splines), introduce baza produs tensorial pentru intrari multidimensionale si mentioneaza MARS.</p>
+  <div class="definition-box"><strong>Thin-plate spline:</strong> Generalizeaza spline-ul cubic la 2D, minimizand integrala derivatelor partiale de ordinul 2. Solutia are forma f(x) = beta_0 + beta_1^T x + sum alpha_i phi_i(x), unde phi_i(x) = eta(||x - x_i||) cu eta(z) = z^2 log z^2.</div>
+  <div class="highlight-box"><strong>Baza produs tensorial:</strong> f(x_1, x_2) = beta_0 + sum beta_{1m}(x_1 - xi_{1m})_+ + sum beta_{2m}(x_2 - xi_{2m})_+ + sum beta_{12m}(x_1 - xi_{1m})_+(x_2 - xi_{2m})_+. Numarul de parametri creste exponential cu dimensiunea, necesitand selectie de interactiuni (MARS).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Thin-plate spline-urile sunt echivalente cu MAP-ul unui GP cu kernel specific. Kernelul spline kappa_sp(x,x') = integral (x-u)_+(x'-u)_+ du este destul de nenatural - esantioanele din GP sunt ne-netede, desi media posterioara este neteda. Pentru intrari multidimensionale, baza produs tensorial creste exponential, necesitand metode de selectie precum MARS (Multivariate Adaptive Regression Splines).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Blestemul dimensionalitatii apare clar in spline-urile multidimensionale: baza produs tensorial cu interactiuni complete are prea multi parametri. MARS rezolva aceasta prin cautare greedy a termenilor de interactiune utili. Thin-plate spline-urile evita problema alegerii nodurilor dar sunt limitate la 2-3 dimensiuni.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Thin-plate spline-urile sunt folosite extensiv in procesarea de imagini (warping, morphing) si in geostatistica (interpolare spatiala). MARS este popular in data mining si disponibil in R (pachetul 'earth') si Python (py-earth).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In neuroimagistica, thin-plate spline-urile sunt folosite pentru inregistrarea (alinierea) creierelor diferitilor pacienti la un sablon comun, deformand spatial imaginile intr-un mod neted si continuu.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>RBF Basis in Regresie, Efectul Bandwidth-ului si LIVMs/RVMs</h2>
+  <p>Pagina prezinta Figura 14.3 cu RBF basis in regresie 1D si incepe Sectiunea 14.3.2 despre alegerea centroizilor (LIVMs, RVMs si alte sparse vector machines).</p>
+  <div class="highlight-box"><strong>Figura 14.3 - RBF basis in 1D:</strong> K=10 prototipuri uniform distribuite. Trei randuri: tau=0.1 (functii foarte localizate, spiky), tau=0.5 (netezime medie, fit bun), tau=50 (RBF-uri aproape constante, fit liniar). Coloana stanga: functia fitata. Coloana din mijloc: bazele RBF. Coloana dreapta: design matrix (Phi).</div>
+  <div class="definition-box"><strong>Alegerea centroizilor (Sectiunea 14.3.2):</strong> Abordari: (1) Acoperire uniforma a spatiului (functioneaza doar in dimensiuni mici). (2) Optimizare numerica a mu_k (obiectiv multimodal, dificil). (3) Clustering (K-means), apoi un prototip per cluster. (4) Sparse vector machine: fiecare exemplu de antrenare este un centroid potential, se selecteaza automat un subset.</div>
+  <div class="highlight-box"><strong>Sparse vector machines:</strong> phi(x) = [kappa(x, x_1), ..., kappa(x, x_N)]. Fiecare exemplu de antrenare este un centroid potential. Se foloseste regularizare de sparsitate (l1, group lasso, ARD) pentru a selecta automat un subset de centroizi. Alegeri: l1 -> LIVM, ARD/SBL -> RVM (Relevance Vector Machine).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Problema alegerii centroizilor este centrala pentru kernel machines. Sparse vector machines (LIVM, RVM) rezolva aceasta problema elegant: folosesc toate exemplele de antrenare ca centroizi potentiali, apoi selecteaza automat un subset prin regularizare sparse. Aceasta produce modele interpretabile (centroizii selectati sunt "relevanti" sau "de suport").</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul centroizi-bandwidth: cu putini centroizi, bandwidth-ul trebuie sa fie mare (acoperire globala). Cu multi centroizi, bandwidth-ul poate fi mic (detalii locale). Sparse vector machines automatizeaza acest compromis prin selectia data-driven a centroizilor relevanti.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>RVM (Relevance Vector Machine) produce modele mai sparse decat SVM si ofera estimari probabilistice (predictive posterior), dar este mai lent la antrenare. LIVM cu LASSO este o alternativa mai rapida. In practica, SVM ramane cel mai popular datorita software-ului matur (libsvm, liblinear).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia de anomalii in retele de calculatoare, RVM selecteaza automat un set mic de pattern-uri "relevante" din traficul normal, producand un model compact care poate fi deployat pe routere cu memorie limitata.</p></div>
+  </div>
+</div>

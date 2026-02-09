@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Eroarea de Antrenament vs. Test și Alegerea λ pentru Ridge Regression</h2>
+  <p>Pagina ilustrează grafic curba U a erorii de test și discută metodele de selecție a hiperparametrului λ: validare încrucișată și verosimilitate marginală.</p>
+  <div class="figure-box"><strong>Figura 7.8:</strong> (a) Eroarea de antrenament (albastru punctat) și eroarea de test (roșu solid) pentru ridge regression polinomială de grad 14 vs. log(λ). Curba clasică U: modelele complexe (λ mic, stânga) overfittează, modelele simple (λ mare, dreapta) underfittează. (b) Estimarea performanței: CV 5-fold (albastru punctat) și verosimilitatea marginală negativă -log p(D|λ) (negru solid). Ambele metode identifică un λ optim similar.</div>
+  <div class="highlight-box"><strong>Curba U a Erorii de Test:</strong> Eroarea de antrenament crește monoton cu λ (modele mai simple = fit mai slab pe datele de antrenament). Eroarea de test are un minim: prea puțin regularizare = overfitting, prea multă = underfitting.</div>
+  <div class="highlight-box"><strong>Regularizare = Diferite Priori:</strong> Fiecare tip de prior corespunde unei forme diferite de regularizare. Gaussian → ℓ₂ (ridge), Laplace → ℓ₁ (lasso), etc. Aceasta oferă o perspectivă unificatoare pe diverse tehnici de regularizare.</div>
+  <div class="highlight-box"><strong>Selecția λ:</strong> Două abordări: (1) CV pe setul de antrenament (frecventist), (2) verosimilitatea marginală p(D|λ) (Bayesian, Secțiunea 14.8). Ambele identifică valori similare de λ, validând convergența abordărilor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 7.8 este una dintre cele mai instructive din carte: demonstrează vizual compromisul bias-varianță prin curba U a erorii de test și arată că atât CV cât și verosimilitatea marginală identifică un λ optim similar. Coeficienții cu λ = 10⁻³ sunt mult mai mici și mai stabili decât cei ai MLE-ului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferența dintre eroarea de antrenament și eroarea de test este „gap-ul de generalizare". λ optim minimizează eroarea de test (nu de antrenament). CV și verosimilitatea marginală sunt două metodologii conceptual diferite care converg pe aceleași concluzii practice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>În practică, se folosește GridSearchCV sau RidgeCV din scikit-learn pentru a căuta λ optim. Pentru probleme cu mulți hiperparametri, Bayesian optimization (Optuna, Hyperopt) este mai eficientă decât grid search.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La construirea unui model de risc de credit cu 100 de variabile, curba U ghidează alegerea regularizării: prea puțin λ produce un model instabil care performează bine pe datele istorice dar prost pe clienți noi; prea mult λ produce un model prea simplu care ignoră informații importante.</p></div>
+  </div>
+</div>

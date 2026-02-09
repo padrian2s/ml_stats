@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Mixturi de Priori Conjugate</h2>
+  <p>Pagina introduce mixturile de priori conjugate ca un compromis intre flexibilitate si comoditate computationala, cu un exemplu detaliat de mixtura Beta-Binomial.</p>
+  <div class="definition-box"><strong>Mixtura de priori conjugate:</strong> p(θ) = Σₖ p(z=k)p(θ|z=k) (Ecuatia 5.68), unde fiecare componenta p(θ|z=k) este conjugata. Mixtura insasi este si ea conjugata, dar mult mai flexibila decat o singura componenta.</div>
+  <div class="highlight-box"><strong>Exemplu moneda:</strong> p(θ) = 0.5 Beta(θ|20,20) + 0.5 Beta(θ|30,10) (Ecuatia 5.67) - modeleaza credinta ca moneda este fie corecta fie inclinata spre capete.</div>
+  <div class="highlight-box"><strong>Posterioara mixturii:</strong> p(θ|D) = Σₖ p(Z=k|D) p(θ|D, z=k) (Ecuatia 5.69), unde ponderile posterioare p(Z=k|D) se calculeaza prin regula lui Bayes (Ecuatia 5.70).</div>
+  <div class="highlight-box"><strong>Exemplu numeric:</strong> Cu N₁=20 capete si N₀=10 pajuri: p(θ|D) = 0.346 Beta(θ|40,30) + 0.654 Beta(θ|50,20) (Ecuatia 5.73)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Mixturile de priori conjugate ofera flexibilitate fara a sacrifica tractabilitatea analitica. O singura Beta nu poate modela credinte bimodale (de exemplu, "moneda este fie corecta fie inclinata"), dar o mixtura de doua Beta poate. Posterioara ramane o mixtura de conjugate, cu ponderile actualizate de date. Exemplul arata ca dupa 20 capete si 10 pajuri, componenta "inclinata" (Beta(30,10)) domina cu pondere 0.654.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ponderile posterioare ale mixturii p(Z=k|D) se calculeaza folosind verosimilitatea marginala a fiecarei componente (din Sectiunea 5.3.2.1). Componenta care explica mai bine datele primeste pondere mai mare. Aceasta este o forma de "soft model selection".</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Mixturile de priori conjugate sunt folosite in modelarea ierarhica bayesiana, detectia anomaliilor (prior care amesteca o componenta "normala" cu una "anomala") si in meta-analiza (combinarea rezultatelor din studii heterogene).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectarea fraudei cu carti de credit, prior-ul poate fi o mixtura: cu probabilitate 0.99, tranzactia vine din distributia normala a clientului; cu probabilitate 0.01, vine din distributia frauduloasa. Dupa observarea datelor tranzactiei, ponderile se actualizeaza bayesian.</p></div>
+  </div>
+</div>

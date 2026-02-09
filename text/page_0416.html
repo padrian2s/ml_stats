@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Amestecuri de Analizori Factoriali (MFA)</h2>
+  <p>Pagina introduce amestecurile de analizori factoriali (Mixture of Factor Analysers, MFA), care combina modelele de amestec cu FA pentru a modela varietati liniare pe portiuni.</p>
+  <div class="definition-box"><strong>Amestec de Analizori Factoriali (MFA):</strong> Combina un indicator discret q_i in {1,...,K} cu factori continui z_i. Fiecare componenta k are propria matrice W_k si medie mu_k: p(x_i|z_i, q_i=k) = N(mu_k + W_k z_i, Psi). Poate aproxima varietati curbe prin segmente liniare.</div>
+  <div class="highlight-box"><strong>Modelul MFA (Eq. 12.14-12.16):</strong> p(x_i|z_i, q_i=k) = N(mu_k + W_k z_i, Psi), p(z_i) = N(0, I), p(q_i) = Cat(pi). Este o versiune low-rank a GMM, cu O(KLD) parametri in loc de O(KD^2).</div>
+  <div class="highlight-box"><strong>Figura 12.3:</strong> Modelul grafic al MFA: q_i selecteaza componenta, z_i sunt factorii continui, x_i este generat prin W_{q_i} z_i + mu_{q_i} + zgomot.</div>
+  <div class="definition-box"><strong>Priori sparse pe ponderile FA:</strong> In loc de constrangeri pe W, se pot folosi priori l1 (LASSO), ARD (Automatic Relevance Determination) sau spike-and-slab pentru a incuraja sparsitatea in W, oferind interpretabilitate fara a fixa structura.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MFA generalizeaza atat GMM (prin adaugarea structurii low-rank) cat si FA (prin permiterea mai multor componente). Este o aproximare a varietatilor curbe prin segmente liniare locale, fiecare cu propriul subspatiu latent. Reduce dramatic numarul de parametri fata de GMM cu covarianta completa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>MFA unifica clustering-ul (componenta discreta q_i) cu reducerea dimensionalitatii (factori continui z_i). Este un exemplu de model cu variabile latente mixte (discrete si continue), frecvent in aplicatii practice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MFA este un model de densitate generica excelent pentru date de dimensiune mare: mai expresiv decat un singur FA, mai eficient parametric decat GMM. Folosit in sinteza vorbirii, viziune computationala si modelarea de textura.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea faciala, diferite pose ale fetei (frontal, profil, semi-profil) sunt modelate de componente diferite ale MFA, fiecare captand variatiile locale (expresie, iluminare) in subspatiul corespunzator posei.</p></div>
+  </div>
+</div>

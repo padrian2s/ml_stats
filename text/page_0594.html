@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Boosting - Perspectiva Bayesiana si retele neurale feedforward</h2>
+  <p>Aceasta pagina prezinta interpretarea Bayesiana a boosting-ului ca mixtura de experti si introduce retelele neurale feedforward (MLP).</p>
+  <div class="definition-box"><strong>MLP (Multi-Layer Perceptron):</strong> Retea neurala feedforward cu un strat ascuns: p(y|x, theta) = N(y|w^T z(x), sigma^2), unde z(x) = g(Vx) = [g(v_1^T x),...,g(v_H^T x)] este stratul ascuns cu H unitati si g este functia de activare non-liniara.</div>
+  <div class="highlight-box"><strong>Boosting ca mixtura de experti:</strong> p(y|x, theta) = sum pi_m p(y|x, gamma_m), unde fiecare expert p(y|x, gamma_m) este un invatator slab. Diferenta fata de mixtura standard: expertii sunt ajustati secvential, nu simultan prin EM.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Boosting-ul functioneaza bine din doua motive: (1) este o forma de regularizare L1 care elimina trasaturi irelevante, (2) maximizeaza marginea pe datele de antrenament (similar SVM). Perspectiva Bayesiana vede boosting-ul ca o procedura MLE 'defecta' care nu revizuieste niciodata parametrii expertilor anteriori. BART corecteaza aceasta prin backfitting Bayesian. MLP-ul este o serie de modele de regresie logistica stivuite.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la boosting la retele neurale reprezinta o schimbare de paradigma: de la combinarea invatatarelor slabe la invatarea de reprezentari ierarhice. Ambele sunt ABM-uri dar cu strategii de optimizare foarte diferite.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, boosting (XGBoost) domina datele tabulare structurate, in timp ce retelele neurale domina datele nestructurate (imagini, text, audio). Alegerea depinde de tipul datelor si de cantitatea disponibila.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recomandare ale Netflix sau YouTube, se folosesc atat gradient boosting (pentru trasaturi tabulare ale utilizatorului) cat si retele neurale profunde (pentru embeddings de continut), adesea combinate intr-un model hibrid.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Aproximarea Gaussiană pentru Regresia Logistică și Distribuția Predictivă Posterioară</h2>
+  <p>Pagina aplică aproximarea Gaussiană la regresia logistică cu date liniar separabile, ilustrând cum posteriorul asimetric este aproximat de o Gaussiană, și introduce distribuția predictivă posterioară.</p>
+  <div class="highlight-box"><strong>Aproximarea Gaussiană a posteriorului (Ecuația 8.58):</strong> p(w|D) ≈ N(w|ŵ, H⁻¹), unde ŵ = arg min_w E(w), E(w) = -(log p(D|w) + log p(w)), și H = ∇²E(w)|_ŵ.</div>
+  <div class="figure-box"><strong>Figura 8.5:</strong> (a) Date liniar separabile în 2D cu două clase. (b) Suprafața log-verosimilitudinii arată o creastă unde verosimilitatea crește nemărginit spre ||w|| → ∞. (c) Log-posteriorul nenormalizat cu prior sferic vag - posteriorul este puternic asimetric. (d) Aproximarea Laplace a posteriorului - o Gaussiană care captează modul dar nu asimetria.</div>
+  <div class="definition-box"><strong>Distribuția predictivă posterioară:</strong> p(y|x, D) = ∫ p(y|x, w)p(w|D)dw - integrală intractabilă care mediază predicțiile peste toate valorile posibile ale parametrilor, ponderate de posterior.</div>
+  <div class="highlight-box"><strong>Aproximarea plug-in (Ecuația 8.60):</strong> p(y=1|x, D) ≈ p(y=1|x, E[w]), unde E[w] este media posterioară (punctul Bayes). Aceasta subestimează incertitudinea.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exemplul cu date liniar separabile ilustrează dramatic de ce regularizarea și abordarea bayesiană sunt necesare: MLE este la infinit, dar estimarea MAP cu prior Gaussian produce un posterior finit. Aproximarea Laplace captează modul și curbura locală, dar nu poate reprezenta asimetria posteriorului. Distribuția predictivă posterioară integrează peste incertitudinea parametrilor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Creasta în suprafața verosimilitudinii pentru date liniar separabile arată că există o întreagă familie de clasificatori optimi (toate producând separarea perfectă), diferind doar prin „încrederea" lor. Priorul „taie" această creastă, selectând o soluție finită. Asimetria posteriorului indică limitări ale aproximării Laplace.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>În practică, datele de dimensiune mică sunt adesea liniar separabile (mai ales cu multe caracteristici), făcând regularizarea esențială. Distribuția predictivă posterioară este utilizată în sisteme de decizie medicală unde incertitudinea predicției influențează direct tratamentul recomandat.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un test genetic cu 1000 de markeri și 50 de pacienți produce date liniar separabile. Fără regularizare, modelul logistic nu converge. Cu un prior bayesian, se obține un clasificator robust cu intervale de incertitudine, esențiale pentru comunicarea riscului genetic pacienților.</p></div>
+  </div>
+</div>

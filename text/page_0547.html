@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>GP pentru Regresie - Predicții cu Observații Zgomotoase</h2>
+  <p>Pagina extinde GP-urile la cazul observațiilor zgomotoase y = f(x) + ε, unde ε ~ N(0, σ²_y), și prezintă formulele de predicție modificate.</p>
+  <div class="definition-box"><strong>Observații zgomotoase:</strong> Când yᵢ = f(xᵢ) + εᵢ cu εᵢ ~ N(0, σ²_y), covarianța observațiilor devine cov[y_p, y_q] = κ(x_p, x_q) + σ²_y · δ_pq, adică K_y = K + σ²_y · I_N.</div>
+  <div class="highlight-box"><strong>Distribuția predictivă (observații zgomotoase):</strong> p(f*|X*, X, y) = N(f*|μ*, Σ*), cu μ* = K*ᵀK_y⁻¹y și Σ* = K** − K*ᵀK_y⁻¹K*. Modelul nu mai trece exact prin date.</div>
+  <div class="highlight-box"><strong>Media predictivă ca sumă ponderată:</strong> f̄* = k*ᵀK_y⁻¹y = Σᵢ αᵢκ(xᵢ, x*), unde α = K_y⁻¹y. Aceasta este o combinație liniară de evaluări ale kernelului, identică formal cu soluția RVM/SVM dar cu ponderi diferite.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Adăugarea zgomotului de observație σ²_y modifică matricea de covarianță de la K la K_y = K + σ²_yI. Modelul nu mai interpolează exact datele, ci oferă o netezire adaptivă. Media predictivă este o combinație liniară a valorilor kernel, iar varianța predictivă cuantifică incertitudinea.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Zgomotul σ²_y apare doar pe diagonala matricei de covarianță (observațiile sunt independente condițional de f). Diferența față de cazul fără zgomot: K⁻¹ devine K_y⁻¹ = (K + σ²_yI)⁻¹, ceea ce adaugă regularizare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Majoritatea aplicațiilor reale implică zgomot: măsurători senzori, date experimentale, date biologice. GP-urile cu zgomot sunt standard în geostatistică, robotică și învățarea prin întărire.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un senzor de temperatură în fermele inteligente măsoară cu eroare de ±0.5°C. Un GP cu zgomot modelează temperatura reală a solului, separând semnalul de zgomot și oferind estimări cu intervale de încredere pentru controlul irigațiilor.</p></div>
+  </div>
+</div>

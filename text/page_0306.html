@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>FLDA Multi-clasă - Soluție și Interpretare Probabilistică (HLDA)</h2>
+  <p>Pagina completează derivarea FLDA multi-clasă cu soluția prin valori proprii, discută limitarea L ≤ C-1, și introduce interpretarea probabilistică prin LDA Heteroscedastică (HLDA).</p>
+  <div class="highlight-box"><strong>Matricele de dispersie multi-clasă (Ecuații 8.115-8.117):</strong> Σ_B = Σ_c (N_c/N)(μ_c - μ)(μ_c - μ)&#7488; (inter-clasă); Σ_W = Σ_c (N_c/N)Σ_c (intra-clasă); Σ_c = 1/N_c Σ_{i:yᵢ=c}(xᵢ - μ_c)(xᵢ - μ_c)&#7488; (per clasă).</div>
+  <div class="highlight-box"><strong>Soluția multi-clasă (Ecuația 8.118):</strong> W = Σ_W^{-½} U, unde U conține cei L vectori proprii principali ai matricei Σ_W^{-½} Σ_B Σ_W^{-½}. Dacă Σ_W este singulară, se aplică mai întâi PCA.</div>
+  <div class="definition-box"><strong>HLDA (Heteroscedastic LDA):</strong> Model probabilistic care generalizează FLDA permițând covariațe diferite per clasă în subspațiul discriminativ. W este o matrice D × D inversibilă, cu primele L componente specifice clasei și restul H = D-L componente comune.</div>
+  <div class="highlight-box"><strong>Modelul HLDA (Ecuații 8.119-8.123):</strong> p(zᵢ|θ, yᵢ=c) = N(zᵢ|μ_c, Σ_c), unde μ_c = (m_c; m₀), Σ_c = diag(S_c, S₀). Primele L componente sunt discriminative (specifice clasei), restul sunt comune.</div>
+  <div class="definition-box"><strong>Multiple LDA:</strong> Extensie a HLDA care permite fiecărei clase să folosească propria matrice de proiecție, oferind și mai multă flexibilitate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Restricția L ≤ C-1 este fundamentală: Σ_B are rang cel mult C-1 (deoarece μ este o combinație liniară a μ_c-urilor, reducând gradele de libertate cu 1). HLDA oferă o interpretare probabilistică elegantă a FLDA prin separarea spațiului în componente discriminative (specifice clasei) și componente comune (zgomot partajat). Când covariațele per clasă sunt egale, HLDA recuperează LDA clasic.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Descompunerea spațiului în subspații discriminativ și comun este o temă fundamentală: apare în analiza factorială, PCA probabilistic, și autoencodere variaționale. HLDA formalizează ideea că nu toată variabilitatea este egală - doar unele direcții conțin informație discriminativă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>HLDA este standard în recunoașterea vorbirii (feature extraction din coeficienți MFCC). Multiple LDA se folosește când clasele au structuri de covarianță foarte diferite, cum ar fi în recunoașterea gesturilor sau clasificarea texturiilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de recunoaștere a vorbirii extrage 39 de coeficienți MFCC per frame audio. HLDA reduce aceștia la ~20 de dimensiuni discriminative, păstrând informația relevantă pentru diferențierea fonemelor și eliminând variabilitatea irelevantă (vorbitorul, mediul acustic).</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii EM: Gradient Descent pentru GMM si Amestec de Scala Finit</h2>
+  <p>Pagina continua exercitiile capitolului 11, incluzand derivarea gradientilor log-verosimilitudinii GMM si un model de amestec cu scala finita cu doi indicatori latenti discreti.</p>
+  <div class="highlight-box"><strong>Gradientul log-verosimilitudinii GMM (Eq. 11.120-11.121):</strong> d l(theta)/d mu_k = suma_n r_nk * Sigma_k^{-1} (x_n - mu_k). Gradientul fata de medie este suma ponderata cu responsabilitatile a erorilor normalizate.</div>
+  <div class="definition-box"><strong>Reparametrizarea softmax (Eq. 11.122-11.124):</strong> pi_k = exp(w_k) / suma exp(w_k') transforma optimizarea cu constrangeri (suma pi_k = 1) in optimizare neconstranata peste w_k. Gradientul devine d l/d w_k = suma_n r_nk - pi_k.</div>
+  <div class="highlight-box"><strong>Exercitiul 11.6 - Amestec de scala finit (Figura 11.23, Eq. 11.125):</strong> Model cu doi indicatori latenti J_n (selecteaza media) si K_n (selecteaza varianta): p(x_n|theta) = suma_j p_j [suma_k q_k N(x_n|mu_j, sigma_k^2)]. Necesita EM generalizat cu actualizari partiale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile exploreaza alternativa gradient descent la EM pentru GMM, cu derivarea completa a gradientilor. Reparametrizarea softmax este o tehnica eleganta pentru a gestiona constrangerile simplex. Exercitiul 11.6 introduce un model mai complex cu doi indicatori latenti, necesitand EM generalizat.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Comparatia EM vs gradient descent: EM garanteaza crestere monotona si are actualizari in forma inchisa, dar poate fi lent. Gradient descent este mai flexibil (functioneaza si cand pasul M nu are solutie analitica) dar necesita ajustarea ratei de invatare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In deep learning, modelele de amestec sunt optimizate prin gradient descent (nu EM), folosind exact reparametrizarea softmax discutata aici. Aceasta abordare se generalizeaza natural la retele neuronale mixte.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Mixture Density Networks (MDN), utilizate in sinteza vocii si generarea de text, combina retele neuronale cu modele de amestec Gaussiene, optimizate prin gradient descent cu reparametrizare softmax.</p></div>
+  </div>
+</div>

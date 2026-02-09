@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Metode de aproximare pentru seturi mari de date si exercitii</h2>
+  <p>Aceasta pagina prezinta metode de aproximare pentru GP cu seturi mari de date si incepe sectiunea de exercitii ale capitolului 15.</p>
+  <div class="definition-box"><strong>Aproximari GP pentru seturi mari:</strong> Metode care reduc complexitatea de la O(N^3) la O(M^2 N), unde M << N este un parametru specificat de utilizator. Include puncte inductor, aproximari variatioanale si metode bazate pe transformata Fourier rapida.</div>
+  <div class="highlight-box"><strong>Exercitiul 15.1 - Proprietatea de reproducere:</strong> Se cere demonstrarea ca <kappa(x_1,.), kappa(x_2,.)>_H = kappa(x_1, x_2), proprietatea fundamentala a spatiilor RKHS.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Dezavantajul principal al GP este complexitatea O(N^3) datorita inversarii matricei K de dimensiune N x N. Metode de aproximare diverse au fost dezvoltate pentru a reduce aceasta la O(M^2 N), unde M este numarul de puncte inductor. Referintele cheie includ Quinonero-Candela et al. 2007 pentru o trecere in revista completa. Capitolul se incheie cu exercitii care consolideaza conceptele prezentate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Scalabilitatea este problema practica majora a GP. Compromisul acuratete-viteza este controlat de M: M mic -> rapid dar aproximativ, M mare -> precis dar lent. Metodele moderne (inducing points, FITC, KISS-GP) permit aplicarea GP la milioane de puncte de date.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GPyTorch si GPflow implementeaza diverse metode de aproximare scalabile. KISS-GP (Kernel Interpolation for Scalable Structured GPs) permite GP cu milioane de puncte. Variational GP (Hensman et al. 2013) permite antrenare pe mini-batch-uri.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In previziunea traficului urban cu milioane de masuratori GPS, GP scalabile cu puncte inductor sunt folosite pentru a produce predictii in timp real ale timpului de calatorie cu incertitudine calibrata.</p></div>
+  </div>
+</div>

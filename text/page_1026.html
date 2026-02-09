@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Retele directionate profunde si masini Boltzmann profunde</h2>
+  <p>Aceasta pagina descrie trei tipuri de modele grafice profunde multi-strat: retele directionate profunde (DDN), masinile Boltzmann profunde (DBM), si retelele de credinta profunda (DBN).</p>
+  <div class="definition-box"><strong>Retea directionata profunda (DDN):</strong> Un model grafic directionat cu straturi multiple ascunse. Daca toate nodurile sunt binare si toate CPD-urile sunt logistice, se numeste sigmoid belief net.</div>
+  <div class="definition-box"><strong>Masina Boltzmann profunda (DBM):</strong> O stiva de RBM-uri cu conexiuni nedirectionate intre straturi consecutive. Permite esantionare Gibbs bloc eficienta dar antrenarea este dificila din cauza functiei de partitie.</div>
+  <div class="highlight-box"><strong>Intractabilitatea inferentei:</strong> In modelele directionate profunde, posteriorul asupra nodurilor ascunse este corelat din cauza fenomenului "explaining away", facand inferenta exacta intractabila.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta cele trei arhitecturi fundamentale pentru modele generative profunde, fiecare cu avantaje si dezavantaje distincte in ceea ce priveste inferenta si antrenarea.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Modelele directionate au inferenta dificila dar antrenarea mai usoara (fara functie de partitie). Modelele nedirectionate au inferenta mai simpla intra-strat dar necesita calculul functiei de partitie. Modelele mixte incearca sa combine avantajele ambelor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>DBM-urile sunt folosite in modelarea generativa de imagini, in timp ce DDN-urile cu inferenta variationala sunt aplicate in compresia de date si generarea de text.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Generatoarele de imagini moderne (precum DALL-E) sunt descendenti conceptuali ai acestor modele generative profunde, folosind arhitecturi mult mai complexe dar bazate pe aceleasi principii.</p></div>
+  </div>
+</div>

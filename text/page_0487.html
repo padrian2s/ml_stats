@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Elastic Net: Versiunea Vanilla si Algoritmi (p.456)</h2>
+  <p>Aceasta pagina detaliaza elastic net: functia obiectiv, efectul de grupare, algoritmul LARS-EN si versiunea imbunatatita.</p>
+  <div class="highlight-box"><strong>Obiectivul Elastic Net:</strong> J(w, lambda_1, lambda_2) = ||y - Xw||^2 + lambda_2 * ||w||_2^2 + lambda_1 * ||w||_1. Functia este strict convexa (daca lambda_2 > 0), garantand un minim global unic.</div>
+  <div class="definition-box"><strong>Efect de Grupare:</strong> Orice penalizare strict convexa pe w produce un efect de grupare: coeficientii variabilelor foarte corelate tind sa fie egali. Daca X_{.,j} = X_{.,k}, atunci w_hat_j = w_hat_k, spre deosebire de lasso unde unul poate fi zero.</div>
+  <div class="highlight-box"><strong>Algoritmul LARS-EN:</strong> Elastic net poate fi redus la o problema lasso pe date modificate: X_tilde = c * [X; sqrt(lambda_2) * I_D], y_tilde = [y; 0]. Se rezolva cu LARS si apoi w = c * w_tilde. Costul este O(m^3 + Dm^2).</div>
+  <div class="highlight-box"><strong>Versiunea Imbunatatita:</strong> Elastic net vanilla produce dubla micsorare (shrinkage). Solutia: w_hat = sqrt(1 + lambda_2) * w_tilde, care anuleaza micsorarea l2 si pastreaza doar efectul de selectie.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Elastic net combina avantajele ambelor regularizari: selectia de variabile de la l1 si stabilitatea de la l2. Efectul de grupare asigura ca variabilele corelate sunt tratate similar. Versiunea imbunatatita corecteaza problema dublei micsorari.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Reducerea elastic net la o problema lasso pe date augmentate este o idee eleganta care permite reutilizarea algoritmilor existenti (LARS). Matricea X_tilde are rang D chiar daca X nu, permitand selectia a mai mult de N variabile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Elastic net este metoda standard in pachetele software (glmnet in R, scikit-learn in Python) si este una dintre cele mai utilizate metode de regularizare in practica, datorita robustetei sale la multi-coliniaritate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In predictia preturilor imobiliare, trasaturile (suprafata, numar camere, locatie) sunt adesea corelate. Elastic net selecteaza toate trasaturile relevante si le trateaza echitabil, in loc sa aleaga arbitrar intre ele ca lasso.</p></div>
+  </div>
+</div>

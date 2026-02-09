@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Posteriorul Beta-Binomial - Pseudo-numărători și Actualizare Secvențială</h2>
+  <p>Pagina detaliază calculul posteriorului în modelul beta-binomial, introduce conceptul de pseudo-numărători și demonstrează echivalența actualizării secvențiale cu cea în lot.</p>
+  <div class="highlight-box"><strong>Posteriorul Beta:</strong> p(θ|D) ∝ Bin(N₁|θ, N₀+N₁)·Beta(θ|a,b) = Beta(θ|N₁+a, N₀+b). Hiperparametrii priorului sunt adăugați la numărătorile empirice.</div>
+  <div class="definition-box"><strong>Pseudo-numărători:</strong> Parametrii priorului a și b sunt numiți pseudo-numărători deoarece acționează ca observații virtuale anterioare. Dimensiunea efectivă a eșantionului priorului este α₀ = a + b.</div>
+  <div class="figure-box"><strong>Figura 3.6:</strong> (a) Prior slab Beta(2,2) actualizat cu N₁=3, N₀=17 → posterior Beta(5,19), aproape identic cu verosimilitatea. (b) Prior puternic Beta(5,2) actualizat cu N₁=11, N₀=13 → posterior Beta(16,15), un compromis între prior și verosimilitate.</div>
+  <div class="highlight-box"><strong>Actualizare secvențială:</strong> p(θ|D_a,D_b) = Beta(θ|N₁ᵃ+N₁ᵇ+a, N₀ᵃ+N₀ᵇ+b), identic fie că se procesează datele în lot sau secvențial. Aceasta face inferența Bayesiană ideală pentru învățarea online.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pseudo-numărătorile oferă o interpretare intuitivă a priorului: sunt „date fictive" anterioare. Echivalența actualizării secvențiale cu cea în lot este o proprietate fundamentală a inferenței Bayesiene.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cu prior slab (α₀ mic), posteriorul este dominat de date. Cu prior puternic (α₀ mare), posteriorul este un compromis. Actualizarea secvențială permite învățarea în timp real fără a stoca datele istorice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Actualizarea secvențială este utilizată în sisteme de recomandare online, în detectarea fraudelor în timp real, și în orice aplicație unde datele sosesc continuu.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de detectare a spam-ului actualizează probabilitățile de spam secvențial pe măsură ce primește noi emailuri, fără a re-procesa toată baza de date istorică.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>De la amestecuri finite la infinite - Procesul Dirichlet</h2>
+  <p>Aceasta pagina detaliaza tranzitia de la modelul de amestec finit la cel infinit, prezentand reprezentarea echivalenta prin masura aleatoare de probabilitate G.</p>
+  <div class="definition-box"><strong>Masura aleatoare de probabilitate G:</strong> G(theta) = suma(pi_k * delta_{theta_k}(theta)), unde pi ~ Dir(alpha/K) si theta_k ~ H, este o distributie discreta cu K atomi, echivalenta cu reprezentarea standard a amestecului finit.</div>
+  <div class="definition-box"><strong>Modelul de amestec infinit:</strong> Inlocuirea distributiei discrete G cu o masura aleatoare continua, notata G ~ DP(alpha, H), permite un numar potential infinit de componente si un numar variabil de clustere.</div>
+  <div class="highlight-box"><strong>Proprietatea cheie:</strong> Numarul de clustere creste logaritmic cu cantitatea de date, iar modelul poate fi mai rapid decat compararea multiplelor modele finite, deoarece evidenta pentru anumite valori K apare devreme in inferenta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua reprezentari echivalente ale amestecului finit: (a) modelul grafic traditional cu z_i, theta_k si pi, si (b) reprezentarea prin masura discreta G. Figura 25.2 ilustreaza ambele. Cheia tranzitiei la modele infinite este inlocuirea lui G discret cu un proces Dirichlet G ~ DP(alpha, H). Figura 25.3 arata esantioane din acest model cu alpha=1 si N variabil.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Formularea prin masura de probabilitate unifica perspectivele parametrice si non-parametrice. Procesul Dirichlet genereaza distributii discrete (cu probabilitate 1), dar cu un numar potential infinit de atomi, ceea ce il face ideal pentru clustering cu numar necunoscut de grupuri.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta reprezentare este fundamentul multor modele bayesiene non-parametrice folosite in practica: Hierarchical Dirichlet Process pentru modelarea topicilor multi-document, Indian Buffet Process pentru factorizare cu numar necunoscut de factori, si modele de amestec pentru densitati complexe.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea imaginilor satelitare, numarul de tipuri de teren (urban, padure, apa, agricultura) variaza intre regiuni. Un model DP permite descoperirea automata a numarului de categorii de teren, adaptandu-se la complexitatea fiecarei scene.</p></div>
+  </div>
+</div>

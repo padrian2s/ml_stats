@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Retele neurale convolutionale (CNN)</h2>
+  <p>Aceasta pagina introduce retelele neurale convolutionale, explicand campurile receptive locale, partajarea ponderilor si invarianta la translatie.</p>
+  <div class="definition-box"><strong>Retea neurala convolutionala (CNN):</strong> Un MLP in care unitatile ascunse au campuri receptive locale si ponderile sunt partajate (legate) pe toata imaginea. Aceasta reduce dramatic numarul de parametri si impune invarianta la translatie.</div>
+  <div class="highlight-box"><strong>Harti de trasaturi (feature maps):</strong> In Layer 1 al unui CNN, 6 harti de trasaturi 13x13 sunt calculate prin convolutia imaginii 29x29 cu filtre 5x5. Total: 156 ponderi partajate in loc de 26,364 ponderi independente, o reducere de 170x.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>CNN-urile sunt MLP-uri adaptate pentru semnale 1D (vorbire, text) sau 2D (imagini). Ideile cheie sunt: (1) campuri receptive locale - fiecare unitate vede doar o portiune a intrarii, (2) partajarea ponderilor - acelasi filtru este aplicat peste toata imaginea, (3) ierarhia de straturi captureaza trasaturi de la simple la complexe. Exemplul Simard (2003) foloseste 5 straturi cu ~140,000 parametri pentru clasificarea cifrelor MNIST.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Partajarea ponderilor reduce numarul de parametri si permite detectarea acelorasi trasaturi indiferent de pozitia lor in imagine. Aceasta este inspirata de cortexul vizual primar, unde neuronii au campuri receptive locale si raspund la aceleasi tipuri de stimuli.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>CNN-urile sunt standardul pentru procesarea imaginilor: clasificare, detectie de obiecte, segmentare semantica. Arhitecturi celebre: LeNet, AlexNet, VGG, ResNet, EfficientNet. Sunt folosite si pentru text (TextCNN) si audio (WaveNet).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In conducerea autonoma, CNN-urile proceseaza imaginile de la camerele vehiculului in timp real, detectand pietoni, semafoare si alte vehicule. Partajarea ponderilor permite detectarea acelorasi obiecte indiferent de pozitia lor in campul vizual.</p></div>
+  </div>
+</div>

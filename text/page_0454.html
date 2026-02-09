@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Selectia Bayesiana: Probabilitati de Incluziune si Modelul Median</h2>
+  <p>Pagina prezinta Figura 13.1 (toate modelele in ordine Gray code, costul, posteriorul si probabilitatile marginale de incluziune) si introduce modelul median Bayesian.</p>
+  <div class="highlight-box"><strong>Figura 13.1:</strong> (a) Toate vectorii de biti in ordine Gray code. (b) Costul f(gamma) - foarte "bumpy". (c) Posteriorul p(gamma|D) - concentrat pe cateva modele. (d) Probabilitatile marginale de incluziune p(gamma_j=1|D) - variabilele 2 si 6 au probabilitate mare.</div>
+  <div class="definition-box"><strong>Modelul median Bayesian (Eq. 13.4):</strong> gamma_hat = {j : p(gamma_j = 1|D) > 0.5}. Include variabilele cu probabilitate de incluziune marginala > 0.5. Adesea mai reprezentativ decat modul posterior (MAP).</div>
+  <div class="highlight-box"><strong>Probabilitati de incluziune marginale:</strong> p(gamma_j = 1|D) = suma_{gamma: gamma_j=1} p(gamma|D). Variabilele 2 (~0.9) si 6 (~0.5) sunt clar relevante. Variabilele 3 si 9 au probabilitate moderata (~0.1-0.15).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelul median Bayesian ofera un sumar mai robust al posteriorului decat modul posterior (MAP), deoarece ia in considerare intreaga masa de probabilitate, nu doar varful. Probabilitatile de incluziune marginale permit evaluarea importantei fiecarei variabile individual, chiar si cand posteriorul peste modele este complex.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Incertitudinea in selectia modelului este ireductibila cu date finite: variabilele cu coeficienti mici relativ la zgomot nu pot fi detectate cu certitudine. Aceasta incertitudine trebuie comunicata, nu ascunsa prin raportarea unui singur model "cel mai bun".</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Probabilitatile de incluziune sunt utilizate in Bayesian Model Averaging (BMA) pentru predictie: se mediaza predictiile peste toate modelele, ponderate cu probabilitatile lor posterioare, obtinand predictii mai robuste.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In epidemiologie, modelul median Bayesian identifica factorii de risc cu probabilitate de incluziune ridicata (fumatul, hipertensiunea) si cuantifica incertitudinea pentru factorii cu evidenta mai slaba (dieta specifica).</p></div>
+  </div>
+</div>

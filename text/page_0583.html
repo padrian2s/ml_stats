@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Modele Aditive Generalizate (GAM)</h2>
+  <p>Pagina introduce modelele aditive generalizate (GAM), algoritmul de backfitting pentru potrivirea modelului, si obiectivul cu regularizare prin spline-uri de netezire.</p>
+  <div class="definition-box"><strong>Model aditiv generalizat (GAM):</strong> Un model neliniar de forma f(x) = α + f₁(x₁) + ... + f_D(x_D) (Ec. 16.16), unde fiecare f_j este modelat printr-un scatterplot smoother si f(x) poate fi mapat la p(y|x) printr-o functie de legatura.</div>
+  <div class="definition-box"><strong>Algoritmul de backfitting:</strong> O procedura iterativa care actualizeaza fiecare f_j pe rand, folosind ca tinta reziduurile obtinute prin eliminarea celorlalte functii: f̂_j := smoother({y_i - Σ_{k≠j} f̂_k(x_ik)}) (Ec. 16.18).</div>
+  <div class="highlight-box"><strong>Obiectivul GAM cu spline-uri:</strong> J(α, f₁,...,f_D) = Σ_{i=1}^{N} (y_i - α - Σ_{j=1}^{D} f_j(x_ij))² + Σ_{j=1}^{D} λ_j ∫ f_j''(t_j)² dt_j (Ec. 16.17)</div>
+  <div class="highlight-box"><strong>Centrarea functiilor:</strong> f̂_j := f̂_j - (1/N) Σ_{i=1}^{N} f̂_j(x_ij) (Ec. 16.19), asigurand ca iesirea are medie zero.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>GAM extinde modelele liniare generalizate prin inlocuirea termenilor liniari cu functii neliniare arbitrare. Backfitting-ul itereaza peste fiecare dimensiune, potrivind un smoother pe reziduuri. Daca X are rang complet, procedura converge la optimul global deoarece obiectivul este convex.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Constanta α nu este identificabila unic, de aceea se fixeaza la media datelor. Functiile f_j sunt centrate la medie zero. In cazul GLM, se foloseste backfitting ponderat cu ponderile IRLS s_i = μ_i(1 - μ_i) pentru regresie logistica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GAM sunt utilizate in epidemiologie pentru modelarea relatiilor neliniare intre factorii de risc si boala, in stiintele mediului pentru modelarea poluarii aerului, si in asigurari pentru stabilirea primelor de risc.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile epidemiologice, un GAM poate modela efectul neliniar al temperaturii asupra mortalitatii, efectul varstei asupra riscului de boala cardiovasculara, si efectul poluarii, fiecare ca o functie separata dar combinata aditiv.</p></div>
+  </div>
+</div>

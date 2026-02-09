@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Convergenta LBP - Arborele de calcul si analiza convergentei</h2>
+  <p>Aceasta pagina prezinta comportamentul convergentei LBP pe grile Ising, arborele de calcul ca instrument analitic si conditiile de convergenta.</p>
+  <div class="definition-box"><strong>Experiment pe grila Ising 11x11:</strong> Se compara trei scheme de actualizare: sincron amortizat, asincron neamortizat si asincron amortizat. Amortizarea asincrona ofera cea mai buna convergenta. Pentru potentiale puternice (C mare), inferenta devine mai dificila.</div>
+  <div class="definition-box"><strong>Arborele de calcul:</strong> Dupa T iteratii, nodul 1 primeste mesaje de la 2 si 3 (iteratia 1), apoi mesaje de la 3 via 2, de la 2 via 3, si doua mesaje de la 4 (iteratia 2). Arborele creste exponential cu numarul de iteratii.</div>
+  <div class="highlight-box"><strong>Conditia de convergenta:</strong> T iteratii de LBP sunt echivalente cu inferenta exacta pe un arbore de calcul de inaltime T+1. Daca conexiunile sunt suficient de slabe, influenta frunzelor asupra radacinii va scadea in timp, iar LBP va converge.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina analizeaza experimental si teoretic convergenta LBP. Experimentul pe grila Ising arata ca amortizarea si planificarea asincrona sunt cruciale. Arborele de calcul ofera intuitia cheie: LBP este exact pe o versiune "desfasurata" a grafului original.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Puterea potentialelor (parametrul C) determina dificultatea inferentei: potentiale puternice = dependente puternice = convergenta mai dificila. Amortizarea (damping) este un truc practic esential: noul mesaj = alpha * mesaj_nou + (1-alpha) * mesaj_vechi.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea schemei de actualizare (sincrona vs asincrona, cu sau fara amortizare) este o decizie practica importanta. Actualizarea asincrona amortizata este in general cea mai robusta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In procesarea imaginilor satellite pentru detectarea schimbarilor de teren, modelele Ising pe grile mari necesita LBP amortizat asincron pentru a converge stabil si a produce segmentari consistente.</p></div>
+  </div>
+</div>

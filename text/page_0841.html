@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Sub-probleme Tractabile si Coborarea pe Coordonate (Sectiunea 22.6.5.4)</h2>
+  <p>Aceasta pagina discuta tipurile de sub-probleme tractabile in descompunerea duala si introduce metoda coborarii pe coordonate ca alternativa la coborarea subgradientului.</p>
+  <div class="highlight-box"><strong>Sub-problema de factor:</strong> argmax_{x_f} theta_f^delta(x_f) = argmax_{x_f} [theta_f(x_f) - SUMA_{i in f} delta_{fi}^t(x_i)] (Ec. 22.178)</div>
+  <div class="definition-box"><strong>Tipuri de sub-probleme tractabile:</strong> (1) Modele grafice cu latime mica de arbore; (2) Factori care corespund potrivirilor bipartite de grafuri - rezolvabili cu algoritmul Ungar in O(|f|^3); (3) Functii supermodulare; (4) Constrangeri de cardinalitate - theta_f(x_f) = 0 daca SUMA x_i = L, -infinit altfel, rezolvabil in O(|f| log |f|); (5) Factori constanti cu exceptia unui set mic S de valori distincte, rezolvabili in O(|S|).</div>
+  <div class="definition-box"><strong>Coborarea pe Coordonate (Block Coordinate Descent):</strong> In loc de actualizarea intregului vector delta simultan, se actualizeaza blocuri de coordonate. Permite compromisul intre viteza de convergenta si usurinta optimizarii locale.</div>
+  <div class="definition-box"><strong>Programarea Liniara Max-Produs (MPLP):</strong> O abordare care optimizeaza delta_fi(x_i) pentru toti i in f si toti x_i simultan pentru un factor fix f. Algoritmul este similar cu propagarea credintelor pe un graf de factori.</div>
+  <div class="highlight-box"><strong>Mesajele MPLP:</strong> delta_{i->f}(x_i) = theta_i(x_i) + SUMA_{g!=f} delta_{g->i}(x_i) (Ec. 22.179); delta_{f->i}(x_i) = -delta_{i->f}(x_i) + (1/|f|) max_{x_{f\i}} [theta_f(x_f) + SUMA_{j in f} delta_{j->f}(x_j)] (Ec. 22.180)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina identifica diverse tipuri de sub-probleme care pot fi rezolvate eficient in cadrul descompunerii duale si introduce MPLP ca alternativa la coborarea subgradientului. MPLP este echivalenta algoritmic cu propagarea credintelor pe graful de factori, oferind o legatura eleganta intre inferenta variationala si optimizarea duala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Flexibilitatea descompunerii duale provine din capacitatea de a combina diferite tipuri de sub-probleme. Coborarea pe coordonate converge de obicei mai rapid decat coborarea subgradientului, dar necesita rezolvarea de sub-probleme mai complexe la fiecare pas.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul Ungar pentru potriviri bipartite este folosit in asocierea datelor (tracking), constrangerile de cardinalitate apar in selectia de caracteristici, iar functiile supermodulare sunt relevante in diversificarea rezultatelor de cautare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de urmarire a obiectelor multiple (multi-object tracking), fiecare detectie trebuie asociata cu cel mult o traiectorie. Aceasta constrangere de potrivire bipartita poate fi tratata ca o sub-problema eficienta in cadrul descompunerii duale, combinata cu factori de aparenta vizuala.</p></div>
+  </div>
+</div>

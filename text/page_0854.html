@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>SIR si Filtrarea particulelor - Introducere</h2>
+  <p>Aceasta pagina completeaza discutia SIR si introduce filtrarea particulelor (particle filtering) ca metoda Monte Carlo pentru inferenta Bayesiana secventiala.</p>
+  <div class="definition-box"><strong>Filtrarea particulelor (PF):</strong> Un algoritm Monte Carlo bazat pe simulare pentru inferenta Bayesiana recursiva (ciclul predict-update). Aproximeaza distributia de filtrare p(z_t|y_{1:t}) cu un set ponderat de particule. Este utilizat pe scara larga in urmarire, prognoza si invatare online.</div>
+  <div class="highlight-box"><strong>SIR pentru inferenta Bayesiana:</strong> Cu priorul ca propunere, ponderile sunt w_s = p(D|theta_s) / sum p(D|theta_{s'}). Daca priorul si posterioarul difera mult, varianta ponderilor este mare si sunt necesare foarte multe esantioane.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la SIR static la filtrarea particulelor dinamica. PF este una dintre cele mai importante metode Monte Carlo, permitand inferenta secventiala in modele cu stari latente care evolueaza in timp.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Filtrarea particulelor combina trei ingrediente: (1) esantionarea prin importanta secventiala (SIS), (2) re-esantionarea pentru a combate degenerarea, (3) o distributie propunere buna. Fiecare ingredient rezolva o problema specifica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>PF este standard in robotica (localizare, SLAM), finante (filtrarea volatilitatii stochastice), ecologie (estimarea populatiilor), si procesarea semnalelor (urmarirea tintelor radar).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un robot autonom foloseste filtrarea particulelor pentru a-si estima pozitia pe o harta: fiecare particula reprezinta o pozitie posibila, ponderata de cat de bine se potriveste cu citirile senzorilor.</p></div>
+  </div>
+</div>

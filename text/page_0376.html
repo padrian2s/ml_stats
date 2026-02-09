@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Estimarea Parametrilor pentru Modele de Amestec (continuare)</h2>
+  <p>Pagina continua discutia despre modelele cu variabile latente (LVM), prezentand modelul direct si modelul invers, precum si introducerea estimarii parametrilor pentru modelele de amestec.</p>
+  <div class="definition-box"><strong>Model direct (forwards model):</strong> Un model care defineste o functie y = f(x), unde pentru fiecare valoare x exista un raspuns unic y.</div>
+  <div class="definition-box"><strong>Model invers:</strong> Calcularea x = f⁻¹(y), unde pentru anumite valori de-a lungul axei orizontale pot exista iesiri multiple, deci inversa nu este definita in mod unic.</div>
+  <div class="highlight-box"><strong>Distributie predictiva multimodala:</strong> Cand p(x|y, θ) este multimodala, media posterioara nu ofera predictii bune. Modul posterior, dependent de intrare, ofera o aproximare rezonabila.</div>
+  <div class="figure-box"><strong>Figura 11.9:</strong> Un LVM reprezentat ca graf orientat aciclic (DGM). Stanga: modelul este derulat pentru N exemple. Dreapta: acelasi model folosind notatia plate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina introduce problema estimarii parametrilor in modelele de amestec. Se arata ca, spre deosebire de cazul cu date complete, cand avem variabile ascunse si/sau date lipsa, posteriorul parametrilor nu se mai factorizeaza, ceea ce face calculul mult mai dificil. Modelul direct vs. invers ilustreaza de ce distributia predictiva poate fi multimodala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Separarea d-separation in grafuri orientate aciclice arata ca daca z_i ar fi observate, θ_z si θ_x ar fi independente conditional. Dar in LVM, variabilele z_i sunt ascunse, parametrii nu mai sunt independenti, iar posteriorul nu se factorizeaza.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele inverse sunt esentiale in probleme de reconstructie, cum ar fi reconstructia imaginilor, unde din observatii (y) trebuie estimat semnalul original (x). Amestecul de experti liniari poate fi folosit pentru a modela relatii inverse complexe.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul medical, relatia dintre simptome (y) si cauze (x) este un model invers tipic: acelasi simptom poate avea cauze multiple, facand distributia predictiva multimodala. Un amestec de experti poate captura aceste moduri multiple.</p></div>
+  </div>
+</div>

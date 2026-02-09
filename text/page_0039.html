@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>Capitolul 1: Detectia Fetelor si Regresia</h2>
+  <p>Detectia si recunoasterea fetelor in imagini, introducerea regresiei ca varianta cu iesiri continue.</p>
+  <div class="definition-box"><strong>Detectia Obiectelor (Object Detection):</strong> Gasirea obiectelor intr-o imagine, numita si localizare de obiecte.</div>
+  <div class="definition-box"><strong>Detectia Fetelor (Face Detection):</strong> Caz special al detectiei de obiecte, unde se cauta fete in imagini prin clasificarea patch-urilor suprapuse.</div>
+  <div class="definition-box"><strong>Sliding Window Detector:</strong> Abordare care imparte imaginea in patch-uri mici suprapuse la diferite locatii, scari si orientari, clasificand fiecare patch ca fata sau non-fata.</div>
+  <div class="definition-box"><strong>Recunoasterea Fetelor (Face Recognition):</strong> Estimarea identitatii persoanei detectate. Numarul de clase poate fi foarte mare.</div>
+  <div class="definition-box"><strong>Regresie:</strong> Identica cu clasificarea, cu exceptia ca variabila de raspuns este continua, y_i ∈ R.</div>
+  <div class="figure-box"><strong>Figura 1.6:</strong> (a) Imagine de intrare (familia Murphy). (b) Iesirea clasificatorului cu 5 fete detectate la diferite pozitii. Clasificatorul a fost antrenat pe mii de imagini etichetate de fete si non-fete.</div>
+  <div class="highlight-box"><strong>Invarianta vs. Discriminare:</strong> Pentru detectia fetelor, modelul trebuie sa fie invariant la detalii precum coafura. Pentru recunoasterea fetelor, aceleasi detalii subtile devin importante pentru discriminarea identitatii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea acopera detectia si recunoasterea fetelor ca aplicatii avansate ale clasificarii. Detectia fetelor foloseste un sliding window detector care scaneaza imaginea si clasifica fiecare patch. Recunoasterea fetelor necesita caracteristici diferite fata de detectie. Sectiunea 1.2.2 introduce regresia ca o varianta a invatarii supervizate cu iesiri continue.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia intre detectie (este o fata?) si recunoastere (a cui fata este?) implica diferente fundamentale in alegerea caracteristicilor. Detectia necesita invarianta la identitate, iar recunoasterea necesita sensibilitate la identitate. Aceasta dualitate apare in multe probleme de viziune computationala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Detectia fetelor este integrata in camerele digitale (autofocus pe fete), in Google StreetView (blur automat al fetelor pentru confidentialitate), si in sistemele de securitate. Recunoasterea faciala este folosita la deblocarea telefoanelor si controlul accesului.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Google Photos utilizeaza atat detectia cat si recunoasterea fetelor pentru a organiza automat fotografiile. Sistemul detecteaza fetele in imagini, apoi grupeaza fotografiile aceleiasi persoane, chiar si cand aceasta apare in pozitii si conditii de iluminare diferite.</p></div>
+  </div>
+</div>

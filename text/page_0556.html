@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>GP si modele liniare generalizate (GLM)</h2>
+  <p>Aceasta pagina introduce extinderea GP la clasificare si alte GLM-uri, prezentand clasificarea binara si tabelul cu verosimilitate, gradient si Hessian pentru regresie logistica si probit.</p>
+  <div class="definition-box"><strong>Clasificare GP binara:</strong> p(y_i|x_i) = sigma(y_i * f(x_i)), unde sigma(z) = sigm(z) pentru regresie logistica sau sigma(z) = Phi(z) pentru regresie probit, iar f ~ GP(0, kappa). Priorul Gaussian nu este conjugat cu verosimilitatea Bernoulli/multinoulli.</div>
+  <div class="highlight-box"><strong>Aproximari pentru posteriorul ne-conjugat:</strong> Se pot folosi: aproximare Gaussiana (Laplace), propagarea expectatiei, metode variatioanale, sau MCMC. Aproximarea Gaussiana este cea mai simpla si rapida.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Extensia GP la GLM-uri necesita tratarea ne-conjugatiei dintre priorul Gaussian si verosimilitatea non-Gaussiana. Tabelul 15.1 sumarizeaza log-verosimilitatea, gradientul si Hessianul pentru cazurile logistic si probit. Distributia predictiva a etichetelor se obtine integrandu-se functia latenta f prin sigma(f).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Problema centrala este ca posteriorul p(f|X,y) nu mai este Gaussian. Aproximarea Laplace este cea mai simpla: gasim modul posteriorului prin IRLS si aproximam cu o Gaussiana centrata pe mod cu covarianta egala cu inversul Hessianului negativ.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GP pentru clasificare sunt folosite in aplicatii unde incertitudinea predictiei este critica: diagnostic medical, detectie anomalii, si sisteme de decizie. Ofera probabilitati calibrate spre deosebire de SVM-uri.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul medical, un GP clasificator poate prezice probabilitatea unei boli pe baza simptomelor, oferind nu doar diagnosticul ci si nivelul de incertitudine, ajutand medicul sa decida daca sunt necesare investigatii suplimentare.</p></div>
+  </div>
+</div>

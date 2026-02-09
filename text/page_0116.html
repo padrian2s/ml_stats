@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Exerciții - Capitolul 3 (Partea 2)</h2>
+  <p>Pagina continuă exercițiile capitolului 3, cu probleme despre predictiva beta-binomială, actualizarea cu date cenzurate, priorul neinformativ pentru log-odds, și MLE pentru Poisson.</p>
+  <div class="highlight-box"><strong>Exercițiul 3.3 - Predictiva beta-binomială:</strong> Se demonstrează că p(x̃=1|D) = α'₁/(α'₀+α'₁) utilizând proprietățile funcției Beta și Gamma.</div>
+  <div class="highlight-box"><strong>Exercițiul 3.4 - Actualizare cu date cenzurate:</strong> Se aruncă o monedă de 5 ori, se știe doar că au apărut mai puțin de 3 capete. Posteriorul p(θ|X<3) este un amestec de distribuții Beta.</div>
+  <div class="highlight-box"><strong>Exercițiul 3.5 - Prior neinformativ:</strong> Dacă ϕ = logit(θ) = log(θ/(1−θ)) și p(ϕ) ∝ 1 (prior neinformativ pe log-odds), atunci p(θ) ∝ Beta(θ|0,0) prin formula de schimbare a variabilelor.</div>
+  <div class="highlight-box"><strong>Exercițiul 3.6 - MLE Poisson:</strong> Poi(x|λ) = e^{−λ}·λˣ/x!. MLE: λ̂ = x̄ (media eșantionului).</div>
+  <div class="highlight-box"><strong>Exercițiul 3.7 - Analiza Bayesiană a Poisson:</strong> Prior conjugat Ga(λ|a,b). Posterior: Ga(λ|a+Σxᵢ, b+N). Media posterioară: (a+Σxᵢ)/(b+N).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercițiile acoperă scenarii avansate: date cenzurate, priori neinformative pe parametrizări alternative, și analiza Bayesiană a distribuției Poisson cu prior conjugat Gamma.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Priorul neinformativ pe logit-odds ilustrează cum alegerea parametrizării afectează forma priorului. Distribuția Poisson cu prior Gamma este un alt exemplu clasic de conjugare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelul Poisson-Gamma este utilizat în modelarea numărului de evenimente (accidente, defecte, clicuri) pe unitate de timp sau spațiu. Datele cenzurate apar frecvent în studii clinice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Numărul de apeluri la un centru de suport pe oră poate fi modelat Poisson. Priorul Gamma codifică experiența anterioară, iar posteriorul combină informațiile pentru predicții mai bune ale necesarului de personal.</p></div>
+  </div>
+</div>

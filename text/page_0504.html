@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Image Inpainting (continuare), Fields of Experts si Figura 13.22-13.23</h2>
+  <p>Pagina continua cu detalii despre image inpainting folosind sparse coding, prezinta Figura 13.22 (DGM pentru compressed sensing) si Figura 13.23 (exemplu de inpainting), si mentioneaza modelul fields of experts.</p>
+  <div class="highlight-box"><strong>Figura 13.22 - DGM pentru compressed sensing:</strong> Modelul grafic: z (sparse, cu prior controlat de lambda) -> x (prin dictionar W) -> y (prin masurare R, cu zgomot). Aceasta este o formulare probabilistica completa a problemei CS.</div>
+  <div class="highlight-box"><strong>Figura 13.23 - Image inpainting:</strong> (a) Imagine originala cu text suprapus. (b) Reconstructie prin sparse coding cu dictionar de 256 atomi invatat din patch-uri 12x12 ne-corupte. Textul suprapus este eliminat, detaliile originale sunt restaurate.</div>
+  <div class="definition-box"><strong>Fields of experts (FoE):</strong> Model grafic alternativ (Roth and Black 2009) care codifica direct corelatiile intre patch-urile vecine, fara a folosi variabile latente. Mai costisitor computational, dar poate captura dependente spatiale mai complexe decat sparse coding cu patch-uri independente.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sparse coding pentru inpainting functioneaza prin: (1) invatarea dictionarului din patch-urile intacte, (2) pentru fiecare patch corupt, estimarea coeficientilor sparse z din pixelii vizibili, (3) reconstructia pixelilor lipsa folosind Wz. Calitatea depinde de dictionarul invatat si de proportia de pixeli vizibili. Fields of experts ofera o alternativa care modeleaza explicit vecinatatea spatiala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta fundamentala: sparse coding trateaza patch-urile independent (eficient, paralelizabil), in timp ce fields of experts modeleaza dependentele inter-patch (calitate mai buna la marginile patch-urilor, dar mai costisitor). In practica, sparse coding cu overlap si averaging este un compromis bun.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Inpainting-ul modern combina sparse coding cu retele neurale profunde (deep image prior, generative models). Totusi, sparse coding ramane relevant pentru aplicatii unde datele de antrenare sunt limitate sau unde interpretabilitatea este importanta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In restaurarea filmelor vechi (de exemplu, digitizarea arhivelor cinematografice), sparse coding este folosit pentru a elimina zgarierturile, petele si deteriorarile de pe cadre individuale, pastrand detaliile originale ale imaginii.</p></div>
+  </div>
+</div>

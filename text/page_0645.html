@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Algoritmul Viterbi - Detalii si formulare</h2>
+  <p>Aceasta pagina detaliaza algoritmul Viterbi pentru gasirea secventei de stari cea mai probabila intr-un HMM, incluzand recursivitatea si traceback.</p>
+  <div class="definition-box"><strong>Algoritmul Viterbi:</strong> delta_t(j) = max_{z_{1:t-1}} p(z_{1:t-1}, z_t=j|x_{1:t}), cu recurenta delta_t(j) = max_i delta_{t-1}(i) * psi(i,j) * phi_t(j). Traceback: z_t* = a_{t+1}(z_{t+1}*), unde a_t(j) = argmax_i delta_{t-1}(i) * psi(i,j) * phi_t(j).</div>
+  <div class="highlight-box"><strong>Diferenta sum-product vs max-product:</strong> Inlocuirea sumei cu max in forward-backward NU da Viterbi corect din cauza potentialelor legaturi. Viterbi necesita traceback pentru a asigura consistenta secventei.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Viterbi este un algoritm de programare dinamica: delta_t(j) stocheaza probabilitatea celei mai bune cai care ajunge in starea j la timpul t, iar a_t(j) stocheaza starea anterioara pe aceasta cale. Initializare: delta_1(j) = pi_j * phi_1(j). Terminare: z_T* = argmax delta_T(i). Traceback: z_t* = a_{t+1}(z_{t+1}*) recupereaza calea optima de la sfarsit spre inceput.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Algoritmul sum-product (forward-backward) si max-product (Viterbi) au aceeasi structura dar operatii diferite: suma vs. max. Max-product fara traceback poate da rezultate inconsistente cand exista legaturi (tie-breaking independent per nod). Traceback asigura ca alegem o cale completa consistenta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Viterbi este implementat in toate bibliotecile HMM (hmmlearn, pomegranate in Python; HMM toolbox in Matlab). Este de asemenea baza pentru decodarea codurilor convolutionale in telecomunicatii (standard in WiFi, LTE).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In bioinformatica, algoritmul Viterbi este folosit pentru a gasi cea mai probabila anotare a unei secvente ADN (exoni, introni, regiuni intergenice), folosind un HMM antrenat pe secvente anotate anterior.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Inegalitatea Jensen, metoda delta multivariata si inferenta variationala cu margini superioare</h2>
+  <p>Aceasta pagina prezinta trei abordari suplimentare pentru aproximarea functiei log-sum-exp: inegalitatea lui Jensen, metoda delta multivariata si inferenta variationala bazata pe margini superioare.</p>
+  <div class="definition-box"><strong>Inegalitatea lui Jensen pentru lse:</strong> Folosind concavitatea logaritmului si proprietatile distributiei log-normale, se obtine o margine superioara tractabila E_q[lse(eta_i)] care depinde de media si covarianta posterioara.</div>
+  <div class="definition-box"><strong>Metoda delta multivariata:</strong> O tehnica de aproximare a momentelor unei functii folosind expansiunea Taylor de ordinul doi. Permite estimarea lui E_q[f(w)] folosind gradientul g si Hessianul H evaluate la media m.</div>
+  <div class="highlight-box"><strong>Inferenta variationala cu margini superioare:</strong> Pentru retele de incredere sigmoidale (sigmoid belief nets), unde MRF-ul rezultat contine interactiuni de ordin superior, se folosesc margini superioare pe functia sigmoid pentru a face actualizarile mean field tractabile.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta trei tehnici complementare: inegalitatea Jensen ofera o margine superioara simpla, metoda delta multivariata foloseste expansiunea Taylor pentru aproximare, iar sectiunea 21.8.5 introduce utilizarea marginilor superioare (nu doar inferioare) in inferenta variationala, necesare pentru anumite modele precum retelele sigmoidale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Fiecare metoda ofera un compromis diferit intre precizie si cost computational. Inegalitatea Jensen este cea mai simpla, metoda delta este moderata, iar abordarea cu margini superioare rezolva cazuri specifice unde marginile inferioare nu sunt suficiente.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Metoda delta multivariata este folosita frecvent in propagarea incertitudinii prin retele neuronale. Marginile superioare sunt esentiale in modelele cu legaturi sigmoidale, cum ar fi retelele de incredere profunde.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza financiara, cand se propaga incertitudinea prin modele neliniare complexe, metoda delta ofera o aproximare rapida a distributiei output-ului, utila pentru evaluarea riscului in timp real.</p></div>
+  </div>
+</div>

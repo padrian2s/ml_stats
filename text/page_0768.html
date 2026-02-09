@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Derivarea ecuatiilor mean field si exemplul modelului Ising</h2>
+  <p>Aceasta pagina completeaza derivarea formala a ecuatiilor de actualizare mean field si introduce aplicarea lor la modelul Ising pentru denoising de imagini.</p>
+  <div class="definition-box"><strong>Derivarea formala:</strong> ELBO se rescrie ca L(q_j) = Σ q_j log f_j - Σ q_j log q_j + const = -KL(q_j||f_j), unde log f_j(x_j) = E_{-q_j}[log p̃(x)]. Maximizarea L impune q_j(x_j) ∝ exp(E_{-q_j}[log p̃(x)]), ceea ce este actualizarea mean field standard.</div>
+  <div class="definition-box"><strong>Modelul Ising pentru denoising:</strong> Priorul p(x) ∝ exp(-E_0(x)) cu E_0(x) = -Σ_i Σ_{j∈nbr_i} W_ij x_i x_j (modelul Ising). Verosimilitatea p(y|x) = ∏_i exp(-L_i(x_i)) este factorizata per pixel.</div>
+  <div class="highlight-box"><strong>Posterioarul Ising:</strong> p(x|y) ∝ exp(-E(x)) cu E(x) = E_0(x) - Σ_i L_i(x_i). Aproximarea mean field factorizata q(x) = ∏_i q(x_i, μ_i) produce actualizarea: q_i(x_i) ∝ exp(x_i Σ_{j∈nbr_i} W_ij μ_j + L_i(x_i)).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Derivarea mean field pentru modelul Ising este eleganta: log-posterioara nenormalizata depinde de x_i doar prin termenul de interactiune (x_i Σ W_ij x_j) si termenul de observatie (L_i(x_i)). In actualizarea mean field, x_j este inlocuit cu media sa μ_j sub q_j. Rezultatul este o ecuatie de actualizare sigmoida: q_i(x_i=1) = sigm(2a_i), unde a_i = Σ W_ij μ_j + 0.5(L_i^+ - L_i^-).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>In modelul Ising, media mean field m_i = Σ W_ij μ_j joaca rolul "campului mediu" din fizica statistica - de aici numele metodei. Fiecare nod "simte" media ponderata a vecinilor sai, nu valorile reale. Aceasta aproximare este exacta in limita dimensionalitatii infinite (numar mare de vecini).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Mean field Ising este folosit in denoising-ul imaginilor binare, segmentare si modelare statistica a sistemelor fizice. Este mult mai rapid decat MCMC si produce rezultate comparabile pentru interactiuni slabe (W mic).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In denoising-ul unei imagini binare (text scanat), fiecare pixel este actualizat iterativ: probabilitatea de a fi negru creste daca vecinii sunt preponderent negri (prior Ising) si daca observatia zgomotoasa sugereaza negru (likelihood). Dupa cateva iteratii, textul curat este recuperat.</p></div>
+  </div>
+</div>

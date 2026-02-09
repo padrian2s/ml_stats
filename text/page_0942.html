@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Sectiunile 26.7.4 si 26.8 - Date non-Gaussiene cu Copule si Modele Grafice Discrete Neorientate</h2>
+  <p>Pagina trateaza extensia Glasso la date non-Gaussiene prin copule si introduce invatarea structurii pentru modele grafice discrete neorientate (UGM-uri discrete), inclusiv graphical lasso pentru MRF-uri/CRF-uri.</p>
+  <div class="definition-box"><strong>Distributia nonparanormala:</strong> Date care pot fi transformate in date Gaussiene prin transformari monotone univariate f_j, cate una per variabila j. Echivalenta cu familia de copule Gaussiene (Klaassen si Wellner 1997).</div>
+  <div class="definition-box"><strong>Graphical Lasso pentru MRF/CRF:</strong> Extensia ideii de graphical lasso la cazul discret, folosind analogul group lasso. Pentru un CRF cu noduri ternare, potentialele nodurilor si muchiilor sunt matrici de ponderi, iar penalizarea L1 de grup incurajeaza raritatea structurala.</div>
+  <div class="highlight-box"><strong>Obiectivul pentru CRF rar:</strong> J = −Σ_i [Σ_t log ψ_t + Σ_{s<t} log ψ_st] + λ₁ Σ_{s,t} ||w_st||_p + λ₂ Σ_t ||v_t||₂² (Ecuatia 26.72), combinand NLL cu penalizare de grup pe ponderi.</div>
+  <div class="highlight-box"><strong>Dificultatea UGM-urilor discrete:</strong> Calcularea functiei de partitie Z(θ), necesara pentru estimarea parametrilor, are complexitate comparabila cu calculul permanentului unei matrice, care este intractabil in general.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se prezinta doua extensii importante: (1) tratarea datelor non-Gaussiene prin transformari monotone care aduc datele in forma Gaussiana (copule Gaussiene), permitand apoi aplicarea Glasso, si (2) invatarea structurii pentru UGM-uri discrete, unde dificultatea principala este intractabilitatea functiei de partitie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Copulele Gaussiene ofera un cadru elegant pentru extinderea GGM-urilor la date non-Gaussiene, mentinand proprietatile de independenta conditionata. Pentru UGM-uri discrete, trecerea de la penalizarea L1 simpla la group lasso reflecta faptul ca fiecare muchie are asociat un set de parametri (nu un singur scalar).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Copulele Gaussiene sunt utilizate in modelarea riscului financiar (unde distributiile marginale sunt adesea non-Gaussiene). CRF-urile rare sunt aplicate in procesarea limbajului natural (etichetarea secventelor) si in viziunea computationala (segmentarea imaginilor).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In finante, randamentele activelor au distributii cu cozi groase (non-Gaussiene). Folosind copule Gaussiene, se pot transforma randamentele in variabile Gaussiene, se aplica Glasso pentru a descoperi structura de dependenta, iar graful rezultat indica care active sunt conditionate direct unele de altele.</p></div>
+  </div>
+</div>

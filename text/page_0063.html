@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 2: Variabile Aleatoare Continue</h2>
+  <p>Extinderea teoriei probabilitatilor la variabile continue: CDF, PDF si distributia uniforma.</p>
+  <div class="definition-box"><strong>Functia de Distributie Cumulativa (CDF):</strong> F(q) = p(X ≤ q) - o functie monoton crescatoare care indica probabilitatea ca X sa fie mai mica sau egala cu q (ecuatia 2.19).</div>
+  <div class="definition-box"><strong>Functia de Densitate de Probabilitate (PDF):</strong> f(x) = dF(x)/dx - derivata CDF-ului. p(a < X ≤ b) = ∫_a^b f(x)dx (ecuatia 2.20). Nota: f(x) poate fi > 1, dar ∫f(x)dx = 1.</div>
+  <div class="definition-box"><strong>Distributia Uniforma:</strong> Unif(x|a, b) = 1/(b-a) I(a ≤ x ≤ b) (ecuatia 2.22). Toate valorile din intervalul [a, b] au aceeasi densitate.</div>
+  <div class="highlight-box"><strong>Observatie Importanta:</strong> p(x) ≥ 0, dar p(x) poate fi > 1 pentru orice x dat, atata timp cat densitatea integreaza la 1. De exemplu, Unif(x|0, 0.5) are p(x) = 2 pentru x ∈ [0, 0.5].</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 2.2.5 extinde teoria probabilitatilor la variabile continue. CDF-ul F(q) = p(X ≤ q) este definit prin regula sumei si este monoton crescator. PDF-ul f(x) este derivata CDF-ului si nu este o probabilitate in sine, ci o densitate. Probabilitatea se obtine prin integrarea PDF-ului pe un interval. Distributia uniforma este prezentata ca exemplu simplu.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia intre PMF (discret) si PDF (continuu) este subtila dar importanta. PDF-ul poate depasi 1, ceea ce este contra-intuitiv dar corect matematic. Trecerea de la sumare la integrare este tema recurenta cand se trece de la discret la continuu. CDF-ul este mai fundamental decat PDF-ul, deoarece exista intotdeauna.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>CDF-ul este folosit in testarea statistica (p-values), evaluarea riscului (VaR - Value at Risk in finante) si estimarea de densitate. Distributia uniforma este folosita in generarea de numere aleatoare si ca distributie a priori neinformativa in statistica Bayesiana.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In managementul riscului financiar, VaR (Value at Risk) este definit folosind CDF-ul: VaR la nivelul α este valoarea x_α astfel incat F(x_α) = α, adica exista doar o probabilitate de α% ca pierderile sa depaseasca aceasta valoare. Este un exemplu direct al utilizarii cuantilelor CDF-ului.</p></div>
+  </div>
+</div>

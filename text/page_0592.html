@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Algoritmul Gradient Boosting si Sparse Boosting</h2>
+  <p>Pagina prezinta algoritmul complet de gradient boosting (Algoritm 16.4), legatura cu BinomialBoost, si introduce sparse boosting ca metoda de selectie a variabilelor.</p>
+  <div class="definition-box"><strong>Gradient Boosting (Algoritm 16.4):</strong> Algoritm general care: (1) initializeaza f₀, (2) la fiecare pas calculeaza reziduurile gradientului r_{im}, (3) potriveste clasificatorul slab pe reziduuri, (4) actualizeaza f_m = f_{m-1} + ν φ(x; γ_m).</div>
+  <div class="definition-box"><strong>BinomialBoost:</strong> Gradient boosting aplicat pe logloss, avand avantajul ca nu necesita potrivire ponderata - aplica un model de regresie black-box pe vectorul gradientului.</div>
+  <div class="definition-box"><strong>Sparse Boosting:</strong> Varianta in care clasificatorul slab cauta peste toate variabilele j = 1:D si alege variabila j(m) care prezice cel mai bine vectorul rezidual.</div>
+  <div class="highlight-box"><strong>Selectia variabilei optime:</strong> j(m) = argmin_j Σ_{i=1}^{N} (r_{im} - β̂_{jm} x_{ij})² (Ec. 16.54), cu β̂_{jm} = Σ x_{ij} r_{im} / Σ x_{ij}² (Ec. 16.55)</div>
+  <div class="highlight-box"><strong>Functia de baza:</strong> φ_m(x) = β̂_{j(m),m} x_{j(m)} (Ec. 16.56)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul de gradient boosting este generic si functioneaza cu orice functie de pierdere diferentiabila. Cu pierdere patrata se obtine L2Boosting, cu logloss se obtine BinomialBoost. Sparse boosting selecteaza la fiecare pas o singura variabila, fiind identic cu algoritmul matching pursuit si echivalent cu LAR cand ν → 0.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Avantajul BinomialBoost fata de LogitBoost: nu necesita potrivire ponderata, doar aplica un model de regresie pe vectorul gradientului. Sparse boosting poate folosi spline-uri de netezire in loc de regresie liniara, producand un model aditiv generalizat rar.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Sparse boosting este utilizat in genomica si proteomice pentru selectia genelor relevante dintr-un numar foarte mare de variabile (mii de gene, zeci de esantioane).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza expresiei genice pentru diagnosticul cancerului, sparse boosting selecteaza iterativ genele cele mai informative din mii de gene candidate, construind un model de diagnostic precis si interpretabil.</p></div>
+  </div>
+</div>

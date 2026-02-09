@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul Forwards-Backwards - Recurența Backward (p. 611)</h2>
+  <p>Pagina derivă recursivitatea backward pentru calculul mesajelor βₜ și prezintă marginala cu două tranșe temporale necesară pentru estimarea parametrilor.</p>
+  <div class="definition-box"><strong>Mesajul backward β:</strong> βₜ(j) = p(x_{t+1:T}|zₜ=j) - verosimilitatea condițională a evidenței viitoare dată starea curentă (Ec. 17.51). Nu este o distribuție de probabilitate.</div>
+  <div class="highlight-box"><strong>Recurența backward:</strong> βₜ₋₁(i) = Σⱼ βₜ(j)ψₜ(j)ψ(i,j) sau în formă matriceală: βₜ₋₁ = Ψ(ψₜ ⊙ βₜ) (Ec. 17.58-17.59).</div>
+  <div class="highlight-box"><strong>Marginala cu două tranșe:</strong> ξₜ,ₜ₊₁(i,j) = p(zₜ=i, z_{t+1}=j|x₁:T) ∝ αₜ(i)φ_{t+1}(j)β_{t+1}(j)ψ(i,j) (Ec. 17.62-17.66).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se completează algoritmul forwards-backwards prin derivarea recurenței backward. Combinarea mesajelor forward și backward dă marginala netezită γₜ(j) ∝ αₜ(j)βₜ(j). Marginala cu două tranșe ξ este necesară pentru estimarea matricei de tranziție prin EM.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Simetria algoritmului: forward propagă informația de la stânga la dreapta, backward de la dreapta la stânga. Combinarea lor oferă inferența optimă care utilizează toată evidența disponibilă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Marginala cu două tranșe ξₜ,ₜ₊₁(i,j) calculează numărul așteptat de tranziții de la starea i la j, informație esențială pentru reestimarea matricei de tranziție A în algoritmul Baum-Welch.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În analiza genomică, recurența backward corespunde propagării informației de la sfârșitul secvenței ADN înapoi, completând informația forward pentru a determina cu precizie regiunile codificatoare.</p></div>
+  </div>
+</div>

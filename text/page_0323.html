@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Estimarea ML si MAP pentru GLM-uri</h2>
+  <p>Aceasta pagina deriveaza gradientul si Hessianul log-verosimilitatii pentru GLM-uri, prezentand algoritmul IRLS (Iteratively Reweighted Least Squares) pentru estimarea parametrilor.</p>
+  <div class="definition-box"><strong>Gradientul log-verosimilitatii GLM (legatura canonica):</strong> &nabla;_w l(w) = (1/&sigma;&sup2;) &Sigma; (y_i - &mu;_i) x_i = (1/&sigma;&sup2;) X^T (y - &mu;). Aceasta este o suma de vectori de input ponderati de erori, aceeasi forma pentru toate GLM-urile canonice.</div>
+  <div class="definition-box"><strong>Hessianul (legatura canonica):</strong> H = -(1/&sigma;&sup2;) X^T S X, unde S = diag(d&mu;_i/d&theta;_i) este o matrice diagonala de ponderi. Hessianul este negativ definit, deci log-verosimilitatea este strict concava.</div>
+  <div class="highlight-box"><strong>Algoritmul IRLS:</strong> w_{t+1} = (X^T S_t X)^(-1) X^T S_t z_t, unde z_t = &theta;_t + S_t^(-1)(y - &mu;_t) este pseudo-raspunsul. La fiecare iteratie, se rezolva o problema de regresie liniara ponderata (weighted least squares), cu ponderi S_t care se actualizeaza. Convergenta este garantata de concavitate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza eleganta cadrului GLM: gradientul are aceeasi forma simpla (X^T(y-&mu;)) pentru toate GLM-urile cu legatura canonica. Diferenta intre regresia liniara, logistica si Poisson este doar in modul in care &mu;_i depinde de &eta;_i (sigmoida, exp, identitate). Algoritmul IRLS transforma optimizarea neliniara intr-o secventa de probleme de regresie liniara ponderata, fiecare avand solutie in forma inchisa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Gradientul unificat X^T(y-&mu;) inseamna cod identic pentru toate GLM-urile. 2) Matricea de pondere S_t reflecta varianta conditionala: observatiile cu varianta mare primesc pondere mica. 3) IRLS converge de obicei in 5-10 iteratii datorita naturii de ordinul 2 (Newton). 4) Fisher scoring (Hessianul asteptat) este identic cu Hessianul observat pentru legaturi canonice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>IRLS este implementat in glm() din R, statsmodels din Python, si PROC GENMOD din SAS. Este rapid, stabil si garanteaza convergenta. Extensia la MAP (cu prior Gaussian) adauga doar termenul de regularizare &lambda;w la gradient si &lambda;I la Hessian.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Cand o companie de asigurari construieste un model de tarifare, foloseste un GLM Poisson (frecventa) si un GLM Gamma (severitate). Ambele sunt estimate cu IRLS, de obicei converg in sub 10 iteratii chiar pe milioane de polite. Stabilitatea si viteza IRLS sunt esentiale cand modelul trebuie re-estimat zilnic cu date actualizate.</p></div>
+  </div>
+</div>

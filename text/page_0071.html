@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Distributia Student, Laplace si robustetea la valori aberante</h2>
+  <p>Aceasta pagina compara distributiile Gaussiana, Student si Laplace, ilustrand efectul valorilor aberante (outliers) asupra estimarii parametrilor.</p>
+  <div class="definition-box"><strong>Distributia Cauchy (Lorentz):</strong> Caz special al distributiei Student cu &nu; = 1, notabila pentru cozile atat de grele incat media nu converge (integrala care defineste media diverge).</div>
+  <div class="highlight-box"><strong>Robustetea distributiei Student:</strong> Distributia Student este mai putin afectata de valori aberante decat Gaussiana, datorita cozilor mai grele. Acest lucru este ilustrat in Figura 2.8: adaugarea de outlieri modifica semnificativ estimarea Gaussiana, dar aproape deloc pe cea Student.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta comparatia vizuala intre distributiile Gaussiana, Student si Laplace, atat ca densitati de probabilitate cat si ca logaritmi ai densitatilor. Se demonstreaza ca distributia Student este robusta la valori aberante, iar varianta sa este definita doar pentru &nu; > 2, iar media doar pentru &nu; > 1. Pentru &nu; = 1 se obtine distributia Cauchy. In practica, &nu; = 4 ofera un echilibru bun intre robustete si tractabilitate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Cozile grele ale distributiei Student ofera protectie naturala impotriva outlierilor. 2) Logaritmul densitatii Student nu este log-concav, spre deosebire de Laplace. 3) Pe masura ce &nu; creste peste 5, distributia Student se apropie rapid de Gaussiana si isi pierde proprietatile de robustete. 4) Exista un compromis intre robustete (&nu; mic) si proprietati statistice bine definite (&nu; mare).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Distributia Student este utilizata frecvent in modelarea financiara (randamentele bursiere au cozi grele), in procesarea semnalelor (unde zgomotul poate avea valori extreme), si in regresia robusta unde datele pot contine masuratori eronate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectarea fraudelor bancare, tranzactiile legitime urmeaza un tipar normal, dar fraudele reprezinta valori aberante extreme. Utilizarea unei distributii Student in loc de Gaussiana pentru modelarea tranzactiilor permite sistemului sa nu fie „deranjat" excesiv de tranzactiile extreme, oferind estimari mai stabile ale parametrilor populatiei normale.</p></div>
+  </div>
+</div>

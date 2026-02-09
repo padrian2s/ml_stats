@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Comparatie: Least Squares, LASSO, Ridge si Subset Selection</h2>
+  <p>Pagina compara formal cele patru metode de estimare (OLS, Ridge, LASSO, Subset Selection) in cazul design-ului ortogonal X^T X = I.</p>
+  <div class="highlight-box"><strong>OLS (Eq. 13.61):</strong> w_hat_k^OLS = x_k^T y. Proiectia ortogonala pe fiecare feature, fara regularizare.</div>
+  <div class="highlight-box"><strong>Ridge (Eq. 13.62):</strong> w_hat_k^ridge = w_hat_k^OLS / (1 + lambda). Shrinkage uniform: toate coeficientii sunt multiplicati cu acelasi factor < 1. Nicio selectie.</div>
+  <div class="highlight-box"><strong>LASSO (Eq. 13.63):</strong> w_hat_k^lasso = sign(w_hat_k^OLS)(|w_hat_k^OLS| - lambda/2)_+. Soft thresholding: selectie + shrinkage.</div>
+  <div class="highlight-box"><strong>Subset Selection (Eq. 13.64):</strong> w_hat_k^SS = w_hat_k^OLS daca rank(|w_hat_k^OLS|) <= K, 0 altfel. Hard thresholding: selectie fara shrinkage. Pastreaza doar cele mai mari K coeficiente.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Comparatia in cazul ortogonal clarifica relatiile: Ridge face shrinkage uniform (multiplicativ), LASSO face soft thresholding (aditiv), Subset Selection face hard thresholding (trunchiaza). LASSO este singurul care face simultan selectie si shrinkage, de unde eficacitatea sa practica.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>In cazul non-ortogonal (X^T X != I), relatiile devin mai complexe, dar intuitia ramane: Ridge "trage" toti coeficientii spre zero uniform, LASSO ii "trage" diferentiat (unii ajung exact la zero), Subset Selection face alegeri dure (in/out).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LASSO da acuratete predictiva mai buna decat OLS si Ridge pe date de cancer de prostata (Tabel 13.1). Elastic net (combinatie l1+l2) combina avantajele LASSO (sparsitate) cu cele ale Ridge (stabilitate in prezenta colinearitati).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In predictia preturilor imobiliarelor cu sute de caracteristici, LASSO selecteaza automat cele mai relevante (suprafata, locatie, numar camere) si le estimeaza cu shrinkage, producand modele simple si predictive.</p></div>
+  </div>
+</div>

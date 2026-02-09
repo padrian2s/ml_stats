@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Distorsiuni elastice si arhitectura LeNet5</h2>
+  <p>Aceasta pagina ilustreaza distorsiunile elastice pentru augmentarea datelor si prezinta arhitectura detaliata a LeNet5 pentru clasificarea cifrelor.</p>
+  <div class="definition-box"><strong>Distorsiuni elastice:</strong> Transformari aleatorii ale imaginii generate prin campuri de flux (deplasari) aleatoare, aplicate pe o grila si interpolate. Figura 16.13 arata cifra '6' originala si mai multe variante distorsionate, impreuna cu campurile de flux corespunzatoare.</div>
+  <div class="highlight-box"><strong>LeNet5:</strong> Arhitectura CNN cu straturi: Input 32x32 -> C1 (6 harti 28x28) -> S2 (6 harti 14x14, subsamplare) -> C3 (16 harti 10x10) -> S4 (16 harti 5x5) -> C5 (120 unitati) -> F6 (84 unitati) -> Output (10 clase).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 16.13 arata cifra '6' deformata elastic: distorsiunile mici pastreaza identitatea cifrei dar creeaza variante noi pentru antrenament. Campurile de flux (panelele d, e, f) arata cum deplasarile variaza spatial. LeNet5 (Figura 16.14) alterna straturi convolutionale (C) cu straturi de subsamplare (S), reducand progresiv dimensiunea spatiala de la 32x32 la 5x5 si crescand numarul de harti de trasaturi de la 6 la 16.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura piramidala a LeNet5 (dimensiune spatiala scade, numarul de canale creste) a devenit standardul de facto pentru CNN-uri. Subsamplarea reduce rezolutia spatiala, facand reprezentarea mai robusta la mici translatii. Aceasta structura captureaza trasaturi din ce in ce mai abstracte si mai globale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LeNet5 a fost deploiat comercial de USPS pentru recunoasterea codurilor postale. Principiile sale (convolutie, subsamplare, ierarhie) sunt fundamentele tuturor CNN-urilor moderne, de la AlexNet (2012) la arhitecturile actuale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In procesarea automata a cecurilor bancare, CNN-uri bazate pe LeNet citesc suma scrisa de mana si o compara cu suma in cifre, prevenind erori si fraude in tranzactii.</p></div>
+  </div>
+</div>

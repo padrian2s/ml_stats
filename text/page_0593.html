@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>MART si de ce functioneaza boosting-ul</h2>
+  <p>Aceasta pagina prezinta arborii de regresie adaptivi multivariati (MART) si discuta de ce boosting-ul functioneaza atat de bine.</p>
+  <div class="definition-box"><strong>MART (Multivariate Adaptive Regression Trees):</strong> Combinatia gradient boosting cu arbori de regresie superficiali. Dupa ajustarea unui arbore pe rezidualuri (gradient negativ), se re-estimeaza parametrii din frunze: gamma_jm = argmin sum L(y_i, f_{m-1}(x_i) + gamma) pentru x_i in R_jm.</div>
+  <div class="highlight-box"><strong>Forward stagewise linear regression:</strong> Boosting-ul cu pas mic (nu -> 0) este echivalent cu algoritmul LAR, iar cu stergeri de variabile, cu LARS pentru lasso. Aceasta conecteaza boosting-ul cu regularizarea L1.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MART rafineaza gradient boosting prin re-estimarea parametrilor in frunzele arborelui dupa ajustarea pe rezidualuri. Hiperparametrii cheie sunt: M (numarul de runde), J (numarul de frunze, recomandat ~6), si nu (factorul de contractie). Boosting cu spline-uri produce modele aditive generalizate sparse (sparse GAM). Metoda BART (Bayesian Additive Regression Trees) foloseste backfitting Bayesian pentru o suma mica de arbori.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Arborii superficiali (J=2 sunt stumps, J=6 permite interactiuni de ordin 5) sunt invatatoare slabe ideale: bias mare dar varianta mica. Boosting-ul reduce sistematic bias-ul prin adaugari succesive. Factorul de contractie nu previne suprapotrivirea prin incetinirea invatarii.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MART este implementat ca GBM in R, XGBoost, LightGBM si CatBoost in Python. Este metoda dominanta in competitii Kaggle pentru date tabulare. BART este implementat in pachetul R 'BayesTree'.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In scoring-ul de credit, MART (gradient boosting) este folosit pe scara larga pentru a evalua riscul de neplata, combinand sute de arbori superficiali pentru a capta interactiuni complexe intre variabilele financiare ale clientului.</p></div>
+  </div>
+</div>

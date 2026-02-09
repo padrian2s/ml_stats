@@ -1,0 +1,19 @@
+<div class="page-content">
+  <h2>10.4.1 Notatia de Placa (Plate Notation)</h2>
+  <p>Pagina introduce notatia de placa pentru reprezentarea compacta a modelelor grafice cu variabile repetate, si conceptul de date interschimbabile.</p>
+  <div class="figure-box"><strong>Figura 10.7 (stanga):</strong> DGM desfasurat: nodul θ (deschis/neobservat) este parintele nodurilor X_1, ..., X_N (umbrite/observate). Toate datele sunt conditional independente dat fiind θ.</div>
+  <div class="figure-box"><strong>Figura 10.7 (dreapta):</strong> Notatia de placa echivalenta: un singur nod X_i intr-o caseta (placa) cu numarul N in coltul din dreapta jos, indicand ca nodul se repeta de N ori.</div>
+  <div class="definition-box"><strong>Notatia de placa (plate notation):</strong> Conventie vizuala in care o caseta (placa) inconjoara variabilele repetate, cu numarul de repetitii indicat in colț. La "desfasurare", fiecare nod din placa se replica.</div>
+  <div class="definition-box"><strong>Date interschimbabile (exchangeable):</strong> Date pentru care ordinea de sosire nu conteaza - toate ordonarile produc aceleasi statistici suficiente. Datele i.i.d. conditional pe θ sunt interschimbabile.</div>
+  <div class="definition-box"><strong>Independenta specifica contextului:</strong> Relatie CI care depinde de valoarea unei variabile: x_ij ⊥ θ_jc doar cand y_i ≠ c. In Naive Bayes, parametrul θ_jc genereaza x_ij doar cand clasa y_i = c.</div>
+  <div class="highlight-box"><strong>Distributia comuna cu placi (10.26):</strong> p(θ, D) = p(θ) [∏_{i=1}^{N} p(x_i|θ)].</div>
+  <div class="figure-box"><strong>Figura 10.8(a):</strong> Clasificatorul Naive Bayes desfasurat: nodul π (prior clase) → Y_i → X_{i1}, ..., X_{iD} (trasaturi), cu noduri de parametri θ_{c1}, ..., θ_{cD} pentru fiecare clasa c, repetate in placa N.</div>
+  <div class="figure-box"><strong>Figura 10.8(b):</strong> Aceeasi structura cu placi imbricate: placa exterioara N pentru cazuri, placi interioare D pentru trasaturi si C pentru clase.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Notatia de placa este un instrument vizual esential pentru reprezentarea compacta a modelelor grafice cu structuri repetate. Datele i.i.d. conditional pe parametri sunt interschimbabile, ceea ce justifica utilizarea placilor. Placile imbricate permit reprezentarea structurilor complexe precum Naive Bayes cu mai multe trasaturi si clase.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Dependenta intre date (marginal peste θ) versus independenta conditionata (dat θ) este un concept fundamental: datele par independente doar daca cunoastem parametrii. Independenta specifica contextului (θ_jc activeaza x_ij doar cand y_i = c) nu este evidenta din graful standard si necesita informatii suplimentare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Notatia de placa este standard in articolele de cercetare si software-ul de modele grafice (PyMC, Stan, Edward). Permite comunicarea eficienta a modelelor complexe cu mii de variabile.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de clasificare a documentelor (topic modeling) poate fi reprezentat compact cu placi imbricate: placa exterioara pentru documente (D), placa interioara pentru cuvinte din fiecare document (N_d), si placa pentru topicuri (K), facand modelul vizual clar chiar daca implica milioane de variabile.</p></div>
+  </div>
+</div>

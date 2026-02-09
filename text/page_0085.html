@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Precizia Aproximării Monte Carlo și Eroarea Standard</h2>
+  <p>Pagina detaliază cum crește precizia aproximării Monte Carlo odată cu numărul de eșantioane și introduce conceptul de eroare standard numerică.</p>
+  <div class="figure-box"><strong>Figura 2.20:</strong> 10 și 100 de eșantioane dintr-o distribuție Gaussiană N(μ=1.5, σ²=0.25). Rândul de sus: histograma eșantioanelor. Rândul de jos: estimarea densității nucleului (kernel density). Cu 100 de eșantioane, aproximarea este mult mai bună.</div>
+  <div class="definition-box"><strong>Eroarea standard:</strong> Termenul √(σ̂²/S) se numește eroarea standard (numerică sau empirică), oferind o estimare a incertitudinii în estimarea lui μ.</div>
+  <div class="highlight-box"><strong>Convergența MC:</strong> (μ̂ − μ) → N(0, σ²/S), unde σ² = var[f(X)] = E[f(X)²] − (E[f(X)])². Aceasta este o consecință a TLC.</div>
+  <div class="highlight-box"><strong>Dimensiunea eșantionului necesară:</strong> Pentru precizie ±ε cu 95% încredere: S ≥ 4σ̂²/ε², aproximând factorul 1.96 cu 2.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Convergența estimatorului MC este garantată de TLC. Eroarea standard oferă o măsură practică a calității aproximării, permițând determinarea numărului necesar de eșantioane.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Relația inversă între eroare și √S: pentru a înjumătăți eroarea, trebuie de 4 ori mai multe eșantioane. Acest lucru face MC costisitor pentru precizie foarte mare, dar eficient pentru estimări aproximative.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Eroarea standard MC este utilizată în toate simulările științifice pentru a raporta barele de eroare. Este esențială în verificarea convergenței algoritmilor MCMC în inferența Bayesiană.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În testarea A/B pentru site-uri web, eroarea standard a diferenței de conversie este calculată exact cu aceste formule, determinând câte vizite sunt necesare pentru un test statistic semnificativ.</p></div>
+  </div>
+</div>

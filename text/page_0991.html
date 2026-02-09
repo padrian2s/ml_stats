@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Bayes Variational Online pentru LDA (Capitolul 27)</h2>
+  <p>Pagina prezinta Algoritmul 27.2 pentru inferenta variationala Bayes online aplicata modelului LDA, impreuna cu rezultate experimentale privind perplexitatea.</p>
+  <div class="definition-box"><strong>VB Online pentru LDA:</strong> Algoritm care actualizeaza parametrii variationali in mod incremental, folosind mini-loturi de documente in loc sa proceseze intregul corpus simultan. Parametrii sunt actualizati cu o pondere ρ_t pe noua estimare si (1 - ρ_t) pe estimarea veche.</div>
+  <div class="highlight-box"><strong>Actualizare partiala:</strong> b̃_vk = (1 - ρ_t)·b̃_vk + ρ_t·b̃_vk^new, unde pasul ρ_t scade in timp conform ecuatiei 8.83, asigurand convergenta.</div>
+  <div class="figure-box"><strong>Figura 27.9:</strong> Grafic care compara perplexitatea pe setul de test (dimensiune 1000) in functie de numarul de documente analizate (pe scara logaritmica) pentru VB-LDA batch si online. Datele provin din Wikipedia in limba engleza. Inferenta online este mult mai rapida decat cea offline, producand rezultate similare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul VB online pentru LDA permite inferenta eficienta pe corpora mari de documente prin procesarea secventiala a mini-loturilor. Figura 27.9 demonstreaza ca metoda online atinge perplexitati comparabile cu metoda batch, dar mult mai rapid. Sectiunea 27.3.8 discuta alegerea numarului de topicuri K ca o problema de selectie a modelului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Inferenta online foloseste o schema de medie mobila exponentiala pentru actualizarea parametrilor, cu o rata de invatare descrescatoare. Aceasta abordare este esentiala pentru scalabilitatea la milioane de documente. Selectia numarului de topicuri poate fi facuta prin esantionare cu importanta adnotata, validare incrucisata, limita inferioara variationala sau metode bayesiene neparametrice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>VB online este crucial pentru aplicatii la scara web, unde corpusul de documente este prea mare pentru a fi procesat in intregime. Exemple includ indexarea Wikipedia, analiza fluxurilor de stiri in timp real si modelarea topicurilor din retele sociale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un motor de cautare care indexeaza milioane de articole zilnic poate folosi VB online pentru a actualiza modelul de topicuri in timp real, fara a reantena intregul model de fiecare data cand apar documente noi.</p></div>
+  </div>
+</div>

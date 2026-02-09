@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>ICA - Matricea de Amestecare si Priorul Non-Gaussian</h2>
+  <p>Pagina prezinta formalizarea ICA, ilustreaza diferenta dintre estimarile PCA si ICA, si explica de ce priorul gaussian nu permite recuperarea unica a surselor.</p>
+  <div class="figure-box"><strong>Figura 12.20:</strong> Ilustrarea ICA aplicata la 500 de esantioane iid dintr-o sursa 4D. (a) Semnalele latente reale. (b) Observatiile (amestecuri liniare). (c) Estimarea PCA - nu recupereaza sursele originale. (d) Estimarea ICA - recupereaza cu succes sursele originale.</div>
+  <div class="highlight-box"><strong>Priorul ICA:</strong> p(zₜ) = Π_{j=1}^L N(zₜⱼ|0, 1) in PCA, dar in ICA: p(zₜ) = Π_{j=1}^L pⱼ(zₜⱼ) cu pⱼ non-gaussiana.</div>
+  <div class="highlight-box"><strong>Matricea de amestecare:</strong> W este matricea D×L care transforma sursele latente in observatii. Cand L = D, W este patrata.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 12.20 demonstreaza dramatic diferenta dintre PCA si ICA: PCA gaseste subspatiul corect dar nu poate identifica unic sursele (rotatie arbitrara), in timp ce ICA recupereaza sursele originale. Cheia este priorul: PCA foloseste gaussiana izotropa (invarianta la rotatii), ICA foloseste distributii non-gaussiene care „rup" simetria rotationala. De obicei se presupune ca nivelul zgomotului |Ψ| este zero.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Invarianta rotationala a gaussienei este tocmai proprietatea care impiedica PCA sa recupereze sursele individuale: orice rotatie a surselor gaussiene independente produce tot surse gaussiene independente. Distributiile non-gaussiene nu au aceasta proprietate, permitand ICA sa identifice unic sursele (pana la permutari si scalari).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>ICA este utilizata in procesarea semnalelor biomedicale (eliminarea artefactelor din EEG), analiza datelor financiare (identificarea factorilor de piata independenti), si in procesarea imaginilor (deconvolutia amestecurilor spectrale in teledetectie).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In electroencefalografie (EEG), semnalele inregistrate la scalp sunt amestecuri ale activitatii cerebrale si artefactelor (clipitul ochilor, miscari musculare). ICA separa aceste componente, permitand neurologilor sa analizeze activitatea cerebrala pura fara interferente.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Propuneri de amestec, MCMC data-driven si MCMC adaptiv</h2>
+  <p>Aceasta pagina discuta tehnici avansate de propunere pentru Metropolis-Hastings: propuneri de amestec, MCMC condus de date si MCMC adaptiv.</p>
+  <div class="definition-box"><strong>Propuneri de amestec (mixture proposals):</strong> q(x'|x) = sum_k w_k * q_k(x'|x), combinand multiple propuneri cu ponderi fixe. De exemplu, un amestec de propuneri locale (pasi mici) si globale (pasi mari) permite atat explorare fina cat si salt intre moduri.</div>
+  <div class="definition-box"><strong>MCMC data-driven:</strong> Propunerile sunt construite pe baza datelor observate sau a unor pre-calcule. Exemplu: propunerea bazata pe aproximarea Laplace (pagina precedenta) sau propuneri construite din rulari EM anterioare. Ideea este de a folosi informatia disponibila pentru a ghida explorarea.</div>
+  <div class="highlight-box"><strong>MCMC adaptiv:</strong> Parametrii propunerii (de ex. covarianta Gaussiana) sunt ajustati in timpul rularii pe baza esantioanelor colectate. Haario et al. propun q(x'|x) = N(x'|x, c*Sigma_t), unde Sigma_t este covarianta empirica a esantioanelor pana la pasul t si c = 2.38^2/d. Conditia de adaptare diminuanta (diminishing adaptation) asigura corectitudinea asimptotica.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta trei strategii avansate pentru imbunatatirea propunerilor MH. Amestecurile permit multi-scala, MCMC data-driven exploateaza informatia existenta, iar MCMC adaptiv invata automat propunerea optima din esantioane. Toate adreseaza problema fundamentala a designului propunerii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Constanta 2.38^2/d din MCMC adaptiv provine din optimizarea ratei de acceptare pentru Gaussiene d-dimensionale (Roberts si Rosenthal). Adaptarea diminuanta asigura ca rata de modificare a propunerii scade la zero, mentinand proprietatile asimptotice ale lantului Markov.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MCMC adaptiv este implementat in multe pachete software moderne (PyMC, emcee, AdaptiveMCMC.jl). In practica, se imparte adesea rularea in faze: faza de adaptare (burn-in) unde propunerea se ajusteaza, si faza de productie unde se colecteaza esantioane.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In astrofizica, pachetul emcee (MCMC cu ansamblu de walkeri) foloseste propuneri adaptive pentru a esantiona posteriorul parametrilor stelari din spectre, adaptand automat scala si corelatiile propunerii la geometria posteriorului multi-dimensional.</p></div>
+  </div>
+</div>

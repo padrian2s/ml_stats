@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Interpretarea Probabilistică a SVM și Comparația Metodelor Kernel Discriminative</h2>
+  <p>Pagina prezintă o interpretare probabilistică a pierderii hinge ca pseudo-verosimilitate și compară diferite metode kernel discriminative (L2VM, L1VM, RVM, SVM, GP).</p>
+  <div class="definition-box"><strong>Interpretarea probabilistică a pierderii hinge:</strong> Exponențiala negativă a pierderii hinge poate fi reprezentată ca o mixtură de scale gaussiene: exp(−2(1 − yᵢxᵢᵀw)₊) = ∫₀^∞ N(·) dλᵢ, unde λᵢ sunt variabile latente.</div>
+  <div class="highlight-box"><strong>Tabelul 14.1 - Comparație metode kernel:</strong> L2VM: convex, EB, nesparse. L1VM: convex, CV, sparse. RVM: neconvex, EB, sparse. SVM: convex, CV, sparse. GP: N/A, EB, nesparse. Toate produc ieșiri probabilistice cu excepția SVM.</div>
+  <div class="highlight-box"><strong>Concluzia practică:</strong> Dacă viteza contează, se recomandă RVM. Dacă ieșirile probabilistice calibrate sunt importante (de ex., învățare activă), se recomandă GP. SVM-urile sunt recomandate doar pentru ieșiri structurate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina oferă o interpretare bayesiană a SVM prin reprezentarea pierderii hinge ca mixtură de scale gaussiene, deschizând ușa antrenării SVM prin EM sau eșantionare Gibbs. Tabelul comparativ arată că toate metodele kernel au acuratețe similară, dar diferă în sparsitate, probabilitate și complexitate computațională.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>GP și L2VM sunt cele mai lente (O(N³)), SVM-urile necesită CV (mai lent decât EB), iar L1VM ar trebui să fie mai rapid decât RVM dar în practică nu este. Popularitatea SVM se datorează inerției și lipsei de implementări de calitate pentru alternative.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea metodei kernel depinde de context: GP pentru incertitudine, RVM pentru viteză, SVM pentru ieșiri structurate. În practică, regresia logistică cu kernel (L1VM/L2VM) oferă un compromis excelent.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O companie de vehicule autonome ar alege GP-uri pentru detectarea pietonilor (necesită incertitudine calibrată), în timp ce un motor de căutare ar putea folosi SVM-uri liniare pentru clasificarea relevanței documentelor (viteză și scalabilitate).</p></div>
+  </div>
+</div>

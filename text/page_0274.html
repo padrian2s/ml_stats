@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii: model generativ vs. discriminativ pentru regresie si regresia Bayesiana cu g-prior</h2>
+  <p>Aceasta pagina contine exercitiile 7.9 (model generativ pentru regresie) si 7.10 (regresia Bayesiana cu g-prior), incheind capitolul de regresie liniara.</p>
+  <div class="definition-box"><strong>Model generativ pentru regresie:</strong> In loc de a modela direct p(Y|X) (discriminativ), se modeleaza distributia conjuncta p(X,Y) ca o Gaussiana multivariata si se derivea E[Y|X = x] prin conditionare. Ambele abordari produc aceleasi ecuatii normale.</div>
+  <div class="definition-box"><strong>Regresia Bayesiana cu g-prior:</strong> Cu priorul p(w, &sigma;&sup2;) = NIG(w, &sigma;&sup2; | 0, g(X^T X)^(-1), 0, 0), posteriorul este NIG cu: V_N = (g/(g+1))(X^T X)^(-1), w_N = (g/(g+1)) w_mle, a_N = N/2, b_N = s&sup2;/2 + (1/(2(g+1))) w_mle^T X^T X w_mle.</div>
+  <div class="highlight-box"><strong>Avantajul modelului generativ:</strong> Poate trata date lipsa in X (prin marginalizare), poate fi extins la clasificare (modelarea p(X|Y) per clasa = analiza discriminanta), si poate detecta date anomale in X. Dezavantajul: presupune o forma specifica pentru p(X), care poate fi gresita.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiul 7.9 arata dualitatea generativ-discriminativ in regresia liniara: modelarea Gaussianei conjuncte p(X,Y) si conditionarea pe X = x produce exact aceleasi ecuatii ca regresia OLS directa. Exercitiul 7.10 deriveaza formule explicite pentru posteriorul cu g-prior, demonstrand ca media posterioara este o contractie a MLE catre zero cu factorul g/(g+1).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Modelul generativ si cel discriminativ produc aceleasi predictii punctuale, dar modelul generativ are mai multi parametri (modeleaza si p(X)). 2) Cu g-prior, w_N = (g/(g+1)) w_mle: contractie uniforma catre zero. 3) Termenul (1/(2(g+1))) w_mle^T X^T X w_mle in b_N penalizeaza modele cu coeficienti mari. 4) g mare reduce contractia (mai putin regularizare).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelul generativ pentru regresie este folosit in analiza cu date lipsa (pachetul MICE in R), in transfer learning (modelarea domeniului sursa si tinta prin Gaussiene diferite), si in detectia de anomalii. G-priorul cu selectie Bayesiana de modele este standard in econometria Bayesiana.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile medicale, datele lipsesc frecvent: un pacient poate avea masurari de tensiune dar nu si de colesterol. Modelul generativ permite estimarea regresiei chiar si cu date lipsa, prin integrarea peste valorile neobservate. Modelul discriminativ standard nu poate trata aceasta situatie fara imputare prealabila, care poate introduce bias.</p></div>
+  </div>
+</div>

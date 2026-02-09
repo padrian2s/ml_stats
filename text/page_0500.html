@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Sparse Coding: Dictionar, Verosimilitate si Invatarea Dictionarului</h2>
+  <p>Pagina prezinta Tabelul 13.3 cu comparatia metodelor de factorizare, formulele de verosimilitate pentru sparse coding si incepe Sectiunea 13.8.1 despre invatarea dictionarului.</p>
+  <div class="highlight-box"><strong>Tabelul 13.3 - Comparatia modelelor de factorizare:</strong> PCA: p(z)=Gauss, W ortogonal. FA: p(z)=Gauss, W liber. ICA: p(z)=Non-Gauss, W ortogonal. Sparse coding: p(z)=Laplace, W liber. Sparse PCA: p(z)=Gauss, p(W)=Laplace. Sparse MF: p(z)=Laplace, p(W)=Laplace.</div>
+  <div class="definition-box"><strong>Verosimilitatea sparse coding (Eq. 13.174):</strong> log p(D|W) = suma_{i=1}^N log integral N(x_i|W z_i, sigma^2 I) p(z_i) dz_i. Dictionarul poate fi fix (wavelet, DCT) sau invatat din date prin maximizarea verosimilitudinii.</div>
+  <div class="highlight-box"><strong>Invatarea dictionarului (Sectiunea 13.8.1, Eq. 13.175-13.176):</strong> Aproximare MAP: log p(D|W) ≈ suma max_{z_i} [log N(x_i|W z_i, sigma^2 I) + log p(z_i)]. Cu prior Laplace: NLL(W, Z) = suma (1/2)||x_i - W z_i||_2^2 + lambda ||z_i||_1. Constrangere pe coloanele lui W: ||w_j||_2 <= 1.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sparse coding difera de PCA/FA/ICA prin combinatia unica de prior sparse (Laplace) pe factorii latenti si dictionar liber (non-ortogonal, posibil supracomplet). Tabelul 13.3 clarifica pozitia fiecarei metode in spectrul de factorizare matriceala. Invatarea dictionarului este un obiectiv non-convex care necesita optimizare alternata.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia importanta intre sparse coding si sparse PCA: sparse coding pune sparsitatea pe reprezentarea latenta z_i (codificarea este sparsa), in timp ce sparse PCA pune sparsitatea pe dictionarul W (bazele sunt sparse). Sparse matrix factorization le combina pe amandoua.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Dictionarele invatate din date (K-SVD, online dictionary learning din scikit-learn) sunt standard in procesarea moderna de imagini. Constrangerea ||w_j||_2 <= 1 previne degenerarea triviala w_j -> infinit, z_i -> 0.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In compresia de imagini (JPEG 2000 successori), dictionarele sparse invatate din antrenare produc artefacte mai putine decat DCT fix, imbunatatind calitatea vizuala la aceeasi rata de compresie.</p></div>
+  </div>
+</div>

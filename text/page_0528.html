@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>SVM-uri pentru Regresie - Funcția de Pierdere Epsilon-Insensitivă</h2>
+  <p>Pagina introduce SVM-urile pentru regresie, prezentând funcția de pierdere epsilon-insensitivă și formularea ca problemă de optimizare cu variabile de relaxare.</p>
+  <div class="definition-box"><strong>Funcția de pierdere epsilon-insensitivă:</strong> L_ε(y, ŷ) = 0 dacă |y − ŷ| < ε, altfel |y − ŷ| − ε. Aceasta definește un „tub" de lățime ε în jurul predicției, în interiorul căruia erorile nu sunt penalizate.</div>
+  <div class="definition-box"><strong>Vectori suport (în regresie):</strong> Punctele xᵢ pentru care αᵢ > 0, adică cele care se află pe sau în afara tubului ε. Aceste puncte contribuie efectiv la predicție.</div>
+  <div class="highlight-box"><strong>Funcția obiectiv SVM regresie:</strong> J = C · Σᵢ₌₁ᴺ L_ε(yᵢ, ŷᵢ) + ½||w||², unde C = 1/λ este constanta de regularizare.</div>
+  <div class="figure-box"><strong>Figura 14.10:</strong> (a) Comparație între funcțiile de pierdere ℓ₂, epsilon-insensitivă și Huber pentru ε = 1.5. (b) Ilustrarea tubului ε folosit în regresia SVM, cu variabilele de relaxare ξᵢ și ξᵢ* pentru punctele din afara tubului.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>SVM-urile pentru regresie folosesc funcția de pierdere epsilon-insensitivă propusă de Vapnik, care ignoră erorile mai mici decât ε. Formularea cu variabile de relaxare ξᵢ⁺ și ξᵢ⁻ transformă problema într-o programare pătratică standard cu 2N + D + 1 variabile.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tubul ε controlează compromisul între sparsitate și acuratețe: un ε mai mare produce mai puțini vectori suport dar potențial erori mai mari. Funcția obiectiv este convexă dar nediferențiabilă, necesitând tehnici de optimizare speciale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia SVM se utilizează în predicția seriilor temporale financiare, estimarea prețurilor imobiliare și modelarea proceselor chimice, unde robustețea la outlieri și sparsitatea sunt importante.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În predicția consumului de energie electrică, regresia SVM cu kernel RBF poate modela relații neliniare între temperatura exterioară, ora din zi și consumul de energie, ignorând fluctuațiile mici prin tubul ε.</p></div>
+  </div>
+</div>

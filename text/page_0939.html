@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Sectiunea 26.7 - MLE pentru GGM si Completarea Matricei</h2>
+  <p>Pagina detaliaza estimarea de maxima verosimilitate pentru modelele grafice Gaussiene, incluzand gradientul, constrangerile structurale si completarea pozitiv definita a matricei.</p>
+  <div class="definition-box"><strong>Matricea de precizie (Ω):</strong> Ω = Σ⁻¹, unde Σ este matricea de covarianta. Zerouri in Ω corespund absentei muchiilor in graful GGM, indicand independenta conditionata.</div>
+  <div class="definition-box"><strong>Completarea pozitiv definita a matricei:</strong> Σ este o completare pozitiv definita a lui S, deoarece retine cat mai multe intrari din S, corespunzand muchiilor din graf, sub constrangerea de patern de raritate pe Σ⁻¹.</div>
+  <div class="highlight-box"><strong>Gradientul log-verosimilantei:</strong> ∇l(Ω) = Ω⁻¹ − S (Ecuatia 26.67). Constrangeri: Ω_st = 0 daca G_st = 0 (zerouri structurale) si Ω trebuie sa fie pozitiv definita.</div>
+  <div class="highlight-box"><strong>Proprietatea MLE:</strong> Σ_st = S_st daca G_st = 1 sau s = t, adica covarianta estimata pentru perechile conectate egaleaza covarianta empirica. (Ecuatia 26.68-26.69)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta cadrul matematic complet pentru MLE in GGM: functia obiectiv, gradientul, constrangerile si proprietatile solutiei. Se introduce conceptul de completare pozitiv definita a matricei si se prezinta un exemplu numeric cu un graf ciclic cu 4 noduri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Corespondenta 1-la-1 intre zerouri in matricea de precizie si muchii absente in graf este fundamentala. MLE trebuie sa satisfaca doua tipuri de constrangeri: zerouri structurale in Ω si pozitiv-definirea. Diverse abordari (IPF, descindere coordonata, penalizare) rezolva aceasta problema.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Selectia covariantei este utilizata in analiza datelor de inalta dimensionalitate, unde numarul de variabile depaseste numarul de observatii, cum ar fi in analiza microarray-urilor sau in modelarea riscului financiar.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Exemplul numeric cu matricea de adiacenta G cu 4 noduri (structura ciclica X₁−X₂−X₃−X₄−X₁) demonstreaza cum elementele constranse din Ω devin zero (corespunzand muchiilor absente 1-3 si 2-4), iar elementele libere din Σ sunt completate pentru a maximiza verosimilitatea.</p></div>
+  </div>
+</div>

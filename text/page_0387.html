@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Estimarea MAP pentru GMM si Problema Variantei Colapsate</h2>
+  <p>Pagina prezinta solutia la problema variantei colapsate prin estimarea MAP, incluzand functia auxiliara modificata, priorul Dirichlet pentru ponderi si priorul NIW pentru parametri.</p>
+  <div class="definition-box"><strong>Varianta colapsata (collapsing variance):</strong> Fenomenul in care o componenta a GMM-ului isi concentreaza masa pe un singur punct de date, cu σ → 0, producand o verosimilitate infinita. Aceasta este o singularitate a functiei de verosimilitate.</div>
+  <div class="highlight-box"><strong>Functia auxiliara MAP:</strong> Q'(θ, θᵒˡᵈ) = [ΣᵢΣₖ rᵢₖ log πₖ + ΣᵢΣₖ rᵢₖ log p(xᵢ|θₖ)] + log p(π) + Σₖ log p(θₖ)</div>
+  <div class="highlight-box"><strong>Estimarea MAP a ponderilor:</strong> πₖ = (rₖ + αₖ - 1) / (N + Σₖ αₖ - K), folosind priorul Dirichlet π ~ Dir(α).</div>
+  <div class="highlight-box"><strong>Estimarile MAP ale parametrilor:</strong> μ̂ₖ = (rₖx̄ₖ + κ₀m₀)/(rₖ + κ₀); Σ̂ₖ = (S₀ + Sₖ + (κ₀rₖ/(κ₀+rₖ))(x̄ₖ - m₀)(x̄ₖ - m₀)ᵀ) / (ν₀ + rₖ + D + 2)</div>
+  <div class="highlight-box"><strong>Priorul conjugat NIW:</strong> p(μₖ, Σₖ) = NIW(μₖ, Σₖ|m₀, κ₀, ν₀, S₀) - priorul Normal-Inverse-Wishart pentru media si covarianta.</div>
+  <div class="figure-box"><strong>Figura 11.13:</strong> (a) Ilustrarea singularitatilor in functia de verosimilitate a GMM. (b) Comparatia intre MLE si MAP: pe masura ce dimensionalitatea creste, MLE esueaza din ce in ce mai frecvent din cauza matricilor singulare, in timp ce MAP nu intampina niciodata probleme numerice.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Estimarea MAP rezolva elegant problema variantei colapsate prin adaugarea unui prior care penalizeaza variantele extreme. Priorul Dirichlet pentru ponderile de amestec si priorul NIW pentru parametrii Gaussienelor sunt conjugate, rezultand formule de actualizare in forma inchisa. Cu κ₀ = 0, media ramane neregularizata, iar problemele numerice provin doar din Σₖ. Parametrul ν₀ = D + 2 ofera cel mai slab prior care ramane propriu.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Regularizarea Bayesiana (prin priori) este superioara MLE in dimensiuni inalte: graficul arata ca MLE esueaza complet pentru D > 40, in timp ce MAP ramane stabil. Alegerea hiperparametrilor S₀ folosind varianta pooled este o euristica practica eficienta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In aplicatii reale cu date de dimensiune inalta (de exemplu, recunoasterea vorbirii cu caracteristici MFCC de 39 dimensiuni), estimarea MAP este esentiala pentru a evita singularitatile numerice in matricile de covarianta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In bioinformatica, la clusterizarea profilelor de expresie genica (mii de gene, putine esantioane), estimarea MAP cu priori informative previne degenerarea modelului si produce clustere mai stabile si interpretabile.</p></div>
+  </div>
+</div>

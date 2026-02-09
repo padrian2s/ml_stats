@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>EP ca problema de inferenta variationala</h2>
+  <p>Aceasta pagina formuleaza EP ca problema de inferenta variationala, introducand familia exponentiala augmentata, problema clutter si obiectivul EP.</p>
+  <div class="definition-box"><strong>Familia exponentiala augmentata:</strong> p(x|theta, theta_tilde) proportional cu f_0(x)*exp(theta^T*phi(x))*prod exp(theta_i^T*Phi_i(x)), unde theta este partea tractabila si theta_i sunt termenii intractabili ai statisticilor suficiente Phi_i.</div>
+  <div class="definition-box"><strong>Problema clutter (Minka):</strong> Se observa y_i dintr-un amestec de doua Gaussiene: p(y|x) = (1-w)*N(y|x,I) + w*N(y|0,aI). Scopul este inferenta asupra x, iar posteriorul are 2^N moduri - intractabil exact.</div>
+  <div class="highlight-box"><strong>Aproximarea EP a entropiei:</strong> H_ep(tau, tau_tilde) = H(tau) + sum_i [H(tau, tau_tilde_i) - H(tau)], o descompunere termen-cu-termen a entropiei care permite optimizarea iterativa.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>EP este formulat ca optimizarea obiectivului variational cu entropie aproximata termen-cu-termen. Problema clutter a lui Minka serveste ca exemplu motivant: un model simplu dar cu posterior multimodal exponential, ideal pentru a demonstra utilitatea EP.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>EP trateaza fiecare factor intractabil separat, incorporandu-l in distributia aproximativa prin potrivirea momentelor. Aceasta strategie "divide et impera" face ca probleme cu 2^N moduri sa devina tractabile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>EP este folosit extensiv in inferenta Bayesiana aproximativa: clasificare GP, regresie logistica Bayesiana, modele de amestec cu componente intractabile.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Problema clutter apare natural in urmarirea obiectelor in video: observatiile provin fie de la obiectul urmarit (semnal), fie de la fundal (zgomot/clutter). EP permite estimarea pozitiei obiectului chiar in prezenta multor distractori.</p></div>
+  </div>
+</div>

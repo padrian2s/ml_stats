@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Baza Teoretica pentru EM</h2>
+  <p>Pagina prezinta fundamentele teoretice ale algoritmului EM, demonstrand ca acesta creste monoton log-verosimilitatea datelor observate, si introduce limita inferioara bazata pe log-verosimilitatea completa asteptata.</p>
+  <div class="definition-box"><strong>Limita inferioara ELBO:</strong> Q(theta, q) = suma_i E_q[log p(x_i, z_i | theta)] + H(q_i) este o limita inferioara a log-verosimilitudinii observate, obtinuta prin inegalitatea lui Jensen aplicata functiei log concave.</div>
+  <div class="highlight-box"><strong>Inegalitatea Jensen pentru EM:</strong> l(theta) >= suma_i suma_z q_i(z_i) log [p(x_i, z_i | theta) / q_i(z_i)], deoarece log este o functie concava. Aceasta limita inferioara sta la baza intregului algoritm EM.</div>
+  <div class="highlight-box"><strong>Descompunerea limitei inferioare:</strong> L(theta, q_i) = -KL(q_i || p(z_i|x_i, theta)) + log p(x_i|theta). Limita este stransa cand q_i = p(z_i|x_i, theta), adica posteriorul exact.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 11.4.7 ofera baza teoretica a algoritmului EM. Se demonstreaza ca log-verosimilitatea datelor observate poate fi scrisa ca o limita inferioara plus divergenta KL. Prin alegerea q_i = p(z_i|x_i, theta^t) in pasul E, limita devine stransa. Pasul M maximizeaza apoi aceasta limita, garantand cresterea monotona a log-verosimilitudinii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura de optimizare minorizare-maximizare (MM) este fundamentala: construim o functie surogat care atinge functia obiectiv in punctul curent, apoi o maximizam. Aceasta perspectiva unifica EM cu multe alte algoritme de optimizare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea bazei teoretice permite diagnosticarea corecta a problemelor de implementare: daca log-verosimilitatea nu creste monoton, exista o eroare in cod. Pentru estimarea MAP, trebuie adaugat termenul de prior la obiectiv.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In aplicatiile de clustering cu modele de amestec Gaussiane, monitorizarea log-verosimilitudinii la fiecare iteratie EM serveste ca instrument de depanare si criteriu de convergenta - cresterea monotona confirma corectitudinea implementarii.</p></div>
+  </div>
+</div>

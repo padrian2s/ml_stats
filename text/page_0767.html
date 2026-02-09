@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Mean field: modele aplicabile si derivarea ecuatiilor de actualizare</h2>
+  <p>Aceasta pagina detaliaza cum functioneaza actualizarile mean field si listeaza modelele pentru care sunt derivate ecuatiile.</p>
+  <div class="definition-box"><strong>Tabelul 21.1 - Modele cu derivari mean field:</strong> Modelul Ising (Sec. 21.3.2), HMM factorial (Sec. 21.4.1), Gaussiana univariata (Sec. 21.5.1), Regresie liniara (Sec. 21.5.2), Regresie logistica (Sec. 21.8.1.1), Amestecuri de Gaussiene (Sec. 21.6.1), LDA (Sec. 27.3.6.3).</div>
+  <div class="definition-box"><strong>Optimizare free-form:</strong> Forma functionala a fiecarui q_j este determinata automat de structura modelului. Daca x_j este discreta, q_j va fi o distributie discreta. Daca x_j este continua, q_j va fi o densitate continua. Nu trebuie sa specificam forma a priori.</div>
+  <div class="highlight-box"><strong>Derivarea ELBO per variabila:</strong> L(q_j) = Σ_{x_j} q_j(x_j) log f_j(x_j) - Σ_{x_j} q_j(x_j) log q_j(x_j) + const = -KL(q_j || f_j), unde f_j este proportionala cu exp(E_{-q_j}[log p̃(x)]). Maximizarea L impune q_j = f_j (normalizat).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Derivarea ecuatiilor de actualizare mean field izoleaza contributia lui q_j in ELBO, tratand toti ceilalti factori ca constante. Rezultatul este un obiectiv KL local: q_j trebuie sa fie proportional cu exp(E_{-q_j}[log p̃(x)]). Aceasta ecuatie se aplica uniform la toate tipurile de variabile si modele. Diferenta fata de Gibbs sampling: mean field inlocuieste valorile vecinilor cu mediile lor, nu cu esantioane.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Actualizarea mean field depinde doar de patura Markov (vecinii in graf), facand fiecare pas local. Mean field poate fi accelerat prin actualizari paralele (toate variabilele simultan) dar necesita uneori amortizare (damping) pentru stabilitate. Convergenta la un optim local este garantata dar optimul global nu este.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Ecuatiile mean field sunt derivate pentru fiecare model specific: in modelele conjugat-exponentiale, actualizarile au forma inchisa. In modelele non-conjugate, se pot folosi aproximari suplimentare (bound optimization, Laplace local).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea imaginilor cu un model Ising, mean field actualizeaza iterativ probabilitatea fiecarui pixel de a fi alb/negru, bazandu-se pe mediile vecinilor si pe observatia locala. Procesul converge rapid la o segmentare stabila.</p></div>
+  </div>
+</div>

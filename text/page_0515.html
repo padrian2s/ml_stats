@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>k-Spectrum Kernel, Tree Kernels si Pyramid Match Kernels</h2>
+  <p>Pagina continua cu k-spectrum kernel, extensii la tree kernels si introduce Sectiunea 14.2.7 despre pyramid match kernels pentru compararea seturilor de feature vectori de dimensiuni variabile in viziunea computationala.</p>
+  <div class="highlight-box"><strong>k-spectrum kernel:</strong> Restrictie: w_s = 0 pentru |s| != k. phi(x) numara substrings de lungime k. Exemplu: k=3, substringul "LQE" are phi_LQE(x) = 1, phi_LQE(x') = 2 pentru cele doua secvente proteice. Folosit pentru clasificarea proteinelor in SCOP (Leslie et al. 2003). Extensii: mismatch kernel (permite substitutii de caractere), tree kernels (pentru arbori).</div>
+  <div class="definition-box"><strong>Pyramid match kernel (Sectiunea 14.2.7, Figura 14.1):</strong> Pentru compararea a doua imagini reprezentate ca seturi de feature vectori (SIFT descriptors) de dimensiuni variabile. Fiecare set este mapat la o histograma multi-rezolutie, apoi se compara prin weighted histogram intersection. Aproximeaza optimal bipartite matching dar este mai rapid si mai robust. Este un kernel Mercer.</div>
+  <div class="highlight-box"><strong>Figura 14.1:</strong> Ilustrarea pyramid match kernel: doua imagini (panda rosu) cu seturi de puncte de interes in R^d. Histogramele multi-rezolutie sunt comparate la fiecare nivel de rezolutie, cu ponderi descrescatoare pentru nivelurile mai grosiere.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta kerneluri specializate pentru date structurate: k-spectrum pentru secvente, tree kernels pentru arbori si pyramid match pentru seturi de vectori. Pyramid match kernel este deosebit de elegant: reduce problema costisitoare de matching bipartit la o comparatie rapida de histograme, pastrand proprietatea Mercer.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Principiul comun: transformarea obiectelor structurate in reprezentari de dimensiune fixa (histograme, numarari de substrings) care pastreaza informatia relevanta pentru similaritate. Aceasta este o forma de feature engineering automatizata prin structura kernelului.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Pyramid match kernel a fost influent in recunoasterea de obiecte pre-deep learning. Combinat cu SIFT descriptors si SVM, a produs rezultate competitive pe benchmark-uri ca Caltech-101 si Pascal VOC. In era deep learning, ideea de matching multi-rezolutie este incorporata in arhitecturi ca Feature Pyramid Networks (FPN).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In cautarea vizuala de produse (visual search), pyramid match kernel permite compararea rapida a fotografiilor de produse cu catalogul, chiar daca numarul de puncte de interes difera intre imagini.</p></div>
+  </div>
+</div>

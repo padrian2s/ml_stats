@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Netezitori liniare si grade de libertate in GP</h2>
+  <p>Aceasta pagina compara GP cu netezitorii liniare, introduce conceptul de kernel echivalent si defineste gradele de libertate efective ale unui GP.</p>
+  <div class="definition-box"><strong>Netezitor liniar:</strong> O functie de regresie de forma f_hat(x_*) = sum_i w_i(x_*) y_i, unde w_i(x_*) este functia de ponderare. GP-ul este un netezitor liniar cu w_i(x_*) = [(K + sigma_y^2 I)^{-1} k_*]_i.</div>
+  <div class="highlight-box"><strong>Grade de libertate efective:</strong> dof = tr(K(K + sigma_y^2 I)^{-1}) = sum_i lambda_i / (lambda_i + sigma_y^2), unde lambda_i sunt valorile proprii ale K. Aceasta specifica cat de 'oscilatorie' este curba ajustata.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>GP-ul este un netezitor liniar ale carui ponderi depind de inversul matricei K. Kernelul echivalent w_i(x) este intotdeauna local (cu suport finit efectiv), chiar daca kernelul original nu este local. Interesant, bandwidth-ul efectiv al kernelului echivalent scade automat cu N, spre deosebire de netezirea prin kernel unde h trebuie setat manual. Gradele de libertate efective ofera o masura scalara a complexitatii modelului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Eigendecompozitia K = sum lambda_i u_i u_i^T arata ca GP-ul actioneaza ca un filtru: componentele cu lambda_i >> sigma_y^2 sunt pastrate (lambda_i/(lambda_i + sigma_y^2) ~ 1), iar cele cu lambda_i << sigma_y^2 sunt atenuate. Aceasta este exact netezirea spectrala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Gradele de libertate efective sunt folosite pentru a compara complexitatea modelelor GP cu diferiti hiperparametri sau kerneluri. Sunt analoge numarului de parametri intr-un model parametric si pot fi folosite in criterii de selectie a modelului.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza seriilor temporale economice, gradele de libertate efective ajuta la alegerea nivelului de netezire: un dof mic produce un trend neted (util pentru analiza pe termen lung), iar un dof mare captureaza fluctuatii pe termen scurt.</p></div>
+  </div>
+</div>

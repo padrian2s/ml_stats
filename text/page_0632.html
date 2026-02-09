@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>PageRank - Clasarea Documentelor și Ferme de Link-uri (p. 601)</h2>
+  <p>Pagina detaliază clasarea documentelor în motoarele de căutare, definirea formală a PageRank-ului și protecția împotriva fermelor de link-uri.</p>
+  <div class="definition-box"><strong>Clasarea documentelor (ranking):</strong> Procesul de returnare a documentelor potrivite în ordinea descrescătoare a scorului/relevanței lor.</div>
+  <div class="definition-box"><strong>Ferme de link-uri (link farms):</strong> Pagini web fictive create doar pentru a crește artificial relevanța aparentă a unei pagini țintă prin adăugarea de link-uri către aceasta.</div>
+  <div class="highlight-box"><strong>Formula PageRank:</strong> πⱼ = Σᵢ Aᵢⱼπᵢ (Ec. 17.32), unde Aᵢⱼ este probabilitatea de a urma un link de la pagina i la pagina j - aceasta este distribuția staționară a lanțului Markov.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Se formalizează PageRank ca distribuția staționară a unui lanț Markov definit pe graful web. Fiecare link de intrare este ponderat de autoritatea sursei, nu doar numărat, oferind rezistență la manipulare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Definiția recursivă a PageRank-ului (autoritatea unei pagini depinde de autoritatea paginilor care o referențiază) se rezolvă elegant ca problemă de vector propriu. Transformarea lanțului într-unul regulat prin salturi aleatorii asigură convergența.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Principiul PageRank se aplică în analiza rețelelor de citări academice, identificarea influencerilor în rețele sociale și detectarea nodurilor critice în rețele de infrastructură.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un index inversat pentru trei documente T₀, T₁, T₂ permite căutarea rapidă: pentru „what is it" se intersectează listele pentru fiecare cuvânt, obținând {T₀, T₁} ca rezultat.</p></div>
+  </div>
+</div>

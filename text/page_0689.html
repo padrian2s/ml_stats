@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Asocierea Datelor, Urmarirea Multi-Tinta si Corectia Expectatiei</h2>
+  <p>Pagina prezinta formulele de colapsare GPB2, modele multiple interactive (IMM), asocierea datelor si urmarirea multi-tinta ca aplicatii ale SLDS.</p>
+  <div class="highlight-box"><strong>Formulele de colapsare GPB2:</strong> π_j = Σ_i π_{ij} (ec. 18.139), π_{j|i} = π_{ij} / Σ_{j'} π_{ij'} (ec. 18.140), μ_j = Σ_i π_{j|i} μ_{ij} (ec. 18.141), Σ_j = Σ_i π_{j|i} (Σ_{ij} + (μ_{ij} − μ_j)(μ_{ij} − μ_j)^T) (ec. 18.142).</div>
+  <div class="definition-box"><strong>Corectia expectatiei (Expectation Correction):</strong> Extensie offline a ADF care imbunatateste aproximarile iterativ, descrisa de Barber si colaboratorii.</div>
+  <div class="definition-box"><strong>Asocierea datelor (Data Association):</strong> Problema determinarii corespondentei intre K' detectii y_{tk} si K obiecte z_{tj}. Poate exista K' < K (ocluziune), K' > K (alarme false) sau K' = K.</div>
+  <div class="highlight-box"><strong>Euristica celui mai apropiat vecin:</strong> Se calculeaza o matrice de ponderi K × K' bazata pe compatibilitatea intre obiectul j si masurarea k, apoi se rezolva problema de potrivire bipartita maximala folosind algoritmul Ungar in O(N³).</div>
+  <div class="figure-box"><strong>Figura 18.14:</strong> Model pentru urmarirea a doua obiecte in prezenta ambiguitatii de asociere a datelor. Se observa 3, 1 si 2 detectii in primele trei momente de timp, ilustrand variatia numarului de detectii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina extinde discutia despre SLDS la doua aplicatii importante: asocierea datelor si urmarirea multi-tinta. Problema asocierii datelor apare cand nu se stie care detectie corespunde carui obiect, iar urmarirea multi-tinta adauga complexitatea unui numar variabil de obiecte.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Asocierea datelor este o problema de potrivire combinatorie care poate fi formulata ca SSM hibrid. Algoritmul Ungar ofera o solutie polinomiala pentru potrivirea bipartita. Urmarirea multi-tinta necesita un spatiu de stari cu dimensionalitate variabila.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Asocierea datelor si urmarirea multi-tinta sunt fundamentale in: supravegherea video, conducerea autonoma, monitorizarea traficului naval, urmarirea celulelor in microscopie si detectia si urmarirea obiectelor in imagini satelitare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un sistem de conducere autonoma, camerele si lidar-ul detecteaza multiple obiecte (masini, pietoni, biciclisti). Asocierea datelor determina care detectie din cadrul curent corespunde carui obiect urmarit din cadrul anterior, chiar si cand obiecte se ocluzioneza reciproc.</p></div>
+  </div>
+</div>

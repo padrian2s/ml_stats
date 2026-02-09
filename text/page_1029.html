@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Retele neuronale profunde si perceptroni multi-strat</h2>
+  <p>Aceasta pagina introduce retelele neuronale profunde (DNN) ca alternative mai simple la DBN-uri, discutand problema gradientului disparut si pre-antrenarea generativa.</p>
+  <div class="definition-box"><strong>Problema gradientului disparut (vanishing gradient):</strong> In retelele profunde, gradientul devine din ce in ce mai mic pe masura ce se propaga inapoi prin straturi, facand invatarea straturilor inferioare extrem de lenta.</div>
+  <div class="definition-box"><strong>Pre-antrenare generativa:</strong> Initializarea parametrilor unei retele discriminative folosind invatare nesupervizata, actionand ca un regularizator indus de date care ajuta backpropagation sa gaseasca minime locale cu proprietati bune de generalizare.</div>
+  <div class="highlight-box"><strong>Avantajul pre-antrenarii:</strong> Modelul este fortat sa modeleze un raspuns de inalta dimensiune (vectorul de trasaturi), nu doar un raspuns scalar, ceea ce actioneaza ca un regularizator si produce reprezentari mai bune.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 28.3 trece de la modelele generative profunde la retelele neuronale profunde directe (feedforward). Desi mai simple, DNN-urile sufera de problema gradientului disparut. Pre-antrenarea generativa cu RBM-uri sau auto-encodere rezolva partial aceasta problema.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conexiunile feedback din cortex sunt mai numeroase decat cele feedforward, sugerand importanta inferentei top-down. Totusi, modelele feedforward sunt mai simple de antrenat. GPU-urile si algoritmii de optimizare de ordin doi au permis progrese fara pre-antrenare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Retelele neuronale profunde sunt folosite in clasificarea imaginilor, recunoasterea vorbirii, traducerea automata si multe alte aplicatii industriale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>AlexNet (2012) a demonstrat ca retelele neuronale convolutionale profunde, antrenate pe GPU-uri cu ReLU si dropout, pot depasi masiv metodele clasice de viziune computationala pe ImageNet.</p></div>
+  </div>
+</div>

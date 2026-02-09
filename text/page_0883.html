@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Propuneri Gaussiene bazate pe Hessian si MH pentru regresie logistica</h2>
+  <p>Aceasta pagina prezinta propuneri MH mai sofisticate care folosesc informatia de curbura (Hessian) a log-posteriorului si aplica MH la regresia logistica.</p>
+  <div class="definition-box"><strong>Propunere bazata pe Hessian:</strong> q(x'|x) = N(x'|x_MAP, H^{-1}), unde x_MAP este modul posteriorului si H = -nabla^2 log p(x|D) evaluata la x_MAP. Aceasta propunere independenta aproximeaza posteriorul cu aproximarea Laplace.</div>
+  <div class="definition-box"><strong>MH pentru regresie logistica:</strong> Posteriorul p(w|D) nu are forma inchisa (verosimilitatea logistica nu este conjugata cu priorul Gaussian). MH cu propunere Gaussiana bazata pe Hessian (la MAP) produce esantioane din posteriorul exact, depasind limitarile aproximarii Laplace.</div>
+  <div class="highlight-box"><strong>Avantajul propunerii informate:</strong> Propunerea bazata pe Hessian adapteaza automat scala si orientarea la geometria posteriorului. Rata de acceptare este mult mai mare decat cu propuneri izotrope, mai ales in dimensiuni mari.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina arata cum informatia de ordinul doi (Hessianul) imbunatateste dramatic eficienta MH. Propunerea Laplace centrata la MAP produce o aproximare buna a posteriorului, ducand la rate de acceptare ridicate si convergenta rapida.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ideea de a folosi o aproximare ieftina a posteriorului ca propunere MH este puternica: calculeaza MAP si Hessian o singura data (cost O(ND^2)), apoi foloseste aceasta propunere pentru mii de iteratii MH. Costul amortizat este neglijabil.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta strategie este aplicabila oricarui model cu log-posterior diferentiabil. In practica, se poate folosi si Fisher Information Matrix (care este valoarea asteptata a Hessianului) ca alternativa mai stabila numeric.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza studiilor clinice cu raspunsuri binare (vindecat/nevindecat), MH cu propunere Laplace pentru regresia logistica Bayesiana produce intervale de credibilitate exacte pentru efectul tratamentului, mai informative decat intervalele de incredere frecventiste asimptotice.</p></div>
+  </div>
+</div>

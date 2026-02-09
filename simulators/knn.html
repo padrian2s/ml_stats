@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K Vecini Apropiati (KNN) — Simulator Interactiv</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#10b981;--primary-dark:#059669;--primary-light:#d1fae5;--bg:#f8faf9;--card:#fff;--text:#1e293b;--text-light:#64748b;--border:#e2e8f0;--shadow:0 4px 24px rgba(0,0,0,.08);--radius:12px}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif}
+.back-link{display:inline-block;padding:12px 20px;color:var(--primary-dark);text-decoration:none;font-weight:500;transition:color .2s}
+.back-link:hover{color:var(--primary)}
+header{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:40px 20px 30px;text-align:center}
+header h1{font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:8px}
+header p{max-width:700px;margin:0 auto;opacity:.92;font-size:.95rem}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+.grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:900px){.grid{grid-template-columns:320px 1fr}}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;border:1px solid var(--border)}
+.card h2{font-size:1.1rem;margin-bottom:14px;color:var(--primary-dark);border-bottom:2px solid var(--primary-light);padding-bottom:8px}
+.control-group{margin-bottom:16px}
+.control-group label{display:block;font-size:.85rem;font-weight:600;color:var(--text-light);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+.control-group .value{font-family:monospace;font-weight:700;color:var(--primary-dark);font-size:1rem}
+input[type=range]{width:100%;accent-color:var(--primary);height:6px;cursor:pointer}
+select{width:100%;padding:8px 12px;border:2px solid var(--border);border-radius:8px;font-size:.9rem;background:#fff;cursor:pointer;transition:border-color .2s}
+select:focus{border-color:var(--primary);outline:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;gap:6px}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.btn:active{transform:translateY(0)}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-dark)}
+.btn-outline{background:transparent;color:var(--primary-dark);border:2px solid var(--primary)}
+.btn-outline:hover{background:var(--primary-light)}
+.btn-danger{background:#ef4444;color:#fff}
+.btn-danger:hover{background:#dc2626}
+.btn-group{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.toggle-class{display:flex;border-radius:8px;overflow:hidden;border:2px solid var(--border)}
+.toggle-class button{flex:1;padding:10px 16px;border:none;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s}
+.toggle-class .active-a{background:#3b82f6;color:#fff}
+.toggle-class .active-b{background:#ef4444;color:#fff}
+.toggle-class .inactive{background:#f1f5f9;color:var(--text-light)}
+.canvas-wrap{position:relative;width:100%;aspect-ratio:1/1;max-height:600px;border-radius:var(--radius);overflow:hidden;border:2px solid var(--border);cursor:crosshair;background:#fafffe}
+.canvas-wrap canvas{display:block;width:100%;height:100%}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat-item{background:var(--primary-light);border-radius:8px;padding:10px 14px;text-align:center}
+.stat-item .stat-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;color:var(--text-light);font-weight:600}
+.stat-item .stat-value{font-family:monospace;font-size:1.3rem;font-weight:700;color:var(--primary-dark)}
+.result-box{margin-top:14px;padding:14px;border-radius:8px;background:#f0fdf4;border:2px solid var(--primary);text-align:center;font-weight:600;min-height:50px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.result-box .label{font-size:.75rem;text-transform:uppercase;color:var(--text-light)}
+.result-box .value{font-size:1.1rem;color:var(--primary-dark)}
+.mode-indicator{padding:8px 14px;border-radius:8px;font-size:.8rem;font-weight:600;text-align:center;margin-bottom:12px}
+.mode-add{background:#dbeafe;color:#1e40af}
+.mode-classify{background:#fef3c7;color:#92400e}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back-link">&larr; Inapoi la Pagina Principala</a>
+<header>
+<h1>K Vecini Apropiati (KNN)</h1>
+<p>Algoritmul KNN clasifica un punct nou pe baza celor mai apropiati K vecini din setul de antrenament. Clasa cea mai frecventa dintre vecini devine clasificarea punctului. Experimenteaza cu diferite valori ale lui K si metrici de distanta!</p>
+</header>
+<div class="container">
+<div class="grid">
+<div class="controls-col">
+<div class="card">
+<h2>Controale</h2>
+<div id="modeIndicator" class="mode-indicator mode-add">Mod: Adaugare Puncte</div>
+<div class="control-group">
+<label>Clasa Selectata</label>
+<div class="toggle-class" id="classToggle">
+<button class="active-a" id="btnClassA" onclick="setClass('A')">&#9679; Clasa A (Albastru)</button>
+<button class="inactive" id="btnClassB" onclick="setClass('B')">&#9679; Clasa B (Rosu)</button>
+</div>
+</div>
+<div class="control-group">
+<label>Valoarea K: <span class="value" id="kVal">3</span></label>
+<input type="range" id="kSlider" min="1" max="15" value="3">
+</div>
+<div class="control-group">
+<label>Metrica de Distanta</label>
+<select id="distMetric">
+<option value="euclidean">Euclidiana</option>
+<option value="manhattan">Manhattan</option>
+</select>
+</div>
+<div class="btn-group">
+<button class="btn btn-primary" onclick="toggleMode()">Clasifica Punct</button>
+<button class="btn btn-outline" onclick="showBoundary()">Afiseaza Frontiera</button>
+<button class="btn btn-danger" onclick="resetAll()">Reseteaza</button>
+</div>
+</div>
+<div class="card">
+<h2>Statistici</h2>
+<div class="stats-grid">
+<div class="stat-item"><div class="stat-label">K Curent</div><div class="stat-value" id="statK">3</div></div>
+<div class="stat-item"><div class="stat-label">Puncte Clasa A</div><div class="stat-value" id="statA">0</div></div>
+<div class="stat-item"><div class="stat-label">Puncte Clasa B</div><div class="stat-value" id="statB">0</div></div>
+<div class="stat-item"><div class="stat-label">Total Puncte</div><div class="stat-value" id="statTotal">0</div></div>
+</div>
+<div class="result-box" id="resultBox">
+<div class="label">Rezultat Clasificare</div>
+<div class="value" id="resultText">Adaugati puncte si clasificati</div>
+</div>
+</div>
+</div>
+<div class="viz-col">
+<div class="card">
+<h2>Spatiul de Caracteristici</h2>
+<div class="canvas-wrap">
+<canvas id="mainCanvas"></canvas>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+const canvas = document.getElementById('mainCanvas');
+const ctx = canvas.getContext('2d');
+let W, H;
+let points = [];
+let currentClass = 'A';
+let classifyMode = false;
+let queryPoint = null;
+let neighbors = [];
+let boundaryData = null;
+
+function resize() {
+  const rect = canvas.parentElement.getBoundingClientRect();
+  W = canvas.width = rect.width * devicePixelRatio;
+  H = canvas.height = rect.height * devicePixelRatio;
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+  canvas._w = rect.width;
+  canvas._h = rect.height;
+  draw();
+}
+
+function getK() { return parseInt(document.getElementById('kSlider').value); }
+function getMetric() { return document.getElementById('distMetric').value; }
+
+function dist(a, b) {
+  if (getMetric() === 'manhattan') return Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
+  return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
+}
+
+function setClass(c) {
+  currentClass = c;
+  document.getElementById('btnClassA').className = c === 'A' ? 'active-a' : 'inactive';
+  document.getElementById('btnClassB').className = c === 'B' ? 'active-b' : 'inactive';
+}
+
+function toggleMode() {
+  classifyMode = !classifyMode;
+  const ind = document.getElementById('modeIndicator');
+  if (classifyMode) {
+    ind.textContent = 'Mod: Clasificare (clic pe canvas)';
+    ind.className = 'mode-indicator mode-classify';
+  } else {
+    ind.textContent = 'Mod: Adaugare Puncte';
+    ind.className = 'mode-indicator mode-add';
+    queryPoint = null;
+    neighbors = [];
+    boundaryData = null;
+  }
+  draw();
+}
+
+function knn(q, k) {
+  const dists = points.map((p, i) => ({ idx: i, d: dist(q, p), cls: p.cls }));
+  dists.sort((a, b) => a.d - b.d);
+  return dists.slice(0, k);
+}
+
+function classify(q) {
+  const k = getK();
+  if (points.length === 0) return null;
+  const nn = knn(q, Math.min(k, points.length));
+  neighbors = nn;
+  let countA = nn.filter(n => n.cls === 'A').length;
+  let countB = nn.filter(n => n.cls === 'B').length;
+  return { cls: countA >= countB ? 'A' : 'B', countA, countB, total: nn.length };
+}
+
+function showBoundary() {
+  if (points.length === 0) return;
+  const w = canvas._w, h = canvas._h;
+  const step = 6;
+  boundaryData = [];
+  for (let x = 0; x < w; x += step) {
+    for (let y = 0; y < h; y += step) {
+      const res = classify({ x, y });
+      boundaryData.push({ x, y, cls: res.cls, step });
+    }
+  }
+  neighbors = [];
+  queryPoint = null;
+  draw();
+}
+
+canvas.addEventListener('click', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  if (classifyMode) {
+    queryPoint = { x, y };
+    boundaryData = null;
+    const result = classify(queryPoint);
+    if (result) {
+      const clsName = result.cls === 'A' ? 'Clasa A (Albastru)' : 'Clasa B (Rosu)';
+      document.getElementById('resultText').innerHTML =
+        `<span style="color:${result.cls === 'A' ? '#3b82f6' : '#ef4444'}">${clsName}</span><br>` +
+        `<span style="font-size:.8rem;color:#64748b">Voturi: A=${result.countA}, B=${result.countB}</span>`;
+    }
+  } else {
+    points.push({ x, y, cls: currentClass });
+    boundaryData = null;
+    if (queryPoint) {
+      const result = classify(queryPoint);
+      if (result) {
+        const clsName = result.cls === 'A' ? 'Clasa A (Albastru)' : 'Clasa B (Rosu)';
+        document.getElementById('resultText').innerHTML =
+          `<span style="color:${result.cls === 'A' ? '#3b82f6' : '#ef4444'}">${clsName}</span><br>` +
+          `<span style="font-size:.8rem;color:#64748b">Voturi: A=${result.countA}, B=${result.countB}</span>`;
+      }
+    }
+  }
+  updateStats();
+  draw();
+});
+
+function updateStats() {
+  document.getElementById('statK').textContent = getK();
+  document.getElementById('statA').textContent = points.filter(p => p.cls === 'A').length;
+  document.getElementById('statB').textContent = points.filter(p => p.cls === 'B').length;
+  document.getElementById('statTotal').textContent = points.length;
+}
+
+function draw() {
+  const w = canvas._w, h = canvas._h;
+  ctx.clearRect(0, 0, w, h);
+
+  // Grid
+  ctx.strokeStyle = '#e5e7eb';
+  ctx.lineWidth = 0.5;
+  for (let x = 0; x < w; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
+  for (let y = 0; y < h; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
+
+  // Boundary heatmap
+  if (boundaryData) {
+    boundaryData.forEach(d => {
+      ctx.fillStyle = d.cls === 'A' ? 'rgba(59,130,246,.15)' : 'rgba(239,68,68,.15)';
+      ctx.fillRect(d.x, d.y, d.step, d.step);
+    });
+  }
+
+  // Neighbor lines
+  if (queryPoint && neighbors.length > 0) {
+    neighbors.forEach(n => {
+      const p = points[n.idx];
+      ctx.beginPath();
+      ctx.moveTo(queryPoint.x, queryPoint.y);
+      ctx.lineTo(p.x, p.y);
+      ctx.strokeStyle = 'rgba(16,185,129,.4)';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([4, 4]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    });
+  }
+
+  // Points
+  points.forEach((p, i) => {
+    const isNeighbor = neighbors.some(n => n.idx === i);
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, isNeighbor ? 9 : 6, 0, Math.PI * 2);
+    ctx.fillStyle = p.cls === 'A' ? '#3b82f6' : '#ef4444';
+    ctx.fill();
+    if (isNeighbor) {
+      ctx.strokeStyle = '#10b981';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+    }
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  });
+
+  // Query point (star)
+  if (queryPoint) {
+    drawStar(queryPoint.x, queryPoint.y, 5, 14, 6);
+  }
+}
+
+function drawStar(cx, cy, spikes, outerR, innerR) {
+  let rot = Math.PI / 2 * 3;
+  let step = Math.PI / spikes;
+  ctx.beginPath();
+  ctx.moveTo(cx, cy - outerR);
+  for (let i = 0; i < spikes; i++) {
+    ctx.lineTo(cx + Math.cos(rot) * outerR, cy + Math.sin(rot) * outerR);
+    rot += step;
+    ctx.lineTo(cx + Math.cos(rot) * innerR, cy + Math.sin(rot) * innerR);
+    rot += step;
+  }
+  ctx.closePath();
+  ctx.fillStyle = '#fbbf24';
+  ctx.fill();
+  ctx.strokeStyle = '#92400e';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+}
+
+function resetAll() {
+  points = [];
+  queryPoint = null;
+  neighbors = [];
+  boundaryData = null;
+  classifyMode = false;
+  document.getElementById('modeIndicator').textContent = 'Mod: Adaugare Puncte';
+  document.getElementById('modeIndicator').className = 'mode-indicator mode-add';
+  document.getElementById('resultText').textContent = 'Adaugati puncte si clasificati';
+  updateStats();
+  draw();
+}
+
+document.getElementById('kSlider').addEventListener('input', (e) => {
+  document.getElementById('kVal').textContent = e.target.value;
+  updateStats();
+  if (queryPoint) {
+    const result = classify(queryPoint);
+    if (result) {
+      const clsName = result.cls === 'A' ? 'Clasa A (Albastru)' : 'Clasa B (Rosu)';
+      document.getElementById('resultText').innerHTML =
+        `<span style="color:${result.cls === 'A' ? '#3b82f6' : '#ef4444'}">${clsName}</span><br>` +
+        `<span style="font-size:.8rem;color:#64748b">Voturi: A=${result.countA}, B=${result.countB}</span>`;
+    }
+    draw();
+  }
+  boundaryData = null;
+});
+
+document.getElementById('distMetric').addEventListener('change', () => {
+  if (queryPoint) {
+    classify(queryPoint);
+    draw();
+  }
+  boundaryData = null;
+});
+
+window.addEventListener('resize', resize);
+resize();
+</script>
+</body>
+</html>

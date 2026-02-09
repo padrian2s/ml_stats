@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Învățarea Online și Optimizarea Stochastică</h2>
+  <p>Pagina introduce paradigma învățării online, unde modelul se actualizează pe măsură ce primește date noi, și definește conceptele de regret și minimizare a regretului în contextul optimizării online.</p>
+  <div class="definition-box"><strong>Învățarea offline (batch):</strong> Abordarea tradițională unde se optimizează f(θ) = 1/N Σᵢ₌₁ᴺ f(θ, zᵢ) pe întregul set de date simultan. Funcția de pierdere poate fi log-verosimilitatea negativă sau o funcție de pierdere generală.</div>
+  <div class="definition-box"><strong>Învățarea online:</strong> Actualizarea parametrilor pe măsură ce fiecare nou punct de date sosește, fără a aștepta întregul set de date. Esențială pentru date în flux (streaming data) sau seturi prea mari pentru memorie.</div>
+  <div class="highlight-box"><strong>Regretul (Ecuația 8.77):</strong> regret_k = 1/k Σ_{t=1}^k f(θ_t, z_t) - min_{θ*∈Θ} 1/k Σ_{t=1}^k f(θ*, z_t) - diferența dintre pierderea medie a algoritmului online și pierderea medie a celui mai bun parametru fix în retrospectivă.</div>
+  <div class="highlight-box"><strong>Coborârea pe gradient online (Ecuația 8.78):</strong> θ_{k+1} = proj_Θ(θ_k - η_k g_k), unde proj_Θ proiectează pe spațiul de constrângeri Θ. Algoritmul Zinkevich (2003).</div>
+  <div class="definition-box"><strong>Minimizarea riscului empiric (ERM):</strong> Cadrul frecventist în care se minimizează pierderea medie pe datele de antrenament. Riscul este pierderea medie așteptată pe date viitoare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Secțiunea 8.5 marchează o tranziție de la optimizarea batch la cea online/stochastică. Regretul măsoară cât de bine se comportă un algoritm online comparativ cu cel mai bun parametru fix. Coborârea pe gradient online este simplă: la fiecare pas, actualizează parametrii în direcția gradientului negativ al pierderii curente, cu posibilă proiecție pe constrângeri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distincția offline/online reflectă două paradigme diferite: offline presupune acces la toate datele, online procesează datele secvențial. Regretul este o metrică naturală care nu face presupuneri statistice despre datele (pot fi adversariale). Analogia cu investițiile pe bursă (pierderea vs. strategia „buy and hold") este iluminatoare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Învățarea online este esențială pentru sisteme de recomandare în timp real, publicitate online (ad bidding), tranzacționare algoritmică, și actualizarea modelelor de limbaj pe date noi. Orice sistem care procesează un flux continuu de date beneficiază de algoritmi online.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de publicitate online decide în milisecunde ce reclamă să afișeze. Folosind gradient descent online, modelul se actualizează după fiecare click/non-click al utilizatorului, adaptându-se continuu la schimbările de comportament fără a re-antrena pe întregul istoric.</p></div>
+  </div>
+</div>

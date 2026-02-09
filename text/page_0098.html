@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Distribuția Predictivă Posterioară și Medierea Modelelor Bayesiene</h2>
+  <p>Pagina introduce distribuția predictivă posterioară și medierea modelelor Bayesiene (BMA), comparând-le cu aproximarea plug-in.</p>
+  <div class="definition-box"><strong>Distribuția predictivă posterioară:</strong> p(x̃ ∈ C|D) = Σ_h p(y=1|x̃,h)·p(h|D), o medie ponderată a predicțiilor fiecărei ipoteze, ponderată cu probabilitatea posterioară.</div>
+  <div class="definition-box"><strong>Medierea modelelor Bayesiene (BMA):</strong> În loc să selectăm un singur model, combinăm predicțiile tuturor modelelor proporțional cu probabilitatea lor posterioară. Produce predicții mai „netede".</div>
+  <div class="figure-box"><strong>Figura 3.4:</strong> Posteriorul peste ipoteze și distribuția predictivă corespunzătoare pentru D = {16}. Punctele din fiecare rând arată extensia ipotezei; curba din dreapta arată p(h|D). Media ponderată produce distribuția de sus.</div>
+  <div class="highlight-box"><strong>Aproximarea plug-in:</strong> p(x̃ ∈ C|D) ≈ p(x̃|ĥ), folosind doar estimarea MAP. Este mai simplă dar subestimează incertitudinea și nu este la fel de „netedă" ca BMA.</div>
+  <div class="highlight-box"><strong>Plug-in vs Bayesian:</strong> Plug-in: distribuția se lărgește cu mai multe date (paradoxal). Bayesian: începe largă și se îngustează pe măsură ce incertitudinea scade - comportament mai intuitiv.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>BMA produce predicții superioare prin integrarea incertitudinii modelului. Aproximarea plug-in (MAP) este mai simplă dar poate fi înșelătoare, mai ales cu puține date.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>BMA este optimal teoretic dar costisitor computațional. Plug-in este practic dar pierde informația despre incertitudine. Cu date suficiente, ambele converg la același rezultat.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>BMA este utilizată în prognoza meteo (ensemble forecasting), în predicția economică, și în orice context unde cuantificarea incertitudinii este critică pentru luarea deciziilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Prognoza meteo modernă utilizează BMA: în loc să ruleze un singur model atmosferic, combinează predicțiile a zeci de modele ponderate cu performanța lor istorică, oferind prognoze cu intervale de încredere.</p></div>
+  </div>
+</div>

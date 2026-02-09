@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Aplicatii ale filtrarii particulelor - Localizare robotica si urmarire vizuala</h2>
+  <p>Aceasta pagina prezinta doua aplicatii importante ale filtrarii particulelor: localizarea Monte Carlo a robotilor si urmarirea vizuala a obiectelor.</p>
+  <div class="definition-box"><strong>Localizarea Monte Carlo:</strong> Un robot cu senzor sonar navigheaza intr-un mediu de birouri. Starea este discreta (grila de ocupare), iar filtrarea particulelor este cunoscuta ca localizare Monte Carlo. Particulele converg gradual la pozitia reala pe masura ce robotul se deplaseaza si colecteaza observatii.</div>
+  <div class="definition-box"><strong>Urmarirea vizuala cu histograme de culoare:</strong> Se foloseste un model simplu de miscare liniara si histograme de culoare cu distanta Bhattacharyya pentru verosimilitate. Propunerea este obtinuta prin esantionare din verosimilitate.</div>
+  <div class="highlight-box"><strong>Aliasing perceptual:</strong> In localizare, locatii diferite pot arata similar (de ex. doua coridoare identice), creand ambiguitate. Filtrul cu particule mentine distributia multimodala pana cand observatiile suplimentare rezolva ambiguitatea.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina ilustreaza puterea filtrarii particulelor prin doua aplicatii clasice: localizarea robotica (unde spatiul de stari este discret dar mare) si urmarirea vizuala (unde spatiul de stari este continuu). Ambele demonstreaza capacitatea PF de a gestiona distributii multimodale si neliniaritati.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>In localizare, PF rezolva elegant problema "rapirii" (kidnapped robot): daca robotul este mutat fara sa stie, particulele se vor redistributi pe toate pozitiile consistente cu observatiile. In urmarire, PF gestioneaza ocluzii si distractori.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Localizarea Monte Carlo este implementata in ROS (Robot Operating System) ca pachetul amcl si este folosita in mii de roboti comerciali (aspiratoare autonome, roboti de livrare).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Aspiratorul robot Roomba foloseste o varianta a localizarii Monte Carlo pentru a-si estima pozitia in casa, permitandu-i sa se intoarca la statia de incarcare si sa evite zone deja curatate.</p></div>
+  </div>
+</div>

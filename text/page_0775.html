@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>VB Gaussiana: calculul asteptarilor si margine inferioara</h2>
+  <p>Aceasta pagina completeaza ecuatiile de actualizare VB cu formulele explicite pentru asteptari si introduce ELBO ca instrument de monitorizare.</p>
+  <div class="definition-box"><strong>Asteptarile necesare:</strong> E_{q(μ)}[μ] = μ_N, E_{q(μ)}[μ^2] = 1/κ_N + μ_N^2, E_{q(λ)}[λ] = a_N/b_N. Aceste momente sunt suficiente pentru a calcula toate actualizarile VB.</div>
+  <div class="definition-box"><strong>Ecuatii explicite:</strong> μ_N = (κ_0 μ_0 + Nx̄)/(κ_0 + N), κ_N = (κ_0 + N) a_N/b_N, a_N = a_0 + (N+1)/2, b_N = b_0 + κ_0(E[μ^2] + μ_0^2 - 2E[μ]μ_0)/2 + Σ(x_i^2 + E[μ^2] - 2E[μ]x_i)/2.</div>
+  <div class="highlight-box"><strong>ELBO ca diagnostic:</strong> L(q) ≤ log p(D) creste monoton la fiecare actualizare VB. Daca nu creste, implementarea contine un bug. L(q) poate fi folosit si pentru selectia de modele Bayesiana (compararea modelelor prin log-evidenta aproximativa).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Ecuatiile explicite permit implementarea directa a algoritmului VB. Interesant, μ_N si a_N sunt constante (nu necesita iterare), doar κ_N si b_N depind circular si necesita cateva iteratii. ELBO L(q) serveste drept diagnostic de convergenta si poate fi folosit pentru selectia modelului (analog cu log-evidenta marginala).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ilustrarea din Figura 21.5 arata ca aproximarea VB (contururi rosii) converge aproape de posterioara exacta (contururi verzi) dar este mai compacta (sub-estimeaza varianta). Aceasta este o consecinta generala a minimizarii KL inverse (zero forcing).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>ELBO ca aproximare a log-evidentei este folosit extensiv in selectia de modele: compararea numarului de componente in amestecuri de Gaussiene, selectia ordinii in modele autoregresive si determinarea dimensiunii spatiului latent in VAE-uri.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza datelor financiare, VB poate compara modele cu diferite numar de regimuri (1 regim normal vs 2 regimuri: normal si criza) folosind ELBO ca criteriu de selectie, fara a necesita cross-validare costisitoare.</p></div>
+  </div>
+</div>

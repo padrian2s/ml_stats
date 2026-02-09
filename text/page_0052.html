@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Capitolul 1: Regresia Logistica</h2>
+  <p>Generalizarea regresiei liniare la clasificare binara prin functia sigmoid si distributia Bernoulli.</p>
+  <div class="definition-box"><strong>Regresia Logistica:</strong> Model de clasificare binara care combina o combinatie liniara a intrarilor cu functia sigmoid: p(y|x, w) = Ber(y|sigm(w^T x)) (ecuatia 1.11). Desi se numeste "regresie", este de fapt un model de clasificare.</div>
+  <div class="definition-box"><strong>Distributia Bernoulli:</strong> Distributie de probabilitate pentru variabile binare y ∈ {0, 1}, mai potrivita decat Gaussiana pentru clasificare.</div>
+  <div class="definition-box"><strong>Functia Sigmoid (Logistica):</strong> sigm(η) = 1/(1 + exp(-η)) = e^η/(e^η + 1) (ecuatia 1.10). Functie in forma de S care mapeaza intreaga linie reala in intervalul [0, 1], permitand interpretarea ca probabilitate.</div>
+  <div class="definition-box"><strong>Functie de Strivire (Squashing Function):</strong> Alt nume pentru functia sigmoid, deoarece "striveste" intreaga linie reala in intervalul [0, 1].</div>
+  <div class="figure-box"><strong>Figura 1.19:</strong> (a) Functia sigmoid: sigm(-∞) = 0, sigm(0) = 0.5, sigm(∞) = 1. (b) Regresia logistica aplicata la scoruri SAT: punctele negre sunt datele de antrenament, cercurile rosii sunt probabilitatile prezise. Crucile verzi arata doi studenti cu acelasi scor SAT (525) dar rezultate diferite.</div>
+  <div class="highlight-box"><strong>Formule Cheie:</strong> p(y|x, w) = Ber(y|μ(x)) (ec. 1.8); μ(x) = sigm(w^T x) (ec. 1.9); sigm(η) = 1/(1+exp(-η)) (ec. 1.10).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 1.4.6 introduce regresia logistica, generalizand regresia liniara la clasificare binara. Doua modificari cheie: (1) distributia Gaussiana este inlocuita cu Bernoulli, (2) combinatia liniara este trecuta prin functia sigmoid pentru a obtine o probabilitate in [0,1]. Exemplul cu scoruri SAT arata ca datele nu sunt perfect separabile liniar.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Functia sigmoid este fundamentala in ML: apare in regresia logistica, retele neuronale si multe alte modele. Regresia logistica produce probabilitati calibrate, nu doar etichete, permitand cuantificarea incertitudinii. Numele "regresie logistica" este inselator - este de fapt un model de clasificare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia logistica este unul dintre cele mai utilizate modele de clasificare: scoring de credit bancar, predictia riscului medical, analiza sentimentelor, prezicerea click-urilor pe reclame (CTR) si multe altele.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O banca foloseste regresia logistica pentru scoring de credit: probabilitatea de neplata p(y=1|x) este modelata ca sigm(w^T x), unde x include venitul, istoricul de credit, varsta si alte caracteristici. Pragul de 0.5 determina decizia de aprobare sau respingere a creditului.</p></div>
+  </div>
+</div>

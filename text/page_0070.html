@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Capitolul 2: PDF Degenerata, Functia Delta Dirac si Distributia Student t</h2>
+  <p>Cazuri limita ale Gaussienei, robustetea la outlieri si distributia Student t cu cozi groase.</p>
+  <div class="definition-box"><strong>Functia Delta Dirac:</strong> lim_{σ²→0} N(x|μ, σ²) = δ(x - μ) (ecuatia 2.47). Cand varianta tinde la zero, Gaussiana devine un "tepi" infinit de inalt si infinit de subtire centrat pe μ.</div>
+  <div class="definition-box"><strong>Proprietatea de Cernere (Sifting Property):</strong> ∫_{-∞}^{∞} f(x)δ(x - μ)dx = f(μ) (ecuatia 2.50). Functia delta "selecteaza" valoarea functiei f la punctul μ.</div>
+  <div class="definition-box"><strong>Distributia Student t:</strong> T(x|μ, σ², ν) ∝ [1 + (1/ν)((x-μ)/σ)²]^(-(ν+1)/2) (ecuatia 2.51), unde μ este media, σ² este parametrul de scala si ν > 0 este numarul de grade de libertate.</div>
+  <div class="definition-box"><strong>Grade de Libertate:</strong> Parametrul ν al distributiei Student t. Cu ν → ∞, distributia t converge la Gaussiana. Cu ν mic, distributia are cozi mai groase.</div>
+  <div class="highlight-box"><strong>Proprietati Student t:</strong> media = μ, modul = μ, var = νσ²/(ν-2) (ecuatia 2.52). Varianta exista doar daca ν > 2. Distributia t este mai robusta la outlieri decat Gaussiana deoarece log-probabilitatea scade doar patratic (nu exponential) cu distanta de la centru.</div>
+  <div class="highlight-box"><strong>Istorie:</strong> Distributia t a fost publicata prima data in 1908 de William Sealy Gosset de la fabrica de bere Guinness din Dublin, sub pseudonimul "Student", deoarece angajatorul sau nu-i permitea sa-si foloseasca numele real.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunile 2.4.2 introduc cazurile limita ale Gaussienei (functia delta Dirac cand σ²→0) si distributia Student t ca alternativa robusta. Gaussiana este sensibila la outlieri deoarece log-probabilitatea scade patratic, facand punctele extreme extrem de improbabile. Distributia t are cozi mai groase, asignand probabilitate mai mare punctelor extreme.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Functia delta Dirac face legatura intre distributiile continue si discrete, fiind esentiala in fizica si teoria semnalelor. Distributia Student t generalizeaza Gaussiana: cu ν → ∞ devine Gaussiana, cu ν = 1 devine distributia Cauchy (cu cozi extrem de groase). Robustetea la outlieri este o proprietate critica in practica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Distributia t este folosita in: testele statistice clasice (t-test), regresia robusta, modelarea rentabilitatilor financiare (care au cozi mai groase decat Gaussiana) si ca alternativa la Gaussiana in modelele Bayesiene cand datele contin outlieri.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In finante, rentabilitatile zilnice ale actiunilor au cozi mai groase decat o distributie Gaussiana - evenimentele extreme (crash-uri de piata) apar mai frecvent decat prevede modelul Gaussian. Utilizarea distributiei t cu ν ≈ 5 grade de libertate captureaza mai bine acest comportament, permitand o evaluare mai realista a riscului.</p></div>
+  </div>
+</div>

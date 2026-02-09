@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Capitolul 9: Modele liniare generalizate si familia exponentiala - Introducere</h2>
+  <p>Aceasta pagina deschide Capitolul 9, care unifica multe distributii de probabilitate sub umbrela familiei exponentiale si introduce modelele liniare generalizate (GLM).</p>
+  <div class="definition-box"><strong>Familia exponentiala:</strong> Clasa de distributii de probabilitate care include Gaussiana, Bernoulli, Poisson, Gamma, Beta, si multe altele. Este importanta deoarece permite derivarea de teoreme si algoritmi cu aplicabilitate foarte larga.</div>
+  <div class="highlight-box"><strong>De ce este importanta familia exponentiala:</strong> 1) Este singura familie cu statistici suficiente de dimensiune finita (Pitman-Koopman-Darmois). 2) Singura familie pentru care exista priori conjugate. 3) Face cele mai putine presupuneri sub constrangeri date (entropie maxima). 4) Este la baza GLM-urilor. 5) Este la baza inferentei variationlae.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 9 este unul dintre cele mai fundamentale din carte, unificand o varietate mare de modele sub un cadru teoretic comun. Familia exponentiala nu este doar o curiozitate matematica, ci are consecinte practice profunde: permite invatare online eficienta (prin statistici suficiente), inferenta Bayesiana exacta (prin priori conjugate), si modele de regresie flexibile (prin GLM-uri).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Unificarea sub familia exponentiala permite „scrie o data, foloseste peste tot" pentru algoritmi. 2) Distributia Student si cea uniforma sunt exceptii notabile care nu apartin familiei exponentiale. 3) GLM-urile generalizeaza regresia logistica la orice distributie din familia exponentiala. 4) Clasificatorii generativi cu densitati conditional exponentiale sunt simplu de construit.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Familia exponentiala fundamenteaza aproape toate modelele statistice standard: regresie liniara, logistica, Poisson, modele de supravietuire, si modele de amestec. GLM-urile sunt implementate in toate pachetele statistice majore (R glm(), Python statsmodels, SAS PROC GENMOD).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In epidemiologie, se folosesc diferite modele din familia exponentiala in functie de tipul de date: Poisson pentru numarul de cazuri de boala, binomial pentru rata de infectare, Gamma pentru durata spitalizarii. Toate acestea pot fi unificate si estimate in cadrul GLM, folosind aceeasi procedura de optimizare (IRLS) cu diferite functii de legatura.</p></div>
+  </div>
+</div>

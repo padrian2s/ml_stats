@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Descompunerea Duala - Relaxare Lagrangiana si Garantii Teoretice (Sectiunea 22.6.5.2)</h2>
+  <p>Aceasta pagina ilustreaza descompunerea duala si discuta proprietatile teoretice: limita superioara stricta, echivalenta cu relaxarea LP si conditiile de optimalitate.</p>
+  <div class="figure-box"><strong>Figura 22.19:</strong> Ilustrarea descompunerii duale. Se arata cum multiplicatorii delta redistribuie energiile intre termenii singleton si termenii de factor, pastrand suma totala constanta. Sursa: Figura 1.2 din Sontag et al. 2011.</div>
+  <div class="highlight-box"><strong>Limita superioara stricta:</strong> min_delta L(delta) = p* (Ec. 22.170) - limita superioara este stransa la valoarea optima a lui delta.</div>
+  <div class="definition-box"><strong>Descompunere Duala / Relaxare Lagrangiana:</strong> Minimizarea limitei superioare L(delta) se numeste descompunere duala sau relaxare Lagrangiana. Se poate demonstra ca L(delta) este duala aceleiasi relaxari LP discutate anterior.</div>
+  <div class="highlight-box"><strong>Reparametrizarea:</strong> theta_i^delta(x_i) = theta_i(x_i) + SUMA_{f:i in f} delta_fi(x_i) (Ec. 22.171); theta_f^delta(x_f) = theta_f(x_f) - SUMA_{i in f} delta_fi(x_i) (Ec. 22.172)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabileste ca descompunerea duala este echivalenta cu relaxarea LP si ca limita superioara este stransa cand multiplicatorii sunt optimali. Reparametrizarea redistribuie energiile intre factorii singleton si de muchie fara a schimba energia totala, oferind o perspectiva intuitiva asupra a ceea ce fac multiplicatorii duali.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Avantajul principal al descompunerii duale este flexibilitatea: permite combinarea diferitelor tipuri de algoritmi de optimizare. De exemplu, factori submodulari pe retea cu modele structurate pe arbori. Echivalenta cu LP ofera garantii teoretice solide.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In procesarea limbajului natural, se combina constrangeri locale (sintactice) cu constrangeri globale (semantice) folosind descompunerea duala. In segmentarea imaginilor, factori de retea se combina cu modele de forma pe arbori.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In estimarea pozitiei corpului uman din imagini, un model structurat pe arbore captureaza cinematica articulatiilor, in timp ce factori locali pe retea captureaza aparenta vizuala. Descompunerea duala permite combinarea celor doua modele pentru o estimare mai precisa a pozei.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Expansiunea Alfa, Schimbul Alfa-Beta si Comparatia Experimentala (Sectiunea 22.6.4)</h2>
+  <p>Aceasta pagina discuta optimul local puternic obtinut prin expansiunea alfa, introduce varianta alfa-beta swap si prezinta rezultate experimentale comparative intre graphcuts si BP.</p>
+  <div class="figure-box"><strong>Figura 22.15:</strong> (a) O imagine cu 3 etichete. (b) O miscare locala standard (moduri conditionale iterative) schimba eticheta unui singur pixel. (c) Un schimb alfa-beta permite tuturor nodurilor etichetate alfa sa devina beta si invers. (d) O expansiune alfa permite tuturor nodurilor ne-etichetate alfa sa devina alfa. Sursa: Boykov et al. 2001.</div>
+  <div class="definition-box"><strong>Optim Local Puternic:</strong> Expansiunea alfa gaseste miscarea optima dintr-un set exponential de mare, atingand un optim local mult mai bun decat cel gasit prin metode standard de inversare greedy a etichetelor.</div>
+  <div class="highlight-box"><strong>Garantie de aproximare:</strong> Energia solutiei convergente este cel mult 2c ori energia optima, unde c = max_{(u,v) in E} [max_{alfa!=beta} E_uv(alfa,beta)] / [min_{alfa!=beta} E_uv(alfa,beta)] (Ec. 22.162). Pentru modelul Potts, c = 1, deci avem o 2-aproximare.</div>
+  <div class="definition-box"><strong>Schimbul Alfa-Beta (Alpha-Beta Swap):</strong> La fiecare pas se aleg doua etichete alfa si beta. Toate nodurile etichetate alfa pot deveni beta si invers, daca aceasta reduce energia. Aplicabil si pentru energii semi-metrice.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina compara doua variante de graphcuts: expansiunea alfa (mai puternica teoretic, gaseste optime locale mai bune) si schimbul alfa-beta (aplicabil unei clase mai largi de modele, inclusiv semi-metrice). Se prezinta si rezultate experimentale care arata ca graphcuts si TRW sunt cele mai performante metode.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Expansiunea alfa ofera garantii de aproximare (factor 2c), in timp ce schimbul alfa-beta nu necesita inegalitatea triunghiului. In practica, expansiunea alfa produce de obicei rezultate mai bune. Comparatia experimentala arata ca TRW si graphcuts domina BP standard si ICM.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste metode sunt fundamentale in procesarea imaginilor de nivel scazut: eliminarea zgomotului, super-rezolutie, inpainting si estimarea fluxului optic. Alegerea intre expansiune si swap depinde de proprietatile energiei modelului.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In editarea foto profesionala, algoritmii de segmentare bazati pe graphcuts permit selectarea precisa a obiectelor complexe (par, blana) din imagini. Expansiunea alfa itereaza rapid prin etichetele posibile, producand margini de segmentare netede si naturale.</p></div>
+  </div>
+</div>

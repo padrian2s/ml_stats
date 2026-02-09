@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 2: Regula lui Bayes si Exemplu de Diagnostic Medical</h2>
+  <p>Teorema lui Bayes, probabilitatea conditionata si aplicarea la diagnosticul medical cu mamografie.</p>
+  <div class="definition-box"><strong>Regula lui Bayes (Teorema lui Bayes):</strong> p(X = x|Y = y) = p(X = x, Y = y)/p(Y = y) = p(X = x)p(Y = y|X = x) / Σ_{x'} p(X = x')p(Y = y|X = x') (ecuatia 2.7).</div>
+  <div class="definition-box"><strong>Sensibilitate (Sensitivity):</strong> Probabilitatea ca testul sa fie pozitiv dat fiind ca pacientul are boala: p(test pozitiv|boala). Reprezinta rata de detectie a bolii.</div>
+  <div class="definition-box"><strong>Mamografie:</strong> Test medical pentru cancerul de san, folosit ca exemplu ilustrativ pentru regula lui Bayes. Demonstreaza cum un test pozitiv nu inseamna neaparat ca pacientul are boala.</div>
+  <div class="highlight-box"><strong>Formula lui Bayes:</strong> p(X=x|Y=y) = p(X=x)p(Y=y|X=x) / Σ_{x'} p(X=x')p(Y=y|X=x') - aceasta formula "inverseaza" conditionarea, permitand calculul probabilitatii cauzei dat fiind efectul observat.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunile 2.2.3-2.2.3.1 introduc regula lui Bayes, probabil cea mai importanta formula din statistica si ML. Regula combina probabilitatea conditionata cu regula produsului si sumei pentru a "inversa" conditionarea. Exemplul medical ilustreaza cum sa calculam probabilitatea de cancer dat fiind un test pozitiv de mamografie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Regula lui Bayes transforma probabilitati "inainte" (p(test|boala)) in probabilitati "inapoi" (p(boala|test)). Aceasta inversiune este fundamentala in ML: avem un model generativ p(date|parametri) si vrem sa inferem parametrii: p(parametri|date). Exemplul medical arata ca intuitia umana despre probabilitati conditionare este adesea gresita (bias-ul ratei de baza).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regula lui Bayes este baza: filtrelor de spam (p(spam|cuvinte)), diagnosticului medical (p(boala|simptome)), detectiei de frauda (p(frauda|tranzactie)), si a intregii inferente Bayesiene in ML.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O femeie de 40 de ani primeste un rezultat pozitiv la mamografie. Desi testul are sensibilitate 80% si specificitate 90%, probabilitatea reala de a avea cancer este mult mai mica decat pare, din cauza prevalentei scazute a bolii (~1%). Regula lui Bayes arata ca p(cancer|test pozitiv) ≈ 7.5%, nu 80% cum ar sugera intuitia.</p></div>
+  </div>
+</div>

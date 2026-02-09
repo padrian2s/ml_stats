@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Filtrarea particulelor - Propunerea optima si algoritmul condensation</h2>
+  <p>Aceasta pagina continua discutia despre propunerea optima si aplicatia algoritmului condensation pentru urmarire vizuala.</p>
+  <div class="definition-box"><strong>Propunerea optima - detalii:</strong> Cu propunerea optima q* = p(z_t|z_{t-1}^s, y_t), ponderea devine w_t^s proportional cu w_{t-1}^s * p(y_t|z_{t-1}^s) = w_{t-1}^s * integral p(y_t|z_t')*p(z_t'|z_{t-1}^s)dz_t'. Varianta conditionata a ponderilor este zero.</div>
+  <div class="definition-box"><strong>Algoritmul condensation:</strong> "Conditional density propagation" (Isard si Blake 1998), foloseste propunerea prior pentru urmarirea vizuala a obiectelor. Este simplu dar ineficient cand verosimilitatea este mult mai ingusta decat priorul dinamic.</div>
+  <div class="highlight-box"><strong>Propuneri intermediare:</strong> In practica, se folosesc propuneri care incorporeaza partial informatia din observatia curenta, de exemplu prin rularea unui filtru Kalman extins (EKF) sau unscented (UKF) local pentru fiecare particula.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina evidentiaza importanta alegerii propunerii: propunerea optima minimizeaza varianta ponderilor dar este rareori calculabila exact. Propunerile practice combina informatia din modelul dinamic cu informatia din observatia curenta pentru a obtine un compromis bun.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Principiul general este ca o propunere buna trebuie sa "priveasca inainte" - sa ia in considerare observatia curenta cand propune noi stari. Propunerea prior ignora complet observatia, iar propunerea optima o incorporeaza perfect.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Auxiliary particle filters, unscented particle filters si Rao-Blackwellized particle filters sunt variante populare care imbunatatesc propunerea in moduri diferite.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In navigatia inertiana a dronelor, filtrul cu particule Rao-Blackwellized combina un filtru Kalman pentru variabilele liniare cu particule pentru variabilele neliniare (de ex. orientarea), obtinand estimari precise cu putine particule.</p></div>
+  </div>
+</div>

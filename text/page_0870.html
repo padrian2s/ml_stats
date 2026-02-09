@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Esantionarea Gibbs pentru modelul Ising si denoising de imagini</h2>
+  <p>Aceasta pagina prezinta esantionarea Gibbs aplicata la modelul Ising, cu exemplu de denoising de imagini binare.</p>
+  <div class="definition-box"><strong>Conditionala Gibbs pentru Ising:</strong> p(x_t=+1|x_{-t}, theta) = sigm(2J*eta_t), unde eta_t = sum_{s in nbr(t)} x_s este suma vecinilor. Probabilitatea depinde de cati vecini au aceeasi valoare: daca toti au acelasi semn, probabilitatea de a fi +1 este aproape 1 (pentru J>0).</div>
+  <div class="definition-box"><strong>Ising cu evidenta (denoising):</strong> Cu observatie Gaussiana psi_t(x_t) = N(y_t|x_t, sigma^2), conditionala devine p(x_t=+1|x_{-t}, y, theta) = sigm(2J*eta_t - log(psi_t(+1)/psi_t(-1))), combinand priorul Ising cu verosimilitatea.</div>
+  <div class="highlight-box"><strong>Rezultate denoising:</strong> Figura 24.1 arata ca dupa un singur sweep Gibbs, imaginea este inca zgomotoasa; dupa 5 sweep-uri, imaginea este mai curata; media peste 15 sweep-uri produce rezultatul cel mai neted. Comparativ cu mean field, Gibbs produce rezultate usor mai neclare dar mai honest calibrate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza Gibbs sampling pe un exemplu concret si vizual: denoising-ul unei imagini binare cu modelul Ising. Formula conditionala completa combina informatia de la vecini (priorul Ising) cu observatia zgomotoasa (verosimilitatea Gaussiana) printr-o functie sigmoid.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Forta de cuplare J controleaza compromisul: J mare produce imagini mai netede dar poate pierde detalii fine; J mic pastreaza detalii dar reduce mai putin zgomotul. Media peste multiple esantioane Gibbs produce estimarea MMSE (minimum mean square error).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelul Ising cu Gibbs sampling este folosit in segmentarea imaginilor medicale, detectarea defectelor in imagini industriale si restaurarea digitala a fotografiilor vechi.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In controlul calitatii pe linii de productie, o camera fotografiaza fiecare produs. Un model Ising cu Gibbs sampling segmenteaza imaginea in regiuni "bune" si "defecte", identificand automat produsele cu defecte vizuale.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Matricea de Covarianță și Coeficientul de Corelație</h2>
+  <p>Această pagină prezintă matricea de covarianță pentru vectori aleatori multidimensionali și introduce coeficientul de corelație Pearson ca măsură normalizată a dependenței liniare.</p>
+  <div class="definition-box"><strong>Matricea de covarianță:</strong> Pentru un vector aleator x de dimensiune d, matricea de covarianță este definită ca cov[x] ≜ E[(x − E[x])(x − E[x])ᵀ], o matrice simetrică, pozitiv definită.</div>
+  <div class="definition-box"><strong>Coeficientul de corelație Pearson:</strong> Definit ca corr[X,Y] ≜ cov[X,Y] / √(var[X]·var[Y]), cu valori între −1 și 1.</div>
+  <div class="highlight-box"><strong>Matricea de corelație:</strong> O matrice R cu intrări corr[Xᵢ,Xⱼ], având 1 pe diagonală și valori între −1 și 1 în restul intrărilor.</div>
+  <div class="figure-box"><strong>Figura 2.12:</strong> Mai multe seturi de puncte (x,y) cu coeficienții de corelație corespunzători. Se observă că corelația reflectă zgomotul și direcția unei relații liniare (rândul de sus), dar nu panta (mijloc) și nici relațiile neliniare (jos).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina definește matricea de covarianță ca o generalizare a varianței pentru vectori aleatori și introduce coeficientul de corelație ca o versiune normalizată a covarianței, cu valori între −1 și 1.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Corelația Pearson măsoară doar dependența liniară. Variabilele pot fi puternic dependente dar cu corelație zero dacă relația este neliniară. Figura 2.12 ilustrează acest lucru dramatic cu exemple vizuale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Matricea de covarianță este fundamentală în analiza componentelor principale (PCA), în modelarea portofoliilor financiare, și în orice problemă de învățare automată care implică variabile continue corelate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În finanțe, matricea de covarianță a randamentelor acțiunilor este utilizată pentru a construi portofolii diversificate. Corelații apropiate de 1 între acțiuni sugerează riscuri similare, în timp ce corelații negative permit reducerea riscului total.</p></div>
+  </div>
+</div>

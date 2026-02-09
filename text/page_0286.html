@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Aproximarea Laplace pentru Regresia Logistică Bayesiană</h2>
+  <p>Pagina introduce aproximarea Laplace, o metodă de aproximare a distribuției posterioare printr-o distribuție Gaussiană centrată pe modul, și derivă criteriul informațional bayesian (BIC) din aceasta.</p>
+  <div class="definition-box"><strong>Funcția de energie:</strong> E(θ) = -log p(θ, D) este logaritmul negat al posteriorului nenormalizat. Modul posteriorului θ* corespunde stării de energie minimă.</div>
+  <div class="highlight-box"><strong>Aproximarea Laplace a posteriorului (Ecuația 8.52-8.53):</strong> p̂(θ|D) ≈ N(θ|θ*, H⁻¹), unde θ* este modul posteriorului și H = ∂²E(θ)/∂θ∂θ&#7488; |_{θ*} este Hessianul funcției de energie evaluat la mod.</div>
+  <div class="highlight-box"><strong>Aproximarea Laplace a verosimilitudinii marginale (Ecuația 8.54):</strong> Z = p(D) ≈ e^{-E(θ*)} (2π)^{D/2} |H|^{-½}, obținută din constanta de normalizare a Gaussianei aproximante.</div>
+  <div class="highlight-box"><strong>Derivarea BIC (Ecuația 8.57):</strong> log p(D) ≈ log p(D|θ̂) - D/2 log N, unde primul termen este verosimilitatea la MLE și al doilea este penalizarea pentru complexitate (factorul Occam).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Aproximarea Laplace transformă posteriorul într-o Gaussiană centrată pe modul, cu matricea de covarianță dată de inversul Hessianului. Aceasta furnizează atât o aproximare a posteriorului cât și a verosimilitudinii marginale p(D). Din aceasta se derivă scorul BIC, un criteriu simplu de selecție a modelelor care penalizează complexitatea prin termenul D/2 log N.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Aproximarea Laplace devine mai precisă pe măsură ce dimensiunea eșantionului crește, datorită teoremei limită centrală (posteriorii devin mai „Gaussieni"). Factorul Occam cuantifică penalizarea automată a complexității în cadrul bayesian, fără a necesita validare încrucișată.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>BIC este folosit extensiv pentru selecția modelelor statistice: alegerea numărului de componente în modele de amestec, selecția variabilelor în regresie, compararea modelelor de serii temporale (ARIMA). Este simplu de calculat și nu necesită validare încrucișată.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un analist de date compară modele de regresie logistică cu 5, 10 și 20 de caracteristici. BIC penalizează automat modelele cu mai mulți parametri, prevenind supraajustarea. Modelul cu cel mai mic BIC oferă cel mai bun compromis între ajustare și complexitate.</p></div>
+  </div>
+</div>

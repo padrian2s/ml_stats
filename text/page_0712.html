@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Inductia de trasaturi (continuare) si IPF</h2>
+  <p>Aceasta pagina continua exemplul de inductie de trasaturi pentru modelarea ortografiei engleze si introduce algoritmul IPF (Iterative Proportional Fitting).</p>
+  <div class="definition-box"><strong>Exemplu de inductie de trasaturi:</strong> Pornind de la trasaturi simple (prezenta literelor minuscule), modelul adauga iterativ trasaturi mai complexe (perechi de litere minuscule adiacente, combinatii "s>" si "ing>", expresii regulate [0-9]). Dupa 1000 de trasaturi, esantioanele generate seamana cu cuvinte englezesti reale.</div>
+  <div class="definition-box"><strong>IPF (Iterative Proportional Fitting):</strong> Un algoritm de ascindere pe coordonate pentru MRF-uri cu potentiale tabulare: la fiecare pas, potentialul unei clici este actualizat astfel incat marginala modelului sa se potriveasca cu marginala empirica: ψ_c^{t+1}(y_c) = ψ_c^t(y_c) * p_emp(y_c) / p(y_c|ψ^t).</div>
+  <div class="highlight-box"><strong>Convergenta IPF:</strong> IPF este garantat sa converga la optimul global, deoarece este un algoritm de punct fix care impune iterativ potrivirea momentelor. Pentru grafuri decomposabile, IPF converge intr-o singura iteratie.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exemplul de ortografie engleza demonstreaza puterea inductiei de trasaturi: dupa adaugarea a 1000 de trasaturi, textul generat seamana cu engleza, desi modelul nu a fost antrenat explicit pe cuvinte. IPF este o alternativa la optimizarea bazata pe gradient, care actualizeaza potentialele direct, iterand peste clici si ajustand raportul intre marginalele empirice si cele ale modelului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Inductia de trasaturi poate fi vazuta ca invatare a structurii la nivel fin. IPF este o metoda de coordonate ascent: actualizeaza o clica la un moment dat, mentinand celelalte fixe. Convergenta este garantata dar poate fi lenta pentru grafuri non-decomposabile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>IPF este folosit in ajustarea tabelelor de contingenta in statistica, in calibrarea modelelor de transport si in estimarea distributiilor in retele Bayesiene. Inductia de trasaturi este standard in CRF-uri pentru NLP.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea traficului urban, IPF este folosit pentru a ajusta o matrice origine-destinatie astfel incat sumele pe randuri si coloane sa se potriveasca cu numararile de trafic observate la punctele de control.</p></div>
+  </div>
+</div>

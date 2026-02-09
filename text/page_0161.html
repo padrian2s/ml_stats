@@ -1,0 +1,21 @@
+<div class="page-content">
+  <h2>Estimarea MAP a Covariantei - Shrinkage si Estimare Regularizata</h2>
+  <p>Pagina 130 detaliaza estimarea MAP a covariantei ca o combinatie convexa intre prior si MLE, introduce shrinkage estimation si posteriorul univariat pentru varianta.</p>
+
+  <div class="highlight-box"><strong>Estimarea MAP ca shrinkage (Ecuatia 4.183):</strong> Σ̂_map = λΣ₀ + (1 - λ)Σ̂_mle, unde λ = N₀/(N₀ + N). Combinatie convexa intre matricea de covarianta a priori Σ₀ si MLE.</div>
+
+  <div class="highlight-box"><strong>Prior dependent de date (Ecuatia 4.184):</strong> Cu S₀ = diag(Σ̂_mle): Σ̂_map(i,j) = Σ̂_mle(i,j) daca i = j, altfel (1-λ)Σ̂_mle(i,j). Elementele diagonale raman neschimbate, iar elementele off-diagonale sunt "contractate" spre 0.</div>
+
+  <div class="definition-box"><strong>Shrinkage estimation / Estimare regularizata:</strong> Tehnica de contractie a estimarilor spre o tinta (prior) pentru a imbunatati stabilitatea si precizia estimarii. λ poate fi ales prin validare incrucisata sau formule in forma inchisa (Ledoit-Wolf).</div>
+
+  <div class="highlight-box"><strong>Posteriorul univariat pentru σ² (Ecuatiile 4.185-4.189):</strong>
+    p(σ²|D) = IG(σ²|a_N, b_N), unde a_N = a₀ + N/2 si b_N = b₀ + (1/2)Σᵢ(xᵢ - μ)².</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Estimarea MAP a covariantei este elegant interpretata ca shrinkage: elementele off-diagonale (corelatii) sunt contractate spre zero, ceea ce reduce instabilitatea numerica si supraajustarea. In cazul univariat, posteriorul pentru varianta este o distributie Gamma inversa, analog perfect cu cazul multivariat (Wishart invers).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Contractia elementelor off-diagonale spre zero este intuitiva: corelatiile estimate din date limitate sunt mai zgomotoase decat variantele, deci beneficiaza mai mult de regularizare. Priorul dependent de date (S₀ = diag(Σ̂_mle)) este un exemplu de prior empiric Bayes.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Estimatorul Ledoit-Wolf este standard in finante si genomica. In R, functia cov.shrink din pachetul corpcor implementeaza aceasta metoda. In Python, sklearn.covariance.LedoitWolf ofera implementarea.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In neuroimagistica (fMRI), matricea de covarianta a activitatii cerebrale intre sute de regiuni trebuie estimata din cateva sute de scanari temporale. Shrinkage-ul covariantei este esential pentru a obtine retele de conectivitate cerebrala stabile si reproductibile.</p></div>
+  </div>
+</div>

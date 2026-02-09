@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>10.5.1 Explaining Away si Conditiile de Frontiera Bayes Ball</h2>
+  <p>Pagina demonstreaza matematic fenomenul de "explaining away" la v-structuri, prezinta conditiile de frontiera ale algoritmului Bayes ball si paradoxul lui Berkson.</p>
+  <div class="highlight-box"><strong>Demonstratie furca conditionata (10.38):</strong> p(x, z|y) = p(y)p(x|y)p(z|y) / p(y) = p(x|y)p(z|y), deci X ⊥ Z | Y in structura de furca.</div>
+  <div class="highlight-box"><strong>V-structura - distributia comuna (10.39):</strong> p(x, y, z) = p(x)p(z)p(y|x, z). Marginal: X ⊥ Z.</div>
+  <div class="highlight-box"><strong>V-structura conditionata (10.40):</strong> p(x, z|y) = p(x)p(z)p(y|x, z) / p(y) ≠ p(x|y)p(z|y), deci X ⊥̸ Z | Y.</div>
+  <div class="highlight-box"><strong>Independenta marginala la v-structura (10.41):</strong> p(x, z) = p(x)p(z), X si Z sunt marginal independente inainte de a observa colliderul.</div>
+  <div class="definition-box"><strong>Explaining away (explicare prin excludere):</strong> Fenomenul in care observarea unui efect comun (collider) face cauzele sale sa devina dependente. Cunoscut si ca rationament inter-cauzal sau paradoxul lui Berkson.</div>
+  <div class="figure-box"><strong>Figura 10.10(a-b):</strong> Conditii de frontiera ale Bayes ball: (a) bila merge de la x la y neobservat - trece liber; (b) bila merge de la x la y observat - se intoarce inapoi (bounces back).</div>
+  <div class="figure-box"><strong>Figura 10.10(c):</strong> Explicatia conditiilor de frontiera: daca y' este copil observat al lui y, atunci y este "efectiv observat", iar bila se intoarce din x prin y → y' inapoi catre z. Aceasta justifica regula colliderului: observarea unui descendent al colliderului deblocheaza si ea informatia.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Explaining away este unul dintre cele mai importante si contra-intuitive fenomene din modelele grafice: doua cauze independente devin dependente cand observam efectul lor comun. Conditiile de frontiera ale Bayes ball arata ca aceasta regula se extinde si la descendentii colliderului: observarea oricarui descendent deblocheaza informatia intre parinti.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Paradoxul lui Berkson: exemplul cu doua monede independente ale caror suma este observata. Daca suma este 1, monedele devin perfect anti-corelate (daca una e 0, cealalta trebuie sa fie 1). Aceasta este o instanta pura de explaining away. Conditiile de frontiera asigura ca regulile Bayes ball sunt complete si corecte.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Explaining away apare frecvent in diagnosticare: daca un pacient are febra (efect comun), iar gripa si infectia urinara sunt cauze posibile, confirmarea gripei reduce probabilitatea infectiei urinare (si invers). Acest rationament este automat in modelele grafice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In admiterea la universitate (collider), Talentul artistic (X) si Performanta academica (Z) sunt a priori independente. Dar printre studentii admisi (conditionand pe collider), acestea devin anti-corelate: un student admis cu performanta academica slaba probabil are talent artistic exceptional, si invers.</p></div>
+  </div>
+</div>

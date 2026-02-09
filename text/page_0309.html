@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exerciții - Proprietăți ale Regresiei Logistice Regularizate</h2>
+  <p>Pagina conține exerciții despre proprietățile teoretice ale regresiei logistice cu regularizare ℓ₂, incluzând convexitatea, sparsitatea, separabilitatea liniară, și efectul regularizării asupra log-verosimilitudinii.</p>
+  <div class="highlight-box"><strong>Exercițiul 8.6 - Proprietăți adevărat/fals:</strong> (a) J(w) are multiple minime locale: FALS (J este convex). (b) ŵ = arg min J(w) este sparse: FALS (ℓ₂ nu produce sparsitate; ℓ₁ da). (c) Ponderi infinite dacă date liniar separabile cu λ=0: ADEVĂRAT. (d) ℓ(ŵ, D_train) crește cu λ: ADEVĂRAT (regularizarea reduce ajustarea). (e) ℓ(ŵ, D_test) crește cu λ: FALS (depinde de compromisul bias-varianță).</div>
+  <div class="highlight-box"><strong>Exercițiul 8.7 - Regularizarea selectivă a parametrilor:</strong> Efectul regularizării puternice a parametrilor individuali w₀, w₁, w₂ asupra frontierei de decizie w₀ + w₁x₁ + w₂x₂ = 0.</div>
+  <div class="definition-box"><strong>Convexitatea J(w):</strong> Funcția obiectiv J(w) = -ℓ(w, D) + λ||w||² este convexă deoarece NLL este convexă (H pozitiv definit) și norma pătratică este convexă. Suma funcțiilor convexe este convexă.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercițiul 8.6 testează înțelegerea profundă a proprietăților regresiei logistice regularizate. Punctele cheie: convexitatea garantează un minim global unic; ℓ₂ nu produce sparsitate (doar ℓ₁/lasso face aceasta); regularizarea întotdeauna reduce log-verosimilitatea pe antrenament dar poate îmbunătăți pe test. Exercițiul 8.7 explorează geometric efectul regularizării selective.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distincția ℓ₁ vs. ℓ₂ este fundamentală: ℓ₁ produce sparsitate (selecție de caracteristici) prin geometria romboidală a constrângerii, în timp ce ℓ₂ micșorează uniform ponderile fără a le anula. Regularizarea w₀ (bias) vs. w₁, w₂ (slope) are efecte geometric diferite asupra frontierei de decizie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Înțelegerea acestor proprietăți ghidează practicienii: dacă se dorește selecție de caracteristici, se folosește ℓ₁ (Lasso); dacă se dorește stabilitate numerică, se folosește ℓ₂ (Ridge). Elastic Net combină ambele. De obicei, bias-ul w₀ nu se regularizează.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de predicție a prețurilor imobiliare cu 200 de caracteristici folosește regularizare ℓ₁ pentru a selecta cele ~20 de caracteristici relevante (suprafață, locație, an construcție). Regularizarea ℓ₂ ar păstra toate cele 200, doar micșorând ponderile, ceea ce este mai puțin interpretabil.</p></div>
+  </div>
+</div>

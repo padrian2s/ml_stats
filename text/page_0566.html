@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Retele neurale comparate cu Procese Gaussiene</h2>
+  <p>Aceasta pagina demonstreaza ca o retea neurala cu un strat ascuns converge la un Proces Gaussian cand numarul de unitati ascunse tinde la infinit (rezultatul lui Neal, 1996).</p>
+  <div class="definition-box"><strong>Kernelul retelei neurale:</strong> kappa_NN(x, x') = (2/pi) * arcsin(2*x_tilde^T Sigma x_tilde' / sqrt((1 + 2*x_tilde^T Sigma x_tilde)(1 + 2*x_tilde'^T Sigma x_tilde'))), unde x_tilde = (1, x_1,...,x_D) si functia de activare este erf().</div>
+  <div class="highlight-box"><strong>Teorema Neal (1996):</strong> O retea neurala cu un strat ascuns si H unitati converge la un GP cand H -> infinit, prin teorema limitei centrale. Covarianta GP-ului depinde de functia de activare si de distributia priorilor pe ponderi.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Conexiunea retea neurala-GP este profunda: o retea cu prior pe ponderi si H unitati ascunse genereaza o functie f(x) = b + sum v_j g(x; u_j). Cand sigma_v^2 = omega^2/H, iesirea este o suma de H variabile aleatoare iid, si prin TLC converge la un GP. Kernelul depinde de functia de activare: erf() produce kernelul NN, RBF produce kernelul SE.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Spre deosebire de kernelul RBF/SE, functiile esantionate din GP cu kernel NN nu tind la zero departe de date, ci raman la valoarea de la 'marginea' datelor. Varianta sigma^2 controleaza cat de rapid variaza functia. Kernelul sigmoid tanh(a + bx^T x') nu este pozitiv definit, deci nu produce un GP valid.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta conexiune a inspirat cercetari moderne in 'deep kernel learning' si 'neural tangent kernel' (NTK), care extind rezultatul lui Neal la retele profunde. GP cu kernel NN este implementat in GPy si GPflow.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In cercetarea deep learning, intelegerea retelelor neurale ca GP (in limita larga) ajuta la analiza comportamentului de generalizare: un GP cu kernel NTK poate prezice performanta retelei pe date de test fara antrenament propriu-zis.</p></div>
+  </div>
+</div>

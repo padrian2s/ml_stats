@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Eliminarea variabilelor: pasi detaliati si factori intermediari</h2>
+  <p>Aceasta pagina demonstreaza pas cu pas algoritmul de eliminare a variabilelor pe exemplul modelului "student", creand factori intermediari τ.</p>
+  <div class="definition-box"><strong>Eliminarea lui C:</strong> Se inmultesc toate potentialele care contin C (ψ_C(C) si ψ_D(D,C)), se creeaza factorul temporar τ'_1(C,D), apoi se marginalizeaza C: τ_1(D) = Σ_C τ'_1(C,D). Rezultatul este un nou factor doar in D.</div>
+  <div class="definition-box"><strong>Factori intermediari (τ):</strong> La fiecare pas de eliminare, se creeaza un factor intermediar prin inmultirea potentialelor relevante si marginalizarea variabilei eliminate. Dimensiunea τ depinde de cate variabile sunt implicate.</div>
+  <div class="highlight-box"><strong>Ordinea de eliminare:</strong> Eliminand variabilele de la dreapta la stanga (C, D, I, S, G, H, L), dimensiunea factorilor intermediari ramane mica. Ordinea gresita poate produce factori mari, crescand complexitatea exponential.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul VE procedeaza iterativ: (1) selecteaza o variabila de eliminat, (2) inmulteste toate potentialele care o contin, (3) marginalizeaza variabila din produsul rezultat, (4) inlocuieste potentialele vechi cu factorul intermediar. In exemplu, eliminarea lui C creeaza τ_1(D), apoi eliminarea lui D creeaza τ_2(G,I), si asa mai departe.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Dimensiunea maxima a factorilor intermediari determina complexitatea algoritmului. O ordine buna de eliminare minimizeaza aceasta dimensiune. Gasirea ordinii optime este NP-hard, dar euristici (min-fill, min-weight) functioneaza bine in practica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Ordinea de eliminare este critica in sisteme reale cu mii de variabile. In retele Bayesiene pentru diagnostic medical (de exemplu, QMR-DT), o ordine buna de eliminare permite inferenta in secunde, in timp ce o ordine proasta ar dura ore.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Calculand p(J=1) in modelul student, eliminam pe rand: C produce τ_1(D), D produce τ_2(G,I), I produce un factor in G, si asa mai departe. La final ramane un factor doar in J care da probabilitatea dorita.</p></div>
+  </div>
+</div>

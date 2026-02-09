@@ -1,0 +1,12 @@
+<div class="page-content">
+  <h2>Esantioane din procesul Dirichlet - Continuare si inferenta</h2>
+  <p>Aceasta pagina continua vizualizarea esantioanelor DPM si introduce avantajele computationale ale trecerii la limita infinita.</p>
+  <div class="highlight-box"><strong>Avantaj computational:</strong> Trecerea la limita infinita poate fi mai rapida decat compararea multiplelor modele finite cu K diferite, deoarece evidenta pentru anumite valori K se acumuleaza devreme in procesul de inferenta, permitand concentrarea resurselor pe modele de complexitate adecvata.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza vizualizarea din Figura 25.3, aratand ca modelele DPM sunt nu doar mai flexibile, ci pot fi si mai eficiente computational. Argumentul este ca, in loc de a rula selectie de model pentru K=1,2,...,K_max, modelul infinit permite inferenta directa, iar posteriorul se concentreaza natural pe valorile K sustinute de date.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Paradoxal, un model cu parametri infiniti poate fi mai usor de estimat decat selectia dintre modele finite, deoarece elimina necesitatea compararii explicite a modelelor. Aceasta este o tema recurenta in statistica bayesiana non-parametrica: complexitatea infinita faciliteaza inferenta, nu o complica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In industria de asigurari, modelele DPM sunt folosite pentru estimarea distributiei pierderilor, unde numarul de "tipuri" de daune nu este cunoscut. Modelul se adapteaza automat la complexitatea datelor din diferite portofolii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia anomaliilor in traficul de retea, un model DPM poate invata automat tipurile "normale" de trafic si numarul lor, iar orice observatie care nu se potriveste niciunui cluster existent este semnalata ca potentiala anomalie sau atac cibernetic.</p></div>
+  </div>
+</div>

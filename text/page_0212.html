@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Curbele ROC, Matricea de Confuzie si Metrici de Clasificare</h2>
+  <p>Pagina introduce curbele ROC (Receiver Operating Characteristic), matricea de confuzie si metricile derivate: TPR (sensibilitate), FPR (rata falsilor pozitivi), AUC si EER.</p>
+  <div class="definition-box"><strong>Matricea de confuzie:</strong> Tabel care contine numarul de TP (adevarati pozitivi), FP (falsi pozitivi), FN (falsi negativi) si TN (adevarati negativi) rezultate din aplicarea regulii de decizie.</div>
+  <div class="definition-box"><strong>Curba ROC:</strong> Graficul TPR (sensibilitate) vs FPR (rata falsilor pozitivi) pe masura ce pragul τ variaza. Un clasificator perfect atinge coltul stanga-sus (FPR=0, TPR=1).</div>
+  <div class="definition-box"><strong>AUC (Area Under the Curve):</strong> Aria de sub curba ROC, sumarizeaza performanta intr-un singur numar. AUC=1 este perfect, AUC=0.5 este performanta aleatoare.</div>
+  <div class="definition-box"><strong>EER (Equal Error Rate):</strong> Punctul unde FPR = FNR = 1 - TPR. Se gaseste la intersectia curbei ROC cu diagonala din coltul dreapta-sus.</div>
+  <div class="highlight-box"><strong>Metrici din matricea de confuzie:</strong> TPR = TP/N₊ = sensibilitate = recall; FPR = FP/N₋ = rata alarma falsa = eroare de tip I; TNR = TN/N₋ = specificitate.</div>
+  <div class="figure-box"><strong>Figura 5.15:</strong> (a) Curbele ROC pentru doua sisteme A si B, cu AUC hasurat si punctele EER marcate. (b) Curbele precision-recall corespunzatoare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Curbele ROC permit evaluarea unui clasificator fara a fixa un prag specific. Prin varierea pragului τ de la 0 la 1, se traseaza compromisul TPR vs FPR. AUC ofera un rezumat scalar: probabilitatea ca clasificatorul sa acorde un scor mai mare unui exemplu pozitiv decat unuia negativ. EER este alternativa care egaleaza cele doua tipuri de erori.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tabelele 5.2-5.4 sistematizeaza toate metricile derivabile din matricea de confuzie: p(y_hat|y) (TPR, FPR, TNR, FNR) si p(y|y_hat) (PPV/precizie, NPV, FDP). Distinctia intre aceste doua directii de conditionare este fundamentala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Curbele ROC sunt standard in medicina (evaluarea testelor de diagnostic), securitate (sisteme biometrice - EER-ul este metrica principala) si invatarea automata (compararea clasificatorilor). AUC este preferat deoarece este invariant la pragul de decizie si la dezechilibrul claselor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de recunoastere faciala cu AUC=0.99 si EER=2% inseamna ca la punctul optim, 2% din utilizatorii legitimi sunt respinsi si 2% din impostori sunt acceptati. Curbele ROC permit alegerea pragului in functie de prioritatea securitatii vs. convenienta utilizatorilor.</p></div>
+  </div>
+</div>

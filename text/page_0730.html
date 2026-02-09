@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Algoritmul Cutting Plane si Decodarea cu Pierdere Augmentata</h2>
+  <p>Pagina prezinta Algoritmul 19.3 (cutting plane cu margin rescaling, versiunea N-slack) si discuta decodarea cu pierdere augmentata (oracolul de separare), inclusiv un algoritm de timp liniar.</p>
+  <div class="definition-box"><strong>Algoritmul 19.3 - Cutting Plane:</strong> Input: D = {(x₁,y₁),...,(xₙ,yₙ)}, C, ε. Initializeaza Wᵢ = ∅, ξᵢ = 0. Repeta: pentru fiecare i, gaseste ŷᵢ = argmax L(yᵢ,y) - wᵀδᵢ(ŷᵢ); daca violarea depaseste ξᵢ + ε, adauga ŷᵢ la Wᵢ si rezolva QP-ul.</div>
+  <div class="definition-box"><strong>Oracolul de separare (Separation Oracle):</strong> Procesul de decodare cu pierdere augmentata. Daca functia de pierdere are descompunere aditiva, se poate incorpora pierderea in vectorul de ponderi w' si se aplica un algoritm standard de decodare (ex. Viterbi).</div>
+  <div class="highlight-box"><strong>Decodarea pentru pierdere 0-1:</strong> Optimul va fi fie solutia cea mai buna argmax_y wᵀφ(xᵢ,y), fie a doua cea mai buna solutie ȳ = argmax_{y≠ŷ} wᵀφ(xᵢ,y) (Ecuatia 19.108).</div>
+  <div class="highlight-box"><strong>Algoritmul de timp liniar:</strong> Foloseste o singura variabila slack ξ in loc de N, dar |Y|ᴺ constrangeri. Ideea de baza este sa se lucreze cu trasaturile originale (kernel liniar) fara trucul kernel-ului.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul 19.3 formalizeaza procedura cutting plane: pentru fiecare exemplu de antrenare, se gaseste cea mai violata constrangere prin decodare augmentata, se adauga la setul de lucru, si se rezolva QP-ul actualizat. Procesul continua pana cand niciun set de lucru nu se mai schimba. Eficienta depinde de oracolul de separare - capacitatea de a gasi rapid constrangerea cel mai violata.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Pentru pierderea Hamming si F1, se pot construi algoritmi de programare dinamica eficienti. Pentru CRF-uri cu structura de lant, se poate folosi algoritmul Viterbi modificat. Trecerea la o singura variabila slack cu |Y|ᴺ constrangeri permite un algoritm de timp liniar in N, dar necesita kernel liniar.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea functiei de pierdere afecteaza direct eficienta algoritmului. In practica, pierderea Hamming este populara deoarece permite decodare eficienta nod-cu-nod, in timp ce pierderea F1 necesita algoritmi mai sofisticati dar este mai relevanta pentru evaluarea sistemelor reale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In extragerea de informatii din texte medicale, un SSVM antrenat cu cutting plane poate identifica relatii intre medicamente si efecte secundare. Oracolul de separare gaseste secventa de etichete care maximizeaza combinatia de pierdere si scor, ghidand modelul sa invete din cele mai dificile exemple.</p></div>
+  </div>
+</div>

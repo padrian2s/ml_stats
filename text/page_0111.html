@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Naive Bayes Bayesian - Posteriorul Factorizat și Predicția</h2>
+  <p>Pagina prezintă cum se calculează posteriorul factorizat pentru clasificatorul Naive Bayes Bayesian și cum se utilizează pentru predicție prin integrarea parametrilor.</p>
+  <div class="highlight-box"><strong>Posteriorul factorizat:</strong> p(θ|D) = p(π|D)·∏_j ∏_c p(θ_{jc}|D), cu p(π|D) = Dir(N₁+α₁,...,N_C+α_C) și p(θ_{jc}|D) = Beta((N_c−N_{jc})+β₀, N_{jc}+β₁).</div>
+  <div class="highlight-box"><strong>Predicția Bayesiană:</strong> p(y=c|x,D) ∝ [∫Cat(y=c|π)p(π|D)dπ]·∏_j [∫Ber(x_j|y=c,θ_{jc})p(θ_{jc}|D)dθ_{jc}]. Se poate calcula inserând parametrii medii posteriori θ̄.</div>
+  <div class="highlight-box"><strong>Parametrii medii posteriori:</strong> θ̄_{jk} = (N_{jc}+β₁)/(N_c+β₀+β₁) și π̄_c = (N_c+α_c)/(N+α₀). Inserarea acestor medii dă predicții echivalente cu integrarea exactă.</div>
+  <div class="definition-box"><strong>Diferența media vs modul:</strong> Utilizarea mediei posterioare (vs modul/MAP) poate fi importantă în practică, deoarece media posterioară produce mai puțină supraajustare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Datorită priorilor conjugate, integrarea exactă a parametrilor este tractabilă și echivalentă cu inserarea mediei posterioare. Aceasta oferă avantajele predicției Bayesiene fără cost computațional suplimentar.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Proprietatea cheie: pentru familia exponențială cu priori conjugate, predicția Bayesiană = plug-in cu media posterioară. Aceasta simplifică dramatic implementarea.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>NBC Bayesian cu media posterioară este implementarea standard în bibliotecile de ML (scikit-learn). Diferența față de MLE este mică cu date mari, dar semnificativă cu date puține.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un clasificator de sentimente pentru un produs nou cu doar 10 recenzii beneficiază semnificativ de abordarea Bayesiană, evitând predicții extreme cauzate de estimări MLE instabile.</p></div>
+  </div>
+</div>

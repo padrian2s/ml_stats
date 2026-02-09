@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii: Regresia Logistica vs LDA/QDA si Frontiere de Decizie Gaussiene</h2>
+  <p>Pagina continua cu exercitii despre compararea clasificatorilor generativi si discriminativi, incluzand regresie logistica liniara si patratica, si performanta pe setul de antrenament.</p>
+  <div class="definition-box"><strong>Log-verosimilitatea conditionala:</strong> L(M) = (1/n) Σᵢ log p(yᵢ|xᵢ, θ_hat, M) masoara performanta modelului M pe setul de antrenament (Ecuatia 4.285).</div>
+  <div class="highlight-box"><strong>Clasificatori comparati:</strong> GaussI (generativ, Σ=I), GaussX (generativ, Σ arbitrara), LinLog (regresie logistica liniara), QuadLog (regresie logistica patratica cu expansiune polinomiala de grad 2).</div>
+  <div class="highlight-box"><strong>Rata de misclasificare:</strong> R(M) = (1/n) Σᵢ I(yᵢ ≠ y_hat(xᵢ)) - masura bazata pe eroarea 0-1 (Ecuatia 4.286).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiile 4.20 si 4.21 exploreaza diferentele fundamentale intre clasificatorii generativi (GaussI, GaussX) si discriminativi (LinLog, QuadLog). Se analizeaza cand un model va avea log-verosimilitate mai mare pe setul de antrenament si daca aceasta implica o rata de misclasificare mai mica.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Un model cu log-verosimilitate conditionala mai mare L(M) > L(M') nu implica neaparat o rata de misclasificare mai mica R(M) < R(M'). Aceasta deconectare intre cele doua masuri este un concept important in invatarea automata.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea intre clasificatori generativi si discriminativi depinde de context: modelele generative sunt mai bune cu date putine si permit generarea de date sintetice, in timp ce modelele discriminative ofera de obicei performanta predictiva mai buna cu date suficiente.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Exercitiul 4.21 propune un scenariu cu doua gaussiene cu variante extrem diferite (σ₁²=1 vs σ₂²=10⁶), generand frontiere de decizie cuadratice. In practica, aceasta situatie apare cand o clasa are masuratori foarte precise iar alta are masuratori zgomotoase.</p></div>
+  </div>
+</div>

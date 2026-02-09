@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exemplu: Testarea Daca o Moneda Este Corecta si Paradoxul Jeffreys-Lindley</h2>
+  <p>Pagina aplica factorii Bayes la exemplul clasic al monedei si introduce paradoxul Jeffreys-Lindley legat de folosirea priori-lor improprii in selectia modelului.</p>
+  <div class="definition-box"><strong>Paradoxul Jeffreys-Lindley:</strong> Problemele care apar cand se folosesc priori improprii (care nu se integreaza la 1) in selectia modelului si testarea ipotezelor. Rezultatele pot fi absurde deoarece constantele de normalizare ale prior-ului afecteaza direct factorul Bayes.</div>
+  <div class="highlight-box"><strong>Verosimilitatea marginala sub M₁:</strong> p(D|M₁) = ∫ p(D|θ)p(θ)dθ = B(α₁+N₁, α₀+N₀)/B(α₁,α₀) (Ecuatia 5.42)</div>
+  <div class="figure-box"><strong>Figura 5.9:</strong> (a) Log-verosimilitatea marginala log p(D|M₁) in functie de numarul de capete N₁, cu N=5 aruncari. (b) Aproximarea BIC a aceleiasi cantitati. BIC aproximeaza bine forma curbei exacte.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cu N=5 aruncari si prior Beta(1,1), daca observam 2 sau 3 capete, modelul monedei corecte M₀ este mai probabil decat M₁ - ar fi o coincidenta suspecta daca moneda era incorecta dar a produs aproape 50/50. Pe masura ce conturile devin mai extreme, favorizarea lui M₁ creste. Paradoxul Jeffreys-Lindley apare cand prior-urile sunt improprii: factorul Bayes devine nedefinit sau absurd.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>BIC ofera o aproximare remarcabil de buna a log-verosimilitatii marginale, avand aceeasi forma generala (doar scala absoluta difera, dar aceasta este irelevanta pentru selectia modelului). Aceasta justifica utilizarea BIC ca proxy simplu.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Testarea bayesiana a monedei se generalizeaza la orice test de proportie: testarea eficacitatii unui medicament (rata de succes = 50% vs. diferita), testarea corectitudinii unui generator de numere aleatoare, sau verificarea daca o reclama are efect semnificativ.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un cazinou suspecteza ca un zar este incorect. Dupa 60 de aruncari cu 15 rezultate de "6" (asteptat: 10), factorul Bayes compara M₀ (zar corect, p=1/6) cu M₁ (zar incorect, p ∈ [0,1]). Abordarea bayesiana ofera o masura directa a evidentei, nu doar un p-value.</p></div>
+  </div>
+</div>

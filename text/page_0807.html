@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LBP - Aspecte teoretice: UGM-uri in forma exponentiala si politopul marginal</h2>
+  <p>Aceasta pagina incepe sectiunea 22.3 despre aspectele teoretice ale LBP, introducand reprezentarea UGM-urilor in forma familiei exponentiale si definind politopul marginal.</p>
+  <div class="definition-box"><strong>UGM in forma exponentiala:</strong> p(x|theta,G) = (1/Z(theta)) * exp(sum theta_s(x_s) + sum theta_st(x_s,x_t)), unde theta sunt parametrii canonici si phi(x) sunt statisticile suficiente (functii indicator pentru stari de nod si perechi de stari).</div>
+  <div class="definition-box"><strong>Parametrii medii (mean parameters):</strong> mu = E[phi(x)] = ({p(x_s=j)}_s, {p(x_s=j, x_t=k)}_{s!=t}), un vector care contine toate marginalele de nod si de muchie. Caracterizeaza complet distributia.</div>
+  <div class="highlight-box"><strong>Reprezentarea standard overcomplete:</strong> Ecuatia 22.12 este "overcomplete" deoarece ignora constrangerile sum-to-one. Reprezentarea minimala pentru modelul Ising binar reduce dimensionalitatea la d = |V| + |E|.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabileste cadrul matematic formal pentru analiza LBP: UGM-urile sunt exprimate in forma familiei exponentiale cu parametri canonici theta si statistici suficiente phi(x). Parametrii medii mu (marginalele) sunt obiectul inferentei si definesc politopul marginal.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Dualitatea intre parametrii canonici (theta) si parametrii medii (mu) este fundamentala. Inferenta poate fi vazuta ca maparea theta -> mu, iar invatarea ca maparea mu -> theta. Aceasta perspectiva unifica multe metode aparent diferite.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Reprezentarea in forma exponentiala permite aplicarea rezultatelor generale din teoria familiilor exponentiale la inferenta in modele grafice, facilitand derivarea algoritmilor si analiza proprietatilor lor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea retelelor sociale ca MRF-uri (unde nodurile sunt persoane si muchiile relatii), parametrii medii mu corespund probabilitatilor marginale ale comportamentelor individuale si corelatiilor intre perechi de prieteni.</p></div>
+  </div>
+</div>

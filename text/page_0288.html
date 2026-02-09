@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Distribuția Predictivă Posterioară - Vizualizări și Aproximarea Monte Carlo</h2>
+  <p>Pagina vizualizează distribuția predictivă posterioară pentru regresia logistică bayesiană și introduce aproximarea Monte Carlo pentru calculul predicțiilor mediate bayesian.</p>
+  <div class="figure-box"><strong>Figura 8.6:</strong> (a) Contururile p(y=1|x, w_MAP) - predicția MAP cu frontieră de decizie liniară. (b) Eșantioane din distribuția predictivă posterioară - frontiere de decizie diferite pentru diferite w eșantionate. (c) Media MC a predicțiilor - incertitudinea se „deschide" departe de datele de antrenament. (d) Aproximarea numerică a p(y=1|x) - frontiera predictivă posterioară nu este liniară.</div>
+  <div class="highlight-box"><strong>Aproximarea Monte Carlo (Ecuația 8.61):</strong> p(y=1|x, D) ≈ 1/S Σ_{s=1}^S sigm((w^s)&#7488;x), unde w^s ~ p(w|D) sunt eșantioane din posterior. Simplu de implementat și extensibil la cazul multi-clasă.</div>
+  <div class="definition-box"><strong>Mediere bayesiană (Bayesian Model Averaging):</strong> Procesul de integrare a predicțiilor peste distribuția posterioară a parametrilor. Produce predicții mai calibrate și mai robuste decât estimările punctuale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Vizualizările sunt extrem de informative: în timp ce predicția MAP produce o frontieră de decizie liniară, media bayesiană peste mai multe eșantioane produce o frontieră predictivă neliniară care reflectă incertitudinea. Departe de datele de antrenament, predicțiile se apropie de 0.5 (incertitudine maximă), iar aproape de datele de antrenament sunt mai sigure. Aproximarea Monte Carlo este o metodă simplă și puternică.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>„Deschiderea" incertitudinii departe de date este o proprietate esențială a predicțiilor bayesiene - modelul „știe ce nu știe". Frontiera medie tinde să fie echidistantă de cele două clase, analog cu principiul marginii maxime din SVM. Medierea peste eșantioane produce predicții mai netede și mai robuste.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Predicțiile bayesiene cu incertitudine sunt critice în conducerea autonomă (mașina trebuie să știe când nu este sigură), robotică (planificarea sub incertitudine), și medicină (recomandări cu incertitudine cuantificată). Aproximarea MC este standard în rețelele neurale bayesiene (MC Dropout).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de conducere autonomă folosește predicții bayesiene pentru a decide dacă un obiect este pieton sau nu. Departe de distribuția datelor de antrenament (condiții de iluminare neobișnuite), modelul raportează incertitudine ridicată, declanșând un comportament mai precaut (frânare).</p></div>
+  </div>
+</div>

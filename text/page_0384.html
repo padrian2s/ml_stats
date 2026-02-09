@@ -1,0 +1,12 @@
+<div class="page-content">
+  <h2>Ilustratie EM pentru GMM - Datele Old Faithful</h2>
+  <p>Pagina contine o ilustratie vizuala detaliata a algoritmului EM aplicat pe datele gheiserului Old Faithful, aratand evolutia clusterizarii pe parcursul iteratiilor.</p>
+  <div class="figure-box"><strong>Figura 11.11:</strong> Ilustrarea algoritmului EM pentru un GMM aplicat pe datele Old Faithful. (a) Valorile initiale (aleatorii) ale parametrilor. (b) Responsabilitatea posterioara a fiecarui punct calculata in primul pas E - gradul de rosu indica apartenenta la clusterul rosu, albastrul la clusterul albastru; punctele violet au un posterior aproximativ uniform peste clustere. (c) Parametrii actualizati dupa primul pas M. (d) Dupa 3 iteratii. (e) Dupa 5 iteratii. (f) Dupa 16 iteratii - convergenta finala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura demonstreaza vizual procesul iterativ al EM. Pornind de la parametri aleatorii (cercuri mari in pozitii arbitrare), algoritmul converge progresiv catre doi clustere bine definite. In primele iteratii, multe puncte sunt violet (incerte), dar pe masura ce parametrii se rafineaza, punctele devin clar colorate in rosu sau albastru. Elipsele de covarianta se ajusteaza pentru a se potrivi distributiei datelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Convergenta este vizibil rapida: dupa doar 3 iteratii, clusterele sunt deja bine separate. Iteratiile ulterioare rafineaza parametrii de covarianta. Aceasta convergenta rapida este tipica pentru EM atunci cand clusterele sunt bine separate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Vizualizarea progresului EM este o practica utila de depanare. In aplicatii reale, se monitorizeaza atat log-verosimilitatea cat si vizualizarea clusterelor (in spatii de dimensiune mica) pentru a verifica convergenta corecta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Datele Old Faithful au doua caracteristici: durata eruptiei si timpul de asteptare pana la urmatoarea eruptie. Cele doua clustere corespund celor doua regimuri naturale ale gheiserului, iar EM le identifica automat fara supraveghere.</p></div>
+  </div>
+</div>

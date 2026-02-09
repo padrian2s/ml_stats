@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Pasii E si M ai Algoritmului EM pentru Lasso (p.448)</h2>
+  <p>Aceasta pagina detaliaza functia obiectiv, pasul E si pasul M ale algoritmului EM pentru rezolvarea problemei lasso, incluzand Bayesian lasso.</p>
+  <div class="definition-box"><strong>Bayesian Lasso:</strong> Tehnica de calcul al posterioarei complete p(w|D) in loc de simpla estimare MAP, utilizand cadrul EM cu variabile latente tau_j^2.</div>
+  <div class="highlight-box"><strong>Functia Obiectiv:</strong> l_c(w) = -1/(2*sigma^2) * ||y - Xw||_2^2 - 1/2 * w^T * Lambda * w + const, unde Lambda = diag(1/tau_j^2) este matricea de precizie pentru w.</div>
+  <div class="highlight-box"><strong>Pasul E:</strong> Se calculeaza E[1/tau_j^2 | w_j] folosind distributia Gaussiana inversa: p(1/tau_j^2 | w, D) = InverseGaussian(sqrt(gamma^2/w_j^2), gamma^2), obtinand E[1/tau_j^2 | w_j] = gamma / |w_j|.</div>
+  <div class="highlight-box"><strong>Pasul M:</strong> w_hat = argmax -1/2 * omega * ||y - Xw||_2^2 - 1/2 * w^T * Lambda * w, care este estimarea MAP sub un prior Gaussian: w_hat = (sigma^2 * Lambda_bar + X^T X)^{-1} X^T y.</div>
+  <div class="highlight-box"><strong>Inferenta sigma^2:</strong> p(sigma^2|D, w) = IG(a_N, b_N), cu E[1/sigma^2] = a_N / b_N.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina detaliaza mecanismul complet al algoritmului EM pentru lasso: in pasul E se estimeaza precizia fiecarui coeficient folosind distributia Gaussiana inversa, iar in pasul M se rezolva o problema de regresie ridge ponderata. Aceasta alternare converge catre estimatorul lasso.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distributia Gaussiana inversa (distributia Wald) apare natural in pasul E, conectand regularizarea l1 cu modele probabilistice sofisticate. Formula E[1/tau_j^2] = gamma/|w_j| arata ca coeficientii mici primesc penalizare mai mare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul EM pentru lasso este util in situatii unde se doreste atat selectia de variabile cat si cuantificarea incertitudinii, de exemplu in analiza factorilor de risc financiar sau in detectia biomarkerilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O banca poate folosi Bayesian lasso pentru a identifica factorii de risc de credit si a estima cat de sigura este fiecare predictie, ajutand la stabilirea limitelor de creditare cu intervale de incredere explicite.</p></div>
+  </div>
+</div>

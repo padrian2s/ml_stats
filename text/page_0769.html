@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Mean field pentru modelul Ising: ecuatii de actualizare detaliate</h2>
+  <p>Aceasta pagina deriveaza ecuatiile complete de actualizare mean field pentru modelul Ising si calculeaza media aproximativa a fiecarui nod.</p>
+  <div class="definition-box"><strong>Actualizarea mean field Ising:</strong> q_i(x_i=1) = sigm(2a_i) si q_i(x_i=-1) = sigm(-2a_i), unde a_i = Σ_{j∈nbr_i} W_ij μ_j + 0.5(L_i^+ - L_i^-). L_i^+ = L_i(+1) si L_i^- = L_i(-1) sunt log-verosimilitutile observatiei.</div>
+  <div class="definition-box"><strong>Media mean field:</strong> μ_i = E_{q_i}[x_i] = q_i(+1)·(+1) + q_i(-1)·(-1) = tanh(a_i). Aceasta formula compacta arata ca media este o functie sigmoida a campului mediu local a_i.</div>
+  <div class="highlight-box"><strong>Algoritm cu punct fix:</strong> Ecuatia μ_i^t = tanh(Σ_{j∈nbr_i} W_ij μ_j^{t-1} + 0.5(L_i^+ - L_i^-)) defineste un algoritm iterativ de punct fix. Actualizarile cu amortizare μ_i^t = (1-λ)μ_i^{t-1} + λ·tanh(...) imbunatatesc stabilitatea si evita artefactele de tip "tabla de sah".</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Ecuatiile mean field Ising sunt surprinzator de simple: media fiecarui nod este tanh-ul campului mediu local (suma ponderata a mediilor vecinilor plus log-verosimilitatea observatiei). Algoritmul iterativ actualizeaza toate mediile in paralel (sau secvential) pana la convergenta. Amortizarea (damping) este importanta pentru stabilitate, mai ales la actualizari paralele.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Functia tanh joaca rolul sigmoidei in spatiul {-1, +1}. Campul mediu local a_i combina doua surse de informatie: priorul (interactiunile cu vecinii, Σ W_ij μ_j) si verosimilitatea (observatia locala, 0.5(L_i^+ - L_i^-)). Amortizarea cu λ=0.5 previne oscilatiile la actualizari paralele.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul mean field Ising este implementat eficient pe GPU-uri datorita paralelismului natural. Este folosit in denoising de imagini, segmentare binara si simulari de fizica statistica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In denoising-ul unei imagini binare a literei "A" cu zgomot Gaussian (σ=2) si prior Ising (W=1), mean field cu amortizare λ=0.5 recupereaza litera clara dupa 15 iteratii, asa cum arata Figura 21.3.</p></div>
+  </div>
+</div>

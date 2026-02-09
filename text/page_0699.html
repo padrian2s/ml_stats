@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Modelul Ising</h2>
+  <p>Aceasta pagina introduce modelul Ising ca exemplu fundamental de MRF din fizica statistica, cu aplicatii in modelarea magnetilor si analogia cu modelele grafice Gaussiene.</p>
+  <div class="definition-box"><strong>Modelul Ising:</strong> Un MRF pe o retea 2D sau 3D unde fiecare nod y_s ∈ {-1, +1} reprezinta spinul unui atom. Potentialul pe perechi este ψ_st(y_s, y_t) cu ponderea de cuplaj w_st.</div>
+  <div class="definition-box"><strong>Retea Markov asociativa:</strong> Un model Ising in care toate ponderile sunt pozitive (J > 0), incurajand spinii vecini sa fie in aceeasi stare (fero-magneti). Starile fundamentale sunt configuratiile cu probabilitate maxima.</div>
+  <div class="highlight-box"><strong>Analogia Ising-Gaussiana:</strong> Log-probabilitatea nenormalizata a modelului Ising, log p(y) = -1/2 y^T W y, are aceeasi forma patratica ca o distributie Gaussiana, dar functia de partitie Z este NP-dificila (permanentul matricei) in cazul Ising, spre deosebire de determinantul matricei in cazul Gaussianei.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelul Ising este unul dintre cele mai studiate MRF-uri, originar din fizica statistica. Cu ponderi pozitive (fero-magneti), spinii vecini tind sa se alinieze. Cu ponderi negative (anti-fero-magneti), se produce un sistem frustrat cu multiple moduri. Analogia cu modelele Gaussiene evidentiaza diferenta fundamentala in calculul functiei de partitie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Matricea de ponderi W joaca un rol central: simetria ei reflecta natura nedirectionata a grafului. Campul extern b adauga un termen de bias. Tranzitia de la forma Ising la forma Gaussiana se face prin Σ^{-1} = -W, μ = -1/2 Σ^{-1} b.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelul Ising este folosit in fizica condensatului, procesarea imaginilor (denoising binar), si ca model de baza pentru retele neurale recurente (Hopfield, Boltzmann). Intractabilitatea functiei de partitie motiveaza metodele aproximative de inferenta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In denoising-ul imaginilor binare, fiecare pixel este un spin Ising. Potentialul pe perechi incurajeaza pixelii vecini sa aiba aceeasi valoare (negru/alb), iar observatiile zgomotoase furnizeaza campul extern. Inferenta recupereaza imaginea curata.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Modele de topicuri relationale si LVM-uri pentru date relationale</h2>
+  <p>Aceasta pagina prezinta modelul de topicuri relational (RTM) si introduce sectiunea 27.6 despre modelele cu variabile latente pentru date relationale.</p>
+  <div class="definition-box"><strong>Model de topicuri relational (RTM):</strong> O extensie a LDA supervizat in care variabila raspuns R_ij (prezenta unei muchii intre nodurile i si j) este modelata folosind distributiile empirice de topicuri ale documentelor.</div>
+  <div class="definition-box"><strong>Relatie k-ara:</strong> Un subset R din produsul cartezian T_1 x T_2 x ... x T_k, reprezentand conexiuni intre tipuri de entitati.</div>
+  <div class="highlight-box"><strong>Avantajul RTM:</strong> R_ij depinde de topicurile reale alese, nu de distributiile de topicuri, ceea ce permite informatiei din structura grafului sa influenteze direct alegerea topicurilor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua concepte importante: modelul de topicuri relational care extinde LDA pentru a prezice legaturi intre documente, si introducerea in modelele cu variabile latente pentru date relationale. Datele relationale sunt reprezentate prin grafuri care captureaza relatii intre entitati de tipuri diferite.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Modelele relationale combina informatia din continutul documentelor cu structura grafului. Utilizarea produsului tensorial al distributiilor de topicuri permite modelarea interactiunilor complexe intre perechi de documente.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Predictia de legaturi in retele sociale, recomandarea de articole stiintifice bazata pe citari, si modelarea retelelor de interactiune proteina-proteina in bioinformatica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-o retea de citari academice, RTM poate prezice ce articole noi ar trebui sa citeze un anumit articol, folosind atat continutul textual cat si structura existenta de citari.</p></div>
+  </div>
+</div>

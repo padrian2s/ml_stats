@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>EM pentru Regresia Probit</h2>
+  <p>Pagina prezinta algoritmul EM pentru regresia probit, exploatand interpretarea cu variabile latente si derivand pasii E si M.</p>
+  <div class="definition-box"><strong>Regresia probit:</strong> Un model de clasificare unde p(yᵢ = 1|zᵢ) = I(zᵢ > 0), cu zᵢ ~ N(wᵀxᵢ, 1) latent. Variabila latenta zᵢ este trunchiata pentru a produce raspunsul binar.</div>
+  <div class="definition-box"><strong>Gaussiana trunchiata:</strong> Posteriorul p(zᵢ|yᵢ, xᵢ, w) este o distributie Gaussiana trunchiata - trunchiata la dreapta (zᵢ > 0) daca yᵢ = 1, sau la stanga (zᵢ < 0) daca yᵢ = 0.</div>
+  <div class="highlight-box"><strong>Log-verosimilitatea completa:</strong> ℓ(z, w|V₀) = log p(y|z) + log N(z|Xw, I) + log N(w|0, V₀) - include termenul de verosimilitate, modelul latent si priorul pe w.</div>
+  <div class="highlight-box"><strong>Pasul E - Media posterioara:</strong> E[zᵢ|yᵢ, w, xᵢ] = μᵢ + φ(μᵢ)/Φ(μᵢ) daca yᵢ = 1; μᵢ - φ(μᵢ)/(1 - Φ(μᵢ)) daca yᵢ = 0, unde μᵢ = wᵀxᵢ.</div>
+  <div class="highlight-box"><strong>Pasul M:</strong> ŵ = (V₀⁻¹ + XᵀX)⁻¹ Xᵀμ - regresie ridge cu tinta μ = E[z], valorile asteptate ale variabilelor latente.</div>
+  <div class="figure-box"><strong>Figura 11.15:</strong> Ajustarea unui model de regresie probit 2D folosind metoda quasi-Newton sau EM. EM este mai simplu dar poate fi mult mai lent decat metodele directe bazate pe gradient.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>EM pentru regresia probit exploateaza interpretarea cu variabile latente: in pasul E, se calculeaza media posterioara a variabilelor latente zᵢ (care sunt Gaussiene trunchiate), iar in pasul M, se estimeaza w prin regresie ridge cu tintele fiind aceste medii asteptate. Algoritmul este simplu dar poate fi mult mai lent decat metodele directe bazate pe gradient, deoarece entropia posterioara in pasul E este ridicata (observam doar semnul lui z, nu magnitudinea).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Abordarea EM pentru probit generalizeaza la multe alte modele cu variabile latente trunchiate. Viteza de convergenta depinde de cat de informativ este pasul E - in cazul probit, informatia este limitata (doar semnul).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia probit este utilizata in econometrie (modele de alegere binara), epidemiologie (modele de incidenta a bolilor), si stiinte sociale (modele de decizie). EM ofera o alternativa simpla la metodele Newton.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile de marketing, regresia probit modeleaza decizia de cumparare (da/nu) in functie de caracteristicile produsului si ale consumatorului. EM poate fi preferat cand modelul include variabile latente suplimentare.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 21. Inferenta Variationala - Transmiterea Mesajelor Variationala si Limite Variationala Locale (p.756)</h2>
+  <p>Aceasta pagina acopera doua subiecte: transmiterea mesajelor variationala (VMP/VIBES) si introducerea limitelor variationala locale, incluzand regresia logistica variationala.</p>
+  <div class="definition-box"><strong>Variational Message Passing (VMP):</strong> Metoda generala de inferenta variationala pentru orice model grafic directionat cu distributii din familia exponentiala si noduri parinte conjugate. Implementata in programul VIBES, analogul VB al BUGS.</div>
+  <div class="definition-box"><strong>Aproximare variationala locala:</strong> Spre deosebire de inferenta mean field (aproximare globala), aproximarea locala inlocuieste un singur termen specific din distributia comuna cu o functie mai simpla, modificand doar o „piesa" a modelului.</div>
+  <div class="highlight-box"><strong>Regresia logistica variationala:</strong> Problema: aproximarea posteriorului parametrilor pentru regresie logistica multinomiala cu prior gaussian. Verosimilitatea nu este conjugata cu priorul gaussian, necesitand limite variationala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina face tranzitia de la VBEM specific la cadrul general VMP, apoi introduce o noua paradigma: limitele variationala locale. VMP generalizeaza mean field pentru orice DGM cu distributii conjugate. Limitele locale ofera o alternativa cand conjugarea lipseste.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>VMP/mean field functioneaza cel mai bine cand nodurile ascunse sunt continue (inferenta bayesiana). Pentru noduri discrete, algoritmii de inferenta aproximativa mai precisi din Capitolul 22 sunt preferabili. Diferenta cheie: mean field = aproximare globala, limite locale = aproximare locala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>VIBES permite utilizatorilor sa specifice modele grafice si sa obtina automat algoritmi de inferenta variationala, democratizand accesul la metode bayesiene complexe.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea textelor cu regresie logistica bayesiana, limitele variationala locale permit estimarea incertitudinii in predictii, utila pentru sisteme de filtrare spam care trebuie sa raporteze nivelul de incredere.</p></div>
+  </div>
+</div>

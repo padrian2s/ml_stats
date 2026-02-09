@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Perplexitatea LDA si comparatie cu alte modele</h2>
+  <p>Aceasta pagina prezinta perplexitatea LDA pe corpusul TREC AP (Figura 27.6), comparand-o cu unigram, amestec de unigrame si pLSI, si derivarea formulei de perplexitate pentru modele unigram.</p>
+  <div class="highlight-box"><strong>Comparatie perplexitate (Figura 27.6):</strong> Pe corpusul TREC AP (16,333 articole, 23,075 termeni unici), LDA (verde) are perplexitate semnificativ mai mica decat unigram (albastru), amestec de unigrame (rosu) si pLSI (negru), pentru toate valorile K de la 2 la 200. LDA imbunatateste cu peste 1000 de puncte de perplexitate fata de unigram.</div>
+  <div class="definition-box"><strong>Perplexitatea LDA:</strong> Cantitatea cheie este p(v) = distributia predictiva a modelului pe cuvinte posibile, calculata prin inserarea estimarii posterioare a B si integrarea aproximativa (mean field) a lui q.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 27.6 demonstreaza superioritatea clara a LDA fata de modelele mai simple. Perplexitatea scade cu K (mai multe topicuri = model mai expresiv) dar se stabilizeaza in jurul K=100-200. LDA depaseste semnificativ atat modelul unigram (care ignora topicurile) cat si pLSI (care nu are prior pe pi_i si este predispus la overfitting). Diferenta este substantiala: ~3000 pentru LDA vs. ~5000+ pentru unigram.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Priorul Dirichlet al LDA ofera regularizare care previne overfitting-ul, in timp ce pLSI fara prior se deterioreaza cu K mare. Amestecul de unigrame se imbunatateste cu K dar ramane inferior LDA deoarece constrange fiecare document la un singur topic.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Graficul perplexitate vs. K este standard in practica LDA pentru selectia numarului de topicuri. Se alege K unde perplexitatea se stabilizeaza (cotul curbei) sau se foloseste validare incrucisata.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In construirea unui motor de cautare intern pentru o companie, compararea perplexitatii LDA cu diferite K pe documentele interne ghideaza alegerea numarului de topicuri care captureaza cel mai bine structura tematica a bazei de cunostinte.</p></div>
+  </div>
+</div>

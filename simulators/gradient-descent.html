@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coborare pe Gradient — Simulator Interactiv</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --primary: #8b5cf6;
+            --primary-light: #a78bfa;
+            --primary-dark: #7c3aed;
+            --primary-darker: #6d28d9;
+            --primary-bg: #f5f3ff;
+            --primary-border: #ddd6fe;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius: 12px;
+            --shadow: 0 4px 24px rgba(139,92,246,0.12);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 24px;
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-darker); }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0 30px;
+        }
+        header h1 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 2.2rem;
+            color: var(--primary-darker);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+        header .subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .explanation {
+            background: var(--surface);
+            border: 1px solid var(--primary-border);
+            border-left: 4px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        .explanation p { font-size: 0.95rem; color: var(--text); }
+
+        .controls-panel {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .control-group label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .control-group select,
+        .control-group input[type="range"] {
+            width: 100%;
+        }
+
+        .control-group select {
+            padding: 10px 14px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text);
+            background: var(--surface);
+            cursor: pointer;
+            transition: border-color 0.2s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+        }
+        .control-group select:focus { outline: none; border-color: var(--primary); }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            outline: none;
+            margin-top: 4px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(139,92,246,0.3);
+            transition: transform 0.15s;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(139,92,246,0.3);
+        }
+
+        .slider-value {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--primary-darker);
+            margin-top: 4px;
+        }
+
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 22px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .btn:active { transform: scale(0.97); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(139,92,246,0.35);
+        }
+        .btn-primary:hover:not(:disabled) { background: var(--primary-dark); box-shadow: 0 4px 12px rgba(139,92,246,0.45); }
+
+        .btn-secondary {
+            background: var(--primary-bg);
+            color: var(--primary-dark);
+            border: 1px solid var(--primary-border);
+        }
+        .btn-secondary:hover:not(:disabled) { background: #ede9fe; }
+
+        .btn-danger {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+        .btn-danger:hover { background: #fee2e2; }
+
+        .main-area {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .canvas-wrapper {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .canvas-wrapper canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            cursor: crosshair;
+        }
+        .canvas-hint {
+            text-align: center;
+            padding-top: 8px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .stats-panel {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .stats-panel h3 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.1rem;
+            color: var(--primary-darker);
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-bg);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .stat-row:last-child { border-bottom: none; }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .stat-value {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--primary-darker);
+            text-align: right;
+        }
+
+        .convergence-box {
+            margin-top: 16px;
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+        .convergence-box.converged {
+            display: block;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #16a34a;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .convergence-box.diverged {
+            display: block;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .loss-chart-container {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-top: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            grid-column: 1 / -1;
+        }
+        .loss-chart-container h3 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1rem;
+            color: var(--primary-darker);
+            margin-bottom: 10px;
+        }
+        .loss-chart-container canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .main-area {
+                grid-template-columns: 1fr;
+            }
+            header h1 { font-size: 1.6rem; }
+            .controls-grid { grid-template-columns: 1fr 1fr; }
+            .btn-row { justify-content: center; }
+        }
+        @media (max-width: 480px) {
+            .controls-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-link">&larr; Inapoi la Pagina Principala</a>
+
+    <div class="container">
+        <header>
+            <h1>Coborare pe Gradient</h1>
+            <p class="subtitle">Simulator interactiv pentru algoritmul de coborare pe gradient</p>
+        </header>
+
+        <div class="explanation">
+            <p>
+                <strong>Coborarea pe gradient</strong> este un algoritm de optimizare care gaseste minimul
+                unei functii deplasandu-se iterativ in directia opusa gradientului. La fiecare pas,
+                pozitia se actualizeaza: <strong>x' = x - &alpha; &nabla;f(x)</strong>, unde &alpha; este
+                rata de invatare. Faceti clic pe graficul de contur pentru a alege punctul de start,
+                ajustati parametrii si apasati „Porneste" pentru a vedea animatia pas cu pas.
+            </p>
+        </div>
+
+        <div class="controls-panel">
+            <div class="controls-grid">
+                <div class="control-group">
+                    <label>Functie de Cost</label>
+                    <select id="selFunc">
+                        <option value="quadratic">Patratica: f(x,y) = x&sup2; + 2y&sup2;</option>
+                        <option value="rosenbrock">Rosenbrock: f(x,y) = (1-x)&sup2; + 100(y-x&sup2;)&sup2;</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Rata de Invatare (&alpha;)</label>
+                    <input type="range" id="sliderLR" min="0.001" max="0.5" step="0.001" value="0.05">
+                    <div class="slider-value" id="valLR">0.050</div>
+                </div>
+                <div class="control-group">
+                    <label>Numar de Pasi</label>
+                    <input type="range" id="sliderSteps" min="10" max="200" step="1" value="50">
+                    <div class="slider-value" id="valSteps">50</div>
+                </div>
+            </div>
+            <div class="btn-row">
+                <button class="btn btn-primary" id="btnStart" disabled>Porneste</button>
+                <button class="btn btn-secondary" id="btnStep" disabled>Pas cu Pas</button>
+                <button class="btn btn-danger" id="btnReset">Reseteaza</button>
+            </div>
+        </div>
+
+        <div class="main-area">
+            <div class="canvas-wrapper">
+                <canvas id="canvas" width="560" height="560"></canvas>
+                <div class="canvas-hint">Faceti clic pe grafic pentru a alege punctul de start</div>
+            </div>
+
+            <div class="stats-panel">
+                <h3>Statistici</h3>
+                <div class="stat-row">
+                    <span class="stat-label">Pasul curent</span>
+                    <span class="stat-value" id="statStep">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Pozitia (x, y)</span>
+                    <span class="stat-value" id="statPos">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">f(x, y)</span>
+                    <span class="stat-value" id="statVal">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">||&nabla;f||</span>
+                    <span class="stat-value" id="statGrad">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Minimul functiei</span>
+                    <span class="stat-value" id="statMinInfo">—</span>
+                </div>
+                <div class="convergence-box" id="convBox"></div>
+            </div>
+
+            <div class="loss-chart-container">
+                <h3>Evolutia Valorii Functiei</h3>
+                <canvas id="lossCanvas" width="900" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const CW = canvas.width;
+        const CH = canvas.height;
+
+        const lossCanvas = document.getElementById('lossCanvas');
+        const lctx = lossCanvas.getContext('2d');
+
+        // Slider events
+        const sliderLR = document.getElementById('sliderLR');
+        const sliderSteps = document.getElementById('sliderSteps');
+        const valLR = document.getElementById('valLR');
+        const valSteps = document.getElementById('valSteps');
+        sliderLR.addEventListener('input', () => { valLR.textContent = parseFloat(sliderLR.value).toFixed(3); });
+        sliderSteps.addEventListener('input', () => { valSteps.textContent = sliderSteps.value; });
+
+        const selFunc = document.getElementById('selFunc');
+
+        // State
+        let startPoint = null;
+        let path = [];
+        let animating = false;
+        let animFrame = null;
+        let currentStepIndex = 0;
+
+        // Functions
+        function getFunc() {
+            return selFunc.value;
+        }
+
+        function f(x, y) {
+            if (getFunc() === 'rosenbrock') {
+                return (1 - x) ** 2 + 100 * (y - x * x) ** 2;
+            }
+            return x * x + 2 * y * y;
+        }
+
+        function grad(x, y) {
+            if (getFunc() === 'rosenbrock') {
+                const dx = -2 * (1 - x) + 100 * 2 * (y - x * x) * (-2 * x);
+                const dy = 100 * 2 * (y - x * x);
+                return [dx, dy];
+            }
+            return [2 * x, 4 * y];
+        }
+
+        function getDomain() {
+            if (getFunc() === 'rosenbrock') {
+                return { xMin: -2, xMax: 3, yMin: -1, yMax: 4 };
+            }
+            return { xMin: -4, xMax: 4, yMin: -4, yMax: 4 };
+        }
+
+        function getMinInfo() {
+            if (getFunc() === 'rosenbrock') {
+                return { x: 1, y: 1, val: 0, label: '(1, 1), f = 0' };
+            }
+            return { x: 0, y: 0, val: 0, label: '(0, 0), f = 0' };
+        }
+
+        // Coordinate mapping
+        function dataToCanvas(dx, dy) {
+            const d = getDomain();
+            const cx = ((dx - d.xMin) / (d.xMax - d.xMin)) * CW;
+            const cy = ((d.yMax - dy) / (d.yMax - d.yMin)) * CH;
+            return [cx, cy];
+        }
+
+        function canvasToData(cx, cy) {
+            const d = getDomain();
+            const dx = d.xMin + (cx / CW) * (d.xMax - d.xMin);
+            const dy = d.yMax - (cy / CH) * (d.yMax - d.yMin);
+            return [dx, dy];
+        }
+
+        // Contour drawing
+        function drawContour() {
+            const d = getDomain();
+            const imgData = ctx.createImageData(CW, CH);
+            const data = imgData.data;
+
+            // Sample all values to find range
+            let maxVal = 0;
+            const vals = new Float64Array(CW * CH);
+            for (let py = 0; py < CH; py++) {
+                for (let px = 0; px < CW; px++) {
+                    const [dx, dy] = canvasToData(px, py);
+                    let v = f(dx, dy);
+                    vals[py * CW + px] = v;
+                    if (v > maxVal) maxVal = v;
+                }
+            }
+
+            // Use log scale for better visualization
+            const useLog = getFunc() === 'rosenbrock';
+            const logMax = useLog ? Math.log(maxVal + 1) : maxVal;
+
+            for (let py = 0; py < CH; py++) {
+                for (let px = 0; px < CW; px++) {
+                    const idx = (py * CW + px) * 4;
+                    let v = vals[py * CW + px];
+                    let t;
+                    if (useLog) {
+                        t = Math.log(v + 1) / logMax;
+                    } else {
+                        t = v / maxVal;
+                    }
+                    t = Math.min(1, Math.max(0, t));
+
+                    // Color: white/light (low values, near minimum) -> deep purple (high values)
+                    const r = Math.round(255 - (255 - 88) * t);
+                    const g = Math.round(255 - (255 - 28) * t);
+                    const b = Math.round(255 - (255 - 135) * t);
+
+                    data[idx] = r;
+                    data[idx + 1] = g;
+                    data[idx + 2] = b;
+                    data[idx + 3] = 255;
+                }
+            }
+            ctx.putImageData(imgData, 0, 0);
+
+            // Draw contour lines
+            const numContours = 15;
+            ctx.strokeStyle = 'rgba(109,40,217,0.3)';
+            ctx.lineWidth = 1;
+
+            for (let c = 1; c <= numContours; c++) {
+                let level;
+                if (useLog) {
+                    level = Math.exp((c / numContours) * logMax) - 1;
+                } else {
+                    level = (c / numContours) * maxVal;
+                }
+                drawContourLine(vals, level, CW, CH);
+            }
+
+            // Draw axes through origin
+            const [ox, oy] = dataToCanvas(0, 0);
+            ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(ox, 0);
+            ctx.lineTo(ox, CH);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(0, oy);
+            ctx.lineTo(CW, oy);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Draw minimum marker
+            const min = getMinInfo();
+            const [mx, my] = dataToCanvas(min.x, min.y);
+            ctx.beginPath();
+            ctx.arc(mx, my, 6, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255,255,255,0.9)';
+            ctx.fill();
+            ctx.strokeStyle = '#16a34a';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            // Cross
+            ctx.beginPath();
+            ctx.moveTo(mx - 4, my);
+            ctx.lineTo(mx + 4, my);
+            ctx.moveTo(mx, my - 4);
+            ctx.lineTo(mx, my + 4);
+            ctx.strokeStyle = '#16a34a';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Axis labels
+            ctx.fillStyle = 'rgba(0,0,0,0.5)';
+            ctx.font = '11px system-ui';
+            const dom = getDomain();
+            ctx.textAlign = 'center';
+            for (let x = Math.ceil(dom.xMin); x <= Math.floor(dom.xMax); x++) {
+                const [px] = dataToCanvas(x, 0);
+                const [, py] = dataToCanvas(0, dom.yMin);
+                ctx.fillText(x, px, CH - 6);
+            }
+            ctx.textAlign = 'left';
+            for (let y = Math.ceil(dom.yMin); y <= Math.floor(dom.yMax); y++) {
+                const [px] = dataToCanvas(dom.xMin, 0);
+                const [, py] = dataToCanvas(0, y);
+                ctx.fillText(y, 6, py + 4);
+            }
+        }
+
+        function drawContourLine(vals, level, w, h) {
+            // Simple marching squares approach for contour lines
+            ctx.beginPath();
+            for (let py = 0; py < h - 1; py += 3) {
+                for (let px = 0; px < w - 1; px += 3) {
+                    const v00 = vals[py * w + px];
+                    const v10 = vals[py * w + px + 3] || v00;
+                    const v01 = vals[(py + 3) * w + px] || v00;
+                    const v11 = vals[(py + 3) * w + px + 3] || v00;
+
+                    const a = v00 >= level ? 1 : 0;
+                    const b = v10 >= level ? 1 : 0;
+                    const c = v11 >= level ? 1 : 0;
+                    const d = v01 >= level ? 1 : 0;
+                    const config = a * 8 + b * 4 + c * 2 + d;
+
+                    if (config === 0 || config === 15) continue;
+
+                    // Simplified: draw a segment if there's a boundary
+                    if ((a !== b) || (a !== d)) {
+                        const interpX = (level - v00) / (v10 - v00 + 1e-12);
+                        const interpY = (level - v00) / (v01 - v00 + 1e-12);
+                        const mx1 = px + interpX * 3;
+                        const my1 = py;
+                        const mx2 = px;
+                        const my2 = py + interpY * 3;
+                        if (interpX >= 0 && interpX <= 1 && interpY >= 0 && interpY <= 1) {
+                            ctx.moveTo(mx1, my1);
+                            ctx.lineTo(mx2, my2);
+                        }
+                    }
+                }
+            }
+            ctx.stroke();
+        }
+
+        function drawPath() {
+            if (path.length === 0) return;
+
+            // Draw path lines
+            ctx.strokeStyle = '#f97316';
+            ctx.lineWidth = 2.5;
+            ctx.lineJoin = 'round';
+            ctx.beginPath();
+            const [sx, sy] = dataToCanvas(path[0][0], path[0][1]);
+            ctx.moveTo(sx, sy);
+            for (let i = 1; i < path.length; i++) {
+                const [px, py] = dataToCanvas(path[i][0], path[i][1]);
+                ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+
+            // Draw dots
+            path.forEach((pt, i) => {
+                const [px, py] = dataToCanvas(pt[0], pt[1]);
+                const isLast = i === path.length - 1;
+                const isFirst = i === 0;
+
+                ctx.beginPath();
+                ctx.arc(px, py, isLast ? 6 : (isFirst ? 5 : 3), 0, Math.PI * 2);
+
+                if (isFirst) {
+                    ctx.fillStyle = '#f97316';
+                    ctx.fill();
+                    ctx.strokeStyle = '#ffffff';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                } else if (isLast) {
+                    ctx.fillStyle = '#dc2626';
+                    ctx.fill();
+                    ctx.strokeStyle = '#ffffff';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                } else {
+                    ctx.fillStyle = 'rgba(249,115,22,0.7)';
+                    ctx.fill();
+                }
+            });
+        }
+
+        function drawStartMarker() {
+            if (!startPoint) return;
+            const [px, py] = dataToCanvas(startPoint[0], startPoint[1]);
+            // Outer ring
+            ctx.beginPath();
+            ctx.arc(px, py, 10, 0, Math.PI * 2);
+            ctx.strokeStyle = '#f97316';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            // Inner dot
+            ctx.beginPath();
+            ctx.arc(px, py, 4, 0, Math.PI * 2);
+            ctx.fillStyle = '#f97316';
+            ctx.fill();
+        }
+
+        function render() {
+            drawContour();
+            drawPath();
+            if (path.length === 0) drawStartMarker();
+        }
+
+        // Compute full gradient descent path
+        function computePath(x0, y0, lr, nSteps) {
+            const result = [[x0, y0]];
+            let x = x0, y = y0;
+            for (let i = 0; i < nSteps; i++) {
+                const [gx, gy] = grad(x, y);
+                x = x - lr * gx;
+                y = y - lr * gy;
+                result.push([x, y]);
+                // Divergence check
+                if (Math.abs(x) > 1e6 || Math.abs(y) > 1e6 || isNaN(x) || isNaN(y)) {
+                    break;
+                }
+            }
+            return result;
+        }
+
+        function updateStats() {
+            if (path.length === 0) {
+                document.getElementById('statStep').textContent = '—';
+                document.getElementById('statPos').textContent = startPoint ?
+                    `(${startPoint[0].toFixed(3)}, ${startPoint[1].toFixed(3)})` : '—';
+                document.getElementById('statVal').textContent = startPoint ?
+                    f(startPoint[0], startPoint[1]).toFixed(6) : '—';
+                document.getElementById('statGrad').textContent = '—';
+            } else {
+                const idx = path.length - 1;
+                const [x, y] = path[idx];
+                const [gx, gy] = grad(x, y);
+                const gradNorm = Math.sqrt(gx * gx + gy * gy);
+                document.getElementById('statStep').textContent = idx;
+                document.getElementById('statPos').textContent = `(${x.toFixed(4)}, ${y.toFixed(4)})`;
+                document.getElementById('statVal').textContent = f(x, y).toFixed(6);
+                document.getElementById('statGrad').textContent = gradNorm.toFixed(6);
+
+                // Convergence check
+                const convBox = document.getElementById('convBox');
+                if (isNaN(x) || isNaN(y) || Math.abs(x) > 1e6) {
+                    convBox.className = 'convergence-box diverged';
+                    convBox.textContent = 'Divergenta! Rata de invatare prea mare.';
+                } else if (gradNorm < 0.001 && idx > 3) {
+                    convBox.className = 'convergence-box converged';
+                    convBox.textContent = 'Convergenta atinsa!';
+                } else {
+                    convBox.className = 'convergence-box';
+                }
+            }
+
+            const min = getMinInfo();
+            document.getElementById('statMinInfo').textContent = min.label;
+        }
+
+        function drawLossChart() {
+            const LW = lossCanvas.width;
+            const LH = lossCanvas.height;
+            lctx.clearRect(0, 0, LW, LH);
+            lctx.fillStyle = '#fafafe';
+            lctx.fillRect(0, 0, LW, LH);
+
+            if (path.length < 2) {
+                lctx.fillStyle = '#94a3b8';
+                lctx.font = '13px system-ui';
+                lctx.textAlign = 'center';
+                lctx.fillText('Graficul va aparea dupa pornirea optimizarii', LW / 2, LH / 2);
+                return;
+            }
+
+            const pad = { left: 60, right: 20, top: 20, bottom: 30 };
+            const plotW = LW - pad.left - pad.right;
+            const plotH = LH - pad.top - pad.bottom;
+
+            const losses = path.map(([x, y]) => f(x, y));
+            const maxLoss = Math.max(...losses);
+            const minLoss = Math.min(...losses);
+            const range = maxLoss - minLoss || 1;
+
+            // Grid
+            lctx.strokeStyle = '#e8ecf4';
+            lctx.lineWidth = 1;
+            for (let i = 0; i <= 4; i++) {
+                const y = pad.top + (i / 4) * plotH;
+                lctx.beginPath();
+                lctx.moveTo(pad.left, y);
+                lctx.lineTo(LW - pad.right, y);
+                lctx.stroke();
+
+                lctx.fillStyle = '#94a3b8';
+                lctx.font = '10px monospace';
+                lctx.textAlign = 'right';
+                const val = maxLoss - (i / 4) * range;
+                lctx.fillText(val < 100 ? val.toFixed(2) : val.toFixed(0), pad.left - 8, y + 4);
+            }
+
+            // Axis labels
+            lctx.fillStyle = '#94a3b8';
+            lctx.font = '10px system-ui';
+            lctx.textAlign = 'center';
+            const stepLabels = 5;
+            for (let i = 0; i <= stepLabels; i++) {
+                const step = Math.round((i / stepLabels) * (losses.length - 1));
+                const x = pad.left + (step / (losses.length - 1)) * plotW;
+                lctx.fillText(step, x, LH - 8);
+            }
+
+            // Line
+            lctx.strokeStyle = '#8b5cf6';
+            lctx.lineWidth = 2.5;
+            lctx.lineJoin = 'round';
+            lctx.beginPath();
+            losses.forEach((v, i) => {
+                const x = pad.left + (i / (losses.length - 1)) * plotW;
+                const y = pad.top + ((maxLoss - v) / range) * plotH;
+                if (i === 0) lctx.moveTo(x, y);
+                else lctx.lineTo(x, y);
+            });
+            lctx.stroke();
+
+            // Gradient fill
+            const gradient = lctx.createLinearGradient(0, pad.top, 0, LH - pad.bottom);
+            gradient.addColorStop(0, 'rgba(139,92,246,0.2)');
+            gradient.addColorStop(1, 'rgba(139,92,246,0.02)');
+            lctx.fillStyle = gradient;
+            lctx.beginPath();
+            losses.forEach((v, i) => {
+                const x = pad.left + (i / (losses.length - 1)) * plotW;
+                const y = pad.top + ((maxLoss - v) / range) * plotH;
+                if (i === 0) lctx.moveTo(x, y);
+                else lctx.lineTo(x, y);
+            });
+            lctx.lineTo(pad.left + plotW, LH - pad.bottom);
+            lctx.lineTo(pad.left, LH - pad.bottom);
+            lctx.closePath();
+            lctx.fill();
+
+            // Current position dot
+            const lastIdx = losses.length - 1;
+            const lx = pad.left + (lastIdx / (losses.length - 1)) * plotW;
+            const ly = pad.top + ((maxLoss - losses[lastIdx]) / range) * plotH;
+            lctx.beginPath();
+            lctx.arc(lx, ly, 5, 0, Math.PI * 2);
+            lctx.fillStyle = '#dc2626';
+            lctx.fill();
+            lctx.strokeStyle = '#ffffff';
+            lctx.lineWidth = 2;
+            lctx.stroke();
+        }
+
+
+
+        // Click to set start
+        canvas.addEventListener('click', (e) => {
+            if (animating) return;
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = CW / rect.width;
+            const scaleY = CH / rect.height;
+            const cx = (e.clientX - rect.left) * scaleX;
+            const cy = (e.clientY - rect.top) * scaleY;
+            const [dx, dy] = canvasToData(cx, cy);
+            startPoint = [dx, dy];
+            path = [];
+            currentStepIndex = 0;
+            document.getElementById('btnStart').disabled = false;
+            document.getElementById('btnStep').disabled = false;
+            document.getElementById('convBox').className = 'convergence-box';
+            updateStats();
+            render();
+            drawLossChart();
+        });
+
+        // Animate
+        let fullPath = [];
+        document.getElementById('btnStart').addEventListener('click', () => {
+            if (!startPoint || animating) return;
+            const lr = parseFloat(sliderLR.value);
+            const nSteps = parseInt(sliderSteps.value);
+
+            fullPath = computePath(startPoint[0], startPoint[1], lr, nSteps);
+            path = [fullPath[0]];
+            currentStepIndex = 1;
+            animating = true;
+            document.getElementById('btnStart').disabled = true;
+            document.getElementById('btnStep').disabled = true;
+
+            function animate() {
+                if (currentStepIndex >= fullPath.length) {
+                    animating = false;
+                    document.getElementById('btnStart').disabled = false;
+                    document.getElementById('btnStep').disabled = false;
+                    updateStats();
+                    render();
+                    drawLossChart();
+                    return;
+                }
+                path.push(fullPath[currentStepIndex]);
+                currentStepIndex++;
+                updateStats();
+                render();
+                drawLossChart();
+
+                const delay = Math.max(20, 600 / fullPath.length);
+                animFrame = setTimeout(animate, delay);
+            }
+            animate();
+        });
+
+        // Step by step
+        document.getElementById('btnStep').addEventListener('click', () => {
+            if (!startPoint || animating) return;
+            const lr = parseFloat(sliderLR.value);
+            const nSteps = parseInt(sliderSteps.value);
+
+            if (path.length === 0) {
+                fullPath = computePath(startPoint[0], startPoint[1], lr, nSteps);
+                path = [fullPath[0]];
+                currentStepIndex = 1;
+            }
+
+            if (currentStepIndex < fullPath.length) {
+                path.push(fullPath[currentStepIndex]);
+                currentStepIndex++;
+            }
+
+            updateStats();
+            render();
+            drawLossChart();
+        });
+
+        // Reset
+        document.getElementById('btnReset').addEventListener('click', () => {
+            animating = false;
+            if (animFrame) clearTimeout(animFrame);
+            startPoint = null;
+            path = [];
+            fullPath = [];
+            currentStepIndex = 0;
+            document.getElementById('btnStart').disabled = true;
+            document.getElementById('btnStep').disabled = true;
+            document.getElementById('convBox').className = 'convergence-box';
+            updateStats();
+            render();
+            drawLossChart();
+        });
+
+        // Function change
+        selFunc.addEventListener('change', () => {
+            animating = false;
+            if (animFrame) clearTimeout(animFrame);
+            startPoint = null;
+            path = [];
+            fullPath = [];
+            currentStepIndex = 0;
+            document.getElementById('btnStart').disabled = true;
+            document.getElementById('btnStep').disabled = true;
+            document.getElementById('convBox').className = 'convergence-box';
+
+            // Adjust defaults
+            if (getFunc() === 'rosenbrock') {
+                sliderLR.value = 0.001;
+                sliderLR.max = 0.01;
+                sliderLR.step = 0.0001;
+                valLR.textContent = '0.001';
+                sliderSteps.value = 200;
+                valSteps.textContent = '200';
+            } else {
+                sliderLR.value = 0.05;
+                sliderLR.max = 0.5;
+                sliderLR.step = 0.001;
+                valLR.textContent = '0.050';
+                sliderSteps.value = 50;
+                valSteps.textContent = '50';
+            }
+
+            updateStats();
+            render();
+            drawLossChart();
+        });
+
+        // Init
+        render();
+        updateStats();
+        drawLossChart();
+    </script>
+</body>
+</html>

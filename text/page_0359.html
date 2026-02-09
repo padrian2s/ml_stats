@@ -1,0 +1,22 @@
+<div class="page-content">
+  <h2>10.6 Diagrame de Influenta (Diagrame de Decizie)</h2>
+  <p>Pagina introduce diagramele de influenta care extind DGM-urile cu noduri de decizie si noduri de utilitate pentru rezolvarea problemelor de decizie secventiala.</p>
+  <div class="definition-box"><strong>Diagrama de influenta (diagrama de decizie):</strong> Extensie a modelelor grafice directionate care adauga noduri de decizie (dreptunghiuri), noduri de utilitate (romburi) si arce de informatie, pe langa nodurile de sansa obisnuite (ovale).</div>
+  <div class="definition-box"><strong>Noduri de decizie (noduri de actiune):</strong> Variabile controlabile de agent, reprezentate ca dreptunghiuri. Exemplu: decizia de a fora sau nu un put de petrol.</div>
+  <div class="definition-box"><strong>Noduri de utilitate (noduri de valoare):</strong> Functii de utilitate care depind de starea naturii si de actiuni, reprezentate ca romburi.</div>
+  <div class="definition-box"><strong>Noduri de sansa:</strong> Variabile aleatoare obisnuite, reprezentate ca ovale, ca in DGM-urile standard.</div>
+  <div class="definition-box"><strong>Arc de informatie:</strong> Arc de la un nod de sansa la un nod de decizie, indicand ca informatia va fi disponibila inainte de luarea deciziei.</div>
+  <div class="figure-box"><strong>Figura 10.12(a):</strong> Diagrama de influenta pentru problema "oil wildcat": nodul de sansa Oil → nodul de decizie Drill → nodul de utilitate Utility. Fara informatie suplimentara despre starea putului.</div>
+  <div class="figure-box"><strong>Figura 10.12(b):</strong> Extensie cu sondaj acustic: Oil → Sound → Drill → Utility, cu arc de informatie de la Sound la Drill. Sondajul furnizeaza informatie inainte de decizie.</div>
+  <div class="figure-box"><strong>Figura 10.12(c):</strong> Extensie cu decizia de a efectua testul: nod de decizie Test, plus nod de utilitate Cost pentru costul testului. Doua decizii secventiale: mai intai daca testam, apoi daca foram.</div>
+  <div class="highlight-box"><strong>Utilitatea asteptata de a fora (10.48):</strong> EU(d=1) = Σ_{o=0}^{2} p(o) U(d,o) = 0.5·(-70) + 0.3·50 + 0.2·200 = 20 dolari.</div>
+  <div class="highlight-box"><strong>Utilitatea maxima asteptata (10.49):</strong> MEU = max{EU(d=0), EU(d=1)} = max{0, 20} = 20.</div>
+  <div class="highlight-box"><strong>Actiunea optima (10.50):</strong> d* = argmax{EU(d=0), EU(d=1)} = 1 (se foreaza).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Diagramele de influenta extind puterea modelelor grafice de la inferenta pasiva la luarea de decizii active. In problema oil wildcat, agentul decide daca sa foreze un put de petrol bazandu-se pe probabilitatile prealabile ale starii putului. Utilitatea asteptata de a fora (20$) este mai mare decat cea de a nu fora (0$), deci decizia optima este sa forezi. Extensiile adauga posibilitatea de a obtine informatie suplimentara (sondaj) inainte de decizie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Principiul utilitatii maxime asteptate (MEU) ghideaza deciziile optime. Arcele de informatie modeleaza ce se stie in momentul deciziei - un concept esential in teoria deciziei secventiale. Valoarea informatiei (diferenta de MEU cu si fara sondaj) poate fi calculata explicit.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Diagramele de influenta sunt folosite in analiza deciziilor medicale (tratament vs. observatie), managementul riscului financiar, planificarea proiectelor si robotica (planificarea actiunilor sub incertitudine).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un medic decide daca sa prescrie un tratament costisitor cu efecte secundare (forare) bazandu-se pe probabilitatea bolii (petrol). Poate alege mai intai sa faca o analiza de sange (sondaj acustic) pentru a obtine informatie suplimentara, apoi decide tratamentul. Diagrama de influenta modeleaza aceasta secventa de decizii.</p></div>
+  </div>
+</div>

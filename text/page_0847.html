@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 23: Inferenta Monte Carlo - Esantionarea prin CDF inversa</h2>
+  <p>Aceasta pagina continua capitolul 23 despre inferenta Monte Carlo, prezentand metoda CDF inversa pentru generarea de esantioane din distributii univariate.</p>
+  <div class="definition-box"><strong>Teorema 23.2.1 (CDF inversa):</strong> Daca U ~ U(0,1) este o variabila aleatoare uniforma si F este CDF-ul distributiei tinta, atunci F^{-1}(U) ~ F. Demonstratia este directa: Pr(F^{-1}(U) <= x) = Pr(U <= F(x)) = F(x).</div>
+  <div class="definition-box"><strong>Generator pseudo-aleator:</strong> Un algoritm determinist care produce secvente de numere care apar aleatorii. Este baza tuturor metodelor de esantionare: genereaza u ~ U(0,1), apoi transforma prin x = F^{-1}(u).</div>
+  <div class="highlight-box"><strong>Exemplu - distributia exponentiala:</strong> Pentru Expon(lambda), CDF este F(x) = 1 - e^{-lambda*x}, iar inversa este F^{-1}(p) = -ln(1-p)/lambda. Deci x = -ln(u)/lambda cu u ~ U(0,1) produce esantioane din Expon(lambda).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Metoda CDF inversa este fundamentala si eleganta: orice distributie univariata cu CDF inversabila poate fi esantionata printr-o singura transformare a unei variabile uniforme. Limitarea principala este ca necesita calculul analitic al CDF inverse, ceea ce nu este intotdeauna posibil.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Transformarea uniform -> tinta prin CDF inversa este un principiu universal. Pentru distributii cu CDF inversabila analitic (exponentiala, Cauchy, logistica), metoda este cea mai eficienta posibila.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Metoda CDF inversa este implementata in toate bibliotecile de calcul stiintific (NumPy, SciPy, R) pentru distributii standard. Pentru distributii fara CDF inversa analitica, se folosesc metode alternative.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In simularea timpilor de asteptare intr-un call center (distribuiti exponential), se genereaza u uniform si se calculeaza t = -ln(u)/lambda, obtinand direct un timp de asteptare simulat realist.</p></div>
+  </div>
+</div>

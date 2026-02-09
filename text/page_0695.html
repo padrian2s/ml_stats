@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Compararea modelelor grafice directionate si nedirectionate</h2>
+  <p>Aceasta pagina compara puterea expresiva a DGM-urilor si UGM-urilor, demonstrand ca nici unul nu este strict mai puternic decat celalalt. Se introduce conceptul de graf ancestral si grafuri cordale.</p>
+  <div class="definition-box"><strong>Harta perfecta (perfect map):</strong> Un graf G este o harta perfecta a distributiei p daca I(G) = I(p), adica graful poate reprezenta exact toate proprietatile de independenta conditionata ale distributiei.</div>
+  <div class="definition-box"><strong>Graf chordal (decomposabil):</strong> Un graf in care fiecare ciclu de lungime ≥ 4 contine o "coarda" (muchie intre doua noduri non-adiacente din ciclu). Distributiile cu grafuri cordale pot fi reprezentate perfect atat de DGM-uri cat si de UGM-uri.</div>
+  <div class="highlight-box"><strong>Comparatie DGM vs UGM:</strong> DGM-urile si UGM-urile pot reprezenta perfect multimi diferite de distributii. Proprietatile CI in UGM-uri sunt monotone (daca A ⊥ B|C, atunci A ⊥ B|C∪D), dar in DGM-uri pot fi non-monotone datorita efectului de "explaining away".</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina analizeaza formal diferentele de putere expresiva intre DGM-uri si UGM-uri. Nici un formalism nu este universal superior: DGM-urile pot captura v-structuri (care UGM-urile nu pot), iar UGM-urile pot modela cicluri de 4+ noduri fara dependente false. Grafurile cordale formeaza intersectia celor doua formalisme.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Alegerea intre DGM si UGM depinde de structura de independenta conditionata a problemei. Monotonia CI in UGM-uri (observarea mai multor variabile nu distruge independenta) este o proprietate importanta care simplifica rationamentul. Graful ancestral permite corectarea moralizarii prin eliminarea nodurilor irelevante.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, alegerea intre DGM si UGM depinde de domeniu: DGM-urile sunt preferate cand exista relatii cauzale clare, iar UGM-urile cand relatiile sunt simetrice (de exemplu, in procesarea imaginilor sau fizica statistica).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea imaginilor, pixelii vecini au relatii simetrice de similitudine - un UGM (camp Markov aleator) este natural. In contrast, un model de diagnostic medical (boala cauzeaza simptome) este mai bine exprimat ca DGM.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>MLE pentru GGM si completarea de matrice</h2>
+  <p>Aceasta pagina prezinta detalii despre MLE pentru GGM cu structura fixa, incluzand proprietatea de completare de matrice si introduce graphical lasso (Glasso).</p>
+  <div class="definition-box"><strong>Completarea de matrice (matrix completion):</strong> MLE pentru GGM satisface Sigma_{st} = S_{st} daca G_{st}=1 sau s=t (covariantele conectate egal empiricele), si Omega_{st} = 0 daca G_{st}=0 (preciziile neconectate sunt zero). Sigma este completarea pozitiv definita a lui S.</div>
+  <div class="definition-box"><strong>Graphical lasso (Glasso):</strong> J(Omega) = -log det Omega + tr(S*Omega) + lambda*||Omega||_1, unde penalitatea L1 pe Omega incurajeaza raritate (zerouri) in matricea de precizie, invatand automat structura grafului.</div>
+  <div class="highlight-box"><strong>Exemplu (ecuatia 26.69):</strong> Pe o structura ciclica X1-X2-X3-X4-X1, MLE pentru Sigma pastreaza covariantele pentru muchii prezente si estimeaza celelalte sub constrangerea de pozitivitate definita. Omega rezultanta are exact zerouri in pozitiile muchiilor absente.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina detaliaza MLE pentru GGM: este o problema de completare de matrice - se pastreaza covariantele empirice pentru perechile conectate si se completeaza restul pentru a obtine o matrice pozitiv definita cu zerouri corecte in Omega. Graphical lasso introduce penalitate L1 pe Omega, transformand problema de selectie a structurii intr-o problema de optimizare convexa continua.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Glasso unifica estimarea parametrilor si selectia structurii intr-o singura optimizare convexa. Parametrul lambda controleaza raritatea: lambda mare produce grafuri cu putine muchii, lambda mic produce grafuri dense. Desi obiectivul este convex, nu este neted (din cauza normei L1).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Glasso este implementat in R (glasso package), Python (scikit-learn GraphicalLasso), si este una dintre cele mai populare metode de invatare a structurii GGM. Este scalabil la sute sau mii de variabile.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In neuroimagistica functionala (fMRI), Glasso este folosit pentru a invata reteaua de conectivitate functionala intre regiuni cerebrale, unde lambda controleaza numarul de conexiuni detectate si este ales prin validare incrucisata.</p></div>
+  </div>
+</div>

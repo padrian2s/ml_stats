@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Arbori latenti partiali si polisemie</h2>
+  <p>Aceasta pagina prezinta arborii latenti partiali (Figura 26.11) care permit cuvintelor polisemice sa fie conectate la mai multe variabile latente, si discuta metode alternative de invatare.</p>
+  <div class="definition-box"><strong>Arbore latent partial:</strong> Un model in care variabilele observate nu sunt constransite sa fie la frunze, permitand cuvintelor cu sensuri multiple (polisemie) sa fie conectate la diferite variabile latente reprezentand "topicuri" diferite.</div>
+  <div class="highlight-box"><strong>Exemplu polisemie (Figura 26.11):</strong> Cuvantul "win" poate fi conectat atat la h5 (context sportiv: games, baseball, league) cat si la h25 (context Microsoft Windows: software, display), demonstrand capacitatea modelului de a capta ambiguitatea semantica.</div>
+  <div class="highlight-box"><strong>Recuperabilitate:</strong> Choi et al. (2011) demonstreaza ca metoda lor poate recupera exact structura arborelui latent adevarat, cu conditia ca datele sunt intr-adevar generate de un arbore si ca cardinalitatea variabilelor ascunse si observate este aceeasi.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Arborii latenti partiali (Choi et al. 2011) extind modelul lui Zhang permitand observatiilor sa fie la orice nivel al arborelui, nu doar la frunze. Aceasta permite modelarea polisemiei - un cuvant poate participa in mai multe clustere semantice. Metoda porneste de la arborele Chow-Liu pe date observate si adauga variabile ascunse pentru a capta dependente de ordin superior. Rezultatul este un model mai compact si cu precizie predictiva mai buna.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Polisemia (cuvinte cu sensuri multiple) este un fenomen fundamental in limbajul natural care necesita modele flexibile. Arborii latenti partiali ofera o solutie eleganta, permitand fiecarui cuvant sa participe in mai multe contexte semantice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelarea polisemiei este importanta in dezambiguizarea sensurilor cuvintelor (word sense disambiguation), traducerea automata, si cautarea semantica, unde un cuvant poate avea sensuri complet diferite in contexte diferite.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In motoarele de cautare, un arbore latent partial poate dezambiguiza cautarea "apple" intre fructul mere si compania Apple, conectand cuvantul la ambele contexte latente si oferind rezultate mai relevante.</p></div>
+  </div>
+</div>

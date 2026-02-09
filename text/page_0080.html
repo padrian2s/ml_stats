@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Proprietățile Distribuției Dirichlet și Transformări ale Variabilelor Aleatoare</h2>
+  <p>Pagina completează discuția despre distribuția Dirichlet cu proprietățile sale statistice și introduce secțiunea despre transformările variabilelor aleatoare, incluzând transformări liniare.</p>
+  <div class="highlight-box"><strong>Proprietățile Dirichlet:</strong> E[x_k] = α_k/α₀, mod[x_k] = (α_k−1)/(α₀−K), var[x_k] = α_k(α₀−α_k)/(α₀²(α₀+1)), unde α₀ = Σα_k.</div>
+  <div class="definition-box"><strong>Dirichlet simetric:</strong> Când α_k = α/K pentru toți k, media devine 1/K, iar varianța var[x_k] = (K−1)/(K²(α+1)). Creșterea lui α mărește precizia (scade varianța).</div>
+  <div class="highlight-box"><strong>Transformări liniare:</strong> Pentru y = f(x) = Ax + b: E[y] = Aμ + b și cov[y] = AΣAᵀ, unde μ = E[x] și Σ = cov[x].</div>
+  <div class="definition-box"><strong>Linearitatea așteptării:</strong> E[aᵀx + b] = aᵀμ + b. Pentru covarianță: var[aᵀx + b] = aᵀΣa.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Proprietățile Dirichlet arată cum parametrii controlează media, modul și varianța. Secțiunea despre transformări liniare demonstrează cum se propagă media și covarianța prin funcții liniare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Formulele de propagare a momentelor prin transformări liniare sunt fundamentale: media se transformă liniar (Aμ+b), iar covarianța se transformă prin AΣAᵀ. Aceste rezultate sunt utilizate extensiv în capitolele următoare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Propagarea incertitudinii prin transformări liniare este esențială în filtrele Kalman, în propagarea erorilor în rețele neurale, și în orice sistem unde variabilele sunt transformate liniar.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un sistem de navigație GPS, filtrul Kalman utilizează exact aceste formule de transformare liniară pentru a propaga incertitudinea pozitiei și vitezei prin modelul dinamic al vehiculului.</p></div>
+  </div>
+</div>

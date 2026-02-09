@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmi pentru ARD: Algoritmul EM</h2>
+  <p>Pagina prezinta Sectiunea 13.7.4 cu algoritmi pentru implementarea ARD, incepand cu algoritmul EM si derivarea log-verosimilitudinii complete asteptate.</p>
+  <div class="highlight-box"><strong>Algoritmul EM pentru ARD (Sectiunea 13.7.4.1):</strong> Log-verosimilitatea completa asteptata (Eq. 13.162-13.164): Q(alpha, beta) = (1/2)N log beta - (beta/2)(||y - X mu||^2 + tr(X^T X Sigma)) + (1/2) suma log alpha_j - (1/2) tr[A(mu mu^T + Sigma)] + const.</div>
+  <div class="highlight-box"><strong>Obiectivul penalizat (Eq. 13.165):</strong> Cu prior Ga(a,b) pe alpha_j si Ga(c,d) pe beta: Q'(alpha, beta) = Q(alpha, beta) + suma (a log alpha_j - b alpha_j) + c log beta - d beta.</div>
+  <div class="definition-box"><strong>Pasul M pentru alpha_j (Eq. 13.166):</strong> alpha_j = (1 + 2a) / (E[w_j^2] + 2b) = (1 + 2a) / (m_j^2 + Sigma_jj + 2b). Cand a = b = 0 (prior neinformativ): alpha_j = 1 / (m_j^2 + Sigma_jj). Daca m_j ≈ 0 si Sigma_jj ≈ 0, atunci alpha_j -> infinit (feature eliminat).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul EM pentru ARD itereaza intre: (E) calculul posteriorului pe w (media mu si covarianta Sigma), si (M) actualizarea hiperparametrilor alpha si beta. Pasul E foloseste formulele standard de regresie Bayesiana (Eq. 13.158), iar pasul M are solutii in forma inchisa pentru alpha_j si beta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Formula alpha_j = 1/(m_j^2 + Sigma_jj) arata ca precizia creste (feature eliminat) cand atat media posterioara cat si varianta posterioara a ponderii sunt mici. Aceasta include incertitudinea, nu doar estimarea punctuala, facand metoda mai robusta decat simpla eliminare bazata pe magnitudinea ponderilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul EM pentru ARD este simplu de implementat dar poate converge lent. Este disponibil in scikit-learn (ARDRegression) si este potrivit pentru probleme de dimensiune moderata (D < 10000). Pentru probleme mai mari, algoritmii cu punct fix sau reweighted l1 sunt preferati.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza spectrala a semnalelor EEG, algoritmul EM-ARD estimeaza automat componentele frecventiale relevante (alpha mic) separandu-le de zgomot (alpha mare), producand spectrograme sparse si interpretabile.</p></div>
+  </div>
+</div>

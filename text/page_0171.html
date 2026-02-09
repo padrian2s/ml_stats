@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Posteriorul exact al fuziunii senzorilor si exercitii: necorelatie vs. independenta</h2>
+  <p>Aceasta pagina prezinta comparatia vizuala intre aproximarea plug-in si posteriorul exact in fuziunea senzorilor, apoi incepe sectiunea de exercitii cu probleme fundamentale despre corelatie si independenta.</p>
+  <div class="definition-box"><strong>Posteriorul exact multimodal:</strong> p(&mu; | D) &prop; 1/((x_bar - &mu;)&sup2; + s_x&sup2;) &times; 1/((y_bar - &mu;)&sup2; + s_y&sup2;). Aceasta forma produce doua moduri cand senzorii nu sunt de acord, cu ponderi proportionale cu consistenta interna a fiecarui senzor.</div>
+  <div class="definition-box"><strong>Necorelatie nu implica independenta:</strong> Daca X ~ U(-1,1) si Y = X&sup2;, atunci &rho;(X,Y) = 0 (sunt necorelate) dar Y este complet determinat de X (sunt dependente). Necorelatie inseamna doar lipsa relatiei liniare.</div>
+  <div class="highlight-box"><strong>Exceptia Gaussiana:</strong> Pentru variabile Gaussiene conjuncte, necorelatie implica independenta. Dar daca sunt doar marginal Gaussiene (nu conjunct), pot fi necorelate dar dependente: exemplu X ~ N(0,1), Y = WX unde P(W=1) = P(W=-1) = 0.5.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 4.20 compara dramatic cele doua abordari: plug-in produce un posterior unimodal ingust (supra-incredere), in timp ce posteriorul Bayesian exact are doua moduri, reflectand corect ambiguitatea. Exercitiile aprofundeaza distinctia subtila dar cruciala intre necorelatie si independenta, demonstrand ca aceasta echivalenta tine doar pentru distributii conjunct Gaussiene.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Supra-increderea plug-in este vizibila: posteriorul este mult prea ingust comparativ cu incertitudinea reala. 2) Regula iteratei sperantei E[XY] = E[E[XY|W]] este un instrument cheie in demonstratii. 3) Distinctia marginal Gaussian vs. conjunct Gaussian este subtila dar cruciala pentru practica statistica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea distinctiei necorelatie-independenta este esentiala in finante (activele pot fi necorelate in conditii normale dar devin puternic corelate in crize), in procesarea semnalelor (decorelarea nu implica independenta, ceea ce motiveaza ICA vs. PCA), si in testarea statistica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In piata financiara, actiunile din sectoare diferite pot parea necorelate in perioade de stabilitate, dar in timpul unei crize (precum 2008 sau 2020), corelatiile cresc dramatic. Modelele care presupun independenta pe baza necorelarii istorice subestimeaza grav riscul sistemic, ceea ce a contribuit la criza financiara din 2008.</p></div>
+  </div>
+</div>

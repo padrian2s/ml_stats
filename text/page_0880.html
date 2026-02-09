@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Probabilitatea de acceptare MH si Gibbs ca caz special</h2>
+  <p>Aceasta pagina analizeaza probabilitatea de acceptare Metropolis-Hastings, demonstreaza corectia Hastings si arata ca esantionarea Gibbs este un caz special al MH.</p>
+  <div class="definition-box"><strong>Corectia Hastings:</strong> Raportul q(x_t|x')/q(x'|x_t) din probabilitatea de acceptare corecteaza asimetria propunerii. Pentru propuneri simetrice (q(x'|x)=q(x|x')), aceasta se simplifica la alpha = min(1, p*(x')/p*(x_t)), algoritmul Metropolis original.</div>
+  <div class="definition-box"><strong>Gibbs ca MH:</strong> Esantionarea Gibbs este un caz special al MH unde propunerea este conditionala completa: q(x'|x) = p(x_i'|x_{-i}). Cu aceasta propunere, probabilitatea de acceptare este intotdeauna 1, deci toate propunerile sunt acceptate.</div>
+  <div class="highlight-box"><strong>Balanta detaliata:</strong> Corectitudinea MH se bazeaza pe satisfacerea conditiei de balanta detaliata: p(x)*T(x'|x) = p(x')*T(x|x'), unde T este nucleul de tranzitie. Aceasta garanteaza ca p este distributia stationara a lantului Markov.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabileste fundamentul teoretic al MH: corectia Hastings asigura balanta detaliata indiferent de propunere. Demonstratia ca Gibbs este un caz special al MH unifica cele doua metode MCMC sub acelasi cadru teoretic.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Unificarea Gibbs-MH este eleganta: in Gibbs, propunerea perfecta (conditionala completa) duce la acceptare 100%. In MH general, propuneri mai simple (dar mai usor de calculat) duc la rate de acceptare mai mici, dar fiecare pas este mai ieftin. Aceasta flexibilitate face MH extrem de versatil.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea Gibbs ca MH permite strategii hibride: in modelele cu multe variabile, unele sunt esantionate cu Gibbs (cand conditionala este tractabila) si altele cu MH (cand nu este). Aceasta combinatie este standard in software-ul MCMC modern.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelele de ecologie populationala, parametrii de crestere si de interactiune intre specii pot fi esantionati cu Gibbs (daca conditionalele sunt conjugate), iar parametrii de observatie non-standard sunt esantionati cu MH, intr-un singur algoritm hibrid.</p></div>
+  </div>
+</div>

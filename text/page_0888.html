@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Propagarea afinitatii - functia obiectiv</h2>
+  <p>Pagina prezinta functia obiectiv pentru propagarea afinitatii si ilustreaza rezultatele clusteringului DP cu esantionare Gibbs colaps pe date 2D.</p>
+  <div class="highlight-box"><strong>Functia obiectiv:</strong> S(c) = Σ_{i=1}^{N} s(i, c_i) + Σ_{k=1}^{N} δ_k(c) (Ecuatia 25.39)</div>
+  <div class="highlight-box"><strong>Termen de penalizare:</strong> δ_k(c) = -∞ daca c_k ≠ k dar ∃i : c_i = k, altfel 0 (Ecuatia 25.40)</div>
+  <div class="figure-box"><strong>Figura 25.7:</strong> 100 de puncte de date in 2D sunt clusterizate folosind un amestec DP cu esantionare Gibbs colaps. Se prezinta esantioane din posterior dupa 50, 100 si 200 de iteratii. Posteriorul asupra lui K (numarul de clustere) este afisat, bazat pe 200 de esantioane dupa eliminarea primelor 50 ca burn-in.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Functia obiectiv pentru propagarea afinitatii combina similaritatea fiecarui punct cu centroidul sau si un termen de penalizare care asigura ca un centroid se auto-selecteaza. Termenul δ_k previne situatia in care un punct este atribuit unui centroid care nu s-a ales pe sine insusi ca exemplar.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Penalizarea cu -∞ forteaza consistenta: daca un punct k este ales ca exemplar de altcineva, atunci k trebuie sa se aleaga pe sine ca exemplar (c_k = k). Figura 25.7 demonstreaza convergenta rapida a DPMM, cu clusterele stabilizandu-se dupa aproximativ 200 de iteratii.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Formularea ca problema de optimizare permite utilizarea algoritmilor de transmitere a mesajelor pe grafuri factor, facand propagarea afinitatii scalabila la seturi mari de date.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectarea fetelor in fotografii, propagarea afinitatii poate fi folosita pentru a selecta automat fete reprezentative din mii de imagini, determinand numarul optim de clustere fara ajustare manuala.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Modele Markov Ascunse - Observații și Aplicații (p. 604)</h2>
+  <p>Pagina detaliază modelul de observare al HMM-urilor (discret și continuu), prezintă Figura 17.7 cu un exemplu de HMM Gaussian cu 3 stări și introduce secțiunea de aplicații ale HMM-urilor.</p>
+  <div class="definition-box"><strong>Matrice de observare:</strong> Pentru observații discrete, p(xₜ = l | zₜ = k, θ) = B(k, l), unde B este matricea de emisie care definește probabilitățile observațiilor pentru fiecare stare ascunsă (Ec. 17.40).</div>
+  <div class="definition-box"><strong>Model de observare Gaussian:</strong> p(xₜ | zₜ = k, θ) = N(xₜ | μ_k, Σ_k) - fiecare stare emite observații conform unei distribuții Gaussiene cu parametri proprii (Ec. 17.41).</div>
+  <div class="definition-box"><strong>Modele Markov de comutare:</strong> Denumire alternativă pentru HMM-uri, subliniind faptul că apartenența la cluster se schimbă conform unei dinamici Markoviene.</div>
+  <div class="figure-box"><strong>Figura 17.7:</strong> (a) Date 2D generate de un HMM cu 3 stări, fiecare emițând din distribuții Gaussiene 2D diferite. (b) Secvența stărilor ascunse în timp, arătând tranzițiile între clustere.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>HMM-urile sunt similare modelelor de amestec Gaussian, dar cu dinamică temporală în apartenența la cluster. Acest lucru le face potrivite pentru modelarea secvențelor în care starea se schimbă în timp.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Flexibilitatea HMM-urilor provine din separarea modelului de tranziție (dinamica stărilor) de modelul de observare (emisie), permițând combinarea oricăror distribuții de emisie cu structura temporală Markoviană.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>HMM-urile sunt utilizate ca modele de densitate „cutie neagră" pentru secvențe, ca clasificatori generativi și pentru estimarea stărilor ascunse din observații zgomotoase.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model HMM de segmentare a pieței financiare: stările ascunse reprezintă regimuri de piață (volatilitate ridicată vs. scăzută), iar observațiile sunt randamentele zilnice - modelul comută între regimuri conform unui lanț Markov.</p></div>
+  </div>
+</div>

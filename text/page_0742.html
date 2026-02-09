@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>BP Gaussiana: calculul marginalelor si mesajelor</h2>
+  <p>Aceasta pagina deriveaza formulele detaliate pentru belief propagation Gaussiana, incluzand operatiile de produs si marginalizare de Gaussiene.</p>
+  <div class="definition-box"><strong>Produsul a doua Gaussiene:</strong> N(x|μ_1, λ_1^{-1}) × N(x|μ_2, λ_2^{-1}) = C·N(x|μ, λ^{-1}) unde λ = λ_1 + λ_2 si μ = λ^{-1}(μ_1 λ_1 + μ_2 λ_2). Preciziile se aduna, iar media este o medie ponderata de precizii.</div>
+  <div class="definition-box"><strong>Marginalizarea Gaussienei:</strong> ∫ exp(-ax^2 + bx) dx = √(π/a) exp(b^2/4a), o formula fundamentala pentru calculul mesajelor in BP Gaussiana.</div>
+  <div class="highlight-box"><strong>Credinta nodului:</strong> bel_s(x_s) = N(x_s|μ_s, λ_s^{-1}) unde λ_s = ℓ_s + Σ_{t∈nbr(s)} λ_ts (suma preciziei locale cu preciziile mesajelor primite) si μ_s = λ_s^{-1}(ℓ_s m_s + Σ_{t∈nbr(s)} λ_ts μ_ts) (media ponderata).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>BP Gaussiana functioneaza in spatiul preciziilor (forma informationala), unde produsul de Gaussiene corespunde adunarii preciziilor si combinarii liniare a mediilor. Marginalizarea foloseste integrala Gaussiana standard. Credinta fiecarui nod combina aditiv precizia locala cu preciziile din mesajele primite, iar media este media ponderata corespunzatoare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Forma informationala (precizie, media naturala) este naturala pentru combinarea informatiei: fiecare mesaj adauga precizie (informatie). Media ponderata de precizii da mai multa importanta surselor de informatie mai precise. Aceste operatii sunt in forma inchisa, facand BP Gaussiana eficienta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>BP Gaussiana este baza filtrului informatiei (information filter), o alternativa la filtrul Kalman care este mai eficienta in forme informationale. Este folosita in fuziunea senzorilor, SLAM (localizare si cartografiere simultana) si procesarea semnalelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In navigatia GPS, pozitia este estimata combinand informatia de la mai multi sateliti. Fiecare satelit trimite un "mesaj" cu precizia sa, iar receptorul combina mesajele prin insumarea preciziilor si calculul mediei ponderate - exact operatiile din BP Gaussiana.</p></div>
+  </div>
+</div>

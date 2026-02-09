@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exemplu de Compromis Bias-Varianță: Shrinkage și Ridge Regression</h2>
+  <p>Pagina ilustrează compromisul bias-varianță prin distribuțiile de eșantionare ale MAP cu diferite puteri ale priorului și introduce ridge regression ca exemplu clasic.</p>
+  <div class="figure-box"><strong>Figura 6.4:</strong> (a) Distribuția de eșantionare a estimatului MAP cu diferite puteri ale priorului κ₀. MLE-ul (κ₀ = 0) este centrat pe adevăr dar are varianță mare. MAP-ul cu κ₀ > 0 este biased dar are varianță mai mică. (b) MSE-ul MAP relativă la MLE versus dimensiunea eșantionului N. MAP-ul cu κ₀ ∈ {1, 2} are MSE mai mic decât MLE-ul, mai ales pentru N mic.</div>
+  <div class="definition-box"><strong>Ridge Regression:</strong> Estimare MAP pentru regresia liniară cu prior Gaussian p(w) = N(w|0, λ⁻¹I). Priorul zero-mean încurajează ponderile să fie mici, reducând overfitting-ul. λ controlează puterea regularizării.</div>
+  <div class="highlight-box"><strong>Efectul Regularizării:</strong> λ = 0 produce MLE (fără regularizare), λ > 0 produce estimări biased dar cu varianță mai mică. Pe măsură ce λ crește, varianța scade dar biasul crește.</div>
+  <div class="highlight-box"><strong>Bias-Varianță în Clasificare:</strong> Pentru pierderea 0-1, descompunerea bias-varianță nu mai funcționează simplu - biasul și varianța se combină multiplicativ, nu aditiv. Dacă estimarea este pe partea corectă a graniței de decizie, reducerea varianței ajută; dacă este pe partea greșită, creșterea varianței poate ajuta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 6.4 demonstrează vizual cum shrinkage-ul (contracția) reduce varianța în schimbul biasului, producând MSE total mai mic. Ridge regression este prezentat ca aplicație directă a acestui principiu în regresia liniară. Se observă că compromisul bias-varianță nu se aplică direct în clasificare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Alegerea hiperparametrului de regularizare (κ₀ sau λ) este crucială: prea mult regularizare produce underfitting (bias mare), prea puțin produce overfitting (varianță mare). Validarea încrucișată este metoda standard pentru a găsi valoarea optimă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Ridge regression este una dintre cele mai utilizate tehnici în practică, implementată în scikit-learn, TensorFlow și PyTorch. Weight decay în rețelele neurale este echivalentul direct al regularizării L2 din ridge regression.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La predicția consumului de energie al unei clădiri cu sute de senzori, ridge regression previne overfitting-ul prin penalizarea ponderilor mari, producând un model mai stabil care generalizează mai bine la date noi decât regresia liniară simplă.</p></div>
+  </div>
+</div>

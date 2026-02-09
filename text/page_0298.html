@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Învățarea Bayesiană Online și Clasificatoare Generative vs. Discriminative</h2>
+  <p>Pagina discută avantajele învățării bayesiene online (filtrul Kalman, filtrarea particulelor) și începe comparația fundamentală între clasificatoarele generative și cele discriminative.</p>
+  <div class="definition-box"><strong>Filtrul Kalman pentru regresie online:</strong> Converge la soluția optimală offline într-o singură trecere prin date, spre deosebire de LMS care necesită multiple treceri. Modelează posterioarul ca o Gaussiană cu medie și covarianță actualizate recursiv.</div>
+  <div class="definition-box"><strong>Filtrul de densitate presupusă (Assumed Density Filter):</strong> Pentru modele neliniare (GLM), aproximează posterioarul cu o Gaussiană cu covarianță diagonală. Varianțele servesc ca rate de învățare per parametru.</div>
+  <div class="definition-box"><strong>Clasificator generativ:</strong> Modelează distribuția comună p(y, x) sau densitățile condiționate de clasă p(x|y). Exemplu: Analiza discriminantă Gaussiană (GDA), Naive Bayes. Posterioarul p(y=1|x) = sigm(w&#7488;x) are aceeași formă ca regresia logistică.</div>
+  <div class="definition-box"><strong>Clasificator discriminativ:</strong> Modelează direct p(y|x) fără a modela distribuția intrărilor. Exemplu: regresia logistică. Face presupuneri mai slabe despre date, dar nu poate genera date noi.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Secțiunea 8.6 compară cele două paradigme fundamentale de clasificare. Remarcabil, GDA și regresia logistică produc aceeași formă funcțională p(y=1|x) = sigm(w&#7488;x), dar diferă în: (1) presupunerile despre date, (2) modul de antrenare (verosimilitudine condiționată vs. comună), (3) eficiența datelor, și (4) robustețea la specificări greșite ale modelului. Când presupunerile GDA sunt corecte, aceasta necesită mai puține date; când sunt greșite, regresia logistică este superioară.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul bias-varianță se manifestă elegant: modelele generative au mai mult bias (presupuneri mai puternice) dar mai puțină varianță (mai eficiente cu date puține). Modelele discriminative au mai puțin bias dar mai multă varianță. Pe măsură ce N → ∞, modelele discriminative câștigă deoarece bias-ul devine dominant.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>În practică, regresia logistică (discriminativă) este preferată în majoritatea situațiilor cu date suficiente. Modelele generative sunt preferate când: datele sunt limitate, există date lipsă, sau se dorește generarea de date noi (GANs, VAEs sunt modele generative moderne).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un spital cu doar 50 de cazuri de o boală rară folosește un model generativ (GDA) deoarece presupunerile structurale compensează lipsa datelor. Un alt spital cu 50.000 de cazuri folosește regresia logistică deoarece are suficiente date pentru a lăsa datele „să vorbească" fără presupuneri suplimentare.</p></div>
+  </div>
+</div>

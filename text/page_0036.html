@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Capitolul 1: Aplicatii Reale ale Clasificarii</h2>
+  <p>Exemple practice de clasificare: clasificarea documentelor, filtrarea spam-ului si reprezentarea bag-of-words.</p>
+  <div class="definition-box"><strong>Clasificarea Documentelor:</strong> Clasificarea unui document (pagina web, email) intr-una din C clase, calculand p(y = c|x, D), unde x este o reprezentare a textului.</div>
+  <div class="definition-box"><strong>Filtrarea Spam:</strong> Caz special al clasificarii de documente cu doua clase: spam (y = 1) sau ham (y = 0).</div>
+  <div class="definition-box"><strong>Bag of Words:</strong> Reprezentare a documentelor de lungime variabila ca vectori de dimensiune fixa, unde x_ij = 1 daca cuvantul j apare in documentul i.</div>
+  <div class="figure-box"><strong>Figura 1.2:</strong> Subset de dimensiune 16242 x 100 din datele 20-newsgroups. Fiecare rand este un document (vector bag-of-words), fiecare coloana este un cuvant. Liniile rosii separa 4 clase (comp, rec, sci, talk). Se observa subseturi de cuvinte a caror prezenta sau absenta este indicativa pentru clasa.</div>
+  <div class="highlight-box"><strong>Matrice de Co-aparitie:</strong> Aplicand transformarea bag-of-words la toate documentele, obtinem o matrice binara document x cuvant, reducand clasificarea la detectarea de tipare subtile in bitii matricei.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 1.2.1.3 prezinta aplicatii concrete ale clasificarii. Clasificarea documentelor transforma texte de lungime variabila in vectori de dimensiune fixa prin reprezentarea bag-of-words. Filtrarea spam-ului este un exemplu clasic unde prezenta anumitor cuvinte (buy, cheap, viagra) indica cu probabilitate mare un mesaj spam.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Reprezentarea bag-of-words ignora ordinea cuvintelor, dar este surprinzator de eficace pentru clasificare. Matricea de co-aparitie din Figura 1.2 arata vizual cum diferite grupuri de cuvinte corespund diferitelor clase de documente. Aceasta este o simplificare puternica care reduce problema NLP la algebra liniara.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clasificarea documentelor este utilizata in motoarele de cautare, sisteme de recomandare de stiri, analiza sentimentelor, detectarea limbii si organizarea automata a email-urilor in foldere.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Gmail foloseste un clasificator de spam care analizeaza cuvintele din email, linkurile, expeditorul si alte caracteristici pentru a decide automat daca un mesaj este spam. Sistemul invata continuu din feedback-ul utilizatorilor care marcheaza mesaje ca spam sau non-spam.</p></div>
+  </div>
+</div>

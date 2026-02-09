@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Verosimilitatea marginala si stabilitate numerica in clasificarea GP</h2>
+  <p>Aceasta pagina prezinta calculul verosimilitatii marginale pentru clasificare GP si formularea stabil numeric folosind matricea B.</p>
+  <div class="definition-box"><strong>Verosimilitatea marginala aproximata:</strong> log p(y|X) ~ log p(y|f_hat) - 1/2 * f_hat^T K^{-1} f_hat - 1/2 * log|K| - 1/2 * log|K^{-1} + W|, obtinuta prin aproximarea Laplace.</div>
+  <div class="highlight-box"><strong>Formulare stabil numerica:</strong> Definind B = I_N + W^{1/2} K W^{1/2}, cu valori proprii marginite inferior de 1, se evita inversarea directa a K sau W. Actualizarea IRLS devine f^{new} = K(b - W^{1/2} L^T \ (L \ (W^{1/2} Kb))), unde b = Wf + nabla log p(y|f).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Calculul verosimilitatii marginale in clasificarea GP este mai complex decat in regresie, deoarece f_hat, W si K depind toate de hiperparametrii theta. Se foloseste aproximarea Laplace: log p(y|X) ~ ell(f_hat) - 1/2 log|H|. Pentru stabilitate numerica, se introduce matricea B = I + W^{1/2} K W^{1/2}, ale carei valori proprii sunt bine conditionate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Matricea B are valori proprii >= 1 (deoarece w_ii = pi_i(1-pi_i) <= 0.25 pentru regresie logistica), ceea ce o face usor de inversat. Lema de inversare matriciala permite exprimarea (K^{-1} + W)^{-1} = K - KW^{1/2} B^{-1} W^{1/2} K, evitand inversarea directa a matricelor mari.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Stabilitatea numerica este critica in implementarile practice ale GP. Bibliotecile GPy, GPflow si GPML folosesc aceste formulari stabilizate. Fara ele, inversarea K poate duce la instabilitati numerice, special cand datele sunt aproape colineare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea imaginilor medicale cu GP, unde numarul de caracteristici poate fi mare si matricea K poate deveni slab conditionata, formularea prin B asigura predictii stabile si fiabile.</p></div>
+  </div>
+</div>

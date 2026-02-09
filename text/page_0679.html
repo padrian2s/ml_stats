@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Filtrul Kalman Extins (EKF)</h2>
+  <p>Pagina introduce filtrul Kalman extins (EKF) pentru inferenta online aproximativa in modele spatiului starilor non-liniare cu zgomot Gaussian.</p>
+  <div class="definition-box"><strong>Filtrul Kalman Extins (EKF):</strong> Extensie a filtrului Kalman pentru modele non-liniare de forma z_t = g(u_t, z_{t-1}) + N(0, Q_t) si y_t = h(z_t) + N(0, R_t), unde g si h sunt functii neliniare dar diferentiabile.</div>
+  <div class="highlight-box"><strong>Liniarizarea prin expansiune Taylor:</strong> EKF liniarizeaza functiile g si h in jurul estimarii anterioare folosind serii Taylor de ordinul intai. Modelul de masurare: p(y_t|z_t) ≈ N(y_t|h(μ_{t|t-1}) + H_t(y_t − μ_{t|t-1}), R_t), unde H_t este matricea Jacobiana a lui h evaluata la moda a priori: H_{ij} = ∂h_i(z)/∂z_j.</div>
+  <div class="highlight-box"><strong>Aproximarea Gaussiana:</strong> Cand o distributie Gaussiana p(x) este trecuta printr-o functie neliniara y = g(x), distributia rezultata p(y) nu mai este Gaussiana. EKF aproximeaza aceasta distributie cu cea mai buna Gaussiana, folosind liniarizarea functiei g.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>EKF este cea mai utilizata extensie a filtrului Kalman pentru sisteme non-liniare. Ideea centrala este liniarizarea functiilor de tranzitie si observatie prin expansiune Taylor de ordinul intai, apoi aplicarea ecuatiilor standard ale filtrului Kalman pe modelul liniarizat.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Matricea Jacobiana H_t inlocuieste matricea de observatie C din filtrul Kalman liniar. Eroarea de liniarizare nu este modelata explicit in covariantele Q si R. Calitatea aproximarii depinde de gradul de neliniaritate al functiilor g si h si de dispersia distributiei a priori.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>EKF este standardul industrial in navigatia inertiala, urmarirea tintelor radar, localizarea robotilor mobili si estimarea starii in sisteme de putere electrica. Este implementat in majoritatea sistemelor GPS si IMU comerciale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In navigatia unui vehicul autonom, EKF combina masuratori de la GPS, accelerometre si giroscoape pentru a estima pozitia, viteza si orientarea vehiculului. Modelul de miscare este neliniar datorita rotirilor, iar EKF gestioneaza aceasta neliniaritate prin liniarizare locala.</p></div>
+  </div>
+</div>

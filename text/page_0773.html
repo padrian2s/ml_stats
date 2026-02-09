@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Variational Bayes (VB) si exemplul Gaussianei univariate</h2>
+  <p>Aceasta pagina introduce Variational Bayes (VB) pentru inferenta asupra parametrilor (nu doar variabilelor latente) si prezinta exemplul fundamental al Gaussianei univariate.</p>
+  <div class="definition-box"><strong>Variational Bayes (VB):</strong> Inferenta variationala aplicata la parametrii modelului θ (nu doar variabilele latente z). Se aproximeaza posterioara parametrilor: p(θ|D) ≈ ∏_k q(θ_k). Daca se inferă atat θ cat si z, se obtine variational Bayes EM.</div>
+  <div class="definition-box"><strong>Exemplul VB Gaussian:</strong> Pentru o Gaussiana 1D cu prior conjugat p(μ, λ) = N(μ|μ_0, (κ_0 λ)^{-1}) Ga(λ|a_0, b_0), se aproximeaza posterioara factorizat: q(μ, λ) = q_μ(μ) q_λ(λ). Formele optime sunt automat Gaussiana si Gamma.</div>
+  <div class="highlight-box"><strong>Free-form optimization:</strong> Nu trebuie sa specificam formele q_μ si q_λ a priori - ele rezulta automat din structura modelului: q_μ este Gaussiana si q_λ este Gamma, exact ca in priorul conjugat. Aceasta proprietate se datoreaza familiilor exponentiale conjugate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>VB extinde mean field de la variabile latente la parametri. Exemplul Gaussianei univariate este pedagogic: posterioara exacta p(μ, λ|D) este o Gaussiana-Gamma (calculabila exact), dar VB o aproximeaza factorizat: q_μ × q_λ. Aceasta permite compararea cu solutia exacta. Formele optime q_μ = N si q_λ = Ga rezulta automat din optimizarea free-form, datorita conjugarii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>VB produce aproximari mai bogate decat estimarea punctuala (MAP): in loc de un singur punct (μ*, λ*), obtinem distributii complete q_μ si q_λ care captureaza incertitudinea. Factorizarea q_μ × q_λ ignora corelatia intre μ si λ, ceea ce poate sub-estima incertitudinea.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>VB este standard in modelele Bayesiene complexe: amestecuri de Gaussiene, LDA, factorizare matriceala, retele neuronale Bayesiene. Ofera un compromis intre estimarea punctuala (rapida dar fara incertitudine) si MCMC (cu incertitudine dar lent).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In estimarea temperaturii medii dintr-un set de masuratori zgomotoase, VB produce nu doar o estimare punctuala ci si o banda de incertitudine care se micsoreaza pe masura ce se adauga mai multe masuratori, oferind informatii mai utile pentru luarea deciziilor.</p></div>
+  </div>
+</div>

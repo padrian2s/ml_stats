@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exemple MH pe amestec de Gaussiene - Efectul variantei propunerii</h2>
+  <p>Aceasta pagina ilustreaza comportamentul algoritmului Metropolis-Hastings pe un amestec de Gaussiene 1D, aratand efectul dimensiunii pasului asupra convergentei.</p>
+  <div class="definition-box"><strong>Propunere cu varianta mica (sigma=0.5):</strong> Rata de acceptare este ridicata (~90%), dar lantul exploreaza lent distributia. Se misca in pasi mici si necesita foarte multe iteratii pentru a trece intre modurile amestecului. Autocorelatia este mare.</div>
+  <div class="definition-box"><strong>Propunere cu varianta mare (sigma=40):</strong> Rata de acceptare este foarte mica (~2%), lantul stagneaza frecvent la aceeasi valoare. Majoritatea propunerilor aterizeaza in regiuni de probabilitate mica si sunt respinse.</div>
+  <div class="highlight-box"><strong>Propunere cu varianta optima (sigma=5):</strong> Rata de acceptare este moderata (~25%), lantul exploreaza eficient distributia, trece intre moduri si produce esantioane cu autocorelatia mica. Aceasta confirma regula empirica a ratei de acceptare de ~23% pentru Gaussiene.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza vizual de ce calibrarea propunerii MH este critica. Cele trei scenarii (sigma prea mic, optim, prea mare) ilustreaza clar trade-off-ul explorare vs acceptare si justifica euristica ratei de acceptare de ~23%.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Problema amestecului de Gaussiene evidentiaza o dificultate fundamentala a MCMC: trecerea intre moduri separare (mode hopping). Chiar cu varianta optima, random walk MH poate necesita exponential de multi pasi pentru a trece intre moduri separate de regiuni de probabilitate mica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Diagnosticarea convergentei MCMC necesita urmarirea ratei de acceptare, autocorelatiei si trace plot-urilor. O rata de acceptare in afara intervalului 15-50% sugereaza ca propunerea trebuie ajustata.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea filogenetica (arbori evolutivi), distributia posterioara are multiple moduri corespunzand diferitelor topologii ale arborelui. MCMC standard poate ramane blocat intr-un singur mod, motivand dezvoltarea de propuneri specializate (tree rearrangement moves).</p></div>
+  </div>
+</div>

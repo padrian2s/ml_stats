@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Funcții de Risc pentru Estimarea Mediei Gaussiene</h2>
+  <p>Pagina prezintă grafic funcțiile de risc pentru diferiți estimatori ai mediei Gaussiene și derivă analitic MSE-ul pentru fiecare estimator.</p>
+  <div class="figure-box"><strong>Figura 6.3:</strong> Funcțiile de risc pentru estimarea mediei unei distribuții N(θ*, σ² = 1). (a) N = 5 eșantioane. (b) N = 20 eșantioane. Linia orizontală albastră solidă reprezintă MLE-ul, linia curbată albastră deschisă este media posterioară cu κ = 5, iar linia roșie punctată este mediana.</div>
+  <div class="highlight-box"><strong>MSE pentru mediană:</strong> MSE(δ₂|θ*) = π/(2N), varianța medianei este aproximativ π/(2N), ceea ce o face un estimator inadmisibil pentru date Gaussiene.</div>
+  <div class="highlight-box"><strong>MSE pentru valoare fixă:</strong> MSE(δ₃|θ*) = (θ* - θ₀)², riscul depinde doar de distanța dintre parametrul adevărat și valoarea fixă aleasă.</div>
+  <div class="highlight-box"><strong>MSE pentru media posterioară:</strong> MSE(δ_κ|θ*) = 1/(N+κ)² · (Nσ² + κ²(θ₀ - θ*)²), un compromis explicit între varianță (termenul Nσ²) și bias (termenul κ²(θ₀ - θ*)²).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Analiza grafică și analitică arată că cel mai bun estimator depinde de valoarea necunoscută θ*. Dacă θ* este aproape de θ₀, valoarea fixă este cea mai bună; dacă θ* este într-un interval rezonabil, media posterioară este optimă; dacă θ* este departe de θ₀, MLE-ul este cel mai bun. Surprinzător, mediana eșantionului este întotdeauna dominată de media eșantionului pentru date Gaussiene.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cu cât N crește, toate funcțiile de risc scad și diferențele între estimatori devin mai mici. Shrinkage-ul (contracția) ușoară prin media posterioară cu prior slab (κ = 1) este aproape întotdeauna benefică, confirmând intuiția că regularizarea moderată este de obicei avantajoasă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>În practică, când avem puține date (N mic), alegerea estimatorului contează foarte mult. Regularizarea (echivalentul priorului Bayesian) devine esențială pentru performanța modelelor de ML cu date limitate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La estimarea performanței unui jucător de baseball cu doar 10 apariții la bătaie, media simplă este foarte instabilă. Shrinkage-ul către media ligii (echivalentul mediei posterioare) produce predicții mult mai accurate, fapt demonstrat celebru în „paradoxul lui Stein" și aplicat în sabermetrics.</p></div>
+  </div>
+</div>

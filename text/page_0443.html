@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>FastICA - Convergenta, Trasaturi Multiple si Distributii Sursa</h2>
+  <p>Pagina continua descrierea FastICA cu invatarea mai multor trasaturi, si introduce tipurile de distributii non-gaussiene relevante pentru modelarea densitatilor sursa in ICA.</p>
+  <div class="figure-box"><strong>Figura 12.22:</strong> Ilustrarea distributiilor gaussiana, sub-gaussiana (uniforma) si super-gaussiana (Laplace) in 1D si 2D. (a) Densitatile 1D: gaussiana (linie continua), Laplace (linie punctata), uniforma (linie intrerupta). (b) Esantioane gaussiene 2D - forma circulara. (c) Esantioane Laplace 2D - concentrate pe axe. (d) Esantioane uniforme 2D - patrat uniform.</div>
+  <div class="definition-box"><strong>Kurtosis (curtoza):</strong> kurt(z) = μ₄/σ⁴ - 3, masoara „ascutimea" distributiei. Kurtoza pozitiva = super-gaussiana (leptokurtica), kurtoza negativa = sub-gaussiana (platikurtica).</div>
+  <div class="definition-box"><strong>Momentul central de ordinul k:</strong> μ_k = E[(X - E[X])^k], masurarea proprietatilor de forma ale distributiei.</div>
+  <div class="definition-box"><strong>Asimetria (skewness):</strong> skew(z) = μ₃/σ³, masoara asimetria distributiei fata de medie.</div>
+  <div class="highlight-box"><strong>Distributii super-gaussiene:</strong> Au un varf pronuntat la medie si cozi grele. Laplace este un exemplu clasic: log p(z) = -√2|z| - log(√2). Semnalele naturale (imagini, vorbire) sunt de obicei super-gaussiene.</div>
+  <div class="highlight-box"><strong>Distributii sub-gaussiene:</strong> Sunt mai plate decat gaussiana (kurtoza negativa). Distributia uniforma este exemplul clasic.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pentru invatarea mai multor trasaturi in FastICA, se pot invata vectorii v secvential (proiectand afara subspatiul deja invatat) sau in paralel (ortogonalizand matricea V). Varianta paralela este preferata deoarece trasaturile ICA nu sunt ordonate ierarhic. Sectiunea despre densitatile sursa clasifica distributiile non-gaussiene in super-gaussiene (cozi grele, kurtoza pozitiva) si sub-gaussiene (plate, kurtoza negativa), plus distributii asimetrice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Alegerea distributiei sursa este critica pentru succesul ICA. Este important sa se stie daca sursele sunt super- sau sub-gaussiene, chiar daca forma exacta nu conteaza mult. Semnalele naturale (imagini, vorbire) tind sa fie super-gaussiene dupa filtrare liniara, ceea ce face din Laplace sau logistica alegeri bune pentru G(z).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea tipului de non-gaussianitate este esentiala in practica: pentru imagini naturale se folosesc priori super-gaussiene (Laplace), pentru semnale de comunicatie (QAM) se folosesc priori sub-gaussiene (uniforme). Alegerea gresita poate duce la convergenta lenta sau esec total al ICA.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In compresia imaginilor, coeficientii wavelet ai imaginilor naturale au distributii foarte super-gaussiene (majoritatea sunt aproape zero, cu cateva valori extreme). ICA exploateaza aceasta proprietate pentru a gasi reprezentari rare si eficiente ale imaginilor.</p></div>
+  </div>
+</div>

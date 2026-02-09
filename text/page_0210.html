@@ -1,0 +1,12 @@
+<div class="page-content">
+  <h2>Invatarea Supervizata si Functii de Pierdere</h2>
+  <p>Pagina extinde teoria deciziei bayesiene la invatarea supervizata, unde scopul este gasirea unei functii de predictie δ: X → Y care minimizeaza pierderea asteptata pe date noi.</p>
+  <div class="definition-box"><strong>Invatare supervizata ca teorie a deciziei:</strong> Functia de predictie δ: X → Y mapeaza observatii la predictii. Costul l(y, y') masoara cat de gresita este predictia y' cand valoarea adevarata este y.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Invatarea supervizata se incadreaza natural in cadrul teoriei deciziei bayesiene. Functia de predictie δ joaca rolul regulii de decizie, iar functia de cost l(y, y') joaca rolul pierderii. Scopul este minimizarea riscului (pierderii asteptate) peste distributia datelor de test, nu doar pe setul de antrenament.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la estimarea parametrilor la predictie este esentiala: in estimarea parametrilor, pierderea este L(θ, θ_hat), iar in predictie, pierderea este l(y, δ(x)). Estimatorul Bayes pentru predictie integreaza peste incertitudinea parametrilor, oferind predictii mai robuste.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta formulare unifica toate problemele de invatare supervizata: clasificare (pierderea 0-1), regresie (pierderea l₂), regresie robusta (pierderea l₁), clasificare cu costuri diferite (matricea de pierdere asimetrica) si detectia anomaliilor (pierderea cu optiune de respingere).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectarea spam-ului, costul unui fals pozitiv (email important marcat ca spam) este mult mai mare decat costul unui fals negativ (spam ajunge in inbox). Matricea de pierdere asimetrica reflecta aceasta diferenta, iar estimatorul Bayes ajusteaza pragul de decizie in consecinta.</p></div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Derivarea MLE - Ecuația Normală și Soluția OLS</h2>
+  <p>Pagina derivă soluția analitică a MLE pentru regresia liniară prin ecuația normală și introduce interpretarea geometrică a celor mai mici pătrate.</p>
+  <div class="definition-box"><strong>Matricea Sumei de Pătrate:</strong> X^T X = Σᵢ xᵢxᵢ^T, o matrice D×D care rezumă informația din datele de intrare. Este simetrică și pozitiv semi-definită.</div>
+  <div class="highlight-box"><strong>Gradientul NLL:</strong> g(w) = X^T Xw - X^T y = Σᵢ xᵢ(w^T xᵢ - yᵢ), egalat cu zero pentru a găsi optimul.</div>
+  <div class="definition-box"><strong>Ecuația Normală:</strong> X^T Xw = X^T y, sistemul de ecuații liniare care definește soluția MLE. Se numește „normală" deoarece impune ca reziduurile să fie ortogonale (normale) pe spațiul coloanelor lui X.</div>
+  <div class="highlight-box"><strong>Soluția OLS (Ordinary Least Squares):</strong> ŵ_OLS = (X^T X)⁻¹ X^T y, soluția în formă închisă care necesită inversarea matricei D×D (X^T X).</div>
+  <div class="highlight-box"><strong>Interpretare geometrică:</strong> Coloanele lui X definesc un subspațiu liniar de dimensionalitate D în R^N. Se caută vectorul ŷ din acest subspațiu cel mai apropiat de y, adică ŷ = w₁x̃₁ + ... + w_Dx̃_D = Xw.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Soluția OLS ŵ = (X^T X)⁻¹ X^T y este unul dintre cele mai importante rezultate din statistică. Ecuația normală impune ortogonalitatea reziduurilor pe spațiul coloanelor lui X, ceea ce are o interpretare geometrică elegantă: proiecția ortogonală a y pe subspațiul generat de coloanele lui X.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Soluția necesită ca X^T X să fie inversabilă (rang plin), ceea ce necesită N ≥ D și lipsa colinearității perfecte. Complexitatea computațională este O(ND² + D³), dominată de inversarea matricei D×D.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>În practică, (X^T X)⁻¹ nu se calculează direct (instabil numeric). Se folosesc descompuneri matriceale (QR, SVD, Cholesky) care sunt mai stabile și mai eficiente. numpy.linalg.lstsq folosește SVD intern.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La ajustarea unui model de predicție a salariului în funcție de experiență, educație și nivel de management, soluția OLS oferă instantaneu ponderile optime care minimizează eroarea de predicție pe datele de antrenament, fără iterații.</p></div>
+  </div>
+</div>

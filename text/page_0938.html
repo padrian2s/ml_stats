@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 26 - Continuare: DAG-uri Cauzale si Modele Grafice Gaussiene Neorientate</h2>
+  <p>Pagina continua discutia despre invatarea DAG-urilor cauzale si introduce invatarea modelelor grafice Gaussiene neorientate (GGM).</p>
+  <div class="definition-box"><strong>Numarul modificat de cazuri (N_tck):</strong> Statistica suficienta pentru parametrul unui CPD se calculeaza sarind peste cazurile in care nodul a fost setat prin interventie: N_tck = Σ_{i: x_{i,t} not set} I(x_{i,t} = k, x_{i,pa(t)} = c). Aceasta exclude datele care nu provin din mecanismul natural.</div>
+  <div class="definition-box"><strong>Campuri aleatoare Gaussiene (GRF):</strong> Modele grafice Gaussiene neorientate, numite si modele grafice Gaussiene (GGM), unde structura este mai usor de invatat decat DAG-urile deoarece nu exista constrangeri de aciclicitate.</div>
+  <div class="highlight-box"><strong>MLE pentru GGM:</strong> Selectia covariantei (Dempster 1972): log-verosimilitatea este l(Ω) = log det Ω − tr(SΩ), unde Ω = Σ⁻¹ este matricea de precizie si S este matricea de covarianta empirica. (Ecuatia 26.66)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina trateaza doua subiecte majore: (1) completarea discutiei despre invatarea DAG-urilor cauzale cu interventii imperfecte si (2) introducerea invatarii structurii modelelor grafice Gaussiene neorientate (GGM). Pentru GGM, se prezinta estimatorul de maxima verosimilitate si conceptul de selectie a covariantei.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tranzitia de la modele orientate (DAG-uri) la modele neorientate (UGM-uri) aduce atat avantaje cat si dezavantaje. UGM-urile nu necesita constrangeri de aciclicitate, dar verosimilitatea nu se descompune, ceea ce face cautarea locala mai costisitoare. GGM-urile ofera un cadru elegant bazat pe matricea de precizie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GGM-urile sunt utilizate extensiv in genomica pentru modelarea retelelor de coexpresie genica, in neuroștiinte pentru conectivitatea cerebrala functionala si in finante pentru modelarea dependentelor intre active financiare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In biologia sistemelor, cand se injecteaza substante chimice stimulatoare sau inhibitoare pentru a controla proteinele, interventiile nu sunt perfecte. Modelul cu noduri de interventie augmentate permite captarea acestor efecte secundare ale substantelor chimice.</p></div>
+  </div>
+</div>

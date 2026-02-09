@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>Capitolul 1: Selectia Modelului si Validarea Incrucisata</h2>
+  <p>Alegerea complexitatii optime a modelului prin rata de eroare, setul de validare si validarea incrucisata (cross-validation).</p>
+  <div class="definition-box"><strong>Rata de Clasificare Gresita (Misclassification Rate):</strong> err(f, D) = (1/N) Σᴺᵢ₌₁ I(f(x_i) ≠ y_i) - fractia de predictii incorecte pe setul de date D (ecuatia 1.14).</div>
+  <div class="definition-box"><strong>Eroarea de Generalizare:</strong> Valoarea asteptata a ratei de clasificare gresita pe date viitoare, nevazute. Aceasta este metrica care conteaza cu adevarat.</div>
+  <div class="definition-box"><strong>Set de Validare:</strong> Subset al datelor de antrenament (de obicei 20%) folosit pentru selectia complexitatii modelului, separat de setul de antrenament propriu-zis (80%).</div>
+  <div class="definition-box"><strong>Validare Incrucisata (Cross Validation - CV):</strong> Tehnica de impartire a datelor in K folduri, antrenand pe K-1 folduri si testand pe foldul ramas, in mod rotativ. 5-fold CV este comun. K=N se numeste LOOCV (Leave-One-Out CV).</div>
+  <div class="figure-box"><strong>Figura 1.20:</strong> Suprafata de predictie KNN: (a) K=1 - suprafata foarte zgomotoasa (overfitting). (b) K=5 - suprafata mai neteda si mai generalizabila.</div>
+  <div class="figure-box"><strong>Figura 1.21:</strong> (a) Rata de clasificare gresita vs. K in KNN. Linia albastra punctata: eroare pe antrenament (creste cu K). Linia rosie solida: eroare pe test (curba in forma de U). (b) Schema validarii incrucisate cu 5 folduri.</div>
+  <div class="highlight-box"><strong>Curba in U:</strong> Pentru modele complexe (K mic), eroarea de test este mare (overfitting). Pentru modele simple (K mare), eroarea de test este mare (underfitting). Exista un K optim care minimizeaza eroarea de generalizare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunile 1.4.7-1.4.8 trateaza overfitting-ul si selectia modelului. Eroarea pe antrenament scade monoton cu complexitatea, dar eroarea pe test are forma de U. Setul de validare sau validarea incrucisata sunt metode practice pentru estimarea erorii de generalizare si alegerea complexitatii optime.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Curba in U este universala in ML: apare in KNN (alegerea lui K), regresie polinomiala (alegerea gradului), retele neuronale (alegerea numarului de neuroni) si orice alt model cu complexitate variabila. Nu trebuie sa folosim niciodata setul de test pentru a alege modelul - aceasta ar produce o estimare optimist-biasata a performantei.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Validarea incrucisata cu 5 sau 10 folduri este practica standard in industrie si cercetare. In competitii de ML (Kaggle), participantii folosesc CV pentru a selecta modele si a evita overfitting-ul. Impartirea tipica 80/20 este un compromis intre cantitatea de date pentru antrenament si fiabilitatea estimarii erorii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O companie farmaceutica care dezvolta un model predictiv pentru eficacitatea unui medicament foloseste validarea incrucisata cu 10 folduri pe datele clinice disponibile. Aceasta asigura ca modelul selectat generalizeaza la noi pacienti, nu doar la cei din studiul clinic original.</p></div>
+  </div>
+</div>

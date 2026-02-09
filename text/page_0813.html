@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Obiectivul LBP, multiplicatori Lagrange si transmiterea mesajelor</h2>
+  <p>Aceasta pagina demonstreaza formal ca punctele fixe ale LBP corespund punctelor stationare ale problemei variationale Bethe, folosind multiplicatori Lagrange.</p>
+  <div class="definition-box"><strong>Lagrangianul BVP:</strong> L(tau, lambda; theta) = theta^T*tau + H_Bethe(tau) + sum lambda_ss*C_ss(tau) + sum lambda_ts*C_ts(tau) + sum lambda_st*C_st(tau), unde C_ss sunt constrangerile de normalizare si C_ts, C_st sunt constrangerile de marginalizare.</div>
+  <div class="definition-box"><strong>Conditiile de stationaritate:</strong> Derivand L in raport cu tau si egaland cu zero: log tau_s(x_s) = lambda_ss + theta_s(x_s) + sum_{t in nbr(s)} lambda_ts(x_s), ceea ce duce la expresia obisnuita a belief-urilor LBP.</div>
+  <div class="highlight-box"><strong>Echivalenta LBP-BVP:</strong> Definind M_ts(x_s) = exp(lambda_ts(x_s)), conditiile de stationaritate se rescriu exact ca ecuatiile de BP: tau_s(x_s) proportional cu exp(theta_s(x_s)) * prod M_ts(x_s), iar mesajele corespund multiplicatorilor Lagrange exponentiati.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina ofera demonstratia formala ca LBP rezolva (local) problema variationala Bethe. Multiplicatorii Lagrange ai constrangerilor de marginalizare corespund exact mesajelor din BP. Aceasta este una dintre cele mai elegante conexiuni din inferenta probabilistica.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conexiunea mesaje = multiplicatori Lagrange este profunda: mesajele BP impun consistenta locala intre pseudo-marginale vecine, exact rolul multiplicatorilor Lagrange in optimizarea cu constrangeri.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta perspectiva permite proiectarea de noi algoritmi de inferenta prin modificarea obiectivului (e.g., entropie Kikuchi) sau a constrangerilor (e.g., constrangeri de ciclu), mentinand structura de transmitere a mesajelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In optimizarea retelelor de senzori wireless, unde fiecare senzor comunica doar cu vecinii, mesajele BP corespund schimbului de informatii locale intre senzori, iar convergenta corespunde atingerii unui consens distribuit.</p></div>
+  </div>
+</div>

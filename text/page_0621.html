@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Matricea de tranzitie si ecuatiile Chapman-Kolmogorov</h2>
+  <p>Aceasta pagina detaliaza matricea de tranzitie, diagramele de stare, tranzitia stanga-dreapta si ecuatiile Chapman-Kolmogorov.</p>
+  <div class="definition-box"><strong>Matrice de tranzitie stanga-dreapta:</strong> O matrice de tranzitie cu A_{ij} = 0 pentru j < i, permitand doar tranzitii inainte. Folosita in recunoasterea vorbirii unde secventa de foneme progreseaza intr-o singura directie.</div>
+  <div class="highlight-box"><strong>Ecuatiile Chapman-Kolmogorov:</strong> A_{ij}(m+n) = sum_k A_{ik}(m) * A_{kj}(n), echivalent cu A(m+n) = A(m) * A(n). Implica A(n) = A^n: tranzitia in n pasi se obtine ridicand matricea A la puterea n.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 17.1 ilustreaza doua diagrame de tranzitie: (a) un lant cu 2 stari cu parametri alpha si beta, si (b) un lant stanga-dreapta cu 3 stari unde tranzitiile sunt doar inainte (starea 3 este absorbanta). Ecuatiile Chapman-Kolmogorov permit calculul probabilitatilor de tranzitie pe n pasi prin inmultirea matriceala A(n) = A^n. Aceasta este eficient calculata prin 'matrix powering' (ridicare repetata la patrat).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Matricea stanga-dreapta este naturala pentru procese cu progresie temporala unidirectionala. Starea absorbanta (A_{33}=1) indica sfarsitul procesului. Lantul cu 2 stari este complet caracterizat de doar 2 parametri (alpha, beta), demonstrand parsimonia modelului Markov.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In recunoasterea vorbirii, fiecare cuvant este modelat ca un HMM stanga-dreapta cu stari corespunzand fonemelor. In bioinformatica, genele sunt modelate ca secvente de stari (exon, intron, inter-genic) cu tranzitii stanga-dreapta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea degradarii echipamentelor industriale, un lant Markov stanga-dreapta cu stari 'Nou' -> 'Uzat' -> 'Defect' permite estimarea duratei de viata ramase si planificarea mentenantei preventive.</p></div>
+  </div>
+</div>

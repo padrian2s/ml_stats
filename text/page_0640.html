@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul Forward - Pseudo-cod și Log-verosimilitate (p. 610)</h2>
+  <p>Pagina prezintă pseudo-codul complet al algoritmului forward (Algoritmul 17.1) și introduce algoritmul forwards-backwards pentru netezire.</p>
+  <div class="definition-box"><strong>Algoritmul forward:</strong> Calculează recursiv marginalele filtrate αₜ și constanta de normalizare Zₜ pentru fiecare pas temporal, utilizând matricea de tranziție Ψ și vectorii de evidență locală ψₜ.</div>
+  <div class="highlight-box"><strong>Log-verosimilitatea:</strong> log p(x₁:T|θ) = Σₜ log p(xₜ|x₁:ₜ₋₁) = Σₜ log Zₜ (Ec. 17.49) - se calculează ca produs secundar al algoritmului forward.</div>
+  <div class="highlight-box"><strong>Descompunerea forwards-backwards:</strong> p(zₜ=j|x₁:T) ∝ p(zₜ=j|x₁:ₜ) · p(x_{t+1:T}|zₜ=j) = αₜ(j)·βₜ(j) (Ec. 17.50-17.53).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul forward este prezentat complet cu inițializarea, bucla principală și calculul log-verosimilității. Algoritmul forwards-backwards extinde filtrarea la netezire prin combinarea mesajelor forward (αₜ) și backward (βₜ).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Decompoziția în mesaje forward și backward este un caz special al propagării credinței pe grafuri, care va fi generalizată în capitolul 20. Ideea cheie: separarea trecutului de viitor condiționat de starea curentă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Calculul eficient al log-verosimilității este esențial pentru antrenarea HMM-urilor prin EM (algoritmul Baum-Welch) și pentru compararea diferitelor modele.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un sistem de recunoaștere vocală, algoritmul forward calculează probabilitatea observațiilor acustice sub diferite modele de cuvinte, permițând selecția celui mai probabil cuvânt rostit.</p></div>
+  </div>
+</div>

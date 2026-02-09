@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Sectiunea 27.2.4 - Modelul GaP si Factorizarea Matriceala Non-negativa</h2>
+  <p>Pagina introduce modelul Gamma-Poisson (GaP) si conexiunea sa cu factorizarea matriceala non-negativa (NMF), precum si priorul spike-and-Gamma pentru raritate.</p>
+  <div class="definition-box"><strong>Modelul Gamma-Poisson (GaP):</strong> Variabilele latente z_i⁺ sunt non-negative cu prior Gamma: p(z_i⁺) = Π_k Ga(z_ik⁺|α_k, β_k). Verosimilitatea: p(n_i|z_i⁺) = Π_v Poi(n_iv|b_v^T z_i⁺) (Ecuatii 27.15-27.16). (Canny 2004)</div>
+  <div class="definition-box"><strong>Factorizarea Matriceala Non-negativa (NMF):</strong> Se obtine din GaP cand α_k = β_k = 0 (Lee si Seung 2001). NMF nu este un model generativ probabilistic propriu-zis deoarece nu specifica un prior corect pentru z_i⁺, si sufera de supraajustare.</div>
+  <div class="definition-box"><strong>Priorul spike-and-Gamma:</strong> p(z_ik⁺) = ρ_k I(z_ik⁺ = 0) + (1 − ρ_k)Ga(z_ik⁺|α_k, β_k) (Ecuatia 27.17), unde ρ_k este probabilitatea de spike la zero. Aceasta incurajeaza raritatea in variabilele latente.</div>
+  <div class="highlight-box"><strong>Conexiunea GaP-mPCA:</strong> Cand GaP este conditionat pe o lungime fixa L_i, se reduce la modelul mPCA. Aceasta deoarece o suma de variabile aleatoare Poisson, conditionata pe suma lor, devine o distributie multinomiala.</div>
+  <div class="figure-box"><strong>Figura 27.2:</strong> (a) Modelul Gaussian-Poisson (GAP) cu prior Gamma pe variabilele latente. (b) Modelul LDA cu prior Dirichlet pe proportiile de topicuri.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>GaP ofera un cadru probabilistic riguros pentru factorizarea matriceala non-negativa, inlocuind abordarea ad-hoc a NMF cu un model generativ complet. Priorul Gamma asigura non-negativitatea variabilelor latente, iar verosimilitatea Poisson este naturala pentru date de contorizare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>NMF poate fi vazut ca o versiune degenerata a GaP, fara prior propriu-zis. Modelul GaP rezolva problemele de supraajustare ale NMF prin specificarea unui prior corect. Priorul spike-and-Gamma adauga o componenta de selectie a caracteristicilor, permitand ca unele componente latente sa fie exact zero.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>NMF este extrem de popular in: analiza de imagini (decomponerea fetelor in parti componente: ochi, nas, gura), analiza audio (separarea surselor sonore), bioinformatica (analiza profilelor de expresie genica) si text mining (descoperirea temelor).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza fetelor, NMF descompune imaginile in parti semnificative (ochi, nas, gura), spre deosebire de PCA care produce "eigenfaces" holiste. GaP imbunatateste aceasta decomponere prin incertitudine probabilistica si evitarea supraajustarii.</p></div>
+  </div>
+</div>

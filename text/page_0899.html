@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Clustering ierarhic Bayesian</h2>
+  <p>Pagina introduce clusteringul ierarhic Bayesian (Bayesian Hierarchical Clustering - BHC) si prezinta algoritmul sau bazat pe teste de ipoteze Bayesiene pentru decizia de imbinare.</p>
+  <div class="definition-box"><strong>Clustering ierarhic Bayesian (BHC):</strong> O abordare probabilistica (Heller si Ghahramani 2005) similara algoritmic cu clusteringul aglomerativ standard, dar care foloseste teste de ipoteze Bayesiene pentru a decide daca clusterele trebuie imbinate.</div>
+  <div class="highlight-box"><strong>Raportul de probabilitate de imbinare:</strong> r_{ij} = p(D_{ij}|M_{ij}=1)·p(M_{ij}=1) / p(D_{ij}|T_{ij}) (Ecuatia 25.55)</div>
+  <div class="highlight-box"><strong>Verosimilitate marginala (imbinare):</strong> p(D_{ij}|M_{ij}=1) = ∫ [∏_{x_n ∈ D_{ij}} p(x_n|θ)] p(θ|λ)dθ (Ecuatia 25.57)</div>
+  <div class="highlight-box"><strong>Verosimilitate marginala (neimbinare):</strong> p(D_{ij}|M_{ij}=0) = p(D_i|T_i)·p(D_j|T_j) (Ecuatia 25.58)</div>
+  <div class="definition-box"><strong>Criteriu de taiere:</strong> Arborele poate fi taiat la punctele unde r_{ij} < 0.5, indicand ca datele nu suporta imbinarea.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>BHC rezolva doua probleme ale clusteringului ierarhic traditional: (1) ofera o functie obiectiv formala in loc de euristici ad-hoc, si (2) poate determina automat numarul de clustere prin criteriul r_{ij} < 0.5. Testele de ipoteze sunt legate de calculele pentru inferenta in modele de amestec cu procese Dirichlet.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>BHC compara doua ipoteze: datele D_{ij} provin din acelasi model (M_{ij}=1) versus datele provin din arbori independenti (M_{ij}=0). Probabilitatea priori de imbinare p(M_{ij}=1) este calculata bottom-up. Intrarea este o matrice de date, nu o matrice de disimilaritate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>BHC este folosit in descoperirea structurii ierarhice a genelor, in clasificarea documentelor si in analiza datelor medicale unde incertitudinea asupra numarului de clustere este importanta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul medical, BHC poate fi aplicat pe profilurile de biomarkeri ale pacientilor pentru a descoperi o ierarhie de subtipuri de boli. Spre deosebire de metodele traditionale, BHC indica automat nivelul de granularitate optim si ofera o masura de incredere pentru fiecare imbinare.</p></div>
+  </div>
+</div>

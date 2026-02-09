@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Estimarea MAP Dirichlet-Multinomială și Multiplicatorii Lagrange</h2>
+  <p>Pagina derivă estimarea MAP pentru modelul Dirichlet-multinomial utilizând multiplicatori Lagrange pentru a impune constrângerea Σθ_k = 1.</p>
+  <div class="highlight-box"><strong>Funcția Lagrangiană:</strong> ℓ(θ,λ) = Σ N_k·log θ_k + Σ(α_k−1)·log θ_k + λ(1 − Σθ_k), combinând log-verosimilitatea, log-priorul și constrângerea de normalizare.</div>
+  <div class="highlight-box"><strong>Estimarea MAP:</strong> θ̂_k = (N_k + α_k − 1)/(N + α₀ − K), unde α₀ = Σα_k. Cu prior uniform (α_k = 1), se reduce la MLE: θ̂_k = N_k/N.</div>
+  <div class="definition-box"><strong>Multiplicatorul Lagrange:</strong> λ = N + α₀ − K, obținut din constrângerea Σθ_k = 1. Rezolvarea: ∂ℓ/∂θ_k = N'_k/θ_k − λ = 0, deci N'_k = λ·θ_k.</div>
+  <div class="highlight-box"><strong>MLE multinomială:</strong> θ̂_k = N_k/N, simpla fracțiune empirică - frecvența relativă a fiecărei categorii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Derivarea estimării MAP utilizează multiplicatori Lagrange pentru a gestiona constrângerea simplex. Rezultatul este o generalizare directă a cazului binar: se adaugă pseudo-numărătorile la numărătorile empirice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Multiplicatorii Lagrange sunt un instrument standard pentru optimizare cu constrângeri. Constrângerea Σθ_k = 1 este naturală pentru distribuții de probabilitate pe simplex.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Estimarea MAP/MLE multinomială este utilizată în modelele de limbaj unigram, în estimarea probabilităților de tranziție în lanțuri Markov, și în clasificarea documentelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Estimarea frecvenței literelor într-o limbă (ex: „e" apare ~12% în engleză) prin MLE multinomială este baza criptanalizei clasice și a algoritmilor de compresie adaptivă.</p></div>
+  </div>
+</div>

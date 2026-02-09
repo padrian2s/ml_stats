@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Teorema Hammersley-Clifford: Factorizarea si distributia Gibbs</h2>
+  <p>Aceasta pagina prezinta formal teorema Hammersley-Clifford, functia de partitie, distributia Gibbs si modelele bazate pe energie.</p>
+  <div class="definition-box"><strong>Functia de partitie Z(θ):</strong> Constanta de normalizare definita ca Z(θ) = Σ_x ∏_{c∈C} ψ_c(y_c|θ_c), care asigura ca distributia se insumeaza la 1. Calculul ei este de obicei intractabil.</div>
+  <div class="definition-box"><strong>Distributia Gibbs:</strong> O forma echivalenta de scriere a MRF-ului: p(y|θ) = (1/Z(θ)) exp(-Σ_c E(y_c|θ_c)), unde E este functia de energie. Starile cu energie scazuta au probabilitate ridicata.</div>
+  <div class="highlight-box"><strong>Modele bazate pe energie:</strong> Modelele de forma p(y|θ) ∝ exp(-E(y)) sunt numite modele bazate pe energie si sunt folosite extensiv in fizica statistica si invatarea automata. Potentialul de clica este ψ_c = exp(-E_c).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Teorema Hammersley-Clifford este fundamentala pentru MRF-uri: ea permite factorizarea distributiei in potentiale de clica. Distributia Gibbs ofera o interpretare fizica prin functii de energie. MRF-urile pe perechi (unde potentialele sunt asociate doar muchiilor) sunt o simplificare populara dar mai putin generala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Corespondenta dintre potentiale si energii (ψ = exp(-E)) conecteaza MRF-urile cu fizica statistica. Functia de partitie Z este centrala dar de obicei intractabila - calculul ei necesita sumarea peste toate configuratiile posibile. MRF-urile pe perechi reduc complexitatea dar pot pierde interactiuni de ordin superior.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele bazate pe energie sunt folosite in modelele Boltzmann, retele Boltzmann restrictionate (RBM), si mai recent in modele generative bazate pe scor. Distributia Gibbs sta la baza algoritmilor de esantionare MCMC.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In fizica, modelul Ising foloseste o distributie Gibbs pentru a modela interactiunea spinilor magnetici pe o retea. Fiecare spin interactioneaza cu vecinii sai, iar starea de echilibru minimizeaza energia totala a sistemului.</p></div>
+  </div>
+</div>

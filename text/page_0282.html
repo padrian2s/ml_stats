@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Algoritmul IRLS și Metode Quasi-Newton (BFGS)</h2>
+  <p>Pagina detaliază algoritmul IRLS complet cu pseudocod și introduce metodele quasi-Newton, în special BFGS și L-BFGS, care aproximează Hessianul fără a-l calcula explicit.</p>
+  <div class="highlight-box"><strong>Algoritmul 8.2 - IRLS complet:</strong> Inițializează w = 0_D; calculează η_i = w₀ + w&#7488;x_i; μ_i = sigm(η_i); s_i = μ_i(1-μ_i); z_i = η_i + (y_i - μ_i)/s_i; S = diag(s_{1:N}); w = (X&#7488;SX)⁻¹X&#7488;Sz; repetă până la convergență.</div>
+  <div class="definition-box"><strong>Metode Quasi-Newton:</strong> Metode de optimizare de ordinul doi care construiesc iterativ o aproximare a Hessianului din informația gradientului, evitând calculul explicit al derivatelor de ordinul doi.</div>
+  <div class="highlight-box"><strong>Actualizarea BFGS (Ecuația 8.26):</strong> B_{k+1} = B_k + (y_k y_k&#7488;)/(y_k&#7488;s_k) - (B_k s_k)(B_k s_k)&#7488;/(s_k&#7488;B_k s_k), unde s_k = θ_k - θ_{k-1} și y_k = g_k - g_{k-1}. Aceasta este o actualizare de rang doi care menține pozitiv-definitatea.</div>
+  <div class="definition-box"><strong>L-BFGS (Limited Memory BFGS):</strong> Aproximează H_k⁻¹ folosind doar cele mai recente m perechi (s_k, y_k), cu cerințe de stocare O(mD) în loc de O(D²). Tipic m ≈ 20 este suficient.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul IRLS este prezentat complet cu pseudocod ușor de implementat. Metodele quasi-Newton, în special BFGS, construiesc iterativ o aproximare la Hessian folosind doar informația de gradient, oferind convergență super-liniară fără costul O(D³) al metodei Newton. L-BFGS reduce și cerințele de memorie la O(mD), fiind metoda preferată pentru probleme de mari dimensiuni.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Actualizarea BFGS este o actualizare de rang doi a matricei, ceea ce înseamnă că diferența B_{k+1} - B_k are rang cel mult 2. Pornind de la B₀ = I, BFGS construiește treptat o aproximare „diagonală plus rangul scăzut" a Hessianului. Aceasta este o temă recurentă în optimizarea de mari dimensiuni.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>L-BFGS este algoritmul implicit pentru optimizare în multe biblioteci de învățare automată (scikit-learn LogisticRegression cu solver='lbfgs'). Este preferat pentru probleme cu sute-mii de parametri unde calculul complet al Hessianului este prohibitiv.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de procesare a limbajului natural cu 100.000 de caracteristici text folosește L-BFGS pentru antrenare. Stochează doar cele mai recente 20 de actualizări ale gradientului, consumând ~4MB în loc de 40GB pentru Hessianul complet, și converge în câteva minute.</p></div>
+  </div>
+</div>

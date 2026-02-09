@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Crosscat - Exemplu pe date de animale si robustete</h2>
+  <p>Aceasta pagina prezinta rezultatele crosscat pe date binare de animale (Figura 25.20), demonstrand partitionarea coloanelor in view-uri cu semantica diferita si robustetea la trasaturi irelevante.</p>
+  <div class="highlight-box"><strong>Rezultate crosscat (Figura 25.20):</strong> Pe 22 animale x 106 trasaturi, modelul identifica 3 view-uri: (A) trasaturi taxonomice (are oase, sange cald, oua), (B) trasaturi fara structura aparenta (zgomot), (C) trasaturi ecologice (periculos, carnivor, traieste in apa). Fiecare view are clustering-ul propriu al animalelor.</div>
+  <div class="definition-box"><strong>Robustete la trasaturi irelevante:</strong> Spre deosebire de modelele de amestec standard (care nu pot gestiona D->infinit cu trasaturi irelevante), crosscat partitioneaza trasaturile irelevante intr-un view separat, fara a afecta clustering-ul pe trasaturile informative.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 25.20 demonstreaza puterea crosscat: view-ul A contine trasaturi taxonomice care divid animalele in clase biologice clasice; view-ul B contine trasaturi care nu au structura (zgomot); view-ul C contine trasaturi ecologice care divid animalele dupa comportament (pradatori vs. prada). Aceasta demonstreaza ca un animal (de exemplu, broasca) poate apartine unor clustere diferite in functie de perspectiva.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Robustetea la trasaturi irelevante este un avantaj major: modelele de amestec standard esueaza cand D creste si include trasaturi zgomotoase, dar crosscat le izoleaza natural. Aceasta proprietate este critica pentru date de dimensionalitate inalta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Crosscat este implementat ca software open-source (BayesDB) si folosit pentru analiza exploratorie a datelor tabulare. Este deosebit de util cand structura datelor este necunoscuta si se doreste o explorare automata a relatiilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza datelor clinice, crosscat poate descoperi ca pacientii se grupeaza diferit dupa trasaturi metabolice (diabet tip 1 vs. tip 2) fata de trasaturi cardiovasculare (risc inalt vs. scazut), oferind o imagine multidimensionala a sanatatii.</p></div>
+  </div>
+</div>

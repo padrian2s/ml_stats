@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Ilustrarea EM pentru PCA si Avantajele fata de Metode Spectrale</h2>
+  <p>Pagina prezinta o ilustrare vizuala a algoritmului EM pentru PCA cu D=2, L=1 si discuta avantajele EM fata de metodele bazate pe eigenvectori.</p>
+  <div class="figure-box"><strong>Figura 12.11:</strong> Ilustrarea algoritmului EM pentru PCA cand D=2 si L=1. Stelele verzi sunt punctele de date originale, cercurile negre sunt reconstructiile lor. Vectorul de greutate w este reprezentat de linia albastra. (a) Se incepe cu o estimare aleatoare a lui w. (b) Se actualizeaza tija w in pasul M. (c) Un alt pas E - cercurile negre aluneca de-a lungul tijei. (d) Un alt pas M - tija se roteste.</div>
+  <div class="highlight-box"><strong>Complexitate EM:</strong> O(TLND), unde T este numarul de iteratii, mult mai rapid decat O(min(ND², DN²)) pentru metodele directe cand N, D >> L.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 12.11 ofera o intuitie vizuala excelenta: in pasul E, proiectiile (cercurile negre) aluneca de-a lungul tijei rigide, iar in pasul M, tija se roteste pentru a minimiza energia arcurilor. Numarul de iteratii este de obicei foarte mic (media 3.6), indiferent de N sau D. Se enumera avantajele EM: viteza, implementare online, gestionarea datelor lipsa, extensibilitate la mixturi PPCA/FA si variational EM/Bayes.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Analogia fizica cu arcuri si tija rigida surprinde esenta algoritmului: alternarea intre fixarea directiei si gasirea proiectiilor optime (E) si fixarea proiectiilor si gasirea directiei optime (M). Convergenta rapida (putine iteratii) face EM competitiv chiar si pentru probleme de dimensiuni moderate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>EM pentru PCA este ideal pentru procesarea fluxurilor de date in timp real (actualizare online a lui W), analiza datelor incomplete din sondaje sau senzori, si ca baza pentru modele mai complexe precum mixturi de analizoare factoriale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In monitorizarea retelelor de senzori IoT, unde datele sosesc continuu si unii senzori pot fi temporar indisponibili, EM online pentru PCA poate mentine un model actualizat al componentelor principale fara a necesita recalcularea completa.</p></div>
+  </div>
+</div>

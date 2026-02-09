@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Algoritmul K-means si Cuantizarea Vectoriala</h2>
+  <p>Pagina prezinta pseudo-codul algoritmului K-means, compresia de imagini prin cuantizare vectoriala si definitia formala a cuantizarii vectoriale.</p>
+  <div class="definition-box"><strong>Cuantizare vectoriala (VQ):</strong> O tehnica de compresie cu pierderi care inlocuieste fiecare vector real xᵢ ∈ ℝᴰ cu un simbol discret zᵢ ∈ {1, ..., K}, care este un index intr-un codebook de K prototipuri μₖ ∈ ℝᴰ.</div>
+  <div class="definition-box"><strong>Eroare de reconstructie (distorsiune):</strong> J(μ, z|K, X) = (1/N) Σᵢ₌₁ᴺ ||xᵢ - μzᵢ||² - masoara calitatea codebook-ului prin eroarea medie patratica de reconstructie.</div>
+  <div class="highlight-box"><strong>Algoritmul K-means (Algoritm 11.1):</strong> 1. Initializeaza mₖ; 2. Repeta: atribuie fiecare punct celui mai apropiat centru zᵢ = arg minₖ ||xᵢ - μₖ||₂²; actualizeaza centrele μₖ = (1/Nₖ) Σᵢ:zᵢ=k xᵢ; 3. Pana la convergenta.</div>
+  <div class="highlight-box"><strong>Codificare:</strong> encode(xᵢ) = arg minₖ ||xᵢ - μₖ||² - fiecare vector este codificat folosind indexul celui mai similar prototip.</div>
+  <div class="figure-box"><strong>Figura 11.12:</strong> O imagine comprimata folosind cuantizare vectoriala cu un codebook de dimensiune K. (a) K = 2. (b) K = 4. Imaginea este reprezentata doar cu K culori/prototipuri.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>K-means nu este un algoritm EM propriu-zis (nu maximizeaza verosimilitatea), ci poate fi interpretat ca un algoritm greedy pentru minimizarea unei functii de pierdere legate de compresia datelor. Cuantizarea vectoriala foloseste K-means pentru a construi un codebook de prototipuri, apoi codifica fiecare vector de date cu indexul celui mai apropiat prototip. Distorsiunea zero este posibila daca atribuim un prototip fiecarui vector, dar aceasta necesita spatiu O(NDC).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul rata-distorsiune: cu cat avem mai multi prototipuri (K mai mare), cu atat eroarea de reconstructie este mai mica, dar compresia este mai mica. K mic = compresie mare dar calitate scazuta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Cuantizarea vectoriala este folosita in compresia audio (codecuri audio), compresia imaginilor (reducerea paletei de culori), si in cautarea aproximativa a celor mai apropiati vecini (product quantization in sisteme de cautare la scara mare).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Formatele GIF folosesc o paleta de maxim 256 culori, obtinuta prin cuantizare vectoriala a spatiului de culori RGB. Fiecare pixel este inlocuit cu cel mai apropiat prototip din paleta, reducand drastic dimensiunea fisierului.</p></div>
+  </div>
+</div>

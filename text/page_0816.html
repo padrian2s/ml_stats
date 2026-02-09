@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Propagarea increderii convexa (Convex BP)</h2>
+  <p>Aceasta pagina introduce propagarea increderii convexa, care combina o margine superioara convexa pe entropie cu o aproximare exterioara convexa a politopului marginal.</p>
+  <div class="definition-box"><strong>Propagarea increderii convexa:</strong> Se lucreaza cu o multime F de submodele tractabile (arbori, grafuri planare). Pentru fiecare submodel F, entropia pe F este >= entropia pe G, deoarece F are mai putine constrangeri. O combinatie convexa a acestor entropii ofera o margine superioara convexa pe entropia reala.</div>
+  <div class="definition-box"><strong>Energia libera convexa:</strong> F_Convex(mu, rho) = -[mu^T*theta + H(mu, rho)], unde H(mu, rho) = sum_F rho(F)*H(mu(F)) cu rho(F) >= 0, sum rho(F) = 1. Obiectivul este concav si multimea L(G;F) este convexa, deci exista un maxim global unic.</div>
+  <div class="highlight-box"><strong>Avantaj principal:</strong> Spre deosebire de energia Bethe (neconcava) si mean field (multime neconvexa), problema convexa are un optim global unic, eliminand dependenta de initializare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta o abordare eleganta pentru a face inferenta variationala convexa: se combina o margine superioara pe entropie (obtenuta prin medierea peste submodele tractabile) cu multimea convexa L(G;F). Rezultatul este o problema de optimizare convexa cu solutie unica.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Convexitatea este obtinuta prin doua ingrediente: (1) margine superioara convexa pe entropie (medierea peste arbori), (2) multimea L(G;F) definita prin intersectia multimilor M(F) (convexa, deoarece intersectia multimilor convexe este convexa).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Convex BP garanteaza un optim global unic, ceea ce il face atractiv cand reproducibilitatea rezultatelor este critica. Dezavantajul este costul computational mai mare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sisteme de diagnosticare automata a defectelor in productie, unde consistenta rezultatelor este critica, convex BP ofera garantia ca analiza va produce mereu aceleasi concluzii, indiferent de ordinea procesarii datelor.</p></div>
+  </div>
+</div>

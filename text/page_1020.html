@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Algoritmul CD-1 si date fanteziste</h2>
+  <p>Aceasta pagina detaliaza procedura CD-1 pas cu pas, introducand conceptul de "date fanteziste" si prezentand algoritmul complet pentru antrenarea RBM-urilor.</p>
+  <div class="definition-box"><strong>Date fanteziste (fantasy data):</strong> Vectorul v'_i obtinut dupa un pas de Gibbs de la datele reale v_i, reprezentand cea mai buna incercare a modelului de a reconstrui inputul dupa codificare si decodificare.</div>
+  <div class="highlight-box"><strong>Algoritmul CD-1:</strong> Pentru fiecare exemplu: (1) calculeaza mu_i = E[h|v_i,W], (2) esantioneaza h_i ~ p(h|v_i,W), (3) esantioneaza v'_i ~ p(v|h_i,W), (4) calculeaza mu'_i = E[h|v'_i,W], (5) gradientul este v_i(mu_i)^T - v'_i(mu'_i)^T.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul CD-1 complet este prezentat cu toate detaliile de implementare, inclusiv utilizarea mini-batch-urilor, momentum-ului si medierii actualizarilor. In practica, se foloseste E[h|v'_i] in loc de h'_i esantionat in pasul final ascendent pentru a reduce varianta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conexiunea cu auto-encoderele: CD-1 "strange" datele printr-un bottleneck (codificare in h) si apoi reconstruieste (decodificare in v'), similar cu antrenarea auto-encoderelor. Esantionarea din h in pasurile intermediare este importanta pentru a nu permite fluxul a mai mult de 1 bit de informatie per unitate ascunsa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Implementarea eficienta a CD-1 pe GPU-uri permite antrenarea RBM-urilor pe seturi de date masive in timp rezonabil. Trucuri precum momentum si medierea mini-batch-urilor accelereaza convergenta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In procesarea de imagini, datele fanteziste v'_i generate de un RBM antrenat pe fete umane arata ca "fete neclare" - o reconstructie aproximativa care captureaza trasaturile principale dar pierde detaliile fine.</p></div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="page-content">
+  <h2>Cuprins (Partea 12)</h2>
+
+  <p>Continuarea cuprinsului cu Capitolele 19 si 20.</p>
+
+  <div class="definition-box"><strong>Capitolul 19 - Modele Grafice Nedirectionate (Campuri Aleatoare Markov) (p. 661):</strong>
+    19.1 Introducere; 19.2 Proprietati de independenta conditionata ale UGM-urilor - proprietati cheie, alternativa nedirectionata la d-separare, comparatie intre modele grafice directionate si nedirectionate;
+    19.3 Parametrizarea MRF-urilor - teorema Hammersley-Clifford, reprezentarea functiilor potential;
+    19.4 Exemple de MRF-uri - modelul Ising, retele Hopfield, modelul Potts, MRF-uri Gaussiene, retele logice Markov;
+    19.5 Invatare - antrenarea modelelor maxent cu gradientul, modele partial observate, metode aproximative pentru MLE, pseudo-likelihood, MLE stocastic, inductia caracteristicilor, IPF;
+    19.6 Campuri aleatoare conditionale (CRF) - CRF-uri structurate pe lanturi, MEMM si problema label-bias, aplicatii, antrenare;
+    19.7 SVM-uri structurale - viziune probabilistica, viziune non-probabilistica, metode cutting plane, algoritmi online, SVM-uri structurale latente.</div>
+
+  <div class="definition-box"><strong>Capitolul 20 - Inferenta Exacta in Modele Grafice (p. 707):</strong>
+    20.1 Introducere; 20.2 Propagarea credintelor (belief propagation) pentru arbori - protocolul serial, protocolul paralel, BP Gaussiana, alte variante;
+    20.3 Algoritmul de eliminare a variabilelor - legea distributiva generalizata, complexitatea computationala, slabiciuni;
+    20.4 Algoritmul junction tree - crearea arborelui de jonctiuni, transmiterea mesajelor, complexitate computationala.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section">
+      <h4>Rezumat</h4>
+      <p>Capitolul 19 completeaza modelele grafice directionate (cap. 10) cu modele nedirectionate (MRF-uri, CRF-uri), care sunt mai naturale pentru anumite probleme precum segmentarea imaginilor. Capitolul 20 prezinta algoritmii de inferenta exacta in aceste modele grafice.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Tipare Cheie</h4>
+      <p>Se observa dualitatea intre modele directionate (cap. 10) si nedirectionate (cap. 19), fiecare cu avantajele sale. CRF-urile (19.6) combina avantajele ambelor paradigme. Inferenta exacta (cap. 20) este posibila doar pentru structuri de graf simple (arbori).</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Aplicatii Practice</h4>
+      <p>CRF-urile (19.6) sunt fundamentale in NLP pentru etichetarea secventelor (POS tagging, NER). Modelul Ising (19.4.1) are aplicatii in fizica si segmentarea imaginilor. Retelele logice Markov (19.4.5) combina logica cu probabilitatile.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Exemplu din Lumea Reala</h4>
+      <p>Un sistem de recunoastere a entitatilor numite (NER) dintr-un motor de cautare foloseste CRF-uri (19.6) pentru a identifica persoane, locatii si organizatii in text. De exemplu, in "Barack Obama a vizitat Bucurestiul", CRF-ul identifica "Barack Obama" ca persoana si "Bucurestiul" ca locatie.</p>
+    </div>
+  </div>
+</div>

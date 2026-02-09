@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LDA - Polisemie in context si descoperirea nesupervizata a topicurilor</h2>
+  <p>Aceasta pagina prezinta Figura 27.5 cu dezambiguizarea cuvantului "play" in trei documente din corpusul TASA si discuta descoperirea nesupervizata a topicurilor si labeled LDA.</p>
+  <div class="definition-box"><strong>Dezambiguizare contextuala (Figura 27.5):</strong> In trei documente diferite, cuvantul "play" este asignat topicurilor: muzica (document 29795 - jazz, piano), teatru (document 1883 - actors, stage), si sport (document 21359 - game, ball). Indicii de topic sunt afisate ca superscripturi.</div>
+  <div class="definition-box"><strong>Labeled LDA:</strong> O varianta (Ramage et al. 2009) care exploateaza tag-urile existente pe documente: forteaza topicurile sa corespunda cu tag-urile, imbunatatind interpretabilitatea.</div>
+  <div class="highlight-box"><strong>Problema identificabilitatii:</strong> Modelul LDA este neidentificabil (Chang et al. 2009): topicurile pot fi permutate sau combinate fara a schimba verosimilitatea. Aceasta face interpretarea topicurilor dificila fara constrangeri suplimentare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 27.5 demonstreaza dramatic capacitatea LDA de dezambiguizare contextuala: acelasi cuvant ("play") primeste topicuri diferite in functie de context. Sectiunea 27.3.2 discuta descoperirea topicurilor, notand ca interpretabilitatea nu este garantata. Labeled LDA rezolva partial aceasta problema folosind tag-uri existente.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Dezambiguizarea contextuala in LDA functioneaza prin fluxul de informatie: pi_i (distributia de topicuri a documentului) serveste ca prior pentru fiecare cuvant, iar cuvintele neambigue din document ajuta la fixarea lui pi_i, care apoi dezambiguizeaza cuvintele ambigue.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Labeled LDA este folosit in etichetarea automata multi-label a documentelor, generarea de rezumate per topic, si analiza sentimentului pe aspecte specifice (de exemplu, sentiment despre mancarea vs. serviciul unui restaurant).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza recenziilor de restaurante, labeled LDA cu tag-uri (mancare, serviciu, atmosfera, pret) poate asigna fiecare propozitie la aspectul corespunzator, permitand analiza granulara a satisfactiei clientilor pe fiecare dimensiune.</p></div>
+  </div>
+</div>

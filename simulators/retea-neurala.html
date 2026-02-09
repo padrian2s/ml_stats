@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retea Neurala — Simulator Interactiv</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#f43f5e;--primary-dark:#e11d48;--primary-light:#ffe4e6;--bg:#fef7f8;--card:#fff;--text:#1e293b;--text-light:#64748b;--border:#e2e8f0;--shadow:0 4px 24px rgba(0,0,0,.08);--radius:12px}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif}
+.back-link{display:inline-block;padding:12px 20px;color:var(--primary-dark);text-decoration:none;font-weight:500;transition:color .2s}
+.back-link:hover{color:var(--primary)}
+header{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:40px 20px 30px;text-align:center}
+header h1{font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:8px}
+header p{max-width:700px;margin:0 auto;opacity:.92;font-size:.95rem}
+.container{max-width:1300px;margin:0 auto;padding:20px}
+.grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:1000px){.grid{grid-template-columns:300px 1fr 1fr}}
+@media(min-width:700px) and (max-width:999px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;border:1px solid var(--border)}
+.card h2{font-size:1.05rem;margin-bottom:14px;color:var(--primary-dark);border-bottom:2px solid var(--primary-light);padding-bottom:8px}
+.control-group{margin-bottom:16px}
+.control-group label{display:block;font-size:.82rem;font-weight:600;color:var(--text-light);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+.control-group .value{font-family:monospace;font-weight:700;color:var(--primary-dark);font-size:1rem}
+input[type=range]{width:100%;accent-color:var(--primary);height:6px;cursor:pointer}
+select{width:100%;padding:8px 12px;border:2px solid var(--border);border-radius:8px;font-size:.9rem;background:#fff;cursor:pointer}
+select:focus{border-color:var(--primary);outline:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border:none;border-radius:8px;font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s;gap:6px}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.btn:active{transform:translateY(0)}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-dark)}
+.btn-outline{background:transparent;color:var(--primary-dark);border:2px solid var(--primary)}
+.btn-outline:hover{background:var(--primary-light)}
+.btn-danger{background:#64748b;color:#fff}
+.btn-danger:hover{background:#475569}
+.btn-group{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.canvas-wrap{position:relative;width:100%;aspect-ratio:1/1;max-height:500px;border-radius:var(--radius);overflow:hidden;border:2px solid var(--border);background:#fffbfc}
+.canvas-wrap canvas{display:block;width:100%;height:100%}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+.stat-item{background:var(--primary-light);border-radius:8px;padding:8px 10px;text-align:center}
+.stat-item .stat-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.5px;color:var(--text-light);font-weight:600}
+.stat-item .stat-value{font-family:monospace;font-size:1.15rem;font-weight:700;color:var(--primary-dark)}
+.loss-canvas{width:100%;height:180px;border-radius:8px;border:1px solid var(--border);background:#fff}
+.nn-canvas{width:100%;height:280px;border-radius:8px;border:1px solid var(--border);background:#fff}
+.progress-bar{width:100%;height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-top:8px}
+.progress-bar .fill{height:100%;background:var(--primary);border-radius:3px;transition:width .1s}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back-link">&larr; Inapoi la Pagina Principala</a>
+<header>
+<h1>Retea Neurala</h1>
+<p>O retea neurala cu un strat ascuns invata sa clasifice puncte 2D. Observa cum greutile se ajusteaza, frontiera de decizie evolueaza, si eroarea scade pe masura ce reteaua antreneaza. Experimenteaza cu numarul de neuroni, rata de invatare si epoci!</p>
+</header>
+<div class="container">
+<div class="grid">
+<div class="controls-col">
+<div class="card">
+<h2>Controale</h2>
+<div class="control-group">
+<label>Problema</label>
+<select id="problemType">
+<option value="xor">XOR</option>
+<option value="spiral">Spirala</option>
+<option value="circle">Cerc</option>
+</select>
+</div>
+<div class="control-group">
+<label>Neuroni in stratul ascuns: <span class="value" id="hiddenVal">4</span></label>
+<input type="range" id="hiddenSlider" min="2" max="8" value="4">
+</div>
+<div class="control-group">
+<label>Rata de invatare: <span class="value" id="lrVal">0.50</span></label>
+<input type="range" id="lrSlider" min="1" max="100" value="50">
+</div>
+<div class="control-group">
+<label>Epoci: <span class="value" id="epochVal">200</span></label>
+<input type="range" id="epochSlider" min="10" max="500" step="10" value="200">
+</div>
+<div class="btn-group">
+<button class="btn btn-primary" id="btnTrain" onclick="startTraining()">Antreneaza</button>
+<button class="btn btn-outline" id="btnStep" onclick="stepEpoch()">Pas cu Pas</button>
+<button class="btn btn-danger" onclick="resetNetwork()">Reseteaza</button>
+</div>
+<div class="progress-bar"><div class="fill" id="progressFill" style="width:0%"></div></div>
+</div>
+<div class="card">
+<h2>Statistici</h2>
+<div class="stats-grid">
+<div class="stat-item"><div class="stat-label">Epoca</div><div class="stat-value" id="statEpoch">0</div></div>
+<div class="stat-item"><div class="stat-label">Eroare</div><div class="stat-value" id="statLoss">-</div></div>
+<div class="stat-item"><div class="stat-label">Acuratete</div><div class="stat-value" id="statAcc">-</div></div>
+</div>
+<h2 style="margin-top:10px">Curba Erorii</h2>
+<canvas class="loss-canvas" id="lossCanvas"></canvas>
+</div>
+</div>
+<div class="viz-col">
+<div class="card">
+<h2>Frontiera de Decizie</h2>
+<div class="canvas-wrap"><canvas id="decisionCanvas"></canvas></div>
+</div>
+</div>
+<div class="nn-col">
+<div class="card">
+<h2>Diagrama Retelei</h2>
+<canvas class="nn-canvas" id="nnCanvas"></canvas>
+<p style="font-size:.75rem;color:var(--text-light);margin-top:8px;text-align:center">Liniile albastre = greutati pozitive, rosii = negative. Grosimea = magnitudinea.</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+// --- Data generation ---
+let trainData = [];
+function generateData(type) {
+  trainData = [];
+  const N = 120;
+  if (type === 'xor') {
+    for (let i = 0; i < N; i++) {
+      const x = Math.random() * 2 - 1, y = Math.random() * 2 - 1;
+      const cls = (x * y > 0) ? 1 : 0;
+      trainData.push({ x, y, cls });
+    }
+  } else if (type === 'spiral') {
+    for (let i = 0; i < N / 2; i++) {
+      const r = i / (N / 2) * 1.0;
+      const t = i / (N / 2) * Math.PI * 2.5 + (Math.random() - 0.5) * 0.3;
+      trainData.push({ x: r * Math.cos(t), y: r * Math.sin(t), cls: 0 });
+      trainData.push({ x: -r * Math.cos(t), y: -r * Math.sin(t), cls: 1 });
+    }
+  } else if (type === 'circle') {
+    for (let i = 0; i < N; i++) {
+      const x = Math.random() * 2 - 1, y = Math.random() * 2 - 1;
+      const cls = (x * x + y * y < 0.5) ? 1 : 0;
+      trainData.push({ x, y, cls });
+    }
+  }
+}
+
+// --- Neural Network ---
+let nn = null;
+let lossHistory = [];
+let currentEpoch = 0;
+let isTraining = false;
+
+function sigmoid(x) { return 1 / (1 + Math.exp(-Math.max(-500, Math.min(500, x)))); }
+function sigmoidDeriv(s) { return s * (1 - s); }
+
+function createNetwork(nHidden) {
+  const w1 = [], b1 = [];
+  for (let i = 0; i < nHidden; i++) {
+    w1.push([randn(), randn()]);
+    b1.push(randn() * 0.1);
+  }
+  const w2 = [];
+  for (let i = 0; i < nHidden; i++) w2.push(randn());
+  const b2 = randn() * 0.1;
+  return { w1, b1, w2, b2, nHidden };
+}
+
+function randn() { return (Math.random() - 0.5) * 1.5; }
+
+function forward(net, x, y) {
+  const hidden = [];
+  for (let i = 0; i < net.nHidden; i++) {
+    hidden.push(sigmoid(net.w1[i][0] * x + net.w1[i][1] * y + net.b1[i]));
+  }
+  let out = net.b2;
+  for (let i = 0; i < net.nHidden; i++) out += net.w2[i] * hidden[i];
+  out = sigmoid(out);
+  return { hidden, out };
+}
+
+function trainEpoch(net, lr) {
+  let totalLoss = 0;
+  let correct = 0;
+  // Shuffle
+  const idx = trainData.map((_, i) => i).sort(() => Math.random() - 0.5);
+  for (const i of idx) {
+    const d = trainData[i];
+    const { hidden, out } = forward(net, d.x, d.y);
+    const err = out - d.cls;
+    totalLoss += err * err;
+    if ((out > 0.5 ? 1 : 0) === d.cls) correct++;
+
+    // Backprop
+    const dOut = err * sigmoidDeriv(out);
+    for (let j = 0; j < net.nHidden; j++) {
+      const dH = dOut * net.w2[j] * sigmoidDeriv(hidden[j]);
+      net.w1[j][0] -= lr * dH * d.x;
+      net.w1[j][1] -= lr * dH * d.y;
+      net.b1[j] -= lr * dH;
+      net.w2[j] -= lr * dOut * hidden[j];
+    }
+    net.b2 -= lr * dOut;
+  }
+  return { loss: totalLoss / trainData.length, acc: correct / trainData.length };
+}
+
+// --- Canvas setup ---
+const decCanvas = document.getElementById('decisionCanvas');
+const decCtx = decCanvas.getContext('2d');
+const lossCanvas = document.getElementById('lossCanvas');
+const lossCtx = lossCanvas.getContext('2d');
+const nnCanvasEl = document.getElementById('nnCanvas');
+const nnCtx = nnCanvasEl.getContext('2d');
+
+function resizeCanvas(cvs, ctx2d) {
+  const rect = cvs.parentElement.getBoundingClientRect();
+  const w = cvs.parentElement.clientWidth;
+  const h = cvs.parentElement.clientHeight || cvs.clientHeight;
+  cvs.width = w * devicePixelRatio;
+  cvs.height = h * devicePixelRatio;
+  ctx2d.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  cvs._w = w;
+  cvs._h = h;
+}
+
+function resizeAll() {
+  resizeCanvas(decCanvas, decCtx);
+  const lr = lossCanvas.parentElement;
+  lossCanvas.width = lr.clientWidth * devicePixelRatio;
+  lossCanvas.height = 180 * devicePixelRatio;
+  lossCtx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  lossCanvas._w = lr.clientWidth;
+  lossCanvas._h = 180;
+
+  const nr = nnCanvasEl.parentElement;
+  nnCanvasEl.width = nr.clientWidth * devicePixelRatio;
+  nnCanvasEl.height = 280 * devicePixelRatio;
+  nnCtx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  nnCanvasEl._w = nr.clientWidth;
+  nnCanvasEl._h = 280;
+  drawAll();
+}
+
+function toCanvasX(x, w) { return (x + 1.2) / 2.4 * w; }
+function toCanvasY(y, h) { return (1.2 - y) / 2.4 * h; }
+
+function drawDecision() {
+  const w = decCanvas._w, h = decCanvas._h;
+  if (!w) return;
+  decCtx.clearRect(0, 0, w, h);
+
+  // Boundary heatmap
+  if (nn) {
+    const step = 5;
+    for (let px = 0; px < w; px += step) {
+      for (let py = 0; py < h; py += step) {
+        const x = (px / w) * 2.4 - 1.2;
+        const y = 1.2 - (py / h) * 2.4;
+        const { out } = forward(nn, x, y);
+        const r = Math.round(239 * out + 59 * (1 - out));
+        const g = Math.round(68 * out + 130 * (1 - out));
+        const b = Math.round(68 * out + 246 * (1 - out));
+        decCtx.fillStyle = `rgba(${r},${g},${b},.2)`;
+        decCtx.fillRect(px, py, step, step);
+      }
+    }
+  }
+
+  // Points
+  trainData.forEach(d => {
+    decCtx.beginPath();
+    decCtx.arc(toCanvasX(d.x, w), toCanvasY(d.y, h), 4.5, 0, Math.PI * 2);
+    decCtx.fillStyle = d.cls === 1 ? '#f43f5e' : '#3b82f6';
+    decCtx.fill();
+    decCtx.strokeStyle = '#fff';
+    decCtx.lineWidth = 1.2;
+    decCtx.stroke();
+  });
+}
+
+function drawLoss() {
+  const w = lossCanvas._w, h = lossCanvas._h;
+  if (!w) return;
+  lossCtx.clearRect(0, 0, w, h);
+  if (lossHistory.length < 2) return;
+
+  const maxLoss = Math.max(...lossHistory, 0.3);
+  const pad = 30;
+
+  // Axes
+  lossCtx.strokeStyle = '#e2e8f0';
+  lossCtx.lineWidth = 1;
+  lossCtx.beginPath();
+  lossCtx.moveTo(pad, 5);
+  lossCtx.lineTo(pad, h - 20);
+  lossCtx.lineTo(w - 5, h - 20);
+  lossCtx.stroke();
+
+  // Labels
+  lossCtx.fillStyle = '#94a3b8';
+  lossCtx.font = '10px monospace';
+  lossCtx.fillText(maxLoss.toFixed(2), 0, 12);
+  lossCtx.fillText('0', 10, h - 22);
+  lossCtx.fillText('Epoca', w / 2 - 15, h - 4);
+
+  // Line
+  lossCtx.beginPath();
+  lossCtx.strokeStyle = '#f43f5e';
+  lossCtx.lineWidth = 2;
+  lossHistory.forEach((v, i) => {
+    const x = pad + (i / (lossHistory.length - 1)) * (w - pad - 10);
+    const y = 10 + (1 - v / maxLoss) * (h - 35);
+    if (i === 0) lossCtx.moveTo(x, y); else lossCtx.lineTo(x, y);
+  });
+  lossCtx.stroke();
+}
+
+function drawNN() {
+  const w = nnCanvasEl._w, h = nnCanvasEl._h;
+  if (!w || !nn) return;
+  nnCtx.clearRect(0, 0, w, h);
+
+  const layers = [2, nn.nHidden, 1];
+  const layerX = [w * 0.15, w * 0.5, w * 0.85];
+  const labels = ['Intrare', 'Ascuns', 'Iesire'];
+
+  // Layer labels
+  nnCtx.font = '11px system-ui';
+  nnCtx.fillStyle = '#94a3b8';
+  nnCtx.textAlign = 'center';
+  for (let l = 0; l < 3; l++) {
+    nnCtx.fillText(labels[l], layerX[l], h - 8);
+  }
+
+  function nodeY(layerSize, idx) {
+    const gap = Math.min(40, (h - 60) / (layerSize + 1));
+    return h / 2 - (layerSize - 1) * gap / 2 + idx * gap;
+  }
+
+  // Draw connections input -> hidden
+  const maxW1 = Math.max(...nn.w1.flat().map(Math.abs), 0.01);
+  for (let j = 0; j < nn.nHidden; j++) {
+    for (let i = 0; i < 2; i++) {
+      const wt = nn.w1[j][i];
+      const thick = Math.abs(wt) / maxW1 * 4 + 0.5;
+      nnCtx.beginPath();
+      nnCtx.moveTo(layerX[0] + 12, nodeY(2, i));
+      nnCtx.lineTo(layerX[1] - 12, nodeY(nn.nHidden, j));
+      nnCtx.strokeStyle = wt > 0 ? `rgba(59,130,246,${Math.min(Math.abs(wt)/maxW1*0.8+0.2,1)})` :
+                                     `rgba(239,68,68,${Math.min(Math.abs(wt)/maxW1*0.8+0.2,1)})`;
+      nnCtx.lineWidth = thick;
+      nnCtx.stroke();
+    }
+  }
+
+  // Draw connections hidden -> output
+  const maxW2 = Math.max(...nn.w2.map(Math.abs), 0.01);
+  for (let j = 0; j < nn.nHidden; j++) {
+    const wt = nn.w2[j];
+    const thick = Math.abs(wt) / maxW2 * 4 + 0.5;
+    nnCtx.beginPath();
+    nnCtx.moveTo(layerX[1] + 12, nodeY(nn.nHidden, j));
+    nnCtx.lineTo(layerX[2] - 12, nodeY(1, 0));
+    nnCtx.strokeStyle = wt > 0 ? `rgba(59,130,246,${Math.min(Math.abs(wt)/maxW2*0.8+0.2,1)})` :
+                                   `rgba(239,68,68,${Math.min(Math.abs(wt)/maxW2*0.8+0.2,1)})`;
+    nnCtx.lineWidth = thick;
+    nnCtx.stroke();
+  }
+
+  // Nodes
+  const nodeColors = ['#3b82f6', '#a855f7', '#f43f5e'];
+  for (let l = 0; l < 3; l++) {
+    for (let i = 0; i < layers[l]; i++) {
+      nnCtx.beginPath();
+      nnCtx.arc(layerX[l], nodeY(layers[l], i), 12, 0, Math.PI * 2);
+      nnCtx.fillStyle = nodeColors[l];
+      nnCtx.fill();
+      nnCtx.strokeStyle = '#fff';
+      nnCtx.lineWidth = 2;
+      nnCtx.stroke();
+
+      // Label
+      nnCtx.fillStyle = '#fff';
+      nnCtx.font = 'bold 9px monospace';
+      nnCtx.textAlign = 'center';
+      nnCtx.textBaseline = 'middle';
+      if (l === 0) nnCtx.fillText(i === 0 ? 'x' : 'y', layerX[l], nodeY(layers[l], i));
+      else if (l === 1) nnCtx.fillText('h' + (i + 1), layerX[l], nodeY(layers[l], i));
+      else nnCtx.fillText('o', layerX[l], nodeY(layers[l], i));
+    }
+  }
+}
+
+function drawAll() {
+  drawDecision();
+  drawLoss();
+  drawNN();
+}
+
+function updateStats(epoch, loss, acc) {
+  document.getElementById('statEpoch').textContent = epoch;
+  document.getElementById('statLoss').textContent = loss != null ? loss.toFixed(4) : '-';
+  document.getElementById('statAcc').textContent = acc != null ? (acc * 100).toFixed(1) + '%' : '-';
+}
+
+// --- Training ---
+async function startTraining() {
+  if (isTraining) return;
+  isTraining = true;
+  document.getElementById('btnTrain').disabled = true;
+  document.getElementById('btnStep').disabled = true;
+
+  const totalEpochs = parseInt(document.getElementById('epochSlider').value);
+  const lr = parseInt(document.getElementById('lrSlider').value) / 100;
+  const startEpoch = currentEpoch;
+  const targetEpoch = startEpoch + totalEpochs;
+
+  for (let e = startEpoch; e < targetEpoch; e++) {
+    const { loss, acc } = trainEpoch(nn, lr);
+    currentEpoch = e + 1;
+    lossHistory.push(loss);
+    updateStats(currentEpoch, loss, acc);
+
+    const progress = (e - startEpoch + 1) / totalEpochs * 100;
+    document.getElementById('progressFill').style.width = progress + '%';
+
+    if ((e - startEpoch) % 5 === 0 || e === targetEpoch - 1) {
+      drawAll();
+      await new Promise(r => setTimeout(r, 10));
+    }
+  }
+
+  isTraining = false;
+  document.getElementById('btnTrain').disabled = false;
+  document.getElementById('btnStep').disabled = false;
+  document.getElementById('progressFill').style.width = '100%';
+  drawAll();
+}
+
+function stepEpoch() {
+  if (isTraining || !nn) return;
+  const lr = parseInt(document.getElementById('lrSlider').value) / 100;
+  const { loss, acc } = trainEpoch(nn, lr);
+  currentEpoch++;
+  lossHistory.push(loss);
+  updateStats(currentEpoch, loss, acc);
+  drawAll();
+}
+
+function resetNetwork() {
+  isTraining = false;
+  currentEpoch = 0;
+  lossHistory = [];
+  const nHidden = parseInt(document.getElementById('hiddenSlider').value);
+  nn = createNetwork(nHidden);
+  generateData(document.getElementById('problemType').value);
+  updateStats(0, null, null);
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('btnTrain').disabled = false;
+  document.getElementById('btnStep').disabled = false;
+  drawAll();
+}
+
+// --- Slider listeners ---
+document.getElementById('hiddenSlider').addEventListener('input', e => {
+  document.getElementById('hiddenVal').textContent = e.target.value;
+});
+document.getElementById('lrSlider').addEventListener('input', e => {
+  document.getElementById('lrVal').textContent = (e.target.value / 100).toFixed(2);
+});
+document.getElementById('epochSlider').addEventListener('input', e => {
+  document.getElementById('epochVal').textContent = e.target.value;
+});
+document.getElementById('problemType').addEventListener('change', () => {
+  resetNetwork();
+});
+document.getElementById('hiddenSlider').addEventListener('change', () => {
+  resetNetwork();
+});
+
+window.addEventListener('resize', resizeAll);
+generateData('xor');
+nn = createNetwork(4);
+setTimeout(resizeAll, 50);
+</script>
+</body>
+</html>

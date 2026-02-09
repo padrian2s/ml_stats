@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Esantionarea prin importanta adnotata si exercitii MCMC</h2>
+  <p>Aceasta pagina prezinta esantionarea prin importanta adnotata (annealed importance sampling) pentru evaluarea functiilor de partitie si exercitii pentru capitolul 24 despre inferenta MCMC.</p>
+  <div class="definition-box"><strong>Esantionarea prin importanta adnotata:</strong> Metoda care evalueaza raportul functiilor de partitie Z0/Zn folosind o secventa de distributii intermediare, considerata metoda de referinta pentru functii de partitie dificile.</div>
+  <div class="highlight-box"><strong>Formula cheie:</strong> Z0/Zn = (integrala f(z)dz)/(integrala g(z)dz) ≈ (1/S) * suma(w_s), unde ponderile sunt rapoarte f(z)/g(z) evaluate pe esantioane din distributia propusa.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta esantionarea prin importanta adnotata ca metoda superioara pentru aproximarea verosimilitatii marginale, apoi trece la exercitiile capitolului 24. Exercitiile acopera esantionarea Gibbs din gaussiene 2D, modele de amestec, modelul Potts, modele ierarhice de medii gaussiene, si regresie robusta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Esantionarea adnotata conecteaza o distributie prioara (cu constanta de normalizare cunoscuta) cu posteriorul, permitand estimarea p(D). Exercitiile progresiva de la cazuri simple (gaussiene) la aplicatii complexe (regresie robusta, model Potts), consolidand intelegerea practica a MCMC.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Esantionarea prin importanta adnotata este folosita extensiv in invatarea profunda pentru evaluarea modelelor generative (de exemplu, masini Boltzmann restrictionate) si in fizica statistica pentru calculul energiilor libere.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In chimia computationala, calculul energiei libere de legare a unui medicament la o proteina foloseste exact aceste tehnici de esantionare adnotata, trecand gradual de la starea legata la starea libera.</p></div>
+  </div>
+</div>

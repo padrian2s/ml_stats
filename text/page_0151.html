@@ -1,0 +1,23 @@
+<div class="page-content">
+  <h2>Constanta de Normalizare si Inferenta unui Scalar Necunoscut</h2>
+  <p>Pagina 120 prezinta constanta de normalizare a sistemului Gaussian liniar si primul exemplu: inferenta unui scalar necunoscut din masuratori zgomotoase.</p>
+
+  <div class="highlight-box"><strong>Constanta de normalizare (Ecuatia 4.126):</strong> p(y) = N(y|Aμ_x + b, Σ_y + AΣ_xAᵀ). Aceasta este verosimilitatea marginala (evidence), utila pentru compararea modelelor.</div>
+
+  <div class="definition-box"><strong>Exemplul 4.4.2.1 - Inferenta unui scalar:</strong> N masuratori zgomotoase yᵢ ale unui scalar necunoscut x, cu precizia masuratorii λ_y = 1/σ² si prior p(x) = N(x|μ₀, λ₀⁻¹).</div>
+
+  <div class="highlight-box"><strong>Posteriorul (Ecuatiile 4.129-4.131):</strong>
+    p(x|y) = N(x|μ_N, λ_N⁻¹), unde:
+    λ_N = λ₀ + Nλ_y (precizia se aduna)
+    μ_N = (Nλ_y * ȳ + λ₀ * μ₀) / λ_N (medie ponderata de precizii)</div>
+
+  <div class="definition-box"><strong>Interpretare:</strong> Precizia posterioara = precizia priorului + N * precizia fiecarei masuratori. Media posterioara este o combinatie convexa intre MLE (ȳ) si prior (μ₀), cu ponderi proportionale cu preciziile respective. Prior slab → posterior aproape de MLE; prior puternic → posterior aproape de prior.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exemplul scalar ilustreaza perfect mecanismul inferentei Bayesiane: informatia se acumuleaza prin adunarea preciziilor, iar estimarea finala este un compromis intre prior si date. Cu cat avem mai multe masuratori (N mare), cu atat datele domina priorul. Aceasta este versiunea continua a modelului Beta-Binomial.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Aditivitatea preciziei este o proprietate fundamentala: fiecare observatie noua adauga λ_y unitati de precizie. Echivalent, N masuratori cu precizie λ_y sunt echivalente cu o singura masurare cu precizie Nλ_y si valoare ȳ. Aceasta este "statisticile suficiente" in actiune.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta formula este utilizata in metrologie (estimarea unei constante fizice din masuratori repetate), sondaje (estimarea opiniei publice cu prior informativ) si calibrarea senzorilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La masurarea vitezei luminii, fiecare experiment produce o estimare cu o precizie cunoscuta. Posteriorul Bayesian combina toate experimentele, ponderand fiecare proportional cu precizia sa. Experimentele mai precise au influenta mai mare asupra estimarii finale.</p></div>
+  </div>
+</div>

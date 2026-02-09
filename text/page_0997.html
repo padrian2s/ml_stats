@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Topicuri Extrase de LDA si LDA-HMM (Tabelul 27.1)</h2>
+  <p>Pagina prezinta Tabelul 27.1 care compara topicurile extrase de LDA standard cu cele extrase de componentele LDA si HMM ale modelului LDA-HMM pe corpora Brown si TASA.</p>
+  <div class="highlight-box"><strong>Tabelul 27.1:</strong> Randul superior: topicuri extrase de LDA standard (contaminate cu cuvinte functionale). Randul de mijloc: topicuri extrase de componenta LDA a LDA-HMM (curate, semantice). Randul inferior: topicuri extrase de componenta HMM (cuvinte functionale, gramaticale). Fiecare coloana reprezinta un topic/clasa, cuvintele apar in ordinea probabilitatii.</div>
+  <div class="definition-box"><strong>Separarea sintaxa-semantica:</strong> LDA standard amesteca cuvinte functionale ("the", "and", "of") cu cele de continut in topicuri. LDA-HMM separa elegant aceste doua categorii: componenta LDA extrage topicuri pure (ex: "blood/heart/body/lungs", "forest/trees/land/crops"), iar HMM-ul capteaza structura gramaticala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Tabelul demonstreaza clar avantajul LDA-HMM fata de LDA standard. Topicurile LDA pure sunt contaminate cu cuvinte functionale frecvente, in timp ce LDA-HMM produce topicuri mult mai curate si mai interpretabile. Componenta HMM capteaza eficient clasele gramaticale: pronume, prepozitii, verbe auxiliare etc.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Se observa topicuri tematice clare in componenta LDA: medicina (blood, heart, lungs), natura (forest, trees, land), sport (baseball, ball, game), substante (drink, alcohol, drugs). Clasele HMM corespund categoriilor gramaticale traditionale. Modelul poate dezambiguiza rolul sintactic vs. semantic al aceluiasi cuvant.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Imbunatatirea calitatii modelelor de topicuri pentru motoare de cautare, sisteme de clasificare a documentelor, analiza automata a continutului educational si extractia de cunostinte din texte nestructurate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Corpusul TASA contine 37.651 documente educationale cu 12.190.931 cuvinte. Aplicarea LDA-HMM pe acest corpus permite clasificarea automata a materialelor educationale pe domenii tematice, fara contaminarea topicurilor cu cuvinte functionale frecvente.</p></div>
+  </div>
+</div>

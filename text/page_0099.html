@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Prior Complex și Modelul Beta-Binomial</h2>
+  <p>Pagina prezintă un prior mai sofisticat pentru jocul numerelor (amestec de reguli aritmetice și intervale) și introduce modelul beta-binomial fundamental.</p>
+  <div class="highlight-box"><strong>Prior mixt:</strong> p(h) = π₀·p_rules(h) + (1−π₀)·p_interval(h), combinând un prior peste reguli aritmetice cu un prior peste intervale numerice. Rezultatele nu sunt sensibile la valoarea exactă a lui π₀ cât timp π₀ > 0.5.</div>
+  <div class="figure-box"><strong>Figura 3.5:</strong> Distribuții predictive folosind spațiul complet al ipotezelor, comparabil cu datele umane din Figura 3.1. Modelul Bayesian reproduce surprinzător de bine comportamentul uman.</div>
+  <div class="definition-box"><strong>Modelul beta-binomial:</strong> Infererea probabilității θ ca o monedă să arate cap, din observații i.i.d. Xᵢ ~ Ber(θ). Modelul fundamental care stă la baza multor metode din carte.</div>
+  <div class="highlight-box"><strong>Verosimilitatea Bernoulli:</strong> p(D|θ) = θ^N₁·(1−θ)^N₀, unde N₁ = numărul de capete și N₀ = numărul de pajuri. Aceste numărători sunt statisticile suficiente.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Priorul mixt reproduce comportamentul uman de generalizare remarcabil de bine. Modelul beta-binomial este introdus ca prototipul inferenței Bayesiene cu parametri continui.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tranziția de la spații de ipoteze finite (jocul numerelor) la parametri continui (modelul beta-binomial) necesită înlocuirea sumelor cu integrale, dar ideile fundamentale rămân aceleași.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelul beta-binomial este utilizat în testarea A/B, în modelarea ratelor de click (CTR), în analiza supraviețuirii, și ca bloc fundamental în clasificatorii Naive Bayes.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Testarea A/B pe un site web: se observă N₁ conversii din N vizite. Modelul beta-binomial cu un prior Beta(1,1) (neinformativ) oferă posterior Beta(N₁+1, N₀+1), permițând estimarea intervalelor de încredere pentru rata de conversie.</p></div>
+  </div>
+</div>

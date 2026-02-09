@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Modelul Spike-and-Slab</h2>
+  <p>Pagina introduce modelul spike-and-slab pentru selectia Bayesiana de variabile, definind priorul pe indicatorii gamma si pe ponderile w, si derivand verosimilitatea marginala.</p>
+  <div class="definition-box"><strong>Modelul Spike-and-Slab (Eq. 13.11):</strong> p(w_j|sigma^2, gamma_j) = delta_0(w_j) daca gamma_j=0 ("spike" la zero), N(0, sigma^2 sigma_w^2) daca gamma_j=1 ("slab" - distributie larga). Combina selectie exacta (w_j=0) cu regularizare Gaussiana (w_j!=0).</div>
+  <div class="highlight-box"><strong>Priorul pe gamma (Eq. 13.6-13.9):</strong> p(gamma|pi_0) = prod Ber(gamma_j|pi_0). Log-priorul devine -lambda||gamma||_0 + const, unde lambda = log((1-pi_0)/pi_0) controleaza sparsitatea. ||gamma||_0 este pseudo-norma l0 (numarul de elemente non-zero).</div>
+  <div class="highlight-box"><strong>Verosimilitatea marginala (Eq. 13.12-13.13):</strong> p(D|gamma, sigma^2) = N(y|0, C_gamma), unde C_gamma = sigma^2 X_gamma Sigma_gamma X_gamma^T + sigma^2 I_N. Integrand peste w_gamma, obtinem o Gaussiana multivariata.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelul spike-and-slab este fundatia selectiei Bayesiene de variabile. "Spike" (delta la zero) forteaza variabilele irelevante sa aiba exact w_j=0, iar "slab" (Gaussiana larga) permite variabilelor relevante sa ia valori non-zero. Verosimilitatea marginala poate fi calculata in forma inchisa (integrand Gaussiana), dar necesita enumerarea peste 2^D modele.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Parametrul pi_0 controleaza sparsitatea a priori: pi_0 mic = model sparse, pi_0=0.5 = nici o preferinta. Lambda combina penalizarile de complexitate din BIC si din prior intr-un singur parametru.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Spike-and-slab este considerat "gold standard" Bayesian pentru selectia de variabile, dar este computational costisitor. Variante aproximative (EMVS, variational spike-and-slab) sunt folosite pentru probleme de dimensiune mare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In genomica functionala, spike-and-slab identifica genele reglatoare (cu w_j!=0) dintr-un set de mii de gene candidate, oferind nu doar o lista de gene ci si incertitudinea asociata fiecarei selectii.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Invatarea structurii DAG cu variabile latente</h2>
+  <p>Aceasta pagina introduce problema invatarii structurii DAG in prezenta variabilelor latente sau a datelor lipsa, prezentand verosimilitatea marginala si aproximarea BIC.</p>
+  <div class="definition-box"><strong>Verosimilitatea marginala cu variabile latente:</strong> p(D|G) = suma_h integrala p(D,h|theta,G)p(theta|G)d(theta), o suma exponentiala peste toate configuratiile posibile ale variabilelor ascunse h.</div>
+  <div class="definition-box"><strong>Aproximarea BIC:</strong> BIC(G) = log p(D|theta_hat, G) - (log N / 2) * dim(G), unde theta_hat este estimarea MAP/ML. BIC subestimeaza sever verosimilitatea marginala adevarata, rezultand in modele prea simple.</div>
+  <div class="highlight-box"><strong>Intractabilitatea:</strong> Cu un model de amestec cu K clustere si N puncte, exista K^N completari posibile ale variabilelor latente. Evaluarea integrala interioare pentru fiecare completare este fezabila, dar suma peste toate completarile nu este.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina trece la problema mai dificila a invatarii structurii cand nu toate variabilele sunt observate. Verosimilitatea marginala devine intractabila deoarece necesita suma peste toate configuratiile variabilelor ascunse. Se discuta trei aproximari: BIC (simpla dar imprecisa), Cheeseman-Stutz (mai buna) si EM variational (cea mai precisa).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Variabilele latente fac invatarea structurii mult mai dificila deoarece verosimilitatea nu se mai descompune pe familii de noduri. Aceasta inseamna ca trucurile de eficienta pentru DAG-uri complet observate nu mai functioneaza direct.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Invatarea structurii cu variabile latente este esentiala in psihometrie (factori latenti ai inteligentei), epidemiologie (cauze neobservate ale bolilor), si marketing (preferinte latente ale consumatorilor).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In psihologie, variabilele latente precum "inteligenta generala" sau "extraversiune" nu sunt direct observabile, dar structura relatiilor lor cu variabilele observabile (scoruri la teste) poate fi invatata din date.</p></div>
+  </div>
+</div>

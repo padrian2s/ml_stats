@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Esantionarea prin respingere - Demonstratie si exemplu</h2>
+  <p>Aceasta pagina demonstreaza corectitudinea esantionarii prin respingere si prezinta un exemplu concret de esantionare din distributia Gamma.</p>
+  <div class="definition-box"><strong>Demonstratia corectitudinii:</strong> CDF-ul esantioanelor acceptate P(x <= x_0 | acceptat) = integral_0^{x_0} p_tilde(x)dx / integral p_tilde(x)dx, care este exact CDF-ul lui p(x). Esantioanele acceptate au distributia dorita.</div>
+  <div class="definition-box"><strong>Exemplu - distributia Gamma:</strong> Pentru a esantiona din Ga(alpha, lambda) cu alpha non-intreg, se foloseste ca propunere q(x) = Ga(k, lambda-1) cu k = floor(alpha). Raportul p/q = const * x^{alpha-k} * exp(-x), maxim la x = alpha-k.</div>
+  <div class="highlight-box"><strong>Constanta de acoperire M:</strong> M = Ga(alpha-k|alpha,lambda) / Ga(alpha-k|k,lambda-1). Alegerea optima a lui M minimizeaza rata de respingere. Se vizualizeaza in Figura 23.2(b) cum propunerea Gamma acopera distributia tinta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza riguros ca esantionarea prin respingere produce esantioane din distributia corecta si ilustreaza prin exemplul distributiei Gamma cum se construieste o propunere buna. Cheia este gasirea unui M mic dar suficient.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Eficienta esantionarii prin respingere depinde critic de cat de bine propunerea q acopera tinta p. Cu cat M este mai mare (invelisul mai larg), cu atat mai multe esantioane sunt respinse, irosind calcul.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, esantionarea prin respingere este folosita ca subrutina in algoritmi mai complexi (MCMC adaptativi) si pentru distributii univariate non-standard.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea Bayesiana a ratelor de defectare a componentelor industriale (distribuite Gamma), esantionarea prin respingere permite generarea de scenarii de simulare pentru analiza fiabilitatii.</p></div>
+  </div>
+</div>

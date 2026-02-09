@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Procese Gaussiene pentru Regresie - GP Prior și Kriging</h2>
+  <p>Pagina introduce formal GP-urile pentru regresie, definind priorul GP, funcția de medie, funcția de covarianță și relația cu kriging-ul din geostatistică.</p>
+  <div class="definition-box"><strong>GP Prior:</strong> f(x) ~ GP(m(x), κ(x, x')), unde m(x) = E[f(x)] este funcția de medie și κ(x, x') = E[(f(x) − m(x))(f(x') − m(x'))ᵀ] este funcția de covarianță (kernel).</div>
+  <div class="definition-box"><strong>Kriging:</strong> Numele dat predicției GP în geostatistică, dezvoltat independent de Krige și Matheron pentru interpolarea spațială a resurselor minerale.</div>
+  <div class="highlight-box"><strong>Distribuția Gaussiană finit-dimensională:</strong> p(f|X) = N(f|μ, K), unde Kᵢⱼ = κ(xᵢ, xⱼ). Orice set finit de puncte are o distribuție Gaussiană multivariată.</div>
+  <div class="figure-box"><strong>Figura 15.1:</strong> Un proces Gaussian pentru 2 puncte de antrenament și 1 punct de test, reprezentat ca model grafic mixt. Nodurile ascunse fᵢ = f(xᵢ) sunt complet interconectate, formând un model grafic Gaussian.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Un GP definește un prior peste funcții prin specificarea mediei și covarianței. De obicei m(x) = 0, deoarece GP-ul este suficient de flexibil pentru a modela media. Kernelul κ codifică similaritatea: dacă xᵢ și xⱼ sunt considerate similare de kernel, funcția va lua valori similare la aceste puncte.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>GP-urile sunt echivalente cu regresia Bayesiană cu un număr infinit de funcții bază. Funcția de medie poate fi setată la zero fără pierdere de generalitate. Abordarea semi-parametrică (medie parametrică + GP pe reziduuri) combină interpretabilitatea cu flexibilitatea.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GP-urile sunt folosite în geostatistică pentru interpolarea spațială (temperaturi, concentrații de minerale), în inginerie pentru modelarea suprafețelor de răspuns și în astronomie pentru modelarea curbelor de lumină.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O companie minieră folosește kriging (GP) pentru a estima concentrația de aur în sol bazat pe foraje punctuale. GP-ul interpolează între punctele de eșantionare și oferă intervale de încredere care ghidează deciziile de excavare.</p></div>
+  </div>
+</div>

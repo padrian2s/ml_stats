@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Antrenarea Clasificatorului Naive Bayes - MLE</h2>
+  <p>Pagina detaliază procedura de antrenare a clasificatorului Naive Bayes prin estimarea de verosimilitate maximă (MLE), inclusiv algoritmul și un exemplu concret.</p>
+  <div class="highlight-box"><strong>Log-verosimilitatea NBC:</strong> log p(D|θ) = Σ_c N_c·log π_c + Σ_j Σ_c Σ_{i:yᵢ=c} log p(x_{ij}|θ_{jc}). Se descompune în termeni independenți pentru π și pentru fiecare θ_{jc}.</div>
+  <div class="highlight-box"><strong>MLE pentru priorul claselor:</strong> π̂_c = N_c/N, frecvența relativă a fiecărei clase.</div>
+  <div class="highlight-box"><strong>MLE pentru caracteristici binare:</strong> θ̂_{jc} = N_{jc}/N_c, fracțiunea de exemple din clasa c unde caracteristica j este prezentă.</div>
+  <div class="figure-box"><strong>Algoritmul 3.1:</strong> Pseudocod simplu pentru antrenarea NBC cu caracteristici binare în timp O(ND).</div>
+  <div class="figure-box"><strong>Figura 3.8:</strong> Densitățile condiționate de clasă p(x_j=1|y=c) pentru două clase de documente (X windows vs MS windows), cu 600 de caracteristici binare (cuvinte). Vârful la indexul 107 = cuvântul „subject".</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Antrenarea NBC cu MLE este extrem de simplă: se numără frecvențele. Algoritmul rulează în O(ND) și se poate generaliza ușor la caracteristici de tipuri mixte.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Descompunerea log-verosimilității în termeni independenți permite optimizarea separată a fiecărui parametru, făcând antrenarea paralelizabilă și scalabilă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>NBC cu MLE este utilizat în sisteme de producție datorită simplicității și vitezei: nu necesită optimizare iterativă, doar o singură trecere prin date.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Clasificarea articolelor de știri pe categorii (sport, politică, tehnologie): se calculează frecvența fiecărui cuvânt în fiecare categorie, apoi se aplică regula Bayes pentru clasificare.</p></div>
+  </div>
+</div>

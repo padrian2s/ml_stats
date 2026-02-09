@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Biclustering si clustering multi-view</h2>
+  <p>Aceasta pagina introduce biclustering-ul (coclustering) si clustering-ul multi-view, cu aplicatii pe date de animale si trasaturi (Figura 25.18).</p>
+  <div class="definition-box"><strong>Biclustering (coclustering):</strong> Clustering simultan al randurilor si coloanelor unei matrice de date. Fiecare rand i are un indicator de cluster r_i si fiecare coloana j are un indicator c_j. Datele in fiecare bloc (r_i, c_j) sunt generate iid din p(x_{ij}|theta_{r_i, c_j}).</div>
+  <div class="definition-box"><strong>Multi-view clustering (crosscat):</strong> Extinde biclustering-ul permitand ca trasaturile sa fie partitionate in "view-uri" (perspective), iar in fiecare view, randurile pot avea clustering-uri diferite.</div>
+  <div class="highlight-box"><strong>Exemplu animale (Figura 25.18):</strong> Pe date binare de 50 animale x 85 trasaturi, modelul a descoperit 12 clustere de animale si 33 clustere de trasaturi, identificand structuri ca "mamiferele acvatice au aripioare".</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Biclustering-ul rezolva problema ca in multe aplicatii, trasaturile sunt la fel de interesante ca observatiile. Pe datele de animale, modelul descopera simultan grupuri de animale si grupuri de trasaturi, revelind blocuri semnificative in matrice. Clustering-ul multi-view merge mai departe: permite ca acelasi set de animale sa fie clusterat diferit din perspective diferite (anatomie vs. habitat vs. comportament).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Biclustering-ul descopera structura latenta bidimensionala a datelor, ceea ce este mai informativ decat clustering-ul unidimensional. Multi-view clustering recunoaste ca un obiect poate apartine mai multor categorii simultan, in functie de perspectiva.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Biclustering-ul este standard in analiza expresiei genice (gene x conditii), filtrarea colaborativa (utilizatori x filme in sistemele de recomandare), si analiza datelor de sondaje (respondenti x intrebari).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In Netflix/Spotify, biclustering-ul matricei utilizatori x filme/melodii identifica simultan grupuri de utilizatori cu gusturi similare si grupuri de continut cu caracteristici similare, imbunatatind recomandarile.</p></div>
+  </div>
+</div>

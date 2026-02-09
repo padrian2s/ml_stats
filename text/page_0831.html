@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Max-product belief propagation si limita de temperatura zero</h2>
+  <p>Aceasta pagina prezinta max-product BP ca metoda de estimare MAP, derivata din limita de temperatura zero a inferentei variationale, si discuta conexiunile cu relaxarea LP si TRW.</p>
+  <div class="definition-box"><strong>Max-product BP:</strong> In limita de temperatura zero (beta -> infinit), operatorul sum din BP devine operatorul max. Aceasta transforma sum-product BP in max-product BP, care cauta configuratia MAP in loc de marginale.</div>
+  <div class="definition-box"><strong>Limita de temperatura zero:</strong> lim_{beta->inf} A(beta*theta)/beta = max_{mu in M(G)} theta^T*mu, deoarece termenul de entropie (1/beta)*H(mu) dispare. Obiectivul devine liniar.</div>
+  <div class="highlight-box"><strong>TRW si estimarea MAP:</strong> Daca se foloseste TRW-BP (cu obiectiv concav) in loc de LBP (cu obiectiv Bethe neconcav), limita de temperatura zero rezolva relaxarea LP. Max-product LBP standard nu rezolva LP relaxation decat pe arbori, dar max-product TRW-BP o face.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina conecteaza inferenta marginala (sum-product) cu estimarea MAP (max-product) prin limita de temperatura zero. TRW-BP are avantajul crucial ca obiectivul sau convex ramane convex si in limita zero, garantand convergenta la solutia LP relaxation, spre deosebire de max-product LBP standard.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea sum -> max este fundamentala in multe domenii: sum-product calculeaza marginale (medie), max-product calculeaza MAP (mod). Limita de temperatura zero formalizeza aceasta trecere si conecteaza inferenta probabilistica cu optimizarea combinatorie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Max-product BP este echivalent cu algoritmul Viterbi pe arbori/lanturi si este folosit extensiv in decodificarea codurilor (turbo, LDPC) si in estimarea disparitatii stereo.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea semantica a imaginilor (atribuirea unei clase fiecarui pixel), max-product BP pe MRF-ul pixel-nivel gaseste etichetarea globala optima, producand segmentari cu tranzitii netede intre regiuni.</p></div>
+  </div>
+</div>

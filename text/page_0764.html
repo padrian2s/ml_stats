@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Interpretari alternative ale obiectivului variational si KL forward vs reverse</h2>
+  <p>Aceasta pagina prezinta interpretari alternative ale ELBO si compara proprietatile KL directe (forward, I-projection) cu KL inverse (reverse, M-projection).</p>
+  <div class="definition-box"><strong>Energia libera variationala:</strong> J(q) = E_q[log q(x)] + E_q[-log p̃(x)] = -H(q) + E_q[E(x)], adica energia medie sub q minus entropia lui q. In fizica statistica, aceasta se numeste energia libera Helmholtz.</div>
+  <div class="definition-box"><strong>I-projection (KL inversa, zero forcing):</strong> Minimizarea KL(q||p) forteaza q(x) = 0 oriunde p(x) = 0. Rezultatul tinde sa sub-estimeze suportul lui p, "blocandu-se" pe un singur mod al distributiei multimodale.</div>
+  <div class="highlight-box"><strong>M-projection (KL directa, zero avoiding):</strong> Minimizarea KL(p||q) forteaza q(x) > 0 oriunde p(x) > 0. Rezultatul tinde sa supra-estimeze suportul lui p, "acoperind" toate modurile dar cu varianta prea mare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cele doua directii ale KL au proprietati calitativ diferite. KL inversa (I-projection, cea folosita in inferenta variationala) produce aproximari compacte care se concentreaza pe un singur mod al posterioarei, dar pot pierde moduri importante. KL directa (M-projection) produce aproximari care acopera tot suportul dar pot fi prea difuze. In practica, se prefera KL inversa deoarece este tractabila si produce aproximari utile.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Zero forcing (KL inversa): q evita zonele unde p = 0, ducand la sub-estimarea incertitudinii. Zero avoiding (KL directa): q acopera tot suportul lui p, ducand la supra-estimarea incertitudinii. Alegerea depinde de aplicatie: sub-estimarea este periculoasa in aplicatii de siguranta, supra-estimarea este mai conservatoare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>KL inversa este standard in VI clasica (mean field, CAVI). KL directa este folosita in expectation propagation (EP). Alpha-divergentele interpoleaza intre cele doua. Alegerea afecteaza calitatea aproximarii in aplicatii precum diagnosticul medical sau conducerea autonoma.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectarea anomaliilor, KL inversa ar produce un model care se concentreaza pe un singur tip de comportament normal, ratand altele. KL directa ar produce un model care acopera toate comportamentele normale dar cu mai multi falsi pozitivi.</p></div>
+  </div>
+</div>

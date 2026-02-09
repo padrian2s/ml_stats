@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>HMM ierarhice (HHMM)</h2>
+  <p>Aceasta pagina introduce HMM-urile ierarhice, care modeleaza structura ierarhica a domeniilor precum recunoasterea vorbirii.</p>
+  <div class="definition-box"><strong>HHMM (Hierarchical HMM):</strong> Extensia HMM cu structura pe mai multe niveluri. Nivelul superior modeleaza cuvinte, nivelul mediu modeleaza foneme, nivelul inferior modeleaza sub-foneme. Fiecare nivel 'apeleaza' modelul de nivel inferior, similar cu sub-rutinele in programare.</div>
+  <div class="highlight-box"><strong>Exemplu ASR cu HHMM:</strong> Figura 17.16 arata trei niveluri: cuvinte ('on', 'need', 'the') -> foneme ('aa', 'n', 'end', 'n', 'iy', 'd') -> sub-foneme (3 stari HMM per fonem). Inferenta in HHMM este O(T), comparativ cu O(T^3) pentru gramatici independente de context stochastice.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>HHMM organizeaza modelul in niveluri ierarhice, unde fiecare stare de nivel superior 'invoca' un HMM de nivel inferior. In ASR, nivelul cuvant selecteaza cuvantul, nivelul fonem genereaza secventa de foneme, si nivelul sub-fonem modeleaza tranzitiile acustice fine. HHMM poate fi 'aplatizat' intr-un HMM standard dar reprezentarea factorizata este mai interpretabila si mai eficienta. HSMM cu durata variabila este un caz special de HHMM cu 2 niveluri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>HHMM-urile sunt mai putin expresive decat SCFG (Stochastic Context-Free Grammars) dar suporta inferenta mai eficienta: O(T) vs O(T^3). Partajarea modelelor de nivel inferior (foneme) intre diferite contexte de nivel superior (cuvinte) permite eficienta parametrica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>HHMM-uri sunt folosite in: recunoasterea vorbirii (ierarhie cuvant-fonem-sub-fonem), recunoasterea activitatii (ierarhie activitate-sub-activitate-miscare), si analiza ADN (ierarhie gena-exon-codon).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recunoastere vocala continua, HHMM conecteaza modelele de limbaj (nivel cuvant) cu modelele acustice (nivel fonem/sub-fonem), permitand decodarea eficienta a vorbirii continue.</p></div>
+  </div>
+</div>

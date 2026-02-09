@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Algoritmi de Cautare pentru Selectia de Variabile</h2>
+  <p>Pagina introduce algoritmii de cautare in spatiul modelelor: lattice-ul subseturilor, metoda wrapper, actualizari eficiente si cautarea greedy (selectie forward).</p>
+  <div class="highlight-box"><strong>Figura 13.2:</strong> (a) Lattice-ul subseturilor {1,2,3,4} - fiecare nod este un model, arcele sunt relatii de incluziune. (b) RSS vs dimensiunea subsetului pentru datele de cancer de prostata - lower envelope arata cel mai bun model de fiecare dimensiune.</div>
+  <div class="definition-box"><strong>Metoda Wrapper:</strong> Cautare in spatiul modelelor care "impacheteaza" (wraps) procedura de ajustare: la fiecare pas, se evalueaza f(gamma) sau verosimilitatea marginala pentru modelele vecine. Actualizari de rang 1 permit calcul eficient.</div>
+  <div class="highlight-box"><strong>Cautare greedy - Single Best Replacement (SBR):</strong> Hill climbing in lattice: la fiecare pas, se incearca adaugarea sau stergerea fiecarei variabile si se alege cea mai buna mutare. Incepe de la gamma = 0 si exploreaza de jos in sus.</div>
+  <div class="definition-box"><strong>Selectie forward greedy (Eq. 13.28):</strong> j* = argmin_{j notin gamma_t} min_w ||y - X_{gamma_t U j} w||^2. Se adauga variabila care reduce cel mai mult eroarea reziduala. Necesita D-D_t probleme de least squares la fiecare pas.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 13.2.3 prezinta algoritme practice pentru cautarea in spatiul exponential de modele. Cautarea greedy forward este cea mai populara: porneste de la modelul gol si adauga cate o variabila la fiecare pas. Actualizarile de rang 1 ale descompunerii QR fac evaluarea eficienta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Lattice-ul subseturilor are 2^D noduri - explorarea exhaustiva este infezabila pentru D mare. Algoritmele greedy exploreaza doar O(D^2) modele (D pasi, D evaluari per pas), dar pot ramane blocate in optime locale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Selectia forward (stepwise selection) ramane una dintre cele mai utilizate metode in practica, implementata in toate pachetele statistice majore. Criteriul de oprire poate fi BIC, AIC, p-value sau validare incrucisata.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile clinice, selectia stepwise a variabilelor prognostice (varsta, stadiul bolii, biomarkeri) este folosita pentru a construi modele de prognostic parsimonioase, usor de implementat in practica clinica.</p></div>
+  </div>
+</div>

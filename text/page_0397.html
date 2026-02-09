@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>EM Incremental si EM Pas-cu-Pas (Stepwise)</h2>
+  <p>Pagina prezinta algoritmul EM incremental (Algoritmul 11.3), EM pas-cu-pas (stepwise, Algoritmul 11.4) si comparatia dintre cele trei variante de EM online.</p>
+  <div class="definition-box"><strong>EM Stepwise (Pas-cu-Pas):</strong> La fiecare actualizare, mu := (1 - eta_k) * mu + eta_k * s_i, unde eta_k este rata de invatare care satisface conditiile Robbins-Monro. Bazeaza pe teoria aproximarii stocastice.</div>
+  <div class="highlight-box"><strong>Algoritmul 11.4:</strong> Initializeaza mu si k=0, apoi pentru fiecare observatie: calculeaza s_i, actualizeaza mu := (1-eta_k)*mu + eta_k*s_i, k := k+1. Repeta pana la convergenta.</div>
+  <div class="highlight-box"><strong>Comparatie empirica:</strong> Stepwise EM (cu kappa ~0.7, m ~1000) este mai rapid decat incremental EM, care la randul sau este mult mai rapid decat batch EM. In termeni de acuratete, stepwise EM este comparabil sau chiar mai bun decat batch EM.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>EM stepwise foloseste o medie mobila exponentiala a statisticilor suficiente, controlata de rata de invatare eta_k = (2+k)^{-kappa}. Spre deosebire de EM incremental (care pastreaza exact toate s_i), stepwise EM necesita doar memorie constanta. Rezultatele empirice arata ca stepwise EM ofera cel mai bun compromis intre viteza si acuratete.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la batch la stepwise EM este analogia exacta a trecerii de la gradient descent la SGD in optimizarea bazata pe gradient. Conditiile Robbins-Monro (suma eta_k = infinit, suma eta_k^2 < infinit) garanteaza convergenta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Stepwise EM este ideal pentru scenarii de streaming unde datele sosesc continuu (analiza log-urilor web, procesare de senzori IoT) si nu este fezabila stocarea intregului set de date.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea topicurilor online (Online LDA), stepwise EM permite actualizarea distributiilor de topicuri pe masura ce apar noi documente, fara a reprocessa intregul corpus de milioane de texte.</p></div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Modele de amestec cu procese Dirichlet (continuare)</h2>
+  <p>Pagina prezinta doua vizualizari ale modelului de amestec cu procese Dirichlet (DPMM) si discuta aplicarea proceselor Dirichlet la modelarea amestecurilor.</p>
+  <div class="definition-box"><strong>Partitii ale numerelor intregi:</strong> Rezultatul procesului restaurantului chinezesc este o distributie peste partitiile numerelor intregi, reprezentand modul in care clientii sunt distribuiti la mese.</div>
+  <div class="definition-box"><strong>Fenomenul "cei bogati devin mai bogati":</strong> Mesele ocupate in prezent au mai multe sanse sa atraga noi clienti, generand o distributie de tip lege de putere asupra dimensiunilor clusterelor.</div>
+  <div class="highlight-box"><strong>Modelul de amestec DP:</strong> π ~ GEM(α), z_i ~ π, θ_k ~ H(λ), x_i ~ F(θ_{z_i}) (Ecuatiile 25.29-25.32)</div>
+  <div class="definition-box"><strong>Procesul Pitman-Yor:</strong> O generalizare cu doi parametri a procesului Dirichlet, care ofera priori mai flexibile asupra dimensiunilor clusterelor.</div>
+  <div class="figure-box"><strong>Figura 25.6:</strong> Doua vizualizari ale modelului de amestec DP. (a) Numar infinit de clustere cu parametri θ_k si π ~ GEM(α). (b) G este extras dintr-un DP, cu distributia de baza H. Se arata cum fiecare punct de date x_i este generat prin esantionarea parametrului sau privat θ̃_i din G.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Aceasta pagina finalizeaza discutia despre procesul restaurantului chinezesc si introduce modelul de amestec cu procese Dirichlet (DPMM). G este o extragere aleatoare dintr-un numar nelimitat de parametri θ_k din distributia de baza H, fiecare cu ponderea π_k. Pe masura ce se acumuleaza date, parametrii privati θ̃_i tind sa coincida cu θ_k existenti.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Procesul Dirichlet genereaza automat numarul de clustere necesare, evitand specificarea manuala a lui K. Fenomenul "rich get richer" asigura ca clusterele populare atrag mai multe puncte de date, iar numarul de mese K creste logaritmic: K ~ α log(N).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele de amestec DP sunt folosite in segmentarea clientilor, descoperirea de tipuri de documente in procesarea limbajului natural, si in genomica pentru identificarea subtipurilor de boli fara a specifica a priori numarul de categorii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de recomandare pentru muzica ar putea folosi un DPMM pentru a descoperi automat genurile muzicale preferate ale unui utilizator, fara a specifica in avans cate genuri exista. Pe masura ce se adauga piese noi, modelul poate crea automat noi clustere de preferinte.</p></div>
+  </div>
+</div>

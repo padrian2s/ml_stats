@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Comparatia Metodelor pe Date de Cancer de Prostata si Calea de Regularizare</h2>
+  <p>Pagina prezinta Tabelul 13.1 (comparatie LS, Subset, Ridge, LASSO pe date de cancer de prostata), Figurile 13.6-13.7 si introduce conceptul de cale de regularizare.</p>
+  <div class="highlight-box"><strong>Tabelul 13.1:</strong> LASSO obtine cea mai mica eroare pe test (0.564) comparativ cu LS (0.586), Subset (0.572) si Ridge (0.580). LASSO produce si un model sparse (age, gleason au coeficienti zero).</div>
+  <div class="highlight-box"><strong>Figura 13.6:</strong> (a) MSE vs lambda pentru LASSO pe polinom de grad 14. (b) MSE vs grad polinom. LASSO si selectia de subset dau rezultate similare, ambele superioare OLS pentru complexitate mare.</div>
+  <div class="definition-box"><strong>Calea de regularizare (Regularization path, Sectiunea 13.3.4):</strong> Graficul w_hat_j(lambda) vs lambda (sau B) pentru toate feature-urile j. Arata cum coeficientii intra/ies din model pe masura ce regularizarea variaza.</div>
+  <div class="highlight-box"><strong>Figura 13.7:</strong> (a) Ridge path: coeficientii se micsoreaza continuu spre zero cand lambda creste, dar nu ajung niciodata exact la zero. (b) LASSO path: coeficientii ating zero la diferite valori de lambda, producand selectie secventiala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Rezultatele empirice pe datele de cancer de prostata confirma avantajele LASSO: acuratete predictiva superioara combinata cu interpretabilitate (model sparse). Calea de regularizare ofera o vizualizare completa a comportamentului tuturor coeficientilor, facilitand selectia lui lambda si intelegerea importantei relative a variabilelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta cheie: calea Ridge este smooth (coeficientii nu ating niciodata zero), calea LASSO este pe portiuni liniara cu "coturi" unde coeficienti noi intra sau ies din model. Aceasta proprietate pe portiuni liniara este exploatata de algoritmul LARS.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, se calculeaza intreaga cale de regularizare si se alege lambda prin validare incrucisata (regula 1SE: cel mai simplu model la o eroare standard de minimul CV). Pachetele glmnet si scikit-learn fac aceasta eficient.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In oncologie, calea de regularizare LASSO pe biomarkeri arata ordinea de importanta: lcavol (volum tumoral) intra primul in model, urmat de lweight (greutate), confirmand cunostintele clinice.</p></div>
+  </div>
+</div>

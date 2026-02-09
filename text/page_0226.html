@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Teoria Deciziei Frecventiste - Riscul și Riscul Bayes</h2>
+  <p>Această pagină introduce teoria deciziei frecventiste, definind riscul (pierderea așteptată) unui estimator și riscul Bayes ca metodă de evaluare a estimatorilor.</p>
+  <div class="definition-box"><strong>Riscul (Risk):</strong> Pierderea așteptată a unui estimator δ, definită ca R(θ*, δ) = E[L(θ*, δ(D̂))]p(D̂|θ*)dD̂, unde așteptarea este luată în raport cu distribuția de eșantionare a estimatorului.</div>
+  <div class="definition-box"><strong>Pierderea posterioară așteptată Bayesiană:</strong> ρ(a|D, π) = E[L(θ, a)] = ∫ L(θ, a)p(θ|D, π)dθ, care mediază peste θ (necunoscut) și condiționează pe D (cunoscut).</div>
+  <div class="definition-box"><strong>Riscul Bayes:</strong> R_B(δ) = E[R(θ*, δ)] = ∫ R(θ*, δ)p(θ*)dθ*, o măsură unică de calitate care nu depinde de cunoașterea lui θ*.</div>
+  <div class="definition-box"><strong>Estimatorul Bayes:</strong> Regula de decizie care minimizează riscul așteptat: δ_B = argmin R_B(δ).</div>
+  <div class="highlight-box"><strong>Teorema 6.3.1:</strong> Un estimator Bayes poate fi obținut prin minimizarea pierderii așteptate posterioare pentru fiecare x. Demonstrația arată că optimizarea locală (caz cu caz) produce optimizare globală (în medie).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina stabilește cadrul teoriei deciziei frecventiste, contrastând abordarea frecventistă (care mediază peste date D̂) cu cea Bayesiană (care mediază peste parametri θ). Se introduce riscul Bayes ca modalitate de a compara estimatorii și se demonstrează că estimatorul Bayes minimizează pierderea posterioară așteptată.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferența fundamentală: frecventiștii condiționează pe θ* (necunoscut) și mediază peste date, în timp ce Bayesienii condiționează pe datele observate și mediază peste θ. Riscul Bayes oferă o punte între cele două abordări, demonstrând că optimizarea Bayesiană caz-cu-caz produce rezultate optime și din perspectivă frecventistă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea între estimatori diferiți în probleme de învățare automată necesită o metrică de comparare. Riscul Bayes oferă un criteriu principial pentru această alegere, fiind utilizat în selecția de modele și proiectarea experimentelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un sistem de recomandare, trebuie ales între diferiți algoritmi de predicție. Riscul Bayes permite evaluarea fiecărui algoritm mediând peste toate scenariile posibile, oferind o decizie robustă despre care algoritm să fie implementat în producție.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Esantionarea prin importanta pentru DGM-uri: likelihood weighting si SIR</h2>
+  <p>Aceasta pagina prezinta likelihood weighting pentru modele grafice directionate si metoda Sampling Importance Resampling (SIR).</p>
+  <div class="definition-box"><strong>Esantionarea ancestrala:</strong> Se esantioneaza din distributia neconditionata a unui DGM in ordine topologica: mai intai radacinile, apoi copiii lor, etc. Nu functioneaza direct cand exista evidenta (noduri observate).</div>
+  <div class="definition-box"><strong>Likelihood weighting:</strong> Se esantioneaza variabilele neobservate din prior (ancestral sampling), dar nodurile observate nu sunt esantionate ci fixate la valorile observate. Ponderea de importanta devine w(x) = prod_{t in E} p(x_t|x_{pa(t)}), produsul verosimilitatilor nodurilor observate.</div>
+  <div class="definition-box"><strong>SIR (Sampling Importance Resampling):</strong> Se genereaza S esantioane ponderate prin IS, apoi se re-esantioneaza S' << S esantioane cu inlocuire, proportional cu ponderile. Rezultatul sunt esantioane neponderate (echiprobabile) din distributia tinta.</div>
+  <div class="highlight-box"><strong>SIR pentru inferenta Bayesiana:</strong> Cu propunerea q(theta) = p(theta) (priorul), ponderile devin w_s = p(D|theta_s)/sum p(D|theta_{s'}). SIR produce esantioane neponderate din posterior, dar necesita multe esantioane daca priorul si posterioarul difera mult.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua tehnici practice: likelihood weighting adapteaza IS la DGM-uri prin fixarea nodurilor observate, iar SIR transforma esantioane ponderate in esantioane neponderate prin re-esantionare. Ambele sunt componente esentiale ale filtrarii particulelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Likelihood weighting exploateaza structura DAG-ului: esantionarea in ordine topologica este simpla, iar evidenta se incorporeaza prin ponderare, nu prin respingere. SIR adauga un pas de re-esantionare care "concentreaza" particulele in regiuni de probabilitate mare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Likelihood weighting este implementat in motoare de inferenta probabilistica precum BayesServer si Netica. SIR este baza filtrelor bootstrap utilizate in urmarirea obiectelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul medical Bayesian cu retele Bayesiene, likelihood weighting permite estimarea probabilitatii bolilor date simptomele observate, generand mii de scenarii ponderate pentru a aproxima posterioarul.</p></div>
+  </div>
+</div>

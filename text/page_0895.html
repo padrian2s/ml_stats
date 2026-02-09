@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Clustering aglomerativ - algoritm si dendrograme</h2>
+  <p>Pagina prezinta algoritmul de clustering aglomerativ (Algoritmul 25.2) si ilustreaza cele trei variante de legatura: single link, complete link si average link.</p>
+  <div class="definition-box"><strong>Algoritmul 25.2 - Clustering aglomerativ:</strong> Se initializeaza N clustere singleton. La fiecare pas, cele doua clustere cele mai similare sunt imbinate intr-un cluster nou. Procesul continua pana cand ramane un singur cluster care contine toate datele.</div>
+  <div class="highlight-box"><strong>Complexitate:</strong> Selectarea celor doua clustere cele mai similare ia O(N²), iar algoritmul are O(N) pasi, deci complexitatea totala este O(N³). Cu o coada de prioritati, poate fi redusa la O(N² log N).</div>
+  <div class="figure-box"><strong>Figura 25.14:</strong> Ilustrarea celor trei tipuri de legatura: (a) Single linkage - distanta minima intre orice pereche de puncte din cele doua grupuri. (b) Complete linkage - distanta maxima. (c) Average linkage - distanta medie intre toate perechile.</div>
+  <div class="definition-box"><strong>Dendrograma:</strong> Un arbore binar in care obiectele initiale sunt la frunze, iar inaltimea ramurilor reprezinta disimilaritatea dintre grupurile imbinate. Taierea la o anumita inaltime induce un clustering de dimensiune data.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul aglomerativ construieste ierarhia de jos in sus. Pentru seturi mari de date N, o euristica comuna este sa se ruleze mai intai K-means (in timp O(KND)) si apoi sa se aplice clusteringul ierarhic pe centrele de cluster estimate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Dendrograma este o reprezentare completa a ierarhiei de clustering. Diferitele tipuri de legatura produc rezultate diferite: single-link genereaza un arbore de acoperire minima, complete-link produce clustere compacte, iar average-link ofera un compromis.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clusteringul aglomerativ este folosit in analiza filogenetica, segmentarea pietei si organizarea bibliotecilor de compusi chimici in chimie medicamentala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>O companie de e-commerce poate folosi clusteringul aglomerativ pe profilurile de cumparare ale clientilor pentru a crea o ierarhie de segmente de piata: de la categorii largi (cumparatori frecventi vs. ocazionali) la sub-segmente detaliate (pasionati de tehnologie, cumparatori de moda, etc.).</p></div>
+  </div>
+</div>

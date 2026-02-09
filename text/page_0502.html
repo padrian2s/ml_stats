@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Rezultate ale Invatarii de Dictionar din Patch-uri de Imagini (Sectiunea 13.8.2)</h2>
+  <p>Pagina prezinta Figura 13.21 cu filtrele invatate de diferite metode de factorizare (ICA, sparse coding, PCA, NMF, sparse PCA) aplicate pe patch-uri de imagini naturale.</p>
+  <div class="highlight-box"><strong>Figura 13.21 - Comparatia filtrelor invatate:</strong> (a) ICA: filtre orientate similar campurilor receptive V1. (b) Sparse coding: filtre similare ICA dar cu dictionar supracomplet. (c) PCA: filtre globale (eigenfaces), nu localizate. (d) NMF: parti pozitive (non-negative). (e) Sparse PCA (sparsitate mica pe W): filtre partial localizate. (f) Sparse PCA (sparsitate mare pe W): filtre foarte localizate.</div>
+  <div class="definition-box"><strong>Conexiunea cu neurostiinta:</strong> Dictionarul invatat prin sparse coding pe patch-uri de imagini naturale seamana cu filtrele neuronilor din cortexul vizual primar (V1): orientate, localizate spatial, cu frecvente spatiale variate. Aceasta sugereaza ca cortexul vizual a evoluat pentru a produce reprezentari sparse ale scenelor naturale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 13.21 demonstreaza vizual diferentele intre metodele de factorizare. ICA si sparse coding produc filtre localizate si orientate (Gabor-like), PCA produce eigenfaces globale, NMF produce parti pozitive interpretabile, iar sparse PCA produce filtre cu grad controlabil de localizare. Rezultatele sparse coding/ICA sunt remarcabile prin similitudinea cu procesarea vizuala biologica.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Sparsitatea pe factori (ICA, sparse coding) produce filtre localizate, in timp ce sparsitatea pe dictionar (sparse PCA) produce bazele sparse. Combinatia (sparse MF) produce ambele proprietati. NMF produce o descompunere in parti pozitive care este natural interpretabila.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste comparatii ghideaza alegerea metodei: pentru interpretabilitate, NMF; pentru denoising/reconstructie, sparse coding cu dictionar invatat; pentru reducerea dimensionalitatii interpretabile, sparse PCA. Demonstratia sparseDictDemo din carte permite reproducerea experimentelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In viziunea computationala, filtrele Gabor-like invatate prin sparse coding sunt folosite ca feature extractors pentru clasificarea texturilor, detectia de obiecte si recunoasterea de scene, mimand procesarea din cortexul vizual uman.</p></div>
+  </div>
+</div>

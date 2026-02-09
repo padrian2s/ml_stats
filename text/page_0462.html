@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>LASSO: Forma Constranata si De Ce l1 Produce Sparsitate</h2>
+  <p>Pagina prezinta formele duale LASSO/Ridge (Lagrangian vs constransat), comparatia geometrica detaliata si introduce conditiile de optimalitate bazate pe subgradient.</p>
+  <div class="highlight-box"><strong>LASSO in forma constranata (Eq. 13.37-13.38):</strong> min RSS(w) s.t. ||w||_1 <= B. Echivalent cu forma penalizata min RSS(w) + lambda||w||_1, unde lambda si B sunt inversamente legate.</div>
+  <div class="highlight-box"><strong>De ce l1 produce sparsitate (Eq. 13.41-13.42):</strong> ||{1,0}||_2 = ||{1/sqrt(2), 1/sqrt(2)}||_2 = 1 (l2 nu distinge solutii sparse de dense), dar ||{1,0}||_1 = 1 < ||{1/sqrt(2), 1/sqrt(2)}||_1 = sqrt(2) (l1 prefera solutia sparsa).</div>
+  <div class="definition-box"><strong>Problema de optimizare ne-smooth:</strong> ||w||_1 nu este diferentiabila cand w_j = 0. Necesita calcul subgradient in loc de gradient standard, ceea ce complica algoritmii de optimizare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Explicatia geometrica a sparsitatii l1 este completata cu explicatia algebrica: norma l1 penalizeaza mai mult solutiile dense decat cele sparse (la aceeasi norma l2), deoarece suma valorilor absolute este minimizata de solutii concentrate pe cateva coordonate. Problema este convexa dar ne-smooth.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Dualitatea Lagrangian-constransat: lambda mare = B mic = solutie foarte sparsa. Aceasta relatie permite reformularea problemei in functie de contextul aplicatiei: penalizare (lambda) sau buget (B).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Ne-smoothness-ul la zero este sursa sparsitatii dar si provocarea computationala. Algoritmi speciali (coordinate descent, proximal gradient, ADMM) sunt necesari pentru a gestiona eficient aceasta nediferentiabilitate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In compresia de imagini cu baze wavelet, regularizarea l1 produce o reprezentare sparsa naturala: majoritatea coeficientilor wavelet sunt pusi la zero (regiuni uniforme), doar cativa sunt pastrati (margini, texturi).</p></div>
+  </div>
+</div>

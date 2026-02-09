@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Graficul de Topicuri Corelate si Modelul Dinamic de Topicuri (Capitolul 27.4.2)</h2>
+  <p>Pagina prezinta rezultatul vizual al modelului de topicuri corelate aplicat pe articole din Science si introduce modelul dinamic de topicuri care permite evolutia distributiilor de topicuri in timp.</p>
+  <div class="figure-box"><strong>Figura 27.10:</strong> Iesirea modelului de topicuri corelate (cu K=50 topicuri) aplicat pe articole din Science. Nodurile reprezinta topicuri, cu cele mai probabile 5 expresii din fiecare topic. Marimea fontului reflecta prevalenta generala a topicului in corpus. Se observa clustere tematice clare: stiinte biologice, fizica, astronomie, stiintele pamantului etc.</div>
+  <div class="definition-box"><strong>Modelul Dinamic de Topicuri:</strong> Extensie a LDA in care distributiile de topicuri evolueaza in timp conform unui random walk gaussian: b_{t,k}|b_{t-1,k} ~ N(b_{t-1,k}, σ²·1_V). Vectorii gaussieni sunt apoi transformati in probabilitati prin functia softmax.</div>
+  <div class="highlight-box"><strong>Ecuatii cheie:</strong> b_{t,k}|b_{t-1,k} ~ N(b_{t-1,k}, σ²·1_V) (27.57), π_i^t ~ Dir(α·1_K) (27.58), q_{il}^t|π_i^t ~ Cat(π_i^t) (27.59), y_{il}^t|q_{il}^t=k,B^t ~ Cat(S(b_k^t)) (27.60)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 27.10 ofera o vizualizare impresionanta a structurii tematice a revistei Science, unde se pot observa domenii precum neurostiinta, genetica, astronomia si stiintele climatului. Modelul dinamic de topicuri extinde LDA permitand topicurilor sa evolueze in timp, captand schimbarile in limbajul si conceptele stiintifice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Modelul dinamic foloseste un lant gaussian linear pentru evolutia temporala a topicurilor, combinat cu o transformare softmax pentru a genera probabilitati. Aceasta structura permite utilizarea algoritmului de netezire Kalman pentru inferenta exacta pe lantul liniar, cu o aproximare de camp mediu structurata pentru restul modelului.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelul dinamic este ideal pentru analiza evolutiei limbajului stiintific, detectarea tendintelor emergente in cercetare, studiul schimbarilor culturale reflectate in texte si analiza evolutiei discursului public pe teme sociale sau politice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In neurostiinta, modelul dinamic arata cum vocabularul topicului a evoluat de la termeni precum "nerv" si "muschi" in anii 1900 la "receptor de calciu" si "biologie moleculara" in anii 2000, reflectand tendinta generala spre biologia moleculara.</p></div>
+  </div>
+</div>

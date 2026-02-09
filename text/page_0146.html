@@ -1,0 +1,22 @@
+<div class="page-content">
+  <h2>Imputarea Datelor, Imputare Multipla si Forma Informationala</h2>
+  <p>Pagina 115 continua cu imputarea datelor lipsa, introduce imputarea multipla si forma informationala (canonica) a distributiei Gaussiene.</p>
+
+  <div class="figure-box"><strong>Figura 4.11:</strong> Ilustrarea imputarii datelor. Stanga: trei randuri din matricea de date cu valori lipsa (marcate cu cercuri). Centru: media predictiva posterioara bazata pe datele observate partial. Dreapta: valorile reale. Estimarile sunt foarte aproape de adevar.</div>
+
+  <div class="definition-box"><strong>Imputare multipla:</strong> In loc de a imputa o singura valoare (media), se extrag mai multe esantioane din p(x_h|x_v, θ) pentru a captura incertitudinea estimarii. Aceasta ofera o masura mai onesta a incertitudinii decat imputarea simpla.</div>
+
+  <div class="definition-box"><strong>Parametri canonici / naturali (Ecuatia 4.85):</strong> Λ = Σ⁻¹ (matricea de precizie) si ξ = Σ⁻¹μ (vectorul de precizie ponderat). Forma informationala: N_c(x|ξ, Λ).</div>
+
+  <div class="highlight-box"><strong>Inmultirea Gaussienelor in forma informationala (Ecuatia 4.90):</strong> N_c(ξ_f, λ_f) * N_c(ξ_g, λ_g) = N_c(ξ_f + ξ_g, λ_f + λ_g). Simpla adunare a parametrilor! In forma cu momente, formula este mult mai complicata (Ecuatia 4.91).</div>
+
+  <div class="highlight-box"><strong>Conditionarea in forma informationala (Ecuatia 4.89):</strong> p(x₁|x₂) = N_c(x₁|ξ₁ - Λ₁₂x₂, Λ₁₁). Conditionarea este simpla: se scade termenul Λ₁₂x₂ din ξ₁ si se extrage submatricea Λ₁₁.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina introduce un concept important: dualitatea intre forma cu momente (μ, Σ) si forma informationala (ξ, Λ). Marginalizarea este usoara in forma cu momente (selecteaza submatricea), iar conditionarea si inmultirea sunt usoare in forma informationala (adunare/scadere). Aceasta dualitate este exploatata in algoritmii de inferenta pe modele grafice.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Inmultirea Gaussienelor prin simpla adunare a parametrilor canonici este fundamentala in propagarea credintelor (belief propagation) pe modele grafice Gaussiene. Aceasta proprietate face inferenta exacta eficienta in retele Gaussiene.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Forma informationala este utilizata in filtrarea Kalman informationala (mai stabila numeric in unele cazuri), in fuziunea senzorilor (fiecare senzor contribuie cu propriul (ξ, Λ), iar fuziunea este simpla adunare) si in inferenta distribuita.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In fuziunea senzorilor pentru vehicule autonome, fiecare senzor (camera, lidar, radar) produce o estimare Gaussiana a pozitiei obiectelor. In forma informationala, fuziunea se face prin simpla adunare: Λ_total = Λ_camera + Λ_lidar + Λ_radar si ξ_total = ξ_camera + ξ_lidar + ξ_radar.</p></div>
+  </div>
+</div>

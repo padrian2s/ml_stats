@@ -1,0 +1,19 @@
+<div class="page-content">
+  <h2>10.4.2 Invatarea din Date Complete</h2>
+  <p>Pagina prezinta invatarea parametrilor intr-un DGM cand toate variabilele sunt observate (date complete), demonstrand ca verosimilitatea si posterioara se factorizeaza conform structurii grafului.</p>
+  <div class="definition-box"><strong>Date complete:</strong> Situatia in care toate variabilele din model sunt complet observate in fiecare caz de antrenare - nu exista date lipsa sau variabile ascunse.</div>
+  <div class="highlight-box"><strong>Factorizarea verosimilantei (10.27):</strong> p(D|θ) = ∏_{i=1}^{N} p(x_i|θ) = ∏_{i=1}^{N} ∏_{t=1}^{V} p(x_{it}|x_{i,pa(t)}, θ_t) = ∏_{t=1}^{V} p(D_t|θ_t), unde D_t sunt datele asociate nodului t si familiei sale.</div>
+  <div class="highlight-box"><strong>Factorizarea priorului (10.28):</strong> p(θ) = ∏_{t=1}^{V} p(θ_t), presupunand priori independente pentru fiecare CPD.</div>
+  <div class="highlight-box"><strong>Factorizarea posterioarei (10.29):</strong> p(θ|D) ∝ p(D|θ) p(θ) = ∏_{t=1}^{V} p(D_t|θ_t) p(θ_t). Prior factorizat + verosimilitate factorizata = posterior factorizat.</div>
+  <div class="highlight-box"><strong>Regula de aur (10.30):</strong> Prior factorizat + verosimilitate factorizata implica posterior factorizat.</div>
+  <div class="definition-box"><strong>Cazul de conditionare:</strong> O combinatie specifica de valori ale parintilor. Pentru CPT-uri tabulare, fiecare rand corespunde unui caz de conditionare c, cu θ_tc ~ Dir(α_tc).</div>
+  <div class="highlight-box"><strong>Statisticile suficiente (10.31):</strong> N_tck = Σ_{i=1}^{N} I(x_{i,t} = k, x_{i,pa(t)} = c), numarul de ori cand nodul t este in starea k si parintii sunt in configuratia c.</div>
+  <div class="highlight-box"><strong>Media posterioara (10.32):</strong> θ̄_tck = (N_tck + α_tck) / Σ_{k'} (N_tck' + α_tck'), estimare bayesiana cu netezire Dirichlet.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Rezultatul fundamental: cu date complete si priori independente, posterioara parametrilor se factorizeaza conform structurii grafului, permitand invatarea independenta a fiecarui CPD. Aceasta este o consecinta directa a structurii de independenta conditionata a DGM-ului. Pentru CPT-uri tabulare cu priori Dirichlet, estimarea se reduce la numararea si netezire.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Factorizarea este cheia scalabilitatii: in loc sa estimam toti parametrii simultan (O(K^V)), ii estimam independent pentru fiecare familie de noduri. Priorul Dirichlet ofera netezire (add-one smoothing cu α = 1), evitand problema frecventelor zero.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Invatarea din date complete este rapida si are solutie in forma inchisa (numarare + normalizare). Aceasta face DGM-urile cu date complete foarte eficiente de antrenat, chiar si la scara mare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In exemplul din text cu DAG-ul din Figura 10.1(a) si 5 cazuri de antrenare, pentru nodul x_4 (cu parintii x_2 si x_3), statistica suficienta N_{4,c=(1,1),k=1} = 2 (de doua ori x_4=1 cand x_2=1 si x_3=1), iar media posterioara cu prior Dirichlet (α=1) este θ̄ = (2+1)/(2+1+1+1) = 3/5.</p></div>
+  </div>
+</div>

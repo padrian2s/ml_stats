@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>RBPF - Urmarirea tintelor cu manevre si comparatie PF vs RBPF</h2>
+  <p>Aceasta pagina prezinta aplicarea RBPF la urmarirea tintelor cu manevre (maneuvering target tracking) si compara performanta PF cu RBPF.</p>
+  <div class="definition-box"><strong>Urmarirea tintelor cu manevre:</strong> Un obiect se misca in 2D cu dinamica liniara pe segmente, comutand intre 3 moduri (directie diferita). Starea discreta q_t indica modul curent, iar starea continua z_t contine pozitia si viteza.</div>
+  <div class="definition-box"><strong>Comparatie PF vs RBPF (Tabelul 23.1):</strong> PF: rata de misclasificare 0.440, MSE 21.051, timp 6.086s. RBPF: rata de misclasificare 0.340, MSE 18.168, timp 10.986s. RBPF are performanta usor mai buna dar este mai lent.</div>
+  <div class="highlight-box"><strong>Algoritmul look-ahead:</strong> Fiecare particula este trecuta prin toate cele K=3 modele, verosimilitatile predictive sunt evaluate, si starea discreta este esantionata din propunerea optima. Aceasta produce particule mai diverse si mai informative.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza practic ca RBPF ofera performanta superioara PF standard la un cost computational moderat. Vizualizarile arata cum belief-ul RBPF (amestec de Gaussiene) este mai precis decat aproximarea cu particule pure a PF.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul acuratete-viteza: RBPF este de ~2x mai lent dar reduce MSE cu ~15% si rata de misclasificare cu ~23%. In aplicatii critice (aparare, navigatie), aceasta imbunatatire justifica costul suplimentar.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>RBPF cu SLDS este standard in urmarirea multi-tinta, navigatia inertiana si segmentarea seriilor temporale cu schimbari de regim.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In monitorizarea traficului aerian, fiecare avion este urmarit cu RBPF: cand pilotul schimba directia sau altitudinea, filtrul detecteaza comutarea modului dinamic si adapteaza rapid estimarile de pozitie si viteza.</p></div>
+  </div>
+</div>

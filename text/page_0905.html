@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Exercitii MCMC - Conditionale complete si esantionare Gibbs</h2>
+  <p>Aceasta pagina continua exercitiile capitolului 24, prezentand conditionalele complete pentru modelul ierarhic de medii gaussiene si exercitii despre esantionarea Gibbs pentru regresie.</p>
+  <div class="definition-box"><strong>Conditionale complete:</strong> Distributiile conditionale ale fiecarui parametru date toate celelalte, necesare pentru esantionarea Gibbs. Pentru modelul ierarhic: p(mu|theta,tau^2), p(theta_j|mu,tau^2,D_j,sigma^2), p(tau^2|theta,mu), p(sigma^2|theta,D).</div>
+  <div class="highlight-box"><strong>Rezultat cheie:</strong> Conditionalele complete sunt distributii conjugate: normale pentru medii si inverse-gamma pentru variante, permitand esantionare directa in cadrul Gibbs.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta ecuatiile explicite pentru conditionalele complete ale modelului ierarhic gaussian (ecuatiile 24.115-24.118) si exercitii suplimentare despre esantionarea Gibbs pentru regresie robusta cu distributia Student-t si regresie probit. Se demonstreaza cum truncarea gaussienei poate fi folosita pentru esantionarea variabilelor latente in modelul probit.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conjugarea bayesiana face ca conditionalele complete sa aiba forme analitice (normale si inverse-gamma), ceea ce permite implementarea eficienta a esantionatorului Gibbs. Modelele ierarhice beneficiaza enorm de MCMC, permitand estimarea simultana a hiperparametrilor si parametrilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele ierarhice cu esantionare Gibbs sunt folosite in meta-analiza medicala (combinarea rezultatelor din studii multiple), educatie (modelarea performantei studentilor din scoli diferite), si marketing (modelarea preferintelor consumatorilor din segmente diferite).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In testarea clinica a medicamentelor, modelele ierarhice bayesiene cu Gibbs sampling permit combinarea datelor din spitale diferite, estimand simultan efectul global al tratamentului si variatia intre centre.</p></div>
+  </div>
+</div>

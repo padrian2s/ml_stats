@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Boosting - Introducere si Context</h2>
+  <p>Pagina continua discutia despre MARS si introduce boosting-ul ca algoritm greedy pentru potrivirea modelelor cu functii de baza adaptative, folosind clasificatoare slabe.</p>
+  <div class="definition-box"><strong>Boosting:</strong> Un algoritm greedy (Schapire si Freund 2012) pentru potrivirea modelelor cu functii de baza adaptative, unde φ_m sunt generate de un clasificator slab (weak learner) sau clasificator de baza (base learner).</div>
+  <div class="definition-box"><strong>Clasificator slab (weak learner):</strong> Un algoritm de clasificare sau regresie simplu (de obicei un arbore de decizie putin adanc) care este aplicat secvential pe versiuni ponderate ale datelor.</div>
+  <div class="highlight-box"><strong>Relatia MARS-CART:</strong> Daca inlocuim functiile liniare cu functii step I(x_j > t) si I(x_j < t) in MARS, si impunem ca fiecare variabila sa fie impartita o singura data, strategia de crestere MARS devine identica cu CART.</div>
+  <div class="highlight-box"><strong>Cel mai bun clasificator "de pe raft":</strong> Leo Breiman a numit boosting-ul cu arbori de decizie "cel mai bun clasificator de pe raft din lume" (Hastie et al. 2009, p340).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Boosting-ul functioneaza prin aplicarea secventiala a unui clasificator slab pe versiuni ponderate ale datelor, acordand mai multa greutate exemplelor clasificate gresit anterior. Comparatia extinsa a 10 clasificatoare (Caruana si Niculescu-Mizil 2006) a demonstrat ca arborii de decizie amplificati sunt cei mai buni.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Boosting-ul a fost derivat initial in teoria invatarii computationale (Schapire 1990; Freund si Schapire 1996) pentru clasificare binara. S-a demonstrat ca performanta oricarui clasificator slab poate fi amplificata arbitrar. Al doilea cel mai bun clasificator din comparatia extinsa au fost padurile aleatoare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Boosting-ul este dominant in competitiile de machine learning (Kaggle), detectia obiectelor in imagini (algoritmul Viola-Jones pentru detectia fetelor), si in motoarele de cautare pentru clasarea rezultatelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Algoritmul Viola-Jones pentru detectia fetelor in imagini foloseste AdaBoost cu clasificatoare Haar slabe, procesand imagini in timp real prin cascada de clasificatoare amplificate, fiind baza detectiei fetelor in camerele digitale.</p></div>
+  </div>
+</div>

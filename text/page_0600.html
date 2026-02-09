@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Algoritmul de backpropagation - Introducere</h2>
+  <p>Aceasta pagina introduce algoritmul de backpropagation, istoricul sau si motivatia utilizarii SGD pentru antrenarea retelelor neurale.</p>
+  <div class="definition-box"><strong>Backpropagation:</strong> Algoritmul de calcul al gradientului NLL (negative log-likelihood) in raport cu parametrii retelei neurale, bazat pe regula lantului din calcul. Permite antrenarea eficienta a MLP-urilor cu multiple straturi.</div>
+  <div class="highlight-box"><strong>NLL pentru regresie si clasificare:</strong> Regresie: J(theta) = -sum(y_hat_nk - y_nk)^2; Clasificare: J(theta) = -sum y_nk log y_hat_nk (cross-entropy). Gradientul se calculeaza per exemplu si se sumeaza (sau se foloseste mini-batch).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>NLL-ul unui MLP este non-convex in parametri, deci se folosesc metode de gradient de ordinul I (SGD) care sunt eficiente pentru seturi mari de date, spre deosebire de metodele de ordinul II (IRLS) folosite pentru GLM-uri. Backpropagation calculeaza gradientul prin regula lantului: x_n -> a_n -> z_n -> b_n -> y_hat_n. Parametrii theta = (V, W) sunt matricele de ponderi ale straturilor. Bias-urile se includ prin clamping (fixarea unui element la 1).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia pre-sinaptic/post-sinaptic: a_nj = v_j^T x_n (pre-sinaptic), z_nj = g(a_nj) (post-sinaptic). Functia de activare g este non-liniara: sigmoid pentru iesiri binare, tanh pentru straturi ascunse. Figura 16.16 compara tanh [-1,1] si sigmoid [0,1].</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Backpropagation este implementat automat in toate framework-urile moderne (PyTorch autograd, TensorFlow GradientTape, JAX grad). Nu mai este necesar sa fie implementat manual, dar intelegerea lui este esentiala pentru debugging.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In antrenarea modelelor de limbaj mari (GPT, BERT), backpropagation calculeaza gradientii prin sute de straturi cu miliarde de parametri, necesitand tehnici speciale de paralelizare pe sute de GPU-uri.</p></div>
+  </div>
+</div>

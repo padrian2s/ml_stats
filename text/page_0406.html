@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Imputarea Datelor si Exercitii EM (Gaussiene si Bernoulli)</h2>
+  <p>Pagina prezinta rezultatele imputarii datelor lipsa (Figura 11.22) si exercitiile 11.2-11.5 care acopera pasul M al EM pentru amestecuri de Gaussiene, Bernoulli, Student t si gradient descent pentru GMM.</p>
+  <div class="highlight-box"><strong>Figura 11.22:</strong> Scatter plot valori reale vs imputate. (a) Cu parametri reali, (b) Cu parametri estimati prin EM. Rezultatele sunt similare, confirmand eficacitatea EM pentru imputare chiar cu parametri estimati.</div>
+  <div class="highlight-box"><strong>Exercitiul 11.2 - Pasul M pentru GMM (Eq. 11.114-11.115):</strong> mu_k = suma(r_ik * x_i) / r_k, Sigma_k = suma(r_ik * (x_i - mu_k)(x_i - mu_k)^T) / r_k. Media si covarianta ponderate cu responsabilitatile.</div>
+  <div class="definition-box"><strong>Exercitiul 11.3 - Pasul M pentru amestec de Bernoulli (Eq. 11.116-11.117):</strong> ML: mu_kj = suma(r_ik * x_ij) / suma(r_ik). MAP cu prior Beta(alpha, beta): mu_kj = (suma(r_ik * x_ij) + alpha - 1) / (suma(r_ik) + alpha + beta - 2).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina combina rezultate vizuale ale imputarii cu exercitii fundamentale. Formulele pasului M pentru GMM si amestecuri de Bernoulli sunt derivate explicit, aratand ca sunt medii ponderate cu responsabilitatile r_ik. Exercitiile 11.4-11.5 extind la distributii Student t si gradient descent pentru GMM.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Pasul M are intotdeauna aceeasi structura: media ponderata cu responsabilitatile. Pentru ML, formula este direct ponderata; pentru MAP, se adauga pseudo-numarari din prior (Laplace smoothing pentru Bernoulli).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Formulele pasului M pentru amestecuri de Bernoulli sunt fundamentale in clustering de documente (bag-of-words binar) si in modelarea genomica (date SNP binare). MAP cu prior Beta previne estimari extreme de 0 sau 1.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza textelor cu naive Bayes nesupervizat, pasul M calculeaza probabilitatile cuvintelor per topic ca medii ponderate ale frecventelor, exact dupa formula din Exercitiul 11.3.</p></div>
+  </div>
+</div>

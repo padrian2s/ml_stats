@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Capitolul 16: Modele cu functii de baza adaptive - Introducere</h2>
+  <p>Aceasta pagina deschide capitolul 16 care introduce modelele cu functii de baza adaptive (ABM), trecand de la metodele kernel la invatarea directa a trasaturilor din date.</p>
+  <div class="definition-box"><strong>Model cu functii de baza adaptive (ABM):</strong> f(x) = w_0 + sum_{m=1}^M w_m phi_m(x), unde phi_m(x) = phi(x; v_m) sunt functii de baza parametrice invatate din date, nu fixate a priori. Modelul nu este liniar in parametri.</div>
+  <div class="highlight-box"><strong>Motivatia ABM:</strong> Metodele kernel necesita functii kernel bune (greu de proiectat) sau invatarea lor (costisitor computational). ABM invata direct trasaturile phi(x) din date, eliminand necesitatea unui kernel explicit.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 16 trece de la metodele non-parametrice (GP, SVM) la modele cu functii de baza adaptive. In modelele kernel, phi(x) = [kappa(x, mu_1),...,kappa(x, mu_N)] cu kernel fix; in ABM, phi_m sunt invatate. Aceasta include arbori de decizie, retele neurale, boosting si alte metode. Parametrii theta = (w_0, w_{1:M}, {v_m}) se estimeaza prin MLE/MAP local optim.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la kernel la ABM implica: (1) pierderea convexitatii - optimizarea devine non-convexa, (2) castigarea flexibilitatii - nu mai depindem de alegerea kernelului, (3) posibilitatea de a invata reprezentari ierarhice ale datelor. Selectia automata a trasaturilor prin ARD kernel este o alternativa intermedia.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>ABM-urile sunt cele mai folosite modele in practica: arborii de decizie (Random Forest, XGBoost), retelele neurale (deep learning), si boosting domina competitiile de machine learning si aplicatiile industriale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea imaginilor, retelele convolutionale (un tip de ABM) invata automat filtre relevante din date, depasind dramatic performanta kernelurilor proiectate manual utilizate in SVM-uri traditionale.</p></div>
+  </div>
+</div>

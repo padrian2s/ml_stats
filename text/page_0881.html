@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul Metropolis-Hastings - Pseudocod si distributii de propunere</h2>
+  <p>Aceasta pagina prezinta pseudocodul complet al algoritmului MH (Algorithm 24.2) si discuta alegerea distributiilor de propunere.</p>
+  <div class="definition-box"><strong>Algorithm 24.2 (Metropolis-Hastings):</strong> Initializeaza x_0. Pentru t=1,...,T: (1) Esantioneaza x' ~ q(x'|x_t); (2) Calculeaza alpha = min(1, [p*(x')*q(x_t|x')] / [p*(x_t)*q(x'|x_t)]); (3) Esantioneaza u ~ Uniform(0,1); (4) Daca u < alpha, x_{t+1} = x'; altfel x_{t+1} = x_t.</div>
+  <div class="definition-box"><strong>Propuneri Gaussiene (random walk MH):</strong> q(x'|x) = N(x'|x, sigma^2*I). Varianta sigma^2 controleaza dimensiunea pasului: sigma prea mic produce acceptare mare dar explorare lenta; sigma prea mare produce acceptare mica si stagnare.</div>
+  <div class="highlight-box"><strong>Propuneri independente:</strong> q(x'|x) = q(x'), independent de starea curenta. Functioneaza bine doar daca propunerea q(x') aproximeaza bine posteriorul p(x). Rata de acceptare depinde de cat de bine q acopera cozile lui p.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina ofera implementarea practica a MH: pseudocodul complet si discutia celor doua tipuri principale de propuneri. Alegerea propunerii este critica pentru eficienta algoritmului si ramane o problema deschisa in general.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Random walk MH este simplu dar ineficient in dimensiuni mari: pasul optim scade ca O(d^{-1/2}) cu dimensiunea d, iar numarul de pasi necesari creste ca O(d). Propunerile independente nu sufera de aceasta problema dar necesita o buna aproximare a posteriorului.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, se combina adesea o faza de adaptare (unde se ajusteaza propunerea) cu o faza de productie (unde se colecteaza esantioane). Adaptarea violeaza conditiile teoretice ale lantului Markov, dar functioneaza bine cu diminishing adaptation.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza Bayesiana a datelor seismice, MH cu propuneri Gaussiene adaptate local este folosit pentru a esantiona modele de viteza a undelor seismice, unde evaluarea verosimilitatii necesita simularea numerica a propagarii undelor.</p></div>
+  </div>
+</div>

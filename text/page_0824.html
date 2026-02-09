@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>EP si LBP pe grafuri factor - Derivarea echivalentei</h2>
+  <p>Aceasta pagina demonstreaza formal echivalenta intre EP si LBP pe grafuri factor, aratand ca mesajele EP corespund mesajelor BP si introduce tree EP.</p>
+  <div class="definition-box"><strong>EP pe grafuri factor:</strong> Multimea convexa L(phi, Phi) peste care EP optimizeaza este identica cu L(G) din LBP. Multiplicatorii Lagrange lambda_uv corespund mesajelor BP: M_uv(x_v) = exp(lambda_uv(x_v)).</div>
+  <div class="definition-box"><strong>Potrivirea momentelor ca transmitere de mesaje:</strong> Constrangerile de potrivire a momentelor (E_q[x_s] = E_{q_uv}[x_s]) se rezolva prin transmiterea mesajelor sum-product standard de-a lungul muchiei u-v.</div>
+  <div class="definition-box"><strong>Tree EP:</strong> O extensie naturala in care distributia de baza este un arbore (nu un produs). Se adauga cate o muchie la un moment dat, se absorbe efectul si se aproximeaza distributia rezultanta cu un nou arbore. Este mai precis si uneori mai rapid decat LBP.</div>
+  <div class="highlight-box"><strong>Generalizare:</strong> Prin considerarea altor distributii de baza structurate, se pot deriva algoritmi care depasesc performanta generalized BP (Welling et al. 2005).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza demonstratia formala ca EP pe modele grafice pairwise este echivalent cu LBP, si introduce tree EP ca extensie directa. Perspectiva EP ofera un cadru principial pentru proiectarea de noi algoritmi de inferenta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Echivalenta EP-LBP demonstreaza ca transmiterea mesajelor BP poate fi inteleasa ca potrivire iterativa a momentelor, o perspectiva care permite extensii elegante la distributii continue si modele cu factori complecsi.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Tree EP este implementat in biblioteci precum Infer.NET si oferape o alternativa directa la LBP cu acuratete imbunatatita la cost computational similar.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recomandare ale Microsoft (Xbox, Bing), Infer.NET foloseste EP si tree EP pentru a face inferenta rapida in modele probabilistice complexe cu milioane de utilizatori si itemi.</p></div>
+  </div>
+</div>

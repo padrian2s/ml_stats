@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Generalizari JTA si intractabilitatea inferentei exacte</h2>
+  <p>Aceasta pagina prezinta generalizarile JTA (MAP, esantionare, satisfiabilitate) si demonstreaza ca inferenta exacta este NP-hard prin reducere de la 3-SAT.</p>
+  <div class="definition-box"><strong>Generalizari JTA:</strong> (1) Estimarea MAP: inlocuim sum-product cu max-product si traceback. (2) N cele mai probabile configuratii. (3) Esantionare posterioara: colectare normala, distributie prin esantionare (forward-filtering/backward-sampling generalizat). (4) Satisfiabilitate si rationament logic.</div>
+  <div class="definition-box"><strong>Reducere 3-SAT la inferenta:</strong> Orice problema 3-SAT poate fi codificata ca un DGM cu CPD-uri deterministe (Figura 20.9). Calculul p(x=1) este echivalent cu verificarea daca exista o asignare satisfacatoare, demonstrand ca inferenta este NP-hard.</div>
+  <div class="highlight-box"><strong>Inferenta exacta este #P-hard:</strong> Calculul constantei de normalizare Z (numararea solutiilor) este #P-hard, o clasa de complexitate chiar mai dificila decat NP. Estimarea MAP este uneori mai usoara, necesitand doar gasirea unei solutii, nu numararea lor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>JTA este un meta-algoritm cu multiple aplicatii dincolo de calculul marginalelor: estimare MAP, esantionare, satisfiabilitate. Demonstratia ca inferenta exacta este NP-hard (prin reducere de la 3-SAT) arata ca nu exista algoritm polinomial pentru inferenta in grafuri generale, motivand metodele aproximative. Estimarea MAP poate fi mai usoara (#P vs NP) deoarece necesita doar o solutie, nu contorizarea tuturor solutiilor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cadrul semi-inelului comutativ unifica toate aceste generalizari. NP-dificultatea implica ca treewidth-ul este metrica corecta: inferenta este tractabila doar pe grafuri cu treewidth mic. Aceasta motiveaza dezvoltarea metodelor aproximative (loopy BP, mean field, MCMC).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Reducerea 3-SAT la inferenta justifica de ce sisteme precum SAT solvers si motoare de inferenta probabilistica partajeaza tehnici (propagarea unitara = BP pe factori deterministi). Solver-ele SAT moderne sunt extrem de eficiente in practica, desi problema este NP-hard.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Verificarea formala a circuitelor digitale poate fi modelata ca inferenta intr-un graf cu porti logice (CPD-uri deterministe). Intractabilitatea inferentei exacte explica de ce verificarea formala completa este imposibila pentru circuite mari, motivand verificarea bazata pe simulare.</p></div>
+  </div>
+</div>

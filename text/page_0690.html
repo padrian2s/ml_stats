@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Urmarirea Multi-Tinta si Diagnosticarea Defectiunilor</h2>
+  <p>Pagina prezinta urmarirea multi-tinta cu numar variabil de obiecte si aplicatia de diagnosticare a defectiunilor in sisteme industriale.</p>
+  <div class="definition-box"><strong>Urmarirea multi-tinta:</strong> Extensia asocierii datelor pentru cazul cu un numar variabil si/sau necunoscut de obiecte. Necesita un spatiu de stari cu dimensionalitate variabila si se rezolva prin metode Monte Carlo secventiale sau MCMC.</div>
+  <div class="definition-box"><strong>Diagnosticarea defectiunilor (Fault Diagnosis):</strong> Problema estimarii starii unui sistem industrial cand senzorii sau componentele pot defecta. Modelul clasic implica rezervoare de lichid interconectate prin conducte, cu posibile defectiuni ale senzorilor sau blocaje ale conductelor.</div>
+  <div name="highlight-box"><strong>Algoritmul Ungar:</strong> Rezolva problema de potrivire bipartita maximala in O(N³), unde N = max(K, K'). Se adauga obiecte si observatii fantoma pentru a gestiona alarmele false si detectiile ratate.</div>
+  <div class="figure-box"><strong>Figura 18.15:</strong> (a) Model fizic al unei instalatii industriale cu doua rezervoare interconectate prin conducte. (b) Modelul probabilistic corespunzator cu noduri patrate pentru variabilele discrete (defectiuni ale senzorilor si rezistentelor) si noduri rotunde pentru variabilele continue.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina incheie sectiunea despre SLDS cu doua aplicatii avansate. Urmarirea multi-tinta generalizeaza asocierea datelor la un numar variabil de obiecte. Diagnosticarea defectiunilor este un exemplu clasic de SSM hibrid, unde variabilele discrete reprezinta starea de functionare a componentelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Modelele hibride captureaza natural situatiile unde un sistem poate fi in moduri calitativ diferite. Filtrarea Rao-Blackwellizata combina esantionarea Monte Carlo pentru variabilele discrete cu filtrarea analitica Kalman pentru cele continue.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Diagnosticarea defectiunilor se aplica in monitorizarea centralelor electrice, sistemelor de apa si canalizare, proceselor de fabricatie si echipamentelor de aviatie. Detectia rapida a defectiunilor previne accidente si reduce costurile de intretinere.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-o centrala nucleara, un SSM hibrid monitorizeaza continuu presiunea, temperatura si debitul in circuitele de racire. Variabilele discrete detecteaza defectiuni ale senzorilor sau scurgeri de agent termic, permitand interventia imediata inainte de escaladarea unei situatii periculoase.</p></div>
+  </div>
+</div>

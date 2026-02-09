@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Minimizarea Riscului Structural și Validarea Încrucișată</h2>
+  <p>Pagina introduce principiul minimizării riscului structural pentru alegerea hiperparametrilor și definește formal validarea încrucișată K-fold.</p>
+  <div class="definition-box"><strong>Minimizarea Riscului Structural (SRM):</strong> Principiu de selectare a modelului care alege λ minimizând o estimare a riscului adevărat: λ̂ = argmin_λ R̂(δ̂_λ). Două metode principale: validarea încrucișată și limite superioare teoretice.</div>
+  <div class="definition-box"><strong>Optimismul Erorii de Antrenament:</strong> Eroarea de antrenament subestimează riscul adevărat, deci nu poate fi utilizată pentru a alege λ. Acest fenomen se numește „optimismul erorii de antrenament".</div>
+  <div class="definition-box"><strong>Validarea Încrucișată (CV):</strong> Metoda de estimare a riscului prin împărțirea datelor în K folduri. Se antrenează pe K-1 folduri și se testează pe foldul rămas, repetând pentru fiecare fold.</div>
+  <div class="highlight-box"><strong>CV K-fold:</strong> R(m, D, K) = (1/N) Σ_{k=1}^{K} Σ_{i∈D_k} L(yᵢ, P(xᵢ, F(D_{-k}, m))), unde F este algoritmul de învățare și P este funcția de predicție.</div>
+  <div class="highlight-box"><strong>Ciclul fit-predict:</strong> θ̂_m = F(D, m) produce parametrii, ŷ = P(x, θ̂) = f(x, θ̂) produce predicția. Combinația f_m(x, D) = P(x, F(D, m)) definește ciclul complet.</div>
+  <div class="definition-box"><strong>CV Stratificată:</strong> Foldurile sunt alese astfel încât proporțiile claselor să fie aproximativ egale în fiecare fold, important pentru probleme cu clase dezechilibrate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>SRM rezolvă problema alegerii hiperparametrilor prin minimizarea unei estimări a riscului adevărat. Validarea încrucișată este metoda practică dominantă, împărțind datele pentru a simula performanța pe date noi. Formalizarea ciclului fit-predict clarifică separarea dintre antrenament și predicție.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Separarea strictă între datele de antrenament și test în CV este esențială pentru estimări nebiased ale riscului. CV stratificată asigură reprezentativitatea fiecărui fold, evitând estimări instabile în cazul claselor dezechilibrate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>CV 5-fold și 10-fold sunt standarde în industrie pentru selecția de modele. scikit-learn oferă implementări eficiente prin GridSearchCV și RandomizedSearchCV care automatizează procesul de căutare a hiperparametrilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La dezvoltarea unui model de scoring al creditului, CV 5-fold stratificată asigură că fiecare fold conține proporții similare de clienți buni și răi, oferind o estimare fiabilă a performanței modelului înainte de implementarea în producție.</p></div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Algoritmul Viterbi - Exemplu vizual si lucrul in domeniul log</h2>
+  <p>Aceasta pagina ilustreaza algoritmul Viterbi pe un exemplu concret de recunoastere vocala cu un HMM cu 3 stari si 7 simboluri de observatie.</p>
+  <div class="definition-box"><strong>Exemplu Viterbi:</strong> HMM cu 3 stari (z_1, z_2, z_3), 7 simboluri posibile (C_1...C_7), observatii x_{1:4} = (C_1, C_3, C_4, C_6). Figura 17.13 arata: (a) modelul HMM cu probabilitati de tranzitie si emisie, (b) diagrama trellis cu calea optima marcata cu sageti rosii.</div>
+  <div class="highlight-box"><strong>Lucrul in domeniul log:</strong> log delta_t(j) = max_i [log delta_{t-1}(i) + log psi(i,j) + log phi_t(j)]. Aceasta evita subfluxul numeric si permite calcul mai rapid cand p(x_t|z_t) este Gaussiana (evitand exp si log costisitoare).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 17.13(a) arata un HMM stanga-dreapta pentru un fonem cu 3 stari. Fiecare arc are probabilitate de tranzitie si fiecare stare are o distributie de emisie peste 7 codebook entries. Partea (b) arata trellis-ul cu calcul pas-cu-pas: la t=2, delta_2(1)=0.045 si delta_2(2)=0.07, deci starea 2 este mai probabila. Calea MAP finala este (1,2,2,3). Lucrul in log este esential pentru stabilitate numerica in secvente lungi.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Fiecare arc in trellis este etichetat cu doua numere: probabilitatea de tranzitie si probabilitatea de emisie. Produsul lor, inmultit cu delta anterioara, da candidatul pentru delta curenta. Maximul peste toate starile anterioare selecteaza cea mai buna cale. Numerele devin foarte mici rapid, necesitand lucrul in log.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In recunoasterea vorbirii, fiecare fonem are un HMM cu 3-5 stari (atac, sustinere, declin). Observatiile sunt vectori MFCC cuantizati (codebook). Decodarea unui cuvant implica concatenarea HMM-urilor fonemelor si rularea Viterbi pe intreaga secventa.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de dictare vocala, Viterbi decodeaza simultan mii de cuvinte posibile, fiecare reprezentat ca un lant de HMM-uri fonemice, selectand secventa de cuvinte cu probabilitatea globala maxima.</p></div>
+  </div>
+</div>

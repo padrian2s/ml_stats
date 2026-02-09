@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Capitolul 2: Distributia Gaussiana (Normala)</h2>
+  <p>Cea mai importanta distributie continua: distributia Gaussiana, proprietatile sale si de ce este atat de utilizata.</p>
+  <div class="definition-box"><strong>Distributia Gaussiana (Normala):</strong> N(x|μ, σ²) = (1/√(2πσ²)) exp(-(1/(2σ²))(x-μ)²) (ecuatia 2.43), unde μ este media (si modul) si σ² este varianta.</div>
+  <div class="definition-box"><strong>Precizia:</strong> λ = 1/σ² - inversul variantei. O precizie ridicata inseamna o distributie ingusta (varianta mica) centrata pe μ.</div>
+  <div class="definition-box"><strong>Distributia Normala Standard:</strong> N(0, 1) - Gaussiana cu medie 0 si varianta 1, numita si curba clopotului (bell curve).</div>
+  <div class="definition-box"><strong>CDF-ul Gaussianei:</strong> Φ(x; μ, σ²) = ∫_{-∞}^x N(z|μ, σ²)dz (ecuatia 2.44). Nu are forma analitica inchisa, dar se exprima prin functia de eroare erf.</div>
+  <div class="definition-box"><strong>Functia de Eroare:</strong> erf(x) = (2/√π) ∫₀ˣ e^(-t²)dt (ecuatia 2.46). Φ(x; μ, σ) = (1/2)[1 + erf(z/√2)] cu z = (x-μ)/σ (ecuatia 2.45).</div>
+  <div class="highlight-box"><strong>De Ce Gaussiana?</strong> Trei motive: (1) Doar doi parametri (μ, σ²) care sunt usor de interpretat. (2) Teorema limitei centrale: sumele de variabile aleatoare independente converg la Gaussiana. (3) Entropia maxima sub constrangeri de medie si varianta (Sectiunea 9.2.6).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 2.4.1 introduce distributia Gaussiana, cea mai utilizata distributie in statistica si ML. Este complet specificata de doi parametri (media si varianta). CDF-ul nu are forma analitica inchisa dar este implementat in toate pachetele software. Trei motive fundamentale justifica utilizarea sa extinsa: simplitate, teorema limitei centrale si entropia maxima.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distributia Gaussiana apare peste tot in ML: in regresia liniara (zgomot Gaussian), in PCA, in modelele de mixtura Gaussiana, in procesele Gaussiene si in functiile de activare. Proprietatea de entropie maxima o face alegerea "cea mai sigura" cand stim doar media si varianta datelor. Nota importanta: p(x) poate fi > 1 pentru valori de x aproape de μ daca σ < 1/√(2π).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Gaussiana este folosita in: modelarea erorilor de masurare, controlul calitatii (Six Sigma), modelarea preturilor activelor financiare (desi cozile groase ale distributiilor reale limiteaza aceasta aplicatie), si ca functie de nucleu in metode kernel.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In controlul calitatii industrial (Six Sigma), dimensiunile produselor sunt modelate ca Gaussiene. Un produs este considerat defect daca dimensiunea sa se abate cu mai mult de 6σ de la medie. Cu distributia Gaussiana, aceasta corespunde unei rate de defecte de ~3.4 per milion, un standard extrem de ridicat de calitate.</p></div>
+  </div>
+</div>

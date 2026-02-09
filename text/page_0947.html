@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Sectiunea 27.2.2 - PCA din Familia Exponentiala</h2>
+  <p>Pagina introduce PCA din familia exponentiala (ePCA) ca alternativa mai flexibila la modelele de mixtura, folosind variabile latente continue pentru date discrete.</p>
+  <div class="definition-box"><strong>Analiza Semantica Latenta (LSA/LSI):</strong> Aplicarea PCA standard pe matricea de contorizare termen-document. Echivalent cu utilizarea unui prior Gaussian p(z_i) = N(μ, Σ) si o verosimilitate Gaussiana p(y_i|z_i) = N(Wz_i, σ²I).</div>
+  <div class="definition-box"><strong>PCA categorica:</strong> Model cu verosimilitate categorica: p(y_{i,1:L_i}|z_i) = Π_l Cat(y_il|S(Wz_i)), unde W ∈ R^{V×K} este matricea de ponderi si S este functia softmax (Ecuatia 27.6). Ilustrata in Figura 27.1(a).</div>
+  <div class="definition-box"><strong>PCA din familia exponentiala (ePCA):</strong> Analog nesupravegheiat al GLM-urilor (Collins et al. 2002; Mohamed et al. 2008). Distributia pe date vizibile: p(y_{i,1:L_i}) = ∫[Π_l p(y_il|z_i, W)] N(z_i|μ, Σ) dz_i (Ecuatia 27.10).</div>
+  <div class="highlight-box"><strong>Model Poisson:</strong> p(n_i|z_i) = Π_v Poi(n_iv|exp(w_v^T z_i)) (Ecuatia 27.9), care modeleaza contorizarile ca distributii Poisson cu rate determinate de variabilele latente.</div>
+  <div class="highlight-box"><strong>Problema supraajustarii:</strong> Abordarea degenerata (estimare punctuala a z_i in pasul E) este predispusa la supraajustare deoarece numarul de variabile latente este proportional cu numarul de exemple. Solutii: EM variational (Sectiunea 12.4) sau MCMC.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>PCA din familia exponentiala extinde ideea de variabile latente continue la date discrete, inlocuind verosimilitatea Gaussiana cu distributii din familia exponentiala (categorica, multinomiala, Poisson). Aceasta ofera mai multa flexibilitate decat modelele de mixtura, permitand fiecarui document sa aiba o pozitie unica in spatiul latent continuu.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tranzitia de la LSA (PCA liniar pe contorizari) la ePCA (modele generative cu verosimilitate adecvata) reflecta evolutia de la metode ad-hoc la modele probabilistice principiale. Functia softmax asigura ca iesirile sunt distributii de probabilitate valide peste vocabular.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LSA/LSI a fost una dintre primele metode de recuperare a informatiei bazata pe semantica. ePCA este aplicata in: analiza de text, modelarea datelor genomice (contorizari de secventiere), analiza sondajelor cu raspunsuri categorice multiple si compresia datelor discrete.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recuperarea informatiei, LSA poate gasi documente relevante chiar daca nu contin exact cuvintele cautate, deoarece reduce documentele si cuvintele la un spatiu latent comun. De exemplu, o cautare pentru "automobile" poate returna documente care contin "masina" sau "vehicul".</p></div>
+  </div>
+</div>

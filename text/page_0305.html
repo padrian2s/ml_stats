@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>FLDA - Soluția pentru Două Clase și Extensie la Mai Multe Clase</h2>
+  <p>Pagina prezintă soluția în formă închisă pentru FLDA cu două clase, extensia la multiple clase și dimensiuni superioare, și ilustrează cu proiecții ale datelor vocalice.</p>
+  <div class="figure-box"><strong>Figura 8.12:</strong> (a) Proiecția PCA a datelor vocalice în 2D - separarea claselor este slabă. (b) Proiecția FLDA a datelor vocalice în 2D - separarea claselor este semnificativ mai bună, demonstrând superioritatea reducerii supervizate.</div>
+  <div class="highlight-box"><strong>Soluția FLDA pentru două clase (Ecuația 8.113):</strong> w = S_W⁻¹(μ₂ - μ₁) - direcția optimă de proiecție. Dacă S_W ∝ I (covariație izotropă), w este proporțional cu vectorul care unește mediile claselor.</div>
+  <div class="highlight-box"><strong>Problema de valori proprii (Ecuația 8.109):</strong> S_W⁻¹ S_B w = λw. În cazul cu două clase, S_B are rang 1, deci există o singură valoare proprie nenulă și soluția este directă.</div>
+  <div class="highlight-box"><strong>Extensia multi-clasă (Ecuația 8.114):</strong> J(W) = |WΣ_B W&#7488;| / |WΣ_W W&#7488;| - se maximizează peste matricea de proiecție W de dimensiune L × D, unde L ≤ C-1.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pentru două clase, FLDA are o soluție elegantă în formă închisă: w = S_W⁻¹(μ₂ - μ₁). Aceasta „albează" spațiul cu S_W⁻¹ (eliminând corelațiile intra-clasă) și apoi proiectează pe direcția mediilor. Extensia multi-clasă maximizează raportul determinanților matricelor de dispersie proiectate, reducându-se la o problemă de valori proprii ale matricei S_W⁻¹S_B.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Formula w = S_W⁻¹(μ₂ - μ₁) arată că FLDA este echivalentă cu clasificarea prin cele mai mici pătrate ponderate în spațiul „albit". Relația cu analiza discriminantă (RDA, Secțiunea 4.2.6) este strânsă: FLDA poate fi văzută ca o versiune simplificată a GDA focusată pe reducerea dimensionalității.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Proiecțiile FLDA sunt standard în bioinformatică (clasificarea țesuturilor pe baza expresiei genice), procesarea vorbirii (recunoașterea fonermelor), și viziune computerizată (Fisherfaces pentru recunoașterea facială). Combinarea PCA+FLDA este recomandată când D > N pentru a evita singularitatea S_W.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Datele vocalice din Figura 8.12 conțin 10 vocale vorbite de 15 persoane. FLDA proiectează din 10 dimensiuni acustice în 2D, producând grupuri vizual distincte pentru fiecare vocală. Aceasta permite un clasificator simplu (KNN sau Gaussien) în spațiul redus cu acuratețe ridicată.</p></div>
+  </div>
+</div>

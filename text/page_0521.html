@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Figura 14.5 (Regresie Kernel), K-Medoids si Algoritmul 14.1</h2>
+  <p>Pagina prezinta Figura 14.5 (comparatia regresiei kernel-based pe functia sinc), continuarea K-medoids si Algoritmul 14.1 (pseudocod K-medoids).</p>
+  <div class="highlight-box"><strong>Figura 14.5 - Comparatia regresiei kernel:</strong> Regresie pe functia sinc cu zgomot, RBF kernel (sigma=0.3): (a) L2VM (lambda=0.5), (b) L1VM (lambda=0.5), (c) RVM, (d) SVM regression (C=1/lambda, epsilon=0.1). Cercurile rosii: exemplele de antrenare retinute (vectori de suport). L2VM non-sparse, L1VM si SVM intermediate, RVM cel mai sparse.</div>
+  <div class="highlight-box"><strong>Algoritmul 14.1 - K-medoids:</strong> 1. Initializare: selecteaza aleator K medoizi din {1,...,N}. 2. Repeta: (a) Asigneaza fiecare obiect la medoidul cel mai apropiat: z_i = argmin_k d(i, m_k). (b) Actualizeaza medoizii: m_k = argmin_{i:z_i=k} suma_{i':z_{i'}=k} d(i, i'). 3. Pana la convergenta.</div>
+  <div class="definition-box"><strong>K-medoids kernelizat:</strong> d(i, i') = ||x_i - x_{i'}||_2^2 (Eq. 14.32). Cost: O(n_k^2) per cluster (vs O(n_k D) pt K-means). Poate fi kernelizat prin Eq. 14.30. Nearest medoid classification: clasificare prin medoidul cel mai apropiat (Hastie et al. 2009, p671).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 14.5 confirma rezultatele clasificarii: toate metodele kernel-based produc predictii similare, diferind in sparsitate. RVM produce cel mai putine vectori de suport, deci cel mai compact model. SVM regression introduce un tub epsilon in jurul predictiei, retinand doar exemplele de la margine.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>K-medoids este mai robust decat K-means la outlieri deoarece medoidul minimizeaza suma distantelor (L1-like), in timp ce media minimizeaza suma patratelor distantelor (L2). Aceasta analogie cu L1 vs L2 loss se regaseste in intregul capitol 13 (LASSO vs ridge).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In regresie, SVM regression (SVR) este cel mai popular datorita software-ului matur (libsvm). RVM ofera avantajul estimarii incertitudinii (bara de eroare Bayesiana) dar este mai lent. L1VM este un compromis bun: sparse, rapid, implementabil cu solveri LASSO standard.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In prognoza meteo, SVR cu kernel RBF este folosit pentru corectia statistica a prognozelor numerice (model output statistics), imbunatatind acuratetea temperaturilor prognozate locale cu 15-30% fata de modelul brut.</p></div>
+  </div>
+</div>

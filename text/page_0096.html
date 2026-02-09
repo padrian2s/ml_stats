@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Învățarea Conceptelor Bayesiene - Verosimilitate, Prior și Posterior</h2>
+  <p>Pagina detaliază componentele inferenței Bayesiene pentru jocul numerelor: verosimilitatea bazată pe principiul dimensiunii, priorul subiectiv, și calculul posteriorului.</p>
+  <div class="definition-box"><strong>Verosimilitatea (principiul dimensiunii):</strong> p(D|h) = [1/size(h)]^N = [1/|h|]^N, unde size(h) este extensia ipotezei h. Favorizează ipotezele mai specifice - aceasta este briciul lui Occam.</div>
+  <div class="highlight-box"><strong>Principiul dimensiunii:</strong> Modelul favorizeză cea mai simplă (mai mică) ipoteză consistentă cu datele. Ex: p(D|h_two) = (1/6)^4 = 7.7×10⁻⁴ vs p(D|h_even) = (1/50)^4 = 1.6×10⁻⁷, un raport de verosimilitate de ~5000:1.</div>
+  <div class="definition-box"><strong>Priorul:</strong> Probabilitatea subiectivă p(h) care reflectă credințele anterioare. Conceptele „nenaturale" (ex: „puteri ale lui 2, plus 37") primesc prior mic.</div>
+  <div class="highlight-box"><strong>Posteriorul:</strong> p(h|D) = p(D|h)·p(h) / Σ_{h'} p(D|h')·p(h'), combinând verosimilitatea cu priorul. Cu date suficiente, verosimilitatea domină priorul.</div>
+  <div class="figure-box"><strong>Figura 3.2:</strong> Prior, verosimilitate și posterior pentru D = {16}. Posteriorul combină ambele surse de informație, penalizând concepte nenaturale (prior mic) și concepte prea largi (verosimilitate mică).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Principiul dimensiunii implementează briciul lui Occam probabilistic: ipotezele mai specifice (cu extensie mai mică) au verosimilitate mai mare. Priorul penalizează ipotezele nenaturale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tensiunea între verosimilitate (favorizeaza specificitate) și prior (favorizeaza naturalețe) produce posteriori care explică bine datele fără a fi prea complexe sau nenaturale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Principiul dimensiunii este o formă automată de regularizare: previne supraajustarea (overfitting) prin penalizarea modelelor prea flexibile, fără necesitatea unui parametru de regularizare explicit.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În diagnosticul medical, un medic combină automat verosimilitatea simptomelor (date) cu priorul epidemiologic (prevalența bolii) pentru a ajunge la un diagnostic posterior.</p></div>
+  </div>
+</div>

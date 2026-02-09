@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Regresia Kernel și Modelul Nadaraya-Watson (detalii)</h2>
+  <p>Pagina detaliază derivarea matematică a regresiei kernel prin proprietățile kernelurilor de netezire, formula ponderilor și banda optimală.</p>
+  <div class="definition-box"><strong>Deviația absolută mediană (MAD):</strong> MAD = median(|x − median(x)|). Este un estimator robust al dispersiei, mai puțin sensibil la outlieri decât abaterea standard. Relația cu σ: σ̂ = 1.4826 · MAD.</div>
+  <div class="highlight-box"><strong>Derivarea regresiei kernel:</strong> Pornind de la densitatea comună p(x,y) ≈ (1/N) Σᵢ κ_h(x − xᵢ)κ_h(y − yᵢ), se folosesc proprietățile ∫κ_h(y − yᵢ)dy = 1 și ∫yκ_h(y − yᵢ)dy = yᵢ pentru a obține f(x) = Σᵢ κ_h(x − xᵢ)yᵢ / Σᵢ κ_h(x − xᵢ).</div>
+  <div class="highlight-box"><strong>Proprietatea mediei zero:</strong> ∫(x + yᵢ)κ_h(x)dx = ∫xκ_h(x)dx + yᵢ∫κ_h(x)dx = 0 + yᵢ = yᵢ, fundamentală pentru derivarea estimatorului Nadaraya-Watson.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Derivarea regresiei kernel se bazează pe aproximarea densității comune p(x,y) prin KDE și apoi calcularea speranței condiționate E[y|x]. Proprietățile kernelurilor de netezire (normalizare și media zero) sunt esențiale pentru simplificarea formulei. Banda h se poate estima separat pe fiecare dimensiune.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Formula Nadaraya-Watson este o medie ponderată unde ponderile sunt normalize (sumă = 1). Kernelul κ nu trebuie neapărat să fie un kernel de netezire pentru formula generală. Metoda are un singur hiperparametru dar funcționează bine în practică.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regresia kernel este utilă ca metodă exploratorie pentru a vizualiza tendințe în date înainte de a alege un model parametric. Este implementată în pachetele R (loess) și Python (statsmodels).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În analiza piețelor financiare, regresia kernel poate estima relația nelineară între volumul de tranzacționare și volatilitatea prețurilor, fără a impune o formă funcțională presupusă.</p></div>
+  </div>
+</div>

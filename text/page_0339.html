@@ -1,0 +1,19 @@
+<div class="page-content">
+  <h2>10.1.2-10.1.3 Independenta Conditionata si Modele Grafice</h2>
+  <p>Pagina introduce conceptele de independenta conditionata, presupunerea Markov si modelele grafice ca metoda de reprezentare compacta a distributiilor comune.</p>
+  <div class="definition-box"><strong>Independenta conditionata (CI):</strong> X ⊥ Y | Z daca si numai daca p(X, Y|Z) = p(X|Z) p(Y|Z). Aceasta permite factorizarea distributiei comune in componente mai simple.</div>
+  <div class="definition-box"><strong>Presupunerea Markov (ordinul 1):</strong> Viitorul este independent de trecut dat fiind prezentul: x_{t+1} ⊥ x_{1:t-1} | x_t. Aceasta reduce dramatic numarul de parametri necesari.</div>
+  <div class="definition-box"><strong>Lant Markov:</strong> Model secvential in care p(x_{1:V}) = p(x_1) ∏_{t=1}^{V} p(x_t|x_{t-1}), caracterizat de o distributie initiala p(x_1=i) si o matrice de tranzitie p(x_t=j|x_{t-1}=i).</div>
+  <div class="definition-box"><strong>Tabele de probabilitate conditionata (CPT):</strong> Tabele care stocheaza p(x_t=k|x_{1:t-1}) pentru toate valorile posibile. Dimensiunea creste exponential: O(K^3) pentru p(x_3|x_1, x_2).</div>
+  <div class="definition-box"><strong>Distributie de probabilitate conditionata (CPD):</strong> Alternativa mai parsimonica la CPT, folosind de exemplu regresia logistica multinomiala: p(x_t=k|x_{1:t-1}) = S(W_t x_{1:t-1})_k, cu O(K²V²) parametri.</div>
+  <div class="definition-box"><strong>Model grafic (GM):</strong> Reprezentare a unei distributii comune prin presupuneri de independenta conditionata. Nodurile sunt variabile aleatoare, iar muchiile (sau lipsa lor) codifica presupunerile CI.</div>
+  <div class="highlight-box"><strong>Independenta conditionata (10.2):</strong> X ⊥ Y | Z ⟺ p(X, Y|Z) = p(X|Z) p(Y|Z).</div>
+  <div class="highlight-box"><strong>Lantul Markov (10.3):</strong> p(x_{1:V}) = p(x_1) ∏_{t=1}^{V} p(x_t|x_{t-1}).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Cheia reprezentarii eficiente a distributiilor comune este independenta conditionata. Presupunerea Markov este cel mai simplu exemplu: fiecare variabila depinde doar de variabila anterioara, nu de intregul istoric. Modelele grafice generalizeaza aceasta idee la structuri arbitrare de dependenta, folosind grafuri directionate sau nedirectionate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la O(K^V) la O(K²V) parametri prin presupunerea Markov este un exemplu dramatic de reducere a complexitatii. Modelele grafice permit definirea de distributii pe structuri complexe (imagini 2D, video 3D, retele biologice) fara a fi limitate la secvente 1D.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Lanturile Markov sunt folosite in modelele de limbaj (predictia urmatorului cuvant), in bioinformatica (modelele HMM pentru secvente de ADN) si in finante (modelarea preturilor actiunilor). Modelele grafice generale sunt esentiale in inteligenta artificiala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de limbaj simplu (bigram) poate prezice urmatorul cuvant bazandu-se doar pe cuvantul curent: p("pisica"|"o") este mai mare decat p("masina"|"o"), deoarece "o pisica" este o combinatie mai frecventa in limba romana. Aceasta este exact presupunerea Markov de ordinul 1 aplicata textului.</p></div>
+  </div>
+</div>

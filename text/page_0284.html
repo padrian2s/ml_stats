@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Gradientul și Hessianul pentru Regresia Logistică Multinomială</h2>
+  <p>Pagina derivă gradientul și Hessianul funcției NLL pentru regresia logistică multinomială, utilizând produsul Kronecker pentru a structura notația matriceală.</p>
+  <div class="definition-box"><strong>Produsul Kronecker (A ⊗ B):</strong> Dacă A este o matrice m × n și B este o matrice p × q, atunci A ⊗ B este matricea bloc mp × nq cu blocuri a_{ij}B. Folosit pentru a structura parametrii și gradienții în cazul multi-clasă.</div>
+  <div class="highlight-box"><strong>Log-verosimilitatea multinomială (Ecuația 8.35):</strong> ℓ(W) = Σᵢ₌₁ᴺ [Σ_{c=1}^C y_{ic} w_c&#7488;x_i - log(Σ_{c'=1}^C exp(w_{c'}&#7488;x_i))], unde y_{ic} este codificarea one-of-C.</div>
+  <div class="highlight-box"><strong>Gradientul multinomial (Ecuația 8.38):</strong> g(W) = ∇f(w) = Σᵢ₌₁ᴺ (μ_i - y_i) ⊗ x_i, care are aceeași formă ca în cazul binar: eroarea de predicție înmulțită cu intrarea.</div>
+  <div class="highlight-box"><strong>Gradientul per clasă (Ecuația 8.40):</strong> ∇_{w_c} f(W) = Σᵢ (μ_{ic} - y_{ic})x_i - derivata pentru ponderile clasei c are aceeași formă ca în cazul binar.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Derivarea gradientului pentru cazul multinomial este elegantă: are exact aceeași formă ca în cazul binar, cu eroarea (μ_i - y_i) înmulțită cu intrarea x_i, dar acum vectorizată peste toate clasele folosind produsul Kronecker. Vectorul w este definit ca vec(W(:, 1:C-1)), un vector D×(C-1) dimensional, setând w_C = 0 pentru identificabilitate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Uniformitatea formei gradientului între cazul binar și multinomial reflectă proprietatea generală a familiei exponențiale: gradientul log-verosimilitudinii este întotdeauna diferența dintre statisticile suficiente observate și cele așteptate. Produsul Kronecker oferă o notație compactă pentru structuri bloc.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Implementarea eficientă a gradientului multinomial este critică pentru antrenarea clasificatoarelor cu mii de clase (de exemplu, clasificarea imaginilor în ImageNet cu 1000 de clase). Structura Kronecker poate fi exploatată pentru optimizări computaționale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de recunoaștere a limbii din text trebuie să clasifice în 50 de limbi diferite. Gradientul multinomial calculează pentru fiecare limbă c eroarea (probabilitatea prezisă - eticheta reală) × vectorul de caracteristici, actualizând simultan ponderile tuturor claselor.</p></div>
+  </div>
+</div>

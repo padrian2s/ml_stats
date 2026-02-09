@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Capitolul 21. Inferenta Variationala - Aplicatii Motivante pentru Limite Locale (p.757)</h2>
+  <p>Aceasta pagina prezinta functia log-sum-exp (lse), aplicatii motivante (multi-task learning, analiza factoriala discreta, modele de topicuri corelate) si necesitatea limitelor variationala locale.</p>
+  <div class="highlight-box"><strong>Verosimilitatea softmax:</strong> p(y|X,w) = ∏ᵢ exp[yᵢᵀηᵢ - lse(ηᵢ)], unde ηᵢ = Xᵢwᵢ si lse(ηᵢ) = log(1 + Σₘ exp(ηᵢₘ)).</div>
+  <div class="definition-box"><strong>Problema fundamentala:</strong> Verosimilitatea softmax/logistica nu este conjugata cu priorul gaussian, facand actualizarile mean field intractabile. Solutia: derivarea limitelor „de tip gaussian" pe verosimilitate.</div>
+  <div class="definition-box"><strong>Multi-task learning:</strong> Cand avem clasificatoare multiple inrudite, vrem sa partajam informatia intre parametri mentinand o distributie posterioara completa, nu doar estimari punctuale.</div>
+  <div class="definition-box"><strong>Analiza factoriala discreta:</strong> Model de analiza factoriala pentru date discrete, similar regresiei logistice multinomiale cu factori ascunsi. Se foloseste VBEM cu limita variationala in pasul E.</div>
+  <div class="definition-box"><strong>Modelul de topicuri corelate:</strong> Extensie a LDA care foloseste un prior gaussian (in loc de Dirichlet) pentru a modela corelatii intre topicuri, necesitand functia lse si deci limite variationala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina motiveaza necesitatea limitelor variationala locale prin patru aplicatii importante care implica verosimilitatea softmax/logistica cu priori gaussiene. Toate necesita aproximarea functiei lse cu forme patratice tractabile.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Functia lse este obstacol comun in multe modele probabilistice. Problema centrala este non-conjugarea intre verosimilitatea logistica/softmax si priorul gaussian. Limitele locale transforma aceasta problema intractabila intr-una tractabila.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Multi-task learning variational este utilizat in NLP, viziune computationala si medicina personalizata. Modelele de topicuri corelate sunt fundamentale in analiza documentelor si recomandari.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza stirilor, un model de topicuri corelate poate captura faptul ca articolele despre „economie" si „politica" sunt adesea corelate, iar acest lucru necesita exact limitele variationala discutate aici.</p></div>
+  </div>
+</div>

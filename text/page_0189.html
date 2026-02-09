@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Selectia Modelului Polinomial si Calculul Verosimilitatii Marginale</h2>
+  <p>Pagina prezinta exemple concrete de selectie bayesiana a modelului cu polinoame de grade diferite si introduce calculul verosimilitatii marginale prin constante de normalizare.</p>
+  <div class="highlight-box"><strong>Selectie model cu N=5:</strong> Cu doar 5 puncte, modelul MAP este d=1 (liniar). Cu N=30 puncte, modelul corect d=2 (parabolic) este selectat cu probabilitate posterioara mare.</div>
+  <div class="highlight-box"><strong>Formula verosimilitatii marginale:</strong> p(D) = Z_N / (Z₀ · Z_l) (Ecuatia 5.18), unde Z₀ este constanta de normalizare a prior-ului, Z_l a verosimilitatii si Z_N a posterioarei.</div>
+  <div class="figure-box"><strong>Figura 5.7:</strong> (a-c) Polinoame de grade 1, 2 si 3 ajustate la N=5 puncte cu Bayes empiric. (d) Posterioara peste modele p(d|D) favorizeaza d=1 din cauza datelor insuficiente.</div>
+  <div class="figure-box"><strong>Figura 5.8:</strong> Acelasi experiment cu N=30 puncte. Acum posterioara favorizeaza puternic d=2 (modelul corect), demonstrand ca mai multe date permit selectia corecta a complexitatii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 5.3.2 introduce calculul practic al verosimilitatii marginale. Cand avem un prior conjugat, verosimilitatea marginala se calculeaza simplu ca raport de constante de normalizare: p(D) = Z_N/(Z₀·Z_l). Prior-ul este p(θ) = q(θ)/Z₀, verosimilitatea este p(D|θ) = q(D|θ)/Z_l, iar posterioara este p(θ|D) = q(θ|D)/Z_N.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Figurile 5.7 si 5.8 demonstreaza un tipar fundamental: cu date putine, modelul bayesian prefera simplitatea (d=1), iar cu date suficiente, identifica corect complexitatea adevarata (d=2). Aceasta este o manifestare directa a lamei lui Occam bayesiene.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Calculul verosimilitatii marginale prin constante de normalizare este eficient computational si exact. Este direct aplicabil in toate modelele cu prior conjugat: Beta-Binomial, Dirichlet-Multinomial, Gaussiana-Gaussiana etc.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In genomica, selectia modelului bayesian este folosita pentru a determina numarul de clustere de gene co-exprimate. Cu putine esantioane, modelul simplu (2-3 clustere) este preferat; pe masura ce se acumuleaza date, structura fina devine vizibila.</p></div>
+  </div>
+</div>

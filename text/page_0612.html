@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>BMA vs. invatare de ansamblu si diferentele lor</h2>
+  <p>Aceasta pagina clarifica diferenta fundamentala intre Bayesian Model Averaging (BMA) si invatarea de ansamblu, aratand ca nu sunt echivalente.</p>
+  <div class="definition-box"><strong>Bayesian Model Averaging (BMA):</strong> p(y|x, D) = sum_m p(y|x, m, D) p(m|D), unde p(m|D) este probabilitatea posterioara a modelului m. Selecteaza modelul corect cu date suficiente. Diferit de invatarea de ansamblu care creeaza un model NOU.</div>
+  <div class="highlight-box"><strong>Diferenta cheie BMA vs. ansamblu:</strong> BMA selecteaza un model din spatiul existent M; invatarea de ansamblu extinde spatiul modelelor creand combinatii noi. BMA converge la modelul adevarat (daca este in M); ansamblurile pot depasi orice model individual chiar daca cel adevarat nu e in M.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Minka (2000) a clarificat ca BMA si invatarea de ansamblu sunt fundamentalmente diferite. BMA mediaza predictiile modelelor existente ponderate cu probabilitatea lor posterioara - cu date infinite, converge la modelul corect. Invatarea de ansamblu creeaza un model complet nou prin combinarea liniara a modelelor de baza, extindand spatiul modelelor. BMA poate fi mai proasta decat cel mai bun model individual daca nu realizeaza selectia corecta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia este subtila dar importanta: BMA = integrare Bayesiana (reduce incertitudinea modelului), ansamblu = creare de model nou (reduce bias-ul). In practica, ansamblurile sunt mai populare deoarece nu presupun ca modelul corect este in spatiul de cautare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>BMA este implementat in R (pachetul BMA) si este folosit in prognoza meteo (medierea mai multor modele meteorologice). Ansamblurile (Random Forest, Gradient Boosting) sunt standardul in aplicatii industriale datorita robustetii lor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In prognoza meteo, BMA este folosit pentru a combina predictiile mai multor modele meteorologice (GFS, ECMWF, etc.), unde fiecare model are probabilitate posterioara bazata pe performanta recenta, producand prognoze probabilistice calibrate.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>FastSLAM (continuare) si exercitii Capitolul 23</h2>
+  <p>Aceasta pagina incheie discutia FastSLAM, prezinta vizualizarea belief-ului pentru stari discrete si continue, si include exercitiile capitolului 23.</p>
+  <div class="definition-box"><strong>Exercitiul 23.1 - Esantionarea din Cauchy:</strong> Se cere utilizarea transformarii CDF inversa pentru a esantiona din distributia Cauchy standard T(x|0,1,1).</div>
+  <div class="definition-box"><strong>Exercitiul 23.2 - Esantionarea prin respingere cu propunere Cauchy:</strong> Se cere derivarea constantei optime M pentru a esantiona din distributia Gamma folosind o propunere Cauchy, si reprezentarea grafica a densitatii si invelisului superior.</div>
+  <div class="definition-box"><strong>Exercitiul 23.3 - Propunerea optima pentru PF:</strong> Se cere derivarea p(z_t|z_{t-1}, y_t) si p(y_t|z_{t-1}) pentru un model spatio-stare cu tranzitie neliniara si observatie liniara-Gaussiana.</div>
+  <div class="highlight-box"><strong>Vizualizarea belief-ului RBPF:</strong> Figura 23.8 arata (a) distributia peste starile discrete (heatmap) si (b) posterioarul peste coordonata x (set de Gaussiene ponderate). RBPF produce estimari mai nete decat PF standard.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina incheie capitolul 23 cu vizualizari ale RBPF si trei exercitii care acopera tehnicile principale: CDF inversa (Cauchy), esantionare prin respingere (Gamma cu propunere Cauchy) si propunerea optima pentru filtrarea particulelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exercitiile progresiv cresc in dificultate: de la tehnica simpla (CDF inversa) la design-ul propunerii optime in filtrarea particulelor. Toate testeaza intelegerea profunda a principiilor Monte Carlo.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Exercitiul 23.3 este direct relevant pentru implementarea filtrelor cu particule in practica: calculul propunerii optime necesita aplicarea regulii Bayes pentru Gaussiene.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In finante, propunerea optima pentru filtrarea volatilitatii stochastice implica calculul posteriorului pe volatilitate conditionat de observatia curenta a pretului - similar cu Exercitiul 23.3.</p></div>
+  </div>
+</div>

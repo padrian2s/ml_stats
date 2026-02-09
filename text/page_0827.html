@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>TrueSkill - Algoritmul de transmitere a mesajelor EP</h2>
+  <p>Aceasta pagina detaliaza cei 6 pasi ai algoritmului de transmitere a mesajelor EP in modelul TrueSkill simplificat.</p>
+  <div class="definition-box"><strong>Pasul 1 - Posterior pe abilitati:</strong> q^t(s_i) = f(s_i)*prod m_{h_g->s_i}^{t-1}(s_i) = N_c(s_i|eta_i^t, lambda_i^t), unde lambda_i^t = lambda_0 + sum lambda_{h_g->s_i}^{t-1} si eta_i^t = eta_0 + sum eta_{h_g->s_i}^{t-1}.</div>
+  <div class="definition-box"><strong>Pasul 2 - Mesaje de la abilitati la factori de joc:</strong> m_{s_i->h_g}(s_i) = q^t(s_i)/m_{h_g->s_i}^t(s_i), implementat prin scaderea parametrilor naturali.</div>
+  <div class="definition-box"><strong>Pasul 3 - Mesaje de la factori de joc la diferente:</strong> m_{h_g->d_g}(d_g) = N(d_g|mu_{h_g->d_g}^t, v_{h_g->d_g}^t), cu varianta v = 1 + v_{s_{i_g}->h_g} + v_{s_{j_g}->h_g} si media mu = mu_{s_{i_g}->h_g} - mu_{s_{j_g}->h_g}.</div>
+  <div class="highlight-box"><strong>Pasul 4 - Posterior pe diferente (momentul cheie EP):</strong> q^t(d_g) proportional cu N(d_g|mu, v)*I(y_g = sign(d_g)) aproximat prin N(d_g|mu_g^t, v_g^t). Aici se face potrivirea momentelor cu o Gaussiana truncata - pasul neconjugat care necesita EP.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta primii 4 din 6 pasi ai algoritmului TrueSkill EP. Pasii 1-3 sunt calcule Gaussiene standard (inmultiri si marginalizari). Pasul 4 este cheia: posterioarul pe diferenta de performanta este o Gaussiana truncata (datorita termenului indicator), care trebuie aproximata cu o Gaussiana netruncata prin potrivirea momentelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Mesajele sunt reprezentate compact prin parametrii naturali (precizia lambda si media ajustata eta), ceea ce face operatiile de inmultire/impartire simple (adunare/scadere). Pasul neconjugat (Pasul 4) foloseste momentele Gaussianei truncate, care au formule analitice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Implementarea este eficienta: fiecare iteratie necesita doar operatii O(1) per joc, facand algoritmul scalabil la milioane de jocuri. Convergenta este de obicei rapida (cateva iteratii).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Dupa un meci de sah online, TrueSkill actualizeaza ratingurile ambilor jucatori: castigatorul primeste o crestere (proportionala cu surpriza rezultatului), iar perdantul o scadere corespunzatoare, totul bazat pe momentele Gaussianei truncate.</p></div>
+  </div>
+</div>

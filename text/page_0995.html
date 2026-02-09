@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Modelul Dinamic de Topicuri - Rezultate si LDA-HMM Detalii (Capitolul 27.4.3)</h2>
+  <p>Pagina prezinta rezultatele modelului dinamic de topicuri aplicat pe 100 de ani de articole din Science si detaliile formale ale modelului LDA-HMM.</p>
+  <div class="figure-box"><strong>Figura 27.12:</strong> Iesirea modelului dinamic de topicuri pentru topicul "neurostiinta" din Science. Se arata top 10 cuvinte pentru fiecare decada (1881-2000), probabilitatea a trei cuvinte cheie (nerve, cell, neuron) in timp, si titlurile unor articole reprezentative. Se observa tranzitia de la terminologia anatomica la cea moleculara.</div>
+  <div class="highlight-box"><strong>Ecuatiile LDA-HMM:</strong> p(π_i) = Dir(π_i|α·1_K) (27.61), p(q_il=k|π_i) = π_ik (27.62), p(z_il=c'|z_{i,l-1}=c) = A^HMM(c,c') (27.63), p(y_il=v|q_il=k, z_il=c) = B^LDA(k,v) daca c=0, B^HMM(c,v) daca c>0 (27.64)</div>
+  <div class="definition-box"><strong>Inferenta in LDA-HMM:</strong> Se realizeaza prin esantionare Gibbs colapsata, integrnd analitic toate cantitatile continue. Modelul foloseste K=200 topicuri LDA si C=20 stari HMM pe corpora combinate Brown si TASA.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 27.12 ofera o demonstratie vizuala fascinanta a evolutiei limbajului stiintific in neurostiinta pe parcursul a 120 de ani. Modelul LDA-HMM este formalizat complet cu ecuatii care separa generarea cuvintelor functionale (prin HMM) de cele semantice (prin LDA), folosind o stare speciala z_il=0 ca indicator.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Separarea sintaxa-semantica este eleganta: matricea A^HMM controleaza tranzitiile intre stari, B^HMM genereaza cuvinte functionale, iar B^LDA genereaza cuvinte de continut. Esantionarea Gibbs colapsata este eficienta deoarece integreaza analitic parametrii continui.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LDA-HMM poate fi folosit pentru etichetarea gramaticala nesupervizata, analiza stilistica a textelor, detectarea schimbarilor de limbaj in timp si imbunatatirea generarii de text prin modele de limbaj care respecta atat semantica cat si sintaxa.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Analiza corpusului NIPS arata ca modelul distinge corect intre utilizarea cuvantului "control" ca verb ("we require the algorithm to control") si ca substantiv ("feed forward control"), demonstrand capacitatea de dezambiguizare contextuala.</p></div>
+  </div>
+</div>

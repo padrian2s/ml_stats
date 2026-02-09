@@ -1,0 +1,33 @@
+<div class="page-content">
+  <h2>Cuprins (Partea 8)</h2>
+
+  <p>Continuarea cuprinsului cu Capitolul 13 - Modele Liniare Rare (Sparse).</p>
+
+  <div class="definition-box"><strong>Capitolul 13 - Modele Liniare Rare (p. 421):</strong>
+    13.1 Introducere;
+    13.2 Selectia bayesiana a variabilelor - modelul spike and slab (p. 424), de la modelul Bernoulli-Gaussian la regularizarea ℓ₀ (p. 425), algoritmi (p. 426);
+    13.3 Regularizarea ℓ₁: baze - de ce ℓ₁ produce solutii rare? (p. 430), conditii de optimalitate pentru lasso (p. 431), comparatie intre least squares, lasso, ridge si selectia subseturilor (p. 435), calea de regularizare (p. 436), selectia modelului (p. 439), inferenta bayesiana cu priori Laplace (p. 440);
+    13.4 Algoritmi de regularizare ℓ₁ - coordinate descent (p. 441).</div>
+
+  <div class="highlight-box"><strong>Tema centrala:</strong> Capitolul 13 se concentreaza pe obtinerea de modele rare (sparse), unde doar un subset mic de caracteristici sunt relevante. Aceasta este esentiala in contexte de inalta dimensionalitate, unde numarul de caracteristici depaseste numarul de observatii.</p></div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section">
+      <h4>Rezumat</h4>
+      <p>Capitolul 13 trateaza modele liniare care produc solutii rare prin regularizare. Lasso (regularizarea ℓ₁) este tehnica centrala, comparata cu ridge regression (ℓ₂) si selectia subseturilor (ℓ₀). Sunt prezentate atat perspectiva bayesiana (spike and slab, priori Laplace) cat si cea de optimizare.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Tipare Cheie</h4>
+      <p>Regularizarea apare ca un continuum de la ℓ₀ (selectia dura a subseturilor) la ℓ₁ (lasso, selectia moale) la ℓ₂ (ridge, fara selectie). Fiecare are echivalentul sau bayesian prin priori diferite.</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Aplicatii Practice</h4>
+      <p>Lasso este extrem de util in genomica (selectarea genelor relevante din mii de posibilitati), in finante (selectarea factorilor de risc) si in procesarea semnalelor (reconstructia comprimata).</p>
+    </div>
+    <div class="commentary-section">
+      <h4>Exemplu din Lumea Reala</h4>
+      <p>In diagnosticul genetic, un cercetator poate masura expresia a 20.000 de gene dar are doar 100 de pacienti. Lasso (sectiunea 13.3) selecteaza automat cele cateva gene relevante pentru boala studiata, ignorandu-le pe celelalte.</p>
+    </div>
+  </div>
+</div>

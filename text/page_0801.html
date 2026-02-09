@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Grafuri factor pentru DGM-uri si factorizarea modelelor</h2>
+  <p>Aceasta pagina prezinta conversia modelelor grafice directionate (DGM) in grafuri factor, cu exemple detaliate de factorizare si reprezentari grafice.</p>
+  <div class="definition-box"><strong>Conversia DGM in graf factor:</strong> Se creeaza un factor per CPD, conectat la toate variabilele din acel CPD. De exemplu, f(x1,...,x5) = f1(x1)*f2(x2)*f123(x1,x2,x3)*f34(x3,x4)*f35(x3,x5), unde f123(x1,x2,x3) = p(x3|x1,x2).</div>
+  <div class="definition-box"><strong>Echivalenta cu MRF pairwise:</strong> Daca fiecare nod are cel mult un parinte (lant sau arbore simplu), va exista un factor per muchie, si CPD-urile priorilor pot fi absorbite in factorii copiilor. Astfel de modele sunt echivalente cu MRF-uri pairwise.</div>
+  <div class="highlight-box"><strong>Flexibilitatea grafurilor factor:</strong> Acelasi UGM poate fi reprezentat prin mai multe grafuri factor diferite (un factor per clica maximala vs un factor per muchie), fiecare cu avantaje computationale diferite pentru inferenta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina detaliaza modul in care modelele directionate se convertesc in grafuri factor, prezentand figuri comparative pentru UGM si DGM cu grafurile factor corespunzatoare. Se evidentiaza faptul ca modelele cu structura de arbore au grafuri factor simple, echivalente cu MRF-uri pairwise.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conversia DGM->graf factor este sistematica: un factor per CPD. Complexitatea inferentei depinde de marimea factorilor (numarul de variabile la care se conecteaza), nu de numarul total de variabile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea conversiei intre reprezentari este esentiala pentru alegerea algoritmului de inferenta potrivit si pentru implementarea eficienta in software.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model Bayesian de diagnostic al unui motor auto, cu senzori multipli si cauze interdependente, poate fi convertit intr-un graf factor pentru aplicarea eficienta a LBP, oferind diagnostice rapide in timp real.</p></div>
+  </div>
+</div>

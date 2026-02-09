@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Rata Falselor Descoperiri si Alte Topici in Teoria Deciziei</h2>
+  <p>Pagina introduce rata falselor descoperiri (FDR) pentru testarea ipotezelor multiple si prezinta pe scurt banditi contextuali si teoria utilitatii.</p>
+  <div class="definition-box"><strong>Rata falselor descoperiri (False Discovery Rate - FDR):</strong> FDR(τ,D) = FD(τ,D)/N(τ,D) (Ecuatia 5.119), unde FD este numarul asteptat de false descoperiri si N este numarul total de descoperiri.</div>
+  <div class="definition-box"><strong>Testarea ipotezelor multiple:</strong> Cand facem N decizii binare simultan (de exemplu, care gene sunt exprimate diferential), trebuie sa controlam rata globala de erori, nu doar erorile individuale.</div>
+  <div class="definition-box"><strong>Banditi multi-brat (Multi-armed bandits):</strong> Problema de decizie secventiala cu K actiuni posibile, fiecare cu recompensa necunoscuta r_k. Indicii Gittins rezolva optim compromisul explorare-exploatare.</div>
+  <div class="highlight-box"><strong>FD asteptat bayesian:</strong> FD(τ,D) = Σᵢ (1-pᵢ) · I(pᵢ > τ) (Ecuatia 5.118), unde pᵢ = p(yᵢ=1|D) este credinta ca obiectul i prezinta fenomenul.</div>
+  <div class="highlight-box"><strong>Abordarea probabilitatii posterioare directe:</strong> Se ajusteaza pragul τ pentru a atinge FDR-ul dorit (de exemplu, α = 0.05).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>FDR este esential cand se fac mii de teste simultane (genomica, neuroimagistica). Abordarea bayesiana calculeaza probabilitatile posterioare pᵢ = p(yᵢ=1|D) si ajusteaza pragul τ pentru a controla FDR-ul. Estimarea conjuncta a pᵢ-urilor prin modele ierarhice permite imprumutul de forta statistica, reducand FDR-ul. Banditi contextuali extind teoria deciziei la situatii secventiale cu incertitudine.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta fata de corectia Bonferroni frecventista: abordarea bayesiana a FDR-ului estimeaza probabilitatile posterioare direct, nu ajusteaza p-value-urile. Aceasta este mai eficienta statistic, mai ales cu modele ierarhice care permit partajarea informatiei intre teste.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In genomica, se testeaza simultan ~20000 gene pentru expresie diferentiala. Controlul FDR-ului la 5% inseamna ca ne asteptam ca doar 5% din genele "descoperite" sa fie false descoperiri. In publicitate online, banditi contextuali selecteaza optim reclamele de afisat.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studii GWAS (Genome-Wide Association Studies), se testeaza milioane de variante genetice. Fara controlul FDR, mii de asocieri false ar fi raportate. Abordarea bayesiana ierarhica permite descoperiri mai precise prin modelarea structurii genetice.</p></div>
+  </div>
+</div>

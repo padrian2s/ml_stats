@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Filtrarea particulelor - Problema degenerarii si pasul de re-esantionare</h2>
+  <p>Aceasta pagina discuta problema degenerarii in SIS si introduce pasul de re-esantionare ca solutie, impreuna cu algoritmul complet al filtrului cu particule.</p>
+  <div class="definition-box"><strong>Problema degenerarii:</strong> Dupa cateva iteratii, majoritatea particulelor au ponderi neglijabile. Aceasta se masoara prin dimensiunea efectiva a esantionului: S_eff = S / (1 + var[w_t^*s]), aproximata de S_hat_eff = 1 / sum (w_t^s)^2.</div>
+  <div class="definition-box"><strong>Pasul de re-esantionare:</strong> Cand S_eff scade sub un prag, se genereaza un nou set de particule prin esantionare cu inlocuire din distributia ponderata. Rezultatul sunt S particule echiprobabile (w = 1/S). Aceasta se numeste uneori "survival of the fittest".</div>
+  <div class="highlight-box"><strong>Algoritmul 23.1 - Filtru cu particule generic:</strong> Pentru fiecare particula: (1) esantioneaza z_t^s din propunere, (2) calculeaza ponderea, (3) normalizeaza ponderile, (4) calculeaza S_eff, (5) daca S_eff < prag, re-esantioneaza si reseteaza ponderile la 1/S.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Problema degenerarii este fundamentala in SIS: spatiul creste cu timpul, dar numarul de particule ramane fix, deci ponderile devin tot mai concentrate. Re-esantionarea rezolva aceasta problema prin eliminarea particulelor cu ponderi mici si replicarea celor cu ponderi mari.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exista un compromis intre degenerare (fara re-esantionare) si saracirea esantionului (re-esantionare prea frecventa). Re-esantionarea adaptiva (doar cand S_eff < prag) ofera un echilibru bun.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Re-esantionarea multinomiala este cea mai simpla, dar re-esantionarea sistematica sau stratificata reduce varianta. Toate se executa in O(S) si sunt implementate in bibliotecile standard.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In urmarirea vehiculelor cu radar, daca un vehicul face o manevra brusca, doar cateva particule vor fi aproape de pozitia reala. Re-esantionarea concentreaza particulele in jurul acestor pozitii corecte, mentinand urmarirea activa.</p></div>
+  </div>
+</div>

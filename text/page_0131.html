@@ -1,0 +1,22 @@
+<div class="page-content">
+  <h2>Demonstratia MLE pentru Gaussiana Multivariata</h2>
+  <p>Pagina 100 prezinta demonstratia completa a Teoremei 4.1.1 privind estimarea MLE a parametrilor distributiei Gaussiene multivariate, folosind matricea de precizie si matricea scatter.</p>
+
+  <div class="definition-box"><strong>Matricea de precizie:</strong> Λ = Σ⁻¹ este inversa matricei de covarianta, numita si matricea de precizie. Este utilizata frecvent in loc de Σ pentru simplificarea calculelor.</div>
+
+  <div class="highlight-box"><strong>Log-verosimilitatea (Ecuatia 4.12):</strong> ℓ(μ, Σ) = log p(D|μ, Σ) = (N/2) log |Λ| - (1/2) Σᵢ (xᵢ - μ)ᵀ Λ (xᵢ - μ)</div>
+
+  <div class="definition-box"><strong>Matricea scatter (Ecuatia 4.20):</strong> S_μ = Σᵢ (xᵢ - μ)(xᵢ - μ)ᵀ este matricea scatter centrata pe μ. MLE-ul covariantei este Σ̂ = (1/N) S_μ.</div>
+
+  <div class="highlight-box"><strong>Derivarea MLE pentru μ (Ecuatia 4.15-4.16):</strong> ∂ℓ/∂μ = Σ⁻¹ Σᵢ (xᵢ - μ) = 0, rezultand μ̂ = (1/N) Σᵢ xᵢ = x̄</div>
+
+  <div class="highlight-box"><strong>Derivarea MLE pentru Λ (Ecuatia 4.21-4.22):</strong> ∂ℓ/∂Λ = (N/2) Λ⁻ᵀ - (1/2) S_μᵀ = 0, rezultand Σ = (1/N) S_μ</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Demonstratia MLE pentru Gaussiana multivariata se face in doi pasi: mai intai se optimizeaza μ (obtinand media empirica), apoi se optimizeaza Λ (matricea de precizie), obtinand covarianta empirica. Se foloseste trucul urmei pentru a rescrie log-verosimilitatea si derivatele matriceale standard.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Separarea optimizarii in doi pasi (mai intai μ, apoi Σ) este posibila deoarece MLE-ul pentru μ nu depinde de Σ. Matricea scatter S_μ centralizeaza informatia despre variabilitatea datelor in jurul mediei.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta demonstratie justifica matematic de ce media si covarianta empirica sunt estimatorii standard in statistica. Intelegerea demonstratiei este esentiala pentru extinderea la modele mai complexe precum amestecurile Gaussiene (EM algorithm).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In bioinformatica, cand analizam expresia genica pentru mii de gene simultan, estimam μ si Σ din datele de expresie pentru a identifica grupuri de gene coexprimate. Demonstratia MLE garanteaza ca estimarile noastre sunt optime in sensul verosimilitatii maxime.</p></div>
+  </div>
+</div>

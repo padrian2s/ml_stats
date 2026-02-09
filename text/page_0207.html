@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Estimarea Hiperparametrilor EB si Teoria Deciziei Bayesiene</h2>
+  <p>Pagina completeaza derivarea estimarii hiperparametrilor prin Bayes Empiric si introduce Sectiunea 5.7 despre teoria deciziei bayesiene.</p>
+  <div class="definition-box"><strong>Teoria deciziei bayesiene:</strong> Cadrul formal pentru conversia credintelor (probabilitatilor posterioare) in actiuni optime prin minimizarea pierderii asteptate. Natura alege starea y, noi observam x si alegem actiunea a din spatiul de actiuni A.</div>
+  <div class="definition-box"><strong>Functia de utilitate:</strong> U(y, a) = -L(y, a) este negativul functiei de pierdere. Principiul utilitatii maxime asteptate: δ(x) = argmax_{a∈A} E[U(y,a)] (Ecuatia 5.97).</div>
+  <div class="highlight-box"><strong>Estimarea hiperparametrilor:</strong> μ_hat = x_bar (media generala), τ_hat² = max{0, s² - σ²} (Ecuatia 5.94), B_hat = σ²/(σ² + τ_hat²) (Ecuatia 5.95).</div>
+  <div class="highlight-box"><strong>Procedura de decizie:</strong> δ : X → A specifica actiunea optima pentru fiecare observatie. Actiunea optima minimizeaza pierderea asteptata: δ(x) = argmin_{a∈A} E[L(y,a)] (Ecuatia 5.96).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Estimarea EB a hiperparametrilor se face in forma inchisa: μ_hat este media generala, iar τ² se estimeaza prin potrivirea momentelor (varianta empirica minus varianta cunoscuta). Cand σ²ⱼ difera intre grupuri, se recurge la algoritmul EM. Sectiunea 5.7 introduce teoria deciziei ca extensie naturala a inferentei bayesiene: dupa ce am obtinut posterioara, cum luam decizii optime?</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exista doua interpretari ale "asteptarii" in teoria deciziei: bayesiana (asteptarea peste posterioara p(y|x,D)) si frecventista (asteptarea peste distributia de esantionare). Abordarea bayesiana optimizeaza pentru observatia curenta, iar cea frecventista pentru toate observatiile posibile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Teoria deciziei bayesiene este fundamentala in: diagnosticul medical (decizia de tratament), finante (decizia de investitii), robotica (planificarea actiunilor) si invatarea prin intarire (reinforcement learning).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un medic observa simptomele unui pacient (x) si trebuie sa decida tratamentul (a). Pierderea depinde de boala adevarata (y) si tratamentul ales (a). Teoria deciziei bayesiene optimizeaza aceasta alegere, tinand cont de probabilitatile posterioare ale fiecarei boli.</p></div>
+  </div>
+</div>

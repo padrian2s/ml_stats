@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Selectia modelului si invatarea structurii in HMM</h2>
+  <p>Aceasta pagina discuta selectia numarului de stari, invatarea structurii matricei de tranzitie si introduce generalizarile HMM-urilor.</p>
+  <div class="definition-box"><strong>Prior de entropie minima:</strong> p(A_{i,:}) proportional cu exp(-H(A_{i,:})), care favorizeaza stari cu distributii de tranzitie aproape deterministe (entropie scazuta), producand matrice de tranzitie sparse. Pasul M corespunzator necesita metode numerice.</div>
+  <div class="highlight-box"><strong>Invatarea structurii:</strong> Se invata o matrice de tranzitie sparsa prin metode split-merge heuristice sau prin priori de entropie minima. HMM infinit (bazat pe hierarchical Dirichlet process) evita selectia K complet, permitand cresterea automata a numarului de stari.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Alegerea K si a topologiei HMM sunt probleme de selectie a modelului. Priorul de entropie minima favorizeaza matrice de tranzitie sparse (aproape deterministe) dar poate crea 'insule' izolate in spatiul starilor. Metode split-merge alterneaza estimarea parametrilor cu ajustarea structurii. HMM-ul infinit (Beal et al. 2002; Teh et al. 2006) elimina problema selectiei K prin modelarea non-parametrica Bayesiana.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tensiunea intre complexitate si parsimonie: prea putine stari -> model subdimensionat, prea multe -> suprapotrivire si interpretabilitate redusa. BIC/AIC penalizeaza numarul de parametri (K^2 + K*D pentru HMM cu observatii D-dimensionale). HMM infinit rezolva aceasta elegant dar la cost computational mai mare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>HMM infinit este implementat in biblioteci Bayesiene non-parametrice (pyhsmm, NPBayesHMM). In practica, cautarea pe grila cu BIC ramane cea mai folosita metoda datorita simplitatii si eficientei.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea activitatii umane din date de accelerometru (mers, alergare, sezut), alegerea numarului de stari K determina granularitatea activitatilor detectate. Un HMM infinit poate descoperi automat numarul de activitati distincte.</p></div>
+  </div>
+</div>

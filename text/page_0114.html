@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Modelul Dirichlet Compound Multinomial (DCM) și Urna Polya</h2>
+  <p>Pagina introduce modelul DCM ca alternativă superioară modelului multinomial simplu pentru clasificarea documentelor, captând fenomenul de burstiness.</p>
+  <div class="definition-box"><strong>DCM (Dirichlet Compound Multinomial):</strong> p(xᵢ|yᵢ=c,α) = ∫Mu(xᵢ|Nᵢ,θ_c)·Dir(θ_c|α_c)dθ_c = (Nᵢ!/∏x_{ij}!)·B(xᵢ+α_c)/B(α_c). Se integrează peste θ în loc să se fixeze.</div>
+  <div class="highlight-box"><strong>Captarea burstiness-ului:</strong> După observarea unei ocurențe a cuvântului j, numărătorile posterioare pe θ_j se actualizează, făcând mai probabilă o altă apariție. Aceasta captează exact fenomenul de rafale.</div>
+  <div class="definition-box"><strong>Urna Polya:</strong> Modelul multinomial = extragere cu înlocuire dintr-o urnă cu bile colorate. DCM = extragere cu înlocuire plus adăugarea unei copii suplimentare. Aceasta produce „bogatul devine mai bogat".</div>
+  <div class="highlight-box"><strong>Performanță:</strong> DCM ca densitate condiționată de clasă produce rezultate mult mai bune decât multinomialul simplu în clasificarea documentelor, comparabile cu cele mai bune metode ad hoc.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>DCM rezolvă o limitare fundamentală a modelului multinomial prin integrarea incertitudinii în parametrul θ. Urna Polya oferă o intuiție elegantă: cuvintele „atrag" alte apariții ale lor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Integrarea parametrilor (marginalizarea) produce modele mai expresive. Aceasta este o temă recurentă în statisticile Bayesiene: incertitudinea parametrică adaugă flexibilitate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>DCM este utilizat în modelarea topicilor (LDA este un model ierarhic bazat pe DCM), în analiza genomică, și în orice context cu date de numărare cu dispersie excesivă.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un articol scientific, dacă termenul „rețea neuronală" apare o dată, este foarte probabil să apară de mai multe ori. DCM modelează acest lucru natural, spre deosebire de multinomialul simplu.</p></div>
+  </div>
+</div>

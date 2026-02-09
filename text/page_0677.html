@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Invatarea in LG-SSM si Identificabilitate</h2>
+  <p>Pagina acopera invatarea parametrilor in modelele spatiului starilor liniar-Gaussiene (LG-SSM), incluzand netezirea cu doua filtre, identificarea sistemelor si stabilitatea numerica.</p>
+  <div class="definition-box"><strong>Netezirea cu doua filtre (Two-filter smoothing):</strong> Varianta alternativa unde se calculeaza p(z_t|y_{1:t}) in trecerea inainte si p(z_t|y_{t+1:T}) in trecerea inapoi, apoi se combina pentru a obtine p(z_t|y_{1:T}).</div>
+  <div class="definition-box"><strong>Identificarea sistemelor:</strong> Procesul de estimare a parametrilor unui LG-SSM, termen utilizat in comunitatea de teoria controlului. Se refera la estimarea matricelor de tranzitie, observatie si covariantelor zgomotului.</div>
+  <div class="highlight-box"><strong>Identificabilitate:</strong> Se poate seta Q = I fara pierdere de generalitate si R diagonala pentru a reduce numarul de parametri si a imbunatati stabilitatea numerica. Valorile proprii ale matricei A trebuie sa fie mai mici decat 1 pentru stabilitate: z_t = A^t z_1 = UA^t U^{-1} z_1 (ec. 18.79).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 18.4 introduce problema invatarii parametrilor in LG-SSM. Se discuta identificabilitatea modelului si stabilitatea numerica, subliniind constrangerile necesare pentru a asigura un model bine definit. Valorile proprii ale matricei de dinamica A trebuie sa fie subunitare pentru stabilitate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Constrangerile de identificabilitate (Q = I, R diagonala) reduc redundanta parametrilor. Stabilitatea numerica este garantata prin controlul valorilor proprii ale lui A. Posteriorul pentru parametri are forma Normal-inversa-Wishart cand se foloseste abordarea bayesiana.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Identificarea sistemelor este fundamentala in ingineria de control, automatizari industriale, modelarea proceselor chimice si prognoza economica. Constrangerile de stabilitate sunt esentiale in proiectarea sistemelor de control feedback.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In controlul automat al temperaturii unui reactor chimic, identificarea sistemului permite estimarea parametrilor modelului dinamic al procesului, iar constrangerile de stabilitate asigura ca sistemul de control nu va diverge in timp.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Metoda lui Newton pentru Optimizare</h2>
+  <p>Pagina introduce metoda lui Newton, un algoritm de optimizare de ordinul doi care folosește informația despre curbura spațiului (Hessianul) pentru a converge mai rapid decât coborârea pe gradient.</p>
+  <div class="definition-box"><strong>Metode de ordinul doi:</strong> Metode de optimizare care utilizează Hessianul (derivata a doua) pentru a lua în considerare curbura funcției obiectiv, oferind convergență mai rapidă decât metodele de ordinul întâi (gradient).</div>
+  <div class="highlight-box"><strong>Algoritmul 8.1 - Metoda lui Newton:</strong> 1) Inițializează θ₀; 2) Pentru k = 1, 2, ... până la convergență: evaluează g_k = ∇f(θ_k), H_k = ∇²f(θ_k); rezolvă H_k d_k = -g_k; căutare liniară pentru η_k; θ_{k+1} = θ_k + η_k d_k.</div>
+  <div class="highlight-box"><strong>Actualizarea Newton (Ecuația 8.13):</strong> θ_{k+1} = θ_k - η_k H_k⁻¹ g_k. Pasul Newton d_k = -H_k⁻¹ g_k minimizează aproximarea pătratică de ordinul doi a funcției f în jurul θ_k.</div>
+  <div class="highlight-box"><strong>Aproximarea Taylor de ordinul doi (Ecuația 8.14):</strong> f_quad(θ) = f_k + g_k&#7488;(θ - θ_k) + ½(θ - θ_k)&#7488; H_k(θ - θ_k). Minimul acestei aproximări este la θ = θ_k - H_k⁻¹ g_k.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Metoda lui Newton folosește aproximarea Taylor de ordinul doi a funcției obiectiv pentru a determina direcția și mărimea pasului optim. Algoritmul necesită calcularea și inversarea Hessianului la fiecare iterație, ceea ce este costisitor pentru probleme de dimensiune mare (O(D³)), dar convergența este mult mai rapidă (cvadratică vs. liniară pentru gradient descent).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Relația dintre aproximarea pătratică f_quad(θ) = θ&#7488;Aθ + b&#7488;θ + c și pasul Newton arată elegant cum informația de ordinul doi ghidează optimizarea. Formularea matriceală A = ½H_k, b = g_k - H_k θ_k clarifică structura matematică.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Metoda lui Newton este folosită în optimizarea de mici dimensiuni (zeci-sute de parametri), cum ar fi ajustarea regresiei logistice clasice, modele economometrice, și optimizarea de portofoliu în finanțe. Pentru rețele neurale cu milioane de parametri, se folosesc aproximări (L-BFGS, metode quasi-Newton).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un inginer care optimizează parametrii unui reactor chimic are doar 10-20 de variabile. Metoda lui Newton converge în câțiva pași, economisind timp comparativ cu sute de iterații de gradient descent. Hessianul captează interacțiunile între variabile (temperatură, presiune, concentrație).</p></div>
+  </div>
+</div>

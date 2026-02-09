@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul Gibbs collapsat pentru DPMM si propagarea afinitatii</h2>
+  <p>Aceasta pagina prezinta pseudo-codul Algoritmului 25.1 pentru Gibbs sampling collapsat in DPMM, metode alternative de estimare si introduce propagarea afinitatii (affinity propagation).</p>
+  <div class="definition-box"><strong>Algoritmul 25.1 - Gibbs collapsat pentru DPM:</strong> Pentru fiecare punct i: elimina statisticile din clusterul vechi, calculeaza probabilitatile pentru fiecare cluster existent (proportional cu N_{k,-i}*p(x_i|x_{-i}(k))) si pentru un cluster nou (proportional cu alpha*p(x_i|lambda)), normalizeaza si esantioneaza.</div>
+  <div class="definition-box"><strong>Propagarea afinitatii:</strong> Algoritm de clustering care ia ca intrare o matrice de similaritate N x N si identifica exemplare (centroizi) prin maximizarea S(c) = suma s(i,c_i) + suma delta_k(c), unde c_i este exemplarul ales de punctul i.</div>
+  <div class="highlight-box"><strong>Avantajul DPMM fata de amestecul finit:</strong> DPMM converge mai rapid si evita optima locale mai usor, deoarece poate crea clustere redundante devreme si le elimina ulterior (Figura 25.8).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta algoritmul complet Gibbs collapsat pentru DPMM in pseudo-cod, apoi discuta alternative (A* search, beam search, particle filtering, inferenta variationala) si setarea hiperparametrilor (prior Gamma pe alpha, Bayes empiric). Se introduce propagarea afinitatii ca alternativa non-probabilistica care opereaza pe matrice de similaritate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>DPMM-ul are avantajul de a converge mai rapid decat amestecurile finite cu Gibbs sampling, evitand optima locale prin crearea si eliminarea flexibila de clustere. Propagarea afinitatii ofera o alternativa determinista pentru probleme bazate pe similaritate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Propagarea afinitatii este folosita in detectia fetelor (selectia exemplarelor reprezentative), comprimarea datelor (selectia prototipurilor), si bioinformatica (identificarea proteinelor reprezentative dintr-o familie).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In selectia automata a fotografiilor reprezentative dintr-un album mare, propagarea afinitatii identifica imaginile-exemplar care sunt cele mai reprezentative pentru grupuri de fotografii similare, fara a specifica cate grupuri exista.</p></div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Analiza Corelatiei Canonice (CCA) si Introducere in Analiza Componentelor Independente (ICA)</h2>
+  <p>Pagina prezinta CCA ca versiune simetrica nesupervizata a PLS si introduce ICA prin problema petrecerii cocktail.</p>
+  <div class="definition-box"><strong>Analiza Corelatiei Canonice (CCA):</strong> Un model simetric care permite fiecarei vizualizari sa aiba propriul subspatiu „privat", pe langa un subspatiu partajat comun. Variabilele latente sunt: zₛ (partajat), zₓ (privat pentru x), zᵧ (privat pentru y).</div>
+  <div class="definition-box"><strong>Analiza Componentelor Independente (ICA):</strong> O metoda de separare oarba a surselor care descompune semnale observate amestecate in surse independente non-gaussiene, rezolvand problema petrecerii cocktail.</div>
+  <div class="definition-box"><strong>Problema petrecerii cocktail (Blind Source Separation):</strong> Deconvoluarea semnalelor mixate liniar in componentele lor sursa, fara cunoasterea matricei de amestecare W.</div>
+  <div class="highlight-box"><strong>Modelul CCA:</strong> p(zᵢ) = N(zₛ|0,I_L₀)N(zₓ|0,I_Lx)N(zᵧ|0,I_Ly); p(xᵢ|zᵢ) = N(Bₓzₓ + Wₓzₛ + μₓ, σ²I); p(yᵢ|zᵢ) = N(Bᵧzᵧ + Wᵧzₛ + μᵧ, σ²I)</div>
+  <div class="highlight-box"><strong>Modelul ICA:</strong> xₜ = Wzₜ + εₜ, unde W este matricea de amestecare si zₜ sunt sursele independente.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>CCA generalizeaza PLS adaugand subspatii private pentru ambele vizualizari, creand o descompunere simetrica a informatiei in componente partajate si private. Avantajele perspectivei probabilistice includ: generalizarea la M > 2 vizualizari, mixturi CCA, versiuni sparse cu ARD, extensii la familia exponentiala si inferenta bayesiana. ICA abordeaza o problema complementara: in loc sa caute dimensiuni de maxima varianta (PCA), cauta surse statistice independente.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>CCA si PLS difera in simetrie: CCA trateaza ambele vizualizari egal, PLS este asimetric. ICA difera fundamental de PCA prin priorul pe sursele latente: PCA foloseste gaussiana (care nu poate identifica unic sursele), ICA impune non-gaussianitate si independenta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>CCA este utilizata in integrarea datelor multi-omice, alinierea limbilor in traducere automata, si analiza datelor neuroimagistice multi-modale. ICA este esentiala in procesarea semnalelor EEG/MEG, analiza imaginilor fMRI si separarea surselor audio.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-o sala de conferinte cu mai multe microfoane, ICA poate separa vocile vorbitorilor individuali din inregistrarile mixate, permitand transcrierea automata a fiecarui vorbitor separat - exact problema petrecerii cocktail.</p></div>
+  </div>
+</div>

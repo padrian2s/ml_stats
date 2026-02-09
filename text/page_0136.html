@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>Geometria LDA cu Doua Clase</h2>
+  <p>Pagina 105 ilustreaza frontierele de decizie liniare in 2D si 3 clase, geometria LDA cu doua clase si derivarea vectorului de pondere w si a punctului de intersectie x₀.</p>
+
+  <div class="figure-box"><strong>Figura 4.5:</strong> Frontiere de decizie liniare in 2D: (a) cazul cu 2 clase cu o singura frontiera liniara; (b) cazul cu 3 clase cu frontiere liniare care impart spatiul in regiuni.</div>
+
+  <div class="figure-box"><strong>Figura 4.6:</strong> Geometria LDA cu 2 clase cand Σ₁ = Σ₂ = I. Vectorul w conecteaza cele doua medii μ₀ si μ₁, iar x₀ este punctul pe frontiera de decizie. Clasificarea se face proiectand x pe directia w si verificand de care medie este mai aproape.</div>
+
+  <div class="highlight-box"><strong>Vectorul de pondere (Ecuatia 4.48):</strong> w = β₁ - β₀ = Σ⁻¹(μ₁ - μ₀). Directia w este directia de separare optima intre cele doua clase.</div>
+
+  <div class="highlight-box"><strong>Punctul de intersectie (Ecuatia 4.49):</strong> x₀ = (1/2)(μ₁ + μ₀) - (μ₁ - μ₀) * log(π₁/π₀) / [(μ₁ - μ₀)ᵀ Σ⁻¹ (μ₁ - μ₀)]. Cand π₁ = π₀, x₀ este exact la jumatate intre cele doua medii.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Geometria LDA cu doua clase este intuitiva: vectorul de pondere w indica directia care separa cel mai bine cele doua clase, tinand cont de covarianta. Punctul x₀ pe frontiera de decizie se deplaseaza spre clasa cu probabilitate a priori mai mica cand apriori-urile sunt inegale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cand Σ = σ²I, vectorul w este pur si simplu in directia μ₁ - μ₀, iar clasificarea se reduce la proiectarea pe linia care uneste cele doua medii. Probabilitatile a priori inegale deplaseaza frontiera: daca π₁ > π₀, frontiera se muta spre μ₀, extinzand regiunea clasei 1.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta geometrie este utilizata in detectia obiectelor (clasificare binara: obiect prezent vs. absent), filtrarea spam-ului si diagnosticul medical (boala vs. sanatos). Intelegerea geometrica ajuta la interpretarea deciziilor modelului.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In screening-ul medical, daca prevalenta bolii este mica (π_boala << π_sanatos), frontiera de decizie se deplaseaza spre media pacientilor bolnavi, ceea ce inseamna ca sunt necesare valori mai extreme ale biomarkerilor pentru a clasifica pe cineva ca bolnav, reducand falsele pozitive.</p></div>
+  </div>
+</div>

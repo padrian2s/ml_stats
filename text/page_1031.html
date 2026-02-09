@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Auto-encodere de dezgomotare stivuite si clasificarea cifrelor</h2>
+  <p>Aceasta pagina prezinta auto-encoderele de dezgomotare (denoising), posibilitatea stivuirii lor, si aplicatia DBN-urilor la clasificarea cifrelor scrise de mana pe MNIST.</p>
+  <div class="definition-box"><strong>Auto-encoder de dezgomotare (Denoising Auto-Encoder):</strong> Un auto-encoder antrenat sa reconstruiasca inputul curat din versiuni corupte (cu zgomot), echivalent cu o forma aproximativa de antrenare prin verosimilitate maxima.</div>
+  <div class="definition-box"><strong>Reprezentare supracompleta (over-complete):</strong> Cand stratul ascuns este mai larg decat inputul, prevenind invatarea identitatii prin constrangeri de sparsitate sau prin adaugare de zgomot.</div>
+  <div class="highlight-box"><strong>DBN pe MNIST:</strong> O arhitectura DBN cu 3 straturi ascunse (500-500-2000) plus un strat softmax de 10 unitati obtine o eroare de test de 1.25% pe MNIST, cea mai buna performanta la acea data pentru metode invariante la permutare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Auto-encoderele de dezgomotare previn invatarea identitatii triviale prin coruperea intentionata a inputului. Stivuirea acestora permite invatarea de reprezentari ierarhice. Sectiunea 28.4 demonstreaza aplicatii concrete ale retelelor profunde, incepand cu clasificarea MNIST.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Doua strategii pentru a preveni invatarea identitatii: (1) bottleneck (strat ascuns mai ingust) si (2) regularizare (sparsitate sau zgomot). Pre-antrenarea nesupervizata urmata de ajustare fina supervizata produce erori comparabile cu SVM cu kernel polinomial de grad 9.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clasificarea cifrelor scrise de mana, recunoasterea automata a cecurilor bancare, sortarea automata a corespondentei postale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Serviciile postale din SUA si alte tari folosesc sisteme de recunoastere automata a codurilor postale scrise de mana, bazate pe retele neuronale profunde antrenate pe seturi de date similare cu MNIST.</p></div>
+  </div>
+</div>

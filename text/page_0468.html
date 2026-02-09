@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Calea de Regularizare LASSO si Algoritmul LARS</h2>
+  <p>Pagina arata proprietatea pe portiuni liniara a caii LASSO (Figura 13.8), algoritmul LARS si listing-ul valorilor coeficientilor la fiecare pas de regularizare.</p>
+  <div class="highlight-box"><strong>Figura 13.8:</strong> (a) Coeficientii LASSO vs B: functii pe portiuni liniare cu "coturi" la valorile critice ale lui B unde setul activ se schimba. (b) Aceeasi informatie vs pasii LARS - mai clara vizual.</div>
+  <div class="definition-box"><strong>Proprietatea pe portiuni liniara:</strong> Calea LASSO w_hat(B) este o functie pe portiuni liniara a lui B (Efron et al. 2004). Intre valorile critice ale lui B, coeficientii non-zero variaza liniar. Valorile critice corespund intrarii/iesirii unei variabile.</div>
+  <div class="highlight-box"><strong>Algoritmul LARS (Least Angle Regression and Shrinkage):</strong> Calculeaza analitic valorile critice si intreaga cale de regularizare cu cost O(min(ND^2, DN^2)). Remarcabil: costul este comparabil cu un singur fit least squares!</div>
+  <div class="highlight-box"><strong>Listing 13.1:</strong> Output-ul lassoPathProstate arata evolutia celor 8 coeficienti pe parcursul a 9 pasi, de la modelul nul la OLS complet. lcavol intra primul, urmat de lweight.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Proprietatea pe portiuni liniara a caii LASSO este un rezultat remarcabil: permite calculul intregii cai de regularizare la costul unui singur fit. LARS exploateaza aceasta proprietate, gasind analitic valorile critice ale lui B unde setul activ se schimba. Limitare: LASSO poate selecta cel mult N variabile (nu mai mult de numarul de observatii).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ordinea de intrare a variabilelor in calea LASSO ofera o ierarhizare naturala a importantei: prima variabila care intra este cea mai corelata cu raspunsul. Aceasta ierarhizare este adesea mai informativa decat un singur model selectat.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LARS este implementat in majoritatea pachetelor statistice (R: lars, Python: sklearn). Elastic net (Sectiunea 13.5.3) elimina limitarea de N variabile prin adaugarea unei penalizari l2.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile de expresie genica, calea LASSO pe mii de gene produce o lista ordonata a genelor biomarker, de la cele mai predictive la cele mai putin predictive, ghidand prioritizarea experimentelor de validare.</p></div>
+  </div>
+</div>

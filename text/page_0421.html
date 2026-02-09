@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Demonstratia PCA: Minimizarea Erorii de Reconstructie</h2>
+  <p>Pagina prezinta demonstratia formala ca PCA gaseste directiile de varianta maxima, echivalent cu minimizarea erorii de reconstructie, prin optimizare cu multiplicatori Lagrange.</p>
+  <div class="highlight-box"><strong>Codificarea optima (Eq. 12.32):</strong> z_i1 = w_1^T x_i - proiectia ortogonala pe directia w_1. Rezulta din dJ/dz_i1 = 0.</div>
+  <div class="highlight-box"><strong>Echivalenta sinteza-analiza (Eq. 12.36):</strong> argmin_{w_1} J(w_1) = argmax_{w_1} var[z_tilda_1]. Minimizarea erorii de reconstructie este echivalenta cu maximizarea variantei proiectate - legatura intre "vederea de sinteza" si "vederea de analiza" a PCA.</div>
+  <div class="definition-box"><strong>Varianta proiectata (Eq. 12.37):</strong> var[z_tilda_1] = (1/N) suma z_i1^2 = w_1^T Sigma_hat w_1. Varianta datelor proiectate pe directia w_1 este forma patratica w_1^T Sigma_hat w_1.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Demonstratia formala stabileste echivalenta dintre minimizarea erorii de reconstructie (perspectiva de sinteza) si maximizarea variantei proiectate (perspectiva de analiza). Codificarea optima este proiectia ortogonala z_i = w^T x_i. Varianta proiectata este forma patratica w^T Sigma w, care se maximizeaza sub constrangerea ||w|| = 1.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Dualitatea sinteza-analiza este profunda: gasirea celei mai bune reconstructii in spatiu low-dimensional este echivalenta cu gasirea directiei de variabilitate maxima. Acest principiu de dualitate apare in multe contexte de optimizare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, echivalenta permite alegerea implementarii optime: pentru N >> D, se calculeaza vectorii proprii ai Sigma_hat (D x D); pentru D >> N, se foloseste kernel trick sau SVD pe matricea de date.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In meteorologie, PCA (numita EOF - Empirical Orthogonal Functions) gaseste pattern-urile dominante de variabilitate climatica (ENSO, NAO) care explica cea mai mare parte a variantei in datele de temperatura globala.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Mixarea lenta a Gibbs si introducere in Metropolis-Hastings</h2>
+  <p>Aceasta pagina ilustreaza problema mixarii lente in esantionarea Gibbs si introduce algoritmul Metropolis-Hastings (MH) ca alternativa mai generala.</p>
+  <div class="definition-box"><strong>Mixare lenta (slow mixing):</strong> Cand distributia posterioara are corelatii puternice intre parametri, Gibbs sampling face pasi mici (random walk pe coordonate), necesitand foarte multe iteratii pentru a explora distributia. Figura ilustreaza acest efect pe o Gaussiana 2D puternic corelata.</div>
+  <div class="definition-box"><strong>Algoritmul Metropolis-Hastings:</strong> Un algoritm MCMC general care nu necesita conditionale complete. La fiecare pas: (1) propune x' ~ q(x'|x_t); (2) accepta cu probabilitatea alpha = min(1, [p*(x')*q(x_t|x')] / [p*(x_t)*q(x'|x_t)]); (3) daca acceptat, x_{t+1}=x', altfel x_{t+1}=x_t.</div>
+  <div class="highlight-box"><strong>Generalitate MH:</strong> Spre deosebire de Gibbs (care necesita conditionale complete tractabile), MH necesita doar evaluarea p*(x) pana la o constanta de normalizare si capacitatea de a esantiona si evalua propunerea q(x'|x). Aceasta face MH aplicabil oricarei distributii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina motiveaza trecerea de la Gibbs la MH prin limitarile Gibbs pe distributii puternic corelate. MH ofera flexibilitate totala in alegerea propunerii, permitand pasi in orice directie, nu doar pe coordonate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Rata de acceptare in MH controleaza trade-off-ul intre explorare si exploatare: propuneri prea mici sunt aproape mereu acceptate dar exploreaza lent, propuneri prea mari sunt frecvent respinse. Rata optima este ~23% pentru propuneri Gaussiene in dimensiuni mari (rezultatul Roberts et al.).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>MH este algoritmul MCMC cel mai utilizat in practica datorita generalitatii sale. Poate fi aplicat oricarui model unde se poate evalua log-verosimilitatea, chiar daca nu se pot calcula conditionalele complete.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In cosmologie, algoritmul MH (implementat in CosmoMC) este folosit pentru a esantiona posteriorul parametrilor cosmologici din datele CMB (Cosmic Microwave Background), un model cu ~6-30 parametri si verosimilitate costisitoare.</p></div>
+  </div>
+</div>

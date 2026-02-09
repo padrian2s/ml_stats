@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>De la Bernoulli-Gaussian la Regularizarea l0</h2>
+  <p>Pagina demonstreaza cum modelul Bernoulli-Gaussian se reduce la regularizarea l0 in cazul limita, conectand abordarea Bayesiana cu optimizarea combinatoriala.</p>
+  <div class="highlight-box"><strong>Obiectivul Bernoulli-Gaussian (Eq. 13.24):</strong> f(gamma, w) = ||y - X(gamma .* w)||^2 + (sigma^2/sigma_w^2)||w||^2 + lambda||gamma||_0 + const. Combina eroarea de reconstructie, regularizare Ridge si penalizare l0 a sparsitatii.</div>
+  <div class="highlight-box"><strong>Regularizarea l0 (Eq. 13.27):</strong> f(w) = ||y - Xw||_2^2 + lambda||w||_0, unde ||w||_0 numara elementele non-zero ale lui w. Obtinuta din Bernoulli-Gaussian cand sigma_w^2 -> infinit (prior neregularizat pe ponderile non-zero).</div>
+  <div class="definition-box"><strong>Regularizarea l0:</strong> Converte problema discreta de selectie (gamma in {0,1}^D) in optimizare continua cu penalitate ne-convexa. ||w||_0 nu este o norma adevarata (nu satisface omogenitatea), dar este un criteriu natural de sparsitate.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Trecerea de la spike-and-slab la l0 este iluminatoare: obiectivul l0 apare natural ca limita a modelului Bayesian cand priorul pe ponderile non-zero devine neinformativ. Problema ramane NP-hard in general, motivand cautarea de aproximari tractabile (l1, algoritme greedy).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ierarhia de regularizare: spike-and-slab (Bayesian complet) -> l0 (limita Bayesiana) -> l1 (relaxare convexa). Fiecare pas sacrifica ceva din exactitatea Bayesiana pentru tractabilitate computationala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regularizarea l0 este teoretic optima dar NP-hard. In practica, se folosesc: (1) algoritme greedy (selectie forward/backward), (2) relaxare l1 (LASSO), (3) aproximari continue ale l0 (MCP, SCAD). Fiecare are compromisuri specifice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In selectia de portofolii financiare, regularizarea l0 corespunde constrangerii de cardinalitate (limita numarului de actiuni). Relaxarea l1 produce portofolii sparse aproximative, mai usor de optimizat.</p></div>
+  </div>
+</div>

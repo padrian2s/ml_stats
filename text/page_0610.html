@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Distributia predictiva Bayesiana - Exemple si ARD pentru retele neurale</h2>
+  <p>Aceasta pagina ilustreaza distributia predictiva Bayesiana pentru un MLP si introduce ARD (Automatic Relevance Determination) aplicat retelelor neurale.</p>
+  <div class="definition-box"><strong>ARD pentru retele neurale:</strong> Prior cu hiperparametri separati per intrare si per unitate ascunsa: p(theta) = prod_i N(v_{.,i}|0, 1/alpha_{v,i} I) * prod_j N(w_{.,j}|0, 1/alpha_{w,j} I). Daca alpha_{v,i} -> infinit, intrarea i este eliminata; daca alpha_{w,j} -> infinit, unitatea ascunsa j este eliminata.</div>
+  <div class="highlight-box"><strong>Exemplu ARD:</strong> Pentru f(x_1,x_2,x_3) = sin(2*pi*x_1) + epsilon, cu x_2 copie zgomotoasa a x_1 si x_3 irelevant, ARD gaseste alpha = [0.2, 21.4, 249001.8], indicand corect ca x_3 este irelevant, x_2 slab relevant si x_1 foarte relevant.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 16.19 arata distributia predictiva pentru un MLP cu 3 unitati ascunse antrenat pe 16 puncte: (a) Laplace cu empirical Bayes produce benzi de eroare care cresc departe de date, (b) HMC produce esantioane mai diverse din posterior. ARD aplicat retelelor neurale permite selectia automata a trasaturilor si a unitatilor ascunse, fiind echivalent cu group lasso din perspectiva penalizarii.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>ARD pentru retele neurale functioneaza pe doua niveluri: (1) selectia trasaturilor de intrare prin alpha_{v,i} si (2) selectia numarului de unitati ascunse prin alpha_{w,j}. Aceasta este o forma de cautare automata a arhitecturii (neural architecture search) printr-un prior ierarhic.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>ARD este implementat in NETLAB (Matlab) si in bibliotecile Bayesiene moderne. In practica, dropout poate fi interpretat ca o forma de ARD aproximativ. Neural architecture search (NAS) automatizeaza si mai mult selectia arhitecturii.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In genomica, ARD aplicat unei retele neurale care prezice fenotipul din genotip permite identificarea automata a genelor relevante, oferind atat predictie precisa cat si interpretabilitate biologica.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Metode de Invatare pentru LG-SSM si Inferenta Aproximativa</h2>
+  <p>Pagina prezinta metodele de antrenare pentru LG-SSM, incluzand antrenarea cu date complet observate, algoritmul EM, metoda subspatiilor si abordari bayesiene, precum si introducerea in inferenta online aproximativa.</p>
+  <div class="definition-box"><strong>Antrenare cu date complet observate:</strong> Cand secventele de stari ascunse sunt observate, parametrii pot fi estimati prin regresie liniara multipla: J(A) = Σ(z_t − Az_{t-1})², iar covariantele Q si R se estimeaza din reziduale.</div>
+  <div class="definition-box"><strong>Metoda subspatiilor:</strong> Abordare alternativa la EM care presupune initial absenta zgomotului (z_t = Az_{t-1}, y_t = Cz_t), identificand subspatiul liniar prin PCA, apoi ajustand modelul complet.</div>
+  <div class="highlight-box"><strong>EM pentru LG-SSM:</strong> Similar cu algoritmul Baum-Welch pentru HMM-uri, folosind netezirea Kalman in pasul E si calcule diferite in pasul M. Sensibil la initializare, de aceea metoda subspatiilor poate fi utilizata pentru initializare.</div>
+  <div class="highlight-box"><strong>Inferenta aproximativa:</strong> Pentru modele non-liniare si non-Gaussiene, sunt necesare metode aproximative. Doua abordari principale: (1) aproximarea de ordinul intai a functiei f, (2) proiectia exacta f(X) pe spatiul Gaussienelor prin potrivirea momentelor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina acopera spectrul complet de metode de invatare pentru LG-SSM, de la cazul simplu al datelor complet observate pana la abordari bayesiene complexe. Se face tranzitia catre modelele non-liniare si non-Gaussiene care necesita inferenta aproximativa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exista o ierarhie clara de complexitate: date complete → EM → metoda subspatiilor → metode bayesiene. EM pentru LG-SSM este analog cu Baum-Welch pentru HMM-uri. Trecerea la modele non-liniare necesita compromisuri intre acuratete si cost computational.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Metoda subspatiilor este populara in ingineria aerospatiala pentru identificarea sistemelor de zbor. EM pentru LG-SSM se foloseste in analiza seriilor de timp economice. Metodele bayesiene sunt preferate cand datele sunt limitate si incertitudinea parametrilor este importanta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In economia financiara, un model LG-SSM poate fi utilizat pentru a estima factori latenti precum volatilitatea sau rata dobanzii naturale. Algoritmul EM ajusteaza parametrii modelului iterativ, iar metoda subspatiilor poate oferi o initializare robusta.</p></div>
+  </div>
+</div>

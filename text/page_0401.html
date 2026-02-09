@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Selectia Modelului pentru Modele cu Variabile Latente</h2>
+  <p>Pagina introduce problema selectiei modelului pentru modele cu variabile latente (LVM), discutand abordari Bayesiene si non-probabilistice pentru alegerea numarului de componente K.</p>
+  <div class="definition-box"><strong>Selectia modelului pentru LVM:</strong> Alegerea numarului de variabile latente (de exemplu, numarul de clustere K) care controleaza complexitatea modelului. O problema fundamentala in invatarea nesupervizata.</div>
+  <div class="definition-box"><strong>Verosimilitatea marginala:</strong> Abordarea Bayesiana optima: K* = argmax_K p(D|K). Dificil de calculat exact pentru LVM; se folosesc aproximari precum BIC sau validare incrucisata.</div>
+  <div class="highlight-box"><strong>Abordari Bayesiene non-parametrice:</strong> In loc de cautare exhaustiva peste K, se poate seta K la o valoare mare si folosi Occam's razor Bayesian pentru a "elimina" componentele inutile (Bayes variational), sau se pot folosi modele cu proces Dirichlet care permit K nelimitat.</div>
+  <div class="highlight-box"><strong>Eroarea de reconstructie (Eq. 11.95):</strong> E(D, K) = (1/|D|) * suma ||x_i - x_hat_i||^2. Pentru K-means, eroarea de reconstructie scade monoton cu K, deci nu poate fi folosita direct pentru selectia modelului.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 11.5 abordeaza una dintre cele mai dificile probleme practice: cum alegem numarul de componente K. Abordarea Bayesiana (verosimilitate marginala) este teoretic optima dar computational dificila. Alternativele includ BIC, validare incrucisata, metode de esantionare stocastica (RJMCMC) si modele non-parametrice (proces Dirichlet).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia fundamentala: modelele probabilistice (GMM) permit selectia modelului prin log-verosimilitate pe test (curba in U), pe cand modelele non-probabilistice (K-means) au eroare monoton descrescatoare, necesitand euristici precum metoda "cotului" (knee/kink).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>BIC este cel mai folosit in practica pentru GMM-uri. Procesele Dirichlet elimina necesitatea de a specifica K a priori, dar sunt computational mai costisitoare. Validarea incrucisata este universala dar lenta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea pietei, alegerea numarului corect de segmente de clienti (K) este critica: prea putine segmente pierd nuante importante, prea multe duc la segmente neactionabile. BIC pe un GMM ofera un criteriu obiectiv.</p></div>
+  </div>
+</div>

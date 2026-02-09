@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Algoritmul AdaBoost.M1 si Introducerea LogitBoost</h2>
+  <p>Pagina prezinta algoritmul complet Adaboost.M1, actualizarea ponderilor, si introduce LogitBoost ca alternativa la pierderea exponentiala.</p>
+  <div class="definition-box"><strong>Adaboost.M1 (discrete AdaBoost):</strong> Varianta in care clasificatorul de baza φ_m returneaza o eticheta de clasa binara. Daca φ_m returneaza o probabilitate, se foloseste real AdaBoost.</div>
+  <div class="definition-box"><strong>LogitBoost:</strong> Varianta de boosting care foloseste logloss in loc de pierderea exponentiala, fiind mai robusta la outlieri si permitand recuperarea estimarilor de probabilitate.</div>
+  <div class="highlight-box"><strong>Actualizarea ponderilor:</strong> w_{i,m+1} = w_{i,m} exp[β_m(2I(ỹ_i ≠ φ_m(x_i)) - 1)] = w_{i,m} e^{2β_m I(ỹ_i ≠ φ_m(x_i))} e^{-β_m} (Ec. 16.44-16.46)</div>
+  <div class="highlight-box"><strong>Rata de eroare ponderata:</strong> err_m = Σ_{i=1}^{N} w_i I(ỹ_i ≠ φ_m(x_i)) / Σ_{i=1}^{N} w_{i,m} (Ec. 16.42)</div>
+  <div class="highlight-box"><strong>Predictia finala:</strong> f(x) = sgn[Σ_{m=1}^{M} α_m φ_m(x)] (Algoritm 16.2)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul Adaboost.M1 initializeaza ponderile uniform (1/N), apoi la fiecare iteratie: (1) potriveste clasificatorul pe date ponderate, (2) calculeaza eroarea ponderata, (3) calculeaza ponderea clasificatorului α_m, (4) actualizeaza ponderile datelor. Predictia finala este semnul sumei ponderate a clasificatoarelor.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Problema pierderii exponentiale: pune prea multa greutate pe exemplele clasificate gresit (crestere exponentiala pe marginea stanga din Figura 16.9), facand metoda sensibila la outlieri. In plus, e^{-ỹf} nu este logaritmul niciunei distributii pentru ỹ ∈ {-1,+1}, deci nu se pot recupera estimari de probabilitate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LogitBoost este preferat in aplicatii medicale si financiare unde estimarile de probabilitate calibrate sunt esentiale pentru luarea deciziilor, nu doar clasificarea binara.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In diagnosticul medical, nu este suficient sa spunem "pacientul are cancer" (clasificare). Trebuie estimata probabilitatea (de ex. 73% sansa de cancer) pentru a decide daca se justifica o biopsie costisitoare. LogitBoost ofera aceste probabilitati, AdaBoost nu.</p></div>
+  </div>
+</div>

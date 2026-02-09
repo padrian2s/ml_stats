@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Complexitatea Viterbi, N-best list si filtrare forward-esantionare backward</h2>
+  <p>Aceasta pagina discuta complexitatea Viterbi, lista N-best, si algoritmul de filtrare forward cu esantionare backward.</p>
+  <div class="definition-box"><strong>Lista N-best:</strong> Extensia algoritmului Viterbi care returneaza cele mai probabile N cai, nu doar cea mai buna. Permite re-clasarea cailor folosind modele discriminative cu trasaturi globale. Problema: cele N cai pot fi foarte similare intre ele.</div>
+  <div class="highlight-box"><strong>Complexitatea Viterbi:</strong> Timp O(K^2 T) si spatiu O(KT) in general. Cu matricea de tranzitie de forma psi(i,j) ~ exp(-sigma^2 ||z_i - z_j||^2), complexitatea scade la O(TK), iar cu forward-backward la O(TK log K).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Complexitatea Viterbi si forward-backward sunt ambele O(K^2 T), identice. Cu matrice de tranzitie structurata (bazata pe distanta), se poate reduce la O(TK). Lista N-best extinde Viterbi la top-N cai si este folosita in recunoastere vocala pentru re-ranking cu modele discriminative. Filtrarea forward cu esantionare backward: se ruleaza forward pass, se esantioneaza z_T din alpha_T, apoi z_t din p(z_t|z_{t+1}*, x_{1:t}) recursiv.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Esantionarea din posterior (forward-backward sampling) este baza Gibbs sampling-ului pentru HMM: se alterneaza esantionarea starilor z_{1:T} cu actualizarea parametrilor theta. Problema cu N-best list: caile similare nu reprezinta bine diversitatea incertitudinii.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>N-best list este standard in recunoasterea vorbirii si traducerea automata pentru re-ranking. Alternativa moderna: beam search, care mentine un 'fascicul' de cai partiale la fiecare pas de timp, eliminand caile improbabile.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In traducerea automata neurala, beam search genereaza N traduceri candidate, care sunt apoi re-clasate folosind modele de calitate a traducerii, imbunatatind semnificativ fluenta si acuratetea traducerilor.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Clustere Kikuchi, hiper-grafuri si energia libera Kikuchi</h2>
+  <p>Aceasta pagina detaliaza metoda clusterelor Kikuchi, cu exemple pe grile 3x3, numerele de supranumarare (overcounting) si energia libera Kikuchi.</p>
+  <div class="definition-box"><strong>Clustere Kikuchi:</strong> O partitionare ierarhica a grafului in clustere suprapuse, organizate intr-un poset (set partial ordonat). De exemplu, pe o grila 3x3, clusterele de nivel superior sunt patratele 2x2, iar clusterele de nivel inferior sunt perechile de noduri.</div>
+  <div class="definition-box"><strong>Numere de supranumarare (overcounting numbers):</strong> c(g) este numarul de supranumarare al clusterului g, legat de numerele Mobius din teoria multimilor. Asigura ca fiecare regiune a grafului este numarata exact o data in aproximarea entropiei.</div>
+  <div class="definition-box"><strong>Energia libera Kikuchi:</strong> F_Kikuchi(tau) = -[theta^T*tau + H_Kikuchi(tau)], unde H_Kikuchi(tau) = sum_{g in E} c(g)*H_g(tau_g). Generalizeaza energia libera Bethe (care este un caz special cu clustere de dimensiune 2).</div>
+  <div class="highlight-box"><strong>Exemplu grila 3x3:</strong> H_Kikuchi = [H_1245 + H_2356 + H_4578 + H_5689] - [H_25 + H_45 + H_56 + H_58] + H_5. Clusterele mari contribuie pozitiv, cele mici negativ, si nodul central apare o data pozitiv.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina detaliaza constructia aproximarii Kikuchi: se aleg clustere (de exemplu, patrate 2x2 pe o grila), se calculeaza numerele de supranumarare folosind formula de incluziune-excludere (numere Mobius), si se defineste energia libera Kikuchi ca generalizare a lui Bethe.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Principiul incluziunii-excluderii din combinatorica apare natural in definirea numerelor de supranumarare. Aceasta asigura ca entropia fiecarei regiuni este contabilizata exact o data, corectand supranumararea din ierarhia de clustere.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea clusterelor Kikuchi este critica: clustere prea mari fac calculul intractabil, clustere prea mici nu imbunatatesc semnificativ acuratetea. Pentru grile 2D, clustere patrate sunt o alegere naturala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In simularea materialelor magnetice (modelul Ising pe retele cristaline), aproximarea Kikuchi cu clustere patrate ofera predictii termodinamice semnificativ mai precise decat aproximarea Bethe/mean field simpla.</p></div>
+  </div>
+</div>

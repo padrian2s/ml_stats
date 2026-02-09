@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 1: Nevoia de Predictii Probabilistice</h2>
+  <p>Motivarea predictiilor probabilistice, estimarea MAP si importanta cuantificarii incertitudinii.</p>
+  <div class="definition-box"><strong>Distributia Posterioara:</strong> p(y|x, D) - distributia de probabilitate peste etichetele posibile, conditionata de intrarea x si setul de antrenament D.</div>
+  <div class="definition-box"><strong>Estimarea MAP (Maximum A Posteriori):</strong> y_hat = f_hat(x) = argmax_c p(y = c|x, D) - selectarea celei mai probabile etichete, corespunzand modului distributiei p(y|x, D).</div>
+  <div class="definition-box"><strong>Click-Through Rate (CTR):</strong> Probabilitatea ca un utilizator sa dea click pe o reclama, estimata pe baza istoricului de cautare si a caracteristicilor utilizatorului si reclamei.</div>
+  <div class="highlight-box"><strong>Formula MAP:</strong> y_hat = f_hat(x) = argmax (c=1..C) p(y = c|x, D) (ecuatia 1.1)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 1.2.1.2 argumenteaza ca predictiile probabilistice sunt esentiale. In loc sa returnam o singura eticheta, returnam o distributie de probabilitate p(y|x, D). Estimarea MAP selecteaza eticheta cea mai probabila, dar in cazuri ambigue (precum cercul galben), poate fi mai bine sa spunem "nu stiu" decat sa dam un raspuns nesigur. Aceasta este critica in domenii precum medicina si finantele.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Abordarea probabilistica ofera mai mult decat o simpla predictie: ofera un grad de incredere. Sistemul IBM Watson a castigat la Jeopardy! in parte pentru ca estima increderea in raspunsurile sale si "apasa butonul" doar cand era suficient de sigur. Similar, sistemul SmartASS de la Google estimeaza probabilitatea de click pe reclame.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In medicina, un diagnostic cu probabilitate scazuta necesita teste suplimentare. In finante, evaluarea riscului depinde de cuantificarea incertitudinii. In publicitatea online, CTR-ul este utilizat pentru a maximiza profitul asteptat din afisarea reclamelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Sistemul SmartASS de la Google selecteaza reclamele afisate utilizatorilor estimand probabilitatea de click (CTR) pe baza istoricului de cautare, profilului utilizatorului si caracteristicilor reclamei. O estimare probabilistica precisa a CTR-ului se traduce direct in venituri mai mari din publicitate.</p></div>
+  </div>
+</div>

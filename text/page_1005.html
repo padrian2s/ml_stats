@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Modelul Relational de Topicuri si LVM-uri pentru Date Relationale (Capitolul 27.5.3, 27.6)</h2>
+  <p>Pagina introduce modelul relational de topicuri (RTM) si sectiunea 27.6 despre modele cu variabile latente pentru date relationale, definind formal conceptul de relatie.</p>
+  <div class="figure-box"><strong>Figura 27.23:</strong> Graful orientat aciclic (DGM) pentru modelul relational de topicuri. Modelul combina LDA supervizat cu predictia legaturilor intre documente bazata pe distributia de topicuri.</div>
+  <div class="definition-box"><strong>Modelul Relational de Topicuri (RTM):</strong> Extensie a LDA supervizat unde R_ij (existenta unei muchii intre nodurile i si j) este modelata ca: p(R_ij=1|q̄_i, q̄_j, θ) = sigm(w^T(q̄_i ⊗ q̄_j) + w_0) (27.80), unde q̄_i este distributia empirica de topicuri pentru documentul i.</div>
+  <div class="definition-box"><strong>Relatie k-ara:</strong> O relatie R este definita ca un subset de k-tuple din tipurile corespunzatoare: R ⊆ T₁ x T₂ x ... x T_k (27.81). Relatiile binare (k=2) pot fi reprezentate ca matrice binare sau grafuri bipartite.</div>
+  <div class="highlight-box"><strong>Avantajul RTM:</strong> R_ij depinde de topicurile alese q̄_i si q̄_j, nu de distributiile de topicuri π_i si π_j. Daca R_ij ar fi copil al lui π_i si π_j, informatia structurii grafului ar fi "diluata" de numarul mare de cuvinte, iar graful nu ar putea influenta direct alegerea topicurilor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>RTM combina modelarea textului (prin LDA) cu modelarea structurii de graf (prin predictia legaturilor) intr-un model unificat. Sectiunea 27.6 introduce date relationale mai generale, unde avem mai multe tipuri de obiecte si relatii intre ele. Aceasta generalizare este importanta deoarece multe probleme reale implica relatii multiple intre tipuri diferite de entitati.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Decizia de design ca R_ij sa depinda de q̄_i si nu de π_i este cruciala pentru performanta - este analoga cu superioritatea PCA+ (partial least squares) fata de regresia lineara simpla, deoarece spatiul latent este fortat sa fie predictiv atat pentru text cat si pentru structura grafului.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Predictia citatiilor intre articole stiintifice bazata pe continut, recomandarea de articole intr-o retea de citari, analiza comunitatilor stiintifice si modelarea relatiilor intre entitati multiple (persoane-filme, persoane-produse).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem bibliografic poate folosi RTM pentru a prezice care articole noi sunt probabil sa fie citate de un anumit cercetator, bazat pe similaritatile tematice (distributiile de topicuri) intre articolele existente si cele noi.</p></div>
+  </div>
+</div>

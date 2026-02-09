@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Modelul Dirichlet-Multinomial - Verosimilitate, Prior și Posterior</h2>
+  <p>Pagina introduce modelul Dirichlet-multinomial, generalizarea modelului beta-binomial pentru K categorii, cu aplicații în analiza textului și datelor biologice.</p>
+  <div class="definition-box"><strong>Verosimilitatea multinomială:</strong> p(D|θ) = ∏_{k=1}^K θ_k^{N_k}, unde N_k = Σᵢ𝕀(yᵢ=k) este numărul de apariții ale categoriei k. Statisticile suficiente sunt numărătorile {N_k}.</div>
+  <div class="definition-box"><strong>Priorul Dirichlet:</strong> Dir(θ|α) = (1/B(α))·∏ θ_k^{α_k−1}, priorul conjugat natural pentru verosimilitatea multinomială.</div>
+  <div class="highlight-box"><strong>Posteriorul Dirichlet:</strong> p(θ|D) ∝ ∏θ_k^{N_k}·∏θ_k^{α_k−1} = ∏θ_k^{α_k+N_k−1} = Dir(θ|α₁+N₁,...,α_K+N_K). Actualizarea: se adaugă numărătorile empirice la pseudo-numărătorile priorului.</div>
+  <div class="figure-box"><strong>Figura 3.7:</strong> Distribuțiile predictive posterioare: (a) Bayesiană cu cozi mai lungi, (b) plug-in cu cozi mai scurte.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelul Dirichlet-multinomial generalizează elegant modelul beta-binomial de la 2 la K categorii. Conjugarea Dirichlet-multinomială face inferența la fel de simplă: se adaugă numărătorile la hiperparametri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura este identică cu cazul binar: prior conjugat → posterior cu hiperparametri actualizați → distribuție predictivă prin integrarea parametrilor. Generalizarea este directă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelul Dirichlet-multinomial este fundamental în modelarea de limbaj (distribuția cuvintelor), analiza genomică (frecvențe nucleotidice), și modelarea topicilor (LDA).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Analiza frecvenței cuvintelor într-un corpus de texte: fiecare document generează numărători de cuvinte modelate multinomial, cu prior Dirichlet peste vocabular permițând netezirea cuvintelor rare.</p></div>
+  </div>
+</div>

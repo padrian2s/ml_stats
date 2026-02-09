@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>Vizualizarea Distributiei Wishart si Inferenta Parametrilor MVN</h2>
+  <p>Pagina 127 discuta cum sa vizualizam distributia Wishart (care este o distributie peste matrice) si introduce Sectiunea 4.6 despre inferenta parametrilor unei Gaussiene multivariate.</p>
+
+  <div class="figure-box"><strong>Figura 4.16:</strong> Vizualizarea distributiei Wishart Σ ~ Wi(S, ν) cu S = [[3.17, -0.03], [-0.03, 0.65]] si ν = 3. Stanga: esantioane sub forma de elipse (vectori proprii definesc orientarea, valori proprii definesc marimea). Cu ν mic, matricile esantionate sunt foarte variabile si unele aproape singulare. Dreapta: marginalele diagonalei (distributii Gamma) si marginala coeficientului de corelatie ρ (aproape uniforma cand ν = 3).</div>
+
+  <div class="highlight-box"><strong>Estimarea coeficientului de corelatie asteptat (Ecuatia 4.169):</strong> E[R_ij] ≈ (1/S) Σₛ R(Σ^(s))_ij, unde Σ^(s) ~ Wi(Σ, ν) si R_ij = Σ_ij / √(Σ_ii Σ_jj).</div>
+
+  <div class="definition-box"><strong>Inferenta parametrilor MVN (Sectiunea 4.6):</strong> Data xᵢ ~ N(μ, Σ), se doreste inferenta p(μ, Σ|D). Se procedeaza in trei pasi: (1) p(μ|D, Σ), (2) p(Σ|D, μ), (3) p(μ, Σ|D) comun.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Vizualizarea distributiei Wishart este provocatoare deoarece este o distributie peste matrice. Solutia eleganta in 2D este sa reprezentam fiecare matrice esantionata ca o elipsa. Cu ν mic (putina informatie a priori), elipsele variaza enorm, reflectand incertitudinea mare. Sectiunea 4.6 trece la problema practica de a estima Bayesian parametrii unei Gaussiene.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Marginala coeficientului de corelatie ρ sub Wishart cu ν mic este aproape uniforma pe [-1, 1], indicand ca avem foarte putina informatie a priori despre corelatie. Pe masura ce ν creste, distributia se concentreaza in jurul valorii implicate de S.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Vizualizarea incertitudinii asupra covariantei este importanta in analiza riscului financiar (incertitudinea matricei de corelatie intre active), in meta-analiza medicala (variabilitatea intre studii) si in orice problema unde covarianta trebuie estimata cu date limitate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In managementul riscului bancar, incertitudinea asupra corelatiei intre defaulturi ale companiilor este critica. Cu doar 10 ani de date (ν ≈ 10), distributia posterioara a corelatiei este larga, indicand ca estimarile de risc bazate pe o singura valoare a corelatiei pot fi inselatoare.</p></div>
+  </div>
+</div>

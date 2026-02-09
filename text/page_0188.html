@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Ilustrarea Lamei lui Occam si Bayes Empiric</h2>
+  <p>Pagina ilustreaza principiul conservarii masei de probabilitate si introduce conceptul de Bayes empiric (verosimilitate marginala de tip II) pentru selectia automata a complexitatii modelului.</p>
+  <div class="definition-box"><strong>Principiul conservarii masei de probabilitate:</strong> Modelele complexe isi distribuie masa de probabilitate pe multe seturi de date posibile, in timp ce modelele simple o concentreaza pe putine. Modelul optim este cel "potrivit" - nici prea simplu, nici prea complex.</div>
+  <div class="definition-box"><strong>Bayes empiric (Empirical Bayes) / Verosimilitate marginala de tip II:</strong> Tehnica de a gasi hiperparametrii optimi prin maximizarea verosimilitatii marginale: λ* = argmax_λ p(D|λ), in loc de a-i fixa sau a integra peste ei.</div>
+  <div class="figure-box"><strong>Figura 5.6:</strong> Ilustrarea schematica a lamei lui Occam bayesiene. Curba larga (verde) corespunde modelului complex M₃, curba ingusta (albastra) modelului simplu M₁, iar curba medie (rosie) M₂ este "potrivita". Pentru datele observate D₀, modelul M₂ are cea mai mare verosimilitate marginala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 5.6 ofera o ilustrare intuitiva a lamei lui Occam: pe axa orizontala sunt toate seturile de date posibile (ordonate dupa complexitate), iar pe verticala sunt probabilitatile prezise de trei modele. M₁ (simplu) prezice bine doar date simple, M₃ (complex) prezice multe lucruri dar slab, iar M₂ este optimal pentru D₀. Bayes empiric gaseste λ* prin optimizare numerica, oferind aceleasi rezultate ca validarea incrucisata dar mai eficient.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exista o corespondenta directa intre verosimilitatea marginala si validarea incrucisata: ambele evalueaza capacitatea predictiva a modelului. Dar Bayes empiric poate optimiza continuu peste un spatiu de hiperparametri, nu doar evalua pe o grila finita.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Bayes empiric este folosit extensiv in practica: de la regresia ridge bayesiana (selectia automata a λ) la modelele ierarhice si procesele gaussiene. Economiseste timp de calcul semnificativ comparativ cu validarea incrucisata.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In regresia polinomiala cu N=5 puncte, cu prior uniform p(d) ∝ 1, selectia bayesiana alege d=1 (liniar). Cu N=30 puncte (generate dintr-un polinom de grad 2), selecteaza corect d=2 (parabolic). Aceasta demonstreaza ca metoda adapteaza complexitatea la cantitatea de date disponibile.</p></div>
+  </div>
+</div>

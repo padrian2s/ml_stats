@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Leave-One-Out CV, CV Generalizată și Alegerea λ pentru Ridge Regression</h2>
+  <p>Pagina detaliază LOOCV, validarea încrucișată generalizată și aplicarea practică a CV pentru selectarea parametrului de regularizare în ridge regression.</p>
+  <div class="definition-box"><strong>Leave-One-Out CV (LOOCV):</strong> Caz special de CV cu K = N, unde fiecare observație este folosită ca set de test exact o dată: R(m, D, N) = (1/N) Σ L(yᵢ, f_m^{-i}(xᵢ)). Necesită antrenarea modelului de N ori.</div>
+  <div class="definition-box"><strong>CV Generalizată (GCV):</strong> Pentru modele liniare și pierdere pătratică, efectul omiterii unei observații poate fi calculat analitic, evitând reantrenarea modelului. Aceasta reduce dramatic costul computațional.</div>
+  <div class="highlight-box"><strong>Selectarea λ pentru Ridge Regression:</strong> λ̂ = argmin_{λ∈[λ_min,λ_max]} R(λ, D_train, K), unde R(λ, D_train, K) = (1/|D_train|) Σ_{k=1}^{K} Σ_{i∈D_k} L(yᵢ, f_λ^k(xᵢ)).</div>
+  <div class="highlight-box"><strong>Funcția de predicție:</strong> f_λ^k(x) = x^T ŵ_λ(D_{-k}), unde ŵ_λ(D) = argmin_w NLL(w, D) + λ||w||²₂ este estimatul MAP.</div>
+  <div class="highlight-box"><strong>Clasificare vs. Regresie:</strong> Pentru clasificare, se optimizează un upper bound convex al pierderii 0-1 pentru w_λ, dar se folosește pierderea 0-1 (via CV) pentru a estima λ. Căutarea brute-force este fezabilă deoarece λ este unidimensional.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>LOOCV oferă estimări cu bias minim dar varianță mare și cost computațional mare. GCV rezolvă problema costului pentru modele liniare. Aplicarea practică la ridge regression demonstrează cum CV este utilizat pentru a alege puterea regularizării, cu strategii diferite pentru regresie și clasificare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Există un compromis între K mic (bias mare, varianță mică, rapid) și K mare (bias mic, varianță mare, lent). K = 5 sau K = 10 oferă un echilibru bun în practică. Pentru mai mult de doi hiperparametri, căutarea exhaustivă devine infezabilă și se recurge la Bayes empiric.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>scikit-learn oferă RidgeCV care implementează eficient GCV pentru ridge regression. Pentru modele mai complexe (rețele neurale), se folosește de obicei un singur set de validare în loc de CV completă din motive de eficiență computațională.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La construirea unui model de predicție a prețurilor acțiunilor, CV 5-fold cu căutare pe grilă pentru λ ∈ {0.001, 0.01, 0.1, 1, 10, 100} permite identificarea nivelului optim de regularizare, producând predicții mai stabile fără a sacrifica precizia.</p></div>
+  </div>
+</div>

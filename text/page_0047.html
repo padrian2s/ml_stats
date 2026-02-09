@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Capitolul 1: Concepte de Baza - Modele Parametrice vs. Non-parametrice si KNN</h2>
+  <p>Introducerea conceptelor fundamentale: modele parametrice vs. non-parametrice si clasificatorul K-nearest neighbors.</p>
+  <div class="definition-box"><strong>Model Parametric:</strong> Model probabilistic cu un numar fix de parametri, independent de cantitatea de date de antrenament. Avantaj: rapiditate. Dezavantaj: presupuneri mai puternice despre distributia datelor.</div>
+  <div class="definition-box"><strong>Model Non-parametric:</strong> Model al carui numar de parametri creste odata cu cantitatea de date de antrenament. Avantaj: flexibilitate. Dezavantaj: complexitate computationala mare pentru seturi de date mari.</div>
+  <div class="definition-box"><strong>K-Nearest Neighbors (KNN):</strong> Clasificator non-parametric simplu care gaseste cele K puncte din setul de antrenament cele mai apropiate de intrarea de test x si returneaza fractia empirica a fiecarei clase.</div>
+  <div class="figure-box"><strong>Figura 1.14:</strong> (a) Ilustrarea KNN in 2D cu K = 3. Pentru x₁, cei 3 vecini au etichetele 1, 1, 0, deci p(y=1|x₁, D, K=3) = 2/3. Pentru x₂, etichetele sunt 0, 0, 0, deci p(y=1|x₂, D, K=3) = 0/3. (b) Tesselarea Voronoi indusa de 1-NN.</div>
+  <div class="highlight-box"><strong>Formula KNN:</strong> p(y = c|x, D, K) = (1/K) Σ_{i ∈ N_K(x,D)} I(y_i = c), unde N_K(x, D) sunt indicii celor K vecini apropiati si I(e) este functia indicator.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 1.4 introduce concepte fundamentale in ML. Distinctia parametric/non-parametric este esentiala: modelele parametrice au complexitate fixa (de exemplu, regresie liniara), pe cand modelele non-parametrice cresc in complexitate cu datele (de exemplu, KNN). KNN este prezentat ca exemplul cel mai simplu de clasificator non-parametric.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>KNN este un exemplu de invatare bazata pe memorie (memory-based learning): nu construieste un model explicit, ci stocheaza toate datele de antrenament si le consulta la momentul predictiei. Tesselarea Voronoi (K=1) imparte spatiul in regiuni, fiecare asociata cu cel mai apropiat punct de antrenament.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>KNN este folosit in sisteme de recomandare (gasirea utilizatorilor similari), detectia anomaliilor (puncte fara vecini apropiati), si clasificarea de imagini de baza. Este un baseline util pentru compararea cu metode mai sofisticate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem simplu de diagnosticare medicala poate folosi KNN: pentru un pacient nou, se gasesc cei K pacienti din baza de date cu simptome cele mai similare si se prezice diagnosticul pe baza majoritatii diagnosticelor acestor pacienti similari.</p></div>
+  </div>
+</div>

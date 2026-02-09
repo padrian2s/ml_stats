@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>Conditionarea Gaussiana pentru Interpolare si Imputarea Datelor</h2>
+  <p>Pagina 114 aplica formulele de conditionare Gaussiana la interpolarea functiilor si introduce imputarea datelor lipsa.</p>
+
+  <div class="highlight-box"><strong>Partitionarea matricei L (Ecuatia 4.79):</strong> L = [L₁, L₂], unde L₁ ∈ ℝ^((D-2)x(D-N)) corespunde punctelor necunoscute si L₂ ∈ ℝ^((D-2)xN) corespunde punctelor observate.</div>
+
+  <div class="highlight-box"><strong>Distributia conditionala (Ecuatiile 4.81-4.83):</strong> p(x₁|x₂) = N(μ₁|₂, Σ₁|₂), unde μ₁|₂ = -Λ₁₁⁻¹ Λ₁₂ x₂ = -L₁ᵀ⁻¹ L₁ᵀ L₂ x₂ si Σ₁|₂ = Λ₁₁⁻¹. Media se calculeaza rezolvand L₁ μ₁|₂ = -L₂ x₂.</div>
+
+  <div class="highlight-box"><strong>Intervale de credibilitate marginale (95%):</strong> μⱼ ± 2√(Σ₁|₂,ⱼⱼ). Varianta creste pe masura ce ne departam de punctele observate. λ nu afecteaza media posterioara (se anuleaza), dar afecteaza netezimea functiilor esantionate din posterior.</div>
+
+  <div class="definition-box"><strong>Imputarea datelor lipsa (Sectiunea 4.3.2.3):</strong> Cand lipsesc valori dintr-o matrice de design, se calculeaza p(x_hᵢ|x_vᵢ, θ) pentru fiecare rand i, unde h_i si v_i sunt indicii variabilelor ascunse si vizibile. Estimarea: x̂ᵢⱼ = E[xⱼ|x_vᵢ, θ].</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza doua aplicatii practice ale conditionarii Gaussiene. In interpolare, media posterioara trece exact prin punctele observate si interpoleaza neted intre ele, cu incertitudine crescanda departe de date. In imputarea datelor, fiecare valoare lipsa este estimata ca media conditionala, data fiind valorile observate din acelasi rand.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Sistemul tridiagonal L₁ μ₁|₂ = -L₂ x₂ se rezolva eficient in O(D) operatii. Proprietatea ca λ nu afecteaza media posterioara (dar afecteaza varianta si esantioanele din posterior) este surprinzatoare si specifica acestui prior particular.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Imputarea datelor lipsa este esentiala in sondaje (raspunsuri lipsa), date medicale (teste nerealizate), senzori defecti si orice set de date real care contine valori lipsa. Metoda Gaussiana ofera atat estimari cat si masuri de incertitudine.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studii clinice, pacientii adesea nu completeaza toate testele de laborator. Daca temperatura, tensiunea si glicemia sunt modelate ca MVN, putem estima glicemia lipsa din temperatura si tensiunea observate, impreuna cu un interval de incredere care cuantifica incertitudinea estimarii.</p></div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Priori Gaussiene consistente si weight pruning</h2>
+  <p>Aceasta pagina introduce priori Gaussiene consistente cu parametri separati per strat si explica efectul hiperparametrilor asupra functiilor esantionate din prior.</p>
+  <div class="definition-box"><strong>Prior Gaussian consistent:</strong> p(theta) = N(W|0, 1/alpha_w I) N(V|0, 1/alpha_v I) N(b|0, 1/alpha_b I) N(c|0, 1/alpha_c I), cu parametri separati de regularizare pentru ponderile si bias-urile fiecarui strat, asigurand invarianta la scalarea intrarilor/iesirilor.</div>
+  <div class="highlight-box"><strong>Efectul hiperparametrilor:</strong> alpha_v mic -> ponderi mari la intrare -> sigmoid abrupt; alpha_b mic -> bias-uri mari -> centrul sigmoidului se deplaseaza; alpha_w mic -> ponderi mari la iesire -> functie mai oscilatorie; alpha_c mic -> bias iesire mare -> nivel mediu variaza.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MacKay (1992) a aratat ca folosirea aceluiasi parametru de regularizare pentru ambele straturi nu este consistenta la scalarea intrarii/iesirii. Solutia: priori separate per strat (alpha_v, alpha_w, alpha_b, alpha_c). Figura 16.17 ilustreaza functii esantionate din prior cu diferite configuratii, aratand efectul dramatic al fiecarui hiperparametru. Weight pruning ('optimal brain damage') elimina ponderile mici pentru eficienta si regularizare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Separarea priorilor per strat este cruciala pentru corectitudinea Bayesiana. In practica moderna, batch normalization rezolva partial problema scalarii inter-strat. Regularizarea L1 produce sparsitate in ponderi, iar ARD poate fi aplicat per unitate ascunsa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Weight pruning a devenit un domeniu activ in compresia modelelor neurale. Tehnici moderne includ: pruning structurat (eliminarea de neuroni/canale intregi), lottery ticket hypothesis (Frankle si Carlin 2019), si distilarea cunostintelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In deployarea retelelor neurale pe dispozitive mobile (smartphone, IoT), weight pruning reduce dimensiunea modelului cu 90% cu pierdere minima de acuratete, permitand inferenta in timp real pe hardware limitat.</p></div>
+  </div>
+</div>

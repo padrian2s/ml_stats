@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>LogitBoost si Boosting ca Coborare Functionala in Gradient</h2>
+  <p>Pagina prezinta algoritmul LogitBoost complet pentru clasificare binara cu logloss, si introduce conceptul de gradient boosting ca coborare in gradient in spatiul functiilor.</p>
+  <div class="definition-box"><strong>LogitBoost:</strong> Algoritm de boosting bazat pe logloss: L_m(φ) = Σ_{i=1}^{N} log[1 + exp(-2ỹ_i(f_{m-1}(x_i) + φ(x_i)))] (Ec. 16.48), derivat prin actualizare Newton similara cu IRLS.</div>
+  <div class="definition-box"><strong>Coborarea functionala in gradient (functional gradient descent):</strong> Minimizarea f̂ = argmin_f L(f) (Ec. 16.49), unde f = (f(x₁),...,f(x_N)) sunt "parametrii" si se foloseste coborarea in gradient pe acest vector.</div>
+  <div class="highlight-box"><strong>Probabilitatile LogitBoost:</strong> p(y=1|x) = e^{f(x)} / (e^{-f(x)} + e^{f(x)}) = 1/(1 + e^{-2f(x)}) (Ec. 16.47)</div>
+  <div class="highlight-box"><strong>Gradientul functional:</strong> g_{im} = [∂L(y_i, f(x_i))/∂f(x_i)]_{f=f_{m-1}} (Ec. 16.50)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Algoritmul LogitBoost (Algoritm 16.3) calculeaza raspunsul de lucru z_i, ponderile w_i = π_i(1-π_i), si potriveste clasificatorul slab pe datele ponderate. Gradient boosting generalizeaza aceasta idee: in loc sa derivam un algoritm specific pentru fiecare functie de pierdere, tratam valorile f(x_i) ca parametri si aplicam coborarea in gradient.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Coborarea functionala in gradient nu invata o functie generalizabila direct, ci optimizeaza doar pe cele N puncte fixe. Se remediaza prin potrivirea unui clasificator slab pe semnalul negativ al gradientului, obtinand generalizare. Actualizarea este f_m = f_{m-1} - ρ_m g_m (Ec. 16.51).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LogitBoost este implementat in biblioteci populare de machine learning si este folosit in clasificarea textelor, detectia fraudelor si modelele de risc de credit, unde probabilitatile calibrate sunt esentiale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de scoring bancar, LogitBoost produce probabilitati de neplata calibrate (de ex. 12% sansa de neplata), permitand bancilor sa stabileasca rate ale dobanzii proportionale cu riscul real al fiecarui client.</p></div>
+  </div>
+</div>

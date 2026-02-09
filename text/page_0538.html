@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Kerneluri de Netezire (continuare) și Estimarea Densității Kernel (KDE)</h2>
+  <p>Pagina prezintă kernelurile Epanechnikov, tri-cube și boxcar, apoi introduce estimatorul de densitate kernel (KDE) ca model neparametric pentru estimarea densității de probabilitate.</p>
+  <div class="definition-box"><strong>Kernelul Epanechnikov:</strong> κ(x) = (3/4)(1 − x²)·I(|x| ≤ 1). Are suport compact și este eficient computațional, dar nediferențiabil la frontiera suportului.</div>
+  <div class="definition-box"><strong>Kernelul tri-cube:</strong> κ(x) = (70/81)(1 − |x|³)³·I(|x| ≤ 1). Are suport compact și două derivate continue la frontieră, oferind un compromis între netezime și suport compact.</div>
+  <div class="definition-box"><strong>Estimator de densitate kernel (KDE) / Parzen window:</strong> p̂(x) = (1/N) Σᵢ₌₁ᴺ κ_h(x − xᵢ). Model neparametric simplu care plasează un kernel centrat pe fiecare punct de date și le mediază.</div>
+  <div class="highlight-box"><strong>Avantajele KDE:</strong> Nu necesită specificarea numărului de clustere K sau a locațiilor centrelor μ_k. Singurrul parametru este banda h, de obicei ales prin validare încrucișată.</div>
+  <div class="figure-box"><strong>Figura 14.17:</strong> Estimator de densitate neparametric (Parzen) în 1D din 6 puncte de date. Rândul de sus: kernel uniform (echivalent cu histograma). Rândul de jos: kernel Gaussian (estimare mai netedă). Coloanele arată efectul diferitelor valori ale parametrului de bandă h.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>KDE este o alternativă neparametrică la modelele de mixtură Gaussiană. Fiecare punct de date devine centrul unui kernel, iar densitatea estimată este media tuturor kernelurilor. Parametrul de bandă h controlează netezimea: h mic produce estimări cu varianță mare, h mare produce estimări cu bias mare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>KDE este echivalent cu un model de mixtură cu N componente, fiecare centrată pe un punct de date. Dezavantajele sunt: costul de memorie O(N), costul de evaluare O(N) și inutilitatea pentru clustering. Kernelul boxcar produce histograme.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>KDE este folosit în vizualizarea distribuțiilor de date, detectarea anomaliilor, estimarea funcțiilor de densitate condiționate și analiza exploratorie a datelor în orice domeniu științific.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>În criminologie, KDE este folosit pentru a crea hărți ale densității criminalității (hot spot maps), plasând un kernel Gaussian pe locația fiecărei crime raportate pentru a identifica zonele cu risc ridicat.</p></div>
+  </div>
+</div>

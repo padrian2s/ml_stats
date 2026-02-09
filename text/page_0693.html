@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Proprietatile de independenta conditionata ale UGM-urilor</h2>
+  <p>Aceasta pagina introduce proprietatile Markov ale modelelor grafice nedirectionate (UGM), incluzand patura Markov, proprietatea Markov locala si proprietatea Markov pe perechi.</p>
+  <div class="definition-box"><strong>Patura Markov (Markov blanket):</strong> Multimea de noduri care face un nod t conditionat independent de toate celelalte noduri din graf. In UGM-uri, patura Markov a unui nod este formata din vecinii sai directi, ceea ce se numeste proprietatea Markov locala nedirectionata.</div>
+  <div class="definition-box"><strong>Proprietatea Markov pe perechi:</strong> Doua noduri sunt conditionat independente dat fiind restul daca nu exista o muchie directa intre ele: s ⊥ t | V \ {s,t} daca si numai daca G_st = 0.</div>
+  <div class="highlight-box"><strong>Moralizare:</strong> Pentru a converti un DGM intr-un UGM, se adauga muchii intre parintii "necastoriti" ai fiecarui nod si apoi se elimina orientarea arcelor. Figura 19.2 ilustreaza acest proces.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina introduce proprietatile fundamentale de independenta conditionata ale UGM-urilor. In comparatie cu DGM-urile, determinarea independentei conditionate in UGM-uri este mult mai simpla: se verifica doar daca eliminarea unui set de noduri deconecteaza alte noduri in graf. Sunt definite trei proprietati Markov: pe perechi, locala si globala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Patura Markov in UGM-uri este mai simpla decat in DGM-uri: include doar vecinii directi, fara a necesita copii si co-parinti. Proprietatea Markov pe perechi permite verificarea independentei conditionate doar prin inspectarea structurii grafului. Moralizarea este procesul de conversie DGM -> UGM, dar poate pierde informatii de independenta conditionata.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>UGM-urile sunt folosite in procesarea imaginilor, fizica statistica si modelarea retelelor sociale, unde relatiile simetrice sunt mai naturale decat cele directionate. Proprietatile Markov permit inferenta eficienta in aceste modele.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-o retea de senzori, fiecare senzor masoara temperatura locala. Un senzor este conditionat independent de senzorii indepartati daca se cunosc valorile senzorilor vecini - aceasta este exact proprietatea Markov locala a UGM-urilor.</p></div>
+  </div>
+</div>

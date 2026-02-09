@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Estimarea Adancimii Stereo si Descompunerea Duala (Sectiunea 22.6.5)</h2>
+  <p>Aceasta pagina prezinta rezultate calitative pentru estimarea adancimii stereo si introduce conceptul de descompunere duala pentru estimarea MAP.</p>
+  <div class="figure-box"><strong>Figura 22.17:</strong> Un exemplu de estimare a adancimii stereo folosind un MRF. (a) Imaginea din stanga, 384x288 pixeli. (b) Harta de adancime reala (ground truth), cuantizata la 15 nivele. (c-f) Estimari MAP cu diferite metode: (c) swap alfa-beta, (d) expansiune alfa, (e) corelatie incrucisata normalizata, (f) recoacere simulata. Sursa: Boykov et al. 2001.</div>
+  <div class="highlight-box"><strong>Obiectivul descompunerii duale:</strong> p* = max_{x in X^n} SUMA_{i in V} theta_i(x_i) + SUMA_{f in F} theta_f(x_f) (Ec. 22.163)</div>
+  <div class="definition-box"><strong>Descompunere Duala:</strong> O metoda care descompune problema globala de optimizare in sub-probleme locale tractabile, introducand constrangeri de consistenta intre ele. F reprezinta un set de factori, fiecare optimizabil individual, dar combinatia lor face problema intractabila.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza vizual diferentele dintre metodele de estimare MAP (expansiunea alfa produce cele mai bune rezultate, urmate de swap; corelarea normalizata si recoacerea simulata sunt semnificativ mai slabe). Se introduce apoi descompunerea duala, care transforma problema de optimizare globala intr-un set de sub-probleme locale conectate prin constrangeri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ideea fundamentala a descompunerii duale este separarea problemei in factori individuali care pot fi optimizati independent, urmata de impunerea consistentei intre solutiile locale. Aceasta abordare permite combinarea flexibila a diferitelor algoritmi de optimizare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Descompunerea duala este aplicabila in orice problema cu structura factorizata: procesarea limbajului natural, viziune computationala, bioinformatica. Permite combinarea modelelor cu structuri diferite (grafuri pe retea, arbori, factori globali).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza scenelor 3D pentru realitatea augmentata, estimarea adancimii stereo cu expansiunea alfa produce harti de adancime suficient de precise pentru plasarea corecta a obiectelor virtuale in scena reala, in timp real.</p></div>
+  </div>
+</div>

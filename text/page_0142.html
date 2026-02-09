@@ -1,0 +1,26 @@
+<div class="page-content">
+  <h2>Teorema Marginalelor si Conditionalelor Gaussiene</h2>
+  <p>Pagina 111 prezinta Teorema 4.3.1, unul dintre cele mai importante rezultate din carte: formulele pentru distributiile marginale si conditionale ale unei distributii Gaussiene multivariate.</p>
+
+  <div class="highlight-box"><strong>Teorema 4.3.1 (Ecuatia 4.67-4.69):</strong> Fie x = (x₁, x₂) distribuit Gaussian cu μ = (μ₁, μ₂) si Σ = [[Σ₁₁, Σ₁₂], [Σ₂₁, Σ₂₂]]. Atunci:
+    Marginale: p(x₁) = N(x₁|μ₁, Σ₁₁), p(x₂) = N(x₂|μ₂, Σ₂₂).
+    Conditionala: p(x₁|x₂) = N(x₁|μ₁|₂, Σ₁|₂)</div>
+
+  <div class="definition-box"><strong>Media conditionala (Ecuatia 4.69):</strong> Trei forme echivalente:
+    μ₁|₂ = μ₁ + Σ₁₂ Σ₂₂⁻¹ (x₂ - μ₂)
+    = μ₁ - Λ₁₁⁻¹ Λ₁₂ (x₂ - μ₂)
+    = Σ₁|₂ (Λ₁₁ μ₁ - Λ₁₂ (x₂ - μ₂))</div>
+
+  <div class="definition-box"><strong>Covarianta conditionala (Ecuatia 4.69):</strong> Doua forme echivalente:
+    Σ₁|₂ = Σ₁₁ - Σ₁₂ Σ₂₂⁻¹ Σ₂₁ = Λ₁₁⁻¹</div>
+
+  <div class="highlight-box"><strong>Proprietati cheie:</strong> Media conditionala este o functie liniara de x₂. Covarianta conditionala este o constanta (independenta de x₂). Complementul Schur Σ₁₁ - Σ₁₂ Σ₂₂⁻¹ Σ₂₁ apare frecvent in algebra liniara.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Aceasta teorema este fundamentala in statistica si invatarea automata. Marginalizarea unei Gaussiene este triviala (selecteaza submatricea corespunzatoare). Conditionarea necesita mai mult calcul, dar media conditionala ramane liniara in variabila observata, iar covarianta conditionala este constanta - proprietati unice ale distributiei Gaussiene.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cele trei forme ale mediei conditionate si cele doua forme ale covariantei conditionate sunt echivalente matematic dar utile in circumstante diferite. Forma cu matricea de precizie Λ este adesea mai eficienta computational. Complementul Schur Σ₁₁ - Σ₁₂ Σ₂₂⁻¹ Σ₂₁ este un concept central in algebra liniara.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste formule sunt baza filtrarii Kalman, a proceselor Gaussiene, a modelelor grafice Gaussiene si a oricarui sistem care necesita actualizarea credintelor dupa observarea unor date noi.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In navigatia GPS, pozitia si viteza vehiculului formeaza un vector Gaussian. Cand primim o masurare GPS (observam o parte din stare), aplicam exact aceste formule de conditionare pentru a actualiza estimarea pozitiei. Covarianta conditionala ne spune cat de precisa este estimarea actualizata.</p></div>
+  </div>
+</div>

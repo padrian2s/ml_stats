@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 21. Inferenta Variationala - VBEM: Fundamente (p.750)</h2>
+  <p>Aceasta pagina detaliaza principiile Variational Bayes EM, incluzand factorizarea aproximarii posteriorului, pasii E si M variationali, si avantajele fata de EM standard.</p>
+  <div class="definition-box"><strong>Aproximarea VBEM:</strong> Posteriorul aproximativ are forma factorizata: p(θ, z₁:ₙ|D) ≈ q(θ)q(z) = q(θ)∏ᵢq(zᵢ), unde prima factorizare (intre θ si z) este cruciala pentru tractabilitate.</div>
+  <div class="highlight-box"><strong>Pasul E variational:</strong> Se actualizeaza q(zᵢ|D) similar cu pasul E standard, dar in loc de a folosi estimarea punctuala MAP a parametrilor, se mediaza peste parametri folosind media posterioara θ̄.</div>
+  <div class="highlight-box"><strong>Pasul M variational:</strong> Se actualizeaza q(θ|D) similar cu pasul M standard, dar in loc de estimarea punctuala, se actualizeaza hiperparametrii folosind statisticile suficiente asteptate.</div>
+  <div class="definition-box"><strong>Avantajul principal VBEM:</strong> Prin marginalizarea parametrilor, VBEM poate calcula o limita inferioara pe verosimilitatea marginala, utila pentru selectia modelului. VBEM trateaza parametrii ca „cetateni de prima clasa".</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>VBEM extinde EM standard prin modelarea incertitudinii atat in variabilele latente cat si in parametri. Factorizarea q(θ)∏ᵢq(zᵢ) face algoritmul tractabil mentinand in acelasi timp o inferenta mai completa decat EM.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Factorizarea intre θ si z este motivata de faptul ca variabilele latente sunt conditionat independente dat fiind modelul. VBEM este „egalitar" - nu face distinctie artificiala intre parametri si variabile latente, spre deosebire de EM.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>VBEM este utilizat pe scara larga in modelarea topicurilor (LDA), procesarea limbajului natural, si bioinformatica pentru modele generative complexe cu numar necunoscut de componente.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia anomaliilor industriale, VBEM poate fi folosit pentru a ajusta un model de mixtura care nu doar clusterizeaza datele, ci si cuantifica incertitudinea in numarul de moduri de functionare normala ale unui echipament.</p></div>
+  </div>
+</div>

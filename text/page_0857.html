@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Filtrarea particulelor - Saracirea esantionului si distributia propunere</h2>
+  <p>Aceasta pagina discuta problema saracirii esantionului (sample impoverishment) si alegerea distributiei propunere in filtrarea particulelor.</p>
+  <div class="definition-box"><strong>Saracirea esantionului:</strong> Dupa re-esantionare, particulele cu ponderi mari sunt replicate, reducand diversitatea. In cazul extrem (parametri statici + fara zgomot de proces), toate particulele colapseaza la un singur punct. Solutii: re-esantionare adaptiva, pas MCMC (resample-move), filtru regularizat, zgomot artificial.</div>
+  <div class="definition-box"><strong>Propunerea prior (bootstrap filter):</strong> q(z_t|z_{t-1}^s, y_t) = p(z_t|z_{t-1}^s). Simpla dar ineficienta: genereaza stari din modelul dinamic fara a tine cont de observatia curenta. Ponderile devin w_t proportional cu w_{t-1}*p(y_t|z_t^s).</div>
+  <div class="highlight-box"><strong>Propunerea optima:</strong> q*(z_t|z_{t-1}^s, y_t) = p(z_t|z_{t-1}^s, y_t) = p(y_t|z_t)*p(z_t|z_{t-1}^s)/p(y_t|z_{t-1}^s). Varianta ponderilor conditionata pe z_{t-1} este zero! Dar necesita calculul integralei p(y_t|z_{t-1}^s), rareori tractabila.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina analizeaza doua probleme practice cruciale: saracirea esantionului (datorata re-esantionarii) si alegerea propunerii. Propunerea prior (bootstrap) este simpla dar naiva, iar propunerea optima este ideala dar de obicei intractabila. In practica se folosesc aproximari ale propunerii optime.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul intre propunerea prior (simpla, ineficienta) si propunerea optima (eficienta, intractabila) este central in filtrarea particulelor. Propuneri intermediare (de ex. bazate pe filtre Kalman locale) ofera un echilibru bun.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul CONDENSATION (Isard si Blake 1998) pentru urmarirea vizuala foloseste propunerea prior, dar este ineficient cand observatiile sunt informative. Unscented particle filter foloseste o aproximare a propunerii optime.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In urmarirea vizuala a mainii in realitate augmentata (AR), propunerea prior genereaza pozitii din modelul de miscare, dar observatia camerelor ar putea indica pozitii foarte diferite. Propunerea optima ar genera direct pozitii consistente cu imaginea curenta.</p></div>
+  </div>
+</div>

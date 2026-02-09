@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Masini Boltzmann restrictionate (RBM)</h2>
+  <p>Aceasta pagina introduce masinile Boltzmann (BM) si masinile Boltzmann restrictionate (RBM), modele grafice nedirectionate cu variabile latente binare si vizibile.</p>
+  <div class="definition-box"><strong>Masina Boltzmann (BM):</strong> Un MRF (Markov Random Field) cu variabile ascunse si vizibile, care defineste o densitate comuna prin functii potentiale pe fiecare muchie. Problema principala este ca inferenta exacta este intractabila.</div>
+  <div class="definition-box"><strong>Masina Boltzmann restrictionata (RBM):</strong> O BM in care arhitectura este restrictionata astfel incat nodurile sunt aranjate in straturi, fara conexiuni intra-strat, creand o structura bipartita.</div>
+  <div class="definition-box"><strong>Produs de experti (PoE):</strong> Un RBM este un caz special de produs de experti, unde inmultim potentialele (in loc sa le adunam ca intr-un model de mixtura), permitand distributii "ascutite" care satisfac constrangeri multiple.</div>
+  <div class="highlight-box"><strong>Avantajul RBM:</strong> Posteriorul se factorizeaza: p(h|v,theta) = prod_k p(h_k|v,theta), permitand inferenta rapida a starilor ascunse, similar cu o retea neuronala feedforward.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>RBM-urile sunt modele generative nedirectionate cu structura bipartita care permit inferenta eficienta a variabilelor ascunse. Spre deosebire de modelele directionate cu o variabila ascunsa categorica, RBM-urile folosesc codare distribuita cu variabile binare multiple.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Codarea localista (un singur bit activ) vs. codarea distribuita (mai multi biti activi simultan) - RBM-urile folosesc codarea distribuita, similara cu ipoteza "celulelor bunicii" vs. reprezentari distribuite in neurostiinta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>RBM-urile sunt blocuri fundamentale pentru retele de credinta profunda (DBN) si auto-encodere profunde, folosite in recunoasterea vorbirii, viziune computationala si sisteme de recomandare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>RBM-urile cu noduri vizibile categorice au fost utilizate cu succes in competitia Netflix, depasind SVD traditional in predictia evaluarilor.</p></div>
+  </div>
+</div>

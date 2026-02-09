@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Retele de credinta profunda (DBN)</h2>
+  <p>Aceasta pagina descrie retelele de credinta profunda ca un compromis intre modelele directionate si nedirectionate, cu priori complementare si echivalenta cu RBM.</p>
+  <div class="definition-box"><strong>Retea de credinta profunda (DBN):</strong> Un model stratificat care combina straturi directionate in partea inferioara cu un RBM nedirectionat in varful ierarhiei, oferind un compromis intre modelele directionate si nedirectionate.</div>
+  <div class="definition-box"><strong>Prior complementar:</strong> Daca priorul p(h_1|W_1) este un prior complementar, atunci inmultirea sa cu verosimilitatea p(v|h_1) produce un posterior perfect factorizat. RBM-ul de la varf serveste tocmai ca acest prior complementar.</div>
+  <div class="highlight-box"><strong>Echivalenta DBN-RBM:</strong> Un DBN cu doua straturi ascunse si ponderi legate (W_2 = W_1^T) este echivalent cu un RBM in ceea ce priveste distributia comuna p(h_1, v|W_1).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>DBN-urile combina avantajele modelelor directionate (inferenta bottom-up eficienta) cu cele ale RBM-urilor (priori flexibile). Echivalenta cu RBM cand ponderile sunt legate ofera o justificare teoretica pentru strategia de antrenare greedy strat cu strat.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cele doua straturi superioare actioneaza ca memorie asociativa, iar straturile inferioare genereaza outputul. Inferenta top-down nu este tractabila in DBN-uri, asa ca sunt folosite de obicei in mod feedforward. Limita variationala inferioara justifica antrenarea greedy.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>DBN-urile au fost folosite cu succes in recunoasterea cifrelor scrise de mana, recunoasterea vorbirii, si descoperirea de trasaturi in imagini si text.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Sistemul de recunoastere a vorbirii de la Microsoft (2011) a folosit DBN-uri pre-antrenate, obtinand imbunatatiri semnificative fata de modelele GMM-HMM traditionale.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Figura 14.6 (Vectorii de Coeficienti), K-Medoids Kernelizat si Nearest Medoid Classification</h2>
+  <p>Pagina prezinta Figura 14.6 cu vectorii de coeficienti pentru cele patru metode de regresie kernel, detalii despre kernelizarea K-medoids si clasificarea nearest medoid.</p>
+  <div class="highlight-box"><strong>Figura 14.6 - Vectorii de coeficienti (N=100):</strong> (a) L2VM: coeficienti non-sparse, oscilanti. (b) L1VM: coeficienti sparse (majoritatea zero, cativa mari). (c) RVM: cel mai sparse (doar 5-6 coeficienti non-zero). (d) SVM: coeficienti non-zero limitati la intervalul [-C, C], mai multi vectori de suport decat RVM.</div>
+  <div class="highlight-box"><strong>K-medoids kernelizat - distanta (Eq. 14.32):</strong> d(i, i') = ||x_i - x_{i'}||_2^2. Kernelizare: inlocuire distanta Euclidiana cu distanta kernel prin Eq. 14.30: d(i, i') = kappa(x_i, x_i) + kappa(x_{i'}, x_{i'}) - 2 kappa(x_i, x_{i'}). Algoritmul 14.1 functioneaza identic, dar cu distante kernel.</div>
+  <div class="definition-box"><strong>Nearest medoid classification:</strong> Varianta a K-medoids pentru clasificare: se gasesc medoizii fiecarei clase, se clasifica testul prin medoidul cel mai apropiat. Analog cu nearest centroid classification, dar robust la outlieri si kernelizabil.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 14.6 vizualizeaza diferentele de sparsitate intre metode: L2VM produce coeficienti densi, L1VM si SVM produc coeficienti sparse, iar RVM produce cel mai sparse vector. Sparsitatea este importanta pentru eficienta la predictie: predictia costa O(|S| * D) unde |S| este numarul de vectori de suport. RVM produce |S| minimal.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta fundamentala SVM vs RVM in coeficienti: SVM produce alpha_i in [-C, C] (bounded), in timp ce RVM produce alpha_i nelimitati dar foarte putini non-zero. Aceasta reflecta diferenta de regularizare: SVM foloseste hinge loss + l2 (box constraint), RVM foloseste ARD (sparsitate automatica).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Sparsitatea coeficientilor afecteaza direct costul la deploy: un RVM cu 5 vectori de suport este de 20x mai rapid la predictie decat un SVM cu 100 vectori de suport. Pentru aplicatii embedded sau real-time, RVM poate fi preferat SVM.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea online a tranzactiilor bancare (frauda vs. legitim), un model RVM cu putini vectori de suport poate fi evaluat in microsecunde, permitand decizia in timp real fara a incetini procesarea platilor.</p></div>
+  </div>
+</div>

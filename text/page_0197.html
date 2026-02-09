@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Prior-ul Haldane, Prior-ul Jeffreys si Informatia Fisher</h2>
+  <p>Pagina prezinta prior-ul Haldane (cel mai neinformativ), introduce prior-ul Jeffreys bazat pe informatia Fisher si demonstreaza invarianta sa la reparametrizare.</p>
+  <div class="definition-box"><strong>Prior-ul Haldane:</strong> lim_{c→0} Beta(c,c) = Beta(0,0), o mixtura de doua mase punctuale la 0 si 1. Este un prior impropriu (nu se integreaza la 1) dar posterioara este proprie daca avem cel putin un cap si o pajura.</div>
+  <div class="definition-box"><strong>Prior-ul Jeffreys:</strong> p(φ) ∝ I(φ)^(1/2) (Ecuatia 5.51), unde I(φ) este informatia Fisher. Acest prior este invariant la reparametrizare: daca θ = h(φ), atunci p_θ(θ) si p_φ(φ) sunt consistente.</div>
+  <div class="definition-box"><strong>Informatia Fisher:</strong> I(φ) = -E[(d log p(X|φ)/dφ)²] (Ecuatia 5.52) - masura curburii log-verosimilitatii asteptate, indicand stabilitatea MLE.</div>
+  <div class="highlight-box"><strong>Functia de scor (Score function):</strong> s(θ) = d/dθ log p(X|θ) = X/θ - (1-X)/(1-θ) (Ecuatia 5.58)</div>
+  <div class="highlight-box"><strong>Informatia observata:</strong> J(θ) = -d²/dθ² log p(X|θ) = X/θ² + (1-X)/(1-θ)² (Ecuatia 5.59)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Prior-ul Jeffreys rezolva problema invariantei la reparametrizare. Idea cheie: daca p(φ) este neinformativ, atunci orice reparametrizare θ = h(φ) ar trebui sa fie si ea neinformativa. Prin formula de schimbare de variabila si definitia informatiei Fisher, se demonstreaza ca p(φ) ∝ I(φ)^(1/2) satisface aceasta proprietate. Analiza de senzitivitate este recomandata pentru a verifica daca alegerea prior-ului afecteaza concluziile.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Informatia Fisher I(θ) masoara cat de "ascutita" este log-verosimilitatea in jurul MLE. O informatie Fisher mare inseamna ca datele sunt foarte informative despre θ, iar prior-ul conteaza mai putin. Prior-ul Jeffreys pune mai multa masa in regiunile unde datele sunt mai putin informative.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Prior-ul Jeffreys este utilizat frecvent in fizica si astronomie unde invarianta la reparametrizare este esentiala. In statistica aplicata, este un punct de referinta standard pentru compararea cu priori informative.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Pentru distributia Bernoulli, prior-ul Jeffreys este Beta(1/2, 1/2), nu Beta(1,1) cum s-ar astepta naiv. Aceasta reflecta faptul ca informatia Fisher I(θ) = 1/(θ(1-θ)) este mare la extreme (θ aproape de 0 sau 1), deci prior-ul Jeffreys pune mai putina masa acolo.</p></div>
+  </div>
+</div>

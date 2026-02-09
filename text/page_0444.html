@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Modelarea Densitatilor Sursa si Distributia Logistica pentru ICA</h2>
+  <p>Pagina continua discutia despre distributiile sursa in ICA, prezentand distributia logistica si Laplace ca priori pentru semnale super-gaussiene, si introduce modelarea non-parametrica prin mixturi de gaussiene.</p>
+  <div class="highlight-box"><strong>Log-densitatea Laplace:</strong> log p(z) = -√2|z| - log(√2), pentru medie zero si varianta 1. Nu este diferentiabila in origine.</div>
+  <div class="highlight-box"><strong>Log-densitatea logistica:</strong> log p(z) = -2 log cosh(πz/(2√3)) - log(4√3/π), pentru medie zero si varianta 1. Mai neteda decat Laplace.</div>
+  <div class="highlight-box"><strong>Simplificarea practica:</strong> Cand se ajusteaza ICA prin MLE, forma exacta a distributiei sursa nu este critica (dar este important sa se stie daca este sub- sau super-gaussiana). Se pot folosi G(z) = √z sau G(z) = log cosh(z).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Distributia logistica este preferata fata de Laplace in practica deoarece este diferentiabila peste tot, facilitand optimizarea bazata pe gradient. Ambele sunt super-gaussiene cu cozi grele, potrivite pentru semnale naturale. In mod remarcabil, forma exacta a distributiei sursa conteaza mai putin decat clasificarea corecta ca sub- sau super-gaussiana, ceea ce simplifica aplicarea practica a ICA.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Robustetea ICA la specificarea gresita a formei exacte a distributiei sursa (dar nu a tipului) este o proprietate practica valoroasa. Aceasta inseamna ca un practician nu trebuie sa estimeze precis densitatea sursa, ci doar sa determine daca sursele sunt super- sau sub-gaussiene.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In procesarea semnalelor biomedicale, sursele cerebrale sunt de obicei super-gaussiene (activitate rara dar intensa), in timp ce zgomotul senzorului este aproape gaussian. Aceasta diferenta de distributie este exact ceea ce permite ICA sa le separe eficient.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza datelor financiare, randamentele activelor sunt cunoscute pentru distributii cu cozi grele (super-gaussiene). ICA poate identifica factori de risc independenti (de exemplu, risc de piata, risc de credit, risc de lichiditate) care au distributii super-gaussiene, explicand miscari extreme de piata.</p></div>
+  </div>
+</div>

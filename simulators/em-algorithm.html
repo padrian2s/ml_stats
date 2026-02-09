@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algoritmul EM — Simulator Interactiv</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#6366f1;--primary-dark:#4f46e5;--primary-light:#e0e7ff;--bg:#f8f8ff;--card:#fff;--text:#1e293b;--text-light:#64748b;--border:#e2e8f0;--shadow:0 4px 24px rgba(0,0,0,.08);--radius:12px}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif}
+.back-link{display:inline-block;padding:12px 20px;color:var(--primary-dark);text-decoration:none;font-weight:500;transition:color .2s}
+.back-link:hover{color:var(--primary)}
+header{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:40px 20px 30px;text-align:center}
+header h1{font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:8px}
+header p{max-width:700px;margin:0 auto;opacity:.92;font-size:.95rem}
+.container{max-width:1300px;margin:0 auto;padding:20px}
+.grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:1000px){.grid{grid-template-columns:300px 1fr;}}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;border:1px solid var(--border)}
+.card h2{font-size:1.05rem;margin-bottom:14px;color:var(--primary-dark);border-bottom:2px solid var(--primary-light);padding-bottom:8px}
+.control-group{margin-bottom:16px}
+.control-group label{display:block;font-size:.82rem;font-weight:600;color:var(--text-light);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+.control-group .value{font-family:monospace;font-weight:700;color:var(--primary-dark);font-size:1rem}
+input[type=range]{width:100%;accent-color:var(--primary);height:6px;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border:none;border-radius:8px;font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s;gap:6px}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.btn:active{transform:translateY(0)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-dark)}
+.btn-outline{background:transparent;color:var(--primary-dark);border:2px solid var(--primary)}
+.btn-outline:hover{background:var(--primary-light)}
+.btn-step{background:#0ea5e9;color:#fff}
+.btn-step:hover{background:#0284c7}
+.btn-mstep{background:#8b5cf6;color:#fff}
+.btn-mstep:hover{background:#7c3aed}
+.btn-danger{background:#64748b;color:#fff}
+.btn-danger:hover{background:#475569}
+.btn-group{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.canvas-wrap{position:relative;width:100%;aspect-ratio:1/1;max-height:550px;border-radius:var(--radius);overflow:hidden;border:2px solid var(--border);background:#fafaff}
+.canvas-wrap canvas{display:block;width:100%;height:100%}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.stat-item{background:var(--primary-light);border-radius:8px;padding:8px 10px;text-align:center}
+.stat-item .stat-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.5px;color:var(--text-light);font-weight:600}
+.stat-item .stat-value{font-family:monospace;font-size:1.1rem;font-weight:700;color:var(--primary-dark)}
+.ll-canvas{width:100%;height:160px;border-radius:8px;border:1px solid var(--border);background:#fff;margin-bottom:12px}
+.params-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.params-table th{text-align:left;padding:6px 8px;background:var(--primary-light);color:var(--primary-dark);font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.3px}
+.params-table td{padding:6px 8px;border-bottom:1px solid var(--border);font-family:monospace;font-size:.78rem}
+.comp-color{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.viz-grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:700px){.viz-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back-link">&larr; Inapoi la Pagina Principala</a>
+<header>
+<h1>Algoritmul EM (Expectation-Maximization)</h1>
+<p>Algoritmul EM descopera clusterele ascunse intr-un amestec de distributii Gaussiene. In pasul E, calculeaza responsabilitatile (cat de probabil e ca fiecare punct apartine fiecarui cluster). In pasul M, actualizeaza parametrii Gaussienilor. Observa cum elipsele converg pas cu pas!</p>
+</header>
+<div class="container">
+<div class="grid">
+<div class="controls-col">
+<div class="card">
+<h2>Controale</h2>
+<div class="control-group">
+<label>Numar de Puncte: <span class="value" id="nPointsVal">150</span></label>
+<input type="range" id="nPointsSlider" min="50" max="400" step="10" value="150">
+</div>
+<div class="control-group">
+<label>Separare Clustere: <span class="value" id="sepVal">3.0</span></label>
+<input type="range" id="sepSlider" min="10" max="60" value="30">
+</div>
+<div class="control-group">
+<label>Numar de Clustere (K): <span class="value" id="kVal">2</span></label>
+<input type="range" id="kSlider" min="2" max="4" value="2">
+</div>
+<div class="control-group">
+<label>Iteratii Maxime: <span class="value" id="iterVal">30</span></label>
+<input type="range" id="iterSlider" min="1" max="50" value="30">
+</div>
+<div class="btn-group">
+<button class="btn btn-primary" onclick="generateNewData()">Genereaza Date</button>
+<button class="btn btn-danger" onclick="resetEM()">Reseteaza</button>
+</div>
+<div class="btn-group">
+<button class="btn btn-outline" id="btnRunEM" onclick="runFullEM()">Porneste EM</button>
+<button class="btn btn-step" id="btnEStep" onclick="doEStep()">Pas E</button>
+<button class="btn btn-mstep" id="btnMStep" onclick="doMStep()">Pas M</button>
+</div>
+</div>
+<div class="card">
+<h2>Statistici</h2>
+<div class="stats-grid">
+<div class="stat-item"><div class="stat-label">Iteratia</div><div class="stat-value" id="statIter">0</div></div>
+<div class="stat-item"><div class="stat-label">Log-Verosimilitate</div><div class="stat-value" id="statLL">-</div></div>
+</div>
+<h2 style="margin-top:6px">Log-Verosimilitate</h2>
+<canvas class="ll-canvas" id="llCanvas"></canvas>
+<h2>Parametrii Componentelor</h2>
+<table class="params-table" id="paramsTable">
+<thead><tr><th>Comp.</th><th>Medie (x, y)</th><th>Var (sx, sy)</th><th>Pondere</th></tr></thead>
+<tbody id="paramsBody"></tbody>
+</table>
+</div>
+</div>
+<div class="viz-col">
+<div class="card">
+<h2>Vizualizare Clustere</h2>
+<div class="canvas-wrap"><canvas id="mainCanvas"></canvas></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+const COLORS = ['#6366f1', '#f43f5e', '#10b981', '#f59e0b'];
+const COLORS_RGB = [[99,102,241],[244,63,94],[16,185,129],[245,158,11]];
+
+// --- Data ---
+let dataPoints = [];
+let K = 2;
+let means = [], covs = [], weights = [];
+let responsibilities = [];
+let llHistory = [];
+let iteration = 0;
+let emPhase = 'none'; // none, e-done, m-done
+let isRunning = false;
+
+function gaussRand() {
+  let u = 0, v = 0;
+  while (u === 0) u = Math.random();
+  while (v === 0) v = Math.random();
+  return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+}
+
+function generateNewData() {
+  const n = parseInt(document.getElementById('nPointsSlider').value);
+  const sep = parseInt(document.getElementById('sepSlider').value) / 10;
+  K = parseInt(document.getElementById('kSlider').value);
+
+  dataPoints = [];
+  const trueK = K;
+  const angleSep = (2 * Math.PI) / trueK;
+
+  for (let k = 0; k < trueK; k++) {
+    const cx = sep * Math.cos(angleSep * k);
+    const cy = sep * Math.sin(angleSep * k);
+    const sx = 0.5 + Math.random() * 0.8;
+    const sy = 0.5 + Math.random() * 0.8;
+    const nk = Math.floor(n / trueK) + (k < n % trueK ? 1 : 0);
+    for (let i = 0; i < nk; i++) {
+      dataPoints.push({
+        x: cx + gaussRand() * sx,
+        y: cy + gaussRand() * sy,
+        trueK: k
+      });
+    }
+  }
+
+  resetEM();
+}
+
+function initEM() {
+  means = [];
+  covs = [];
+  weights = [];
+  responsibilities = [];
+
+  // K-means++ initialization for means
+  const idx0 = Math.floor(Math.random() * dataPoints.length);
+  means.push([dataPoints[idx0].x, dataPoints[idx0].y]);
+
+  for (let k = 1; k < K; k++) {
+    const dists = dataPoints.map(p => {
+      let minD = Infinity;
+      for (const m of means) {
+        const d = (p.x - m[0]) ** 2 + (p.y - m[1]) ** 2;
+        if (d < minD) minD = d;
+      }
+      return minD;
+    });
+    const sumD = dists.reduce((a, b) => a + b, 0);
+    let r = Math.random() * sumD;
+    let chosen = 0;
+    for (let i = 0; i < dists.length; i++) {
+      r -= dists[i];
+      if (r <= 0) { chosen = i; break; }
+    }
+    means.push([dataPoints[chosen].x, dataPoints[chosen].y]);
+  }
+
+  for (let k = 0; k < K; k++) {
+    covs.push([[1, 0], [0, 1]]);
+    weights.push(1 / K);
+  }
+
+  responsibilities = dataPoints.map(() => new Array(K).fill(1 / K));
+  llHistory = [];
+  iteration = 0;
+  emPhase = 'none';
+}
+
+function resetEM() {
+  isRunning = false;
+  initEM();
+  updateStats();
+  drawAll();
+}
+
+// --- EM Steps ---
+function gaussian2D(x, y, mu, sigma) {
+  const dx = x - mu[0], dy = y - mu[1];
+  const det = sigma[0][0] * sigma[1][1] - sigma[0][1] * sigma[1][0];
+  if (Math.abs(det) < 1e-10) return 1e-10;
+  const invDet = 1 / det;
+  const inv00 = sigma[1][1] * invDet;
+  const inv01 = -sigma[0][1] * invDet;
+  const inv11 = sigma[0][0] * invDet;
+
+  const exponent = -0.5 * (dx * dx * inv00 + 2 * dx * dy * inv01 + dy * dy * inv11);
+  return (1 / (2 * Math.PI * Math.sqrt(Math.abs(det)))) * Math.exp(Math.max(-500, exponent));
+}
+
+function eStep() {
+  for (let i = 0; i < dataPoints.length; i++) {
+    const p = dataPoints[i];
+    let total = 0;
+    for (let k = 0; k < K; k++) {
+      responsibilities[i][k] = weights[k] * gaussian2D(p.x, p.y, means[k], covs[k]);
+      total += responsibilities[i][k];
+    }
+    if (total < 1e-300) total = 1e-300;
+    for (let k = 0; k < K; k++) {
+      responsibilities[i][k] /= total;
+    }
+  }
+  emPhase = 'e-done';
+}
+
+function mStep() {
+  const N = dataPoints.length;
+  for (let k = 0; k < K; k++) {
+    let Nk = 0;
+    for (let i = 0; i < N; i++) Nk += responsibilities[i][k];
+    if (Nk < 1e-10) Nk = 1e-10;
+
+    // Update mean
+    let mx = 0, my = 0;
+    for (let i = 0; i < N; i++) {
+      mx += responsibilities[i][k] * dataPoints[i].x;
+      my += responsibilities[i][k] * dataPoints[i].y;
+    }
+    means[k] = [mx / Nk, my / Nk];
+
+    // Update covariance
+    let s00 = 0, s01 = 0, s11 = 0;
+    for (let i = 0; i < N; i++) {
+      const dx = dataPoints[i].x - means[k][0];
+      const dy = dataPoints[i].y - means[k][1];
+      s00 += responsibilities[i][k] * dx * dx;
+      s01 += responsibilities[i][k] * dx * dy;
+      s11 += responsibilities[i][k] * dy * dy;
+    }
+    covs[k] = [[s00 / Nk + 1e-4, s01 / Nk], [s01 / Nk, s11 / Nk + 1e-4]];
+
+    // Update weight
+    weights[k] = Nk / N;
+  }
+  emPhase = 'm-done';
+  iteration++;
+}
+
+function computeLL() {
+  let ll = 0;
+  for (let i = 0; i < dataPoints.length; i++) {
+    const p = dataPoints[i];
+    let s = 0;
+    for (let k = 0; k < K; k++) {
+      s += weights[k] * gaussian2D(p.x, p.y, means[k], covs[k]);
+    }
+    ll += Math.log(Math.max(s, 1e-300));
+  }
+  return ll;
+}
+
+function doEStep() {
+  eStep();
+  const ll = computeLL();
+  llHistory.push(ll);
+  updateStats();
+  drawAll();
+}
+
+function doMStep() {
+  mStep();
+  updateStats();
+  drawAll();
+}
+
+async function runFullEM() {
+  if (isRunning) return;
+  isRunning = true;
+  document.getElementById('btnRunEM').disabled = true;
+  document.getElementById('btnEStep').disabled = true;
+  document.getElementById('btnMStep').disabled = true;
+
+  const maxIter = parseInt(document.getElementById('iterSlider').value);
+
+  for (let i = 0; i < maxIter && isRunning; i++) {
+    eStep();
+    mStep();
+    const ll = computeLL();
+    llHistory.push(ll);
+    updateStats();
+    drawAll();
+    await new Promise(r => setTimeout(r, 120));
+
+    // Convergence check
+    if (llHistory.length > 2) {
+      const diff = Math.abs(llHistory[llHistory.length - 1] - llHistory[llHistory.length - 2]);
+      if (diff < 1e-6) break;
+    }
+  }
+
+  isRunning = false;
+  document.getElementById('btnRunEM').disabled = false;
+  document.getElementById('btnEStep').disabled = false;
+  document.getElementById('btnMStep').disabled = false;
+}
+
+// --- Drawing ---
+const mainCanvas = document.getElementById('mainCanvas');
+const mainCtx = mainCanvas.getContext('2d');
+const llCanvas = document.getElementById('llCanvas');
+const llCtx = llCanvas.getContext('2d');
+
+function resizeCanvasEl(cvs, ctxObj) {
+  const rect = cvs.parentElement.getBoundingClientRect();
+  const w = rect.width;
+  const h = rect.height;
+  cvs.width = w * devicePixelRatio;
+  cvs.height = h * devicePixelRatio;
+  ctxObj.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  cvs._w = w;
+  cvs._h = h;
+}
+
+function resizeAll() {
+  resizeCanvasEl(mainCanvas, mainCtx);
+  const lr = llCanvas.parentElement;
+  llCanvas.width = lr.clientWidth * devicePixelRatio;
+  llCanvas.height = 160 * devicePixelRatio;
+  llCtx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  llCanvas._w = lr.clientWidth;
+  llCanvas._h = 160;
+  drawAll();
+}
+
+function getDataBounds() {
+  if (dataPoints.length === 0) return { xMin: -5, xMax: 5, yMin: -5, yMax: 5 };
+  let xMin = Infinity, xMax = -Infinity, yMin = Infinity, yMax = -Infinity;
+  for (const p of dataPoints) {
+    if (p.x < xMin) xMin = p.x;
+    if (p.x > xMax) xMax = p.x;
+    if (p.y < yMin) yMin = p.y;
+    if (p.y > yMax) yMax = p.y;
+  }
+  const pad = Math.max((xMax - xMin), (yMax - yMin)) * 0.2 + 0.5;
+  return { xMin: xMin - pad, xMax: xMax + pad, yMin: yMin - pad, yMax: yMax + pad };
+}
+
+function drawMain() {
+  const w = mainCanvas._w, h = mainCanvas._h;
+  if (!w) return;
+  mainCtx.clearRect(0, 0, w, h);
+
+  const bounds = getDataBounds();
+  function tx(x) { return (x - bounds.xMin) / (bounds.xMax - bounds.xMin) * w; }
+  function ty(y) { return h - (y - bounds.yMin) / (bounds.yMax - bounds.yMin) * h; }
+
+  // Grid
+  mainCtx.strokeStyle = '#f0f0f8';
+  mainCtx.lineWidth = 0.5;
+  for (let i = 0; i <= 10; i++) {
+    const x = w * i / 10, y = h * i / 10;
+    mainCtx.beginPath(); mainCtx.moveTo(x, 0); mainCtx.lineTo(x, h); mainCtx.stroke();
+    mainCtx.beginPath(); mainCtx.moveTo(0, y); mainCtx.lineTo(w, y); mainCtx.stroke();
+  }
+
+  // Draw ellipses for each Gaussian
+  for (let k = 0; k < K; k++) {
+    drawEllipse(mainCtx, means[k], covs[k], bounds, w, h, k);
+  }
+
+  // Draw points with responsibility coloring
+  for (let i = 0; i < dataPoints.length; i++) {
+    const p = dataPoints[i];
+    const px = tx(p.x), py = ty(p.y);
+
+    // Color by dominant cluster with opacity = max responsibility
+    let maxR = 0, maxK = 0;
+    for (let k = 0; k < K; k++) {
+      if (responsibilities[i] && responsibilities[i][k] > maxR) {
+        maxR = responsibilities[i][k];
+        maxK = k;
+      }
+    }
+
+    // Blend colors by responsibilities
+    let r = 0, g = 0, b = 0;
+    for (let k = 0; k < K; k++) {
+      const resp = responsibilities[i] ? responsibilities[i][k] : 1 / K;
+      r += COLORS_RGB[k][0] * resp;
+      g += COLORS_RGB[k][1] * resp;
+      b += COLORS_RGB[k][2] * resp;
+    }
+
+    mainCtx.beginPath();
+    mainCtx.arc(px, py, 4, 0, Math.PI * 2);
+    mainCtx.fillStyle = `rgba(${Math.round(r)},${Math.round(g)},${Math.round(b)},${0.4 + maxR * 0.6})`;
+    mainCtx.fill();
+    mainCtx.strokeStyle = `rgba(${Math.round(r)},${Math.round(g)},${Math.round(b)},0.8)`;
+    mainCtx.lineWidth = 1;
+    mainCtx.stroke();
+  }
+
+  // Draw means
+  for (let k = 0; k < K; k++) {
+    const mx = tx(means[k][0]), my = ty(means[k][1]);
+    mainCtx.beginPath();
+    mainCtx.moveTo(mx - 8, my);
+    mainCtx.lineTo(mx + 8, my);
+    mainCtx.moveTo(mx, my - 8);
+    mainCtx.lineTo(mx, my + 8);
+    mainCtx.strokeStyle = COLORS[k];
+    mainCtx.lineWidth = 3;
+    mainCtx.stroke();
+
+    mainCtx.beginPath();
+    mainCtx.arc(mx, my, 5, 0, Math.PI * 2);
+    mainCtx.fillStyle = COLORS[k];
+    mainCtx.fill();
+    mainCtx.strokeStyle = '#fff';
+    mainCtx.lineWidth = 2;
+    mainCtx.stroke();
+  }
+}
+
+function drawEllipse(ctx, mean, cov, bounds, w, h, k) {
+  // Eigendecomposition of 2x2 covariance
+  const a = cov[0][0], b_val = cov[0][1], d = cov[1][1];
+  const trace = a + d;
+  const det = a * d - b_val * b_val;
+  const disc = Math.sqrt(Math.max(0, trace * trace / 4 - det));
+  const l1 = trace / 2 + disc;
+  const l2 = trace / 2 - disc;
+
+  let angle = 0;
+  if (Math.abs(b_val) > 1e-10) {
+    angle = Math.atan2(l1 - a, b_val);
+  } else if (a < d) {
+    angle = Math.PI / 2;
+  }
+
+  function tx(x) { return (x - bounds.xMin) / (bounds.xMax - bounds.xMin) * w; }
+  function ty(y) { return h - (y - bounds.yMin) / (bounds.yMax - bounds.yMin) * h; }
+
+  const scaleX = w / (bounds.xMax - bounds.xMin);
+  const scaleY = h / (bounds.yMax - bounds.yMin);
+
+  // Draw ellipses at 1, 2, 3 sigma
+  for (const sigma of [3, 2, 1]) {
+    const rx = Math.sqrt(Math.max(l1, 0.01)) * sigma;
+    const ry = Math.sqrt(Math.max(l2, 0.01)) * sigma;
+
+    ctx.save();
+    ctx.translate(tx(mean[0]), ty(mean[1]));
+    ctx.scale(1, -1);
+    ctx.rotate(angle);
+
+    ctx.beginPath();
+    ctx.ellipse(0, 0, rx * scaleX, ry * scaleY, 0, 0, Math.PI * 2);
+    ctx.strokeStyle = COLORS[k];
+    ctx.lineWidth = sigma === 1 ? 2.5 : 1;
+    ctx.globalAlpha = sigma === 1 ? 0.8 : 0.3;
+    ctx.stroke();
+    if (sigma === 3) {
+      ctx.fillStyle = COLORS[k];
+      ctx.globalAlpha = 0.04;
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    ctx.restore();
+  }
+}
+
+function drawLL() {
+  const w = llCanvas._w, h = llCanvas._h;
+  if (!w) return;
+  llCtx.clearRect(0, 0, w, h);
+  if (llHistory.length < 1) {
+    llCtx.fillStyle = '#94a3b8';
+    llCtx.font = '12px system-ui';
+    llCtx.textAlign = 'center';
+    llCtx.fillText('Porniti algoritmul EM pentru a vedea curba', w / 2, h / 2);
+    return;
+  }
+
+  const pad = 40;
+  const maxLL = Math.max(...llHistory);
+  const minLL = Math.min(...llHistory);
+  const range = maxLL - minLL || 1;
+
+  // Axes
+  llCtx.strokeStyle = '#e2e8f0';
+  llCtx.lineWidth = 1;
+  llCtx.beginPath();
+  llCtx.moveTo(pad, 5);
+  llCtx.lineTo(pad, h - 20);
+  llCtx.lineTo(w - 5, h - 20);
+  llCtx.stroke();
+
+  llCtx.fillStyle = '#94a3b8';
+  llCtx.font = '9px monospace';
+  llCtx.textAlign = 'right';
+  llCtx.fillText(maxLL.toFixed(1), pad - 4, 14);
+  llCtx.fillText(minLL.toFixed(1), pad - 4, h - 22);
+  llCtx.textAlign = 'center';
+  llCtx.fillText('Iteratia', w / 2, h - 2);
+
+  // Line
+  llCtx.beginPath();
+  llCtx.strokeStyle = '#6366f1';
+  llCtx.lineWidth = 2.5;
+  llHistory.forEach((v, i) => {
+    const x = pad + (i / Math.max(llHistory.length - 1, 1)) * (w - pad - 10);
+    const y = 10 + (1 - (v - minLL) / range) * (h - 35);
+    if (i === 0) llCtx.moveTo(x, y); else llCtx.lineTo(x, y);
+  });
+  llCtx.stroke();
+
+  // Dots
+  llHistory.forEach((v, i) => {
+    const x = pad + (i / Math.max(llHistory.length - 1, 1)) * (w - pad - 10);
+    const y = 10 + (1 - (v - minLL) / range) * (h - 35);
+    llCtx.beginPath();
+    llCtx.arc(x, y, 3, 0, Math.PI * 2);
+    llCtx.fillStyle = '#6366f1';
+    llCtx.fill();
+  });
+}
+
+function updateStats() {
+  document.getElementById('statIter').textContent = iteration;
+  const ll = llHistory.length > 0 ? llHistory[llHistory.length - 1] : null;
+  document.getElementById('statLL').textContent = ll != null ? ll.toFixed(2) : '-';
+
+  // Params table
+  const tbody = document.getElementById('paramsBody');
+  tbody.innerHTML = '';
+  for (let k = 0; k < K; k++) {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td><span class="comp-color" style="background:${COLORS[k]}"></span>${k + 1}</td>
+      <td>(${means[k][0].toFixed(2)}, ${means[k][1].toFixed(2)})</td>
+      <td>(${covs[k][0][0].toFixed(2)}, ${covs[k][1][1].toFixed(2)})</td>
+      <td>${weights[k].toFixed(3)}</td>
+    `;
+    tbody.appendChild(row);
+  }
+}
+
+function drawAll() {
+  drawMain();
+  drawLL();
+}
+
+// --- Slider listeners ---
+document.getElementById('nPointsSlider').addEventListener('input', e => {
+  document.getElementById('nPointsVal').textContent = e.target.value;
+});
+document.getElementById('sepSlider').addEventListener('input', e => {
+  document.getElementById('sepVal').textContent = (e.target.value / 10).toFixed(1);
+});
+document.getElementById('kSlider').addEventListener('input', e => {
+  document.getElementById('kVal').textContent = e.target.value;
+  K = parseInt(e.target.value);
+});
+document.getElementById('iterSlider').addEventListener('input', e => {
+  document.getElementById('iterVal').textContent = e.target.value;
+});
+
+window.addEventListener('resize', resizeAll);
+generateNewData();
+setTimeout(resizeAll, 50);
+</script>
+</body>
+</html>

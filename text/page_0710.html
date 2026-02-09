@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Tabel de metode de antrenare si verosimilitatea maxima stocastica</h2>
+  <p>Aceasta pagina prezinta un tabel comparativ al metodelor de estimare a parametrilor in MRF-uri/CRF-uri si introduce verosimilitatea maxima stocastica (SML).</p>
+  <div class="definition-box"><strong>Tabelul 19.1 - Metode de estimare:</strong> Rezumat al metodelor: forma inchisa (doar MRF cordale), IPF (tabular/Gaussiane), optimizare bazata pe gradient (latime de arbore mica), antrenare max-margin (doar CRF-uri), pseudo-verosimilitate, ML stocastic si divergenta contrastiva.</div>
+  <div class="definition-box"><strong>Verosimilitatea maxima stocastica (SML):</strong> O metoda care aproximeaza termenul unclamped E[φ(y)] din gradient folosind esantioane Monte Carlo din modelul curent, in loc sa calculeze asteptarea exact.</div>
+  <div class="highlight-box"><strong>Pseudo-verosimilitate vs ML:</strong> Pentru MRF-uri Gaussiene, PL este echivalenta cu ML exact. In general, PL este mult mai rapida dar poate fi mai putin precisa. Experimentele arata ca PL functioneaza bine pentru modele Ising complet observate, chiar daca este o aproximare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Tabelul 19.1 ofera o comparatie concisa a metodelor de estimare pentru MRF-uri. Niciuna nu este universal superioara: fiecare are restrictii si compromisuri. SML aproximeaza gradientul MLE folosind esantioane MCMC, fiind exacta in limita unui numar infinit de esantioane, dar practic are erori datorate numarului finit de esantioane si mixarii incomplete.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul fundamental in antrenarea MRF-urilor: metode exacte (restrictii de structura) vs metode aproximative (aplicabile general). PL evita inferenta globala dar pierde informatii globale. SML este nepartinitoare asimptotic dar lenta in practica. Divergenta contrastiva este un compromis popular.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Alegerea metodei depinde de structura modelului: grafuri cu latime de arbore mica permit metode exacte; modele complet observate permit PL; modele generale necesita SML sau divergenta contrastiva. CRF-urile beneficiaza de antrenare max-margin.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In antrenarea unei retele Boltzmann restrictionate (RBM) pentru recunoasterea de cifre, divergenta contrastiva (CD-k) este metoda standard: un compromis practic intre acuratete si viteza, care a permis scalarea la seturi de date mari.</p></div>
+  </div>
+</div>

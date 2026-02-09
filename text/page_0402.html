@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Selectia Modelului - Performanta pe Test si Exemple Vizuale</h2>
+  <p>Pagina prezinta figurile cheie pentru selectia modelului: performanta pe setul de test in functie de K pentru K-means si GMM, plus exemple vizuale de clustering cu diferite valori ale lui K.</p>
+  <div class="highlight-box"><strong>Figura 11.20:</strong> (a) MSE pe test pentru K-means: scade monoton cu K, deci nu indica un K optim. (b) Log-verosimilitatea negativa pe test pentru GMM: prezinta un minim clar (curba in U), permitand selectia modelului.</div>
+  <div class="highlight-box"><strong>Figura 11.21:</strong> (a) Histograma datelor de antrenare (amestec de 3 Gaussiene 1D). (b) Centroizi estimati de K-means pentru K=2,...,10: cu K prea mare, centroizii "tileaza" spatiul. (c) Densitati GMM: log-verosimilitatea pe test identifica corect K=3.</div>
+  <div class="definition-box"><strong>Tiling effect:</strong> Cu K-means, cresterea lui K permite "acoperirea" spatiului cu centroizi mai densi, reducand mereu eroarea de reconstructie - dar aceasta nu indica neaparat un model mai bun, ci supraajustare la structura spatiala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figurile demonstreaza vizual diferenta fundamentala intre selectia modelului pentru metode probabilistice si non-probabilistice. GMM cu log-verosimilitate pe test identifica corect K=3 (numarul real de componente), pe cand K-means nu poate face aceasta distinctie doar pe baza erorii de reconstructie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Curba in U a log-verosimilitudinii pe test pentru GMM reflecta compromisul bias-varianta: K prea mic = underfitting (bias mare), K prea mare = overfitting (varianta mare). Acest tipar nu apare pentru K-means deoarece nu modeleaza incertitudinea.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, este recomandat sa se ruleze GMM cu mai multe valori de K si sa se selecteze K care minimizeaza NLL pe un set de validare. Alternativ, BIC ofera o aproximare rapida fara set de validare separat.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In genomica, identificarea numarului corect de subtipuri de cancer dintr-un set de date de expresie genica foloseste exact aceasta abordare: GMM cu selectie automata de K prin BIC sau log-verosimilitate pe validare.</p></div>
+  </div>
+</div>

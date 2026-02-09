@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Algoritmul de clustering spectral si Laplacianul normalizat</h2>
+  <p>Aceasta pagina prezinta demonstratia Teoremei 25.4.1, algoritmul de clustering spectral si doua forme de Laplacian normalizat.</p>
+  <div class="definition-box"><strong>Laplacianul normalizat (random walk):</strong> L_rw = D^{-1}L = I - D^{-1}W, creeaza o matrice stocastica. Vectorii proprii cu valoare proprie 0 sunt tot vectorii indicator ai componentelor conexe.</div>
+  <div class="definition-box"><strong>Laplacianul simetric normalizat:</strong> L_sym = D^{-1/2}LD^{-1/2} = I - D^{-1/2}WD^{-1/2}, o varianta simetrica cu aceleasi valori proprii ca L_rw.</div>
+  <div class="highlight-box"><strong>Algoritmul clustering spectral:</strong> 1) Calculeaza cei mai mici K vectori proprii ai L (sau L_rw, L_sym). 2) Formeaza matricea U cu vectorii proprii ca coloane. 3) Aplica K-means pe randurile lui U (sau T, versiunea normalizata). Relatia cu kernel PCA: vectorii proprii ai W sunt echivalenti cu cei mai mari ai I-L.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza teoria clustering-ului spectral cu demonstratia formala si prezinta algoritmul practic. Normalizarea Laplacianului este esentiala in practica pentru a compensa variabilitatea gradelor nodurilor. Doua variante sunt prezentate: Shi-Malik (L_rw) si Ng-Jordan-Weiss (L_sym). Se arata conexiunea surprinzatoare cu mersul aleator: Ncut minimizeaza probabilitatea ca un mers aleator sa schimbe clusterul.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Clustering-ul spectral este superior kernel PCA in practica, desi sunt legate matematic. Normalizarea este critica: fara ea, nodurile cu grad mare domina clustering-ul. Complexitatea O(N^3) poate fi redusa pentru matrice rare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clustering-ul spectral cu Laplacian normalizat este implementat in scikit-learn (SpectralClustering) si este metoda preferata pentru date cu structura non-convexa, cum ar fi datele in forma de spirala sau inel.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza retelelor sociale, Laplacianul normalizat este folosit pentru detectia comunitatilor, corectand pentru diferentele de popularitate intre utilizatori (unii au mii de conexiuni, altii zeci), oferind o detectie mai echilibrata a comunitatilor.</p></div>
+  </div>
+</div>

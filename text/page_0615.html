@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Comparatie dimensiune inalta si stochastic gradient boosting</h2>
+  <p>Aceasta pagina prezinta rezultatele detaliate ale competitiei NIPS 2003 si introduce conceptul de stochastic gradient boosting.</p>
+  <div class="definition-box"><strong>Stochastic gradient boosting:</strong> Varianta a gradient boosting unde fiecare arbore este antrenat pe un esantion aleator (de obicei 80%) din date, reducand varianta si imbunatatind generalizarea. Este precursorul subsamplarii in XGBoost si LightGBM.</div>
+  <div class="highlight-box"><strong>Rezultate NIPS 2003 (Tabelul 16.5):</strong> HMC MLP are rang mediu 1.5-1.6 (cel mai bun) dar timp de antrenament de 384-600 minute. Boosted MLP, Bagged MLP, Boosted trees si Random forests au ranguri 2-4 si sunt mult mai rapide (1-35 minute).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Tabelul 16.5 compara 5 metode pe competitia NIPS 2003 cu doua strategii de selectie a trasaturilor: screening univariat (t-test) si ARD. HMC MLP este cel mai precis dar cel mai lent (ore vs. minute). Cu ARD, boosted MLP devine al doilea cel mai bun. Toate metodele au forma comuna: f_hat(x_*) = sum w_m E[y|x_*, theta_m] cu diferente in w_m si theta_m (MCMC: w_m=1/M si theta din posterior; bagging: w_m=1/M si theta din bootstrap; boosting: w_m=1 si theta secvential).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul acuratete-timp este clar: MCMC ofera cele mai bune rezultate dar este cu 1-2 ordine de marime mai lent. In practica, stochastic gradient boosting ofera un compromis excelent. Diferentele intre metode sunt adesea statistice nesemnificative pe seturi mici de test.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Stochastic gradient boosting este standardul in XGBoost (subsample parameter), LightGBM (bagging_fraction) si CatBoost. Combinarea subsamplarii cu gradient boosting reduce atat varianta cat si timpul de antrenament.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectia fraudei in timp real, viteza de antrenament conteaza la fel de mult ca acuratetea. Stochastic gradient boosting ofera un compromis ideal: modele actualizate frecvent (minute, nu ore) cu acuratete aproape optima.</p></div>
+  </div>
+</div>

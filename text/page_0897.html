@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Single link, complete link si average link clustering</h2>
+  <p>Pagina detaliaza cele trei variante principale de masurare a distantei intre clustere in clusteringul aglomerativ: single link, complete link si average link.</p>
+  <div class="definition-box"><strong>Single link (nearest neighbor clustering):</strong> Distanta intre doua grupuri este distanta minima intre orice pereche de membri: d_SL(G,H) = min_{i∈G, i'∈H} d_{i,i'} (Ecuatia 25.49)</div>
+  <div class="definition-box"><strong>Complete link (furthest neighbor clustering):</strong> Distanta intre doua grupuri este distanta maxima intre cele mai indepartate perechi: d_CL(G,H) = max_{i∈G, i'∈H} d_{i,i'} (Ecuatia 25.50)</div>
+  <div class="definition-box"><strong>Average link:</strong> Distanta medie intre toate perechile de puncte: d_avg(G,H) = (1/n_G·n_H) Σ_{i∈G} Σ_{i'∈H} d_{i,i'} (Ecuatia 25.51)</div>
+  <div class="highlight-box"><strong>Proprietatea de compactitate:</strong> Single linkage poate viola proprietatea de compactitate (toate observatiile dintr-un grup trebuie sa fie similare intre ele), producand clustere cu diametru mare. Complete linkage produce intotdeauna clustere compacte cu diametru mic.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Single link construieste un arbore de acoperire minima si poate fi implementat in O(N²). Complete link produce clustere compacte dar este sensibil la outlieri. Average link ofera un compromis dar este sensibil la schimbari in scala de masurare, spre deosebire de single si complete link care sunt invariante la transformari monotone.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Efectul de "inlantuire" al single link: o singura pereche de obiecte aproape este suficienta pentru a uni doua grupuri, indiferent de restul membrilor. Diametrul clusterului d_G = max_{i∈G, i'∈G} d_{i,i'} poate fi arbitrar de mare cu single link.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Single link este potrivit pentru detectarea clusterelor de forma alungita sau neregulata. Complete link este preferat pentru aplicatii care cer clustere de dimensiune uniforma. Average link este standardul in bioinformatica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In detectarea comunitatilor dintr-o retea sociala, single link ar putea uni doua grupuri diferite doar pentru ca au un singur prieten comun, in timp ce complete link ar cere ca toti membrii sa fie interconectati - o cerinta prea stricta. Average link ofera un echilibru rezonabil.</p></div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Riscul Minimax și Regula de Decizie Bayes</h2>
+  <p>Pagina continuă cu demonstrația că abordarea Bayesiană este optimă și din perspectivă frecventistă, introduce riscul minimax ca alternativă conservatoare.</p>
+  <div class="figure-box"><strong>Figura 6.2:</strong> Funcțiile de risc pentru două proceduri de decizie, δ₁ și δ₂. Deși δ₂ are risc mai mic pentru majoritatea valorilor lui θ, δ₁ este estimatorul minimax deoarece are riscul cel mai mic în cel mai rău caz. Aceasta ilustrează natura conservatoare a estimatorilor minimax.</div>
+  <div class="definition-box"><strong>Teorema 6.3.2 (Wald, 1950):</strong> Orice regulă de decizie admisibilă este o regulă de decizie Bayes în raport cu o anumită distribuție a priori, posibil improprie.</div>
+  <div class="definition-box"><strong>Riscul Maxim:</strong> R_max(δ) = max_θ* R(θ*, δ), riscul în cel mai rău scenariu posibil pentru estimatorul δ.</div>
+  <div class="definition-box"><strong>Regula Minimax:</strong> δ_MM = argmin_δ R_max(δ), regula de decizie care minimizează riscul maxim.</div>
+  <div class="highlight-box"><strong>Rezultat Fundamental:</strong> Cea mai bună modalitate de a minimiza riscul frecventist este de a fi Bayesian! Alegerea acțiunii optime caz-cu-caz (Bayesian) este optimă și în medie (frecventist).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstrează echivalența profundă între abordările Bayesiană și frecventistă prin Teorema lui Wald. Se introduce apoi riscul minimax ca alternativă pentru frecventiștii care evită utilizarea unei distribuții a priori, deși aceasta conduce la estimatori excesiv de conservatori.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Estimatorii minimax minimizează riscul în cel mai rău caz, ceea ce îi face foarte conservatori. Figura 6.2 ilustrează clar acest compromis: δ₁ are performanță mai slabă pentru majoritatea valorilor lui θ, dar este ales deoarece evită cele mai rele scenarii. Toate estimatorii minimax sunt echivalenți cu estimatori Bayes sub o distribuție a priori „cel mai puțin favorabilă".</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Abordarea minimax este relevantă în situații unde costul erorii este foarte mare și trebuie garantată o performanță minimă, cum ar fi în diagnosticul medical sau sistemele de securitate.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de detectare a fraudelor bancare poate folosi abordarea minimax pentru a garanta că rata de detectare nu scade niciodată sub un anumit prag, chiar dacă aceasta înseamnă mai multe alarme false în medie.</p></div>
+  </div>
+</div>

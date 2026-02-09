@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Multi-view clustering - Model si ilustratie</h2>
+  <p>Aceasta pagina detaliaza modelul multi-view clustering (crosscat/multi-clust), prezentand ilustratia cu 3 view-uri si modelul grafic dirijat corespunzator (Figura 25.19).</p>
+  <div class="definition-box"><strong>Modelul crosscat:</strong> Coloanele (trasaturile) sunt partitionate in V view-uri cu p(c) ~ DP(alpha). Pentru fiecare view v, randurile sunt partitionate independent folosind p(r_v|beta) ~ DP(beta). Datele in fiecare bloc sunt generate iid.</div>
+  <div class="definition-box"><strong>Verosimilitatea pentru date binare:</strong> Cu prior Beta(gamma, gamma) pe theta_{jk}, verosimilitatea se reduce la produs de rapoarte Beta: produs Beta(n_{j,k,v} + gamma, n_bar_{j,k,v} + gamma) / Beta(gamma, gamma).</div>
+  <div class="highlight-box"><strong>Hiperparametri:</strong> alpha controleaza numarul de partitii de coloane (view-uri), beta controleaza numarul de clustere de randuri in fiecare view, si gamma controleaza verosimilitatea. Gamma poate fi setat non-informativ, dar alpha si beta necesita inferenta (MH sampling).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina formuleaza riguros modelul crosscat. Figura 25.19(a) arata un exemplu cu 3 view-uri (partitii de coloane), fiecare cu clustering independent al randurilor. Modelul grafic din Figura 25.19(b) arata structura: c_j determina view-ul, r_{iv} determina clusterul de rand in view-ul v, iar theta_{jk} sunt parametrii per bloc. Procesul Dirichlet este folosit atat pentru view-uri cat si pentru clustere de randuri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Multi-view clustering recunoaste ca trasaturile diferite pot releva structuri diferite in date. Aceasta este o extensie importanta a biclustering-ului, care impune un singur clustering de randuri si un singur clustering de coloane. Modelul este robust la trasaturi irelevante, care sunt pur si simplu partitionate intr-un view separat.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Multi-view clustering este folosit in analiza datelor medicale (simptome, teste de laborator, imagistica - fiecare set de trasaturi poate releva clustering-uri diferite ale pacientilor), si in analiza retelelor sociale multi-relationale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza datelor despre tari (economie, demografie, geografie, cultura), multi-view clustering permite descoperirea ca tarile se grupeaza diferit dupa criterii economice (dezvoltate vs. in dezvoltare) fata de criterii culturale (regiuni lingvistice).</p></div>
+  </div>
+</div>

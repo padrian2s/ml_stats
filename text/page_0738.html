@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 20 - Inferenta Exacta pentru Modele Grafice</h2>
+  <p>Pagina de titlu si introducere a Capitolului 20, care prezinta generalizarea algoritmilor de inferenta exacta (forward-backward, Kalman smoother) de la lanturi la grafuri arbitrare, inclusiv propagarea credintelor (belief propagation) pe arbori.</p>
+  <div class="definition-box"><strong>Inferenta exacta:</strong> Calculul exact al marginalelor posterioare p(xₜ|v,θ) in modele grafice structurate, generalizand algoritmul forward-backward de la lanturi la grafuri arbitrare.</div>
+  <div class="definition-box"><strong>Belief Propagation (BP):</strong> Algoritmul sum-product (Pearl, 1988) - generalizarea algoritmului forward-backward de la lanturi la arbori, bazat pe transmiterea de mesaje intre noduri.</div>
+  <div class="highlight-box"><strong>Model MRF pairwise:</strong> p(x|v) = (1/Z(v)) ∏_{s∈V} ψₛ(xₛ) ∏_{(s,t)∈E} ψₛ,ₜ(xₛ,xₜ) (Ecuatia 20.1), unde ψₛ este evidenta locala pentru nodul s, iar ψₛₜ este potentialul de muchie.</div>
+  <div class="highlight-box"><strong>Protocolul serial:</strong> Se alege un nod radacina r, se orienteaza toate muchiile dinspre frunze spre radacina. Faza de colectare a evidentei trimite mesaje de la frunze la radacina; faza de distribuire trimite mesaje inapoi de la radacina la frunze.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 20 abordeaza una dintre problemele centrale ale modelelor grafice: cum se calculeaza exact probabilitatile marginale si modul posterior. Se porneste de la algoritmii deja cunoscuti (forward-backward pentru lanturi, Kalman smoother pentru modele liniar-Gaussiene) si se generalizeaza la grafuri arbitrare. Belief propagation este algoritmul fundamental prezentat, functionand exact pe arbori.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura de arbore permite descompunerea inferentei in operatii locale de transmitere a mesajelor. Fiecare nod trebuie doar sa combine mesajele primite de la vecini si evidenta sa locala. Aceasta descompunere este cheia eficientei: complexitatea este liniara in numarul de noduri, nu exponentiala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Inferenta exacta pe arbori este fundamentala in coduri de corectie a erorilor (coduri LDPC, coduri Turbo), modele HMM pentru recunoastere vocala, si CRF-uri cu structura de lant pentru etichetare secventiala in NLP.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In decodarea codurilor LDPC folosite in comunicatiile 5G, belief propagation calculeaza probabilitatea fiecarui bit transmis, combinand informatia din verificarile de paritate. Algoritmul functioneaza pe graful bipartit al codului, transmitand mesaje intre nodurile de bit si nodurile de verificare.</p></div>
+  </div>
+</div>

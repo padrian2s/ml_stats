@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Invarianta la Reparametrizare si Transformari Neliniare</h2>
+  <p>Pagina demonstreaza ca estimarea MAP nu este invarianta la reparametrizare, spre deosebire de MLE si inferenta bayesiana completa, si introduce functia de pierdere patratica.</p>
+  <div class="definition-box"><strong>Invarianta la reparametrizare:</strong> Proprietatea ca rezultatul estimarii nu se schimba cand se trece de la o parametrizare la alta echivalenta. MAP nu are aceasta proprietate, dar MLE si inferenta bayesiana completa o au.</div>
+  <div class="highlight-box"><strong>Transformarea densitatii:</strong> p_y(y) = p_x(x)|dx/dy| (Ecuatia 5.1) - Jacobianul |dx/dy| masoara schimbarea in volumul unitatii prin transformarea f.</div>
+  <div class="highlight-box"><strong>Functia sigmoid:</strong> f(x) = 1/(1 + exp(-x + 5)) (Ecuatia 5.2) - folosita ca exemplu de transformare neliniara care "striveste" distributia gaussiana originala.</div>
+  <div class="figure-box"><strong>Figura 5.2:</strong> Transformarea unei densitati printr-o transformare neliniara (sigmoid). Modul distributiei transformate nu este transformarea modului distributiei originale, demonstrand lipsa invariantei MAP.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pentru cantitati continue, pierderea patratica L(θ,θ_hat) = (θ-θ_hat)² conduce la media posterioara ca estimator optimal, iar pierderea absoluta L(θ,θ_hat) = |θ-θ_hat| la mediana posterioara. O problema subtila a MAP este ca depinde de parametrizare: daca y = f(x), modul lui p_y nu este in general f(modul lui p_x), din cauza Jacobianului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Jacobianul transformarii joaca un rol crucial: cand aplicam o transformare neliniara, densitatea se "deformeaza" diferit in diferite regiuni ale spatiului, ceea ce face ca modul sa se deplaseze. MLE nu sufera de aceasta problema deoarece verosimilitatea este o functie, nu o densitate de probabilitate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, aceasta inseamna ca rezultatul estimarii MAP poate depinde de alegeri arbitrare de parametrizare (de exemplu, daca lucram cu varianta σ² sau deviatia standard σ). Aceasta este o slabiciune fundamentala a MAP.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Daca masuram distanta in centimetri sau inci, estimarea MAP poate da rezultate diferite dupa conversia inapoi. De exemplu, cu x ~ N(6,1) si y = sigmoid(x), modul distributiei lui y nu este sigmoid(6), ci un punct diferit.</p></div>
+  </div>
+</div>

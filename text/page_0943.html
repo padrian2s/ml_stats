@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Sectiunea 26.8 - Invatarea Modelelor Grafice Discrete Neorientate (continuare)</h2>
+  <p>Pagina prezinta aplicarea group lasso pe pseudo-verosimilitate pentru invatarea structurii MRF-urilor, cu un exemplu pe datele 20-newsgroup, si introduce arborii de jonctiune subtiri.</p>
+  <div class="figure-box"><strong>Figura 26.19:</strong> Un MRF estimat din datele 20-newsgroup folosind regularizarea group L1 cu λ = 256. Nodurile izolate nu sunt afisate. Graful arata relatiile de dependenta conditionata intre cuvintele din documente.</div>
+  <div class="definition-box"><strong>Pseudo-verosimilitate cu group lasso:</strong> Aplicarea penalizarii group lasso pe pseudo-verosimilitate (Sectiunea 19.5.4) elimina necesitatea inferentei exacte, deoarece pseudo-verosimilitatea nu necesita calculul functiei de partitie. Aceasta metoda este mult mai rapida.</div>
+  <div class="definition-box"><strong>Arbori de jonctiune subtiri (Thin junction trees):</strong> Grafuri cu latime de arbore limitata, invatate pentru a permite inferenta tractabila. Un grid D × D are latime O(D), facand inferenta intractabila chiar si pentru grafuri rare.</div>
+  <div class="highlight-box"><strong>Complexitatea circuitului:</strong> O alternativa la limitarea latimii arborelui este invatarea modelelor cu complexitate de circuit scazuta (Gogate et al. 2010), care pot avea latime mare dar exploateaza independenta si determinismul specific contextului.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza discutia despre invatarea structurii UGM-urilor discrete cu doua aspecte practice: (1) utilizarea pseudo-verosimilitati cu group lasso pentru eficienta computationala si (2) necesitatea de a controla latimea arborelui de jonctiune pentru a asigura tractabilitatea inferentei.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exista un compromis fundamental intre expresivitatea modelului (grafuri dense cu latime mare) si tractabilitatea inferentei (grafuri cu latime mica). Pseudo-verosimilitatea ofera o cale de mijloc eficienta, evitand calculul costisitor al functiei de partitie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Invatarea MRF-urilor rare este aplicata in modelarea textelor (asocieri intre cuvinte), retele sociale (relatii intre utilizatori) si viziunea computationala (segmentarea imaginilor cu etichete discrete).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In exemplul 20-newsgroup, y_it indica prezenta cuvantului t in documentul i, iar modelul MRF captureaza dependentele conditionate intre cuvinte. De exemplu, cuvintele "government" si "president" ar fi conectate direct in graf, reflectand co-aparitia lor frecventa in texte politice.</p></div>
+  </div>
+</div>

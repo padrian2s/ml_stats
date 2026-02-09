@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Istoria LBP si LBP pe modele pairwise</h2>
+  <p>Aceasta pagina prezinta istoricul propagarii increderii in bucle si algoritmul LBP aplicat pe modele grafice nedirectionate cu factori pairwise.</p>
+  <div class="definition-box"><strong>Istoricul LBP:</strong> Judea Pearl a inventat propagarea increderii pentru arbori in 1988, recunoscand ca nu functioneaza corect pe grafuri cu cicluri. Interesul pentru LBP a crescut cand McEliece et al. (1998) au aratat ca turbo codes pot fi vazute ca BP aplicat pe un anumit tip de graf.</div>
+  <div class="definition-box"><strong>Algoritmul 22.1 - LBP pe MRF pairwise:</strong> Se initializeaza mesajele m_{s->t}(x_t)=1 si belief-urile bel_s(x_s)=1. La fiecare iteratie: (1) se trimite mesaj pe fiecare muchie m_{s->t}(x_t) = sum_x_s psi_s(x_s)*psi_st(x_s,x_t)*prod_{u in nbr_s\t} m_{u->s}(x_s); (2) se actualizeaza belief-urile bel_s proportional cu psi_s * prod mesajelor primite.</div>
+  <div class="highlight-box"><strong>Convergenta si acuratete:</strong> LBP nu garanteaza convergenta si poate da rezultate incorecte chiar cand converge. Cu toate acestea, in practica functioneaza bine in multe aplicatii, deseori depasind mean field.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta contextul istoric al LBP si algoritmul concret pentru MRF-uri pairwise. Algoritmul este surprinzator de simplu: se aplica aceleasi ecuatii de BP ca pe arbori, dar pe grafuri cu cicluri, iterand pana la convergenta (sau pana la un numar maxim de iteratii).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Simplitatea algoritmului contrasteaza cu complexitatea analizei sale teoretice. Mesajele circula pe fiecare muchie in ambele directii, iar belief-urile sunt produsul potentialelor de nod cu toate mesajele primite.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Codul LDPC (low-density parity check), care foloseste LBP pentru decodare, a atins performante aproape de limita Shannon si este standard in comunicatiile moderne (WiFi 802.11n, 5G NR).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Cand telefonul dvs. decodifica un semnal WiFi, procesorul executa iteratii LBP pe un graf factor corespunzator codului LDPC, recuperand bitii transmisi chiar si in prezenta zgomotului semnificativ.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exemplu EM pentru GMM si Algoritmul K-means</h2>
+  <p>Pagina prezinta un exemplu de aplicare a EM pentru GMM si introduce algoritmul K-means ca o varianta populara simplificata.</p>
+  <div class="definition-box"><strong>K-means (EM hard):</strong> O varianta a EM pentru GMM unde Σₖ = σ²I_D este fixata, πₖ = 1/K este fixat, si doar centrele clusterelor μₖ sunt estimate. Atribuirea este hard (deterministica) in loc de soft (probabilistica).</div>
+  <div class="highlight-box"><strong>Colorarea punctelor:</strong> color(i) = rᵢ₁ albastru + rᵢ₂ rosu - punctele ambigue apar violet, indicand incertitudinea atribuirii.</div>
+  <div class="highlight-box"><strong>Atribuire hard (K-means):</strong> p(zᵢ = k|xᵢ, θ) ≈ I(k = zᵢ*), unde zᵢ* = arg minₖ ||xᵢ - μₖ||₂² - fiecare punct este atribuit celui mai apropiat centru de cluster.</div>
+  <div class="highlight-box"><strong>Actualizare centroizi:</strong> μₖ = (1/Nₖ) Σᵢ:zᵢ=k xᵢ - media tuturor punctelor atribuite clusterului k.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exemplul cu datele Old Faithful arata convergenta EM in 20 de iteratii, pornind de la valori initiale aleatorii. K-means este o versiune simplificata a EM pentru GMM cu matrice de covarianta sferice egale si ponderi de amestec uniforme. Pasul E devine o atribuire hard (fiecare punct la cel mai apropiat centru), iar pasul M actualizeaza centroizii ca media punctelor atribuite. Complexitatea pasului E este O(NKD).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tranzitia de la EM soft la K-means hard ilustreaza compromisul intre complexitate si expresivitate: K-means este mai rapid si mai simplu, dar pierde informatia de incertitudine despre atribuiri.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>K-means este unul dintre cei mai utilizati algoritmi de clusterizare in industrie datorita simplitatii si scalabilitatii sale. Se foloseste in segmentarea imaginilor, compresia datelor, si ca pas de preprocesare pentru algoritmi mai complecsi.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Datele Old Faithful (eruptiile gheiserului) sunt un exemplu clasic de clusterizare: eruptiile au doua moduri distincte (scurte/frecvente si lungi/rare), iar EM separa aceste doua grupuri vizual prin colorarea punctelor.</p></div>
+  </div>
+</div>

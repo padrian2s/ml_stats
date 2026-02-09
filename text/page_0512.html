@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Kerneluri Mercer (Pozitiv Definite), Matricea Gram si Teorema lui Mercer</h2>
+  <p>Pagina prezinta Sectiunea 14.2.3 despre kerneluri Mercer (pozitiv definite), matricea Gram, teorema lui Mercer si kernelul polinomial cu exemplu explicit.</p>
+  <div class="definition-box"><strong>Matricea Gram (Eq. 14.9):</strong> K_{ij} = kappa(x_i, x_j), K in R^{N x N}. Daca K este pozitiv definita pentru orice set {x_i}_{i=1}^N, kernelul se numeste kernel Mercer sau pozitiv definit. Exemplu: kernelul Gaussian si cosine similarity sunt Mercer.</div>
+  <div class="definition-box"><strong>Teorema lui Mercer (Eq. 14.10-14.13):</strong> Daca K este pozitiv definita, K = U^T Lambda U (descompunere in eigenvectori). Definind phi(x_i) = Lambda^{1/2} U_{:,i}, obtinem k_{ij} = phi(x_i)^T phi(x_j). In general: kappa(x, x') = phi(x)^T phi(x'), unde phi mapeaza in spatiu (posibil infinit-dimensional).</div>
+  <div class="highlight-box"><strong>Kernelul polinomial (Eq. 14.14-14.16):</strong> kappa(x, x') = (gamma x^T x' + r)^M. Exemplu: M=2, gamma=r=1, x in R^2: (1 + x^T x')^2 = phi(x)^T phi(x'), cu phi(x) = [1, sqrt(2)x_1, sqrt(2)x_2, x_1^2, x_2^2, sqrt(2)x_1 x_2]^T. Spatiu de feature 6-dimensional din input 2-dimensional.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Teorema lui Mercer este fundamentul matematic al kernel trick-ului: orice kernel pozitiv definit corespunde unui produs scalar intr-un spatiu de feature (posibil infinit-dimensional). Aceasta permite algoritmilor sa lucreze implicit in spatii de inalta dimensiune fara a calcula explicit feature-urile, doar prin evaluarea functiei kernel.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Nu toate kernelurile sunt Mercer: sigmoid kernel tanh(gamma x^T x' + r) nu este pozitiv definit in general. Totusi, kernelurile Mercer pot fi combinate: daca kappa_1 si kappa_2 sunt Mercer, si kappa_1 + kappa_2 si kappa_1 * kappa_2 sunt Mercer, permitand constructia de kerneluri complexe din piese simple.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Kernelul polinomial de grad M este util cand interactiunile intre feature-uri (pana la ordinul M) sunt importante. Avantajul fata de feature engineering explicit: calculul kappa(x, x') este O(D), nu O(D^M). Kernel Gaussian are spatiu de feature infinit-dimensional dar evaluarea este tot O(D).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In viziunea computationala, kernelul chi-squared (o varianta de kernel Mercer) este folosit cu histograme de culoare sau SIFT descriptors pentru clasificarea scenelor, capturand similaritati non-liniare pe care kernelul liniar le pierde.</p></div>
+  </div>
+</div>

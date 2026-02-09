@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Comparatia Experimentala a Graphcuts si BP (Continuare)</h2>
+  <p>Aceasta pagina prezinta rezultate experimentale detaliate pentru minimizarea energiei pe CRF-uri structurate pe retea, comparand graphcuts, TRW, expansiunea alfa si BP max-produs.</p>
+  <div class="figure-box"><strong>Figura 22.16:</strong> Minimizarea energiei pe un CRF pentru estimarea adancimii stereo. Randul de sus: doua imagini de intrare si valorile reale de adancime. Randul de jos: energia vs timp pentru 4 algoritmi diferiti de optimizare. Stanga jos: rezultate pentru imaginea Teddy. Dreapta jos: rezultate pentru imaginea Tsukuba. Sursa: Figura 13.B.1 din Koller si Friedman 2009.</div>
+  <div class="highlight-box"><strong>Rezultate comparative:</strong> Graphcut si TRW (tree-reweighted max-product BP) dau cele mai bune rezultate. BP max-produs standard este semnificativ mai slab. Ca viteza, graphcuts este cel mai rapid, cu TRW pe locul doi.</div>
+  <div class="highlight-box"><strong>Observatie importanta:</strong> Pentru multe imagini din benchmark-ul stereo, datele reale (ground truth) au energie mai mare decat estimarea optima globala, indicand ca se optimizeaza modelul gresit - CRF-ul pe perechi ignora constrangerile de lunga distanta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Comparatia experimentala demonstreaza superioritatea graphcuts si TRW fata de alte metode (ICM, simulated annealing, BP standard) pentru estimarea adancimii stereo. Cu toate acestea, se subliniaza o limitare fundamentala: modelul CRF pe perechi nu captureaza constrangerile de lunga distanta, ceea ce poate duce la optimizarea unui model inadecvat.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exista un compromis intre calitatea modelului si tractabilitatea inferentei. Adaugarea constrangerilor de lunga distanta face graful prea dens (BP lent) sau potentialele non-submodulare (graphcuts inaplicabil). O solutie este generarea de moduri locale diverse prin graphcuts si re-clasarea lor cu un model mai sofisticat.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Estimarea adancimii stereo este cruciala in robotica, vehicule autonome si realitate augmentata. Rezultatele arata ca alegerea algoritmului de inferenta poate fi la fel de importanta ca alegerea modelului probabilistic.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de navigare a vehiculelor autonome, estimarea adancimii din camere stereo foloseste CRF-uri optimizate cu graphcuts pentru a genera harti de adancime in timp real. Viteza superioara a graphcuts este esentiala in acest context unde deciziile trebuie luate in milisecunde.</p></div>
+  </div>
+</div>

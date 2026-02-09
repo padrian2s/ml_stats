@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Factorizarea matriciala probabilistica pentru filtrare colaborativa</h2>
+  <p>Aceasta pagina introduce factorizarea matriciala probabilistica (PMF) in contextul filtrarii colaborative, cu aplicatie pe competitia Netflix.</p>
+  <div class="definition-box"><strong>Filtrare colaborativa (CF):</strong> Predictia evaluarilor pe care un utilizator le-ar da unor elemente (de ex. filme), bazandu-se pe evaluarile existente ale altor utilizatori similari.</div>
+  <div class="definition-box"><strong>Factorizare matriciala probabilistica (PMF):</strong> Un model in care fiecare utilizator si fiecare film sunt incorporati in acelasi spatiu latent de dimensiune redusa, iar evaluarile sunt modelate ca produse scalare ale vectorilor latenti plus zgomot Gaussian.</div>
+  <div class="highlight-box"><strong>Metrica RMSE:</strong> Performanta se masoara prin root mean square error, unde baseline-ul Netflix era 0.9514 si premiul mare cerea o imbunatatire de 10% (RMSE de 0.8563).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina trece de la modelele de topicuri relationale la factorizarea matriciala probabilistica, un instrument fundamental in sistemele de recomandare. PMF modeleaza matricea de evaluari sparse ca un produs de doi factori de dimensiune redusa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Modelul observational categoric poate fi inlocuit cu unul Gaussian pentru simplitate. Matricea de observatie este extrem de rara (doar ~1% din evaluari sunt observate in Netflix). Legatura cu SVD este clara dar problema devine non-convexa cu date lipsa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Sisteme de recomandare pentru filme (Netflix), muzica (Spotify), produse (Amazon), si continut online in general.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Competitia Netflix Prize (100 milioane evaluari, 480.000 utilizatori, 18.000 filme) a demonstrat ca PMF si variantele sale sunt fundamentale pentru sistemele moderne de recomandare.</p></div>
+  </div>
+</div>

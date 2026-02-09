@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Algoritmi pentru Group Lasso (p.453)</h2>
+  <p>Aceasta pagina prezinta algoritmii pentru rezolvarea Group Lasso, incluzand coborarea proximala de gradient si modificarea algoritmului EM.</p>
+  <div class="highlight-box"><strong>Operatorul Proximal pentru Group Lasso:</strong> prox_R(b) = argmin ||z - b||_2^2 + lambda * ||z||_p. Se descompune in G operatori separati, unul pentru fiecare grup.</div>
+  <div class="highlight-box"><strong>Cazul p = 2:</strong> Daca ||b||_2 < lambda, atunci prox_R(b) = 0. Altfel, prox_R(b) = b - lambda * b/||b||_2 = b * (||b||_2 - lambda) / ||b||_2. Aceasta este o pragare soft vectoriala.</div>
+  <div class="highlight-box"><strong>Pragare Soft Vectoriala:</strong> prox_R(b) = b * max(||b||_2 - lambda, 0) / (max(||b||_2 - lambda, 0) + lambda). Combina pragarea cu directia vectorului original.</div>
+  <div class="highlight-box"><strong>Modificarea EM:</strong> Se defineste tau_j^2 = tau_{g(j)}^2 si se modifica conditionalele complete: E[1/tau_g^2] = gamma*sigma / ||w_g||_2 si p(gamma^2|tau) = Ga(a_gamma + G/2, b_gamma + 1/2 * suma tau_g^2).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua abordari algoritmice pentru Group Lasso: coborarea proximala de gradient cu pragare soft vectoriala si algoritmul EM modificat. Ambele exploateaza structura de grup pentru a reduce complexitatea computationala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Operatorul proximal pentru Group Lasso este o generalizare naturala a pragarii soft scalare: se aplica o reducere uniforma a normei vectorului de grup, dar se pastreaza directia. Grupurile cu norma sub prag sunt eliminate complet.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmii de coborare proximala sunt preferati pentru probleme de dimensionalitate foarte mare datorita costului computatonal liniar per iteratie, in timp ce EM este preferat cand se doreste incertitudine Bayesiana.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de recomandare cu mii de trasaturi grupate pe categorii (demografie, comportament, preferinte), Group Lasso proximal poate selecta rapid categoriile relevante pentru fiecare utilizator.</p></div>
+  </div>
+</div>

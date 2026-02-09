@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 21. Inferenta Variationala - Algoritmul Complet si Limita Sigmoid (p.760)</h2>
+  <p>Aceasta pagina prezinta formulele finale de actualizare, Algoritmul 21.1 (pseudocod complet), si introduce limitele pentru functia sigmoid (cazul binar).</p>
+  <div class="highlight-box"><strong>Formulele de actualizare simplificate:</strong> Vₙ = (V₀ + A ⊗ Σᵢ xᵢxᵢᵀ)⁻¹ si mₙ = Vₙ(V₀⁻¹m₀ + Σᵢ(yᵢ+bᵢ) ⊗ xᵢ), exploatand structura bloc-diagonala a Xᵢ si constanta matricei A.</div>
+  <div class="highlight-box"><strong>Algoritmul 21.1:</strong> Inferenta variationala pentru regresie logistica multi-clasa cu limita Bohning. Bucla: (1) calculeaza ψ = Xmₙ, (2) G = exp(Ψ-lse(Ψ)), (3) B = AΨ-G, (4) actualizeaza mₙ = Vₙ(V₀⁻¹m₀ + Xᵀ(y+b)), (5) calculeaza L_QJ, repeta pana la convergenta.</div>
+  <div class="definition-box"><strong>Cazul binar (sigmoid):</strong> Cand yᵢ ∈ {0,1}, M=1, verosimilitatea devine log(1+eᶯ), iar limita Bohning se simplifica cu a = 1/4 (curbura constanta).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta algoritmul complet in forma de pseudocod, exploatand proprietatile structurale (produsul Kronecker, constanta A) pentru eficienta. Se introduce apoi cazul binar, mai simplu, unde limita Bohning are curbura constanta a = 1/4.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exploatarea produsului Kronecker (⊗) reduce semnificativ costul computational. Matricea Vₙ se calculeaza o singura data si se reutilizeaza. In cazul binar, a = 1/4 este curbura maxima a functiei logistice, atinsa la η = 0.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul 21.1 este implementabil direct in orice limbaj de programare. Produsul Kronecker permite scalare eficienta la probleme cu multe clase. Cazul binar este cel mai frecvent in practica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea imaginilor medicale (ex: benign vs malign), algoritmul binar cu a = 1/4 ofera o solutie eficienta si exacta pentru inferenta bayesiana, cu incertitudine calibrata in predictii.</p></div>
+  </div>
+</div>

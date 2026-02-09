@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>10.2.2 Modele Markov si Modele Markov Ascunse (HMM)</h2>
+  <p>Pagina prezinta lanturile Markov de ordinul 1 si 2 ca DGM-uri, si introduce modelele Markov ascunse (HMM) pentru date secventiale cu variabile latente.</p>
+  <div class="figure-box"><strong>Figura 10.3(a):</strong> Lant Markov de ordinul 1: fiecare nod x_t depinde doar de nodul anterior x_{t-1}. Nodurile sunt conectate secvential cu arce directionate.</div>
+  <div class="figure-box"><strong>Figura 10.3(b):</strong> Lant Markov de ordinul 2: fiecare nod x_t depinde atat de x_{t-1} cat si de x_{t-2}, cu arce suplimentare care sar peste un nod.</div>
+  <div class="figure-box"><strong>Figura 10.4:</strong> Model Markov ascuns (HMM) de ordinul 1. Randul superior contine variabilele ascunse z_1, z_2, ..., z_T (noduri deschise) conectate secvential, iar randul inferior contine variabilele observate x_1, x_2, ..., x_T (noduri umbrite), fiecare dependenta de variabila ascunsa corespunzatoare.</div>
+  <div class="definition-box"><strong>Lant Markov de ordinul 2:</strong> Model in care p(x_{1:T}) = p(x_1, x_2) ∏_{t=3}^{T} p(x_t|x_{t-1}, x_{t-2}), permitand dependente pe doua pasi in urma.</div>
+  <div class="definition-box"><strong>Model Markov ascuns (HMM):</strong> Model cu variabile latente z_t care formeaza un lant Markov de ordinul 1, si variabile observate x_t dependente de z_t. z_t este variabila ascunsa, iar x_t este observatia.</div>
+  <div class="definition-box"><strong>Modelul de tranzitie:</strong> CPD-ul p(z_t|z_{t-1}) care descrie cum evolueaza starea ascunsa in timp.</div>
+  <div class="definition-box"><strong>Modelul de observatie:</strong> CPD-ul p(x_t|z_t) care descrie cum este generata observatia din starea ascunsa.</div>
+  <div class="definition-box"><strong>Estimarea starii:</strong> Calculul p(z_t|x_{1:t}, θ), adica inferenta starii ascunse din datele observate, o forma de inferenta probabilistica.</div>
+  <div class="highlight-box"><strong>Lantul Markov de ordinul 2 (10.9):</strong> p(x_{1:T}) = p(x_1, x_2) ∏_{t=3}^{T} p(x_t|x_{t-1}, x_{t-2}).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Lanturile Markov de ordin superior captureaza dependente pe termen mai lung, dar cresc numarul de parametri exponential. HMM-urile ofera o alternativa eleganta: in loc sa creasca ordinul Markov, se introduce o variabila latenta z_t care rezuma toata informatia relevanta din trecut. Aceasta permite modelarea corelatiilor pe termen lung cu doar O(K²) parametri de tranzitie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Separarea variabilelor ascunse (stari) de variabilele observate (emisii) este un principiu fundamental. Lantul Markov pe starile ascunse captureaza dinamica, iar modelul de observatie captureaza zgomotul masuratorilor. Aceasta structura este recurenta in multe modele: HMM, filtre Kalman, modele de spatiu stari.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>HMM-urile sunt utilizate extensiv in recunoasterea vorbirii (starile ascunse = foneme, observatiile = semnalul acustic), bioinformatica (starile = regiuni functionale ADN, observatiile = secventa de nucleotide) si finante (starile = regimuri de piata, observatiile = preturi).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea vorbirii, cand cineva spune "buna ziua", starile ascunse sunt fonemele (/b/, /u/, /n/, /a/, etc.), iar observatiile sunt spectrogramele acustice masurate de microfon. HMM-ul invata atat tranzitiile intre foneme cat si modul in care fiecare fonem genereaza semnalul acustic.</p></div>
+  </div>
+</div>

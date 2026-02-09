@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Recuperarea Asignarii MAP si Marginale Max (Sectiunea 22.6.5.5)</h2>
+  <p>Aceasta pagina discuta calculul marginalelor max, convergenta coborarii pe coordonate si metode de recuperare a asignarii MAP din solutia duala optima.</p>
+  <div class="highlight-box"><strong>Mesajul de iesire de la factor:</strong> delta_{f->2}(x_2) = -delta_{2->f}(x_2) + (1/2) max_{x_1} [theta_f(x_1, x_2) + delta_{1->f}(x_1) + delta_{2->f}(x_2)] (Ec. 22.181)</div>
+  <div class="highlight-box"><strong>Mesajul de intrare:</strong> delta_{2->f}(x_2) = theta_2(x_2) + delta_{h,2}(x_2) (Ec. 22.182)</div>
+  <div class="highlight-box"><strong>Marginale max:</strong> max_{x_{f\i}} h(x_{f\i}, x_i) unde h(x_{f\i}, x_i) = theta_f(x_f) + SUMA_{j in f} delta_{jf}(x_j) (Ec. 22.183)</div>
+  <div class="definition-box"><strong>Decodabil Local:</strong> Daca fiecare theta_i^{delta*} are un maxim unic x_i*, atunci delta* este decodabil local, relaxarea LP este unica si solutia sa este x*. Variabilele decodabil local pot fi "fixate" la valoarea lor MAP.</div>
+  <div class="highlight-box"><strong>Convergenta:</strong> Coborarea pe coordonate este adesea mai rapida decat coborarea subgradientului in iteratiile initiale, reduce obiectivul monoton si nu necesita parametri de pas. Dezavantajul: nu este garantata convergenta la optimul global deoarece L(delta) este convexa dar nu strict convexa.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina abordeaza problema practica cruciala: cum obtinem asignarea MAP din solutia duala optima. Calculul marginalelor max este bottleneck-ul computational principal. Se prezinta conditiile in care solutia este decodabila local si strategii pentru cazurile problematice (asignari fractionale cu aceeasi valoare optima).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta cheie fata de coborarea subgradientului: coborarea pe coordonate reduce obiectivul monoton dar poate ramane blocata. O solutie este inlocuirea functiei max cu soft-max pentru a face obiectivul strict convex. Decodarea locala functioneaza surprinzator de bine in practica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Decodarea locala a fost folosita cu succes in estimarea CRF-urilor pentru viziune stereo si predictia structurii laterale a proteinelor. Tehnica de "clamping" reduce dimensiunea problemei ramase.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In predictia structurii proteinelor, fiecare aminoacid poate adopta diverse conformatii laterale. Decodarea locala identifica rapid aminoacizii cu conformatie unica (de obicei cei ingropati in interiorul proteinei), reducand problema la cei de la suprafata cu conformatii ambigue.</p></div>
+  </div>
+</div>

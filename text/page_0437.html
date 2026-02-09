@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>PCA Supervizat Discriminativ si Cele Mai Mici Patrate Partiale (PLS)</h2>
+  <p>Pagina prezinta varianta discriminativa a PCA supervizat si introduce metoda celor mai mici patrate partiale (PLS) ca forma asimetrica de PCA supervizat.</p>
+  <div class="definition-box"><strong>PCA supervizat discriminativ:</strong> O varianta care pune mai multa greutate pe predictia iesirilor y decat pe reconstructia intrarilor x, prin ponderarea obiectivului cu coeficienti αₘ.</div>
+  <div class="definition-box"><strong>Cele mai mici patrate partiale (PLS):</strong> O metoda care permite o parte din covarianta intrarilor sa fie explicata de un subspatiu propriu zₓ, iar restul (componenta partajata zₛ) sa fie impartit intre intrare si iesire.</div>
+  <div class="highlight-box"><strong>Obiectivul ponderat:</strong> ℓ(θ) = Π_i p(yᵢ|ηᵢᵧ)^αᵧ p(xᵢ|ηᵢₓ)^αₓ, unde αₘ controleaza importanta relativa a fiecarei surse de date.</div>
+  <div class="highlight-box"><strong>Modelul PLS:</strong> p(zᵢ) = N(zₛ|0, I_Ls)N(zₓ|0, I_Lx); p(xᵢ|zᵢ) = N(Wₓzₛ + Bₓzₓ + μₓ, σ²I_Dx)</div>
+  <div class="highlight-box"><strong>Structura WWᵀ in PLS:</strong> Matricea de covarianta marginala are o structura bloc care separa componentele partajate de cele private.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>PCA supervizat discriminativ rezolva problema ca modelul standard pune prea multa greutate pe reconstructia intrarilor (care au dimensionalitate mare) in detrimentul predictiei iesirilor. PLS ofera o solutie structurala: imparte variabilele latente in componente partajate (relevante pentru predictie) si componente private (specifice doar intrarilor). Distributia marginala observata este gaussiana cu o structura de covarianta bloc care reflecta aceasta separare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul intre reconstructie si predictie este controlat explicit prin ponderile αₘ in varianta discriminativa, sau structural prin separarea subspatiilor in PLS. L trebuie ales suficient de mare pentru ca subspatiul partajat sa nu capteze varianta specifica covariatelor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>PLS este extrem de popular in chemometrie, stiintele alimentare si farmaceutica, unde numarul de variabile predictive depaseste cu mult numarul de observatii. De asemenea, este utilizat in neuroimagistica si genomica.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In dezvoltarea medicamentelor, PLS este folosit pentru a prezice activitatea biologica a compusilor chimici din descriptorii lor moleculari (sute de variabile), separand componentele chimice relevante pentru activitate de cele care descriu doar variabilitatea structurala generala.</p></div>
+  </div>
+</div>

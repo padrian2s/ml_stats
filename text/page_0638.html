@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Filtrare, Netezire și Predicție în HMM-uri (p. 607)</h2>
+  <p>Pagina definește formal diferitele tipuri de inferență în HMM-uri: filtrarea (online), netezirea (offline), netezirea cu decalaj fix și predicția.</p>
+  <div class="definition-box"><strong>Filtrare:</strong> Calculul stării de credință p(zₜ|x₁:ₜ) online, pe măsură ce datele sosesc. Se numește „filtrare" deoarece reduce zgomotul față de estimarea simplă p(zₜ|xₜ).</div>
+  <div class="definition-box"><strong>Netezire (smoothing):</strong> Calculul p(zₜ|x₁:T) offline, utilizând toate datele disponibile. Incertitudinea este semnificativ redusă prin condiționarea pe trecut și viitor.</div>
+  <div class="definition-box"><strong>Netezire cu decalaj fix:</strong> Calculul p(z_{t-ℓ}|x₁:ₜ) cu un decalaj ℓ > 0, oferind un compromis între filtrare și netezire completă.</div>
+  <div class="definition-box"><strong>Predicție:</strong> Calculul p(z_{t+h}|x₁:ₜ) pentru un orizont h > 0, multiplicând matricea de tranziție cu starea de credință curentă.</div>
+  <div class="figure-box"><strong>Figura 17.10:</strong> Inferența în cazinoul necinstit: (a) Estimarea filtrată, (b) Estimarea netezită (mai lină), (c) Traiectoria MAP (discretă, prin Viterbi).</div>
+  <div class="figure-box"><strong>Figura 17.11:</strong> Diagrama principalelor tipuri de inferență pentru modele cu spații de stare, arătând intervalele temporale pentru filtrare, predicție și netezire.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Fiecare tip de inferență răspunde la o întrebare diferită: filtrarea este pentru sisteme în timp real, netezirea pentru analiză retrospectivă, iar predicția pentru planificare. Comparația din Figura 17.10 arată clar avantajele fiecărei abordări.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Analogia cu detectivul: filtrarea este ca investigarea în desfășurare (incertitudine mare), netezirea este ca reconstrucția cazului după găsirea tuturor indiciilor (incertitudine redusă), predicția este ca anticiparea acțiunilor viitoare ale suspectului.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Filtrarea este esențială pentru sisteme de navigație în timp real. Netezirea este utilizată în reconstrucția traiectoriilor GPS. Predicția este folosită pentru prognoza seriilor temporale financiare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La cazino: filtrarea ne spune acum cât de probabil este că zarul curent este încărcat; netezirea ne spune retrospectiv la care aruncări s-a folosit zarul încărcat; predicția anticipează dacă zarurile vor fi schimbate.</p></div>
+  </div>
+</div>

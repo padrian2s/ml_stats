@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>EM pentru Distributia Student t</h2>
+  <p>Pagina introduce EM pentru distributia Student t, prezentand-o ca un amestec Gaussian de scala si derivand log-verosimilitatea datelor complete.</p>
+  <div class="definition-box"><strong>Amestec Gaussian de scala (Gaussian scale mixture):</strong> T(xᵢ|μ, Σ, ν) = ∫ N(xᵢ|μ, Σ/zᵢ) Ga(zᵢ|ν/2, ν/2) dzᵢ - distributia Student t poate fi scrisa ca un amestec infinit de Gaussiene, fiecare cu o covarianta diferita Σ/zᵢ.</div>
+  <div class="highlight-box"><strong>Idee cheie:</strong> Desi distributia Student t nu are date lipsa, EM poate fi aplicat prin introducerea unei variabile latente „artificiale" zᵢ (factorul de scala), transformand problema intr-una cu date lipsa.</div>
+  <div class="highlight-box"><strong>Log-verosimilitatea completa:</strong> ℓc(θ) = Σᵢ₌₁ᴺ [log N(xᵢ|μ, Σ/zᵢ) + log Ga(zᵢ|ν/2, ν/2)]</div>
+  <div class="highlight-box"><strong>Robustetea distributiei Student:</strong> Log-probabilitatea Gaussiana scade doar patratic cu distanta de la centru, facand-o sensibila la outlieri. Distributia Student t ofera o alternativa mai robusta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Distributia Student t este mai robusta la outlieri decat Gaussiana deoarece are cozi mai grele. Chiar daca nu exista date lipsa in mod natural, EM poate fi aplicat prin introducerea variabilei latente artificiale zᵢ (factorul de scala Gamma). Aceasta transformare este eleganta: tratand zᵢ ca date lipsa, algoritmul EM capata o forma simpla si intuitiva. EM impune automat constrangerile (ν > 0 si Σ pozitiv definita).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tehnica de a introduce variabile latente artificiale pentru a simplifica optimizarea este un tipar puternic: transforma o problema de optimizare dificila intr-una tratabila prin EM. Acest tipar apare frecvent in statistica computationala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Distributia Student t este utilizata pe scara larga in finante (modelarea randamentelor actiunilor cu cozi grele), in procesarea semnalelor (estimare robusta de parametri) si in viziunea computationala (potrivire robusta de modele).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza financiara, randamentele zilnice ale actiunilor au distributii cu cozi grele. Modelarea cu distributia Student t (in loc de Gaussiana) captureaza mai bine riscul de evenimente extreme (crashes), oferind estimari mai realiste ale Value-at-Risk.</p></div>
+  </div>
+</div>

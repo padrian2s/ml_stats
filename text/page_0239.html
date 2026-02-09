@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Regula Unei Erori Standard și Selecția Modelului prin CV</h2>
+  <p>Pagina prezintă regula unei erori standard pentru selecția modelului și discută CV pentru învățarea nesupervizată.</p>
+  <div class="figure-box"><strong>Figura 6.6:</strong> (a) Eroarea pătratică medie pentru regresia polinomială penalizată ℓ₂ de grad 14 versus log(λ). Stelele corespund valorilor utilizate pentru graficele din Figurile 7.7-7.8. (b) Estimarea CV 5-fold a riscului. Linia albastră corespunde valorii alese de regula unei erori standard. Se observă diferența semnificativă între eroarea de antrenament și eroarea de test.</div>
+  <div class="definition-box"><strong>Eroarea Standard a Mediei:</strong> se = σ̂/√N = √(σ̂²/N), unde σ̂² = (1/N)Σ(Lᵢ - L̄)², măsoară incertitudinea noastră despre riscul mediu estimat.</div>
+  <div class="definition-box"><strong>Regula Unei Erori Standard:</strong> Se alege cel mai simplu model al cărui risc estimat nu depășește riscul modelului cel mai bun cu mai mult de o eroare standard. Aceasta favorizează modelele mai regularizate.</div>
+  <div class="highlight-box"><strong>CV pentru Învățarea Nesupervizată:</strong> Pentru modele de compresie nesupervizate (autoencoder-e), CV nu poate fi utilizată direct deoarece modele mai complexe vor avea întotdeauna eroare de reconstrucție mai mică pe setul de test. Se necesită modele probabilistice sau alte euristici.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Regula unei erori standard este o euristică practică importantă: în loc de a alege modelul cu cel mai mic risc estimat, se alege cel mai simplu model cu risc comparabil, promovând parsimonia. CV are limitări în contextul nesupervizat unde complexitatea modelului trebuie evaluată diferit.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Estimările CV sunt zgomotoase, deci alegerea modelului „cel mai bun" poate fi instabilă. Regula unei erori standard adaugă robustete prin favorizarea simplității. Figura 6.6 ilustrează clar că eroarea de antrenament scade monoton cu complexitatea, în timp ce eroarea de test are un minim.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regula unei erori standard este implementată în pachetul glmnet pentru R și este utilizată frecvent în competițiile Kaggle pentru a selecta modele mai robuste. Este mai ales utilă când diferențele între modele sunt mici.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La dezvoltarea unui model de diagnostic medical, regula unei erori standard ar alege un model mai simplu (mai puține variabile) dacă performanța sa este statististic indistinguibilă de cea a modelului complex, rezultând în decizii clinice mai interpretabile și mai robuste.</p></div>
+  </div>
+</div>

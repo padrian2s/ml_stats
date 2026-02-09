@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Kernel Machines, Retele RBF si Problema XOR</h2>
+  <p>Pagina prezinta Sectiunea 14.3 (folosirea kernelurilor in GLM), Sectiunea 14.3.1 (kernel machines) si Figura 14.2 cu problema XOR rezolvata prin kernel RBF.</p>
+  <div class="definition-box"><strong>Kernel machine (Sectiunea 14.3.1, Eq. 14.28):</strong> GLM cu feature vector kernelizat: phi(x) = [kappa(x, mu_1), ..., kappa(x, mu_K)], unde mu_k sunt centroizi (prototipuri). Cu kernel RBF, aceasta defineste o retea RBF (RBF network). phi(x) se numeste kernelised feature vector. Nu necesita kernel Mercer.</div>
+  <div class="highlight-box"><strong>Figura 14.2 - Problema XOR:</strong> (a) Tabelul de adevar XOR. (b) Regresie logistica cu polinom de grad 10: nu poate separa clasele. (c) Kernel RBF cu 4 centroizi (crucile negre): separa perfect clasele. Demonstreaza puterea kernelurilor non-liniare pentru probleme non-liniar separabile.</div>
+  <div class="highlight-box"><strong>Regresie liniara cu kernel:</strong> p(y|x, theta) = N(w^T phi(x), sigma^2). Figura 14.3 arata RBF basis in 1D cu K=10 prototipuri uniform distribuite. Bandwidth tau controleaza netezimea: tau mic -> functii zgomotoase, tau mare -> functii netede (constante).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Kernel machines transforma spatiul de intrare in spatiu de feature prin evaluarea kernelului la prototipuri fixe. Aceasta permite modelarea de frontiere de decizie non-liniare in cadrul unui GLM simplu. Problema XOR demonstreaza vizual avantajul: polinomul de grad 10 esueaza, dar 4 kerneluri RBF rezolva problema trivial.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Alegerea centroizilor mu_k este critica: prea putini -> underfitting, prea multi -> overfitting. Bandwidth-ul tau controleaza netezimea: tau mic face fiecare RBF foarte localizata (spiky), tau mare face toate RBF-urile sa se suprapuna, reducand design matrix la o matrice aproape constanta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Retelele RBF sunt implementate in scikit-learn (RBFSampler pentru aproximare), MATLAB (newrbe/newrb). Sunt mai simple decat SVM dar mai flexibile decat regresia liniara. Bandwidth-ul si numarul de centroizi se aleg prin cross-validation.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In controlul robotic, retelele RBF sunt folosite ca aproximatori de functii pentru invatarea politicii de control: fiecare centroid corespunde unei regiuni a spatiului de stare, iar ponderile w controleaza actiunea in acea regiune.</p></div>
+  </div>
+</div>

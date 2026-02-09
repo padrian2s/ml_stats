@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Inferenta variationala: derivarea obiectivului</h2>
+  <p>Aceasta pagina deriveaza obiectivul inferentei variationale: minimizarea divergentei KL inverse intre q(x) si posterioara nenormalizata, echivalenta cu maximizarea ELBO.</p>
+  <div class="definition-box"><strong>KL directa vs KL inversa:</strong> KL(p*||q) necesita asteptari sub p* (intractabila). KL(q||p*) necesita asteptari sub q (tractabila daca q este simpla). De aceea se minimizeaza KL inversa.</div>
+  <div class="definition-box"><strong>Energia libera variationala:</strong> J(q) = KL(q||p̃) = KL(q||p*) - log Z, unde p̃ este posterioara nenormalizata. Minimizarea lui J(q) minimizeaza KL(q||p*) deoarece log Z este o constanta.</div>
+  <div class="highlight-box"><strong>ELBO (Evidence Lower Bound):</strong> L(q) = -J(q) = -KL(q||p*) + log Z ≤ log p(D). ELBO este o margine inferioara a log-verosimilitutii evidentei. Maximizarea ELBO este echivalenta cu minimizarea KL(q||p*) si este strans legata de algoritmul EM.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Derivarea obiectivului variational procede in pasi: (1) dorim sa minimizam KL(q||p*) dar p* contine Z intractabil, (2) inlocuim p* cu p̃ = p*Z (nenormalizata, tractabila), obtinand J(q) = KL(q||p̃), (3) demonstram ca J(q) = KL(q||p*) - log Z, deci minimizarea lui J echivaleaza cu minimizarea KL, (4) L(q) = -J(q) este ELBO, o margine inferioara a log-evidentei.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>ELBO are doua interpretari: (1) -KL(q||p*) + log Z si (2) E_q[log p̃(x)] + H(q). Prima interpretare arata ca ELBO este tight cand q = p*. A doua arata ca ELBO echilibreaza potrivirea datelor (energia) cu complexitatea modelului (entropia).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>ELBO este obiectivul standard in auto-encodere variationale (VAE), LDA, si inferenta variationala stocastica. Monitorizarea ELBO permite verificarea convergentei algoritmului variational.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In antrenarea unui VAE pe imagini, ELBO combina eroarea de reconstructie (cat de bine decodorul reconstruieste imaginea) cu un termen de regularizare KL (cat de aproape este posterioara latenta de prior). Maximizarea ELBO produce o reprezentare latenta utila.</p></div>
+  </div>
+</div>

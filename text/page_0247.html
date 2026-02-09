@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exerciții - Capitolul 6: Statistici Frecventiste</h2>
+  <p>Pagina conține exerciții pentru capitolul 6, acoperind LOOCV, estimatorul James-Stein, biasul MLE pentru varianță și estimarea varianței cu medie cunoscută.</p>
+  <div class="highlight-box"><strong>Exercițiul 6.1 - Pesimismul LOOCV:</strong> Se consideră un dataset complet aleatoriu cu N₁ = N₂ exemple din fiecare clasă. Se cere determinarea celei mai bune rate de clasificare greșită posibile și compararea cu estimarea LOOCV a aceleiași metode.</div>
+  <div class="highlight-box"><strong>Exercițiul 6.2 - Estimatorul James-Stein pentru medii Gaussiene:</strong> Model pe două nivele: Yᵢ|θᵢ ~ N(θᵢ, σ²) și θᵢ|μ ~ N(m₀, τ₀²), cu σ² = 500. Date: 1505, 1528, 1564, 1498, 1600, 1470. Se cer: estimări ML-II pentru m₀ și τ₀², estimări posterioare, intervale de credibilitate 95%.</div>
+  <div class="highlight-box"><strong>Exercițiul 6.3 - σ̂²_MLE este biased:</strong> Demonstrați că σ̂²_MLE = (1/N)Σ(xₙ - μ̂)² este un estimator biased al σ², adică E[σ̂²] ≠ σ².</div>
+  <div class="highlight-box"><strong>Exercițiul 6.4 - Estimarea σ² cu μ cunoscut:</strong> Derivați MLE-ul pentru σ² când μ este cunoscut și determinați dacă este nebiased.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercițiile consolidează conceptele cheie din capitol: pesimismul LOOCV ilustrează cum validarea încrucișată poate fi pesimistă, exercițiul James-Stein demonstrează practic shrinkage-ul ierarhic, iar exercițiile 6.3-6.4 aprofundează înțelegerea biasului MLE pentru varianță.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Exercițiile sunt alese pentru a evidenția subtilități importante: LOOCV poate subestima performanța (pesimism), shrinkage-ul ierarhic produce estimări mai bune, și corecția Bessel (N-1 vs N) contează mai ales pentru N mic.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste exerciții au relevanță directă: înțelegerea pesimismului CV ajută la interpretarea corectă a rezultatelor experimentale, iar modelele ierarhice Bayesiene (exercițiul 6.2) sunt utilizate pe scară largă în industrie.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Exercițiul 6.2 este direct aplicabil la estimarea performanței școlilor (sau spitalelor): datele individuale sunt zgomotoase (σ² mare), dar modelul ierarhic împrumută informație între școli, producând estimări mai stabile prin shrinkage către media globală.</p></div>
+  </div>
+</div>

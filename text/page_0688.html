@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Filtrul Gaussian cu Suma pentru SLDS: GPB2 si IMM</h2>
+  <p>Pagina detaliaza doua metode ADF specifice pentru SLDS: filtrul pseudo-Bayes generalizat de ordinul doi (GPB2) si filtrul cu modele multiple interactive (IMM).</p>
+  <div class="figure-box"><strong>Figura 18.13:</strong> ADF pentru un sistem liniar dinamic cu comutare. (a) Metoda GPB2: fiecare componenta a mixturii din pasul anterior este trecuta prin fiecare filtru, apoi componentele sunt fuzionate per mod. (b) Metoda IMM: mai intai se fuzioneaza componentele, apoi se aplica fiecare filtru.</div>
+  <div class="definition-box"><strong>Filtrul Gaussian cu suma (Gaussian sum filter):</strong> Aproximeaza starea de credinta la fiecare pas ca o mixtura de K Gaussiene, ruland K filtre Kalman in paralel. Starea de credinta: b_{t-1}^i = π_{t-1,i} N(z_{t-1}|μ_{t-1,i}, Σ_{t-1,i}) (ec. 18.134).</div>
+  <div class="highlight-box"><strong>GPB2:</strong> Ruleaza K² filtre la fiecare pas: b_t^{ij} = π_{ij} N(z_t|μ_{t,ij}, Σ_{t,ij}) (ec. 18.135), apoi colapeseaza cele K mixturi Gaussiene intr-o singura Gaussiana per mod j: b_t^j = π_{tj} N(z_t|μ_{t,j}, Σ_{t,j}) (ec. 18.136).</div>
+  <div class="highlight-box"><strong>Marginalizarea slaba (Weak marginalization):</strong> Aproximarea optima a unei mixturi de Gaussiene cu o singura Gaussiana se obtine prin potrivirea momentelor: μ = Σ_k π_k μ_k (ec. 18.137), Σ = Σ_k π_k (Σ_k + (μ_k − μ)(μ_k − μ)^T) (ec. 18.138).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>GPB2 si IMM sunt doua abordari complementare pentru gestionarea exploziei de moduri in SLDS. GPB2 ruleaza K² filtre si fuzioneaza dupa filtrare, in timp ce IMM fuzioneaza inainte de filtrare, ruland doar K filtre. IMM este mai eficient dar mai putin precis.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Marginalizarea slaba pastreaza primele doua momente ale mixturii originale. Compromisul GPB2 vs IMM reflecta dilema generala intre acuratete si eficienta. Ambele metode mentin un numar fix de componente Gaussiene, evitand cresterea exponentiala.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>IMM este standardul in urmarirea tintelor in sistemele radar militare si civile. GPB2 este utilizat in aplicatii unde precizia este critica, cum ar fi navigatia de precizie si controlul proceselor chimice cu moduri de operare multiple.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In controlul traficului aerian, filtrul IMM urmareste fiecare aeronava folosind multiple modele de miscare (zbor rectiliniu, viraj coordonat, accelerare). Filtrul comuta automat intre modele pe baza observatiilor radar, oferind urmarire robusta in toate fazele de zbor.</p></div>
+  </div>
+</div>

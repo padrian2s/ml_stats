@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Estimarea parametrilor kernelului prin verosimilitatea marginala</h2>
+  <p>Aceasta pagina prezinta optimizarea hiperparametrilor GP prin maximizarea verosimilitatii marginale, incluzand derivarea gradientului si exemplul cu minime locale.</p>
+  <div class="definition-box"><strong>Verosimilitatea marginala:</strong> log p(y|X) = -1/2 * y^T K_y^{-1} y - 1/2 * log|K_y| - N/2 * log(2*pi), unde primul termen este potrivirea datelor, al doilea este complexitatea modelului, si al treilea este o constanta.</div>
+  <div class="highlight-box"><strong>Gradientul verosimilitatii marginale:</strong> d/d(theta_j) log p(y|X) = 1/2 * tr((alpha*alpha^T - K_y^{-1}) * dK_y/d(theta_j)), unde alpha = K_y^{-1}y. Complexitatea computationala este O(N^3) pentru inversarea matricei si O(N^2) per hiperparametru.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Estimarea hiperparametrilor kernelului se face prin maximizarea verosimilitatii marginale (empirical Bayes). Log-verosimilitatea marginala contine un compromis natural intre potrivirea datelor (y^T K_y^{-1} y) si complexitatea modelului (log|K_y|). Scale de lungime scurte dau potrivire buna dar complexitate mare, iar scale de lungime lungi dau complexitate mica dar potrivire slaba.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul automat bias-varianta din verosimilitatea marginala este o proprietate remarcabila a GP: nu necesita validare incrucisata pentru selectia modelului. Totusi, functia obiectiv nu este convexa si poate avea minime locale, ceea ce face optimizarea dependenta de initializare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, se optimizeaza log-transformarile hiperparametrilor (de ex. theta = log(sigma_y^2)) pentru a asigura constrangerile de pozitivitate. Optimizatori gradient-based standard (L-BFGS, gradient conjugat) sunt folositi frecvent.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In optimizarea Bayesiana a hiperparametrilor retelelor neurale, GP-ul folosit ca model surogat trebuie sa-si optimizeze propriii hiperparametri. Verosimilitatea marginala permite acest lucru fara a sacrifica date pentru validare.</p></div>
+  </div>
+</div>

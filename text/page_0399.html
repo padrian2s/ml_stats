@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Variante Avansate ale EM: Variational, Monte Carlo si Generalizat</h2>
+  <p>Pagina descrie trei variante importante ale EM: EM variational (pentru pasul E intractabil), Monte Carlo EM (MCEM) si EM generalizat (GEM), plus ilustratia comportamentului EM variational.</p>
+  <div class="definition-box"><strong>EM Variational:</strong> Cand posteriorul exact p(z_i|x_i, theta^t) este intractabil, se foloseste o aproximare q care maximizeaza o limita inferioara a log-verosimilitudinii. Pasul M continua sa creasca monoton aceasta limita inferioara.</div>
+  <div class="definition-box"><strong>Monte Carlo EM (MCEM):</strong> Aproximeaza statisticile suficiente asteptate prin esantioane din posterior: z_i^s ~ p(z_i|x_i, theta^t). EM stocastic foloseste un singur esantion. Aproximarea stocastica EM combina esantionarea cu actualizari partiale.</div>
+  <div name="definition-box"><strong>EM Generalizat (GEM):</strong> Cand pasul M nu poate fi rezolvat exact, se efectueaza doar o crestere partiala a log-verosimilitudinii complete asteptate (de exemplu, cativa pasi de gradient). Convergenta monotona ramane garantata.</div>
+  <div class="highlight-box"><strong>Figura 11.18:</strong> (a) Limita inferioara si log-verosimilitatea cresc impreuna - comportament ideal. (b) Limita inferioara creste dar log-verosimilitatea poate scadea - efect de regularizare al aproximarii variationale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Aceasta pagina completeaza panorama variantelor EM. EM variational relaxeaza cerinta de posterior exact, MCEM foloseste esantionarea pentru a aproxima pasul E, iar GEM relaxeaza cerinta de maximizare exacta in pasul M. Fiecare varianta extinde aplicabilitatea EM la modele mai complexe, cu compromisuri diferite intre exactitate si eficienta computationala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Principiul comun al tuturor variantelor: relaxarea unei cerinte stricte (posterior exact, maximizare exacta) mentinand totusi o garantie de crestere. Figura 11.18(b) arata un fenomen interesant: aproximarea poate avea efect regularizant, impiedicand overfitting-ul.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>EM variational este fundamentul VAE (Variational Autoencoders), una dintre cele mai populare arhitecturi generative in deep learning. MCEM este folosit in modele ierarhice Bayesiene complexe unde posteriorul nu are forma inchisa.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea topicurilor cu LDA, pasul E exact este intractabil (combinatorica exponentiala), asa ca se foloseste inferenta variationala sau esantionare Gibbs - ambele cazuri speciale ale variantelor EM discutate aici.</p></div>
+  </div>
+</div>

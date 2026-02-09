@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Inferenta exacta ca problema de optimizare variationala</h2>
+  <p>Aceasta pagina formuleaza inferenta exacta ca o problema de optimizare variationala, introducand functionala de energie si relatia cu log-partitia.</p>
+  <div class="definition-box"><strong>Functionala de energie:</strong> L(q) = -KL(q||p) + log Z = E_q[log p_tilde(x)] + H(q) <= log Z, unde egalitatea are loc cand q = p. Inferenta exacta corespunde maximizarii lui L(q).</div>
+  <div class="definition-box"><strong>Formularea cu parametri medii:</strong> max_{mu in M(G)} theta^T * mu + H(mu), unde theta^T * mu este termenul de energie si H(mu) este entropia. Solutia optima da log Z(theta).</div>
+  <div class="highlight-box"><strong>Aproximari ale politopului:</strong> M_F(G) este o aproximare interioara neconvexa (mean field). L(G) este o aproximare exterioara cu mai putine fete dar mai multi vertecsi decat M(G). Diferitele metode de inferenta aproximativa corespund diferitelor relaxari ale politopului si/sau aproximari ale entropiei.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta poate cea mai eleganta perspectiva asupra inferentei: maximizarea theta^T*mu + H(mu) peste politopul marginal M(G). Obiectivul este concav (suma de liniar si concav), iar multimea este convexa, deci problema are un optim unic. Din pacate, M(G) are exponential de multe fete, facand optimizarea intractabila in general.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Toate metodele de inferenta aproximativa pot fi vazute ca aproximari ale acestei probleme de optimizare: fie relaxand politopul (LBP, LP relaxation), fie aproximand entropia (Bethe, mean field), fie ambele. Aceasta perspectiva unificatoare este datorata lui Wainwright si Jordan.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea inferentei ca optimizare permite importul tehnicilor din optimizarea convexa si combinatorie, cum ar fi relaxari semidefinite sau metode de subgradient.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In proiectarea retelelor de telecomunicatii, unde se optimizeaza alocarea resurselor cu constrangeri complexe, formularea variationala permite aplicarea solverilor de optimizare convexa eficienti.</p></div>
+  </div>
+</div>

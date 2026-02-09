@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>10.2 Exemple de DGM-uri: Naive Bayes si Clasificatoare Augmentate cu Arbori</h2>
+  <p>Pagina prezinta factorizarea distributiei comune intr-un DGM, clasificatorul Naive Bayes si clasificatorul TAN (Tree-Augmented Naive Bayes) ca exemple de modele grafice directionate.</p>
+  <div class="figure-box"><strong>Figura 10.2(a):</strong> Clasificatorul Naive Bayes reprezentat ca DGM cu D = 4 trasaturi. Nodul Y (clasa, neobservat/deschis) este parintele nodurilor X_1, X_2, X_3, X_4 (trasaturi observate/umbrite).</div>
+  <div class="figure-box"><strong>Figura 10.2(b):</strong> Clasificatorul TAN (Tree-Augmented Naive Bayes) pentru D = 4 trasaturi. Pe langa arcele de la Y la fiecare X_i, exista arce suplimentare intre trasaturi formand un arbore, capturand corelatiile dintre ele.</div>
+  <div class="highlight-box"><strong>Factorizarea DGM pentru DAG-ul din Figura 10.1(a) (10.5-10.6):</strong> p(x_{1:5}) = p(x_1) p(x_2|x_1) p(x_3|x_1) p(x_4|x_2, x_3) p(x_5|x_3), dupa aplicarea presupunerilor CI codificate in DAG.</div>
+  <div class="highlight-box"><strong>Factorizarea generala a DGM (10.7):</strong> p(x_{1:V}|G) = ∏_{t=1}^{V} p(x_t|x_{pa(t)}), unde pa(t) sunt parintii nodului t in DAG.</div>
+  <div class="highlight-box"><strong>Clasificatorul Naive Bayes (10.8):</strong> p(y, x) = p(y) ∏_{j=1}^{D} p(x_j|y), presupunand independenta conditionata a trasaturilor date clasa.</div>
+  <div class="definition-box"><strong>TAN (Tree-Augmented Naive Bayes):</strong> Extensie a Naive Bayes care adauga un arbore intre trasaturi pentru a capta corelatii. Structura optima a arborelui se gaseste cu algoritmul Chow-Liu.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Factorizarea distributiei comune intr-un DGM reduce drastic numarul de parametri: de la O(K^V) la O(VK^F), unde F este numarul maxim de parinti per nod. Clasificatorul Naive Bayes este cel mai simplu DGM de clasificare, dar presupunerea de independenta conditionata este adesea prea restrictiva. TAN relaxeaza aceasta presupunere prin adaugarea unui arbore de dependente intre trasaturi.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distributia este scrisa ca p(x|G) pentru a sublinia ca factorizarea depinde de structura DAG-ului G. Fiecare termen p(x_t|x_{pa(t)}) este o distributie de probabilitate conditionata (CPD). Numarul total de parametri depinde de structura grafului, nu doar de numarul de variabile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Naive Bayes este folosit extensiv in filtrarea de spam, clasificarea textelor si diagnosticare simpla. TAN ofera un compromis bun intre simplitatea Naive Bayes si complexitatea modelelor grafice complete, fiind usor de antrenat si eficient computational.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In clasificarea email-urilor ca spam/non-spam, Naive Bayes presupune ca prezenta cuvintelor "gratuit" si "oferta" este independenta dat fiind ca email-ul este spam. TAN ar putea capta ca aceste doua cuvinte tind sa apara impreuna, imbunatatind precizia clasificarii.</p></div>
+  </div>
+</div>

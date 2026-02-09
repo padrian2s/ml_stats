@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Slabiciunea VE si introducerea algoritmului Junction Tree</h2>
+  <p>Aceasta pagina discuta limitarile VE (ineficienta la interogari multiple) si introduce algoritmul junction tree (JTA) ca solutie.</p>
+  <div class="definition-box"><strong>Slabiciunea VE:</strong> VE este ineficient cand trebuie sa calculeze toate marginalele p(x_t|v) pentru t=1,...,T, deoarece necesita O(K^2 T^2) operatii (VE separat pentru fiecare variabila). BP pe arbori rezolva acest lucru in O(DK^2) prin memorarea mesajelor.</div>
+  <div class="definition-box"><strong>Algoritmul Junction Tree (JTA):</strong> Generalizeaza BP de la arbori la grafuri arbitrare. Ideea de baza: se ruleaza VE "simbolic" (adaugand muchii de umplere), se obtine un graf chordal, se extrag clicile maximale si se construieste un arbore al clicilor.</div>
+  <div class="highlight-box"><strong>Treewidth si complexitate:</strong> Lanturile si arborii au treewidth 1, deci inferenta exacta este O(VK^2). Retelele 2D de m×n au treewidth O(min{m,n}), deci o retea Ising 100×100 ar necesita O(2^100) operatii - intractabil.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>VE este eficient pentru o singura interogare dar ineficient pentru interogari multiple, deoarece nu reutilizeaza rezultatele intermediare. BP pe arbori rezolva aceasta problema prin memorarea mesajelor (forward-backward). JTA generalizeaza aceasta idee la grafuri arbitrare prin transformarea grafului intr-un arbore de clici. Complexitatea depinde de treewidth-ul grafului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Memoria vs recalculare: VE recalculeaza, BP memoreaza. JTA combina generalitatea VE cu eficienta BP. Treewidth-ul determina fezabilitatea: arbori si lanturi (w=1) sunt tractabile, retele 2D (w=O(n)) devin rapid intractabile.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>JTA este implementat in sisteme comerciale de inferenta (HUGIN, Netica, GeNIe). Este algoritmul standard pentru inferenta exacta in retele Bayesiene cu treewidth moderat (< 20-30).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-un sistem de diagnostic medical cu 50 de simptome si 20 de boli, JTA poate calcula eficient toate probabilitatile posterioare ale bolilor (20 de interogari) intr-o singura trecere, in loc de 20 de rulari VE separate.</p></div>
+  </div>
+</div>

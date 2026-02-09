@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Conexiunea GP cu modele liniare si alte metode</h2>
+  <p>Aceasta pagina compara GP cu regresia liniara Bayesiana, aratand ca aceasta din urma este echivalenta cu un GP cu functie de covarianta degenerata.</p>
+  <div class="definition-box"><strong>Functie de covarianta degenerata:</strong> kappa(x, x') = x^T Sigma x', obtinuta din regresia liniara Bayesiana cu prior p(w) = N(0, Sigma). Are cel mult D valori proprii nenule, limitand flexibilitatea modelului.</div>
+  <div class="highlight-box"><strong>Echivalenta regresie liniara - GP:</strong> Regresia liniara Bayesiana cu K = X Sigma X^T este echivalenta cu un GP avand covarianta kappa(x,x') = x^T Sigma x'. Aceasta permite 'kernelizarea' prin inlocuirea produsului scalar cu o functie kernel arbitrara.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 15.4 stabileste conexiuni intre GP si alte metode. Regresia liniara Bayesiana este un caz particular de GP cu kernel degenerat. Trasaturile apar doar in combinatii de tip X Sigma X^T, x_*^T Sigma x_* sau x_*^T Sigma X^T, ceea ce permite kernelizarea directa. Totusi, kernelul degenerat limiteaza expresivitatea si poate produce supraincredere.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Diferenta fundamentala intre GP si modelele liniare: kernelul GP poate fi non-degenerat (rang infinit), permitand reprezentarea oricarei functii din spatiul RKHS. Modelul liniar, chiar si kernelizat, este limitat de dimensionalitatea D a spatiului trasaturilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceasta echivalenta justifica teoretic utilizarea kernel trick-ului in SVM si alte metode kernel. In practica, GP cu kerneluri non-degenerate (SE, Matern) sunt preferabile modelelor liniare kernelizate cand flexibilitatea si calibrarea incertitudinii sunt importante.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza sentimentului textelor, un model liniar cu kernel bag-of-words (degenerat) poate fi comparat cu un GP cu kernel de similaritate semantica, unde GP-ul captureaza relatii non-liniare intre cuvinte pe care modelul liniar le pierde.</p></div>
+  </div>
+</div>

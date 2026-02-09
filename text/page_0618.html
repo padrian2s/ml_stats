@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Exercitii Capitolul 16 - Regresie non-liniara pentru dinamica inversa</h2>
+  <p>Aceasta pagina prezinta exercitiul 16.1 care compara diverse metode de regresie non-liniara pe datele SARCOS de dinamica inversa a unui brat robotic.</p>
+  <div class="definition-box"><strong>SMSE (Standardized Mean Squared Error):</strong> SMSE = (1/N_test sum(y_i - y_hat_i)^2) / sigma^2, unde sigma^2 este varianta output-ului pe setul de antrenament. Permite compararea intre seturi de date cu scale diferite.</div>
+  <div class="highlight-box"><strong>Exercitiul practic:</strong> Se compara regresie liniara (SMSE ~ 0.075), retea RBF cu K-means (SMSE tinta ~ 0.011, ca GP), si MLP feedforward cu L2 regularizare. Datele SARCOS au 48,933 exemple de antrenament cu 21 intrari (pozitie, viteza, acceleratie) si 7 iesiri (cuplu).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiul 16.1 este o aplicatie practica completa: se compara regresie liniara, retea RBF (cu centre din K-means si bandwidth din CV), si MLP (cu selectia H si alpha prin CV) pe problema de dinamica inversa. Maparea x -> y este puternic non-liniara, deci modelele non-liniare ar trebui sa depaseasca semnificativ regresia liniara.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Datele SARCOS sunt un benchmark clasic pentru regresie non-liniara: 21D intrare, mapare foarte non-liniara, suficiente date pentru antrenament. Regresia GP obtine SMSE ~ 0.011, oferind o tinta pentru alte metode. Exercitiul subliniaza importanta standardizarii intrarilor si centarii iesirilor.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Dinamica inversa este fundamentala in controlul robotic: dat fiind traiectoria dorita a bratului, se calculeaza fortele/cuplurile necesare. Modelele invatate din date pot inlocui sau completa modelele fizice, special cand parametrii fizici nu sunt precis cunoscuti.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In robotica industriala, modelele de dinamica inversa invatate prin ML permit miscari mai precise si mai fluide ale bratelor robotice, reducand uzura mecanica si imbunatatind productivitatea in linii de asamblare.</p></div>
+  </div>
+</div>

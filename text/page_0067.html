@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Capitolul 2: Aplicatia la Motive ADN si Secvente Logo</h2>
+  <p>Aplicarea distributiei multinomiale la analiza secventelor ADN, motive de secventa si secvente consens.</p>
+  <div class="definition-box"><strong>Analiza Biosecventelor:</strong> Aplicarea modelelor probabilistice multinomiale la secventele ADN aliniate, modelind distributia nucleotidelor (A, C, G, T) la fiecare pozitie.</div>
+  <div class="definition-box"><strong>Motiv de Secventa (Sequence Motif):</strong> Distributia empirica de probabilitate θ_hat_t la fiecare pozitie t intr-un set de secvente ADN aliniate, obtinuta prin normalizarea vectorului de contorizari N_t.</div>
+  <div class="definition-box"><strong>Secventa Consens (Consensus Sequence):</strong> Litera cea mai probabila la fiecare pozitie, formand secventa "tipica" a motivului.</div>
+  <div class="definition-box"><strong>Sequence Logo:</strong> Vizualizare a motivelor ADN unde fiecare litera (A, C, G, T) este desenata cu o dimensiune proportionala cu probabilitatea sa empirica, cu litera cea mai probabila in varf.</div>
+  <div class="figure-box"><strong>Figura 2.5:</strong> (a) Secvente ADN aliniate cu 10 randuri si 15 coloane. Unele coloane sunt conservate de evolutie (de exemplu, coloana 7 contine doar G). (b) Sequence logo corespunzator, aratand importanta relativa a fiecarei nucleotide la fiecare pozitie.</div>
+  <div class="highlight-box"><strong>Estimarea Motivului:</strong> N_t = (Σ I(X_it=1), Σ I(X_it=2), Σ I(X_it=3), Σ I(X_it=4)) (ecuatia 2.37); θ_hat_t = N_t/N (ecuatia 2.38).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Sectiunea 2.3.2.1 aplica distributia multinoulli la analiza secventelor ADN. Fiecare pozitie intr-un set de secvente aliniate este modelata ca o variabila categorica cu 4 stari (A, C, G, T). Estimarea empirica a distributiei la fiecare pozitie formeaza un motiv, vizualizat ca sequence logo.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Pozitiile conservate (unde o nucleotida domina) indica regiuni functionale importante, conservate de selectia naturala. Sequence logo-urile sunt un instrument standard in bioinformatica. Aceasta aplicatie demonstreaza cum un model probabilistic simplu (multinoulli la fiecare pozitie) poate revela structura biologica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Motivele de secventa sunt folosite in bioinformatica pentru: identificarea siturilor de legare a factorilor de transcriptie, descoperirea promotorilor genici, anotarea functionala a genomului si proiectarea de sonde pentru experimente de biologie moleculara.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un cercetator in genomica poate alinia 100 de secvente ADN din regiuni promotoare ale genelor si crea un sequence logo. Daca observa ca pozitia 7 contine aproape exclusiv G, aceasta sugereaza ca G la acea pozitie este esential pentru functia promotorului, posibil un sit de legare pentru un factor de transcriptie specific.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Sectiunea 27.2 - LVM-uri cu Stari Distribuite pentru Date Discrete</h2>
+  <p>Pagina prezinta modelele cu variabile latente distribuite pentru date discrete, incepand cu modelele de mixtura si introducand conceptul de topic.</p>
+  <div class="definition-box"><strong>Model de mixtura pentru documente:</strong> Fiecare document i are o variabila latenta discreta q_i ∈ {1,...,K} (topicul). Verosimilitatea: p(y_{i,1:L_i}|q_i=k) = Π_{l=1}^{L_i} Cat(y_il|b_k), unde b_k este distributia de cuvinte pentru topicul k. (Ecuatia 27.1)</div>
+  <div class="definition-box"><strong>Topic:</strong> Valoarea variabilei latente q_i, reprezentand categoria sau tema unui document. Vectorul b_k este distributia de cuvinte asociata topicului k.</div>
+  <div class="highlight-box"><strong>Distributia pe date vizibile:</strong> p(y_{i,1:L_i}) = Σ_k π_k [Π_{l=1}^{L_i} Cat(y_il|b_k)] (Ecuatia 27.2). Povestea generativa: alege un topic k din π, apoi genereaza fiecare cuvant din distributia b_k.</div>
+  <div class="highlight-box"><strong>Modele alternative:</strong> Pentru vectori de contorizare cu L_i cunoscut: multinomiala p(n_i|L_i, q_i=k) = Mu(n_i|L_i, b_k) (Ecuatia 27.4). Cu L_i necunoscut: Poisson p(n_i|q_i=k) = Π_v Poi(n_iv|λ_vk) (Ecuatia 27.5).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelele de mixtura sunt cea mai simpla abordare: fiecare document apartine unui singur topic. Distributia pe date vizibile este o mixtura de categoriale/multinomiale. Se pot folosi diferite distributii de verosimilitate: categorica (pentru secvente), multinomiala (contorizari cu lungime cunoscuta) sau Poisson (lungime necunoscuta).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Modelul de mixtura este analog nesupravegheiat al clasificarii naive Bayes: fiecare document are un singur topic (hard clustering), iar cuvintele sunt conditionate independent dat fiind topicul. Aceasta este o limitare importanta - in realitate, documentele acopera adesea mai multe teme.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele de mixtura pentru documente sunt utilizate in: gruparea automatica a documentelor, descoperirea temelor in colectii de texte, clasificarea e-mailurilor (spam vs. non-spam fara etichete) si analiza exploratorie a corpusurilor mari de text.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Intr-o colectie de stiri, modelul de mixtura ar putea descoperi topicuri precum: sport (cuvinte frecvente: echipa, meci, gol), politica (guvern, alegeri, presedinte) si tehnologie (calculator, internet, software). Fiecare articol este atribuit unui singur topic.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Aplicatii CRF: segmentarea sintagmelor nominale (NP chunking)</h2>
+  <p>Aceasta pagina descrie aplicarea CRF-urilor la segmentarea sintagmelor nominale si etichetarea POS folosind notatia BIO si CRF-uri multi-strat.</p>
+  <div class="definition-box"><strong>NP chunking (segmentarea sintagmelor nominale):</strong> Sarcina de a segmenta o propozitie in sintagme nominale distincte. Se foloseste notatia BIO: B (inceput de NP), I (in interiorul NP), O (in afara NP).</div>
+  <div class="definition-box"><strong>CRF multi-strat:</strong> Un CRF cu doua niveluri de etichete: etichetele POS (parte de vorbire) si etichetele NP/BIO. Modelul comun p(NP_{1:T}, POS_{1:T} | words_{1:T}) captureaza dependentele intre cele doua niveluri de analiza.</div>
+  <div class="highlight-box"><strong>Abordare pipeline vs model comun:</strong> Abordarea pipeline (POS tagging urmat de NP chunking) poate propaga erori. Modelul comun (CRF multi-strat) evita aceasta problema prin optimizarea simultana a ambelor niveluri de etichete.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>NP chunking este o forma simpla de parsare superficiala. CRF-ul multi-strat modeleaza simultan etichetele POS si NP, evitand propagarea erorilor dintr-un pipeline secvential. Trasaturile sunt de obicei inginerite manual (majuscule, sufixe, pozitia in propozitie) si pot fi foarte numeroase (~1000-10000 per nod) fara a afecta semnificativ viteza de inferenta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Notatia BIO rezolva ambiguitatea segmentarii: B distinge inceputul unui NP nou de continuarea unuia existent (B I vs I I). Modelul comun este mai robust decat pipeline-ul dar mai costisitor computational. CRF-ul de tip "fat chain" (lant gros) permite inferenta exacta in O(T|POS|^2|NP|^2).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>NP chunking este un pas intermediar in extragerea de informatii, raspunsul la intrebari si rezumarea automata. CRF-urile multi-strat sunt folosite in sisteme de procesare a limbajului natural end-to-end.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In propozitia "[British Airways] rose after announcing [its withdrawal] from [the UAI deal]", CRF-ul identifica simultan ca "British" este adjectiv (POS) si incepe o sintagma nominala (B-NP), folosind informatii contextuale din ambele niveluri.</p></div>
+  </div>
+</div>

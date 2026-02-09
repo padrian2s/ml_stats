@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Distributia Normal-Inverse-Wishart (NIW) ca prior conjugat</h2>
+  <p>Aceasta pagina introduce distributia Normal-Inverse-Wishart (NIW) ca prior conjugat pentru inferenta parametrilor unei distributii Gaussiene multivariate cand atat media cat si matricea de covarianta sunt necunoscute.</p>
+  <div class="definition-box"><strong>Distributia NIW:</strong> NIW(&mu;, &Sigma; | m_0, &kappa;_0, &nu;_0, S_0) = N(&mu; | m_0, &Sigma;/&kappa;_0) x IW(&Sigma; | S_0, &nu;_0). Combina o distributie Gaussiana pentru medie (conditionata de covarianta) cu o distributie Inverse-Wishart pentru matricea de covarianta.</div>
+  <div class="highlight-box"><strong>Interpretarea parametrilor NIW:</strong> m_0 este media prior pentru &mu;; &kappa;_0 masoara cat de puternic credem in aceasta medie; S_0 este (proportional cu) priorul pentru &Sigma;; &nu;_0 masoara cat de puternic credem in acest prior pentru covarianta.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Distributia NIW este priorul conjugat natural pentru modelul Gaussian multivariat cu parametri necunoscuti. Pagina prezinta formulele detaliate ale densitatii NIW si constanta de normalizare Z_NIW. Se discuta si priorul neinformativ improper, care are forma NIW(&mu;, &Sigma; | 0, 0, 0, 0I), si recomandarea practica de a utiliza priori slab informative bazate pe date.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Priorul NIW are patru parametri, dar in realitate doar trei grade de libertate, deoarece incertitudinea asupra mediei este proportionala cu varianta. 2) Priorul neinformativ improper se obtine cand &kappa;_0 tinde la 0. 3) O alegere practica comuna pentru priorul slab informativ: S_0 = diag(S_x)/N, &nu;_0 = D + 2, &mu;_0 = media esantionului, &kappa;_0 mic (ex: 0.01).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Priorul NIW este esential in modelele de amestec Gaussian (GMM) cu inferenta Bayesiana, in analiza discriminanta Bayesiana, si in orice model unde trebuie estimata o distributie Gaussiana multivariata cu incertitudine asupra parametrilor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea de imagini medicale, fiecare tip de tesut este modelat ca o distributie Gaussiana multivariata (peste intensitatile de culoare). Priorul NIW permite incorporarea cunostintelor anterioare despre distributia tipica a intensitatilor pentru fiecare tip de tesut, fiind crucial cand avem putine date de antrenament etichetate.</p></div>
+  </div>
+</div>

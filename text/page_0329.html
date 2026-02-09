@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>9.6 Modele Liniare Mixte Generalizate</h2>
+  <p>Pagina introduce modelele liniare mixte generalizate (GLMM), care extind invatarea multi-task prin includerea informatiei atat la nivel de grup cat si la nivel individual, combinand efecte fixe si aleatoare.</p>
+  <div class="definition-box"><strong>Model liniar mixt generalizat (GLMM):</strong> Model in care E[y_ij|x_ij, x_j] = g(φ_1(x_ij)^T β_j + φ_2(x_j)^T β'_j + φ_3(x_ij)^T α + φ_4(x_j)^T α'), unde φ_k sunt functii de baza, β_j sunt efecte aleatoare si α sunt efecte fixe.</div>
+  <div class="definition-box"><strong>Efecte aleatoare:</strong> Termenii β_j care variaza aleator intre grupuri. In statistica frecventista, acestia sunt numiti efecte aleatoare.</div>
+  <div class="definition-box"><strong>Efecte fixe:</strong> Termenii α care sunt constanti dar necunoscuti, partajati intre toate grupurile.</div>
+  <div class="definition-box"><strong>Model mixt:</strong> Un model care combina atat efecte fixe cat si efecte aleatoare. Daca p(y|x) este un GLM, modelul se numeste GLMM.</div>
+  <div class="definition-box"><strong>Model semi-parametric:</strong> Model care combina regresia liniara cu regresia non-parametrica, folosit cand relatia dintre variabile nu este strict liniara.</div>
+  <div class="highlight-box"><strong>Modelul GLMM (9.114):</strong> E[y_ij|x_ij, x_j] = g(φ_1(x_ij)^T β_j + φ_2(x_j)^T β'_j + φ_3(x_ij)^T α + φ_4(x_j)^T α').</div>
+  <div class="highlight-box"><strong>Exemplu medical (9.115-9.116):</strong> E[y_ij|x_ij, x_j] = β_j + α^T b(x_ij) + ε_ij + α'_w I(x_j=w) + α'_a I(x_j=a) + α'_b I(x_j=b) + α'_h I(x_j=h), pentru densitatea minerala osoasa spinala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelele liniare mixte generalizate (GLMM) extind cadrul invatarii multi-task prin permiterea raspunsului sa includa informatii atat la nivel de grup cat si la nivel individual. Efectele aleatoare (β_j) variaza intre grupuri, iar efectele fixe (α) sunt partajate. Exemplul medical analizeaza densitatea minerala osoasa spinala in functie de varsta si etnie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Separarea efectelor fixe si aleatoare permite modelarea flexibila a structurii ierarhice a datelor. Functiile de baza φ_k permit capturarea relatiilor non-liniare. Numarul parametrilor β_j creste cu numarul de grupuri, in timp ce dimensiunea lui α ramane fixa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>GLMM-urile sunt utilizate pe scara larga in cercetarea medicala (studii clinice cu mai multi pacienti), educatie (elevi in scoli diferite), ecologie (specii in habitate diferite) si stiinte sociale (indivizi in comunitati).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In exemplul din text, se analizeaza densitatea minerala osoasa spinala (SBMD) pentru patru grupuri etnice (alb, asiatic, negru, hispanic) in functie de varsta. Modelul semi-parametric captureaza efectul non-liniar al varstei folosind functii spline, in timp ce efectele fixe ale etniei sunt modelate prin variabile indicator.</p></div>
+  </div>
+</div>

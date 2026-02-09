@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Bayes Empiric: Modelele Beta-Binomial si Gaussiana-Gaussiana</h2>
+  <p>Pagina prezinta aplicarea Bayes Empiric la modelul Beta-Binomial (ratele de cancer) si introduce modelul Gaussiana-Gaussiana pentru date continue din grupuri multiple.</p>
+  <div class="definition-box"><strong>Bayes Empiric (EB):</strong> η_hat = argmax_η p(D|η) = argmax_η [∫ p(D|θ)p(θ|η)dθ] (Ecuatia 5.79). Se optimizeaza hiperparametrii prin maximizarea verosimilitatii marginale.</div>
+  <div class="highlight-box"><strong>Verosimilitatea marginala Beta-Binomial:</strong> p(D|a,b) = ∏ᵢ ∫ Bin(xᵢ|Nᵢ,θᵢ)Beta(θᵢ|a,b)dθᵢ = ∏ᵢ B(a+xᵢ, b+Nᵢ-xᵢ)/B(a,b) (Ecuatiile 5.80-5.81)</div>
+  <div class="highlight-box"><strong>Modelul Gaussiana-Gaussiana:</strong> p(θ, D|η, σ²) = ∏ⱼ N(θⱼ|μ, τ²) ∏ᵢ N(xᵢⱼ|θⱼ, σ²) (Ecuatia 5.82), unde θⱼ este media grupului j, η = (μ, τ) sunt hiperparametrii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>EB pentru modelul Beta-Binomial: se maximizeaza verosimilitatea marginala ∏ᵢ B(a+xᵢ, b+Nᵢ-xᵢ)/B(a,b) in functie de (a,b). Dupa estimarea (a_hat, b_hat), se calculeaza posterioara p(θᵢ|a_hat, b_hat, D) prin analiza conjugata obisnuita. Modelul Gaussiana-Gaussiana este analogul continuu: scorurile xᵢⱼ ale studentilor din scoala j au media θⱼ, iar θⱼ ~ N(μ, τ²).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Media posterioara a fiecarui θᵢ este o medie ponderata intre MLE-ul local si media prior-ului. Ponderile depind de η = (a,b), iar η este estimat din toate datele. Aceasta creeaza un flux indirect de informatie intre grupuri, fara a presupune ca sunt identice.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelul Gaussiana-Gaussiana este fundamentul analizei de varianta bayesiene (Bayesian ANOVA) si al modelelor cu efecte aleatoare folosite extensiv in cercetarea educationala si medicala.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Estimarea scorurilor la teste per scoala: scoala j are Nⱼ studenti cu medie x_bar_j. Cu model ierarhic, scolile mici (Nⱼ mic) sunt contractate catre media generala μ, in timp ce scolile mari pastreaza estimari apropiate de x_bar_j.</p></div>
+  </div>
+</div>

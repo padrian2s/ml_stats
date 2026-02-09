@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Tabelul metodelor de inferenta si introducerea inferentei aproximative</h2>
+  <p>Aceasta pagina prezinta un tabel rezumativ al metodelor de inferenta si introduce necesitatea inferentei aproximative.</p>
+  <div class="definition-box"><strong>Tabelul 20.4 - Metode de inferenta:</strong> Forward-backward (lanturi, D/LG), Belief propagation (arbori, D/LG), Eliminarea variabilelor (treewidth mic, interogare singulara), JTA (treewidth mic, D/LG), Loopy BP (aproximativ, D/LG), Mean field (aproximativ, conjugat-exponential), Gibbs sampling (aproximativ).</div>
+  <div class="definition-box"><strong>Inferenta aproximativa:</strong> Metode care sacrifica exactitatea pentru fezabilitate computationala. Includ metode deterministe (loopy BP, convex BP, mean field) si metode stocastice (Gibbs sampling, MCMC). Cele mai multe nu ofera garantii formale de acuratete sau timp de executie.</div>
+  <div class="highlight-box"><strong>Intractabilitatea fundamentala:</strong> Inferenta exacta este #P-hard in general, chiar mai dificila decat NP. Nu exista scheme de aproximare in timp polinomial pentru modele grafice discrete generale. Totusi, metodele euristice functioneaza bine in practica pe multe probleme reale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Tabelul 20.4 ofera o vedere de ansamblu asupra peisajului metodelor de inferenta: exacte (forward-backward, BP, VE, JTA) si aproximative (loopy BP, mean field, Gibbs). Alegerea metodei depinde de structura grafului (treewidth), tipul variabilelor (discrete vs continue) si cerintele aplicatiei (marginals vs MAP). Intractabilitatea fundamentala motiveaza capitolele urmatoare despre inferenta aproximativa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia D (discret) vs LG (liniar-Gaussian) vs C-E (conjugat-exponential) determina ce metode sunt aplicabile. Estimarea MAP poate fi mai tractabila decat calculul marginalelor pentru anumite clase de modele. Metodele aproximative sunt euristici, nu algoritmi de aproximare cu garantii.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, alegerea metodei de inferenta este ghidata de structura problemei: lanturi -> forward-backward, arbori -> BP, grafuri mici -> JTA, grafuri mari -> loopy BP sau mean field, modele complexe -> MCMC.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In viziunea computationala, unde grafurile sunt tipic retele 2D (treewidth O(n)), inferenta exacta este intractabila. Se folosesc metode aproximative: loopy BP pentru denoising de imagini, graph cuts pentru segmentare, mean field pentru super-rezolutie.</p></div>
+  </div>
+</div>

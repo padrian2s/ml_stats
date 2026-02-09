@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Capitolul 3 - Modele Generative pentru Date Discrete: Introducere</h2>
+  <p>Pagina deschide capitolul 3, care tratează modele generative pentru date discrete, și introduce învățarea conceptelor Bayesiene ca exemplu motivator.</p>
+  <div class="definition-box"><strong>Clasificator generativ:</strong> p(y=c|x,θ) ∝ p(x|y=c,θ)·p(y=c|θ), unde p(x|y=c,θ) este densitatea condiționată de clasă care definește ce date așteptăm să vedem în fiecare clasă.</div>
+  <div class="definition-box"><strong>Învățarea conceptelor:</strong> Echivalentă cu clasificarea binară: f(x) = 1 dacă x ∈ C (concept), f(x) = 0 altfel. Scopul: învățarea funcției indicator f din exemple pozitive.</div>
+  <div class="highlight-box"><strong>Jocul numerelor (Tenenbaum):</strong> Se alege un concept C (ex: „număr prim", „putere a lui 2") și se dau exemple pozitive D = {x₁,...,x_N}. Sarcina: clasificarea unui nou număr x̃ ca aparținând sau nu conceptului C.</div>
+  <div class="definition-box"><strong>Teoria mulțimilor vagi:</strong> Permițând incertitudine în definiția conceptului C, putem emula teoria mulțimilor vagi (fuzzy set theory) folosind calcul probabilistic standard.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 3 abordează modelarea generativă pentru date discrete. Jocul numerelor al lui Tenenbaum demonstrează cum oamenii învață concepte din exemple pozitive, un comportament pe care modelele Bayesiene îl pot reproduce.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Modelele generative modelează distribuția datelor p(x|y), în contrast cu modelele discriminative care modelează direct p(y|x). Avantajul: pot genera date noi și gestionează mai bine datele lipsă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Învățarea conceptelor din puține exemple (few-shot learning) este esențială în robotică, unde robotul trebuie să învețe noi obiecte din doar câteva demonstrații.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un copil care învață cuvântul „câine" din câteva exemple pozitive (fără exemple negative explicite) realizează exact acest tip de învățare a conceptelor descris de Tenenbaum.</p></div>
+  </div>
+</div>

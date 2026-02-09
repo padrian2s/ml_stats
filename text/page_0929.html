@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Clustering diviziv si alegerea numarului de clustere</h2>
+  <p>Aceasta pagina prezinta clustering-ul diviziv (top-down), algoritmul bisecting K-means, analiza disimilaritatii si problema alegerii numarului de clustere in clustering-ul ierarhic.</p>
+  <div class="definition-box"><strong>Clustering diviziv:</strong> Abordare top-down: se incepe cu toate datele intr-un singur cluster si se divide recursiv. Exista 2^{N-1}-1 moduri de a diviza un grup de N elemente in doua.</div>
+  <div class="definition-box"><strong>Bisecting K-means:</strong> Se alege clusterul cu diametrul cel mai mare si se divide in doua folosind K-means cu K=2. Se repeta pana la numarul dorit de clustere.</div>
+  <div class="definition-box"><strong>Analiza disimilaritatii:</strong> Se calculeaza disimilaritatea medie a fiecarui punct i fata de restul grupului G, d_i^G. Se extrage cel mai disimilar punct si se muta in noul cluster H pana cand d_i^G - d_i^H < 0 pentru toti.</div>
+  <div class="highlight-box"><strong>Avantaje clustering diviziv:</strong> 1) Poate fi mai rapid (O(N) per nivel) daca se face un numar constant de niveluri. 2) Deciziile de separare se iau in contextul tuturor datelor, nu miopic ca in abordarea aglomerativa.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta alternativa top-down la clustering-ul aglomerativ. Bisecting K-means este simplu si rapid, dar euristic. Analiza disimilaritatii (Macnaughton-Smith et al. 1964) este mai principiala, mutand puncte de la G la H pana la echilibru. Alegerea numarului de clustere ramane dificila: dendrograma ofera vizual un "gap", dar pe date reale este greu de detectat.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Clustering-ul diviziv face decizii globale (vede toate datele), in timp ce cel aglomerativ face decizii locale (imbina cele mai apropiate doua grupuri). Aceasta diferenta poate duce la rezultate semnificativ diferite, mai ales pe date cu structura ierarhica complexa.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Bisecting K-means este popular in motoarele de cautare pentru organizarea rezultatelor in categorii ierarhice, deoarece este rapid si permite controlul numarului de niveluri. Analiza disimilaritatii este folosita in ecologie pentru clasificarea comunitatilor biologice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In organizarea automata a colectiilor de documente (de exemplu, brevete sau articole stiintifice), clustering-ul diviziv creeaza o taxonomie ierarhica: mai intai separa stiinta de inginerie, apoi subdivide in discipline, apoi in subdomenii specifice.</p></div>
+  </div>
+</div>

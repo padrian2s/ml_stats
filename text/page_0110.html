@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Naive Bayes Bayesian și Supraajustarea cu MLE</h2>
+  <p>Pagina discută problema supraajustării cu MLE în clasificatorul Naive Bayes și prezintă soluția Bayesiană cu priori factorizate.</p>
+  <div class="highlight-box"><strong>Problema supraajustării:</strong> Dacă un cuvânt (ex: „subject") apare în toate clasele cu θ_{jc}=1, un email fără acest cuvânt va primi p(y=c|x,θ̂) = 0 pentru ambele clase - o altă manifestare a paradoxului lebedei negre.</div>
+  <div name="definition-box"><strong>Priorul factorizat:</strong> p(θ) = p(π)·∏_j ∏_c p(θ_{jc}), cu Dir(α) pentru π și Beta(β₀,β₁) pentru fiecare θ_{jc}.</div>
+  <div class="highlight-box"><strong>Netezirea Laplace:</strong> Cu α=1 și β=1 (priori uniforme), se obține netezirea add-one, prevenind probabilități zero.</div>
+  <div class="figure-box"><strong>Algoritmul 3.1 (complet):</strong> Pseudocodul pentru antrenarea NBC este foarte simplu: inițializare numărătorilor, o trecere prin date, și normalizare. Complexitate O(ND).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MLE suferă de supraajustare când caracteristici apar cu frecvență 0 sau 1 în unele clase. Soluția Bayesiană adaugă pseudo-numărători prin priori Beta/Dirichlet, prevenind estimări extreme.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Supraajustarea în NBC se manifestă prin probabilități zero care „omoară" întregul produs. Un singur termen zero face predicția inutilizabilă - o problemă multiplicativă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Netezirea Laplace (add-one) este standard în toate implementările practice de NBC. Variante mai sofisticate (add-k, Good-Turing) sunt utilizate în modele de limbaj mari.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un clasificator de sentimente antrenat pe recenzii de produse: cuvântul „extraordinar" apare de 0 ori în recenziile negative de antrenament, dar fără netezire, o recenzie negativă care conține acest cuvânt ar fi imposibil de clasificat.</p></div>
+  </div>
+</div>

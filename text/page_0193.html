@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Efectul Prior-ului si Bayes Empiric</h2>
+  <p>Pagina discuta importanta prior-ului in calculul verosimilitatii marginale si introduce abordarea Bayes empiric ca scurtatura computationala pentru integrarea peste hiperparametri.</p>
+  <div class="definition-box"><strong>Efectul prior-ului:</strong> In inferenta posterioara, prior-ul este adesea copleist de verosimilitate. Dar in calculul verosimilitatii marginale, prior-ul joaca un rol crucial deoarece mediem verosimilitatea peste toate valorile posibile ale parametrilor, ponderate de prior.</div>
+  <div class="definition-box"><strong>Bayes empiric (Empirical Bayes):</strong> In loc de a integra peste hiperparametrul α, il optimizam: α_hat = argmax_α ∫ p(D|w)p(w|α,m)dw (Ecuatia 5.38). Aceasta evita specificarea unui hiper-prior.</div>
+  <div class="highlight-box"><strong>Verosimilitatea marginala completa:</strong> p(D|m) = ∫∫ p(D|w)p(w|α,m)p(α|m)dw dα (Ecuatia 5.36)</div>
+  <div class="highlight-box"><strong>Prior gaussian pentru regresie:</strong> p(w) = N(0, α⁻¹I), unde α mare forteaza ponderile sa fie mici (model simplu) si α mic permite ponderi mari (model complex).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Prior-ul are un rol mult mai important in selectia modelului decat in inferenta parametrilor. Cu un prior p(w) = N(0, α⁻¹I), hiperparametrul α controleaza complexitatea: α mare favorizeaza modele simple, α mic permite modele complexe. Abordarea bayesiana completa pune un prior si pe α, dar Bayes empiric optimizeaza α direct, fiind mai practic.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Ierarhia bayesiana reduce sensibilitatea la specificarea prior-ului: cu cat urcam mai sus in ierarhie, cu atat hiper-prior-urile devin mai putin informative si rezultatele mai robuste. Bayes empiric ofera un compromis bun intre abordarea complet bayesiana si estimarea punctuala clasica.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Bayes empiric este fundamentul multor tehnici moderne: automatic relevance determination (ARD) in regresia bayesiana, selectia automata a hiperparametrilor in procesele gaussiene si optimizarea regularizarii in retelele neurale.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In regresia ridge, parametrul de regularizare λ (echivalent cu α) se alege de obicei prin validare incrucisata. Bayes empiric ofera o alternativa: optimizam λ prin maximizarea verosimilitatii marginale, obtinand rezultate similare dar mai eficient computational.</p></div>
+  </div>
+</div>

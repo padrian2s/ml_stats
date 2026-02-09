@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Structured mean field pentru HMM factorial: ecuatii detaliate</h2>
+  <p>Aceasta pagina deriveaza ecuatiile complete de actualizare structured mean field pentru HMM-ul factorial, inclusiv parametrii variationali ξ_{tm}.</p>
+  <div class="definition-box"><strong>Energia exacta a posterioarei:</strong> E(x,y) = 1/2 Σ_t (y_t - Σ_m W_m x_{tm})^T Σ^{-1} (y_t - Σ_m W_m x_{tm}) - Σ_m x_{1m}^T π̃_m - Σ_{t≥2} Σ_m x_{tm}^T Ã_m x_{t-1,m}. Include termenul de observatie Gaussiana si tranzitiile pe fiecare lant.</div>
+  <div class="definition-box"><strong>Parametrii variationali ξ_{tm}:</strong> ξ_{tm} = exp(W_m^T Σ^{-1} ỹ_{tm} - 1/2 δ_m), unde ỹ_{tm} = y_t - Σ_{l≠m} W_l E[x_{t,l}] este observatia "curatata" de contributia celorlalte lanturi. δ_m = diag(W_m^T Σ^{-1} W_m) este un termen de corectie.</div>
+  <div class="highlight-box"><strong>Functia obiectiv:</strong> KL(q||p) = E[E] - E[E_q] - log Z_q + log Z. Aproximarea q are aceeasi structura temporala ca posterioara exacta dar cu evidenta locala diferita (ξ_{tm} in loc de observatia exacta).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Ecuatiile structured mean field pentru HMM factorial se reduc la: (1) calculul observatiei ajustate ỹ_{tm} prin scaderea contributiei estimate a celorlalte lanturi, (2) calculul parametrilor variationali ξ_{tm} din observatia ajustata, (3) rularea forward-backward pe fiecare lant cu ξ_{tm} ca evidenta locala. Procesul se repeta pana la convergenta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Aproximarea inlocuieste cuplajul exact inter-lant cu o evidenta locala ajustata. Termenul de corectie δ_m compenseaza varianta introdusa de estimarea altor lanturi. Complexitatea per sweep este O(TMK^2), identica cu M rulari independente de forward-backward.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste ecuatii sunt implementate in toolbox-uri de inferenta precum pmtk3. Sunt aplicabile in orice model factorial (nu doar HMM-uri) unde substructurile sunt lanturi, arbori sau alte grafuri cu treewidth mic.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea EEG cu surse cerebrale multiple, fiecare sursa (lant) genereaza un semnal temporal. Observatia la electrod este suma semnalelor. Structured mean field separa sursele folosind forward-backward pe fiecare lant cu semnalul "curatat".</p></div>
+  </div>
+</div>

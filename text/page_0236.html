@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>Minimizarea Riscului Empiric (ERM)</h2>
+  <p>Pagina definește formal minimizarea riscului empiric, incluzând cazurile supervizat și nesupervizat, și introduce minimizarea riscului regularizat.</p>
+  <div class="definition-box"><strong>Riscul Frecventist:</strong> R(p*, δ) = E_{(x,y)~p*}[L(y, δ(x))] = ΣΣ L(y, δ(x))p*(x, y), unde p* este „distribuția naturii" (necunoscută).</div>
+  <div class="definition-box"><strong>Distribuția Empirică:</strong> p_emp(x, y) = (1/N) Σ δ_{xᵢ}(x)δ_{yᵢ}(y), aproximarea distribuției adevărate folosind datele de antrenament.</div>
+  <div class="definition-box"><strong>Riscul Empiric:</strong> R_emp(D, δ) = (1/N) Σ L(yᵢ, δ(xᵢ)), media pierderii pe datele de antrenament.</div>
+  <div class="highlight-box"><strong>Minimizarea Riscului Empiric:</strong> δ_ERM(D) = argmin_δ R_emp(D, δ), găsirea procedurii de decizie care minimizează riscul empiric.</div>
+  <div class="highlight-box"><strong>Cazul nesupervizat:</strong> L(x, δ(x)) = ||x - δ(x)||²₂ măsoară eroarea de reconstrucție. Regula de decizie δ(x) = decode(encode(x)), ca în cuantizarea vectorială sau PCA. Este critic ca encoder-decoder-ul să treacă printr-un bottleneck.</div>
+  <div class="definition-box"><strong>Minimizarea Riscului Regularizat (RRM):</strong> R'(D, δ) = R_emp(D, δ) + λC(δ), unde C(δ) măsoară complexitatea modelului și λ controlează puterea penalizării. Echivalent cu estimarea MAP dacă pierderea este log-verosimilitatea negativă.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>ERM formalizează practica standard din ML: minimizarea pierderii medii pe datele de antrenament. Distribuția empirică aproximează distribuția adevărată, iar riscul empiric aproximează riscul adevărat. Regularizarea este necesară pentru a preveni overfitting-ul, adăugând un termen de complexitate la funcția obiectiv.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Riscul empiric este egal cu riscul Bayes dacă priorul nostru despre „distribuția naturii" este chiar distribuția empirică. Minimizarea riscului empiric fără regularizare conduce inevitabil la overfitting. Echivalența dintre RRM și estimarea MAP oferă o punte conceptuală între abordările frecventistă și Bayesiană.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Toate framework-urile de ML (PyTorch, TensorFlow, scikit-learn) implementează ERM: funcțiile de pierdere (cross-entropy, MSE) sunt riscul empiric, iar regularizarea (L1, L2, dropout) este termenul de complexitate C(δ).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un autoencoder pentru compresia imaginilor medicale minimizează eroarea de reconstrucție (risc empiric nesupervizat) trecând imaginea printr-un bottleneck. Regularizarea previne memorarea perfectă a datelor de antrenament, asigurând generalizarea la imagini noi.</p></div>
+  </div>
+</div>

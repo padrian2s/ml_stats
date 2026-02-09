@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Ajustarea unui model de amestec DP</h2>
+  <p>Pagina descrie esantionatorul Gibbs colaps pentru ajustarea unui model de amestec cu procese Dirichlet (DPMM), derivand distributia conditionala completa pentru atribuirile de cluster.</p>
+  <div class="definition-box"><strong>Esantionator Gibbs colaps pentru DPMM:</strong> Modificarea esantionatorului Gibbs colaps pentru amestecuri finite, adaptata pentru un numar potential infinit de clustere, unde z_i poate fi atribuit unui cluster nou k*.</div>
+  <div class="highlight-box"><strong>Distributia conditionala:</strong> p(z_i = k|z_{-i}, α) = N_{k,-i}/(α+N-1) pentru clustere existente, sau α/(α+N-1) pentru un cluster nou (Ecuatia 25.35)</div>
+  <div class="highlight-box"><strong>Verosimilitatea marginala:</strong> p(x_i, x_{-i,k}|λ) = ∫ p(x_i|θ_k) [∏_{j≠i:z_j=k} p(x_j|θ_k)] H(θ_k|λ)dθ_k (Ecuatia 25.37)</div>
+  <div class="highlight-box"><strong>Distributie predictiva priori:</strong> p(x_i|x_{-i}, z_{-i}, z_i = k*, λ) = ∫ p(x_i|θ)H(θ|λ)dθ (Ecuatia 25.38)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Esantionatorul Gibbs colaps pentru DPMM este similar cu cel pentru amestecuri finite, cu diferenta ca trebuie considerat cazul z_i = k* (cluster nou). Probabilitatea conditionala combina doua componente: priorul din procesul restaurantului chinezesc si verosimilitatea predictiva posterioara pentru fiecare cluster.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Formularea este echivalenta cu ecuatia Polya urn in limita K → ∞. Schimbabilitatea permite tratarea fiecarui z_i ca ultimul client care intra in restaurant. Distributia predictiva pentru un cluster nou se reduce la priorul predictiv evaluat la x_i.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul este implementat in pachete software pentru clustering Bayesian nonparametric, fiind folosit in analiza de imagini medicale, segmentarea secventelor genetice si modelarea topicilor in colectii de documente.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza expresiei genice, fiecare gena este un punct de date. Esantionatorul Gibbs colaps poate grupa genele in clustere functionale fara a specifica numarul de grupuri, descoperind automat module de co-expresie relevante biologic.</p></div>
+  </div>
+</div>

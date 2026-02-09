@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Variante BP: max-product, esantionare din arbori si distributii pe perechi</h2>
+  <p>Aceasta pagina prezinta variante ale algoritmului BP: algoritmul max-product, esantionarea din modele arborescente si calculul distributiilor pe perechi de noduri.</p>
+  <div class="definition-box"><strong>Algoritmul max-product:</strong> Varianta BP care inlocuieste operatorul Σ cu max in ecuatiile mesajelor. Calculeaza estimarea MAP locala a fiecarui nod. Pe arbori, generalizarea algoritmului Viterbi (max in faza de colectare, traceback in faza de distributie).</div>
+  <div class="definition-box"><strong>Distributia two-slice:</strong> Distributia comuna a doua noduri adiacente p(x_t, x_{t+1}|v) in HMM, calculata combinand mesajele forward/backward cu potentialul de tranzitie: ξ_{t,t+1}(i,j) = α_t(i) ψ_{t+1}(j) β_{t+1}(j) ψ_{t,t+1}(i,j).</div>
+  <div class="highlight-box"><strong>Mega-noduri:</strong> Pentru a calcula distributii pe perechi de noduri, se pot trata cele doua noduri ca un singur "mega-nod" si se combina toate mesajele de intrare si factorii locali. Aceasta tehnica se generalizeaza la orice subset de noduri.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Max-product este versiunea "hard" a BP (MAP in loc de marginale) si generalizeaza Viterbi la arbori. Esantionarea din arbori se face prin generalizarea algoritmului forward-filtering/backward-sampling. Distributiile pe perechi sunt necesare in algoritmul EM (pasul E) si se calculeaza combinand mesajele de intrare cu potentialele locale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Dualitatea sum-product / max-product: aceleasi ecuatii structurale, dar cu operatori diferiti. Max-product pe arbori garanteaza consistenta globala (spre deosebire de max-product pe grafuri cu cicluri). Mega-nodurile sunt baza algoritmului junction tree (tratarea clicilor ca noduri).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Max-product este folosit in decodarea codurilor LDPC (telecomunicatii), decodarea turbo si inferenta MAP in CRF-uri. Esantionarea din arbori este baza algoritmilor de esantionare in modele ierarhice.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea vorbirii, algoritmul Viterbi (max-product pe lant) gaseste cea mai probabila secventa de foneme date observatiile acustice. Distributia two-slice calculeaza probabilitatea de tranzitie posterioara intre foneme consecutive.</p></div>
+  </div>
+</div>

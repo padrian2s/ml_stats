@@ -1,0 +1,20 @@
+<div class="page-content">
+  <h2>Formula Sherman-Morrison-Woodbury si Demonstratia Conditionarii Gaussiene</h2>
+  <p>Pagina 118 prezinta aplicatii ale formulei de inversare matriceala si incepe demonstratia formulelor de conditionare Gaussiana.</p>
+
+  <div class="highlight-box"><strong>Formula Woodbury aplicata (Ecuatia 4.109):</strong> (Σ + XXᵀ)⁻¹ = Σ⁻¹ - Σ⁻¹X(I + XᵀΣ⁻¹X)⁻¹XᵀΣ⁻¹. LHS necesita O(N³), RHS necesita O(D³), avantajos cand D << N.</div>
+
+  <div class="highlight-box"><strong>Actualizare de rang 1 (Ecuatia 4.111):</strong> (E + uvᵀ)⁻¹ = E⁻¹ - (E⁻¹uvᵀE⁻¹) / (1 + vᵀE⁻¹u). Utila pentru actualizari incrementale ale statisticilor suficiente.</div>
+
+  <div class="definition-box"><strong>Demonstratia conditionarii Gaussiene (Sectiunea 4.3.4.3):</strong> Se factorizeaza distributia comuna p(x₁, x₂) = p(x₁|x₂)p(x₂) folosind formula inversei partitionate pentru a separa exponentul in doua forme patratice independente.</div>
+
+  <div class="highlight-box"><strong>Factorizarea exponentului (Ecuatiile 4.112-4.117):</strong> Exponentul formei patratice din Gaussiana comuna se descompune in: exp(forma patratica in x₁, x₂) = exp(forma patratica in x₁) * exp(forma patratica in x₂), de unde se citesc parametrii conditionalei si marginalei.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Formula Woodbury permite alegerea intre inversarea in spatiul N-dimensional sau D-dimensional, in functie de care este mai mic. Actualizarea de rang 1 este un caz special cu aplicatii practice imediate. Demonstratia conditionarii Gaussiene foloseste o strategie eleganta: factorizarea exponentului patratic in produsul a doua forme patratice independente.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Strategia de demonstratie prin factorizarea exponentului este un tipar recurent: se recunoaste structura p(x₁, x₂) = p(x₁|x₂)p(x₂) din forma functionala, fara a calcula explicit constantele de normalizare. Aceasta tehnica de "completare a patratului" este folosita frecvent in inferenta Bayesiana.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Formula Woodbury este esentiala in procesele Gaussiene: predictia necesita inversarea matricei nucleu K de dimensiune N x N, dar daca nucleul are rang D << N, formula Woodbury reduce complexitatea dramatic.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In antrenarea online a modelelor de regresie, la fiecare nou punct de date se actualizeaza inversa matricei de covarianta folosind formula de rang 1, evitand recalcularea completa. Aceasta permite modelelor sa invete continuu in timp real, de exemplu in tranzactionarea algoritmica.</p></div>
+  </div>
+</div>

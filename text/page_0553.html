@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Minime locale in verosimilitatea marginala GP</h2>
+  <p>Aceasta pagina ilustreaza problema minimelor locale in optimizarea verosimilitatii marginale, cu exemplu vizual al doua optima diferite si interpretarea lor.</p>
+  <div class="definition-box"><strong>Minime locale:</strong> Suprafata verosimilitatii marginale poate avea multiple optima locale. Fiecare minim corespunde unei interpretari diferite a datelor - de exemplu, un model complex cu zgomot scazut vs. un model simplu cu zgomot ridicat.</div>
+  <div class="highlight-box"><strong>Compromisul complexitate-zgomot:</strong> Minimul din stanga-jos (ell ~ 1, sigma_n ~ 0.2) corespunde unui model complex cu zgomot scazut, iar minimul din dreapta-sus (ell ~ 10, sigma_n ~ 0.8) corespunde unui model simplu cu zgomot ridicat. Cu putine date (7 puncte), ambele sunt plauzibile.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 15.5 demonstreaza problema minimelor locale: doua solutii foarte diferite au verosimilitate marginala comparabila. Solutia complexa (panel b) are functie oscilatorie si zgomot scazut, iar solutia simpla (panel c) are functie neteda si zgomot ridicat. Cu mai multe date, estimarea MAP ar trebui sa domine, favorizand solutia corecta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Regiunile interesante ale suprafetei de verosimilitate includ: (1) sigma_n mare - zgomot dominant, verosimilitatea insensibila la ell; (2) ell mic - interpolarea perfecta, verosimilitatea insensibila la sigma_n. Aceste regiuni trebuie evitate de un optimizer bun. Cu mai multe date, minimele locale devin mai distincte.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, se folosesc mai multe initializari aleatorii pentru a explora suprafata verosimilitatii marginale. Se poate folosi si o cautare pe grila in combinatie cu optimizare continua pentru a evita minimele locale proaste.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea consumului energetic al cladirilor, un GP cu scala de lungime mare ar putea interpreta variatiile zilnice ca zgomot, in timp ce un GP cu scala de lungime mica le-ar capta ca semnal real - ambele fiind plauzibile fara informatii suplimentare.</p></div>
+  </div>
+</div>

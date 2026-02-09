@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Hashing semantic si recuperarea informatiei cu auto-encodere</h2>
+  <p>Aceasta pagina prezinta hashing-ul semantic - utilizarea auto-encoderelor profunde cu reprezentari binare de dimensiune redusa pentru recuperarea rapida a documentelor.</p>
+  <div class="definition-box"><strong>Hashing semantic:</strong> Tehnica de a folosi o reprezentare binara de dimensiune redusa (de ex. 20 biti) din stratul median al unui auto-encoder profund, permitand recuperarea rapida a documentelor similare prin cautare in tabele hash, in timp constant.</div>
+  <div class="highlight-box"><strong>Performanta hashing-ului semantic:</strong> Auto-encoderul cu 10 dimensiuni depaseste semnificativ LSA cu 10 si 50 dimensiuni in curbele precizie-recall pe Reuters RCV1-v2, demonstrand superioritatea reprezentarilor neliniare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Hashing-ul semantic combina puterea de reprezentare a auto-encoderelor profunde cu eficienta cautarii in tabele hash. Documentele cu coduri binare similare (distanta Hamming mica) sunt semantice similare, permitand recuperarea in timp O(1).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cu un cod de 20 biti, exista ~6196 coduri la distanta Hamming 4, rezultand in ~2500 documente candidate din 400.000. Timpul de recuperare este independent de dimensiunea corpusului, o proprietate cruciala pentru scalabilitate.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Cautarea rapida de documente similare in baze de date masive, detectia de duplicate near-duplicate, si sisteme de recomandare in timp real.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Google si alte motoare de cautare folosesc tehnici de hashing invatat (learned hashing) pentru a gasi rapid pagini web similare dintr-un index de miliarde de documente.</p></div>
+  </div>
+</div>

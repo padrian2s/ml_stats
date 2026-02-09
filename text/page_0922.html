@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Clustering spectral - Laplacianul grafului</h2>
+  <p>Aceasta pagina prezinta formularea matematica a clustering-ului spectral, incluzand taietura normalizata, Laplacianul grafului si teorema care conecteaza componentele conexe cu vectorii proprii.</p>
+  <div class="definition-box"><strong>Laplacianul grafului:</strong> L = D - W, unde D = diag(d_i) este matricea diagonala a gradelor ponderate si W este matricea de pondere. L este simetrica si pozitiv semi-definita.</div>
+  <div class="definition-box"><strong>Forma patratica a Laplacianului:</strong> f^T L f = (1/2) * suma w_{ij}(f_i - f_j)^2, masoara cat de "neteda" este functia f pe graf - valori mici inseamna ca f variaza putin intre noduri conectate.</div>
+  <div class="highlight-box"><strong>Teorema 25.4.1:</strong> Multimea vectorilor proprii ai lui L cu valoare proprie 0 este generata de vectorii indicator 1_{A_1},...,1_{A_K}, unde A_k sunt componentele conexe ale grafului. Numarul de valori proprii zero egaleaza numarul de componente conexe.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina construieste fundatia matematica a clustering-ului spectral. Laplacianul grafului L = D - W este cheia: forma sa patratica masoara netezimea unei functii pe graf, iar vectorii proprii cu valori proprii mici indica partitii naturale. Teorema 25.4.1 face legatura formala: daca graful are K componente conexe, exista exact K vectori proprii cu valoare proprie 0, fiecare indicand o componenta.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Laplacianul grafului conecteaza algebra liniara cu teoria grafurilor. Pozitivitatea semi-definita garanteaza valori proprii non-negative. Vectorii proprii corespunzatori celor mai mici valori proprii (nu cele mai mari, ca in PCA) sunt cei relevanti pentru clustering.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Laplacianul grafului este folosit nu doar in clustering, ci si in procesarea semnalelor pe grafuri, invatarea semi-supervizata (regularizarea pe graf), si generarea de retele (mesh) in grafica computationala si elemente finite.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In analiza retelelor de transport (rutier, feroviar), Laplacianul grafului identifica componentele slab conectate (de exemplu, regiuni separate de un rau fara poduri), informand decizii de infrastructura si planificare urbana.</p></div>
+  </div>
+</div>

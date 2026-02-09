@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Estimarea prin Verosimilitate Maximă (Metoda Celor Mai Mici Pătrate)</h2>
+  <p>Pagina derivă MLE-ul pentru regresia liniară, arătând echivalența cu metoda celor mai mici pătrate, și introduce log-verosimilitatea și suma reziduurilor pătrate.</p>
+  <div class="figure-box"><strong>Figura 7.1:</strong> Regresia liniară aplicată datelor 2D de temperatură. (a) Planul ajustat f(x) = w₀ + w₁x₁ + w₂x₂. (b) Suprafața pătratică f(x) = w₀ + w₁x₁ + w₂x₂ + w₃x₁² + w₄x₂². Date de la senzori Intel din Berkeley, CA.</div>
+  <div class="highlight-box"><strong>Presupunerea iid:</strong> Exemplele de antrenament sunt independente și identic distribuite, permițând scrierea log-verosimilității ca: ℓ(θ) = Σᵢ log p(yᵢ|xᵢ, θ).</div>
+  <div class="definition-box"><strong>Log-verosimilitatea negativă (NLL):</strong> NLL(θ) = -Σᵢ log p(yᵢ|xᵢ, θ), minimizarea NLL este echivalentă cu maximizarea verosimilității.</div>
+  <div class="highlight-box"><strong>Log-verosimilitatea pentru regresia liniară:</strong> ℓ(θ) = (-1/(2σ²))RSS(w) - (N/2)log(2πσ²), unde RSS(w) = Σᵢ(yᵢ - w^T xᵢ)² este suma reziduurilor pătrate.</div>
+  <div class="definition-box"><strong>Suma Reziduurilor Pătrate (RSS):</strong> RSS(w) = Σᵢ(yᵢ - w^T xᵢ)² = ||ε||²₂ = Σᵢεᵢ², unde εᵢ = yᵢ - w^T xᵢ sunt reziduurile (erorile). RSS se mai numește SSE (Sum of Squared Errors), iar RSS/N = MSE.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>MLE-ul pentru regresia liniară Gaussiană se reduce la minimizarea sumei reziduurilor pătrate (RSS), stabilind echivalența dintre estimarea prin verosimilitate maximă și metoda celor mai mici pătrate. Aceasta arată că „least squares" nu este o euristică, ci are o justificare probabilistică riguroasă sub presupunerea de zgomot Gaussian.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Echivalența MLE ↔ least squares ține doar sub presupunerea de zgomot Gaussian iid. Dacă zgomotul nu este Gaussian (de exemplu, are cozi groase), alte funcții de pierdere (Huber, Laplace) pot fi mai potrivite. NLL este o funcție pătratică convexă în w, garantând un minim global unic.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Least squares este implementat eficient în toate bibliotecile de ML (numpy.linalg.lstsq, scikit-learn LinearRegression). Convexitatea funcției obiectiv face optimizarea rapidă și fiabilă.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La predicția consumului de combustibil al unei mașini în funcție de greutate, putere motor și număr de cilindri, minimizarea RSS produce dreapta (hiperplanul) care trece cel mai aproape de toate punctele de date, oferind predicții optime sub presupunerea de zgomot Gaussian.</p></div>
+  </div>
+</div>

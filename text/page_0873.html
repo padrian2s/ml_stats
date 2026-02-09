@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Collapsed Gibbs pentru GMM - Derivare detaliata</h2>
+  <p>Aceasta pagina derivaza collapsed Gibbs sampler pentru GMM, marginalizand parametrii si esantionand doar indicatorii z.</p>
+  <div class="definition-box"><strong>Collapsed Gibbs pentru GMM:</strong> Se marginalizeaza theta = (pi, mu_k, Sigma_k). Conditionala pentru z_i: p(z_i=k|z_{-i}, x, alpha, beta) proportional cu p(z_i=k|z_{-i}, alpha) * p(x_i|D_{-i,k}, beta), unde p(z_i=k|z_{-i}, alpha) = (N_{k,-i} + alpha/K)/(N + alpha - 1) si p(x_i|D_{-i,k}, beta) este distributia predictiva posterioara.</div>
+  <div class="definition-box"><strong>Distributia predictiva posterioara:</strong> p(x_i|D_{-i,k}, beta) = p(x_i|{x_j: z_j=k, j!=i}, beta), calculabila in forma inchisa pentru priori conjugate (Student-t multivariata).</div>
+  <div class="highlight-box"><strong>Algoritmul 24.1:</strong> Pentru fiecare i in ordine aleatoare: (1) Elimina statist. suf. ale x_i din clusterul curent z_i; (2) Calculeaza p_k = p(x_i|D_{-i,k}) pentru k=1..K; (3) Calculeaza p(z_i=k) proportional cu (N_{k,-i}+alpha/K)*p_k; (4) Esantioneaza z_i; (5) Adauga statist. suf. ale x_i la noul cluster.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina derivaza algoritmul collapsed Gibbs complet: integrarea analitica a parametrilor lasa doar indicatorii z de esantionat. Formula combina un termen de "popularitate" (N_{k,-i}+alpha/K) cu un termen de "compatibilitate" (predictiva posterioara p_k), analogie cu restaurantul chinezesc (CRP).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Structura "popularitate * compatibilitate" apare in multe modele Bayesiene nonparametrice. Clusterele cu mai multi membri sunt preferate (efect de bogatul se imbogateste), dar compatibilitatea datelor tempereaza aceasta preferinta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Algoritmul este eficient: O(NKD) per iteratie (ca EM), dar produce esantioane din posterior, nu doar estimari punctuale. Implementarea eficienta cacseaza statisticile suficiente.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea clientilor bancari, collapsed Gibbs pentru GMM ofera nu doar grupuri de clienti, ci si incertitudinea in apartenta fiecarui client la un grup, informatie valoroasa pentru marketing targetat.</p></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Tabel Rezumativ al Modelelor și Mecanisme de Date Lipsă</h2>
+  <p>Pagina prezintă un tabel cuprinzător al tuturor modelelor de clasificare și regresie discutate în carte, și definește cele trei mecanisme de date lipsă: MCAR, MAR și NMAR.</p>
+  <div class="highlight-box"><strong>Tabelul 8.1 - Modele de clasificare și regresie:</strong> Include: Analiza discriminantă (Gen/Param), Naive Bayes (Gen/Param), Regresia liniară (Discrim/Param), Regresia logistică (Discrim/Param), Rețele neurale (Discrim/Param), SVM (Discrim/Non), Procese Gaussiene (Discrim/Non), KNN (Gen/Non), Arbori CART (Discrim/Non).</div>
+  <div class="definition-box"><strong>MCAR (Missing Completely At Random):</strong> p(rᵢ|xᵢ, φ) = p(rᵢ|φ) - mecanismul de lipsă nu depinde de datele observate sau neobservate. Cel mai simplu caz.</div>
+  <div class="definition-box"><strong>MAR (Missing At Random):</strong> p(rᵢ|xᵢ, φ) = p(rᵢ|xᵢᵒ, φ) - mecanismul de lipsă depinde doar de datele observate, nu de cele neobservate. Presupunerea standard.</div>
+  <div class="definition-box"><strong>NMAR (Not Missing At Random):</strong> Mecanismul de lipsă depinde de valorile neobservate. Cel mai dificil caz; necesită modelarea explicită a mecanismului de lipsă. Exemplu: filtrarea colaborativă.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Tabelul 8.1 oferă o hartă comprehensivă a modelelor ML organizate pe 4 axe: clasificare/regresie, generativ/discriminativ, parametric/neparametric, și secțiunea din carte. Mecanismele de date lipsă sunt cruciale pentru alegerea metodei de tratare: sub MCAR sau MAR, datele lipsă pot fi ignorate în anumite condiții; sub NMAR, mecanismul trebuie modelat explicit.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Taxonomia modelelor pe axele generativ/discriminativ și parametric/neparametric oferă o structură organizatorică valoroasă. Modelele parametrice au un număr fix de parametri (independent de N), iar cele neparametrice cresc în complexitate cu N. Ierarhia MCAR ⊂ MAR ⊂ NMAR reflectă creșterea complexității mecanismului de lipsă.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Înțelegerea mecanismului de date lipsă este esențială înainte de a aplica orice metodă de imputare. Multiple imputation (MI) funcționează sub MAR. Metodele simple (eliminarea rândurilor, imputarea cu media) pot introduce bias sever sub MAR sau NMAR.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Într-un studiu clinic, pacienții care abandonează studiul deoarece se simt rău (NMAR) vs. din motive administrative (MAR) necesită tratamente statistice complet diferite. Ignorarea mecanismului de lipsă poate duce la concluzii eronate despre eficacitatea tratamentului.</p></div>
+  </div>
+</div>

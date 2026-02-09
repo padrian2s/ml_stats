@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Estimarea modelului de amestec DP - Gibbs sampling collapsat</h2>
+  <p>Aceasta pagina prezinta algoritmul de estimare a DPMM prin esantionarea Gibbs colapsata, cu detalii despre distributiile conditionale complete.</p>
+  <div class="definition-box"><strong>Gibbs sampling collapsat pentru DPMM:</strong> Modifica esantionatorul Gibbs collapsat pentru amestecuri finite, adaugand posibilitatea de a crea un cluster nou k* cu probabilitate proportionala cu alpha.</div>
+  <div class="definition-box"><strong>Verosimilitatea marginala a clusterului:</strong> p(x_i, x_{-i,k}|lambda) = integrala p(x_i|theta_k) * produs p(x_j|theta_k) * H(theta_k|lambda) d(theta_k), verosimilitatea posterioara predictiva a clusterului k evaluata la x_i.</div>
+  <div class="highlight-box"><strong>Conditionale complete:</strong> p(z_i=k|z_{-i}, x, alpha, lambda) proportional cu: N_{k,-i}/(alpha+N-1) * p(x_i|x_{-i,k},lambda) pentru cluster existent, sau alpha/(alpha+N-1) * p(x_i|lambda) pentru cluster nou. Similar cu Gibbs collapsat finit, dar cu termenul suplimentar pentru k*.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina detaliaza algoritmul principal de estimare pentru DPMM. Conditionalele complete combina priorul CRP (N_{k,-i} sau alpha) cu verosimilitatea predictiva marginala a fiecarui cluster. Interschimbabilitatea permite tratarea fiecarui z_i ca ultimul client din restaurant. Verosimilitatea marginala se calculeaza integrind parametrii theta_k, ceea ce este tractabil pentru distributii conjugate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Algoritmul este surprinzator de simplu: itereaza peste fiecare punct, il elimina din clusterul curent, recalculeaza probabilitatile de asignare (proportionale cu dimensiunea clusterului inmultita cu verosimilitatea), si re-esantioneaza asignarea. Aceasta simplitate este posibila datorita conjugarii.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Gibbs sampling collapsat pentru DPMM este implementat in biblioteci precum scikit-learn (BayesianGaussianMixture), PyMC, si Edward. Este folosit frecvent ca referinta (baseline) pentru compararea cu metode mai rapide de inferenta.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea clientilor bancari, DPMM cu Gibbs sampling poate descoperi automat segmentele de clienti (tineri profesionisti, familii, pensionari, etc.) din datele despre tranzactii, fara a presupune numarul de segmente in avans.</p></div>
+  </div>
+</div>

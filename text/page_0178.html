@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Exercitii: QDA cu 3 Clase si QDA Scalar</h2>
+  <p>Pagina prezinta exercitii de clasificare cu QDA pentru 3 clase si un exercitiu practic de QDA scalar aplicat la clasificarea genului pe baza inaltimii.</p>
+  <div class="definition-box"><strong>QDA cu 3 clase:</strong> Problema de clasificare cu probabilitati prior egale P(Y=1) = P(Y=2) = P(Y=3) = 1/3 si densitati conditionale de clasa normale multivariate cu parametri diferiti (Ecuatia 4.290).</div>
+  <div class="highlight-box"><strong>Matrici de covarianta:</strong> Σ₁ = [[0.7, 0], [0, 0.7]], Σ₂ = [[0.8, 0.2], [0.2, 0.8]], Σ₃ = [[0.8, 0.2], [0.2, 0.8]] (Ecuatia 4.292)</div>
+  <div class="highlight-box"><strong>QDA Scalar - Estimare MLE:</strong> p(x|y=c) = N(x; μ_c, σ_c) cu prior p(y=c) = π_c (Ecuatiile 4.293-4.294)</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiul 4.22 cere clasificarea punctelor x=[-0.5, 0.5] si x=[0.5, 0.5] folosind QDA cu 3 clase. Exercitiul 4.23 aplica QDA scalar la un set de date real: clasificarea genului pe baza inaltimii unor studenti americani, cu date x=(67,79,71,68,67,60) si y=(m,m,m,f,f,f).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Se observa ca Σ₂ = Σ₃, ceea ce inseamna ca clasele 2 si 3 au aceeasi forma de elipsoida dar centre diferite. Clasa 1 are covarianta diagonala (caracteristici independente), in timp ce clasele 2 si 3 au corelatie pozitiva intre caracteristici.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>QDA scalar este cel mai simplu clasificator bayesian parametric si serveste ca baza pentru intelegerea clasificatorilor mai complexi. Estimarea MLE a parametrilor μ_c si σ_c din date este un pas fundamental in constructia oricarui clasificator generativ.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Clasificarea genului pe baza inaltimii este un exemplu clasic: barbatii au in medie inaltime mai mare (μ_m > μ_f) dar si variabilitate diferita. Prin plug-in prediction cu parametrii MLE, putem calcula p(y=m|x=72, θ_hat) pentru a prezice genul unei persoane cu inaltimea de 72 inch.</p></div>
+  </div>
+</div>

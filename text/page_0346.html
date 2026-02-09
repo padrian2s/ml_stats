@@ -1,0 +1,17 @@
+<div class="page-content">
+  <h2>10.2.3-10.2.4 Modelul Noisy-OR (continuare) si Analiza de Linkaj Genetic</h2>
+  <p>Pagina continua descrierea modelului noisy-OR cu nodul de scurgere si introduce aplicarea DGM-urilor in analiza de linkaj genetic.</p>
+  <div class="definition-box"><strong>Modelul noisy-OR complet (10.11):</strong> p(v_t = 0|h) = ∏_{s∈pa(t)} θ_{st}^{I(h_s=1)}, unde θ_{st} este probabilitatea ca legatura s → t sa esueze. Singura modalitate ca v_t = 0 este daca toate legaturile de la parintii activi esueaza simultan.</div>
+  <div class="definition-box"><strong>Nodul de scurgere (leak node):</strong> Un parinte fictiv h_0 care este intotdeauna activ, reprezentand "toate celelalte cauze" nespecificate. Parametrul q_{0t} permite ca un simptom sa apara chiar si fara nicio boala specificata.</div>
+  <div class="definition-box"><strong>Model BN2O:</strong> Model bipartit cu CPD-uri noisy-OR, usor de specificat manual de experti sau de invatat din date.</div>
+  <div class="definition-box"><strong>Analiza de linkaj genetic:</strong> Aplicatie a DGM-urilor pentru determinarea locatiei unei gene care cauzeaza o boala pe genom, folosind un graf genealogic (pedigree graph) ca DAG.</div>
+  <div class="highlight-box"><strong>Noisy-OR reformulat (10.12):</strong> p(v_t = 1|h) = 1 - exp(w_{0t} + Σ_s h_s w_{st}), unde w_{st} = log(θ_{st}), similar unui model de regresie logistica.</div>
+  <div class="highlight-box"><strong>CPT genotip-fenotip (Tabelul 10.2):</strong> Tabel deterministic care mapeaza genotipul (G^p, G^m) la fenotipul (grupa de sange): de exemplu, genotipul (A, O) produce fenotipul A deoarece A domina O.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelul noisy-OR poate fi reformulat intr-o forma similara regresiei logistice, facand legatura intre modelele grafice si modelele liniare generalizate. Nodul de scurgere rezolva problema cazurilor in care un simptom apare fara nicio cauza cunoscuta. Analiza de linkaj genetic demonstreaza puterea DGM-urilor in biologie: structura genealogica naturala a familiilor este un DAG perfect.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Reformularea noisy-OR ca w_{st} = log(θ_{st}) permite tratarea modelului ca un tip special de retea neurala. Analiza de linkaj genetic combina informatii din mai multe surse: genotipuri observate (markeri), structura familiei (pedigree) si modele de mostenire mendeliana.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Modelele noisy-OR sunt folosite in diagnosticare medicala, analiza de fiabilitate si modele cauzale. Analiza de linkaj genetic este fundamentala in genetica medicala pentru identificarea genelor responsabile de boli ereditare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In genetica grupelor de sange, genotipul (A, B) produce fenotipul AB, iar genotipul (A, O) produce fenotipul A. Daca observam fenotipul A, genotipul poate fi fie (A, A) fie (A, O) - aceasta ambiguitate (problema inversa) se rezolva folosind informatia din grupele de sange ale rudelor prin inferenta pe DGM-ul genealogic.</p></div>
+  </div>
+</div>

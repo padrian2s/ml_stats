@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Comportamentul Contra-Intuitiv al Intervalelor de Încredere</h2>
+  <p>Pagina analizează în detaliu patologiile intervalelor de încredere frecventiste, arătând cum definiția lor poate conduce la rezultate bizare.</p>
+  <div class="definition-box"><strong>Interval de Încredere (Frecventist):</strong> C'_α(θ) = (ℓ, u) : P(ℓ(D̂) ≤ θ ≤ u(D̂)|D̂ ~ θ) = 1 - α. Intervalul este derivat din distribuția de eșantionare a estimatorului, nu din posteriorul parametrului.</div>
+  <div class="highlight-box"><strong>Diferența fundamentală Bayes vs. Frecventist:</strong> Bayesienii condiționează pe D (cunoscut) și mediază peste θ (necunoscut). Frecventiștii condiționează pe θ (necunoscut!) și mediază peste date viitoare ipotetice D̂.</div>
+  <div class="highlight-box"><strong>Exemplu Berger (1985):</strong> D = (x₁, x₂) din p(x|θ) cu P(x=θ)=0.5, P(x=θ+1)=0.5. Intervalul de încredere [m, m] unde m = min(x₁, x₂) are nivel 75%. Dar dacă D = (39, 40), știm sigur că θ = 39, totuși avem doar 75% „încredere" - un rezultat absurd.</div>
+  <div class="highlight-box"><strong>Intervalul Wald:</strong> IC 95% aproximativ pentru parametrul Bernoulli: x̄ ± 1.96√(x̄(1-x̄)/N). Pentru N = 1, x₁ = 0: MLE = 0 și IC = (0, 0), ceea ce este evident problematic deoarece intervalul nu conține nicio valoare non-zero a parametrului.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Intervalele de încredere frecventiste sunt definite prin proprietățile lor pe termen lung (peste repetări ipotetice ale experimentului), nu prin ceea ce spun despre datele observate. Aceasta conduce la situații absurde unde intervalul oferă mai puțină informație decât datele însele, demonstrând o patologie fundamentală a abordării frecventiste.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Definiția frecventistă condiționează pe parametrul necunoscut θ, ceea ce este nefiresc. Intervalele de credibilitate Bayesiene nu suferă de aceste patologii deoarece condiționează pe datele observate. Intervalul Wald funcționează prost pentru N mic sau parametri aproape de 0 sau 1.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>În raportarea rezultatelor experimentale, intervalele de credibilitate Bayesiene oferă o interpretare mai naturală: „parametrul se află în acest interval cu probabilitate 95%", comparativ cu interpretarea frecventistă contraintuitivă.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un test A/B cu foarte puțini utilizatori (N mic) poate produce intervale de încredere frecventiste absurde (ca intervalul Wald de (0,0)). Un interval de credibilitate Bayesian cu un prior informativ produce rezultate mult mai rezonabile și utile pentru decidenții de produs.</p></div>
+  </div>
+</div>

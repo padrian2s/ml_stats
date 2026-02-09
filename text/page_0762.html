@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 21: Inferenta variationala - Introducere</h2>
+  <p>Aceasta pagina deschide capitolul despre inferenta variationala, prezentand motivatia si ideea de baza a aproximarii distributiei posterioare prin optimizare.</p>
+  <div class="definition-box"><strong>Inferenta variationala:</strong> O clasa de metode deterministe de inferenta aproximativa care aleg o aproximare q(x) dintr-o familie tractabila si o optimizeaza pentru a fi cat mai aproape de posterioara adevarata p*(x) = p(x|D). Aceasta transforma inferenta intr-o problema de optimizare.</div>
+  <div class="definition-box"><strong>Motivatie:</strong> Inferenta exacta (JTA) este exponentiala in treewidth. Chiar pentru modele Gaussiene, inversarea matricei poate fi prea lenta pentru dimensiuni mari. Aproximarile Gaussiene nu sunt potrivite pentru posterioare non-Gaussiene (de exemplu, Dirichlet, categoriale).</div>
+  <div class="highlight-box"><strong>Principiul inferentei variationale:</strong> Se alege q(x) dintr-o familie tractabila Q care minimizeaza o masura de distanta fata de p*(x) = p(x|D). Prin relaxarea constrangerilor si/sau aproximarea obiectivului, se obtine viteza estimarii MAP cu beneficiile statistice ale abordarii Bayesiene.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 21 introduce inferenta variationala ca alternativa determinista la MCMC si inferenta exacta. Ideea centrala: in loc de a calcula exact p(x|D), alegem cea mai buna aproximare q(x) dintr-o familie tractabila. Aceasta abordare transforma problema de integrare/sumare intractabila intr-o problema de optimizare, care poate fi rezolvata iterativ.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Compromisul acuratete-viteza: familii Q mai restrictive sunt mai rapide dar mai putin precise; familii Q mai bogate sunt mai precise dar mai lente. Inferenta variationala ofera viteza comparabila cu estimarea punctuala (MAP) dar produce o distributie completa (aproximativa), nu doar un punct.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Inferenta variationala este fundamentala in topic modeling (LDA), auto-encodere variationale (VAE), modele de amestec Bayesiene si multe alte modele probabilistice moderne. A devenit metoda standard pentru inferenta Bayesiana la scara larga.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In topic modeling cu LDA pe milioane de documente, inferenta exacta este imposibila. Inferenta variationala aproximeaza distributia posterioara a temelor per document si a cuvintelor per tema, permitand procesarea eficienta a corpusurilor masive.</p></div>
+  </div>
+</div>

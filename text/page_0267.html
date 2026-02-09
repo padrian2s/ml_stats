@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>G-priorul lui Zellner, priorul neinformativ si priorul de informatie unitara</h2>
+  <p>Aceasta pagina introduce g-priorul lui Zellner, priorul neinformativ pentru regresia liniara si posterioarul rezultat, inclusiv legatura cu statistica frequentista.</p>
+  <div class="definition-box"><strong>G-priorul lui Zellner:</strong> w_0 = 0, V_0 = g(X^T X)^(-1) pentru orice g > 0. Covarianta priorului este proportionala cu inversul matricii de informatie Fisher, asigurand invarianta la scalarea inputurilor.</div>
+  <div class="definition-box"><strong>Priorul de informatie unitara:</strong> V_0^(-1) = (1/N) X^T X (g = N). Priorul contine la fel de multa informatie ca o singura observatie. Este o alegere comuna pentru priori slab informativ in regresia Bayesiana.</div>
+  <div class="highlight-box"><strong>Posteriorul cu prior neinformativ:</strong> Cand g &rarr; &infin; (prior neinformativ), w_N = w_mle = (X^T X)^(-1) X^T y, V_N = (X^T X)^(-1), a_N = (N-D)/2, b_N = s&sup2;/2. Rezultatul este identic cu statistica frequentista clasica.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina introduce g-priorul ca o solutie eleganta la problema alegerii priorului in regresia liniara. Prin utilizarea structurii datelor (X^T X) in prior, se asigura invarianta la scalare si se reduce alegerea la un singur scalar g. Priorul neinformativ (g = infinit) recupereaza exact rezultatele OLS. Formula s&sup2; = (y - X w_mle)^T (y - X w_mle) este suma rezidualurilor patrate din regresia OLS.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) G-priorul adapteaza automat priorul la scala si corelatia inputurilor. 2) Parametrul g controleaza raportul semnalprior/date: g mic = prior puternic, g mare = prior slab. 3) a_N = (N-D)/2 reflecta gradele de libertate reziduale (N observatii - D parametri). 4) Priorul neinformativ improper necesita N > D pentru ca posteriorul sa fie propriu.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>G-priorul este standard in selectia Bayesiana de variabile (Bayesian variable selection), unde se compara modele cu diferite subseturi de predictori. Priorul de informatie unitara (g = N) este o alegere implicita populara in pachetele statistice Bayesiene (BAS, BMS in R).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In studiile epidemiologice cu zeci de factori de risc potentiali, selectia Bayesiana de variabile cu g-prior compara automat milioane de modele posibile. G-priorul asigura ca comparatia este echitabila: factori masurati pe scale diferite (varsta in ani vs. presiune in mmHg) primesc priori proportional calibrate, evitand favorizarea artificiala a variabilelor pe scale mari.</p></div>
+  </div>
+</div>

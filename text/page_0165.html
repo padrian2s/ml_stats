@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Posteriorul NIW, modul posterior si marginalele posterioare</h2>
+  <p>Aceasta pagina prezinta formulele de actualizare pentru posteriorul NIW, modul posterior conjunct si marginalele posterioare pentru media si matricea de covarianta.</p>
+  <div class="definition-box"><strong>Posteriorul NIW:</strong> p(&mu;, &Sigma; | D) = NIW(&mu;, &Sigma; | m_N, &kappa;_N, &nu;_N, S_N), unde parametrii actualizati sunt: m_N = (&kappa;_0 m_0 + N x_bar) / &kappa;_N, &kappa;_N = &kappa;_0 + N, &nu;_N = &nu;_0 + N.</div>
+  <div class="definition-box"><strong>Marginala posterioara pentru &Sigma;:</strong> p(&Sigma; | D) = IW(&Sigma; | S_N, &nu;_N), cu estimarile MAP si media E[&Sigma;] = S_N / (&nu;_N - D - 1).</div>
+  <div class="highlight-box"><strong>Marginala posterioara pentru &mu;:</strong> p(&mu; | D) = T(&mu; | m_N, S_N / (&kappa;_N(&nu;_N - D + 1)), &nu;_N - D + 1), o distributie Student multivariata. Aceasta are cozi mai grele decat o Gaussiana, reflectand incertitudinea suplimentara din necunoasterea &Sigma;.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina demonstreaza eleganta conjugarii Bayesiene: posteriorul ramane in familia NIW cu parametri actualizati simplu. Media posterioara m_N este o combinatie convexa intre media prior m_0 si media esantionului x_bar, cu ponderi determinate de &kappa;_0 si N. Matricea S_N include atat priorul S_0, cat si matricea de dispersie empirica, plus un termen suplimentar care reflecta incertitudinea in medie.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Media posterioara interpoleaza intre prior si date, cu „taria" &kappa;_0 + N. 2) Modul conjunct difera de modul marginal (diferenta de 1 in numitor). 3) Marginala pentru &mu; este Student, nu Gaussiana - reflecta incertitudinea asupra covariantei. 4) Pe masura ce N creste, distributia Student se apropie de Gaussiana.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste formule sunt utilizate direct in clasificarea Bayesiana (analiza discriminanta), in algoritmii de clustering Bayesian (Dirichlet Process Mixture Models), si in filtrele Kalman adaptive unde parametrii zgomotului sunt necunoscuti.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In sistemele de detectie a anomaliilor in retele de calculatoare, traficul normal este modelat cu o Gaussiana multivariata. Posteriorul NIW permite actualizarea continua a modelului pe masura ce se acumuleaza date, iar marginala Student pentru medie ofera intervale de incredere mai realiste (mai largi) decat cele Gaussiene, evitand alarmele false excesive.</p></div>
+  </div>
+</div>

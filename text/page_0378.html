@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Neidentificabilitatea si Estimarea MAP Non-convexa</h2>
+  <p>Pagina continua discutia despre neidentificabilitate si introduce problema non-convexa a calcularii estimarii MAP pentru modelele cu variabile latente.</p>
+  <div class="definition-box"><strong>Estimare MAP aproximativa:</strong> Abordarea de a calcula un singur mod local al posteriorului, deoarece gasirea MLE-ului optim global este NP-hard pentru modelele de amestec.</div>
+  <div class="highlight-box"><strong>Log-verosimilitatea pentru LVM:</strong> log p(D|θ) = Σᵢ log[Σzᵢ p(xᵢ, zᵢ|θ)] - aceasta functie obiectiv este greu de optimizat deoarece log-ul nu poate fi impins inauntrul sumei.</div>
+  <div class="highlight-box"><strong>Familia exponentiala:</strong> p(x, z|θ) = (1/Z(θ)) exp[θᵀ φ(x, z)] - distributia comuna apartine familiei exponentiale cu statistici suficiente φ(x, z).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Neidentificabilitatea poate cauza probleme pentru inferenta Bayesiana, dar in practica se adopta o abordare mai simpla: calcularea unui singur mod local prin estimarea MAP aproximativa. Aceasta este cea mai comuna abordare datorita simplitatii sale. Log-verosimilitatea datelor observate este mai dificil de optimizat decat cea a datelor complete, deoarece log-ul nu poate fi mutat inauntrul sumei peste variabilele latente.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Incertitudinea posterioara despre parametri este de obicei mult mai mica decat incertitudinea despre variabilele latente, justificand strategia comuna de a calcula p(zᵢ|xᵢ, θ̂) fara a se preocupa de p(θ|D).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In practica, estimarea MAP cu reporniri multiple aleatorii este cea mai utilizata metoda. Modelele Bayesiene ierarhice (Sectiunea 5.6) ofera o alternativa mai principiala, modeland explicit p(θ|D).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La antrenarea unui model de recunoastere a vorbirii cu amestecuri Gaussiene, se ruleaza algoritmul de mai multe ori cu initializari diferite si se selecteaza solutia cu cea mai mare verosimilitate, pentru a contracara natura non-convexa a problemei.</p></div>
+  </div>
+</div>

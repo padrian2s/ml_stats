@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>De Ce Ridge Contrage Direcțiile cu Variabilitate Mică</h2>
+  <p>Pagina explică intuiția din spatele contracției ridge: direcțiile cu valori singulare mici corespund direcțiilor de maximă incertitudine, care sunt contrase cel mai mult.</p>
+  <div class="highlight-box"><strong>Predicția Ridge vs. Least Squares:</strong> ŷ_ridge = Σⱼ uⱼ(σⱼ²/(σⱼ² + λ))uⱼ^T y, în contrast cu ŷ_ls = Σⱼ uⱼ uⱼ^T y. Fiecare direcție j este ponderată cu factorul σⱼ²/(σⱼ² + λ) ∈ [0, 1].</div>
+  <div class="highlight-box"><strong>Covarianța posterioară:</strong> cov[w|D] = σ²(X^T X)⁻¹, deci direcțiile cu eigenvalori mici ale X^T X (echivalent, valori singulare mici ale X) corespund direcțiilor de maximă incertitudine despre w.</div>
+  <div class="highlight-box"><strong>Conexiunea cu PCA:</strong> Valorile singulare pătrate σⱼ² ale X sunt eigenvalorile lui X^T X. Direcțiile cu σⱼ mic corespund componentelor principale cu variabilitate mică - exact cele pe care PCA le-ar elimina. Ridge regression le atenuează gradual, în loc de a le elimina complet.</div>
+  <div class="definition-box"><strong>Interpretare intuitivă:</strong> Ridge este ca un „PCA soft": în loc de a selecta sau elimina complet dimensiuni (hard thresholding), le ponderează continuu în funcție de cât de informative sunt (soft thresholding).</div>
+  <div class="highlight-box"><strong>Grade efective de libertate:</strong> dof(λ) = Σⱼ σⱼ²/(σⱼ² + λ) oferă o măsură continuă a complexității modelului. λ = 0 → dof = D, λ → ∞ → dof → 0.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Ridge regression funcționează prin contracția preferențială a direcțiilor cu variabilitate mică (valori singulare mici), care sunt exact direcțiile unde parametrii sunt cei mai incerți. Aceasta este echivalentă cu un „PCA soft" care atenuează gradual dimensiunile neinformative în loc de a le elimina complet.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conexiunea ridge-PCA oferă o perspectivă unificatoare: ambele tehnici operează în spațiul valorilor singulare, dar ridge folosește soft thresholding (contracție continuă) în timp ce PCA folosește hard thresholding (eliminare completă). Ridge este preferabilă când toate direcțiile conțin un pic de informație.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>PCR (Principal Component Regression) elimină componentele principale mici și apoi face regresie. Ridge regression realizează aceasta automat și mai neted. În practică, ridge este de obicei preferată PCR deoarece nu necesită alegerea numărului de componente.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La predicția recidivei pacienților pe baza a sute de biomarkeri corelați, ridge regression contrage automat ponderile biomarkerilor neinformativi (variabilitate mică) aproape la zero, menținând ponderile semnificative ale biomarkerilor informativi, fără a necesita selecția manuală a variabilelor.</p></div>
+  </div>
+</div>

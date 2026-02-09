@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 19: Modele Grafice Nedirijate (Campuri Aleatoare Markov)</h2>
+  <p>Pagina introduce capitolul 19 dedicat modelelor grafice nedirijate (UGM), cunoscute si ca campuri aleatoare Markov (MRF) sau retele Markov, ca alternativa la modelele grafice dirijate (DGM/retele Bayesiene).</p>
+  <div class="definition-box"><strong>Model grafic nedirijat (UGM):</strong> Model probabilistic reprezentat printr-un graf neorientat, unde muchiile nu au directie. Cunoscut si ca camp aleator Markov (MRF) sau retea Markov. Nu necesita specificarea orientarii muchiilor, fiind mai natural pentru date spatiale sau relationale.</div>
+  <div class="definition-box"><strong>Plasa Markov cauzala:</strong> Un graf dirijat cu topologie de latice 2D, unde patura Markov a unui nod include parintii, copiii si co-parintii, nu doar vecinii directi. Aceasta face proprietatile de independenta conditionata nenaturale.</div>
+  <div class="highlight-box"><strong>Avantajele UGM fata de DGM:</strong> (1) Sunt simetrice, mai naturale pentru date spatiale sau relationale. (2) UGM-urile discriminative (CRF-uri) functioneaza mai bine decat DGM-urile discriminative pentru p(y|x). Dezavantaje: (1) parametrii sunt mai putin interpretabili; (2) estimarea parametrilor este computational mai costisitoare.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 19 deschide o noua perspectiva asupra modelelor grafice prin introducerea UGM-urilor. Spre deosebire de DGM-uri, UGM-urile nu necesita alegerea unei directii pentru muchii, ceea ce le face mai naturale pentru modelarea datelor spatiale, imaginilor si relatiilor sociale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Trecerea de la DGM la UGM reflecta un compromis intre interpretabilitate si naturalete. In imagini, pixelii vecini sunt corelati simetric, facand UGM-urile alegerea naturala. CRF-urile (UGM-uri discriminative) sunt deosebit de puternice pentru sarcini de clasificare structurata.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>UGM-urile sunt fundamentale in procesarea imaginilor (segmentare, debruitare), procesarea limbajului natural (etichetare POS, recunoasterea entitatilor numite), fizica statistica (modelul Ising) si retele sociale (modelarea interactiunilor).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In segmentarea imaginilor medicale, un MRF modeleaza faptul ca pixelii vecini tind sa apartina aceluiasi tesut. Structura nedirijata captureaza natural corelatia spatiala, fara a impune o directie artificiala a influentei intre pixeli.</p></div>
+  </div>
+</div>

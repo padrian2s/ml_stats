@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Dimensiunea VC, Învățarea Computațională și Funcții de Pierdere Surogat</h2>
+  <p>Pagina discută dimensiunea Vapnik-Chervonenkis, teoria învățării computaționale (COLT) și introduce funcțiile de pierdere surogat pentru clasificare.</p>
+  <div class="definition-box"><strong>Dimensiunea Vapnik-Chervonenkis (VC):</strong> O măsură a complexității unui spațiu de ipoteze infinit H, utilizată în locul lui dim(H) când spațiul de ipoteze conține parametri cu valori reale.</div>
+  <div class="definition-box"><strong>Teoria Învățării Computaționale (COLT):</strong> Extensie a SLT care ia în considerare complexitatea computațională a algoritmului de învățare, nu doar complexitatea statistică.</div>
+  <div class="definition-box"><strong>PAC (Probably Approximately Correct):</strong> Un spațiu de ipoteze este PAC-learnable dacă putem găsi o funcție cu risc empiric mic, și spațiul de ipoteze este suficient de „mic". Este eficient PAC-learnable dacă există un algoritm polinomial care realizează aceasta.</div>
+  <div class="highlight-box"><strong>Funcția de pierdere log-loss:</strong> L_nll(y, η) = -log p(y|x, w) = log(1 + e^{-yη}), unde η = w^T x este log-odds ratio-ul. Minimizarea log-loss-ului mediu este echivalentă cu maximizarea verosimilității.</div>
+  <div class="highlight-box"><strong>Relația log-loss și pierderea 0-1:</strong> f(x) = log(p(y=1|x,w)/p(y=-1|x,w)) = w^T x = η. Predicția este ŷ = -1 dacă η < 0, ŷ = +1 dacă η ≥ 0. Log-loss-ul este un upper bound neted al pierderii 0-1.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Dimensiunea VC extinde limitele SLT la spații de ipoteze infinite. COLT adaugă aspectul computațional. Funcțiile de pierdere surogat (log-loss, hinge loss) rezolvă problema practică a optimizării pierderii 0-1 (discontinue, non-convexe) prin înlocuirea cu funcții convexe care sunt upper bounds ale pierderii originale.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Limitele SLT sunt de obicei foarte slabe în practică, dar oferă intuiții valoroase. Avantajul SLT față de CV este viteza de calcul; dezavantajul este că dimensiunea VC este greu de calculat și limitele sunt slabe. Funcțiile surogat trebuie să fie upper bounds convexe ale pierderii originale.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Log-loss-ul (cross-entropy) este funcția de pierdere dominantă în clasificarea cu rețele neurale. Hinge loss-ul stă la baza SVM-urilor. Alegerea funcției surogat influențează proprietățile modelului rezultat.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>La antrenarea unui clasificator de sentimente pentru recenzii de produse, log-loss-ul permite optimizarea gradientului deoarece este diferențiabil, spre deosebire de rata de clasificare greșită (pierderea 0-1) care ar fi imposibil de optimizat direct cu metode bazate pe gradient.</p></div>
+  </div>
+</div>

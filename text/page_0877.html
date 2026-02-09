@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Conditionalele Gibbs pentru hiperparametri si introducere in BUGS/JAGS</h2>
+  <p>Aceasta pagina finalizeaza conditionalele pentru Sigma_w si introduce limbajele de programare probabilistica BUGS si JAGS pentru specificarea modelelor ierarhice.</p>
+  <div class="definition-box"><strong>Conditionala pentru Sigma_w:</strong> p(Sigma_w|...) = IW(S_n, eta_n), unde eta_n = eta_0 + J si S_n = S_0 + sum_{j=1}^J (w_j - mu_w)(w_j - mu_w)^T. Matricea de covarianta a coeficientilor se actualizeaza cu dispersia coeficientilor scolilor in jurul mediei comune.</div>
+  <div class="definition-box"><strong>BUGS (Bayesian inference Using Gibbs Sampling):</strong> Un limbaj de programare probabilistica care permite specificarea modelelor Bayesiene grafic sau textual, generand automat esantinatorul Gibbs. Versiunile includ WinBUGS, OpenBUGS si JAGS (Just Another Gibbs Sampler).</div>
+  <div class="highlight-box"><strong>Avantajul BUGS/JAGS:</strong> Utilizatorul specifica doar modelul (distributiile si dependentele), iar software-ul genereaza automat algoritmul de esantionare. Aceasta separa modelarea de inferenta, permitand experimentarea rapida cu modele diferite.</p></div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza derivarea Gibbs pentru modelul ierarhic cu Sigma_w si introduce BUGS/JAGS ca instrumente practice pentru implementare. Tranzitia de la derivare manuala la software automat reflecta maturizarea inferentei Bayesiene ca disciplina aplicata.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Limbajele de programare probabilistica (PPL) abstractizeaza algoritmul de inferenta: utilizatorul se concentreaza pe model, iar software-ul alege si implementeaza metoda de esantionare. Acest model de separare a conceptelor a revolutionat statistica Bayesiana aplicata.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>JAGS si succesorul sau Stan sunt folosite extensiv in stiintele sociale, ecologie, epidemiologie si marketing. Stan foloseste HMC (Hamiltonian Monte Carlo) in loc de Gibbs, oferind performante mai bune pe modele complexe.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In ecologie, cercetatorii folosesc JAGS pentru a modela ierarhic abundenta speciilor in multiple habitate, specificand modelul in cateva zeci de linii de cod si lasand software-ul sa gestioneze esantionarea MCMC complexa.</p></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Gibbs sampling pentru GMM - Conditionalele complete</h2>
+  <p>Aceasta pagina prezinta derivarea completa a esantionatorului Gibbs pentru modele de amestec Gaussian (GMM), cu priori semi-conjugate.</p>
+  <div class="definition-box"><strong>Distributia comuna:</strong> p(x, z, mu, Sigma, pi) = p(x|z, mu, Sigma)*p(z|pi)*p(pi)*prod p(mu_k)*p(Sigma_k), cu priori: pi ~ Dir(alpha), mu_k ~ N(m_0, V_0), Sigma_k ~ IW(S_0, nu_0).</div>
+  <div class="definition-box"><strong>Conditionalele complete:</strong> (1) Indicatorii: p(z_i=k|...) proportional cu pi_k*N(x_i|mu_k, Sigma_k); (2) Ponderile: p(pi|z) = Dir(alpha + N_k); (3) Mediile: p(mu_k|...) = N(m_k, V_k) cu V_k^{-1} = V_0^{-1} + N_k*Sigma_k^{-1}; (4) Covariantele: p(Sigma_k|...) = IW(S_k, nu_k).</div>
+  <div class="highlight-box"><strong>Simplitate vs VB-EM:</strong> Derivarea Gibbs pentru GMM este mult mai simpla decat derivarea VB-EM corespunzatoare (Sectiunea 21.6.1), deoarece conjugarea produce conditionale standard care pot fi esantionate direct.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina derivaza complet esantinatorul Gibbs pentru GMM cu priori conjugate. Fiecare conditionala este o distributie standard (Categorica, Dirichlet, Gaussiana, Inverse-Wishart), usor de esantionat. Codul Matlab gaussMissingFitGibbs permite si imputarea valorilor lipsa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conjugarea este cheia: priori conjugate produc conditionale complete in aceeasi familie, facand esantionarea Gibbs simpla si directa. Fara conjugare, ar fi necesare metode mai complexe (Metropolis-Hastings).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Gibbs pentru GMM este standard in analiza datelor Bayesiana si este preferat fata de EM cand se doreste cuantificarea incertitudinii in parametri (nu doar estimari punctuale).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In genomica, GMM-uri cu Gibbs sampling sunt folosite pentru a clasifica genele in grupuri de expresie (up-regulated, down-regulated, nemodificat), cu incertitudine completa in clasificare si parametri.</p></div>
+  </div>
+</div>

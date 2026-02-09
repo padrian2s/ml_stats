@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Kernelul SE multidimensional si functia de distanta</h2>
+  <p>Aceasta pagina extinde kernelul SE la mai multe dimensiuni, introducand matricea metrica M si functia de distanta pentru analiza factoriala.</p>
+  <div class="definition-box"><strong>Kernelul SE multidimensional:</strong> kappa_y(x_p, x_q) = sigma_f^2 * exp(-1/2 * (x_p - x_q)^T M (x_p - x_q)) + sigma_y^2 * delta_pq, unde M este o matrice metrica ce controleaza scala de lungime in fiecare directie.</div>
+  <div class="highlight-box"><strong>Functia de distanta pentru analiza factoriala:</strong> M_3 = Lambda*Lambda^T + diag(ell)^{-2}, unde Lambda este o matrice D x K. Aceasta aproximeaza covarianta ca o matrice de rang scazut plus o matrice diagonala, similar cu analiza factoriala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta trei moduri de a defini matricea metrica M: izotropic (M = ell^{-2} I), ARD cu scale de lungime pe fiecare dimensiune (M = diag(ell)^{-2}), si cu analiza factoriala (M = Lambda*Lambda^T + diag(ell)^{-2}). Figura 15.4 ilustreaza functii 2D esantionate din GP cu fiecare tip de matrice M.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Determinarea automata a relevantei (ARD) permite GP-ului sa descopere automat care dimensiuni ale intrarii sunt relevante - scalele de lungime mari indica dimensiuni irelevante. Functia de distanta factoriala permite modelarea corelatiilor intre dimensiuni prin coloanele matricei Lambda.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>ARD este extrem de util in selectia automata a trasaturilor: daca o dimensiune are scala de lungime foarte mare, aceasta nu influenteaza predictia si poate fi eliminata. Acest lucru este echivalent cu selectia trasaturilor in modelele liniare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In proiectarea materialelor, un GP cu ARD poate fi folosit pentru a prezice proprietatile materialului in functie de compozitia chimica, identificand automat care elemente chimice au cel mai mare impact asupra proprietatii dorite.</p></div>
+  </div>
+</div>

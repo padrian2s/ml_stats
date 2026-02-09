@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Exercitiul 10.9: Moralizarea nu introduce noi independente conditionale</h2>
+  <p>Aceasta pagina contine exercitiul final al Capitolului 10, despre moralizare - procesul de conversie a unui DGM in graf nedirectionat.</p>
+  <div class="definition-box"><strong>Moralizarea:</strong> Procesul de conversie a unui DAG G intr-un graf nedirectionat M prin: 1) conectarea tuturor parintilor „necastoriti" care au un copil comun (adaugarea de arce intre co-parinti), apoi 2) eliminarea directiei tuturor arcelor. Graful rezultat M se numeste graful moralizat.</div>
+  <div class="highlight-box"><strong>CI(M) &sube; CI(G):</strong> Setul de independente conditionale implicate de graful moralizat M este un subset al celor implicate de DAG-ul original G. Moralizarea poate pierde independente conditionale (prin adaugarea de arce intre co-parinti), dar nu introduce noi independente care nu existau in graful original.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercitiul demonstreaza o proprietate fundamentala a conversiei DGM &rarr; MRF: moralizarea este conservativa in sensul ca pierde informatie (independente) dar nu introduce informatie falsa. Aceasta este importanta deoarece inferenta in grafuri nedirectionate foloseste algoritmi diferiti (junction tree), si trebuie garantat ca rezultatele sunt corecte chiar daca pierd anumite independente.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>1) Moralizarea adauga arce doar intre co-parinti - nu elimina niciodata arce. 2) Pierderea de independente apare cand co-parintii neconectati in G devin conectati in M. 3) Aceasta pierdere face M un model mai general (mai putine presupuneri) decat G. 4) Demonstratia foloseste faptul ca orice factorizare a distributiei conformacu M este compatibila cu G, dar nu invers.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Moralizarea este un pas necesar in algoritmul junction tree pentru inferenta exacta. Intelegerea a ce se pierde prin moralizare este importanta in selectia structurii grafului: daca independentele pierdute sunt importante, se poate prefera lucrul direct cu DGM-ul.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In modelarea genetica, un copil mosteneste gene de la ambii parinti. In DGM, parintii pot fi independenti (nu sunt rude). Dar moralizarea ii conecteaza (devin „casatoriti" in graf), ceea ce reflecta faptul ca, odata ce observam genotipul copilului, informatia despre un parinte ne spune ceva despre celalalt (explaining away). Aceasta „pierdere de independenta" este de fapt o reflectie corecta a realitatis conditioneale.</p></div>
+  </div>
+</div>

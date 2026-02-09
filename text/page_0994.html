@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Modelul Dinamic de Topicuri - Diagrama si LDA-HMM (Capitolul 27.4.3)</h2>
+  <p>Pagina prezinta diagrama modelului grafic pentru modelul dinamic de topicuri si introduce modelul LDA-HMM care combina LDA cu modelele Markov ascunse.</p>
+  <div class="figure-box"><strong>Figura 27.11:</strong> Modelul dinamic de topicuri reprezentat ca graf orientat aciclic. Se observa lantul temporal al vectorilor de topicuri b_k^{t-1} -> b_k^t -> b_k^{t+1}, cu parametrul α comun tuturor perioadelor de timp, si variabilele latente π_i^t, q_{il}^t si observatiile y_{il}^t pentru fiecare document.</div>
+  <div class="definition-box"><strong>LDA-HMM:</strong> Model care combina LDA cu un model Markov ascuns (HMM) pentru a modela dependenta secventiala intre cuvinte. HMM-ul modeleaza cuvintele functionale (sintactice), iar LDA modeleaza cuvintele de continut (semantice). O stare HMM speciala determina cand modelul LDA genereaza cuvantul.</div>
+  <div class="highlight-box"><strong>Regasirea de documente corecta temporal:</strong> Modelul dinamic permite regasirea documentelor legate de aceleasi concepte dar scrise in perioade diferite. Articolele moderne folosesc "ADN", dar articolele mai vechi pot folosi "unitate ereditara" - ambele apartinand aceluiasi topic.</p></div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta doua extensii importante ale LDA. Modelul dinamic permite topicurilor sa evolueze temporal, iar inferenta se face prin metode de camp mediu structurate care exploateaza algoritmul de netezire Kalman. LDA-HMM combina avantajele ambelor modele: LDA pentru semantica si HMM pentru sintaxa.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Separarea intre cuvinte functionale (modelate de HMM) si cuvinte de continut (modelate de LDA) este un principiu fundamental in lingvistica computationala. Modelul dinamic demonstreaza ca structura temporala poate fi incorporata elegant in modelele de topicuri prin lanturi gaussiene.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LDA-HMM este util pentru generarea de text mai coerent sintactic, analiza automata a discursului si etichetarea gramaticala nesupervizata. Modelul dinamic permite regasirea cross-temporala a informatiilor si analiza tendintelor in cercetare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un sistem de cautare academic poate folosi modelul dinamic pentru a gasi articole istorice relevante: cautand "genetica", sistemul poate returna si articole din 1900 care foloseau terminologie diferita dar discutau aceleasi concepte.</p></div>
+  </div>
+</div>

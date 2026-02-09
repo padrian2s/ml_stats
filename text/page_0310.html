@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Exercițiul 8.7 - Regularizarea Selectivă și Figura 8.13</h2>
+  <p>Pagina continuă exercițiul despre regularizarea selectivă a parametrilor individuali în regresia logistică 2D, cu o figură ilustrativă a datelor de clasificare.</p>
+  <div class="figure-box"><strong>Figura 8.13:</strong> Date pentru exercițiul de regresie logistică. Două clase (+ și o) în plan 2D (X₁, X₂). Clasele sunt aproape liniar separabile, cu un punct ambiguu la frontieră. Exercițiul cere schițarea frontierei de decizie sub diferite scheme de regularizare.</div>
+  <div class="highlight-box"><strong>Regularizarea w₀ (Ecuația 8.134):</strong> J₀(w) = -ℓ(w, D_train) + λw₀². Cu λ mare, w₀ → 0, forțând frontiera de decizie w₁x₁ + w₂x₂ = 0 să treacă prin origine.</div>
+  <div class="highlight-box"><strong>Regularizarea w₁ (Ecuația 8.135):</strong> J₁(w) = -ℓ(w, D_train) + λw₁². Cu λ mare, w₁ → 0, frontiera devine w₀ + w₂x₂ = 0, adică o linie orizontală (independentă de x₁).</div>
+  <div class="highlight-box"><strong>Regularizarea w₂:</strong> Cu λ mare, w₂ → 0, frontiera devine w₀ + w₁x₁ = 0, adică o linie verticală (independentă de x₂).</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exercițiul 8.7 oferă intuiție geometrică valoroasă despre regularizare selectivă. Regularizarea unui parametru specific constrânge frontiera de decizie: regularizarea bias-ului forțează frontiera prin origine; regularizarea w₁ face frontiera independentă de x₁ (linie orizontală); regularizarea w₂ face frontiera independentă de x₂ (linie verticală). Aceasta demonstrează cum regularizarea codifică cunoștințe prior despre structura problemei.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Regularizarea selectivă este echivalentă cu un prior Gaussian cu varianțe diferite per parametru. Aceasta conectează regularizarea frecventistă cu estimarea MAP bayesiană. În practică, regularizarea diferențiată per parametru (sau per grup de parametri) este folosită extensiv în regularizarea structurată (group lasso).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Regularizarea diferențiată apare natural: în rețelele neurale, ponderile diferitelor straturi se regularizează diferit; în modele liniare, interceptul nu se regularizează; în modele temporale, coeficienții recenți se regularizează mai puțin decât cei vechi.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un model de predicție medicală unde x₁ = vârsta și x₂ = tensiunea arterială. Dacă știm a priori că vârsta este mai puțin relevantă, regularizăm puternic w₁, forțând modelul să se bazeze mai mult pe tensiune arterială. Aceasta integrează cunoștințe medicale în model.</p></div>
+  </div>
+</div>

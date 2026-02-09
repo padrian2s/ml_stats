@@ -1,0 +1,18 @@
+<div class="page-content">
+  <h2>Fuziunea Senzorilor 2D si Interpolarea Datelor cu Zgomot</h2>
+  <p>Pagina 123 ilustreaza fuziunea senzorilor in 2D cu covarianfe anizotrope si introduce interpolarea datelor zgomotoase ca sistem Gaussian liniar.</p>
+
+  <div class="figure-box"><strong>Figura 4.14:</strong> Fuziunea a doi senzori. y₁ = (0,-1) (cruce rosie), y₂ = (1,0) (cruce verde). (a) Senzori egal de fiabili: posteriorul este la jumatate. (b) Senzorul 2 mai fiabil: posteriorul se deplaseaza spre y₂. (c) Senzorul 1 precis pe verticala, senzorul 2 pe orizontala: posteriorul ia componenta verticala de la y₁ si cea orizontala de la y₂.</div>
+
+  <div class="highlight-box"><strong>Covarianfe anizotrope (Ecuatia 4.145):</strong> Σ_y,1 = 0.01[[10,1],[1,1]] si Σ_y,2 = 0.01[[1,1],[1,10]]. Senzorul 1 este precis pe y₂ (varianta mica pe verticala), senzorul 2 este precis pe y₁ (varianta mica pe orizontala).</div>
+
+  <div class="definition-box"><strong>Interpolarea cu zgomot (Sectiunea 4.4.2.3):</strong> y = Ax + ε, unde ε ~ N(0, σ²I) si A este o matrice de proiectie N x D care selecteaza punctele observate. Prior: Σ_x = (LᵀL)⁻¹ (prior de netezire). Acum λ afecteaza atat media cat si varianta posterioara.</div>
+
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figura 4.14 este o ilustrare remarcabila a fuziunii Bayesiane: cand senzorii au covarianfe anizotrope (nu sunt la fel de precisi in toate directiile), posteriorul combina intelligent cele mai bune directii ale fiecarui senzor. Interpolarea cu zgomot extinde exemplul anterior adaugand zgomot de observatie, facand ca λ (precizia priorului) sa afecteze compromisul netezire-fidelitate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Fuziunea anizotropa este mai subtila decat media ponderata simpla: fiecare senzor contribuie cu informatia sa pe directiile unde este cel mai precis. Aceasta este o proprietate a matricii de precizie - adunarea preciziilor combina informatia directional.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Interpolarea cu zgomot este baza reconstructiei de imagini din masuratori incomplete si zgomotoase (imagistica comprimata, MRI accelerat), a inferentei spatiale in geostatistica si a completarii matricelor (sisteme de recomandare).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In MRI accelerat, se achizitioneaza doar un subset de frecvente spatiale (masuratori zgomotoase, incomplete). Reconstructia foloseste exact acest cadru: priorul de netezire regularizeaza solutia, iar zgomotul de masurare este modelat explicit, producand imagini de calitate diagnostica din achizitii mai rapide.</p></div>
+  </div>
+</div>

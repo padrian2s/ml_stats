@@ -1,0 +1,13 @@
+<div class="page-content">
+  <h2>Invatare de ansamblu - Stacking si coduri corectoare de erori</h2>
+  <p>Aceasta pagina introduce invatarea de ansamblu, stacking (generalizare stivuita) si codurile corectoare de erori pentru clasificare multi-clasa.</p>
+  <div class="definition-box"><strong>Stacking (generalizare stivuita):</strong> Metoda de combinare a modelelor prin antrenarea ponderilor w_hat = argmin sum L(y_i, sum w_m f_m^{-i}(x)) unde f_m^{-i} este predictia modelului m antrenat fara exemplul i (LOOCV). Mai robusta decat BMA cand modelul corect nu este in spatiul modelelor.</div>
+  <div class="highlight-box"><strong>ECOC (Error-Correcting Output Codes):</strong> Codifica C clase in vectori binari de lungime B > log2(C) cu distanta Hamming maxima intre clase. Decodarea: c_hat(x) = argmin_c sum |C_cb - p_hat_b(x)|. Codul aleator functioneaza la fel de bine ca cel optim.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Invatarea de ansamblu combina M modele de baza: f(y|x, pi) = sum w_m f_m(y|x). Stacking estimeaza ponderile prin LOOCV, evitand suprapotrivirea pe modelul cel mai complex. ECOC transforma clasificarea multi-clasa in B probleme binare cu coduri redundante, oferind corectie de erori prin distanta Hamming. O retea neurala poate fi vazuta ca un ansamblu unde fiecare unitate ascunsa este un 'expert'.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Stacking a fost folosit de echipa castigatoare Netflix Prize. ECOC este elegant: redundanta in codificare ofera robustete la erori ale clasificatorilor binari individuali. Distanta Hamming minima de 7 (Tabelul 16.2) permite corectia a pana la 3 erori de bit.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Stacking este standard in competitii Kaggle si in AutoML (auto-sklearn). ECOC este implementat in scikit-learn (OutputCodeClassifier). Ambele sunt tehnici de meta-learning care imbunatatesc performanta fara a modifica modelele de baza.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In competitia Netflix Prize (2009), echipa castigatoare 'BellKor's Pragmatic Chaos' a folosit stacking extensiv, combinand sute de modele diverse (kNN, SVD, RBM, retele neurale) pentru a obtine imbunatatirea de 10% a RMSE.</p></div>
+  </div>
+</div>

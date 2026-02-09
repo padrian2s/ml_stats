@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Clasificarea Documentelor cu Bag-of-Words</h2>
+  <p>Pagina discută clasificarea documentelor text utilizând reprezentarea bag-of-words cu modelul Bernoulli (prezență/absență) și modelul multinomial (numărători).</p>
+  <div class="definition-box"><strong>Modelul produs Bernoulli:</strong> p(xᵢ|yᵢ=c,θ) = ∏_j θ_{jc}^{𝕀(x_{ij}=1)}·(1−θ_{jc})^{𝕀(x_{ij}=0)}, unde x_{ij} ∈ {0,1} indică dacă cuvântul j apare în documentul i. Numit și modelul de independență binară.</div>
+  <div class="definition-box"><strong>Modelul multinomial:</strong> p(xᵢ|yᵢ=c,θ_c) = Mu(xᵢ|Nᵢ,θ_c) = (Nᵢ!/∏x_{ij}!)·∏θ_{jc}^{x_{ij}}, unde x_{ij} este numărul de apariții ale cuvântului j. Pierde informația de ordine dar captează frecvența.</div>
+  <div class="highlight-box"><strong>Burstiness (rafale):</strong> Fenomenul prin care cuvintele rare, dacă apar o dată într-un document, tind să apară de mai multe ori. Modelul multinomial nu captează acest fenomen deoarece presupune θ_{jc}^{x_{ij}}, iar θ_{jc} ≪ 1 face repetarea cuvintelor rare extrem de improbabilă.</div>
+  <div class="highlight-box"><strong>Tabelul 3.1:</strong> Cele mai frecvente 5 cuvinte per clasă (X windows vs MS windows): „subject", „this", „with" sunt comune ambelor clase. Cuvintele cu cel mai mare MI: „windows", „microsoft", „dos", „motif" - mult mai discriminative.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Modelul Bernoulli și cel multinomial au avantaje diferite: Bernoulli funcționează cu vectori binari (prezent/absent), multinomial captează frecvențele. Ambele suferă de limitări în modelarea burstiness-ului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cuvintele cele mai frecvente nu sunt cele mai discriminative. MI oferă o măsură obiectivă a puterii discriminative, separând semnalul de zgomot în vocabular.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Clasificarea documentelor este fundamentală în motoarele de căutare, sisteme de recomandare de conținut, și filtrarea automată a conținutului (moderare).</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Clasificarea automată a tichetelor de suport tehnic pe departamente (rețea, software, hardware) utilizează exact aceste metode bag-of-words pentru a direcționa cererile eficient.</p></div>
+  </div>
+</div>

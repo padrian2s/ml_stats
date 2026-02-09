@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Capitolul 12: Modele Liniare Latente - Analiza Factoriala</h2>
+  <p>Pagina deschide Capitolul 12 despre modele liniare latente, introducand analiza factoriala (FA) si PCA probabilistic (PPCA) ca modele generative cu variabile latente continue.</p>
+  <div class="definition-box"><strong>Analiza Factoriala (FA):</strong> Model cu variabile latente continue z_i in R^L, prior Gaussian p(z_i) = N(mu_0, Sigma_0), si verosimilitate liniara p(x_i|z_i, theta) = N(Wz_i + mu, Psi). W este matricea de incarcari factoriale (factor loading matrix).</div>
+  <div class="definition-box"><strong>PPCA (Probabilistic PCA):</strong> Cazul special al FA unde Psi = sigma^2 * I (zgomot izotrop). Numele provine din legatura cu PCA clasica.</div>
+  <div class="highlight-box"><strong>FA ca parametrizare low-rank a MVN (Eq. 12.3-12.4):</strong> Distributia marginala p(x_i|theta) = N(W*mu_0 + mu, Psi + W*Sigma_0*W^T). FA aproximeaza covarianta prin C = WW^T + Psi, o descompunere low-rank plus diagonala.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Capitolul 12 introduce modele liniare latente ca alternativa la modelele de amestec: in loc de variabile latente discrete (indicatori de cluster), folosim variabile latente continue z_i in R^L. FA presupune ca datele de dimensiune mare (D) pot fi explicate prin cativa factori latenti (L << D), plus zgomot specific fiecarei dimensiuni (Psi diagonala).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>FA este un compromis elegant intre o Gaussiana cu covarianta completa (O(D^2) parametri) si una diagonala (O(D) parametri): foloseste O(LD) parametri, captand corelatiile principale prin factorii latenti, permitand varianta specifica prin Psi.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>FA este fundamentala in psihometrie (factorii de inteligenta), finante (modele de factori pentru randamente), genomica (factori de variatie biologica vs tehnica) si reducerea dimensionalitatii cu model probabilistic.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In psihometrie, testele de aptitudini (verbal, matematic, spatial) sunt explicate prin cativa factori latenti (inteligenta generala g, abilitati specifice), exact structura FA: observatii de dimensiune mare, factori latenti putini.</p></div>
+  </div>
+</div>

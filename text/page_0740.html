@@ -1,0 +1,16 @@
+<div class="page-content">
+  <h2>Propagarea Credintelor - Faza de Distribuire si Protocolul Paralel</h2>
+  <p>Pagina prezinta faza de distribuire a evidentei (top-down), mesajele descendente, si introduce protocolul paralel de propagare a credintelor, inclusiv distinctia intre belief updating si sum-product.</p>
+  <div class="definition-box"><strong>Mesajul top-down (belief updating):</strong> m⁺_{t→s}(xₛ) = Σ_{xₜ} ψₛₜ(xₛ,xₜ) belₜ(xₜ)/m⁻_{s→t}(xₜ) (Ecuatia 20.7) - se transmit credintele parintelui catre copil, excluzand contributia copilului respectiv (prin impartire).</div>
+  <div class="definition-box"><strong>Credinta completa:</strong> belₛ(xₛ) ≜ p(xₛ|v) ∝ bel⁻ₛ(xₛ) ∏_{t∈pa(s)} m⁺_{t→s}(xₜ) (Ecuatia 20.6) - combina evidenta bottom-up cu mesajele top-down de la parinti.</div>
+  <div class="highlight-box"><strong>Mesajul top-down (sum-product):</strong> m⁺_{t→s}(xₛ) = Σ_{xₜ} ψₛₜ(xₛ,xₜ)ψₜ(xₜ) ∏_{c∈ch(t),c≠s} m⁻_{c→t}(xₜ) ∏_{p∈pa(t)} m⁺_{p→t}(xₜ) (Ecuatia 20.8) - varianta fara impartire, unde mesajele descendente sunt independente de cele ascendente.</div>
+  <div class="highlight-box"><strong>Belief updating vs. Sum-product:</strong> In belief updating, mesajele top-down depind de cele bottom-up (interpretare ca probabilitati conditionate posterioare). In sum-product, mesajele sunt independente (interpretare ca verosimilitati conditionate). Ambele dau aceleasi credinte finale.</div>
+  <div class="definition-box"><strong>Protocolul paralel:</strong> O versiune alternativa a BP in care mesajele pot fi trimise simultan in ambele directii, fara a necesita o ordonare seriala. Produce aceleasi rezultate pe arbori, dar este mai putin eficient pe masini seriale.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Faza de distribuire completeaza inferenta, trimitand informatia de la radacina inapoi la frunze. Doua variante sunt prezentate: belief updating (care imparte mesajul primit pentru a evita dubla numarare) si sum-product (care multiplica toate mesajele primite de la alte noduri). Protocolul paralel permite trimiterea simultana a mesajelor in ambele directii si este preludiul pentru loopy belief propagation pe grafuri cu cicluri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Distinctia subtila intre belief updating si sum-product reflecta doua moduri diferite de a formula algoritmul backward: ca smoother Kalman (conditionat) sau ca algoritm backward HMM (neconditonat). Rezultatele finale sunt identice, dar interpretarea intermediara difera.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Protocolul paralel este esential pentru implementarea BP pe GPU-uri si arhitecturi paralele. In decodarea codurilor LDPC, mesajele sunt transmise in paralel intre nodurile de bit si cele de verificare, permitand decodare la viteze foarte mari.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In comunicatiile wireless 5G, decodorul LDPC implementat in hardware foloseste protocolul paralel de BP, cu mii de mesaje transmise simultan in fiecare ciclu de ceas, permitand decodarea la rate de gigabiti pe secunda.</p></div>
+  </div>
+</div>

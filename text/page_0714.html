@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Viteza IPF, generalizari si modele decomposabile</h2>
+  <p>Aceasta pagina discuta viteza de convergenta a IPF, generalizarile sale la modele Gaussiene si proprietatile speciale ale grafurilor decomposabile.</p>
+  <div class="definition-box"><strong>IPF eficient:</strong> O varianta a IPF care foloseste algoritmul arborelui junction (junction tree) pentru a calcula eficient marginalele necesare la fiecare pas, reducand costul dominant al algoritmului.</div>
+  <div class="definition-box"><strong>Grafuri decomposabile:</strong> O familie speciala de grafuri nedirectionate cu proprietatea ca pot fi reprezentate si ca DGM-uri si ca UGM-uri fara pierdere de informatie CI. Informal, sunt grafuri "tip arbore" (incluzand arborii ca caz special).</div>
+  <div class="highlight-box"><strong>IPF pentru grafuri decomposabile:</strong> In cazul grafurilor decomposabile, IPF converge intr-o singura iteratie, iar MLE are o solutie in forma inchisa: ψ̂_c(y_c = k) = Σ_{i=1}^N I(y_{i,c} = k) / N (frecventele empirice) pentru potentiale tabulare, si media/covarianta empirica pentru potentiale Gaussiene.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Viteza IPF depinde de structura grafului: pentru grafuri decomposabile converge instant, iar pentru grafuri generale poate necesita multe iteratii. Costul dominant este calculul marginalelor, care poate fi accelerat cu algoritmul junction tree. IPF poate fi generalizat la modele Gaussiene (lucrand cu medii si covariante in loc de numarari) si poate fi combinat cu estimare Bayesiana.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Grafurile decomposabile sunt cazul fericit: MLE are forma inchisa si IPF converge instant. Metoda gradientului poate fi mai rapida decat IPF pentru grafuri nedecomposabile cu trasaturi generale (nu doar indicatori tabulari). Scalarea iterativa (iterative scaling) este o alternativa la IPF pentru trasaturi non-tabulare.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>IPF eficient cu junction tree este folosit in sisteme de inferenta probabilistica (de exemplu, HUGIN). Grafurile decomposabile apar natural in multe aplicatii, precum modelele de serii temporale (HMM, Kalman) si arborii filogenetici.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In demografia, IPF este folosit pentru a ajusta datele de recensamant astfel incat marginalele (distributia pe varsta, sex, localitate) sa corespunda cu totalurile administrative cunoscute, mentinand consistenta modelului.</p></div>
+  </div>
+</div>

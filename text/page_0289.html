@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Predicția Posterioară pentru Datele SAT și Aproximarea Probit</h2>
+  <p>Pagina prezintă un exemplu practic de predicție bayesiană pe datele SAT (probabilitatea de promovare a examenului) și introduce aproximarea probit pentru calculul determinist al distribuției predictive posterioare.</p>
+  <div class="figure-box"><strong>Figura 8.7:</strong> (a) Densitatea predictivă posterioară pentru datele SAT: cercurile roșii sunt media posterioară, crucea albastră este mediana, iar liniile albastre sunt percentilele 5 și 95. Abordarea bayesiană oferă intervale de incertitudine, nu doar estimări punctuale. (b) Funcția logistică sigm(x) (roșu) și funcția probit rescalată Φ(λx) (albastru punctat) cu λ = √(π/8).</div>
+  <div class="definition-box"><strong>Aproximarea probit (Moderated Output):</strong> O metodă deterministă de calcul al distribuției predictive posterioare, bazată pe aproximarea funcției sigm cu funcția de repartiție normală Φ.</div>
+  <div class="highlight-box"><strong>Aproximarea probit (Ecuația 8.62):</strong> p(y=1|x, D) ≈ ∫ sigm(w&#7488;x) N(a|μ_a, σ²_a) da, unde a = w&#7488;x, μ_a = m_N&#7488;x și σ²_a = x&#7488;V_N x.</div>
+  <div class="highlight-box"><strong>Varianța proiecției (Ecuația 8.66):</strong> σ²_a = var[a] = x&#7488;V_N x, unde V_N este covarianta posterioară. Aceasta captează incertitudinea din parametri proiectată pe direcția x.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Exemplul SAT demonstrează valoarea practică a abordării bayesiene: nu doar predicția medie, ci și intervalele de incertitudine sunt disponibile. Aproximarea probit oferă o alternativă deterministă la Monte Carlo, exploatând similitudinea dintre funcția logistică și funcția de repartiție normală (cu scalare λ = √(π/8)). Varianța σ²_a = x&#7488;V_N x proiectează incertitudinea parametrilor pe direcția de predicție.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Similitudinea între funcția logistică și funcția probit (CDF normală) este o proprietate matematică utilă care permite integrarea analitică. Factorul de scalare λ = √(π/8) ≈ 0.626 asigură potrivirea derivatelor la x = 0. Varianța proiecției x&#7488;V_N x este o formă pătratică în x, deci incertitudinea crește cu distanța de la originea spațiului de caracteristici.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aproximarea probit este mai rapidă decât Monte Carlo pentru predicții în timp real. Este folosită în sisteme online de clasificare (publicitate, recomandări) unde latența este critică și se doresc totuși predicții cu incertitudine.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>Un consilier academic folosește un model bayesian pentru a estima probabilitatea ca un student să promoveze examenul SAT pe baza scorurilor anterioare. Modelul oferă nu doar „65% șanse de promovare" ci și un interval: „între 45% și 82%", permițând o recomandare mai informată.</p></div>
+  </div>
+</div>

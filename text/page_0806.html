@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Accelerarea LBP - Calcul rapid al mesajelor, transformata distantei si metode multi-scala</h2>
+  <p>Aceasta pagina prezinta tehnici de accelerare a LBP pentru spatii de stari mari: calcul prin convolutie/FFT, transformata distantei si metode multi-scala.</p>
+  <div class="definition-box"><strong>Calcul rapid al mesajelor:</strong> Cand potentialul pairwise are forma psi(x_s - x_t), calculul mesajului devine o convolutie, calculabila in O(K log K) prin FFT in loc de O(K^2). Pentru potentiale Gaussiene, convolutia cu box filters reduce costul la O(K).</div>
+  <div class="definition-box"><strong>Transformata distantei:</strong> Pentru varianta max-product, cand psi(z) = exp(-E(z)), transformata distantei calculeaza mesajele in O(K) pentru energii patratice, liniare truncate sau model Potts.</div>
+  <div class="definition-box"><strong>Metode multi-scala:</strong> Se construieste o ierarhie gros-la-fin a grilei, se ruleaza LBP la nivel gros, apoi se propaga mesajele la niveluri mai fine. Aceasta permite comunicare pe distante lungi cu mai putine iteratii.</div>
+  <div class="highlight-box"><strong>Cascada computationala:</strong> Se creeaza o ierarhie de modele cu trade-off viteza/acuratete, folosind un pas de filtrare ieftin pentru a elimina starile improbabile inainte de inferenta detaliata.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina prezinta trei categorii de accelerari: (1) exploatarea structurii potentialelor pentru calcul rapid prin FFT sau box filters, (2) transformata distantei pentru max-product, (3) metode multi-scala care exploateaza structura spatiala a grilelor 2D. Toate sunt esentiale pentru aplicatii de viziune computationala.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Tema comuna este exploatarea structurii specifice a problemei: structura potentialelor (convolutie), structura spatiului de stari (transformata distantei), structura spatiala a grafului (multi-scala). Fiecare reduce complexitatea de la O(K^2) la O(K log K) sau O(K).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In segmentarea semantica a imaginilor, unde K poate fi 256 (niveluri de gri) sau mai mare, aceste accelerari sunt absolut necesare pentru procesare in timp real.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In conducerea autonoma, estimarea adancimii din perechi stereo foloseste LBP cu transformata distantei pe grile de pixeli, obtinand harti de adancime dense in cateva milisecunde.</p></div>
+  </div>
+</div>

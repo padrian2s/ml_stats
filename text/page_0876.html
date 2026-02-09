@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Gibbs sampling pentru modele liniare ierarhice - Conditionalele complete</h2>
+  <p>Aceasta pagina continua derivarea conditionalelor complete Gibbs pentru modelul liniar ierarhic, detaliind distributiile posterioare pentru toti parametrii.</p>
+  <div class="definition-box"><strong>Conditionala pentru w_j:</strong> p(w_j|...) = N(w_j|m_j, V_j), unde V_j = (X_j^T X_j / sigma^2 + Sigma_w^{-1})^{-1} si m_j = V_j * (X_j^T y_j / sigma^2 + Sigma_w^{-1} mu_w). Aceasta combina informatia din datele locale ale scolii j cu informatia din distributia comuna.</div>
+  <div class="definition-box"><strong>Conditionala pentru sigma^2:</strong> p(sigma^2|...) = IG(nu_n/2, nu_n*s_n^2/2), unde nu_n = nu_0 + N si s_n^2 = (nu_0*s_0^2 + sum_{i,j} (y_ij - x_ij^T w_j)^2) / nu_n. Aceasta actualizeaza priorul Inverse-Gamma cu rezidualele din toate scolile.</div>
+  <div class="highlight-box"><strong>Conditionala pentru mu_w:</strong> p(mu_w|...) = N(mu_w|m_mu, V_mu), unde V_mu = (V_0^{-1} + J*Sigma_w^{-1})^{-1} si m_mu = V_mu*(V_0^{-1}*mu_0 + Sigma_w^{-1}*sum_j w_j). Hipermediane mu_w este o medie ponderata intre prior si media coeficientilor scolilor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Pagina completeaza derivarea tuturor conditionalelor Gibbs pentru modelul ierarhic. Fiecare conditionala este o distributie standard (Gaussiana, Inverse-Gamma, Inverse-Wishart), deci esantionarea Gibbs este directa. Structura ierarhica face ca informatia sa curga intre scoli prin hiperparametri.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Conditionala pentru w_j este o medie ponderata intre estimarea OLS locala (din datele scolii j) si media globala mu_w. Ponderea depinde de precizia relativa: scolile cu multe date sunt mai putin afectate de prior, iar cele cu putine date sunt trase mai tare catre medie.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Aceste conditionale pot fi implementate eficient folosind algebra liniara standard. Pentru J scoli, costul per iteratie Gibbs este O(J*D^3), unde D este dimensiunea coeficientilor, dominat de inversarea matricelor V_j.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In evaluarea profesorilor din multiple scoli, modelul ierarhic cu Gibbs sampling estimeaza efectul fiecarui profesor asupra performantei elevilor, imprumutand informatii de la profesori similari din alte scoli pentru a produce evaluari mai echitabile.</p></div>
+  </div>
+</div>

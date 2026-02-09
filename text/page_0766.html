@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Metoda mean field</h2>
+  <p>Aceasta pagina introduce metoda mean field, cea mai populara forma de inferenta variationala, bazata pe aproximarea factorizata completa a posterioarei.</p>
+  <div class="definition-box"><strong>Aproximarea mean field:</strong> Se presupune ca posterioara se factorizeaza complet: q(x) = ∏_i q_i(x_i). Fiecare q_i este optimizata individual, mentinand celelalte fixe (descindere pe coordonate).</div>
+  <div class="definition-box"><strong>Ecuatia de actualizare mean field:</strong> log q_j(x_j) = E_{-q_j}[log p̃(x)] + const, unde E_{-q_j} denota asteptarea sub q cu toate variabilele exceptand x_j. Actualizarea depinde doar de variabilele din patura Markov a lui x_j.</div>
+  <div class="highlight-box"><strong>Analogie cu Gibbs sampling:</strong> Mean field este similar cu Gibbs sampling, dar in loc de a esantiona valorile vecinilor, le inlocuieste cu mediile lor sub q. Aceasta face mean field determinist si mai rapid, dar introduce bias prin ignorarea corelatiilor.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Metoda mean field aproximeaza posterioara printr-un produs de distributii marginale independente. Fiecare factor q_j este optimizat pe rand (descindere pe coordonate pe ELBO). Actualizarea lui q_j depinde doar de vecinii lui x_j in graf (patura Markov), facand fiecare pas eficient. Forma functionala a lui q_j este determinata automat de modelul p̃ (free-form optimization).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Mean field ignora complet corelatiile dintre variabile (factorizare completa), ceea ce poate duce la sub-estimarea incertitudinii. Actualizarile sunt locale (depind doar de patura Markov), ceea ce face metoda scalabila. Convergenta este garantata (ELBO creste monoton) dar poate fi la un optim local.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Mean field este standard in LDA (topic modeling), modele de amestec Bayesiene, factorizare matriceala probabilistica si retele neuronale Bayesiene. Tabelul 21.1 listeaza aplicatii detaliate: modelul Ising, HMM factorial, regresie liniara/logistica, amestecuri de Gaussiene.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In topic modeling LDA cu 1 milion de documente si 100 de topicuri, mean field aproximeaza distributia posterioara a temelor per document si a cuvintelor per tema, permitand procesarea in timp rezonabil (ore in loc de saptamani cu MCMC).</p></div>
+  </div>
+</div>

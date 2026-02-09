@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Regularizarea l1: Priorul Laplace si LASSO</h2>
+  <p>Pagina introduce formal regularizarea l1 ca estimare MAP cu prior Laplace, LASSO (Least Absolute Shrinkage and Selection Operator) si Basis Pursuit Denoising (BPDN).</p>
+  <div class="highlight-box"><strong>Figura 13.3:</strong> Comparatie geometrica l1 vs l2. Stanga: "diamantul" l1 intersecteaza elipsele RSS in colturile axelor (solutii sparse). Dreapta: cercul l2 intersecteaza elipsele in puncte generice (solutii ne-sparse).</div>
+  <div class="definition-box"><strong>Priorul Laplace (Eq. 13.32):</strong> p(w|lambda) = prod Lap(w_j|0, 1/lambda) proportional cu prod exp(-lambda|w_j|). Estimarea MAP cu acest prior produce penalizarea l1.</div>
+  <div class="highlight-box"><strong>Obiectivul LASSO/BPDN (Eq. 13.33-13.36):</strong> f(w) = NLL(w) + lambda||w||_1. Pentru regresie liniara: f(w) = RSS(w) + lambda'||w||_1. Forma constranata echivalenta: min RSS(w) s.t. ||w||_1 <= B.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Regularizarea l1 inlocuieste penalizarea l0 (ne-convexa, NP-hard) cu norma l1 (convexa, solvabila eficient). Intuitia geometrica din Figura 13.3 este fundamentala: "colturile" diamantului l1 sunt pe axele de coordonate, corespunzand solutiilor cu componente exact zero. Cercul l2 nu are colturi, deci nu produce sparsitate.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>LASSO este un compromis elegant: combinatia unui obiectiv convex (RSS) cu o penalitate convexa (l1) produce o problema de optimizare convexa cu solutii sparse. Este singurul Lp cu p >= 1 care produce sparsitate (p < 1 produce si mai multa sparsitate dar nu este convex).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>LASSO este probabil cea mai utilizata metoda de selectie automata de variabile in stiinta datelor. Implementari eficiente (glmnet, scikit-learn) permit aplicarea pe milioane de variabile.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In genomica, LASSO pe date de expresie genica (D=20000 gene, N=100 pacienti) identifica un set mic de gene biomarker predictive pentru raspunsul la tratament, producand un test diagnostic simplu si ieftin.</p></div>
+  </div>
+</div>

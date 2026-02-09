@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Priori Non-convexi: Vizualizari si Comparatii (p.459)</h2>
+  <p>Aceasta pagina prezinta vizualizari ale priorilor log si ale posterioarei pentru trei distributii diferite: Gaussiana, Laplace si putere exponentiala.</p>
+  <div class="figure-box"><strong>Figura 13.17:</strong> Sus: graficul log-priorului pentru trei distributii cu varianta unitara: Gaussiana (contur eliptic neted), Laplace (contur in forma de diamant), si putere exponentiala (contur cu varfuri ascutite). Jos: graficul log-posterioarei dupa observarea unui singur punct, corespunzator unei constrangeri liniare.</div>
+  <div class="highlight-box"><strong>Comparatii Posterioarelor:</strong> Gaussiana: posterioara unimodala si simetrica. Laplace: posterioara unimodala si asimetrica (inclinata). Exponentiala: posterioara bimodala, corespunzand la doua solutii rare diferite.</div>
+  <div class="highlight-box"><strong>Estimatorul MAP cu Prior Exponential:</strong> Posterioara bimodala arata ca estimarea MAP poate fi instabila pentru priori non-convezi: solutia depinde de punctul de plecare al optimizarii.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Figurile ilustreaza impactul vizual al alegerii priorului asupra posterioarei. Tranzitia de la Gaussiana la Laplace la putere exponentiala creste agresivitatea promovarii raritatii, dar introduce multi-modalitate si potentiale probleme de optimizare.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Forma contururilor priorului determina comportamentul de pragare: Gaussiana produce micsorare uniforma, Laplace produce pragare soft (cu bias), iar priorul exponential produce pragare hard (fara bias dar cu instabilitate).</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Intelegerea geometriei priorurilor este cruciala pentru alegerea metodei de regularizare potrivite. In aplicatii unde se doreste recuperarea exacta a amplitudinilor, priori non-convexi sunt preferati in ciuda dificultatilor de optimizare.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In imagistica astronomica, stelele sunt puncte luminoase pe un fundal negru. Priorul exponential recupereaza luminozitatea exacta a stelelor (pragare hard), in timp ce Laplace o subestimeaza sistematic (bias de micsorare).</p></div>
+  </div>
+</div>

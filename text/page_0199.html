@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Priori Robuste si Priori Cauchy</h2>
+  <p>Pagina introduce priori-le robuste care au cozi groase si nu forteaza posterioara sa fie prea aproape de prior, si demonstreaza avantajul prior-ului Cauchy fata de cel Gaussian.</p>
+  <div class="definition-box"><strong>Priori robuste (Robust priors):</strong> Priori cu cozi groase (heavy-tailed) care evita influenta excesiva a prior-ului asupra posterioarei. Exemplu clasic: prior-ul Cauchy in loc de prior-ul Gaussian.</div>
+  <div class="highlight-box"><strong>Exemplu Berger (1985):</strong> Cu x = 5 ~ N(θ, 1) si prior cu mediana 0 si quantile la -1 si 1, prior-ul Gaussian N(0, 2.19²) da media posterioara 3.43, in timp ce prior-ul Cauchy T(θ|0, 1, 1) da media posterioara ~4.6, mult mai rezonabila.</div>
+  <div class="highlight-box"><strong>Prior invariant la scala:</strong> p(s) ∝ 1/s (Ecuatia 5.64), aproximat de distributia Gamma degenerata Ga(s|0, 0). Posterioara este proprie cu N ≥ 2 puncte de date.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Priori-le robuste rezolva o problema importanta: cand prior-ul si datele sunt in conflict, un prior gaussian "trage" posterioara puternic catre prior, in timp ce un prior cu cozi groase (Cauchy) permite posterioarei sa fie mai aproape de date. In exemplul Berger, observam x=5 cu prior centrat la 0: prior-ul Gaussian da media posterioara 3.43 (prea influentat de prior), iar Cauchy da ~4.6 (mult mai aproape de data observata).</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Cozile groase ale distributiei Cauchy fac ca prior-ul sa aiba mai putina influenta cand datele sunt departe de centrul prior-ului. Acesta este un exemplu de "breakdown point" - punctul la care prior-ul nu mai domina inferenta.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>In regresia bayesiana moderna (de exemplu, in pachetul rstanarm), prior-urile Cauchy si Student-t sunt recomandate ca default in locul prior-urilor gaussiene, tocmai pentru robustetea lor. Prior-ul "horseshoe" este o alta alternativa populara pentru selectia variabilelor.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In meta-analiza studiilor clinice, un prior robust permite ca un singur studiu cu rezultat extrem sa nu domine concluziile. Daca 9 studii arata efect mic si 1 studiu arata efect mare, prior-ul robust va fi mai putin influentat de outlier.</p></div>
+  </div>
+</div>

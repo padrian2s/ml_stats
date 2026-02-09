@@ -1,0 +1,14 @@
+<div class="page-content">
+  <h2>Kerneluri Derivate din Modele Generative: Probability Product si Fisher Kernels</h2>
+  <p>Pagina prezinta Sectiunea 14.2.8 despre kerneluri derivate din modele generative probabilistice, cu doua abordari: probability product kernels si Fisher kernels.</p>
+  <div class="definition-box"><strong>Probability product kernel (Sectiunea 14.2.8.1, Eq. 14.23-14.24):</strong> kappa(x_i, x_j) = integral p(x|x_i)^rho p(x|x_j)^rho dx, unde p(x|x_i) = p(x|theta_hat(x_i)) cu theta_hat estimat dintr-un singur punct. Cu model Gaussian N(mu, sigma^2 I) si rho=1, mu(x_i)=x_i: kappa reduce la RBF kernel (cu factor constant).</div>
+  <div name="definition-box"><strong>Fisher kernel (Sectiunea 14.2.8.2, Eq. 14.25-14.27):</strong> kappa(x, x') = g(x)^T F^{-1} g(x'), unde g(x) = nabla_theta log p(x|theta)|_{theta_hat} (score vector) si F = nabla nabla log p(x|theta)|_{theta_hat} (informatia Fisher). Intuitie: doua puncte sunt similare daca ar muta parametrii in aceeasi directie.</div>
+  <div class="highlight-box"><strong>Proprietati Fisher kernel:</strong> theta_hat depinde de toate datele, deci similaritatea este calculata in context global. Se antreneaza un singur model generativ. String kernel de la Sectiunea 14.2.6 este echivalent cu Fisher kernel al unui lant Markov de ordin L. TF-IDF kernel este aproximativ Fisher kernel al modelului compound Dirichlet multinomial.</div>
+  <div class="commentary">
+    <h3>Comentariu</h3>
+    <div class="commentary-section"><h4>Rezumat</h4><p>Kernelurile derivate din modele generative sunt o punte eleganta intre abordarea generativa si cea discriminativa: se antreneaza un model generativ p(x|theta), apoi se foloseste geometria spatiului parametrilor (score, informatia Fisher) pentru a defini similaritati discriminative. Fisher kernel este deosebit de puternic deoarece captureaza informatia de curbura a likelihood-ului.</p></div>
+    <div class="commentary-section"><h4>Tipare Cheie</h4><p>Unificarea surprinzatoare: string kernel = Fisher kernel al lantului Markov, TF-IDF = Fisher kernel al compound Dirichlet multinomial. Aceasta sugereaza ca multe kerneluri "ad-hoc" au de fapt o justificare probabilistica profunda prin modele generative implicite.</p></div>
+    <div class="commentary-section"><h4>Aplicatii Practice</h4><p>Fisher vectors (extensia Fisher kernel) au fost state-of-the-art in clasificarea de imagini (ImageNet 2013) inainte de CNNs. Raman utile in NLP: Fisher kernel cu HMM pentru clasificarea secventelor biologice, sau cu GMM pentru recunoasterea vorbitorului.</p></div>
+    <div class="commentary-section"><h4>Exemplu din Lumea Reala</h4><p>In recunoasterea vorbitorului (speaker verification), Fisher kernel cu model GMM (Gaussian Mixture Model) al vocii transforma inregistrari audio de lungimi variabile in vectori de dimensiune fixa (i-vectors/Fisher vectors), permitand compararea eficienta a vorbitorilor.</p></div>
+  </div>
+</div>
